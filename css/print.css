@@ -1,0 +1,108 @@
+/*-------------------------------------------------------------------------------------------------
+
+(C) Copyright 2008 | Boston University
+
+---------------------------------------------------------------------------------------------------
+PRINT SETTINGS
+-------------------------------------------------------------------------------------------------*/
+
+html, body, div, span, object, h1, h2, h3, h4, p, blockquote, 
+a, font, img, strong, ol, ul, li, fieldset, form, label, table, caption, 
+tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	line-height:135%;
+	}
+
+body {
+   background: white;
+   font-family:arial, helvetica, verdana, sans-serif;
+   font-size: 10pt;
+   color:#000;
+   }
+ 
+#quicksearch, #right-column, #footer, #nav, #header, .banner {
+   display: none;
+   }
+
+.main {
+   margin: 7% 7% 0 7%;
+   float: none !important;
+   background: transparent none;
+   }
+
+.main p {
+	font-size: 100%;
+	margin-bottom:15px;
+	color:#000;
+	line-height: 120%;
+	}
+
+.main ul,
+.main ol {
+	margin-bottom:15px;
+	}
+
+.main ul,
+.main ol,
+.main li,
+.main li span,
+.main dl,
+.main dt {
+	font-size: 100%;
+	}
+
+.main dt {
+	font-weight: bold;
+	float:left;
+	}
+
+.main dl {
+	font-weight: normal;
+	padding:0;
+	}
+
+.main h1 {
+	font-size: 200%;
+	margin-bottom:15px;
+	font-weight:bold;
+	color:#000;
+	}
+
+.main h2 {
+	font-size: 150%;
+	margin-bottom:15px;
+	font-weight:bold;
+	color:#000;
+	}
+	
+.main h3 {
+	font-size: 130%;
+	margin-bottom:15px;
+	font-weight:bold;
+	color:#000;
+	}
+
+.main h4 {
+	font-size: 110%;
+	margin-bottom:15px;
+	font-weight:bold;
+	text-transform:uppercase;
+	color:#000;
+	}
+   
+a:link, a:visited {
+	color: #000;
+	background: transparent;
+	font-weight: bold;
+	text-decoration: underline;
+	border-bottom:none !important;
+	border-bottom:none;
+	}
+
+.main ul, ol, dd {margin-left:2em;}
+.main ul li, .main ol ul li {list-style-type:square;}
+.main ol li, .main ul ol li {list-style-type:decimal;list-style-position:outside;}
+.main li ul, .main li ol {font-size:1em;margin-bottom:0;}
