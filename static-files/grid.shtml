@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="common/ico/favicon.png">
+	<title>Responsi(ve)</title>
+	<link href="common/css/responsi.css" rel="stylesheet">
+	<link href="common/css/responsi-demo.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	  <script src="common/js/html5shiv.js"></script>
+	  <script src="common/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+<a class="sr-only" href="#content">Skip to content</a>
+
+<nav id="nav-primary">
+	<a href="#">Responsi(v1)</a>
+</nav>
+
+<header>
+	<div class="container">
+		<h1>Grid System</h1>
+	</div>
+</header>
+	
+<!-- <section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+				<p><a href="#">View details &raquo;</a></p>
+			</div>
+			<div class="col-md-4">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem <strong>malesuada magna</strong> mollis euismod. Donec sed odio dui. </p>
+				<p><a href="#">View details &raquo;</a></p>
+			</div>
+			<div class="col-md-4">
+				<h2>Heading</h2>
+				<p>Beacause one size <strike>fits</strike> all. Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+				<p><a class="btn" href="#">Button</a></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+				<p><a href="#">View details &raquo;</a></p>
+			</div>
+			<div class="col-md-4">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem <strong>malesuada magna</strong> mollis euismod. Donec sed odio dui. </p>
+				<p><a href="#">View details &raquo;</a></p>
+			</div>
+			<div class="col-md-4">
+				<h2>Heading</h2>
+				<p>Beacause one size <strike>fits</strike> all. Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+				<p><a class="btn" href="#">Button</a></p>
+			</div>
+		</div>
+	</div>
+</section> -->
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Large Grid <small>breaks at 1200px</small></h2>
+			</div>
+		</div>
+		
+		<div class="row show-grid">
+			<div class="col-lg-1">1</div>
+			<div class="col-lg-1">1</div>
+			<div class="col-lg-1">1</div>
+			<div class="col-lg-1">1</div>
+			<div class="col-lg-1">1</div>
+			<div class="col-lg-1">1</div>
+			<div class="col-lg-1">1</div>
+			<div class="col-lg-1">1</div>
+			<div class="col-lg-1">1</div>
+			<div class="col-lg-1">1</div>
+			<div class="col-lg-1">1</div>
+			<div class="col-lg-1">1</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-2">2</div>
+			<div class="col-lg-2">2</div>
+			<div class="col-lg-2">2</div>
+			<div class="col-lg-2">2</div>
+			<div class="col-lg-2">2</div>
+			<div class="col-lg-2">2</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-3">3</div>
+			<div class="col-lg-9">9</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-4">4</div>
+			<div class="col-lg-8">8</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-5">5</div>
+			<div class="col-lg-7">7</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-6">6</div>
+			<div class="col-lg-6">6</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-7">7</div>
+			<div class="col-lg-5">5</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-8">8</div>
+			<div class="col-lg-4">4</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-9">9</div>
+			<div class="col-lg-3">3</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-10">10</div>
+			<div class="col-lg-2">2</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-11">11</div>
+			<div class="col-lg-1">1</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-12">12</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-4">sidebar</div>
+			<div class="col-lg-8">content</div>
+		</div>
+		<div class="row">
+			<h3>Large Offsets</h3>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-1">0</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-1 col-lg-offset-1">1</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-1 col-lg-offset-2">2</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-1 col-lg-offset-3">3</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-1 col-lg-offset-4">4</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-1 col-lg-offset-5">5</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-1 col-lg-offset-6">6</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-1 col-lg-offset-7">7</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-1 col-lg-offset-8">8</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-1 col-lg-offset-9">9</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-1 col-lg-offset-10">10</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-lg-1 col-lg-offset-11">11</div>
+		</div>
+	</div>
+</section>
+
+
+
+	
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Medium Grid <small>breaks at 992px</small></h2>
+			</div>
+		</div>
+		
+		<div class="row show-grid">
+			<div class="col-md-1">1</div>
+			<div class="col-md-1">1</div>
+			<div class="col-md-1">1</div>
+			<div class="col-md-1">1</div>
+			<div class="col-md-1">1</div>
+			<div class="col-md-1">1</div>
+			<div class="col-md-1">1</div>
+			<div class="col-md-1">1</div>
+			<div class="col-md-1">1</div>
+			<div class="col-md-1">1</div>
+			<div class="col-md-1">1</div>
+			<div class="col-md-1">1</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-2">2</div>
+			<div class="col-md-2">2</div>
+			<div class="col-md-2">2</div>
+			<div class="col-md-2">2</div>
+			<div class="col-md-2">2</div>
+			<div class="col-md-2">2</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-3">3</div>
+			<div class="col-md-9">9</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-4">4</div>
+			<div class="col-md-8">8</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-5">5</div>
+			<div class="col-md-7">7</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-6">6</div>
+			<div class="col-md-6">6</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-7">7</div>
+			<div class="col-md-5">5</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-8">8</div>
+			<div class="col-md-4">4</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-9">9</div>
+			<div class="col-md-3">3</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-10">10</div>
+			<div class="col-md-2">2</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-11">11</div>
+			<div class="col-md-1">1</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-12">12</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-4">sidebar</div>
+			<div class="col-md-8">content</div>
+		</div>
+		<div class="row">
+			<h3>Medium Offsets</h3>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-1">0</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-1 col-md-offset-1">1</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-1 col-md-offset-2">2</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-1 col-md-offset-3">3</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-1 col-md-offset-4">4</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-1 col-md-offset-5">5</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-1 col-md-offset-6">6</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-1 col-md-offset-7">7</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-1 col-md-offset-8">8</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-1 col-md-offset-9">9</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-1 col-md-offset-10">10</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-md-1 col-md-offset-11">11</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Small Grid <small>breaks at 768px</small></h2>
+			</div>
+		</div>
+		
+		<div class="row show-grid">
+			<div class="col-sm-1">1</div>
+			<div class="col-sm-1">1</div>
+			<div class="col-sm-1">1</div>
+			<div class="col-sm-1">1</div>
+			<div class="col-sm-1">1</div>
+			<div class="col-sm-1">1</div>
+			<div class="col-sm-1">1</div>
+			<div class="col-sm-1">1</div>
+			<div class="col-sm-1">1</div>
+			<div class="col-sm-1">1</div>
+			<div class="col-sm-1">1</div>
+			<div class="col-sm-1">1</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-2">2</div>
+			<div class="col-sm-2">2</div>
+			<div class="col-sm-2">2</div>
+			<div class="col-sm-2">2</div>
+			<div class="col-sm-2">2</div>
+			<div class="col-sm-2">2</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-3">3</div>
+			<div class="col-sm-9">9</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-4">4</div>
+			<div class="col-sm-8">8</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-5">5</div>
+			<div class="col-sm-7">7</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-6">6</div>
+			<div class="col-sm-6">6</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-7">7</div>
+			<div class="col-sm-5">5</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-8">8</div>
+			<div class="col-sm-4">4</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-9">9</div>
+			<div class="col-sm-3">3</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-10">10</div>
+			<div class="col-sm-2">2</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-11">11</div>
+			<div class="col-sm-1">1</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-12">12</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-4">sidebar</div>
+			<div class="col-sm-8">content</div>
+		</div>
+		<div class="row">
+			<h3>Small Offsets</h3>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-1">0</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-1 col-sm-offset-1">1</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-1 col-sm-offset-2">2</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-1 col-sm-offset-3">3</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-1 col-sm-offset-4">4</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-1 col-sm-offset-5">5</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-1 col-sm-offset-6">6</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-1 col-sm-offset-7">7</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-1 col-sm-offset-8">8</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-1 col-sm-offset-9">9</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-1 col-sm-offset-10">10</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-sm-1 col-sm-offset-11">11</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Extra Small Grid <small>never breaks</small></h2>
+			</div>
+		</div>
+		
+		<div class="row show-grid">
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-1">1</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-2">2</div>
+			<div class="col-xs-2">2</div>
+			<div class="col-xs-2">2</div>
+			<div class="col-xs-2">2</div>
+			<div class="col-xs-2">2</div>
+			<div class="col-xs-2">2</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-3">3</div>
+			<div class="col-xs-9">9</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-4">4</div>
+			<div class="col-xs-8">8</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-5">5</div>
+			<div class="col-xs-7">7</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-6">6</div>
+			<div class="col-xs-6">6</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-7">7</div>
+			<div class="col-xs-5">5</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-8">8</div>
+			<div class="col-xs-4">4</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-9">9</div>
+			<div class="col-xs-3">3</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-10">10</div>
+			<div class="col-xs-2">2</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-11">11</div>
+			<div class="col-xs-1">1</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-12">12</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-4">sidebar</div>
+			<div class="col-xs-8">content</div>
+		</div>
+		<div class="row">
+			<h3>Extra Small Offsets</h3>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-1">0</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-1 col-xs-offset-1">1</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-1 col-xs-offset-2">2</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-1 col-xs-offset-3">3</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-1 col-xs-offset-4">4</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-1 col-xs-offset-5">5</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-1 col-xs-offset-6">6</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-1 col-xs-offset-7">7</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-1 col-xs-offset-8">8</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-1 col-xs-offset-9">9</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-1 col-xs-offset-10">10</div>
+		</div>
+		<div class="row show-grid">
+			<div class="col-xs-1 col-xs-offset-11">11</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section>
+	<div class="container">
+
+			<h1>Heading 1</h1>
+			<h2>Heading 2</h2>
+			<h3>Heading 3</h3>
+			<h4>Heading 4</h4>
+			<h5>Heading 5</h5>
+			<h6>Heading 6</h6>
+
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Button</th>
+					<th>Class</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><button class="btn" href="#">Default</button></td>
+					<td><code>.btn</code></td>
+					<td>Standard gray button with gradient</td>
+				</tr>
+				<tr>
+					<td><button class="btn btn-primary" href="#">Primary</button></td>
+					<td><code>.btn-primary</code></td>
+					<td>Provides extra visual weight and identifies the primary action in a set of buttons</td>
+				</tr>
+				<tr>
+					<td><button class="btn btn-inverse" href="#">Inverse</button></td>
+					<td><code>.btn-inverse</code></td>
+					<td>Alternate dark gray button, not tied to a semantic action or use</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section> -->
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<p>&copy; Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo.</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!--#include virtual="common/includes/footer.shtml"-->
+
+</body>
+</html>
