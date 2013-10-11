@@ -1,7 +1,6 @@
-    </div><!--/#content-->
-</div><!--/#wrapper-->
+</section><!--/#content-->
 
-<div id="footer" role="contentinfo">
+<footer>
 	<div class="container <?php bu_flexi_masterplate_class(); ?>">
     	<?php bu_flexi_show_masterplate(); ?>
     	<?php bu_flexi_show_bumc_branding(); ?>
@@ -30,7 +29,7 @@
     	</ul>
 		<?php endif;?>
 	</div><!--/.container-->
-</div><!--/#footer-->
+</footer><!--/#footer-->
 
  
 <?php wp_footer(); ?>
