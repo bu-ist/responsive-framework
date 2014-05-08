@@ -26,11 +26,12 @@ bloginfo('name'); echo " - "; bloginfo('description');
 <!-- The little things -->
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<link rel="shortcut icon" href="<?php echo bloginfo('template_directory'); ?>/favicon.png">
+<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico">
 <link rel="apple-touch-icon" href="<?php echo bloginfo('template_directory'); ?>/apple-touch-icon-precomposed.png"/>
 <!-- The little things -->
 
 <!-- Stylesheets -->
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6127692/660644/css/fonts.css" />
 <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <!-- Stylesheets -->
 
@@ -43,7 +44,7 @@ bloginfo('name'); echo " - "; bloginfo('description');
 
 <body <?php body_class(); ?> id="top">
 <header role="banner">
-<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php bloginfo( 'name' ); ?></a>
+<a id="siteName" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo">Boston University <span><?php bloginfo( 'name' ); ?></span></a>
 <p class="desc">
 <?php bloginfo( 'description' ); ?>
 </p>
