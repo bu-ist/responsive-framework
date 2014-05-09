@@ -6,68 +6,32 @@
 	Description: Responsive framework, started with Barebones, ........
 */
 
-/* 01 START : Global reset styles */
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,dialog,figure,footer,header,hgroup,menu,nav,section,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;vertical-align:baseline;background:transparent}article,aside,dialog,figure,footer,header,hgroup,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}a{margin:0;padding:0;border:0;vertical-align:baseline;background:transparent}ins,mark{background:#333;color:#fff;text-decoration:none}mark{padding:0 .2em;}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted #000;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}::-moz-selection,::-webkit-selection,::selection {text-shadow:none;background:#333;color:#fff;}.cf:before,.cf:after{content:"";display:table;}.cf:after{clear:both;}.cf{zoom:1;}[type=submit]{cursor:pointer;}
-/* 01 END : Global reset styles */
+/*! Reset */
+@import 'reset';
+
+/*! Fonts */
+@import 'fonts';
 
 
 
+/* Variables */
 
-$font-stack:    Helvetica, sans-serif;
 
 
 
 /* START : Global rules */
-* { 
-	-webkit-box-sizing:  border-box; 
-	-moz-box-sizing: border-box; 
-	box-sizing:  border-box; 
-	}
-
-html {
-	font-size: 100%; /* Set a 16px base size */
-	}
-
-body {
-	padding: 2%;
-	margin: 0 auto;
-	font-size: 16px;
-	font-size: 1rem;
-	line-height: 1.5;
-	font-family: $font-stack;
-	}
-
-/* Set vertical rhythm */
-h1,h2,h3,h4,h5,h6,hgroup,ul,ol,dd,p,figure,pre,table,fieldset,hr {
-    margin-bottom: 24px;
-	margin-bottom: 1.5rem; /* 24px equivalent/fallback */
-	}	
-
-h1, h2, h3, h4, h5, h6 {
-	line-height: normal;
-	}	
-
-blockquote { }
-	blockquote cite { }
-
-p { }	
-
-a { }	
-	a:hover { }	
-
-img, 
-a img {
-	max-width: 100%;
-	}
-
-figure { }
-	figcaption { }
-
-.alignleft,
-.alignright {
-	/* left and right float triggered on bigger screens */
-	float: none;
-	}
+#siteName {
+	font-family: 'Whitney SSm A', 'Whitney SSm B'; 
+	font-weight: 600; 
+	font-style: normal;
+	
+	
+}
+#sitename span {
+	font-family: 'Whitney SSm A', 'Whitney SSm B'; 
+	font-weight: 400; 
+	font-style: normal;
+}
 /* END : Global rules */
 
 
@@ -91,8 +55,6 @@ figure { }
 
 /* START : Media Queries */
 
-	/* I've added some arbitrary breakpoints to get you started, you don't have to use these - you can remove, edit or add to them however you like. They're just a guide. */
-
 /* 480px equivalent breakpoint */
 @media only screen and (min-width: 30em) { 
 }
@@ -103,15 +65,6 @@ figure { }
 
 /* 768px equivalent breakpoint */
 @media only screen and (min-width: 48em) { 
-.alignleft,
-.alignright {
-	float: left;
-	display: inline;	
-	}
-
-	.alignright {
-		float: right;
-	}
 }
 
 /* 1024px equivalent breakpoint */
