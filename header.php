@@ -58,3 +58,13 @@
 			</nav>
 			<?php get_search_form(); ?>
 		</header>
+		<?php if (function_exists('bu_content_banner')) {
+			bu_content_banner($post->ID, $args = array(
+				'before' => '<div class="banner-container">',
+				'after' => '</div>',
+				'class' => 'banner',
+				//'maxwidth' => 900,
+				'position' => 'window-width'
+				));
+		} ?>
+		<div class="container">
