@@ -1,15 +1,7 @@
 <?php get_header(); ?>
 
 	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-		<?php if (function_exists('bu_content_banner')) {
-			bu_content_banner($post->ID, $args = array(
-				'before' => '<div class="banner-container">',
-				'after' => '</div>',
-				'class' => 'banner',
-				//'maxwidth' => 900,
-				'position' => 'page-width'
-				));
-		} ?>
+		
 	    <article role="main" class="primary-content" id="post-<?php the_ID(); ?>">
 	    	<?php if (function_exists('bu_content_banner')) {
 				bu_content_banner($post->ID, $args = array(
