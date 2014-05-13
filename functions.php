@@ -45,6 +45,10 @@ function bu_responsi_setup() {
 
 add_action( 'after_setup_theme', 'bu_responsi_setup' );
 
+/* - - - - - - - - - - - - - - - - -
+	Menus & Locations
+- - - - - - - - - - - - - - - - - */
+register_nav_menu( 'primary', 'Primary Menu' );
 
 
 
@@ -57,6 +61,7 @@ function bu_responsi_register_scripts(){
 }
 add_action( 'init', 'bu_responsi_register_scripts' );
 
+
 /* - - - - - - - - - - - - - - - - -
 	Enque Header Scripts and Styles
 - - - - - - - - - - - - - - - - - */
@@ -64,6 +69,7 @@ function bu_responsi_enqueue_header_scripts() {
 	wp_enqueue_style('responsi styles');
 }
 add_action( 'wp_enqueue_scripts', 'bu_responsi_enqueue_header_scripts' );
+
 
 /* - - - - - - - - - - - - - - - - -
 	Enqueue Footer Scripts
@@ -91,6 +97,8 @@ function bu_responsi_register_sidebars(){
 			'after_title'	 => '</h3>',
 	));
 	
+	
+
 /* - - - - - - - - - - - - - - - - -
 	Widget Counts 
 	// from http://wordpress.org/support/topic/how-to-first-and-last-css-classes-for-sidebar-widgets
@@ -135,10 +143,10 @@ add_filter('dynamic_sidebar_params','widget_first_last_classes');
 }
 
 
-
-
-
-
+/* - - - - - - - - - - - - - - - - -
+	Theme Customizer
+- - - - - - - - - - - - - - - - - */
+require_once("admin/theme-customizer.php");
 
 
 
