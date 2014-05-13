@@ -45,6 +45,21 @@ footer {
 	display: block;
 	clear: both;
 }
+
+nav {
+	background: #000000;
+}
+nav li {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+nav li a {
+	color: #7A7A7A;
+}
+nav li.current-menu-item a {
+	color: #FFFFFF;
+}
 /* END : Global rules */
 
 
