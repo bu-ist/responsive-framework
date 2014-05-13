@@ -38,25 +38,56 @@
 
 
 
-		<?php wp_deregister_script('jquery');wp_head(); ?>
+		<?php //wp_deregister_script('jquery');
+		wp_head(); ?>
 	</head>
 
 	<body <?php body_class(); ?> id="top">
 		<header role="banner">
+			<?php
+				$navArgs = array(
+					'theme_location'	=> 'primary',
+					'container' 		=> 'false',
+					'items_wrap' 		=> '<ul>%3$s</ul>',
+				);
+				$navPosition = get_option("burf_navPosition");
+			?>
+			<?php
+				if($navPosition == "top"):
+			?>
+				<nav role="navigation">
+					<?php wp_nav_menu($navArgs); ?>
+				</nav>
+			<?php
+				endif;
+			?>
+			
 			<a id="siteName" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo">
 				Boston University <span><?php bloginfo( 'name' ); ?></span>
 			</a>
 			<p class="desc"><?php bloginfo( 'description' ); ?></p>
-			<nav role="navigation">
-				<?php
-                $args = array(
-                    'container' => 'false',
-                    'items_wrap' => '<ul>%3$s</ul>',
-                    );
-                wp_nav_menu($args);
-				?>
-			</nav>
+			
+			<?php
+				if($navPosition == "middle" || !$navPosition):
+			?>
+				<nav role="navigation">
+					<?php wp_nav_menu($navArgs); ?>
+				</nav>
+			<?php
+				endif;
+			?>
+			
+			
 			<?php get_search_form(); ?>
+				<?php if (function_exists('bu_content_banner')) {
+				bu_content_banner($post->ID, $args = array(
+					'before' => '<div class="banner-container">',
+					'after' => '</div>',
+					'class' => 'banner',
+					//'maxwidth' => 900,
+					'position' => 'page-width'
+					));
+			} ?>
 		</header>
 		<?php if (function_exists('bu_content_banner')) {
 			bu_content_banner($post->ID, $args = array(
@@ -67,4 +98,13 @@
 				'position' => 'window-width'
 				));
 		} ?>
+		<?php
+				if($navPosition == "bottom"):
+			?>
+				<nav role="navigation">
+					<?php wp_nav_menu($navArgs); ?>
+				</nav>
+			<?php
+				endif;
+			?>
 		<div class="container">
