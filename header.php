@@ -13,12 +13,13 @@
 			?>
 		</title>
 		
-		<meta name="description" content="<?php if ( is_single() ) {
-			single_post_title('', true);
+		<meta name="description" content="
+			<?php if ( is_single() ) {
+				single_post_title('', true);
 			} else {
 				bloginfo('name'); echo " - "; bloginfo('description');
-			}
-		?>" />
+			}?>
+		" />
 		
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="viewport" content="initial-scale=1" />
@@ -40,6 +41,7 @@
 
 		<?php //wp_deregister_script('jquery');
 		wp_head(); ?>
+		
 	</head>
 
 	<body <?php body_class(); ?> id="top">
@@ -50,36 +52,31 @@
 					'container' 		=> 'false',
 					'items_wrap' 		=> '<ul>%3$s</ul>',
 				);
-				$navPosition = get_option("burf_navPosition");
+				$headerLayout = get_option("burf_header_layout");
 			?>
 			<?php
-				if($navPosition == "top"):
+				if($headerLayout == "navbar"):
 			?>
 				<nav role="navigation">
 					<?php wp_nav_menu($navArgs); ?>
+					<?php get_search_form(); ?>
 				</nav>
 			<?php
 				endif;
 			?>
+			
+			
+			
 			
 			<a id="siteName" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo">
 				Boston University <span><?php bloginfo( 'name' ); ?></span>
 			</a>
 			<p class="desc"><?php bloginfo( 'description' ); ?></p>
 			
-			<?php
-				if($navPosition == "middle" || !$navPosition):
-			?>
-				<nav role="navigation">
-					<?php wp_nav_menu($navArgs); ?>
-				</nav>
-			<?php
-				endif;
-			?>
 			
 			
-			<?php get_search_form(); ?>
-				<?php if (function_exists('bu_content_banner')) {
+			
+			<?php if (function_exists('bu_content_banner')) {
 				bu_content_banner($post->ID, $args = array(
 					'before' => '<div class="banner-container">',
 					'after' => '</div>',
@@ -88,6 +85,19 @@
 					'position' => 'page-width'
 					));
 			} ?>
+			
+			<?php
+				if($headerLayout == "branding"):
+			?>
+				<nav role="navigation">
+					<?php wp_nav_menu($navArgs); ?>
+					<?php get_search_form(); ?>
+				</nav>
+			<?php
+				endif;
+			?>
+			
+			
 		</header>
 		<?php if (function_exists('bu_content_banner')) {
 			bu_content_banner($post->ID, $args = array(
@@ -98,13 +108,5 @@
 				'position' => 'window-width'
 				));
 		} ?>
-		<?php
-				if($navPosition == "bottom"):
-			?>
-				<nav role="navigation">
-					<?php wp_nav_menu($navArgs); ?>
-				</nav>
-			<?php
-				endif;
-			?>
+
 		<div class="container">
