@@ -1,25 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php
-			global $page, $paged;
-			wp_title( '|', true, 'right' );
-			bloginfo( 'name' );
-			$site_description = get_bloginfo( 'description', 'display' );
-			if ( $site_description && ( is_home() || is_front_page() ) )
-				echo " | $site_description";
-			if ( $paged >= 2 || $page >= 2 )
-				echo ' | ' . sprintf( __( 'Page %s' ), max( $paged, $page ) );
-			?>
-		</title>
+		<title><?php responsive_get_title(); ?></title>
 		
-		<meta name="description" content="
-			<?php if ( is_single() ) {
-				single_post_title('', true);
-			} else {
-				bloginfo('name'); echo " - "; bloginfo('description');
-			}?>
-		" />
+		<meta name="description" content="<?php responsive_get_description(); ?>" />
 		
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="viewport" content="initial-scale=1" />
@@ -36,11 +20,9 @@
 		<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6127692/660644/css/fonts.css" />
 		<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 		<!-- Stylesheets -->
-
-
-
-		<?php //wp_deregister_script('jquery');
-		wp_head(); ?>
+		
+		
+		<?php wp_head(); ?>
 		
 	</head>
 
