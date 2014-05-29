@@ -132,7 +132,8 @@
 		width: 100%;
 	}
 	
-	.col-sm-push-1 {
+	/* Disabling this for now; do we need this for general use?
+		.col-sm-push-1 {
 		left: 8.333333333333332%;
 	}
 	
@@ -263,6 +264,7 @@
 	.col-sm-offset-11 {
 		margin-left: 91.66666666666666%;
 	}
+	*/
 }
 /* START : Small Screens */
 
@@ -329,7 +331,8 @@
 		width: 100%;
 	}
 	
-	.col-md-push-0 {
+	/* Disabling this for now; do we need this for general use?
+		.col-md-push-0 {
 		left: auto;
 	}
 	
@@ -472,6 +475,7 @@
 	.col-md-offset-11 {
 		margin-left: 91.66666666666666%;
 	}
+	*/
 }
 /* END : Medium Screens */
 
@@ -537,6 +541,7 @@
 		width: 100%;
 	}
 	
+	/* Disabling this for now; do we need this for general use?
 	.col-lg-push-0 {
 		left: auto;
 	}
@@ -680,4 +685,6 @@
 	.col-lg-offset-11 {
 		margin-left: 91.66666666666666%;
 	}
+	*/
 }
+/* END : Large Screens */
