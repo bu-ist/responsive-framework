@@ -12,30 +12,29 @@
 /*! Fonts */
 @import 'fonts';
 
-
-
-/* Variables */
-
+/*! Grid */
+@import 'grid';
 
 
 
-/* START : Global rules */
+/* START : Global Rules */
 #siteName {
 	font-family: 'Whitney SSm A', 'Whitney SSm B'; 
 	font-weight: 600; 
 	font-style: normal;
-	
-	
 }
-#sitename span {
-	font-family: 'Whitney SSm A', 'Whitney SSm B'; 
-	font-weight: 400; 
-	font-style: normal;
-}
+
+	#sitename span {
+		font-family: 'Whitney SSm A', 'Whitney SSm B'; 
+		font-weight: 400; 
+		font-style: normal;
+	}
+
 .banner-container img {
 	max-width: 100%;
 	height: auto;
 }
+
 .container {
 	float: left;
 	width: 80%;
@@ -49,64 +48,58 @@ footer {
 nav {
 	background: #000000;
 }
-nav li {
-	display: inline-block;
-	*display: inline;
-	zoom: 1;
-}
-nav li a {
-	color: #7A7A7A;
-}
-nav li.current-menu-item a {
-	color: #FFFFFF;
-}
-/* END : Global rules */
 
+	nav li {
+		display: inline-block;
+		*display: inline;
+		zoom: 1;
+	}
 
+		nav li a {
+			color: #7A7A7A;
+		}
 
-/* START : Page styles */
+			nav li.current-menu-item a {
+				color: #FFFFFF;
+			}
 
-/* END : Page styles */
-
-
-
-/* START : Post styles */
-
-/* END : Post styles */
-
-
-
-/* START : General bits */
-
-/* END : General bits */
-
-
-/* START : Media Queries */
-
-/* 480px equivalent breakpoint */
-@media only screen and (min-width: 30em) { 
+.row {
+	margin-right: -15px;
+	margin-left: -15px;
 }
 
-/* 600px equivalent breakpoint */
-@media only screen and (min-width: 37.5em) { 
-}
-
-/* 768px equivalent breakpoint */
-@media only screen and (min-width: 48em) { 
-}
-
-/* 1024px equivalent breakpoint */
-@media only screen and (min-width: 64em) { 
-}
-
-/* 1260px equivalent breakpoint */
-@media only screen and (min-width: 78.75em) { 
-}
-/* END : Media Queries */
+	.row:before,
+	.row:after {
+		display: table;
+		content: " ";
+	}
+	
+	.row:after {
+		clear: both;
+	}
+/* END : Global Rules */
 
 
-/* PRINT STYLES */
 
-@media print {
-	/* If you're going to have a print stylesheet, now's the time */
-}
+/* START : Page Styles */
+/* END : Page Styles */
+
+
+
+/* START : Post Styles */
+/* END : Post Styles */
+
+
+
+/* START : General Bits */
+/* END : General Bits */
+
+
+
+/*! Media Queries */
+@import 'mediaqueries';
+
+
+
+/*! Print Styles */
+@import 'print';
