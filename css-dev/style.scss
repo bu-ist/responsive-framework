@@ -62,6 +62,16 @@ nav {
 			nav li.current-menu-item a {
 				color: #FFFFFF;
 			}
+nav.sidenav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 300px;
+	
+}
+
+
 
 .row {
 	margin-right: -15px;

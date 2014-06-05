@@ -21,6 +21,19 @@ function bu_responsive_init() {
 		));
 	}
 	
+	
+	
+	/* - - - - - - - - - - - - - - - - -
+		Admin CSS
+	- - - - - - - - - - - - - - - - - */
+	function custom_admin_styles() {
+	    wp_register_style( 'admin-stylesheet', get_bloginfo('stylesheet_directory') . '/admin/admin.css', '');
+		wp_enqueue_style('admin-stylesheet');
+	}
+	
+	add_action( 'admin_enqueue_scripts', 'custom_admin_styles' );
+	add_action( 'customize_controls_enqueue_scripts', 'custom_admin_styles' );
+	
 }
 
 add_action('init', 'bu_responsive_init');
@@ -143,10 +156,13 @@ add_filter('dynamic_sidebar_params','widget_first_last_classes');
 }
 
 
+
 /* - - - - - - - - - - - - - - - - -
 	Theme Customizer
 - - - - - - - - - - - - - - - - - */
 require_once("admin/theme-customizer.php");
+
+
 
 
 
