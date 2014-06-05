@@ -34,16 +34,17 @@
 					'container' 		=> 'false',
 					'items_wrap' 		=> '<ul>%3$s</ul>',
 				);
-				$headerLayout = get_option("burf_header_layout");
+				$headerLayout = get_option("burf_setting_layout");
 			?>
+			
 			<?php
 				if($headerLayout == "navbar"):
-			?>
-				<nav role="navigation">
-					<?php wp_nav_menu($navArgs); ?>
-					<?php get_search_form(); ?>
-				</nav>
-			<?php
+				?>
+					<nav role="navigation">
+						<?php wp_nav_menu($navArgs); ?>
+						<?php get_search_form(); ?>
+					</nav>
+				<?php
 				endif;
 			?>
 			
@@ -79,6 +80,16 @@
 				endif;
 			?>
 			
+			<?php
+				if($headerLayout == "sidenav"):
+				?>
+					<nav role="navigation" class="sidenav">
+						<?php wp_nav_menu($navArgs); ?>
+						<?php get_search_form(); ?>
+					</nav>
+				<?php
+				endif;
+			?>
 			
 		</header>
 		<?php if (function_exists('bu_content_banner')) {
