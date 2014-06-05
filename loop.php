@@ -1,5 +1,5 @@
 <?php ?>
-<section class="col-md-9">
+<section class="row">
 <?php $firstClass = 'first-post'; ?>
 
 <?php /* If there are no posts to display, such as an empty archive page */ ?>
