@@ -24,11 +24,14 @@ function bu_responsive_init() {
 	
 	
 	/* - - - - - - - - - - - - - - - - -
-		Admin CSS
+		Admin CSS & JS
 	- - - - - - - - - - - - - - - - - */
 	function custom_admin_styles() {
 	    wp_register_style( 'admin-stylesheet', get_bloginfo('stylesheet_directory') . '/admin/admin.css', '');
+	    wp_register_script('theme-customizer', get_bloginfo('stylesheet_directory') . "/admin/theme-customizer.js");
+	    
 		wp_enqueue_style('admin-stylesheet');
+		wp_enqueue_script('theme-customizer');
 	}
 	
 	add_action( 'admin_enqueue_scripts', 'custom_admin_styles' );
