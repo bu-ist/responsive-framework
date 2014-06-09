@@ -76,3 +76,65 @@
 #burf_section_colors li:nth-of-type(6) label:after {
 	background-position: 0 -700px;
 }
+#burf_section_custom .color-picker {
+	width: auto;
+	height: 25px;
+    vertical-align: top;
+    display: none;
+}
+#burf_section_custom .wp-color-close {
+	display: none;
+	cursor: pointer;
+}
+#customize-control-burf_section_colors #basic-color {
+	display: none;
+}
+
+/* Styles taken from WP */
+.wp-color-result {
+    -moz-user-select: none;
+    background-color: #F9F9F9;
+    border: 1px solid #BBBBBB;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    height: 22px;
+    margin: 0 6px 6px 0;
+    padding-left: 30px;
+    position: relative;
+    top: 1px;
+    vertical-align: bottom;
+}
+.wp-color-result:after {
+    background: linear-gradient(to bottom, #FEFEFE, #F4F4F4) repeat scroll 0 0 #F3F3F3;
+    border-left: 1px solid #BBBBBB;
+    border-radius: 0 1px 1px 0;
+    color: #333333;
+    content: attr(title);
+    display: block;
+    font-size: 11px;
+    line-height: 22px;
+    padding: 0 6px;
+    position: relative;
+    right: 0;
+    text-align: center;
+    text-shadow: 0 1px 0 #FFFFFF;
+    top: 0;
+}
+.wp-color-result:hover {
+    border-color: #AAAAAA;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.wp-color-result:hover:after {
+    border-color: #AAAAAA #AAAAAA #AAAAAA #999999;
+    border-left: 1px solid #999999;
+    color: #222222;
+}
+.wp-color-result:focus {
+    border-color: #888888;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.wp-color-result:focus:after {
+    border-color: #888888;
+}
+/* END: Styles taken from WP */
