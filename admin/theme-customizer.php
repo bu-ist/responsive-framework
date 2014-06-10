@@ -30,17 +30,18 @@ function burf_customize_register($wp_customize){
 			$colorString = get_option("burf_setting_colors");
 			$colors = explode(",", $colorString);
 			$choices = $this->choices;
-			$isCustom = false;
+			$isPalette = false;
 			
 			
 	        foreach($choices as $key=>$choice){
 	        	if(strtoupper($choice) == strtoupper($colorString)){
-		        	$isCustom = true;
+		        	$isPalette = true;
 	        	}
 	        	
 	        }
 	        ?>
-	        <ul id="<?php echo($this->id); ?>">
+	        
+	        <ul <?php if(!$isPalette){ echo("style='display:none;'");} ?> id="<?php echo($this->id); ?>" >
 	        <?php
 	        	foreach($choices as $key=>$choice){
 	        	?>
@@ -53,7 +54,7 @@ function burf_customize_register($wp_customize){
 	        ?>
 	        	
 	        </ul>
-	        <ul id="burf_section_custom">
+	        <ul id="burf_section_custom" <?php if($isPalette){ echo("style='display:none;'");} ?>>
 	        	<li>
 	        		<span class="customize-control-title">Page Headings</span>
 	        		<a class="wp-color-result" tabindex="0" title="Select Color" style="background-color: <?php echo($colors[0]); ?>"></a>
@@ -80,8 +81,8 @@ function burf_customize_register($wp_customize){
 	        	</li>
 	        </ul>
 	        
-	        <a id="advanced-color" href="#">Advanced</a>
-	        <a id="basic-color" href="#">Basic</a>
+	        <a <?php if(!$isPalette){ echo("style='display:none;'");} ?> id="advanced-color" href="#">Advanced Options</a>
+	        <a <?php if($isPalette){ echo("style='display:none;'");} ?> id="basic-color" href="#">Color Palettes</a>
 	        
 	        <input id="hiddenColor" name="hiddenColor" <?php $this->link(); ?> type="hidden" />
 	        
