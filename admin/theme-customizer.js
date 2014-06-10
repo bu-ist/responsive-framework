@@ -42,14 +42,20 @@ jQuery( document ).ready(function($) {
 	});
 
 	
-	$("#advanced-color, #basic-color").on("click", function(){
-		$("#burf_section_colors").toggle();
-		$("#burf_section_custom").toggle();
+	$("#basic-color").on("click", function(){
+		$("#burf_section_colors").show();
+		$("#burf_section_custom").hide();
 		
-		$("#basic-color").toggle();
-		$("#advanced-color").toggle();
+		$("#basic-color").hide();
+		$("#advanced-color").show();
 	});
-	
+	$("#advanced-color").on("click", function(){
+		$("#burf_section_colors").hide();
+		$("#burf_section_custom").show();
+		
+		$("#basic-color").show();
+		$("#advanced-color").hide();
+	});
 	
 	
 	/*

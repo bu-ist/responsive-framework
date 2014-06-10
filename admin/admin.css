@@ -86,8 +86,10 @@
 	display: none;
 	cursor: pointer;
 }
-#customize-control-burf_section_colors #basic-color {
-	display: none;
+#customize-control-burf_section_colors #basic-color,
+#customize-control-burf_section_colors #advanced-color {
+	text-align: center;
+	display: block;
 }
 
 /* Styles taken from WP */
