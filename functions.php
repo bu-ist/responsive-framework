@@ -462,6 +462,19 @@ function bu_flexi_profile_sidebar( $args = array() ) {
 	}
 }
 
+/* - - - - - - - - - - - - - - - - -
+	Body_Class (For Customizer)
+- - - - - - - - - - - - - - - - - */
+
+add_filter('body_class','browser_body_class');
+
+function browser_body_class($classes = '') {
+	$fontPalette = get_option("burf_setting_fonts");
+
+	if($fontPalette) $classes[] = $fontPalette;
+
+	return $classes;
+}
 
 
 ?>

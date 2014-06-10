@@ -1,8 +1,8 @@
 <?php
 function burf_customize_register($wp_customize){
 
-	/* Custom Control: Layout */
-   	class BURF_Customize_Layout extends WP_Customize_Control {
+	/* Custom Control: Radio */
+   	class BURF_Customize_Radio extends WP_Customize_Control {
 	    public function render_content() {
 	        ?>
 	        <ul id="<?php echo($this->id); ?>">
@@ -20,6 +20,7 @@ function burf_customize_register($wp_customize){
 	        <?php
 	    }
 	}
+	
 	
 	/* Custom Control: Colors */
    	class BURF_Customize_Colors extends WP_Customize_Control {
@@ -93,6 +94,50 @@ function burf_customize_register($wp_customize){
 	}
    
    
+   /* Custom Control: Backgrounds */
+   	class BURF_Customize_Background extends WP_Customize_Control {
+	    public function render_content() {
+	        ?>
+	        <div class="toggle">
+	        	<div class="active">Color</div>
+	        	<div>Image</div>
+	        </div>
+	        
+	        <div class="color">
+	        	<a class="wp-color-result" tabindex="0" title="Select Color" style="background-color: <?php echo($colors[0]); ?>"></a>
+	        	<input id="bg_color" name="bg_color" type="text" class='color-picker-open' value="<?php echo($colors[0]); ?>" />
+	        </div>
+	        
+	        <div class="image">
+
+
+	        </div>
+	        
+	        
+				Image upload
+				Repeat (none, tile, horiz, vert)
+				Position (left, right, center)
+				Attachment (fixed, scroll)
+	        
+	        
+	        <ul id="<?php echo($this->id); ?>">
+	        <?php
+	        	foreach($this->choices as $key=>$choice){
+	        	?>
+		        	<li>
+		        		<input <?php $this->link(); ?> id="<?php echo($this->id . '_' . $key);?>" type="radio" name="<?php echo($this->id); ?>" value="<?php echo($key); ?>">
+		        		<label for="<?php echo($this->id . '_' . $key);?>"> <?php echo($choice); ?></label>
+		        	</li>
+		        <?php
+	        	}
+	        ?>
+	        </ul>
+	        <?php
+	    }
+	}
+   
+   
+   
 	/* Section: Layout Options  */ 
 	$wp_customize->add_section('burf_section_layout', array(
 	    'title'    => __('Layout Options', 'burf'),
@@ -108,7 +153,7 @@ function burf_customize_register($wp_customize){
 	    ));
  
 		/* Control: Layout Select*/ 
-		$wp_customize->add_control( new BURF_Customize_Layout( $wp_customize, 'burf_section_layout', array(
+		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_section_layout', array(
             'label' => 'Layout Picker Setting',
             'section' => 'burf_section_layout',
             'settings' => 'burf_setting_layout',
@@ -120,6 +165,36 @@ function burf_customize_register($wp_customize){
 	        )
         )));
         
+        
+    /* Section: Font Options  */ 
+	$wp_customize->add_section('burf_section_fonts', array(
+	    'title'    => __('Font Options', 'burf'),
+	    //'priority' => 120,
+	));
+ 
+		/* Setting: Fonts */ 
+	    $wp_customize->add_setting('burf_setting_fonts', array(
+	        'default'        => '',
+	        'capability'     => 'edit_theme_options',
+	        'type'           => 'option',
+	 
+	    ));
+ 
+		/* Control: Fonts Select*/ 
+		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_section_fonts', array(
+            'label' => 'Font Picker Setting',
+            'section' => 'burf_section_fonts',
+            'settings' => 'burf_setting_fonts',
+            'type'     => 'radio',
+	        'choices'    => array(
+	            'f1' => 'BentonSansBold,Helvetica',
+	            'f2' => 'BentonSansBook,Chronicle',
+	            'f3' => 'CapitaBold,Helvetica',
+	            'f4' => 'ChronicleDeckBold,Helvetica',
+	            'f5' => 'CapitaBold,Helvetica'
+	            
+	        )
+        )));
         
         
 	/* Section: Color Options  */ 
@@ -152,7 +227,50 @@ function burf_customize_register($wp_customize){
             )
 	            
 	    )));
-	    
+	
+	/* Section: Background Options  */ 
+    $wp_customize->add_section('burf_section_background', array(
+        'title'    => __('Background Options', 'burf'),
+        //'priority' => 120,
+    ));
+ 
+		/* Setting: Background */ 
+	    $wp_customize->add_setting('burf_setting_background', array(
+	        'default'        => '',
+	        'capability'     => 'edit_theme_options',
+	        'type'           => 'option',
+	 
+	    ));
+ 
+		/* Control: Colors Select */ 
+		$wp_customize->add_control( new BURF_Customize_Background( $wp_customize, 'burf_section_background', array(
+            'label' => 'Background Setting',
+            'section' => 'burf_section_background',
+            'settings' => 'burf_setting_background',
+            'type'     => 'radio',
+	        /*
+'choices'    => array(
+            	'option1' => '#000000,#CC0000,#5399C7,#B0B0B0',
+	            'option2' => '#295E72,#3EA1BB,#87C6D5,#A6D3DF',
+	            'option3' => '#934548,#6FA899,#F3E5D4,#F2BC4F',
+	            'option4' => '#261514,#A6330A,#D96806,#BFBFBD',
+	            'option5' => '#3D3B41,#BAAB80,#F8F0B3,#685F5F',
+	            'option6' => '#8AAE45,#DA3A47,#2A2A2A,#D2D89B'
+            )
+*/
+	            
+	    )));
+	    $wp_customize->add_control(
+	       new WP_Customize_Image_Control(
+	           $wp_customize,
+	           'logo',
+	           array(
+	               'label'      => __( 'Upload a logo', 'theme_name' ),
+	               'section'    => 'burf_section_background',
+	               'settings'   => 'burf_setting_background'
+	           )
+	       )
+	   );
 	    
        
 /*

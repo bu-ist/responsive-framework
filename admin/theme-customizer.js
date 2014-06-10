@@ -1,21 +1,37 @@
 jQuery( document ).ready(function($) {
 
 
-	$('.color-picker').iris({
-		color: $(this).val(),
-		change: function(event, ui){
-			$(event.target).val(ui.color.toString()).change();
-			$(this).prev(".wp-color-result").css("background-color", ui.color.toString());
+	if($('.color-picker').length > 0){
+		$('.color-picker').iris({
+			color: $(this).val(),
+			change: function(event, ui){
+				$(event.target).val(ui.color.toString()).change();
+				$(this).prev(".wp-color-result").css("background-color", ui.color.toString());
+				
+				
+				var tempArray = [];
+				$("#burf_section_custom .color-picker").each(function(el, le){
+					//console.log(le);
+					tempArray.push($(this).val());
+				});
+				$("#hiddenColor").attr("value", tempArray.join(",")).change();
+			}
+		});
+	}
+	if($('.color-picker-open').length > 0){
+		$('.color-picker-open').iris({
+			color: $(this).val(),
+			hide: false,
+			change: function(event, ui){
+				$(event.target).val(ui.color.toString()).change();
+				$(this).prev(".wp-color-result").css("background-color", ui.color.toString());
+				
+				
 			
-			
-			var tempArray = [];
-			$("#burf_section_custom .color-picker").each(function(el, le){
-				//console.log(le);
-				tempArray.push($(this).val());
-			});
-			$("#hiddenColor").attr("value", tempArray.join(",")).change();
-		}
-	});
+			}
+		});
+		
+	}
 	
 	$(".wp-color-result").on("click", function(){
 		$(this).siblings(".color-picker").show();
