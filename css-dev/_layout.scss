@@ -12,38 +12,139 @@ body {
 
 
 
+/* START: Typography
+----------------------------------------------------------------- */
+
+p {
+	font-size:16px;
+}
+
+h1 {
+	font-size:33px;
+}
+
+h2 {
+	font-size:26px;
+}
+
+h3 {
+	font-size:23px;
+}
+
+h4 {
+	font-size:20px;
+}
+
+h5 {
+	font-size:18px;
+}
+
+h6 {
+	font-size:16px;
+}
+
+/* END: Typography
+----------------------------------------------------------------- */
+
+
+
+
 
 /* START: header
 ----------------------------------------------------------------- */
 
-#siteName {
-	font-family: $font-branding; 
-	font-weight: 600; 
-	font-style: normal;
+header {
+	padding:40px 40px 70px 40px;
 
-	span {
+	#siteName {
 		font-family: $font-branding; 
-		font-weight: 400; 
+		font-weight: 600; 
 		font-style: normal;
+		float: left;
+	
+		span {
+			font-family: $font-branding; 
+			font-weight: 400; 
+			font-style: normal;
+		}
+	
+	}
+	
+	.desc {
+		float:left;
 	}
 
+	#searchform {
+		float:right;
+	}
 }
 
+/* nav */
 nav {
-	background: #000000;
+	background: #111111;
 
 	li {
 		display: inline-block;
 		*display: inline;
 		zoom: 1;
-	
+		
 		a {
 			color: #7A7A7A;
+			text-decoration: none;
+			font-weight: 700;
+			display:block;
+			padding:10px 0;
+			line-height:18px;
 		}
+		
+			a:hover {
+				color:#fff;
+			}
 		
 		.current-menu-item a {
 			color: #FFFFFF;
 		}	
+	}
+}
+
+/* left sidenav */
+body.l-sidenav {
+	padding-left:300px;
+	
+	nav {
+		position: fixed;
+		left: 0;
+		top:0;
+		height: 100%;
+		width: 300px;
+		
+		ul {
+			margin: 111px 40px 40px 40px;
+			border-top: 1px solid #2e2e2e;
+			
+			li {
+				display:block;
+				
+				a {
+					border-bottom: 1px solid #2e2e2e;
+				}
+			}			
+		}
+		
+	}
+}
+
+@media (max-width: $S) {
+	body.l-sidenav {
+		padding-left:50px;
+		
+		nav {
+			width: 50px;	
+			
+			ul {
+				display:none;
+			}
+		}
 	}
 }
 
@@ -59,11 +160,11 @@ nav {
 
 .banner-container {
 	text-align: center;
-	background: #222;
+	padding:0;
 }
 
 	.banner-container img {
-		max-width: 100%;
+		width: 100%;
 		height: auto;
 	}
 	
@@ -76,7 +177,6 @@ nav {
 	
 .row {
 	margin:0 0 20px 0;
-}
 
 	.row:before,
 	.row:after {
@@ -87,28 +187,20 @@ nav {
 	.row:after {
 			clear: both;
 		}
-	
-.row .row {
-	margin-top: 10px;
-	margin-bottom: 0;
-}
-	
-.row .row [class*="col-"] {
-	padding-top: 15px;
-	padding-bottom: 15px;
-	background-color: #eee;
-	border: 1px solid #ddd;
-	background-color: rgba(121,121,121,.15);
-	border: 1px solid rgba(68,68,68,.2);
-	@include border-radius(0);
-}
 
-nav.sidenav {
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 300px;	
+	.row {
+		margin-top: 10px;
+		margin-bottom: 40px;	
+		[class*="col-"] {
+			padding-top: 15px;
+			padding-bottom: 15px;
+			background-color: #eee;
+			border: 1px solid #ddd;
+			background-color: rgba(121,121,121,.15);
+			border: 1px solid rgba(68,68,68,.2);
+			@include border-radius(0);
+		}
+	}
 }
 
 footer {
@@ -178,7 +270,7 @@ footer {
 }
 
 /* small screens */
-@media (min-width: 768px) {
+@media (min-width: $S) {
 	.container {
 		max-width: 750px;
 	}
@@ -236,14 +328,12 @@ footer {
 	.col-sm-12 {
 		width: 100%;
 	}
-	
-	
 }
 
 /* medium screens */
-@media (min-width: 992px) {
+@media (min-width: $M) {
 	.container {
-	max-width: 970px;
+		max-width: 970px;
 	}
 	
 	.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5,
@@ -299,11 +389,10 @@ footer {
 	.col-md-12 {
 		width: 100%;
 	}
-
 }
 
 /* large screens */
-@media (min-width: 1200px) {
+@media (min-width: $L) {
 	.container {
 		max-width: 1170px;
 	}
@@ -361,7 +450,6 @@ footer {
 	.col-lg-12 {
 		width: 100%;
 	}
-
 }
 
 /* END: grid
@@ -369,51 +457,5 @@ footer {
 
 
 
-
-/* START: customizer styles
------------------------------------------------------------------ */
-
-.f1 h1, .f1 h2, .f1 h3, .f1 h4, .f1 h5, .f1 h6 {
-	font-family: 'Whitney SSm A', 'Whitney SSm B';
-}
-
-.f1 p {
-	font-family: 'Whitney SSm A', 'Whitney SSm B';
-}
-
-.f2 h1, .f2 h2, .f2 h3, .f2 h4, .f2 h5, .f2 h6 {
-	font-family: 'Arial', 'Arial';
-}
-
-.f2 p {
-	font-family: 'Arial', 'Arial';
-}
-
-.f3 h1, .f3 h2, .f3 h3, .f3 h4, .f3 h5, .f3 h6 {
-	font-family: 'Helvetica', 'Helvetica';
-}
-
-.f3 p {
-	font-family: 'Helvetica', 'Helvetica';
-}
-
-.f4 h1, .f4 h2, .f4 h3, .f4 h4, .f4 h5, .f4 h6 {
-	font-family: 'Times New Roman', 'Times New Roman';
-}
-
-.f4 p {
-	font-family: 'Times New Roman', 'Times New Roman';
-}
-
-.f5 h1, .f5 h2, .f5 h3, .f5 h4, .f5 h5, .f5 h6 {
-	font-family: 'Georgia', 'Georgia';
-}
-
-.f5 p {
-	font-family: 'Georgia', 'Georgia';
-}
-
-/* END: customizer styles
------------------------------------------------------------------ */
 
 
