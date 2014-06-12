@@ -73,7 +73,7 @@ register_nav_menu( 'primary', 'Primary Menu' );
 - - - - - - - - - - - - - - - - - */
 function bu_responsive_register_scripts(){
 	wp_register_style('responsi styles', get_bloginfo('stylesheet_directory') . "/style.css");
-	wp_register_script('responsi script', get_bloginfo('stylesheet_directory') . "/js/script.js");
+	wp_register_script('responsi script', get_bloginfo('stylesheet_directory') . "/js/production.js");
 }
 add_action( 'init', 'bu_responsive_register_scripts' );
 
@@ -91,7 +91,7 @@ add_action( 'wp_enqueue_scripts', 'bu_responsive_enqueue_header_scripts' );
 	Enqueue Footer Scripts
 - - - - - - - - - - - - - - - - - */
 function bu_responsive_footer_scripts() {
-	wp_enqueue_script('responsive script');
+	wp_enqueue_script('responsi script');
 }
 add_action('wp_footer', 'bu_responsive_footer_scripts');
 
@@ -470,8 +470,10 @@ add_filter('body_class','browser_body_class');
 
 function browser_body_class($classes = '') {
 	$fontPalette = get_option("burf_setting_fonts");
-
+	$layoutSetting = get_option("burf_setting_layout");
+	
 	if($fontPalette) $classes[] = $fontPalette;
+	if($layoutSetting) $classes[] = $layoutSetting;
 
 	return $classes;
 }

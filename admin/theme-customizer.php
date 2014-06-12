@@ -159,9 +159,9 @@ function burf_customize_register($wp_customize){
             'settings' => 'burf_setting_layout',
             'type'     => 'radio',
 	        'choices'    => array(
-	            'branding' => 'Site Branding Top',
-	            'navbar' => 'Navigation Bar Top',
-	            'sidenav' => 'Side Navigation'
+	            'l-branding' => 'Site Branding Top',
+	            'l-navbar' => 'Navigation Bar Top',
+	            'l-sidenav' => 'Side Navigation'
 	        )
         )));
         
