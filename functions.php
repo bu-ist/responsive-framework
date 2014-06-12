@@ -232,20 +232,12 @@ function bu_flexi_calendar_widget_formats($formats) {
 
 	unset($formats['plain']);
 	unset($formats['big']);
-	$formats['default'] = array(
-		'label' => 'Simple',
-		'callback' => 'bu_flexi_calendar_default'
-	);
 
 	$formats['full-date'] = array(
 		'label' => 'Full Date',
 		'callback' => 'bu_flexi_calendar_full_date'
 	);
 
-	$formats['full-date-time'] = array(
-		'label' => 'Full Date with Time',
-		'callback' => 'bu_flexi_calendar_with_time'
-	);
 
 	$formats['graphic'] = array(
 		'label' => 'Graphic',
@@ -253,30 +245,6 @@ function bu_flexi_calendar_widget_formats($formats) {
 	);
 
 	return $formats;
-}
-
-
-
-function bu_flexi_calendar_default($events, $base_url, $calendar_id = null) {
-	 $output = '';
-
-	if ((is_array($events)) && (count($events) > 0)) {
-
-			foreach ($events as $e) {
-					$url = sprintf('%s?eid=%s', $base_url, urlencode($e['id']));
-					if (!empty($e['oid'])) $url .= '&oid=' . urlencode($e['oid']);
-					if (!empty($calendar_id)) $url .= '&cid=' . urlencode($calendar_id);
-
-					if (isset($e['subscription_name'])) $url .= '&sub=' . urlencode($e['subscription_name']);
-
-					$output .= sprintf('<li><span class="date">%s<span class="slash">/</span>%s</span> <a href="%s"><span class="title">%s</span></a></li>', date('n', $e['starts']), date('j', $e['starts']), esc_url($url), $e['summary']);
-					$output .= "\n";
-			}
-	}
-
-	return $output;
-
-
 }
 
 function bu_flexi_calendar_full_date($events, $base_url, $calendar_id = null) {
@@ -297,30 +265,6 @@ function bu_flexi_calendar_full_date($events, $base_url, $calendar_id = null) {
 	}
 
 	return $output;
-
-
-}
-
-
-function bu_flexi_calendar_with_time($events, $base_url, $calendar_id = null) {
-	 $output = '';
-
-	if ((is_array($events)) && (count($events) > 0)) {
-
-			foreach ($events as $e) {
-					$url = sprintf('%s?eid=%s', $base_url, urlencode($e['id']));
-					if (!empty($e['oid'])) $url .= '&oid=' . urlencode($e['oid']);
-					if (!empty($calendar_id)) $url .= '&cid=' . urlencode($calendar_id);
-
-					if (isset($e['subscription_name'])) $url .= '&sub=' . urlencode($e['subscription_name']);
-
-					$output .= sprintf('<li><span class="date">%s</span><span class="time">%s</span> <a href="%s"><span class="title">%s</span></a></li>', date('l, F j', $e['starts']), date('g:i A', $e['starts']), esc_url($url), $e['summary']);
-					$output .= "\n";
-			}
-	}
-
-	return $output;
-
 
 }
 
@@ -383,7 +327,7 @@ function bu_flexi_title_date_callback($post, $args) {
 	global $post;
 
 	$output = '';
-	$output .= '<div class="post">';
+	$output .= '<section class="post">';
 	if($args['show_thumbnail'] && function_exists('bu_get_thumbnail_src')) {
 		$output .= bu_get_thumbnail_src($post->ID, array(
 							'maxwidth' => 88,
@@ -392,7 +336,7 @@ function bu_flexi_title_date_callback($post, $args) {
 							'use_thumb' => true)
 						);
 	}
-	$output .= sprintf('<h3 class="headline"><a href="%s" rel="bookmark">%s</a></h3>', get_permalink(), get_the_title());
+	$output .= sprintf('<h1><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title());
 	$output .= sprintf('<p class="meta"><span class="published">%s</span></p>', BU_PostList::post_date('F j, Y'));
 	$output .= '</div>';
 	return $output;
@@ -403,7 +347,7 @@ function bu_flexi_posts_widget_default_callback($post, $args) {
 
 	$output = '';
 	$meta = '';
-	$output .= '<div class="post">';
+	$output .= '<section class="post">';
 	if($args['show_thumbnail'] && function_exists('bu_get_thumbnail_src')) {
 		$output .= bu_get_thumbnail_src($post->ID, array(
 							'maxwidth' => 260,
@@ -412,7 +356,7 @@ function bu_flexi_posts_widget_default_callback($post, $args) {
 							'use_thumb' => false)
 						);
 	}
-	$output .= sprintf('<h3 class="headline"><a href="%s" rel="bookmark">%s</a></h3>', get_permalink(), get_the_title());
+	$output .= sprintf('<h1 class="headline"><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title());
 
 	switch($args['current_format']) {
 		case 'title_date_excerpt':
@@ -434,7 +378,7 @@ function bu_flexi_posts_widget_default_callback($post, $args) {
 	}
 
 	$output .= sprintf('<p class="excerpt">%s</p>', BU_PostList::get_post_excerpt(12));
-	$output .= '</div>';
+	$output .= '</section>';
 	return $output;
 }
 
