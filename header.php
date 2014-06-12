@@ -27,6 +27,7 @@
 	</head>
 
 	<body <?php body_class(); ?> id="top">
+		<?php get_search_form(); ?>
 		<header role="banner">
 			<?php
 				$navArgs = array(
@@ -38,11 +39,12 @@
 			?>
 			
 			<?php
-				if($headerLayout == "navbar"):
+				if($headerLayout == "l-navbar"):
 				?>
 					<nav role="navigation">
+						<div id="navToggle">Menu</div>
 						<?php wp_nav_menu($navArgs); ?>
-						<?php get_search_form(); ?>
+						<div id="searchToggle">Open Search</div>
 					</nav>
 				<?php
 				endif;
@@ -55,8 +57,11 @@
 				Boston University <span><?php bloginfo( 'name' ); ?></span>
 			</a>
 			<p class="desc"><?php bloginfo( 'description' ); ?></p>
-			
-			
+			<?php
+				if($headerLayout == "l-sidenav"){ ?>
+					<div id="searchToggle">Open Search</div>
+				<?php }
+			?>		
 			
 			
 			<?php if (function_exists('bu_content_banner')) {
@@ -70,26 +75,29 @@
 			} ?>
 			
 			<?php
-				if($headerLayout == "branding"):
+				if($headerLayout == "l-branding"):
 			?>
 				<nav role="navigation">
+					<div id="navToggle">Menu</div>
 					<?php wp_nav_menu($navArgs); ?>
-					<?php get_search_form(); ?>
+					<div id="searchToggle">Open Search</div>
 				</nav>
 			<?php
 				endif;
 			?>
 			
+			
 			<?php
-				if($headerLayout == "sidenav"):
-				?>
-					<nav role="navigation" class="sidenav">
-						<?php wp_nav_menu($navArgs); ?>
-						<?php get_search_form(); ?>
-					</nav>
-				<?php
+				if($headerLayout == "l-sidenav"):
+			?>
+				<nav role="navigation">
+					<div id="navToggle">Menu</div>
+					<?php wp_nav_menu($navArgs); ?>
+				</nav>
+			<?php
 				endif;
 			?>
+			
 			
 		</header>
 		<?php if (function_exists('bu_content_banner')) {
