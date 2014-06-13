@@ -1,6 +1,8 @@
 jQuery( document ).ready(function($) {
 
-
+	/* - - - - - Section: Font Colors - - - - - */ 
+	
+	/* Initializing the color pickers */
 	if($('.color-picker').length > 0){
 		$('.color-picker').iris({
 			color: $(this).val(),
@@ -18,46 +20,31 @@ jQuery( document ).ready(function($) {
 			}
 		});
 	}
-	if($('.color-picker-open').length > 0){
-		$('.color-picker-open').iris({
-			color: $(this).val(),
-			hide: false,
-			change: function(event, ui){
-				$(event.target).val(ui.color.toString()).change();
-				$(this).prev(".wp-color-result").css("background-color", ui.color.toString());
-				
-				
-			
-			}
-		});
-		
-	}
 	
+	/* Open the color pickers on Resultbox Click*/
 	$(".wp-color-result").on("click", function(){
 		$(this).siblings(".color-picker").show();
 		$(this).siblings(".iris-picker").show();
 		$(this).siblings(".wp-color-close").show();
 	});
+	/* And close them with the close button */
 	$(".wp-color-close").on("click", function(){
 		$(this).siblings(".iris-picker").hide();
 		$(this).siblings(".color-picker").hide();
 		$(this).hide();
 	});
 	
-	
+	/* Generate the hidden input's string */
 	$("#burf_section_colors input").on("change", function(){
 		$value = $(this).val().split(',');
-		console.log($value);
-		
+				
 		$("#burf_section_custom li").each(function(index){
 			console.log($value[index]);
 			$(this).find(".color-picker").iris('color', $value[index]);
 		});
-		
-		
 	});
 
-	
+	/* Toggling between Baic and Advanced */
 	$("#basic-color").on("click", function(){
 		$("#burf_section_colors").show();
 		$("#burf_section_custom").hide();
@@ -74,14 +61,35 @@ jQuery( document ).ready(function($) {
 	});
 	
 	
-	/*
-	$("#burf_section_colors input").on("change", function(){
-		$value = $(this).val().split(',');
-		
-		$("#accordion-section-burf_section_colors .customize-control-color").each(function(index, el){
-			$(el).find(".color-picker-hex").iris('color', $value[index]);
+
+
+	/* - - - - - Section: Background Options - - - - - */ 
+	/* Pre-opened color picker */
+	if($('.color-picker-open').length > 0){
+		$('.color-picker-open').iris({
+			color: $(this).val(),
+			hide: false,
+			change: function(event, ui){
+				$(event.target).val(ui.color.toString()).change();
+				$(this).prev(".wp-color-result").css("background-color", ui.color.toString());
+			}
 		});
+		
+	}
+
+	$("#bg-toggle-color").on("click", function(){
+		$("#bg-toggle-image").removeClass("active");
+		$(this).addClass("active");
+		$("#accordion-section-burf_section_background li:gt(0)").hide();
+		$("#accordion-section-burf_section_background #bg-color").show();
 	});
-*/
+	
+	$("#bg-toggle-image").on("click", function(){
+		$("#bg-toggle-color").removeClass("active");
+		$(this).addClass("active");
+		$("#accordion-section-burf_section_background li:gt(0)").show();
+		$("#accordion-section-burf_section_background #bg-color").hide();
+	});
+
 
 });
