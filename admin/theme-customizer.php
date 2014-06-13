@@ -28,13 +28,11 @@ function burf_customize_register($wp_customize){
 	    public function render_content() {
 	    
 	    	wp_enqueue_script("iris");
-			
 			$colorString = get_option("burf_setting_colors");
 			$colors = explode(",", $colorString);
 			$choices = $this->choices;
 			$isPalette = false;
-			
-			
+		
 	        foreach($choices as $key=>$choice){
 	        	if(strtoupper($choice) == strtoupper($colorString)){
 		        	$isPalette = true;
@@ -252,12 +250,14 @@ function burf_customize_register($wp_customize){
 	 
 	    ));
 	    /* Setting: Background Image: Attachment */ 
-	    $wp_customize->add_setting('burf_setting_background_attachmentM', array(
+	    $wp_customize->add_setting('burf_setting_background_attachment', array(
 	        'default'        => '',
 	        'capability'     => 'edit_theme_options',
 	        'type'           => 'option',
 	 
 	    ));
+	    
+	    
 	   /* Control: Background Image Option: Repeat */
 	   $wp_customize->add_control(
 	       new BURF_Customize_Radio($wp_customize, 'burf_background_repeat', array(
@@ -271,24 +271,24 @@ function burf_customize_register($wp_customize){
                		'repeat-y' => 'Repeat Vertically'
            )))
 	   );
-	   /* Control: Background Image Option: Repeat */
+	   /* Control: Background Image Option: Position */
 	   $wp_customize->add_control(
 	       new BURF_Customize_Radio($wp_customize, 'burf_background_position', array(
-               'label'      => __( 'Background Repeat', 'burf' ),
+               'label'      => __( 'Background Position', 'burf' ),
                'section'    => 'burf_section_background',
-               'settings'   => 'burf_setting_background_repeat',
+               'settings'   => 'burf_setting_background_position',
                'choices' => array(
                		'left' => 'Left',
                		'right' => 'Right',
                		'center' => 'Center'
            )))
 	   );
-	   /* Control: Background Image Option: Repeat */
+	   /* Control: Background Image Option: Attachment */
 	   $wp_customize->add_control(
 	       new BURF_Customize_Radio($wp_customize, 'burf_background_attachment', array(
-               'label'      => __( 'Background Repeat', 'burf' ),
+               'label'      => __( 'Background Attachment', 'burf' ),
                'section'    => 'burf_section_background',
-               'settings'   => 'burf_setting_background_repeat',
+               'settings'   => 'burf_setting_background_attachment',
                'choices' => array(
                		'fixed' => 'Fixed',
                		'scroll' => 'Scroll'
@@ -311,12 +311,24 @@ add_action('customize_register', 'burf_customize_register');
 
 function burf_customize_css(){
 	$colors = explode(",", get_option("burf_setting_colors"));
+	$bg_color = get_option("burf_setting_background_color");
+	$bg_image = get_option("burf_setting_background_image");
+	$bg_repeat = get_option("burf_setting_background_repeat");
+	$bg_position = get_option("burf_setting_background_position");
+	$bg_attachment = get_option("burf_setting_background_attachment");
     ?>
          <style type="text/css">
              h1,h2,h3,h4,h5,h6 { color: <?php echo($colors[0]); ?> }
              p { color: <?php echo($colors[1]); ?> }
              a { color: <?php echo($colors[2]); ?> }
              strong { color: <?php echo($colors[3]); ?> }
+             body {
+             	background-color: <?php echo($bg_color); ?>;
+             	background-image: url(<?php echo($bg_image); ?>);
+			 	background-repeat: <?php echo($bg_repeat); ?>;
+			 	background-position: top <?php echo($bg_position); ?>;
+			 	background-attachment: <?php echo($bg_attachment); ?>;
+             }
          </style>
     <?php
 }
