@@ -6,6 +6,7 @@ function burf_customize_register($wp_customize){
 	    public function render_content() {
 	        ?>
 	        <ul id="<?php echo($this->id); ?>">
+	        <span class="customize-control-title"><?php echo($this->label); ?></span>
 	        <?php
 	        	foreach($this->choices as $key=>$choice){
 	        	?>
@@ -94,49 +95,22 @@ function burf_customize_register($wp_customize){
 	}
    
    
-   /* Custom Control: Backgrounds */
-   	class BURF_Customize_Background extends WP_Customize_Control {
+   /* Custom Control: Background Color */
+   	class BURF_Customize_Background_Color extends WP_Customize_Control {
 	    public function render_content() {
 	        ?>
-	        <div class="toggle">
-	        	<div class="active">Color</div>
-	        	<div>Image</div>
+	        <div id="bg-toggle">
+	        	<div id="bg-toggle-color" class="active">Color</div>
+	        	<div id="bg-toggle-image">Image</div>
 	        </div>
 	        
-	        <div class="color">
-	        	<a class="wp-color-result" tabindex="0" title="Select Color" style="background-color: <?php echo($colors[0]); ?>"></a>
-	        	<input id="bg_color" name="bg_color" type="text" class='color-picker-open' value="<?php echo($colors[0]); ?>" />
-	        </div>
-	        
-	        <div class="image">
-
-
-	        </div>
-	        
-	        
-				Image upload
-				Repeat (none, tile, horiz, vert)
-				Position (left, right, center)
-				Attachment (fixed, scroll)
-	        
-	        
-	        <ul id="<?php echo($this->id); ?>">
-	        <?php
-	        	foreach($this->choices as $key=>$choice){
-	        	?>
-		        	<li>
-		        		<input <?php $this->link(); ?> id="<?php echo($this->id . '_' . $key);?>" type="radio" name="<?php echo($this->id); ?>" value="<?php echo($key); ?>">
-		        		<label for="<?php echo($this->id . '_' . $key);?>"> <?php echo($choice); ?></label>
-		        	</li>
-		        <?php
-	        	}
-	        ?>
-	        </ul>
+	        <div id="bg-color" class="open">
+	        	<a class="wp-color-result" tabindex="0" title="Select Color" style="background-color: <?php echo(get_option("burf_setting_background_color")); ?>"></a>
+	        	<input <?php $this->link(); ?> id="bg_color" name="bg_color" type="text" class='color-picker-open' value="<?php echo(get_option("burf_setting_background_color")); ?>" />
+	        </div> 
 	        <?php
 	    }
 	}
-   
-   
    
 	/* Section: Layout Options  */ 
 	$wp_customize->add_section('burf_section_layout', array(
@@ -154,7 +128,6 @@ function burf_customize_register($wp_customize){
  
 		/* Control: Layout Select*/ 
 		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_section_layout', array(
-            'label' => 'Layout Picker Setting',
             'section' => 'burf_section_layout',
             'settings' => 'burf_setting_layout',
             'type'     => 'radio',
@@ -234,117 +207,101 @@ function burf_customize_register($wp_customize){
         //'priority' => 120,
     ));
  
-		/* Setting: Background */ 
-	    $wp_customize->add_setting('burf_setting_background', array(
+		/* Setting: Background Color */ 
+	    $wp_customize->add_setting('burf_setting_background_color', array(
 	        'default'        => '',
 	        'capability'     => 'edit_theme_options',
 	        'type'           => 'option',
 	 
 	    ));
- 
 		/* Control: Colors Select */ 
-		$wp_customize->add_control( new BURF_Customize_Background( $wp_customize, 'burf_section_background', array(
+		$wp_customize->add_control( new BURF_Customize_Background_Color( $wp_customize, 'burf_section_background_colors', array(
             'label' => 'Background Setting',
             'section' => 'burf_section_background',
-            'settings' => 'burf_setting_background',
+            'settings' => 'burf_setting_background_color',
             'type'     => 'radio',
-	        /*
-'choices'    => array(
-            	'option1' => '#000000,#CC0000,#5399C7,#B0B0B0',
-	            'option2' => '#295E72,#3EA1BB,#87C6D5,#A6D3DF',
-	            'option3' => '#934548,#6FA899,#F3E5D4,#F2BC4F',
-	            'option4' => '#261514,#A6330A,#D96806,#BFBFBD',
-	            'option5' => '#3D3B41,#BAAB80,#F8F0B3,#685F5F',
-	            'option6' => '#8AAE45,#DA3A47,#2A2A2A,#D2D89B'
-            )
-*/
 	            
 	    )));
-	    $wp_customize->add_control(
-	       new WP_Customize_Image_Control(
-	           $wp_customize,
-	           'logo',
-	           array(
-	               'label'      => __( 'Upload a logo', 'theme_name' ),
-	               'section'    => 'burf_section_background',
-	               'settings'   => 'burf_setting_background'
-	           )
-	       )
-	   );
 	    
-       
-/*
- $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'burf_section_colors1', array(
-				'section'    => 'burf_section_colors',
-				'settings'   => 'burf_setting_colors',
+	    /* Setting: Background Image */ 
+	    $wp_customize->add_setting('burf_setting_background_image', array(
+	        'default'        => '',
+	        'capability'     => 'edit_theme_options',
+	        'type'           => 'option',
+	 
+	    ));
+		/* Control: Background Image Upload */
+		$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'background', array(
+			'label'      => __( 'Upload an image', 'burf' ),
+			'section'    => 'burf_section_background',
+			'settings'   => 'burf_setting_background_image'
 		)));
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'burf_section_colors2', array(
-				'section'    => 'burf_section_colors',
-				'settings'   => 'burf_setting_colors',
-		)));
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'burf_section_colors3', array(
-				'section'    => 'burf_section_colors',
-				'settings'   => 'burf_setting_colors',
-		)));
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'burf_section_colors4', array(
-				'section'    => 'burf_section_colors',
-				'settings'   => 'burf_setting_colors',
-		)));
-*/
-
-		
-
-        
-        
- 
-/*
- 
-		
-	//  =============================
-    //  = Radio Input               =
-    //  =============================
-    $wp_customize->add_setting('burf_header_layout', array(
-        'default'        => 'branding',
-        'capability'     => 'edit_theme_options',
-        'type'           => 'option',
-    ));
- 
-    $wp_customize->add_control('burf_header_layout', array(
-        'label'      => __('Pick your layout:', 'burf'),
-        'section'    => 'burf_site_header',
-        'settings'   => 'burf_header_layout',
-        'type'       => 'radio',
-        'choices'    => array(
-            'branding' => 'Site Branding Top',
-            'navbar' => 'Navigation Bar Top',
-            'sidenav' => 'Side Navigation'
-        ),
-    ));
-    
-    $wp_customize->add_control( 
-		new WP_Customize_Color_Control( 
-		$wp_customize, 
-		'link_color', 
-		array(
-			'label'      => __( 'Header Color', 'burf' ),
-			'section'    => 'burf_site_header',
-			'settings'   => 'burf_header_layout',
-		) ) 
-	);
-	
-	$wp_customize->add_control(
-       new WP_Customize_Image_Control(
-           $wp_customize,
-           'logo',
-           array(
-				'label'      => __( 'Upload a logo', 'theme_name' ),
-				'section'    => 'burf_site_header',
-				'settings'   => 'burf_header_layout',
-				'context'    => 'your_setting_context' 
-           )
-       )
-   );
-*/
+	   
+	   /* Setting: Background Image: Repeat */ 
+	    $wp_customize->add_setting('burf_setting_background_repeat', array(
+	        'default'        => '',
+	        'capability'     => 'edit_theme_options',
+	        'type'           => 'option',
+	 
+	    ));
+	    /* Setting: Background Image: Position */ 
+	    $wp_customize->add_setting('burf_setting_background_position', array(
+	        'default'        => '',
+	        'capability'     => 'edit_theme_options',
+	        'type'           => 'option',
+	 
+	    ));
+	    /* Setting: Background Image: Attachment */ 
+	    $wp_customize->add_setting('burf_setting_background_attachmentM', array(
+	        'default'        => '',
+	        'capability'     => 'edit_theme_options',
+	        'type'           => 'option',
+	 
+	    ));
+	   /* Control: Background Image Option: Repeat */
+	   $wp_customize->add_control(
+	       new BURF_Customize_Radio($wp_customize, 'burf_background_repeat', array(
+               'label'      => __( 'Background Repeat', 'burf' ),
+               'section'    => 'burf_section_background',
+               'settings'   => 'burf_setting_background_repeat',
+               'choices' => array(
+               		'no-repeat' => 'None',
+               		'repeat' => 'Tile',
+               		'repeat-x' => 'Repeat Horizonally',
+               		'repeat-y' => 'Repeat Vertically'
+           )))
+	   );
+	   /* Control: Background Image Option: Repeat */
+	   $wp_customize->add_control(
+	       new BURF_Customize_Radio($wp_customize, 'burf_background_position', array(
+               'label'      => __( 'Background Repeat', 'burf' ),
+               'section'    => 'burf_section_background',
+               'settings'   => 'burf_setting_background_repeat',
+               'choices' => array(
+               		'left' => 'Left',
+               		'right' => 'Right',
+               		'center' => 'Center'
+           )))
+	   );
+	   /* Control: Background Image Option: Repeat */
+	   $wp_customize->add_control(
+	       new BURF_Customize_Radio($wp_customize, 'burf_background_attachment', array(
+               'label'      => __( 'Background Repeat', 'burf' ),
+               'section'    => 'burf_section_background',
+               'settings'   => 'burf_setting_background_repeat',
+               'choices' => array(
+               		'fixed' => 'Fixed',
+               		'scroll' => 'Scroll'
+           )))
+	   );
+	   
+	   
+	   
+	   /*
+		Repeat (none, tile, horiz, vert)
+		Position (left, right, center)
+		Attachment (fixed, scroll)
+		*/
 }
  
 add_action('customize_register', 'burf_customize_register');
