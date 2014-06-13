@@ -179,11 +179,11 @@
 /* END: Styles taken from WP */
 
 
-#customize-control-burf_section_background .toggle {
+#bg-toggle {
 	overflow: auto;
 	margin-bottom: 10px;
 }
-#customize-control-burf_section_background .toggle div {
+#bg-toggle div {
 	width: 49%;
 	float: left;
 	text-align: center;
@@ -192,14 +192,21 @@
 	cursor: pointer;
 }
 
-#customize-control-burf_section_background .toggle .active {
+#bg-toggle .active {
 	background-color: #555555;
 	color: #FFFFFF;
 }
 
-#customize-control-burf_section_background .color-picker-open {
+#customize-control-burf_section_background_colors .color-picker-open {
 	width: auto;
 	vertical-align: top;
 	height: 26px;
+}
+#accordion-section-burf_section_background li {
+	display: none;
+}
+#accordion-section-burf_section_background 
+#customize-control-burf_section_background_colors {
+	display: block;
 }
 
