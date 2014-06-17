@@ -27,7 +27,6 @@
 	</head>
 
 	<body <?php body_class(); ?> id="top">
-		<?php get_search_form(); ?>
 		<header role="banner">
 			<?php
 				$navArgs = array(
@@ -42,28 +41,20 @@
 				if($headerLayout == "l-navbar"):
 				?>
 					<nav role="navigation">
-						<div id="navToggle">Menu</div>
+						<?php get_search_form(); ?>
+						<div id="navToggle">menu</div>
+						<div id="searchToggle">search</div>
 						<?php wp_nav_menu($navArgs); ?>
-						<div id="searchToggle">Open Search</div>
 					</nav>
 				<?php
 				endif;
 			?>
 			
 			
-			
-			
 			<a id="siteName" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo">
 				Boston University <span><?php bloginfo( 'name' ); ?></span>
 			</a>
 			<p class="desc"><?php bloginfo( 'description' ); ?></p>
-			<?php
-				if($headerLayout == "l-sidenav"){ ?>
-					<div id="searchToggle">Open Search</div>
-				<?php }
-			?>		
-			
-			
 			<?php if (function_exists('bu_content_banner')) {
 				bu_content_banner($post->ID, $args = array(
 					'before' => '<div class="banner-container">',
@@ -78,9 +69,10 @@
 				if($headerLayout == "l-branding"):
 			?>
 				<nav role="navigation">
-					<div id="navToggle">Menu</div>
+					<?php get_search_form(); ?>
+					<div id="navToggle">menu</div>
+					<div id="searchToggle">search</div>
 					<?php wp_nav_menu($navArgs); ?>
-					<div id="searchToggle">Open Search</div>
 				</nav>
 			<?php
 				endif;
@@ -91,7 +83,9 @@
 				if($headerLayout == "l-sidenav"):
 			?>
 				<nav role="navigation">
-					<div id="navToggle">Menu</div>
+					<?php get_search_form(); ?>
+					<div id="navToggle">menu</div>
+					<div id="searchToggle">search</div>
 					<?php wp_nav_menu($navArgs); ?>
 				</nav>
 			<?php

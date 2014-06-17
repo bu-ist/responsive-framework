@@ -7,3 +7,34 @@
       -ms-border-radius: $radius;
           border-radius: $radius;
 }
+
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin breakpoint($point) {
+    @if $point == extra_small {
+        @media (min-width: 500px) { @content; }
+    }
+    @if $point == small {
+        @media (min-width: 768px) { @content; }
+    }
+    @if $point == medium {
+        @media (min-width: 992px) { @content; }
+    }
+    @if $point == large {
+        @media (min-width: 1200px) { @content; }
+    }
+}
