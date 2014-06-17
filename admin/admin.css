@@ -43,7 +43,6 @@
 	width: 245px;
 	display: block;
 	margin: 4px;
-	padding: 4px;
 }
 #burf_section_fonts li input:checked + label:after {
 	margin: 0;
