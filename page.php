@@ -12,7 +12,7 @@
 				));
 		} ?>
 			
-		<article role="main" class="col-md-9" id="post-<?php the_ID(); ?>">
+		<article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
 	        <?php if ( is_front_page() ) { ?>
 	            <h1><?php the_title(); ?></h1>
 	        <?php } else { ?>
@@ -31,7 +31,7 @@
 	    <?php
 	    	if(is_dynamic_sidebar("right-content-area")):
 				?>
-				<aside class="col-md-3" id="right-content-area">
+				<aside class="col-md-4" id="right-content-area">
 					<?php dynamic_sidebar("right-content-area"); ?>
 				</aside>
 				<?php
