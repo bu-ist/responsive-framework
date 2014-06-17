@@ -22,7 +22,6 @@ function burf_customize_register($wp_customize){
 	    }
 	}
 	
-	
 	/* Custom Control: Colors */
    	class BURF_Customize_Colors extends WP_Customize_Control {
 	    public function render_content() {
@@ -37,7 +36,6 @@ function burf_customize_register($wp_customize){
 	        	if(strtoupper($choice) == strtoupper($colorString)){
 		        	$isPalette = true;
 	        	}
-	        	
 	        }
 	        ?>
 	        
@@ -85,10 +83,7 @@ function burf_customize_register($wp_customize){
 	        <a <?php if($isPalette){ echo("style='display:none;'");} ?> id="basic-color" href="#">Color Palettes</a>
 	        
 	        <input id="hiddenColor" name="hiddenColor" <?php $this->link(); ?> type="hidden" />
-	        
-	        
-	        <?php
-				
+	        <?php	
 	    }
 	}
    
@@ -294,14 +289,6 @@ function burf_customize_register($wp_customize){
                		'scroll' => 'Scroll'
            )))
 	   );
-	   
-	   
-	   
-	   /*
-		Repeat (none, tile, horiz, vert)
-		Position (left, right, center)
-		Attachment (fixed, scroll)
-		*/
 }
  
 add_action('customize_register', 'burf_customize_register');
