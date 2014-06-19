@@ -8,7 +8,7 @@
 				'class' => 'banner',
 				//'maxwidth' => 900,
 				'position' => 'content-width',
-				'echo' => 'false'
+				'echo' => false
 				))));
 		} ?>
 			
