@@ -56,13 +56,14 @@
 			</a>
 			<p class="desc"><?php bloginfo( 'description' ); ?></p>
 			<?php if (function_exists('bu_content_banner')) {
-				bu_content_banner($post->ID, $args = array(
+				echo(do_shortcode(bu_content_banner($post->ID, $args = array(
 					'before' => '<div class="banner-container">',
 					'after' => '</div>',
 					'class' => 'banner',
 					//'maxwidth' => 900,
-					'position' => 'page-width'
-					));
+					'position' => 'page-width',
+					'echo' => false
+					))));
 			} ?>
 			
 			<?php
@@ -95,13 +96,14 @@
 			
 		</header>
 		<?php if (function_exists('bu_content_banner')) {
-			bu_content_banner($post->ID, $args = array(
+			echo(do_shortcode(bu_content_banner($post->ID, $args = array(
 				'before' => '<div class="banner-container">',
 				'after' => '</div>',
 				'class' => 'banner',
 				//'maxwidth' => 900,
-				'position' => 'window-width'
-				));
+				'position' => 'window-width',
+				'echo' => false
+				))));
 		} ?>
 
 		<div class="container">
