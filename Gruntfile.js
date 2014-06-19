@@ -38,8 +38,8 @@ module.exports = function(grunt) {
         },
         uglify: {
 			build: {
-				src: 'js/script.js',
-				dest: 'js/script.min.js'
+				src: 'js/production.js',
+				dest: 'js/production.min.js'
 			}
 		},
 		sass: {
