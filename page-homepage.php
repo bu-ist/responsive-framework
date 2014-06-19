@@ -1,15 +1,22 @@
+<?php
+/*
+Template Name: Homepage
+*/
+?>
+
 <?php get_header(); ?>
 	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 	    
     	<?php if (function_exists('bu_content_banner')) {
-			echo(do_shortcode(bu_content_banner($post->ID, $args = array(
-				'before' => '<div class="banner-container">',
-				'after' => '</div>',
-				'class' => 'banner',
-				//'maxwidth' => 900,
-				'position' => 'content-width',
-				'echo' => 'false'
-				))));
+			echo(do_shortcode(
+				bu_content_banner($post->ID, $args = array(
+					'before' => '<div class="banner-container">',
+					'after' => '</div>',
+					'class' => 'banner',
+					'position' => 'content-width',
+					'echo' => false
+				))
+			));
 		} ?>
 			
 		<article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
