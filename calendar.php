@@ -208,70 +208,133 @@ remove_filter('the_content', 'sharing_display', 19);
 	<?php } else { ?>
 			<h1><?php echo $event['summary'];?></h1>
 			<div class="eventDetail">
-			<dl class="tabular">
-				<?php if ($event['start_time'] != '') { ?>
-					<dt>Starts:</dt>
-					<dd><?php printf('%s on %s', date('g:i a', $event['starts']), date('l, F j, Y', $event['starts'])); ?></dd>
-					<?php if ($event['ends'] > 0) { ?>
-						<dt>Ends:</dt>
-						<dd><?php printf('%s on %s', date('g:i a', $event['ends']), date('l, F j, Y', $event['ends'])); ?></dd>
-					<?php } 
-				} else {
-					printf('<dt class="allday">All Day</dt><dd>on %s</dd>', date('l, F j, Y', $event['starts'] - intval(date('Z'))));	
-				}	
-				?>
-				<?php if ($event['location']) { ?>
-					<dt>Location:</dt>
-					<dd><?php print($event['location']); ?></dd>
-				<?php } ?>
-				<?php if ($event['url']) { ?>
-					<dt>URL:</dt>
-					<dd><?php printf('<a href="%s">%s</a>', $event['url'], $event['url']); ?></dd>
-				<?php } ?>
-				<?php if ($event['cost']) { ?>
-						<dt>Cost:</dt>
-						<dd><?php print($event['cost']); ?></dd>
-				<?php } ?>
-				<?php if ($event['address']) { ?>
+				<div class="description"><?php print(html_entity_decode($event['description'])); ?></div>
+				<dl class="tabular">
+					<?php if ($event['start_time'] != '') { ?>
+						<dt>Starts:</dt>
+						<dd><?php printf('%s on %s', date('g:i a', $event['starts']), date('l, F j, Y', $event['starts'])); ?></dd>
+						<?php if ($event['ends'] > 0) { ?>
+							<dt>Ends:</dt>
+							<dd><?php printf('%s on %s', date('g:i a', $event['ends']), date('l, F j, Y', $event['ends'])); ?></dd>
+						<?php } 
+					} else {
+						printf('<dt class="allday">All Day</dt><dd>on %s</dd>', date('l, F j, Y', $event['starts'] - intval(date('Z'))));	
+					}	
+					?>
+					
+					<?php if ($event['speakers']) { ?>
+						<dt>Speakers:</dt>
+						<dd><?php print($event['speakers']); ?></dd>
+					<?php } ?>
+					<?php if ($event['audience']) { ?>
+						<dt>Audience:</dt>
+						<dd><?php print($event['audience']); ?></dd>
+					<?php } ?>
+					<?php if ($event['departments']) { ?>
+						<dt>Departments:</dt>
+						<dd><?php print($event['departments']); ?></dd>
+					<?php } ?>
+					
+					
+					<?php if ($event['location']) { ?>
+						<dt>Location:</dt>
+						<dd><?php print($event['location']); ?></dd>
+					<?php } ?>
+					<?php if ($event['locationBuilding']) { ?>
 						<dt>Address:</dt>
-						<dd><?php print($event['address']); ?></dd>
-				<?php } ?>
-				<?php if ($event['contact_name']) { ?>
+						<dd><?php print($event['locationBuilding']); ?></dd>
+					<?php } ?>
+					<?php if ($event['locationRoom']) { ?>
+						<dt>Room:</dt>
+						<dd><?php print($event['locationRoom']); ?></dd>
+					<?php } ?>
+					
+					<?php if ($event['fees']) { ?>
+						<dt>Fees:</dt>
+						<dd><?php print($event['fees']); ?></dd>						
+					<?php } ?>
+					<?php if ($event['fee']) { ?>
+						<dt>Fees:</dt>
+						<dd><?php print($event['fee']); ?></dd>
+					<?php } ?>
+					<?php if ($event['feeGeneral']) { ?>
+						<dt>Fee (General):</dt>
+						<dd><?php print($event['feeGeneral']); ?></dd>
+					<?php } ?>
+					<?php if ($event['feePublic']) { ?>
+						<dt>Fee (Public):</dt>
+						<dd><?php print($event['feePublic']); ?></dd>
+					<?php } ?>
+					<?php if ($event['feeStaff']) { ?>
+						<dt>Fee (Staff):</dt>
+						<dd><?php print($event['feeStaff']); ?></dd>
+					<?php } ?>
+					<?php if ($event['feeStudent']) { ?>
+						<dt>Fee (Students):</dt>
+						<dd><?php print($event['feeStudent']); ?></dd>
+					<?php } ?>
+					<?php if ($event['feeBUStudent']) { ?>
+						<dt>Fee (BU Students):</dt>
+						<dd><?php print($event['feeBUStudent']); ?></dd>
+					<?php } ?>
+					<?php if ($event['feeSenior']) { ?>
+						<dt>Fee (Seniors):</dt>
+						<dd><?php print($event['feeSenior']); ?></dd>
+					<?php } ?>
+					<?php if ($event['deadline']) { ?>
+						<dt>Deadline:</dt>
+						<dd><?php print($event['deadline']); ?></dd>
+					<?php } ?>
+					<?php if ($event['url']) { 
+						$urlText = $event['url'];
+						if($event['urlText']){
+							$urlText = $event['urlText'];
+						}
+						
+					?>
+					
+						<dt>Registration:</dt>
+						<dd><?php printf('<a href="%s">%s</a>', $event['url'], $urlText); ?></dd>
+					<?php } ?>
+					
+					
+					
+					
+					
+					<?php if ($event['contactOrganization']) { ?>
+						<dt>Contact Organization:</dt>
+						<dd><?php print($event['contactOrganization']); ?></dd>
+					<?php } ?>
+					<?php if ($event['contact_name']) { ?>
 						<dt>Contact Name:</dt>
 						<dd><?php print($event['contact_name']); ?></dd>
-				<?php } ?>
-				<?php if ($event['contact_email']) { ?>
+					<?php } ?>
+					<?php if ($event['contact_email']) { ?>
 						<dt>Contact Email:</dt>
 						<dd><?php printf('<a href="mailto:%s">%s</a>', $event['contact_email'], $event['contact_email']); ?></dd>
-				<?php } ?>
-				<?php if ($event['contact_phone']) { ?>
+					<?php } ?>
+					<?php if ($event['phone']) { ?>
 						<dt>Contact Phone:</dt>
-						<dd><?php print($event['contact_phone']);
-							//$nums = strlen(preg_replace('@\D@', '', $event['contact_phone']));
-							//if ($nums < 10) echo $event['contact_phone'];
-							//else printf('<a href="tel:%s">%s</a>', $event['contact_phone'], $event['contact_phone']);
-							?></dd>
-				<?php } ?>
-			</dl>
-			<div class="description"><?php print(html_entity_decode($event['description'])); ?></div>
-			<?php if ($event['notes']) { ?>
-				<p><strong>Notes:</strong> <?php print(html_entity_decode($event['notes'])); ?>
-			<?php } ?>
-			</p>
+						<dd><?php print($event['phone']); ?></dd>
+					<?php } ?>
+					
+				</dl><!-- /.eventDetail -->
+				
 			</div>
 		<?php } ?>
-		<?php //echo apply_filters( 'flexi_sharing', ''); ?>
 	</div><!--/.container -->
 </article>
-<?php
-	if(is_dynamic_sidebar("right-content-area")):
-		?>
-		<aside class="col-md-4" id="right-content-area">
-			<?php dynamic_sidebar("right-content-area"); ?>
-		</aside>
-		<?php
-	endif;	    	
-?>
+
+
+<aside class="col-md-4" id="right-content-area">
+	<?php
+		bu_flexi_calendar_sidebar(); 
+		if(is_dynamic_sidebar("right-content-area")){
+			dynamic_sidebar("right-content-area"); 
+		}
+	?>
+</aside>
+
 </div>
 
 
