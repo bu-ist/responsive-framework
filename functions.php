@@ -1,6 +1,7 @@
 <?php
 
 require_once("responsive-functions.php");
+require_once("flexi-functions/calendar.php");
 
 function bu_responsive_init() {
 
@@ -73,7 +74,7 @@ register_nav_menu( 'primary', 'Primary Menu' );
 - - - - - - - - - - - - - - - - - */
 function bu_responsive_register_scripts(){
 	wp_register_style('responsi styles', get_bloginfo('stylesheet_directory') . "/style.css");
-	wp_register_script('responsi script', get_bloginfo('stylesheet_directory') . "/js/production.js");
+	wp_register_script('responsi script', get_bloginfo('stylesheet_directory') . "/js/production.min.js");
 }
 add_action( 'init', 'bu_responsive_register_scripts' );
 
@@ -267,6 +268,8 @@ function bu_flexi_calendar_full_date($events, $base_url, $calendar_id = null) {
 	return $output;
 
 }
+
+add_filter('bu_calendar_widget_formats', 'bu_flexi_calendar_widget_formats', 12, 1);
 
 
 /* - - - - - - - - - - - - - - - - -
