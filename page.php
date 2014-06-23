@@ -39,4 +39,4 @@
 	    ?>
 	    
 	</div>
-<?php get_footer( 'no-sidebar' ); // will include footer-no-sidebar.php; ?>
+<?php get_footer(); // will include footer-no-sidebar.php; ?>

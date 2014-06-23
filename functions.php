@@ -103,7 +103,7 @@ add_action('wp_footer', 'bu_responsive_footer_scripts');
 add_action('init', 'bu_responsive_register_sidebars');
 
 function bu_responsive_register_sidebars(){
-	if ( function_exists('register_sidebar') )
+	if ( function_exists('register_sidebar') ){
 		register_sidebar(array(
 			'name'          => 'Right Content Area',
 			'id'            => 'right-content-area',
@@ -112,7 +112,19 @@ function bu_responsive_register_sidebars(){
 			'after_widget' 	=> '</div>',
 			'before_title' 	=> '<h3>',
 			'after_title'	 => '</h3>',
-	));
+		));
+		
+		register_sidebar(array(
+			'name'          => 'Bottom Content Area',
+			'id'            => 'bottom-content-area',
+			'description'   => 'Description',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' 	=> '</div>',
+			'before_title' 	=> '<h3>',
+			'after_title'	 => '</h3>',
+		));
+	}
+}
 	
 	
 
@@ -155,9 +167,7 @@ function widget_first_last_classes($params) {
 
 }
 add_filter('dynamic_sidebar_params','widget_first_last_classes');
-	
-	
-}
+
 
 
 
