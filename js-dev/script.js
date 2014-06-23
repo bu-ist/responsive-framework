@@ -1,19 +1,16 @@
 jQuery(function($) {
-	
 	/* Side Nav Toggler */
-	$("#navToggle").on("click", function(){
+	$(".navToggle").on("click", function(){
 		$(this).toggleClass("open");
 		$("nav").toggleClass("open");
 		
-		$("#searchToggle, #quicksearch").removeClass("open");
+		$(".searchToggle, .quicksearch").removeClass("open");
 	});
 	
-	$("#searchToggle").on("click", function(){
+	$(".searchToggle").on("click", function(){
 		$(this).toggleClass("open");
-		$("#quicksearch").toggleClass("open");
+		$(".quicksearch").toggleClass("open");
 		
-		$("nav, #navToggle").removeClass("open");
+		$("nav, .navToggle").removeClass("open");
 	});
-	
-	
 });
