@@ -41,20 +41,25 @@
 				if($headerLayout == "l-navbar"):
 				?>
 					<nav role="navigation">
-						<?php get_search_form(); ?>
-						<div id="navToggle">menu</div>
-						<div id="searchToggle">search</div>
+						<div class="navToggle"><?php include("images/menu.svg"); ?></div>
+						<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 						<?php wp_nav_menu($navArgs); ?>
 					</nav>
+					<?php get_search_form(); ?>
 				<?php
 				endif;
 			?>
 			
+			<div id="brand">
+				<a id="siteName" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo">
+					Boston University <span><?php bloginfo( 'name' ); ?></span>
+				</a>
+				
+				<p class="desc"><?php bloginfo( 'description' ); ?></p>
+				
+				<div class="searchToggle"><?php include("images/search.svg"); ?></div>
+			</div>
 			
-			<a id="siteName" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo">
-				Boston University <span><?php bloginfo( 'name' ); ?></span>
-			</a>
-			<p class="desc"><?php bloginfo( 'description' ); ?></p>
 			<?php if (function_exists('bu_content_banner')) {
 				echo(do_shortcode(bu_content_banner($post->ID, $args = array(
 					'before' => '<div class="banner-container">',
@@ -70,11 +75,11 @@
 				if($headerLayout == "l-branding"):
 			?>
 				<nav role="navigation">
-					<?php get_search_form(); ?>
-					<div id="navToggle">menu</div>
-					<div id="searchToggle">search</div>
+					<div class="navToggle"><?php include("images/menu.svg"); ?></div>
+					<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 					<?php wp_nav_menu($navArgs); ?>
 				</nav>
+				<?php get_search_form(); ?>
 			<?php
 				endif;
 			?>
@@ -84,11 +89,11 @@
 				if($headerLayout == "l-sidenav"):
 			?>
 				<nav role="navigation">
-					<?php get_search_form(); ?>
-					<div id="navToggle">menu</div>
-					<div id="searchToggle">search</div>
+					<div class="navToggle"><?php include("images/menu.svg"); ?></div>
+					<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 					<?php wp_nav_menu($navArgs); ?>
 				</nav>
+				<?php get_search_form(); ?>
 			<?php
 				endif;
 			?>

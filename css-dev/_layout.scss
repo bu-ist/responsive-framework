@@ -58,32 +58,38 @@ h6 {
 header {
 	padding:0;
 	background: #fff;
-	border-top:1px solid #fff;
-	@include clearfix;
 	
-	#siteName {
-		font-family: $font-branding; 
-		font-weight: 600; 
-		font-style: normal;
-		text-decoration: none;
-		color:#000;
-		display:block;
-		margin:20px;
-	
-		span {
+	#brand {
+		padding:20px;
+		
+		#siteName {
 			font-family: $font-branding; 
-			font-weight: 400; 
+			font-weight: 600; 
 			font-style: normal;
+			text-decoration: none;
+			color:#000;
+		
+			span {
+				font-family: $font-branding; 
+				font-weight: 400; 
+				font-style: normal;
+			}
+		}
+		
+		.searchToggle {
+			display:none;
+			
+			.path_1 {
+				fill: #000;
+			}
+		}
+		
+		.desc {
+			display: inline;
 		}
 	}
-		
-	.desc {
-		display: inline;
-	}
-
-	#searchform {
-		float:right;
-	}
+	
+	@include clearfix;
 }
 
 /* /header
@@ -97,23 +103,9 @@ header {
 nav {
 	background: #111111;
 	display: block;
-	padding:20px;
-	@include clearfix;
-	/*
-	@include breakpoint(medium) {
-		ul {
-			display:inline;
-			border:none;
-			
-			li {
-			display: inline-block;
-			*display: inline;
-			border:none;
-			}
-		}
-	}
-	*/
-
+	padding: 10px 15px;
+	
+	/* content nav list */
 	ul {
 		margin: 0;
 		display:none;
@@ -123,7 +115,7 @@ nav {
 			zoom: 1;
 			border-top: 1px solid #2e2e2e;
 			display:block;
-			padding:5px 10px;
+			padding:0 10px;
 			
 			a {
 				color: #7A7A7A;
@@ -143,32 +135,104 @@ nav {
 			}	
 		}
 	}
-}
-
-#navToggle {
-	width:35px;
-	height:35px;
-	float:left;
-	text-indent:-9999px;
-	background-image: $menu_icon;
-	background-size: 35px 35px;
 	
-	/*
-	@include breakpoint(medium) {
-		display:none;
+	/* menu icon */
+	.navToggle {
+		width:35px;
+		height:35px;
+		float:left;
+		
+		.path_1,
+		.path_2,
+		.path_3 {
+			fill:#fff;
+		}
+		
+		@include breakpoint(small) {
+			display: none;
+		}	
 	}
-	*/
+	
+	.navToggle.open {
+		
+	}
+	
+	@include clearfix;
+	@include breakpoint(medium) {
+		ul {
+			display:inline;
+			border:none;
+			
+			li {
+				display: inline-block;
+				*display: inline;
+				border:none;
+			}
+		}
+	}
 }
 
-	#navToggle.open {
-		background-image: $close_icon;
-	}
-
-nav.open {
+nav.open {		
+	
 	ul {
 		display:block;
 		clear:left;
 		padding-top:20px;
+	}
+}
+	
+/* left sidenav setting */
+body.l-sidenav {
+
+	@include breakpoint(extra_small) { 
+	    padding-left:50px;
+	
+		header {
+			
+			nav {
+				position: fixed;
+				left: 0;
+				top:0;
+				height: 100%;
+				width:50px;
+				
+				.navToggle {
+					position: absolute;
+					top:15px;
+					left:7px;
+				}
+				
+				.searchToggle {
+					display:none;
+				}			
+			}
+			
+			#brand {
+				.searchToggle {
+					display:block;
+				}
+			}
+		}
+	}
+	
+	@include breakpoint(small) { 
+	    padding-left:300px;
+		
+		header {
+			
+			nav {
+				width: 300px;
+				
+				ul {
+					display: block;
+					
+					li {
+						display: block;
+						border-bottom: 1px solid #2e2e2e;
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -178,109 +242,67 @@ nav.open {
 
 
 
+
 /* search
 ------------------------ */
 
-#quicksearch {
+.quicksearch {
 	display: none;
-	padding:0;
-	margin:-20px -20px 0 -20px;
+	padding:0 20px 20px 20px;
+	margin:0;
 	position: relative;
+	background: #111111;
+	
+	fieldset {
+		margin:0;
+	}
 	
 	label {
 		display:none;
 	}
 	
-	#search {
-		background: #333;
+	.search {
+		background: none;
 		border:none;
-		border-bottom:1px solid #494949;
+		border-top:1px dotted #575757;
+		border-bottom:1px dotted #575757;
 		width:100%;
-		padding:30px 20px;
+		padding:10px 0;
+		color:#fff;
+		font-size:34px;
 	}
 	
 	.button {
 		position: absolute;
 		border:none;
 		right:20px;;
-		top:20px;
+		top:12px;
 		background:transparent;
 		text-indent:-9000px;
 		width: 35px;
 		height: 35px;
-		background-image: $search_icon;
-		background-size: 35px 35px; 
 	}
 }
 
-#quicksearch.open {
+.quicksearch.open {
 	display: block;
 }
 
-#searchToggle {
+.searchToggle {
 	float:right;
 	width:35px;
 	height:35px;
-	text-indent:-9999px;
-	background-image: $search_icon;
-	background-size: 35px 35px;
-}
-
-#searchToggle.open {
-	background-image: $close_icon;
-}
-
-/* / search
------------------------- */
-
-
-
-
-
-/* left sidenav
------------------------- */
-
-/*
-body.l-sidenav {
 	
-	@include breakpoint(extra_small) { 
-	    padding-left:50px;
-	
-		header {
-			padding:40px;
-			
-			nav {
-				position: fixed;
-				left: 0;
-				top:0;
-				height: 100%;
-				width:50px;
-			}
-		}
-	}
-	
-	@include breakpoint(medium) { 
-	    padding-left:300px;
-		
-		header {
-			
-			nav {
-				width: 300px;
-				
-				ul {
-					
-					li {
-					display: block;
-					border-bottom: 1px solid #2e2e2e;
-					}
-				}
-			}
-		}
+	.path_1 {
+		fill: #fff;
 	}
 }
-*/
 
-/* /left sidenav
+.searchToggle.open {
+	
+}
+
+/* /search
 ------------------------ */
 
 /* END: header area
@@ -296,12 +318,21 @@ body.l-sidenav {
 .banner-container {
 	text-align: center;
 	padding:0;
+	background:#333;
+	
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+		margin:0 auto;
+	}
+	
+	@include transition(all, 0.2s, ease-in-out);
+	@include breakpoint(medium) {
+		padding:20px;
+	}
 }
 
-	.banner-container img {
-		width: 100%;
-		height: auto;
-	}
 	
 /* END: .banner-container
 ----------------------------------------------------------------- */
@@ -363,6 +394,39 @@ body.l-sidenav {
 /* /.row
 ------------------------ */	
 
+
+
+
+
+/* tables
+------------------------ */	
+
+table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+
+
+th, td {
+	text-align: left;
+	padding:20px;
+}
+
+table col[class*="col-"] {
+	display: table-column;
+	float: none;
+}
+
+table td[class*="col-"],
+table th[class*="col-"] {
+	display: table-cell;
+	float: none;
+}
+
+/* /tables
+------------------------ */	
+
 /* END: page content
 ----------------------------------------------------------------- */
 
@@ -373,10 +437,14 @@ body.l-sidenav {
 /* START: sidebar
 ----------------------------------------------------------------- */
 
-#right-content-area .widget {
-	background:#fff;
-	border:1px solid #ccc;
-	padding:20px;
+#right-content-area {
+	padding-top:20px;
+	
+	.widget {
+		background:#fff;
+		border:1px solid #ccc;
+		padding:20px;
+	}
 }
 
 /* END: sidebar
@@ -411,6 +479,7 @@ footer {
 /* START: grid
 ----------------------------------------------------------------- */
 
+
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5,
 .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10,
 .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3,
@@ -427,208 +496,7 @@ footer {
 	padding-left: 15px;
 }
 
-/*
-.container {
-	@include breakpoint(small) {
-		max-width: 750px;
-	}
-	
-	@include breakpoint(medium) {
-		max-width: 970px;
-	}
-	
-	@include breakpoint(large) {
-		max-width: 1170px;
-	}
-}
-
-.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5,
-.col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10,
-.col-lg-11 {
-	@include breakpoint(small) {
-		float: left;
-	}
-	
-	@include breakpoint(medium) {
-		float: left;
-	}
-	
-	@include breakpoint(large) {
-		float: left;
-	}
-}
-
-.col-lg-1 {
-	@include breakpoint(small) {
-		width: 8.333333333333332%;
-	}
-	
-	@include breakpoint(medium) {
-		width: 8.333333333333332%;
-	}
-	
-	@include breakpoint(large) {
-		width: 8.333333333333332%;
-	}
-}
-
-.col-lg-2 {
-	@include breakpoint(small) {
-		width: 16.666666666666664%;
-	}
-	
-	@include breakpoint(medium) {
-		width: 16.666666666666664%;
-	}
-	
-	@include breakpoint(large) {
-		width: 16.666666666666664%;
-	}
-}
-
-.col-lg-3 {
-	@include breakpoint(small) {
-		width: 25%;
-	}
-	
-	@include breakpoint(medium) {
-		width: 25%;
-	}
-	
-	@include breakpoint(large) {
-		width: 25%;
-	}
-}
-
-.col-lg-4 {
-	@include breakpoint(small) {
-		width: 33.33333333333333%;
-	}
-	
-	@include breakpoint(medium) {
-		width: 33.33333333333333%;
-	}
-	
-	@include breakpoint(large) {
-		width: 33.33333333333333%;
-	}
-}
-
-.col-lg-5 {
-	@include breakpoint(small) {
-		width: 41.66666666666667%;
-	}
-	
-	@include breakpoint(medium) {
-		width: 41.66666666666667%;
-	}
-	
-	@include breakpoint(large) {
-		width: 41.66666666666667%;
-	}
-}
-
-.col-lg-6 {
-	@include breakpoint(small) {
-		width: 50%;
-	}
-	
-	@include breakpoint(medium) {
-		width: 50%;
-	}
-	
-	@include breakpoint(large) {
-		width: 50%;
-	}
-}
-
-.col-lg-7 {
-	@include breakpoint(small) {
-		width: 58.333333333333336%;
-	}
-	
-	@include breakpoint(medium) {
-		width: 58.333333333333336%;
-	}
-	
-	@include breakpoint(large) {
-		width: 58.333333333333336%;
-	}
-}
-
-.col-lg-8 {
-	@include breakpoint(small) {
-		width: 66.66666666666666%;
-	}
-	
-	@include breakpoint(medium) {
-		width: 66.66666666666666%;
-	}
-	
-	@include breakpoint(large) {
-		width: 66.66666666666666%;
-	}
-}
-
-.col-lg-9 {
-	@include breakpoint(small) {
-		width: 75%;
-	}
-	
-	@include breakpoint(medium) {
-		width: 75%;
-	}
-	
-	@include breakpoint(large) {
-		width: 75%;
-	}
-}
-
-.col-lg-10 {
-	@include breakpoint(small) {
-		width: 83.33333333333334%;
-	}
-	
-	@include breakpoint(medium) {
-		width: 83.33333333333334%;
-	}
-	
-	@include breakpoint(large) {
-		width: 83.33333333333334%;
-	}
-}
-
-.col-lg-11 {
-	@include breakpoint(small) {
-		width: 91.66666666666666%;
-	}
-	
-	@include breakpoint(medium) {
-		width: 91.66666666666666%;
-	}
-	
-	@include breakpoint(large) {
-		width: 91.66666666666666%;
-	}
-}
-
-.col-lg-12 {
-	@include breakpoint(small) {
-		width: 100%;
-	}
-	
-	@include breakpoint(medium) {
-		width: 100%;
-	}
-	
-	@include breakpoint(large) {
-		width: 100%;
-	}
-}
-*/
-
 /* small screens */
-/*
 @media (min-width: $S) {
 	.container {
 		max-width: 750px;
@@ -688,10 +556,8 @@ footer {
 		width: 100%;
 	}
 }
-*/
 
 /* medium screens */
-/*
 @media (min-width: $M) {
 	.container {
 		max-width: 970px;
@@ -751,10 +617,8 @@ footer {
 		width: 100%;
 	}
 }
-*/
 
 /* large screens */
-/*
 @media (min-width: $L) {
 	.container {
 		max-width: 1170px;
@@ -814,12 +678,6 @@ footer {
 		width: 100%;
 	}
 }
-*/
 
 /* END: grid
 ----------------------------------------------------------------- */
-
-
-
-
-
