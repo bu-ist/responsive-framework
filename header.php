@@ -60,17 +60,6 @@
 				<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 			</div>
 			
-			<?php if (function_exists('bu_content_banner')) {
-				echo(do_shortcode(bu_content_banner($post->ID, $args = array(
-					'before' => '<div class="banner-container page-width">',
-					'after' => '</div>',
-					'class' => 'banner',
-					//'maxwidth' => 900,
-					'position' => 'page-width',
-					'echo' => false
-					))));
-			} ?>
-			
 			<?php
 				if($headerLayout == "l-branding"):
 			?>
