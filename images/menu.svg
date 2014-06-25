@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="main_menu_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
 	 y="0px" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
 <title>Navigation</title>
 <desc>This is the navigation menu icon</desc>
-<path class="path_1" d="M612,172.9c0,30.3-25,55.3-55.3,55.3H55.3C25,229.5,0,204.5,0,172.9l0,0c0-30.3,25-55.3,55.3-55.3h501.4
-	C587,117.6,612,142.6,612,172.9L612,172.9z"/>
-<path class="path_2" d="M612,396.7c0,30.3-25,55.3-55.3,55.3H55.3C25,451.9,0,426.9,0,396.7l0,0c0-30.3,25-55.3,55.3-55.3h501.4
-	C587,340.1,612,365.1,612,396.7L612,396.7z"/>
-<path class="path_3" d="M612,619.1c0,30.3-25,55.3-55.3,55.3H55.3C25,674.4,0,649.4,0,619.1l0,0c0-30.3,25-55.3,55.3-55.3h501.4
-	C587,562.5,612,587.5,612,619.1L612,619.1z"/>
+<rect class="r1" y="117.6" width="612" height="110.6"/>
+<rect class="r2" y="340.6" width="612" height="110.6"/>
+<rect class="r3" y="563.6" width="612" height="110.6"/>
 </svg>
