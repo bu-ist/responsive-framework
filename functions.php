@@ -49,6 +49,17 @@ if(class_exists('AllowedTemplates')) {
 	$banner_templates->register(array('single.php', 'default', 'calendar.php', 'news.php', 'blank.php', 'window-width-blank.php', 'page-no-title.php', 'profiles.php' ));
 }
 
+/* remove extra padding for captions */
+add_filter('shortcode_atts_caption', 'fixExtraCaptionPadding');
+
+function fixExtraCaptionPadding($attrs)
+{
+    if (!empty($attrs['width'])) {
+        $attrs['width'] += 10;
+    }
+    return $attrs;
+}
+
 
 /* - - - - - - - - - - - - - - - - -
 	Theme Capabilities  
