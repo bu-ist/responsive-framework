@@ -358,7 +358,6 @@ body.l-sidenav.navopen {
 .banner-container {
 	text-align: center;
 	padding:0;
-	background:#333;
 	
 	img {
 		max-width: 100%;
@@ -367,13 +366,33 @@ body.l-sidenav.navopen {
 		margin:0 auto;
 	}
 	
-	@include transition(all, 0.2s, ease-in-out);
+	@include breakpoint(small) {
+		margin-bottom:20px;
+	}
+	
 	@include breakpoint(medium) {
+		background: #333;
 		padding:20px;
 	}
 }
 
+.page-width {
+	margin-bottom:20px;
 	
+	img {
+		@include breakpoint(medium) {
+			background: #333;
+			width:100%;
+		}	
+	}	
+}
+
+.content-width {
+	background:none;
+	padding:0;
+	margin-bottom:20px;
+}
+
 /* END: .banner-container
 ----------------------------------------------------------------- */
 
@@ -406,10 +425,6 @@ body.l-sidenav.navopen {
 
 .row {
 	margin:0 0 20px 0;
-	
-	+ .row {
-		margin-bottom:0;
-	}
 
 	[class*="col-"] {
 		padding: 20px;
@@ -427,6 +442,10 @@ body.l-sidenav.navopen {
 
 .row:after {
 	clear: both;
+}
+
+.row .row:nth-last-of-type(1) {
+	margin-bottom:0;
 }
 
 /* /.row
@@ -564,7 +583,6 @@ div {
 ----------------------------------------------------------------- */
 
 #right-content-area {
-	padding-top:20px;
 	
 	.widget {
 		background-color: rgba(255,255,255,1);
@@ -573,7 +591,7 @@ div {
 	}
 	
 	@include breakpoint(medium) {
-		padding:20px 0 20px 20px;
+		padding:0 0 0 20px;
 	}
 }
 
@@ -593,6 +611,10 @@ div {
 	
 	div {
 		margin:0 auto;
+		@include clearfix;
+		@include breakpoint(medium) { 
+			padding:20px;
+		}
 	}
 	
 	.widget {
@@ -613,12 +635,13 @@ div {
 			width:33.333%;
 			border:none;
 			border-right: 1px solid rgba(255,255,255,.15);
+			padding:0 20px;
 		}
 	}
 	
-	.widget-last {
+	.widget-first {
 		@include breakpoint(medium) { 
-			border:none;
+			border-left: 1px solid rgba(255,255,255,.15);
 		}
 	}
 	
