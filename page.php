@@ -1,5 +1,7 @@
 <?php get_header(); ?>
+
 	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+	
 		<?php if (function_exists('bu_content_banner')) {
 			echo(do_shortcode(bu_content_banner($post->ID, $args = array(
 				'before' => '<div class="banner-container page-width">',
