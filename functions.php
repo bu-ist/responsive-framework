@@ -16,9 +16,9 @@ function bu_responsive_init() {
 			'hint' => 'Banner will appear above the content and sidebars and should be XY pixels wide.'
 		));
 		bu_register_banner_position('content-width', array(
-				'label' => 'Content width',
-				'hint' => 'Banner will appear above the title in the content area and should be XY pixels wide.',
-				'default' => true
+			'label' => 'Content width',
+			'hint' => 'Banner will appear above the title in the content area and should be XY pixels wide.',
+			'default' => true
 		));
 	}
 	
@@ -273,17 +273,16 @@ function bu_flexi_calendar_full_date($events, $base_url, $calendar_id = null) {
 	 $output = '';
 
 	if ((is_array($events)) && (count($events) > 0)) {
+		foreach ($events as $e) {
+			$url = sprintf('%s?eid=%s', $base_url, urlencode($e['id']));
+			if (!empty($e['oid'])) $url .= '&oid=' . urlencode($e['oid']);
+			if (!empty($calendar_id)) $url .= '&cid=' . urlencode($calendar_id);
 
-			foreach ($events as $e) {
-					$url = sprintf('%s?eid=%s', $base_url, urlencode($e['id']));
-					if (!empty($e['oid'])) $url .= '&oid=' . urlencode($e['oid']);
-					if (!empty($calendar_id)) $url .= '&cid=' . urlencode($calendar_id);
+			if (isset($e['subscription_name'])) $url .= '&sub=' . urlencode($e['subscription_name']);
 
-					if (isset($e['subscription_name'])) $url .= '&sub=' . urlencode($e['subscription_name']);
-
-					$output .= sprintf('<li><span class="date">%s</span> <a href="%s"><span class="title">%s</span></a></li>', date('l, F j', $e['starts']), esc_url($url), $e['summary']);
-					$output .= "\n";
-			}
+			$output .= sprintf('<li><span class="date">%s</span> <a href="%s"><span class="title">%s</span></a></li>', date('l, F j', $e['starts']), esc_url($url), $e['summary']);
+			$output .= "\n";
+		}
 	}
 
 	return $output;
@@ -354,11 +353,11 @@ function bu_flexi_title_date_callback($post, $args) {
 	$output .= '<section class="post">';
 	if($args['show_thumbnail'] && function_exists('bu_get_thumbnail_src')) {
 		$output .= bu_get_thumbnail_src($post->ID, array(
-							'maxwidth' => 88,
-							'maxheight' => 88,
-							'classes' => 'thumb',
-							'use_thumb' => true)
-						);
+			'maxwidth' => 88,
+			'maxheight' => 88,
+			'classes' => 'thumb',
+			'use_thumb' => true)
+		);
 	}
 	$output .= sprintf('<h1><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title());
 	$output .= sprintf('<p class="meta"><span class="published">%s</span></p>', BU_PostList::post_date('F j, Y'));
@@ -374,11 +373,11 @@ function bu_flexi_posts_widget_default_callback($post, $args) {
 	$output .= '<section class="post">';
 	if($args['show_thumbnail'] && function_exists('bu_get_thumbnail_src')) {
 		$output .= bu_get_thumbnail_src($post->ID, array(
-							'maxwidth' => 260,
-							'maxheight' => 260,
-							'classes' => 'thumb',
-							'use_thumb' => false)
-						);
+			'maxwidth' => 260,
+			'maxheight' => 260,
+			'classes' => 'thumb',
+			'use_thumb' => false)
+		);
 	}
 	$output .= sprintf('<h1 class="headline"><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title());
 
@@ -445,6 +444,5 @@ function browser_body_class($classes = '') {
 
 	return $classes;
 }
-
 
 ?>

@@ -71,14 +71,11 @@ if ($timestamp > $boundary_future) {
 	$yyyymmdd = date('Ymd', $timestamp);
 }
 
-
-
 // Remove default sharedaddy display location
 remove_filter('the_content', 'sharing_display', 19);
 
 ?>
 <?php get_header(); ?>
-
 
 <article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
 	<div class="container">
@@ -99,8 +96,6 @@ remove_filter('the_content', 'sharing_display', 19);
 
 				<?php wp_link_pages(array('before' => '<p><strong>Pages:</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
 		<?php endwhile; endif; ?>
-
-
 
 		<?php if (!$calendarID) { ?>
 			<p>This site does not have any calendar associated with it.</p>
@@ -131,7 +126,6 @@ remove_filter('the_content', 'sharing_display', 19);
 			} else {
 				$query_end = $last_event;
 			}
-			
 			
 			/* Content: Calendar Topic */
 			if (is_array($topicDetail)) { ?>
@@ -205,7 +199,7 @@ remove_filter('the_content', 'sharing_display', 19);
 					</div>
 				</div>
 			<?php } ?>
-	<?php } else { ?>
+		<?php } else { ?>
 			<h1><?php echo $event['summary'];?></h1>
 			<div class="eventDetail">
 				<div class="description"><?php print(html_entity_decode($event['description'])); ?></div>
@@ -297,10 +291,6 @@ remove_filter('the_content', 'sharing_display', 19);
 						<dd><?php printf('<a href="%s">%s</a>', $event['url'], $urlText); ?></dd>
 					<?php } ?>
 					
-					
-					
-					
-					
 					<?php if ($event['contactOrganization']) { ?>
 						<dt>Contact Organization:</dt>
 						<dd><?php print($event['contactOrganization']); ?></dd>
@@ -325,7 +315,6 @@ remove_filter('the_content', 'sharing_display', 19);
 	</div><!--/.container -->
 </article>
 
-
 <aside class="col-md-4" id="right-content-area">
 	<?php
 		bu_flexi_calendar_sidebar(); 
@@ -337,11 +326,4 @@ remove_filter('the_content', 'sharing_display', 19);
 
 </div>
 
-
-
 <?php get_footer(); ?>
-
-
-
-
-
