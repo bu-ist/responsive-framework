@@ -28,6 +28,9 @@
 #burf_section_layout li:nth-of-type(3) label:after {
 	background-position: 0 -300px;
 }
+#burf_section_layout li:nth-of-type(4) label:after {
+	background-position: -300px 0;
+}
 
 /* Customizer: Fonts */
 #burf_section_fonts input {

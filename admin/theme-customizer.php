@@ -127,7 +127,8 @@ function burf_customize_register($wp_customize){
 	        'choices'    => array(
 	            'l-branding' => 'Site Branding Top',
 	            'l-navbar' => 'Navigation Bar Top',
-	            'l-sidenav' => 'Side Navigation'
+	            'l-sidenav' => 'Side Navigation',
+	            'l-nonav' => 'No Navigation'
 	        )
         )));
         
