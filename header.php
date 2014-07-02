@@ -34,6 +34,13 @@
 					'container' 		=> 'false',
 					'items_wrap' 		=> '<ul>%3$s</ul>',
 				);
+				$utilArgas = array(
+					'theme_location'	=> 'utility',
+					'container' 		=> 'false',
+					'items_wrap' 		=> '<ul>%3$s</ul>',
+				);
+				
+				
 				$headerLayout = get_option("burf_setting_layout");
 			?>
 			
@@ -56,7 +63,9 @@
 				</a>
 				
 				<p class="desc"><?php bloginfo( 'description' ); ?></p>
-				
+				<?php if($headerLayout == "l-navbar" || $headerLayout == "l-branding"): ?>
+					<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
+				<?php endif; ?>
 				<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 			</div>
 			
@@ -82,6 +91,9 @@
 					<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 					<?php wp_nav_menu($navArgs); ?>
 				</nav>
+				
+				<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
+				
 				<?php get_search_form(); ?>
 			<?php
 				endif;
