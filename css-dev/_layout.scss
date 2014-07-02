@@ -204,12 +204,6 @@ body.l-sidenav {
 		}
 	}
 	
-	/*
-	.searchToggle {
-		margin-top:-5px;	
-	}
-	*/
-	
 	@include breakpoint(extra_small) { 
 	    padding-left:50px;
 	
@@ -339,6 +333,10 @@ body.l-sidenav.navopen {
 	.p1,
 	.p2 {
 		fill: #fff;
+	}
+	
+	@include breakpoint(small) { 
+		margin-top:-5px;	
 	}
 }
 
