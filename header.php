@@ -76,6 +76,10 @@
 					<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
 				<?php endif; ?>
 				<div class="searchToggle"><?php include("images/search.svg"); ?></div>
+				<?php if($headerLayout == "l-nonav"): ?>
+					<?php get_search_form(); ?>
+				<?php endif; ?>
+				
 			</div>
 			
 			<?php
