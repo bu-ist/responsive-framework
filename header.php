@@ -1,5 +1,10 @@
+<!--[if IE ]><![endif]-->
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js ie lt-ie9 lt-ie8 lt-ie7"  lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js ie lt-ie9 lt-ie8"  lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js ie lt-ie9"  lang="en"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie ie9"  lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"  lang="en"> <!--<![endif]-->
 	<head>
 		<title><?php responsive_get_title(); ?></title>
 		
@@ -19,6 +24,10 @@
 		<!-- Stylesheets -->
 		<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6127692/660644/css/fonts.css" />
 		<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+
+		<!--[if (lt IE 9)&(!IEMobile 7) ]>
+			<link rel='stylesheet' type='text/css' href="<?php echo get_template_directory_uri(); ?>/ie.css?&ver=0.1" />
+		<![endif]-->
 		<!-- Stylesheets -->
 		
 		
@@ -47,7 +56,7 @@
 			<?php
 				if($headerLayout == "l-navbar"):
 				?>
-					<nav role="navigation">
+					<nav id="main" role="navigation">
 						<div class="navToggle"><?php include("images/menu.svg"); ?></div>
 						<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 						<?php wp_nav_menu($navArgs); ?>
@@ -72,7 +81,7 @@
 			<?php
 				if($headerLayout == "l-branding"):
 			?>
-				<nav role="navigation">
+				<nav id="main" role="navigation">
 					<div class="navToggle"><?php include("images/menu.svg"); ?></div>
 					<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 					<?php wp_nav_menu($navArgs); ?>
@@ -86,13 +95,16 @@
 			<?php
 				if($headerLayout == "l-sidenav"):
 			?>
-				<nav role="navigation">
+				<nav id="main" role="navigation">
 					<div class="navToggle"><?php include("images/menu.svg"); ?></div>
 					<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 					<?php wp_nav_menu($navArgs); ?>
+					
+					<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
+					
 				</nav>
 				
-				<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
+				
 				
 				<?php get_search_form(); ?>
 			<?php
