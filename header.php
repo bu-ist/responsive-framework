@@ -107,9 +107,6 @@
 					<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
 					
 				</nav>
-				
-				
-				
 				<?php get_search_form(); ?>
 			<?php
 				endif;
