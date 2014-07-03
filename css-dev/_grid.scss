@@ -16,7 +16,7 @@
 }
 
 /* small screens */
-@media (min-width: $S) {
+@include breakpoint(small) {
 	.container, #bottom-content-area div {
 		max-width: $container_S;
 	}
@@ -77,7 +77,7 @@
 }
 
 /* medium screens */
-@media (min-width: $M) {
+@include breakpoint(medium) {
 	.container, #bottom-content-area div  {
 		max-width: $container_M;
 	}
@@ -138,7 +138,7 @@
 }
 
 /* large screens */
-@media (min-width: $L) {
+@include breakpoint(large) {
 	.container, #bottom-content-area div  {
 		max-width: $container_L;
 	}
