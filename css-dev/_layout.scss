@@ -104,11 +104,11 @@ header {
 
 
 
-/* nav
+/* main nav
 ------------------------ */
 
 /* above & below navbar setting */
-nav {
+nav#main {
 	background: #151515;
 	display: block;
 	padding: 10px 15px;
@@ -186,15 +186,18 @@ nav.open {
 		padding-top:10px;
 	}
 }
-	
+
 /* left navbar setting */
 body.l-sidenav {
 
-	.search {
-		@include breakpoint(extra_small) {
-			border-top:1px solid rgba(0,0,0,.15);
-			border-bottom:1px solid rgba(0,0,0,.15);
-			font-size:24px;
+	.quicksearch {
+		.search {
+			@include breakpoint(extra_small) {
+				border-top:1px solid rgba(0,0,0,.15);
+				border-bottom:1px solid rgba(0,0,0,.15);
+				font-size:24px;
+				color:#999;
+			}
 		}
 	}
 	
@@ -209,7 +212,7 @@ body.l-sidenav {
 	
 		header {
 			
-			nav {
+			nav#main {
 				position: fixed;
 				z-index: 100;
 				left: 0;
@@ -244,12 +247,12 @@ body.l-sidenav {
 	    padding-left:300px;
 		
 		header {
-			
-			nav {
+		
+			nav#main {
 				width: 300px;
 				padding-top:27px;
 				
-				ul {
+				> ul {
 					display: block;
 					border-top: 1px solid rgba(255,255,255,.15);
 					
@@ -269,7 +272,18 @@ body.l-sidenav.navopen {
 	}
 }
 
-/* /nav
+/* /main nav
+------------------------ */
+
+
+
+
+/* utility nav
+------------------------ */
+
+
+
+/* /utility nav
 ------------------------ */
 
 
@@ -338,6 +352,16 @@ body.l-sidenav.navopen {
 	@include breakpoint(small) { 
 		margin-top:-5px;	
 	}
+}
+
+.l-nonav {
+	header {	
+		#brand {
+			.searchToggle {
+				display: block;
+			}
+		}
+	}	
 }
 
 /* /search
