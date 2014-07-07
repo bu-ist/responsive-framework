@@ -61,42 +61,49 @@ header {
 	padding:0;
 	background: #fff;
 	
-	#brand {
-		padding:20px;
-		
-		#siteName {
+	@include clearfix;
+}
+
+/* #brand */
+#brand {
+	padding:20px;
+	
+	#siteName {
+		font-family: $font-branding; 
+		font-weight: 600; 
+		font-style: normal;
+		text-decoration: none;
+		color:#000;
+	
+		span {
 			font-family: $font-branding; 
-			font-weight: 600; 
+			font-weight: 400; 
 			font-style: normal;
-			text-decoration: none;
-			color:#000;
-		
-			span {
-				font-family: $font-branding; 
-				font-weight: 400; 
-				font-style: normal;
-			}
-		}
-		
-		.searchToggle {
-			display:none;
-			
-			.p1,
-			.p2 {
-				fill: #000;
-			}
-		}
-		
-		.desc {
-			display: inline;
-		}
-		
-		@include breakpoint(small) { 
-			padding:40px;
 		}
 	}
 	
-	@include clearfix;
+	/* .searchToggle appears only when header is
+	small and above, otherwise it's hidden */
+	.searchToggle {
+		display:none;
+		
+		.p1,
+		.p2 {
+			fill: #000;
+		}
+	}
+	
+	.desc {
+		display: inline;
+	}
+	
+	@include breakpoint(small) { 
+		padding:40px;
+	}
+	
+	@include breakpoint_test(large) { 
+		background: #ffcc00;
+	}
 }
 
 /* /header
@@ -104,11 +111,13 @@ header {
 
 
 
+
+
 /* main nav
 ------------------------ */
 
 /* above & below navbar setting */
-nav#main {
+.mainNav {
 	background: #151515;
 	display: block;
 	padding: 10px 15px;
@@ -144,24 +153,8 @@ nav#main {
 		}
 	}
 	
-	/* menu icon */
-	.navToggle {
-		width:35px;
-		height:35px;
-		float:left;
-		
-		.r1,
-		.r2,
-		.r3 {
-			fill:#fff;
-		}
-		
-		@include breakpoint(small) {
-			display: none;
-		}	
-	}
-	
 	@include clearfix;
+	
 	@include breakpoint(small) {
 		padding:10px 30px;
 		
@@ -178,26 +171,15 @@ nav#main {
 	}
 }
 
-nav.open {		
-	
-	ul {
-		display:block;
-		clear:left;
-		padding-top:10px;
-	}
-}
-
 /* left navbar setting */
-body.l-sidenav {
+.l-sidenav {
 
-	.quicksearch {
-		.search {
-			@include breakpoint(extra_small) {
-				border-top:1px solid rgba(0,0,0,.15);
-				border-bottom:1px solid rgba(0,0,0,.15);
-				font-size:24px;
-				color:#999;
-			}
+	.search {
+		@include breakpoint(extra_small) {
+			border-top:1px solid rgba(0,0,0,.15);
+			border-bottom:1px solid rgba(0,0,0,.15);
+			font-size:24px;
+			color:#999;
 		}
 	}
 	
@@ -210,63 +192,84 @@ body.l-sidenav {
 	@include breakpoint(extra_small) { 
 	    padding-left:50px;
 	
-		header {
-			
-			nav#main {
-				position: fixed;
-				z-index: 100;
-				left: 0;
-				top:0;
-				height: 100%;
-				width:50px;
-				
-				.navToggle {
-					position: absolute;
-					top:15px;
-					left:7px;
-				}
-				
-				.searchToggle {
-					display:none;
-				}			
+		.mainNav  {
+			position: fixed;
+			z-index: 100;
+			left: 0;
+			top:0;
+			height: 100%;
+			width:50px;			
+		}
+		
+		nav.open {		
+			width:300px;
+		}
+		
+		#brand {
+			.searchToggle {
+				display:block;
 			}
-			
-			nav.open {		
-				width:300px;
-			}
-			
-			#brand {
-				.searchToggle {
-					display:block;
-				}
-			}
+		}
+		
+		.navToggle {
+			position: absolute;
+			top:15px;
+			left:7px;
+		}
+		
+		.searchToggle {
+			display:none;
 		}
 	}
 	
 	@include breakpoint(small) { 
 	    padding-left:300px;
 		
-		header {
-		
-			nav#main {
-				width: 300px;
-				padding-top:27px;
+		.mainNav  {
+			width: 300px;
+			padding-top:27px;
+			
+			> ul {
+				display: block;
+				border-top: 1px solid rgba(255,255,255,.15);
 				
-				> ul {
+				li {
 					display: block;
-					border-top: 1px solid rgba(255,255,255,.15);
-					
-					li {
-						display: block;
-						border-bottom: 1px solid rgba(255,255,255,.15);
-					}
+					border-bottom: 1px solid rgba(255,255,255,.15);
 				}
 			}
 		}
 	}
 }
 
-body.l-sidenav.navopen {
+/* menu icon */
+.navToggle {
+	width:35px;
+	height:35px;
+	float:left;
+	
+	/* paths for svg */
+	.r1,
+	.r2,
+	.r3 {
+		fill:#fff;
+	}
+	
+	@include breakpoint(small) {
+		display: none;
+	}	
+}
+	
+.open {		
+	
+	ul {
+		display:block;
+		clear:left;
+		padding-top:10px;
+	}
+}
+
+.l-sidenav.navopen {
 	@include breakpoint(extra_small) { 
 	    padding-left:300px;
 	}
@@ -290,6 +293,7 @@ body.l-sidenav.navopen {
 
 
 
+
 /* search
 ------------------------ */
 
@@ -308,31 +312,31 @@ body.l-sidenav.navopen {
 		display:none;
 	}
 	
-	.search {
-		background: none;
-		border:none;
-		border-top:1px solid rgba(255,255,255,.15);
-		border-bottom:1px solid rgba(255,255,255,.15);
-		width:100%;
-		padding:10px 0;
-		color:#fff;
-		font-size:18px;
-	}
-	
-	.button {
-		position: absolute;
-		border:none;
-		right:20px;;
-		top:12px;
-		background:transparent;
-		text-indent:-9000px;
-		width: 35px;
-		height: 35px;
-	}
-	
 	@include breakpoint(small) {
 		padding:0 40px 20px 40px;
 	}
+}
+
+.search {
+	background: none;
+	border:none;
+	border-top:1px solid rgba(255,255,255,.15);
+	border-bottom:1px solid rgba(255,255,255,.15);
+	width:100%;
+	padding:10px 0;
+	color:#fff;
+	font-size:18px;
+}
+
+.button {
+	position: absolute;
+	border:none;
+	right:20px;;
+	top:12px;
+	background:transparent;
+	text-indent:-9000px;
+	width: 35px;
+	height: 35px;
 }
 
 .quicksearch.open {
@@ -480,6 +484,7 @@ body.l-sidenav.navopen {
 ------------------------ */
 
 article {
+	
 	header {
 		background: none;
 	}
@@ -490,8 +495,7 @@ article {
 		
 		p {
 			color:#000;
-		}
-		
+		}		
 	}
 }
 
@@ -695,10 +699,11 @@ div {
 		}
 	}
 	
+	@include clearfix;
+	
 	@include breakpoint(medium) {
 		padding:20px 0;
 	}
-	@include clearfix;
 }
 
 /* END: #bottom-content-area
