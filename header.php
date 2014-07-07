@@ -102,11 +102,21 @@
 				<nav class="mainNav" role="navigation">
 					<div class="navToggle"><?php include("images/menu.svg"); ?></div>
 					<div class="searchToggle"><?php include("images/search.svg"); ?></div>
-					<?php wp_nav_menu($navArgs); ?>
+					<?php
+                    if (function_exists('bu_navigation_display_primary')) {
+                        $defaults = array(
+                            'container_id' => 'pnm', // HTML ID attribute of menu container
+                            'container_class' => 'nav nav-primary-list' // HTML class attributes for menu container
+                            
+                        );
+                        bu_navigation_display_primary($defaults);
+                    }
+                    ?>
 					
 					<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
 					
 				</nav>
+				 
 				<?php get_search_form(); ?>
 			<?php
 				endif;
