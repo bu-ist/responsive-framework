@@ -56,7 +56,7 @@
 			<?php
 				if($headerLayout == "l-navbar"):
 				?>
-					<nav id="main" role="navigation">
+					<nav class="mainNav" role="navigation">
 						<div class="navToggle"><?php include("images/menu.svg"); ?></div>
 						<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 						<?php wp_nav_menu($navArgs); ?>
@@ -85,7 +85,7 @@
 			<?php
 				if($headerLayout == "l-branding"):
 			?>
-				<nav id="main" role="navigation">
+				<nav class="mainNav" role="navigation">
 					<div class="navToggle"><?php include("images/menu.svg"); ?></div>
 					<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 					<?php wp_nav_menu($navArgs); ?>
@@ -99,7 +99,7 @@
 			<?php
 				if($headerLayout == "l-sidenav"):
 			?>
-				<nav id="main" role="navigation">
+				<nav class="mainNav" role="navigation">
 					<div class="navToggle"><?php include("images/menu.svg"); ?></div>
 					<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 					<?php wp_nav_menu($navArgs); ?>

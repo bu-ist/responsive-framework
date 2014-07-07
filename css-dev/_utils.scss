@@ -1,0 +1,104 @@
+/* START: variables
+----------------------------------------------------------------- */
+
+/* typography */
+
+$font-branding: 'Whitney SSm A', 'Whitney SSm B';
+
+/* breakpoint sizes */
+
+$XS: 500px;
+$S: 768px;
+$M: 992px;
+$L: 1200px;
+
+/* .container,
+#bottom-content-area div
+widths  */
+
+$container_S: 750px;
+$container_M: 970px;
+$container_L: 1170px;
+
+/* END: variables
+----------------------------------------------------------------- */
+
+
+
+
+
+/* START: mixins
+----------------------------------------------------------------- */
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin breakpoint($point) {
+    @if $point == extra_small {
+        @media (min-width: $XS) { @content; }
+    }
+    @if $point == small {
+        @media (min-width: $S) { @content; }
+    }
+    @if $point == medium {
+        @media (min-width: $M) { @content; }
+    }
+    @if $point == large {
+        @media (min-width: $L) { @content; }
+    }
+}
+
+/* END: mixins
+----------------------------------------------------------------- */
+
+
+
+@mixin breakpoint_test($point) {
+    /* If primary stylesheet indicates media query support (e.g. style.scss), output media queries.
+     *     If not (e.g. ie.scss), output the block WITHOUT @media wrapper. */
+    
+    @if ($MQs and $point == extra_small) {
+        @media (min-width: $XS) { @content; }
+    } @else {
+        @content;
+    }
+
+    @if ($MQs and $point == small) {
+        @media (min-width: $S) { @content; }
+    } @else {
+        @content;
+    }
+
+    @if ($MQs and $point == medium) {
+        @media (min-width: $M) { @content; }
+    } @else {
+        @content;
+    }
+
+    @if ($MQs and $point == large) {
+        @media (min-width: $L) { @content; }
+    } @else {
+        /* don't output anything for IE at large sizes */
+    }
+    
+}
