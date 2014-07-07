@@ -27,11 +27,25 @@
         <article class="article-archive <?php echo $firstClass; ?>" id="post-<?php the_ID(); ?>">
 			<?php $firstClass = ""; ?>
 			<?php ?>
-                <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( '%s' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-                	<h2><?php the_title(); ?></h2>
-                </a>
-                <?php the_excerpt(); ?>
+                
+                <h2><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( '%s' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+                
                 <p class="entry-meta"><time datetime="<?php the_time('l, F jS, Y') ?>" pubdate><?php the_time('l jS F Y') ?></time></p>
+                <?php the_excerpt(); ?>
+                
+                
+                <div class="categories">
+                	Categories: <?php the_category(', '); ?>
+                </div>
+                <div class="tags">
+                	<?php the_tags('Tags: ', ', ', ' '); ?> 
+                </div>
+                <div class="taxonomies">
+                	 <?php echo custom_taxonomies_terms_links(); ?>
+                </div>
+                
+                
+                
 		</article>
 
 		<?php comments_template( '', true ); ?>
