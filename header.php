@@ -104,6 +104,7 @@
 					<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 					<?php
                     if (function_exists('bu_navigation_display_primary')) {
+                    	//see https://github.com/bu-ist/bu-navigation/wiki/Adding-Theme-Support-for-Primary-Navigation-Menus
                         $defaults = array(
                             'container_id' => 'pnm', // HTML ID attribute of menu container
                             'container_class' => 'nav nav-primary-list' // HTML class attributes for menu container
