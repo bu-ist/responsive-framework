@@ -4,12 +4,11 @@ require_once("responsive-functions.php");
 require_once("flexi-functions/calendar.php");
 
 function if_child_path() {
-
     if (is_child_theme())
         $p = get_template_directory_uri();
     else
         $p = get_stylesheet_directory_uri();
-    return $p;
+    return $p; 
 }
 
 function bu_responsive_init() {
