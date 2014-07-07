@@ -6,9 +6,8 @@
 	Description: Responsive framework, started with Barebones, ........
 ---------------------- */
 
-// This stylesheet will output media queries (unlike ie.scss)
+// This stylesheet will output media queries
 $MQs: true;
-
 
 /* ! reset
 ---------------------- */
@@ -18,13 +17,9 @@ $MQs: true;
 ---------------------- */
 @import 'fonts';
 
-/* ! variables
+/* ! utils
 ---------------------- */
-@import 'variables';
-
-/* ! mixins
----------------------- */
-@import 'mixins';
+@import 'utils';
 
 /* ! grid
 ---------------------- */
