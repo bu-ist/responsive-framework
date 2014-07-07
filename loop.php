@@ -10,12 +10,20 @@
         </article>
     <?php endif; ?>
 <?php ?>
-
+	
     <h1>
         <?php if ( is_day() ) : ?><?php printf( __( '<span>Daily Archive</span> %s' ), get_the_date() ); ?>
         <?php elseif ( is_month() ) : ?><?php printf( __( '<span>Monthly Archive</span> %s' ), get_the_date('F Y') ); ?>
         <?php elseif ( is_year() ) : ?><?php printf( __( '<span>Yearly Archive</span> %s' ), get_the_date('Y') ); ?>
-        <?php elseif ( is_category() ) : ?><?php echo single_cat_title(); ?>
+        <?php elseif ( is_category() ) : ?>Category: <?php echo single_cat_title(); ?>
+        <?php elseif ( is_tag() ) : ?>Tag: <?php echo single_tag_title(); ?>
+        <?php elseif ( is_tax() ):
+		    global $wp_query;
+		    $term = $wp_query->get_queried_object();
+		    $title = $term->name;
+		    $tax = $term->taxonomy;
+		    echo($tax . ": " . $title);
+		?>
         <?php elseif ( is_search() ) : ?><?php printf( __( 'Search Results for: %s' ), '<span>' . get_search_query() . '</span>' ); ?>
         <?php elseif ( is_home() ) : ?>Latest Posts<?php else : ?>
         <?php endif; ?>
@@ -33,10 +41,11 @@
                 <p class="entry-meta"><time datetime="<?php the_time('l, F jS, Y') ?>" pubdate><?php the_time('l jS F Y') ?></time></p>
                 <?php the_excerpt(); ?>
                 
-                
+                <?php if(has_category()): ?>
                 <div class="categories">
                 	Categories: <?php the_category(', '); ?>
                 </div>
+                <?php endif; ?>
                 <div class="tags">
                 	<?php the_tags('Tags: ', ', ', ' '); ?> 
                 </div>
