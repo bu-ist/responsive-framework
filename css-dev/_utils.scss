@@ -71,8 +71,6 @@ $container_L: 1170px;
 /* END: mixins
 ----------------------------------------------------------------- */
 
-
-
 @mixin breakpoint_test($point) {
     /* If primary stylesheet indicates media query support (e.g. style.scss), output media queries.
      *     If not (e.g. ie.scss), output the block WITHOUT @media wrapper. */

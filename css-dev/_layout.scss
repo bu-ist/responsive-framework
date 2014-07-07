@@ -99,11 +99,7 @@ header {
 	
 	@include breakpoint(small) { 
 		padding:40px;
-	}
-	
-	@include breakpoint_test(large) { 
-		background: #ffcc00;
-	}
+	}	
 }
 
 /* /header
