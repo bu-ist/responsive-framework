@@ -4,11 +4,12 @@ require_once("responsive-functions.php");
 require_once("flexi-functions/calendar.php");
 
 function if_child_path() {
+
     if (is_child_theme())
         $p = get_template_directory_uri();
     else
         $p = get_stylesheet_directory_uri();
-    return $p; 
+    return $p;
 }
 
 function bu_responsive_init() {
@@ -56,6 +57,9 @@ if (class_exists('AllowedTemplates')) {
     if (!isset($banner_templates))
         $banner_templates = new AllowedTemplates();
     $banner_templates->register(array('single.php', 'default', 'calendar.php', 'news.php', 'blank.php', 'window-width-blank.php', 'page-no-title.php', 'profiles.php'));
+    
+    if(!isset($profile_templates)) $profile_templates = new AllowedTemplates();
+	$profile_templates->register(array('profiles.php'));
 }
 
 /* remove extra padding for captions */
@@ -441,6 +445,13 @@ function bu_flexi_profile_sidebar($args = array()) {
         dynamic_sidebar('sidebar-profile');
     }
 }
+
+// Add support for the custom post type version of profile plugin
+add_theme_support( 'bu-profiles-post_type' );
+add_action( 'bu_flexi_above_profile_sidebar', 'bu_flexi_profile_sidebar_link' );
+	
+	
+	
 
 /* - - - - - - - - - - - - - - - - -
   Body_Class (For Customizer)
