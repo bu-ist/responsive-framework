@@ -59,7 +59,11 @@
 					<nav class="mainNav" role="navigation">
 						<div class="navToggle"><?php include("images/menu.svg"); ?></div>
 						<div class="searchToggle"><?php include("images/search.svg"); ?></div>
-						<?php wp_nav_menu($navArgs); ?>
+						<?php 
+							if(!method_exists('BuAccessControlPlugin', 'is_site_403') || BuAccessControlPlugin::is_site_403() == false){
+								bu_navigation_display_primary(); 
+							}
+						?>
 					</nav>
 					<?php get_search_form(); ?>
 				<?php
@@ -88,7 +92,11 @@
 				<nav class="mainNav" role="navigation">
 					<div class="navToggle"><?php include("images/menu.svg"); ?></div>
 					<div class="searchToggle"><?php include("images/search.svg"); ?></div>
-					<?php wp_nav_menu($navArgs); ?>
+					<?php 
+						if(!method_exists('BuAccessControlPlugin', 'is_site_403') || BuAccessControlPlugin::is_site_403() == false){
+							bu_navigation_display_primary(); 
+						}
+					?>
 				</nav>
 				<?php get_search_form(); ?>
 			<?php
@@ -102,17 +110,12 @@
 				<nav class="mainNav" role="navigation">
 					<div class="navToggle"><?php include("images/menu.svg"); ?></div>
 					<div class="searchToggle"><?php include("images/search.svg"); ?></div>
-					<?php
-                    if (function_exists('bu_navigation_display_primary')) {
-                    	//see https://github.com/bu-ist/bu-navigation/wiki/Adding-Theme-Support-for-Primary-Navigation-Menus
-                        $defaults = array(
-                            'container_id' => 'pnm', // HTML ID attribute of menu container
-                            'container_class' => 'nav nav-primary-list' // HTML class attributes for menu container
-                            
-                        );
-                        bu_navigation_display_primary($defaults);
-                    }
-                    ?>
+					<?php 
+						if(!method_exists('BuAccessControlPlugin', 'is_site_403') || BuAccessControlPlugin::is_site_403() == false){
+							bu_navigation_display_primary(); 
+						}
+					?>
+					
 					
 					<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
 					
