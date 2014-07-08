@@ -1,56 +1,3 @@
-/* START: global
------------------------------------------------------------------ */
-
-/*
-body {
-	background: #f1f1f1;
-}
-*/
-
-/* END: global
------------------------------------------------------------------ */
-
-
-
-
-/* START: Typography
------------------------------------------------------------------ */
-
-p {
-	font-size:16px;
-}
-
-h1 {
-	font-size:33px;
-}
-
-h2 {
-	font-size:26px;
-}
-
-h3 {
-	font-size:23px;
-}
-
-h4 {
-	font-size:20px;
-}
-
-h5 {
-	font-size:18px;
-}
-
-h6 {
-	font-size:16px;
-}
-
-/* END: Typography
------------------------------------------------------------------ */
-
-
-
-
-
 /* START: header area
 ----------------------------------------------------------------- */
 
@@ -64,7 +11,13 @@ header {
 	@include clearfix;
 }
 
-/* #brand */
+
+
+
+
+/* #brand 
+------------------------ */
+
 #brand {
 	padding:20px;
 	
@@ -102,17 +55,65 @@ header {
 	}	
 }
 
-/* /header
+
+
+
+
+/* .quicksearch 
 ------------------------ */
 
+.quicksearch {
+	display: none;
+	padding:0 15px 20px 15px;
+	margin:0;
+	position: relative;
+	background: #151515;
+	
+	fieldset {
+		margin:0;
+	}
+	
+	label {
+		display:none;
+	}
+	
+	@include breakpoint(small) {
+		padding:0 40px 20px 40px;
+	}
+}
+
+.search {
+	background: none;
+	border:none;
+	border-top:1px solid rgba(255,255,255,.15);
+	border-bottom:1px solid rgba(255,255,255,.15);
+	width:100%;
+	padding:10px 0;
+	color:#fff;
+}
+
+.button {
+	position: absolute;
+	border:none;
+	right:20px;;
+	top:12px;
+	background:transparent;
+	text-indent:-9000px;
+	width: 35px;
+	height: 35px;
+}
+
+.quicksearch.open {
+	display: block;
+}
 
 
 
 
-/* main nav
+
+/* .mainNav 
 ------------------------ */
 
-/* above & below navbar setting */
 .mainNav {
 	background: #151515;
 	display: block;
@@ -124,6 +125,13 @@ header {
 		padding:10px 30px;
 	}
 }
+
+
+
+
+
+/* #nav 
+------------------------ */
 
 #nav {
 	margin: 0;
@@ -140,8 +148,6 @@ header {
 			text-decoration: none;
 			display:block;
 			padding:10px 0;
-			line-height:18px;
-			font-weight: 500;
 		}
 		
 		a:hover {
@@ -164,6 +170,13 @@ header {
 		}
 	}
 }
+
+
+
+
+
+/* #utility 
+------------------------ */
 
 #utility  {
 	border:none;
@@ -190,14 +203,19 @@ header {
 	}	
 }
 
-/* left navbar setting */
+
+
+
+
+/* left navbar setting 
+------------------------ */
+
 .l-sidenav {
 
 	.search {
 		@include breakpoint(extra_small) {
 			border-top:1px solid rgba(0,0,0,.15);
 			border-bottom:1px solid rgba(0,0,0,.15);
-			font-size:24px;
 			color:#999;
 		}
 	}
@@ -273,7 +291,13 @@ header {
 	}
 }
 
-/* menu icon */
+
+
+
+
+/* menu and search toggles 
+------------------------ */
+
 .navToggle {
 	width:35px;
 	height:35px;
@@ -307,61 +331,6 @@ header {
 	}
 }
 
-/* /main nav
------------------------- */
-
-
-
-
-/* search
------------------------- */
-
-.quicksearch {
-	display: none;
-	padding:0 15px 20px 15px;
-	margin:0;
-	position: relative;
-	background: #151515;
-	
-	fieldset {
-		margin:0;
-	}
-	
-	label {
-		display:none;
-	}
-	
-	@include breakpoint(small) {
-		padding:0 40px 20px 40px;
-	}
-}
-
-.search {
-	background: none;
-	border:none;
-	border-top:1px solid rgba(255,255,255,.15);
-	border-bottom:1px solid rgba(255,255,255,.15);
-	width:100%;
-	padding:10px 0;
-	color:#fff;
-	font-size:18px;
-}
-
-.button {
-	position: absolute;
-	border:none;
-	right:20px;;
-	top:12px;
-	background:transparent;
-	text-indent:-9000px;
-	width: 35px;
-	height: 35px;
-}
-
-.quicksearch.open {
-	display: block;
-}
-
 .searchToggle {
 	float:right;
 	width:35px;
@@ -386,12 +355,6 @@ header {
 		}
 	}	
 }
-
-/* /search
------------------------- */
-
-/* END: header area
------------------------------------------------------------------ */
 
 
 
@@ -438,9 +401,6 @@ header {
 	margin-bottom:20px;
 }
 
-/* END: .banner-container
------------------------------------------------------------------ */
-
 
 
 
@@ -448,7 +408,7 @@ header {
 /* Start: page content
 ----------------------------------------------------------------- */
 
-/* .container
+/* .container 
 ------------------------ */
 
 .container  {
@@ -458,16 +418,13 @@ header {
 	@include clearfix;
 }
 
-/* /.container
+
+
+
+
+/* .row (bootstrap grid) 
 ------------------------ */
-
-
-
-
-
-/* .row
------------------------- */	
-
+	
 .row {
 	margin:0 0 20px 0;
 
@@ -493,13 +450,11 @@ header {
 	margin-bottom:0;
 }
 
-/* /.row
------------------------- */	
 
 
 
 
-/* article
+/* article 
 ------------------------ */
 
 article {
@@ -518,15 +473,13 @@ article {
 	}
 }
 
-/* /article
------------------------- */	
 
 
 
 
-/* tables
------------------------- */	
-
+/* tables 
+------------------------ */
+	
 table {
 	width: 100%;
 	table-layout: fixed;
@@ -548,16 +501,13 @@ table th[class*="col-"] {
 	float: none;
 }
 
-/* /tables
------------------------- */	
 
 
 
 
-
-/* inline images
------------------------- */	
-
+/* inline images 
+------------------------ */
+	
 img {
 	.alignright {
 		float:right;
@@ -638,11 +588,6 @@ div {
 	}	
 }
 
-/* /inline images
------------------------- */	
-
-/* END: page content
------------------------------------------------------------------ */
 
 
 
@@ -664,9 +609,6 @@ div {
 		padding:0 0 0 20px;
 	}
 }
-
-/* END: sidebar
------------------------------------------------------------------ */
 
 
 
@@ -725,9 +667,6 @@ div {
 	}
 }
 
-/* END: #bottom-content-area
------------------------------------------------------------------ *
-
 
 
 
@@ -751,6 +690,3 @@ footer {
 		padding:40px;
 	}
 }
-
-/* END: footer
------------------------------------------------------------------ */
