@@ -154,11 +154,11 @@ function burf_customize_register($wp_customize){
             'settings' => 'burf_setting_fonts',
             'type'     => 'radio',
 	        'choices'    => array(
-	            'f1' => 'BentonSansBold,Helvetica',
-	            'f2' => 'BentonSansBook,Chronicle',
-	            'f3' => 'CapitaBold,Helvetica',
-	            'f4' => 'ChronicleDeckBold,Helvetica',
-	            'f5' => 'CapitaBold,Helvetica'
+	            'f1' => 'Capita,Benton',
+	            'f2' => 'Benton,Benton',
+	            'f3' => 'Benton,Capita',
+	            'f4' => 'Pressura,Benton',
+	            'f5' => 'Stag,Benton'
 	            
 	        )
         )));
