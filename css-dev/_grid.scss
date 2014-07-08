@@ -1,6 +1,28 @@
 /* START: grid
 ----------------------------------------------------------------- */
 
+/* break point sizes
+------------------------ */
+
+$XS: 500px;
+$S: 768px;
+$M: 992px;
+$L: 1200px;
+
+/* .container,
+#bottom-content-area div
+widths  */
+
+$container_S: 750px;
+$container_M: 970px;
+$container_L: 1170px;
+
+
+
+
+/* default
+------------------------ */
+
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5,
 .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10,
 .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3,
@@ -15,7 +37,13 @@
 	min-height: 1px;
 }
 
-/* small screens */
+
+
+
+
+/* small screens
+------------------------ */
+
 @include breakpoint(small) {
 	.container, #bottom-content-area div {
 		max-width: $container_S;
@@ -76,7 +104,13 @@
 	}
 }
 
-/* medium screens */
+
+
+
+
+/* medium screens
+------------------------ */
+
 @include breakpoint(medium) {
 	.container, #bottom-content-area div  {
 		max-width: $container_M;
@@ -137,7 +171,13 @@
 	}
 }
 
-/* large screens */
+
+
+
+
+/* large screens
+------------------------ */
+
 @include breakpoint(large) {
 	.container, #bottom-content-area div  {
 		max-width: $container_L;
@@ -197,6 +237,3 @@
 		width: 100%;
 	}
 }
-
-/* END: grid
------------------------------------------------------------------ */

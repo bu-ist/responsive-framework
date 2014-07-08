@@ -242,6 +242,13 @@ header {
 			width:50px;			
 		}
 		
+		.mainNav.open {
+			
+			#nav {
+				margin-top:45px;
+			}
+		}
+		
 		nav.open {		
 			width:300px;
 		}
@@ -268,7 +275,6 @@ header {
 		
 		.mainNav  {
 			width: 300px;
-			padding-top:27px;
 		}
 		
 		#nav {
@@ -295,7 +301,7 @@ header {
 
 
 
-/* menu and search toggles 
+/* menu / search toggles 
 ------------------------ */
 
 .navToggle {
@@ -526,6 +532,7 @@ img {
 }
 
 div {
+	
 	.alignright {
 		float:right;
 		margin:0 0 10px 10px;
