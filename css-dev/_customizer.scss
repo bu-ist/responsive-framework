@@ -13,37 +13,164 @@
 900 - Black (Heavy)
 */
 
-/* font group 1: benton-sans */
+/* START: group 1: capita / benton
+----------------------------------------------------------------- */
+
 .f1 {
-	font-family: 'Benton-Sans';
+	font-family: 'Benton';
 	font-weight: 400;
 }
 
 .f1 p {
-	font-family: 'Benton-Sans';
+	font-family: 'Benton';
 	font-weight: 400;
 }
 
 .f1 h1, .f1 h2, .f1 h3, .f1 h4, .f1 h5, .f1 h6 {
-	font-family: 'Benton-Sans';
+	font-family: 'Capita';
 	font-weight: 700;
 }
 
-/* font group 2: stag */
+.f1 #nav li a {
+	font-family: 'Capita';
+	font-weight: 500;
+}
+
+.f1 #utility li a {
+	font-family: 'Capita';
+	font-weight: 400;
+	font-style: italic;
+}
+
+
+
+
+
+/* START: group 2: benton / benton
+----------------------------------------------------------------- */
+
 .f2 {
-	font-family: 'Stag';
+	font-family: 'Benton';
 	font-weight: 400;
 }
 
 .f2 p {
-	font-family: 'Stag';
+	font-family: 'Benton';
 	font-weight: 400;
 }
 
-.f2 h1, .f2 h2, .f2 h3, .f2 h4, .f2 h5, .f2 h6 {
+.f2 h2, .f2 h2, .f2 h3, .f2 h4, .f2 h5, .f2 h6 {
+	font-family: 'Benton';
+	font-weight: 400;
+}
+
+.f2 #nav li a {
+	font-family: 'Benton';
+	font-weight: 700;
+}
+
+.f2 #utility li a {
+	font-family: 'Capita';
+	font-weight: 400;
+	font-style: italic;
+}
+
+
+
+
+/* START: group 3: benton / benton
+----------------------------------------------------------------- */
+
+.f3 {
+	font-family: 'Capita';
+	font-weight: 400;
+}
+
+.f3 p {
+	font-family: 'Capita';
+	font-weight: 400;
+}
+
+.f3 h1, .f3 h2, .f3 h3, .f3 h4, .f3 h5, .f3 h6 {
+	font-family: 'Benton';
+	font-weight: 700;
+}
+
+.f3 #nav li a {
+	font-family: 'Benton';
+	font-weight: 700;
+}
+
+.f3 #utility li a {
+	font-family: 'Capita';
+	font-weight: 400;
+	font-style: italic;
+}
+
+
+
+
+
+/* START: group 4: benton / benton
+----------------------------------------------------------------- */
+
+.f4 {
+	font-family: 'Benton';
+	font-weight: 400;
+}
+
+.f4 p {
+	font-family: 'Benton';
+	font-weight: 400;
+}
+
+.f4 h1, .f4 h2, .f4 h3, .f4 h4, .f4 h5, .f4 h6 {
+	font-family: 'Pressura';
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.f4 #nav li a {
+	font-family: 'Pressura';
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.f4 #utility li a {
+	font-family: 'Capita';
+	font-weight: 400;
+	font-style: italic;
+}
+
+
+
+
+
+/* START: group 5: benton / benton
+----------------------------------------------------------------- */
+
+.f5 {
+	font-family: 'Benton';
+	font-weight: 400;
+}
+
+.f5 p {
+	font-family: 'Benton';
+	font-weight: 400;
+}
+
+.f5 h1, .f5 h2, .f5 h3, .f5 h4, .f5 h5, .f5 h6 {
 	font-family: 'Stag';
 	font-weight: 500;
 }
 
-/* END: customizer styles
------------------------------------------------------------------ */
+.f5 #nav li a {
+	font-family: 'Stag';
+	font-weight: 500;
+}
+
+.f5 #utility li a {
+	font-family: 'Stag';
+	font-weight: 400;
+	font-style: italic;
+}

@@ -392,7 +392,7 @@ header {
 		margin-bottom:20px;
 	}
 	
-	@include breakpoint(medium) {
+	@include breakpoint(large) {
 		background: #333;
 		padding:20px;
 	}
