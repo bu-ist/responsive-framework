@@ -5,24 +5,6 @@
 
 $font-branding: 'Whitney SSm A', 'Whitney SSm B';
 
-/* breakpoint sizes */
-
-$XS: 500px;
-$S: 768px;
-$M: 992px;
-$L: 1200px;
-
-/* .container,
-#bottom-content-area div
-widths  */
-
-$container_S: 750px;
-$container_M: 970px;
-$container_L: 1170px;
-
-/* END: variables
------------------------------------------------------------------ */
-
 
 
 
@@ -53,8 +35,9 @@ $container_L: 1170px;
 	}
 }
 
-/* If primary stylesheet indicates media query support (e.g. style.scss), output media queries.
-*     If not (e.g. ie.scss), output the block WITHOUT @media wrapper. */  
+/* If primary stylesheet indicates media query support (e.g. style.scss),
+output media queries. If not (e.g. ie.scss), output the block WITHOUT
+@media wrapper. */  
 @mixin breakpoint($point) {
 
     @if ($MQs) {
@@ -83,21 +66,22 @@ $container_L: 1170px;
     }
 }
 
-/* Same as @mixin mq($point), except allows a longer string of media query conditions
-*     e.g. min-width and max-width, or multiple DPI checkers */
+/* Same as @mixin mq($point), except allows a longer string of media
+query conditions e.g. min-width and max-width, or multiple DPI checkers */
 @mixin breakpoint-multiple($points) {
     @if ($MQs) {
-         @media only screen and #{$points} {
-             @content;
-         }
+        @media only screen and #{$points} {
+        	@content;
+        }
     } @else {
         @content;
     }
 }
 
 
-/* Mixin to generate RGBA colors for any style with a fallback for non-rgba browsers such as IE8
-   Usage: @include rgba-color('background-color', rgba(black, 0.5), white); */
+/* Mixin to generate RGBA colors for any style with a fallback for non-rgba
+browsers such as IE8.
+Usage: @include rgba-color('background-color', rgba(black, 0.5), white); */
 @mixin rgba-color($attribute, $color, $background) {
   $percent: alpha($color) * 100%;
   $opaque: opacify($color, 1);
@@ -105,7 +89,3 @@ $container_L: 1170px;
   #{$attribute}: $solid-color;
   #{$attribute}: $color;
 }
-
-/* END: mixins
------------------------------------------------------------------ */
-
