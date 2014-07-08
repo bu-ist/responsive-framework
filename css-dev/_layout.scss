@@ -118,53 +118,76 @@ header {
 	display: block;
 	padding: 10px 15px;
 	
-	/* content nav list */
-	ul {
-		margin: 0;
-		display:none;
-		border-bottom: 1px solid rgba(255,255,255,.15);
-		
-		li {
-			zoom: 1;
-			border-top: 1px solid rgba(255,255,255,.15);
-			display:block;
-			padding:0 10px;
-			
-			a {
-				color: #7A7A7A;
-				text-decoration: none;
-				display:block;
-				padding:10px 0;
-				line-height:18px;
-				font-weight: 500;
-			}
-			
-			a:hover {
-				color:#fff;
-			}
-			
-			.current-menu-item a {
-				color: #fff;
-			}	
-		}
-	}
-	
 	@include clearfix;
 	
 	@include breakpoint(small) {
 		padding:10px 30px;
+	}
+}
+
+#nav {
+	margin: 0;
+	display:none;
+	border-bottom: 1px solid rgba(255,255,255,.15);
+	
+	li {
+		zoom: 1;
+		border-top: 1px solid rgba(255,255,255,.15);
+		display:block;
 		
-		ul {
-			display:inline;
+		a {
+			color: #7A7A7A;
+			text-decoration: none;
+			display:block;
+			padding:10px 0;
+			line-height:18px;
+			font-weight: 500;
+		}
+		
+		a:hover {
+			color:#fff;
+		}
+		
+		.current-menu-item a {
+			color: #fff;
+		}	
+	}
+	
+	@include breakpoint(small) {
+		display:inline;
+		border:none;
+		
+		li {
+			display: inline-block;
+			*display: inline;
 			border:none;
-			
-			li {
-				display: inline-block;
-				*display: inline;
-				border:none;
-			}
 		}
 	}
+}
+
+#utility  {
+	border:none;
+	display:none;
+		
+	li {
+		border:none;
+		
+		a {
+			text-decoration: none;
+			color: #7A7A7A;
+		}
+	}
+	
+	@include breakpoint(small) {
+		display:inline;
+		border:none;
+		
+		li {
+			display: inline-block;
+			*display: inline;
+			border:none;
+		}
+	}	
 }
 
 /* left navbar setting */
@@ -183,6 +206,10 @@ header {
 		@include breakpoint(extra_small) {
 			background: #fff;
 		}
+	}
+	
+	#nav {
+		margin: 0 0 20px 0;
 	}
 	
 	@include breakpoint(extra_small) { 
@@ -224,15 +251,23 @@ header {
 		.mainNav  {
 			width: 300px;
 			padding-top:27px;
+		}
+		
+		#nav {
+			display: block;
+			border-top: 1px solid rgba(255,255,255,.15);
 			
-			> ul {
+			li {
 				display: block;
-				border-top: 1px solid rgba(255,255,255,.15);
-				
-				li {
-					display: block;
-					border-bottom: 1px solid rgba(255,255,255,.15);
-				}
+				border-bottom: 1px solid rgba(255,255,255,.15);
+			}
+		}
+		
+		#utility {
+			display: block;
+			
+			li {
+				display: block;
 			}
 		}
 	}
@@ -258,7 +293,8 @@ header {
 	
 .open {		
 	
-	ul {
+	#nav,
+	#utility {
 		display:block;
 		clear:left;
 		padding-top:10px;
@@ -273,19 +309,6 @@ header {
 
 /* /main nav
 ------------------------ */
-
-
-
-
-/* utility nav
------------------------- */
-
-
-
-/* /utility nav
------------------------- */
-
-
 
 
 
