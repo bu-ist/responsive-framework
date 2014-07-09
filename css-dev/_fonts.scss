@@ -91,72 +91,6 @@
     font-weight: 900;
 }
 
-/* END: benton
------------------------------------------------------------------ */
-
-
-
-
-
-/* START: benton re
------------------------------------------------------------------ 
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
-
-@font-face {
-  font-family: "BentonRE";
-  src: url("http://www.bu.edu/cdn/fonts/Benton-RE/3dd31378-5d0f-41a6-9ea7-f6f24a6dbbc8-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Benton-RE/3dd31378-5d0f-41a6-9ea7-f6f24a6dbbc8-2.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Benton-RE/3dd31378-5d0f-41a6-9ea7-f6f24a6dbbc8-3.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Benton-RE/3dd31378-5d0f-41a6-9ea7-f6f24a6dbbc8-1.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "BentonRE";
-  src: url("http://www.bu.edu/cdn/fonts/Benton-RE-Italic/ca9fed49-6c7a-48e5-a5a3-75a9a4916394-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Benton-RE-Italic/ca9fed49-6c7a-48e5-a5a3-75a9a4916394-2.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Benton-RE-Italic/ca9fed49-6c7a-48e5-a5a3-75a9a4916394-3.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Benton-RE-Italic/ca9fed49-6c7a-48e5-a5a3-75a9a4916394-1.ttf") format("truetype");
-  font-style: italic;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "BentonRE";
-  src: url("http://www.bu.edu/cdn/fonts/Benton-RE-Bold/53a8c862-2bb9-46e3-a032-2d5362f0ae0b-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Benton-RE-Bold/53a8c862-2bb9-46e3-a032-2d5362f0ae0b-2.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Benton-RE-Bold/53a8c862-2bb9-46e3-a032-2d5362f0ae0b-3.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Benton-RE-Bold/53a8c862-2bb9-46e3-a032-2d5362f0ae0b-1.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "BentonRE";
-  src: url("http://www.bu.edu/cdn/fonts/Benton-RE-Bold-Italic/4e45ab0f-bdab-4f1e-bb2f-fa17b55bf011-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Benton-RE-Bold-Italic/4e45ab0f-bdab-4f1e-bb2f-fa17b55bf011-2.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Benton-RE-Bold-Italic/4e45ab0f-bdab-4f1e-bb2f-fa17b55bf011-3.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Benton-RE-Bold-Italic/4e45ab0f-bdab-4f1e-bb2f-fa17b55bf011-1.ttf") format("truetype");
-  font-style: italic;
-  font-weight: 700;
-}
-
-/* END: benton re
------------------------------------------------------------------ */
-
-
-
-
 
 /* START: benton compressed
 ----------------------------------------------------------------- 
@@ -210,12 +144,6 @@
   font-style: italic;
   font-weight: 900;
 }
-
-/* END: benton compressed
------------------------------------------------------------------ */
-
-
-
 
 
 /* START: capita
@@ -351,112 +279,6 @@
   font-weight: 800;
 }
 
-/* START: capita
------------------------------------------------------------------ */
-
-
-
-
-
-/* START: escrow
------------------------------------------------------------------ 
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
-
-@font-face {
-  font-family: "Escrow";
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Light/8f33a745-3b5f-4440-a595-68c6f26d3037-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Light/8f33a745-3b5f-4440-a595-68c6f26d3037-2.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Light/8f33a745-3b5f-4440-a595-68c6f26d3037-3.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Light/8f33a745-3b5f-4440-a595-68c6f26d3037-1.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 200;
-}
-
-@font-face {
-  font-family: "Escrow";
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Light-Italic/c53510ab-f340-4238-b55c-bb5c18b7e756-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Light-Italic/c53510ab-f340-4238-b55c-bb5c18b7e756-2.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Light-Italic/c53510ab-f340-4238-b55c-bb5c18b7e756-3.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Light-Italic/c53510ab-f340-4238-b55c-bb5c18b7e756-1.ttf") format("truetype");
-  font-style: italic;
-  font-weight: 200;
-}
-
-@font-face {
-  font-family: "Escrow";
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Roman/b94a8797-9704-4f06-b65b-65c4a96332db-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Roman/b94a8797-9704-4f06-b65b-65c4a96332db-2.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Roman/b94a8797-9704-4f06-b65b-65c4a96332db-3.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Roman/b94a8797-9704-4f06-b65b-65c4a96332db-1.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Escrow";
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Italic/b1f50b86-55a1-4007-897d-a547ab6647a3-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Italic/b1f50b86-55a1-4007-897d-a547ab6647a3-2.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Italic/b1f50b86-55a1-4007-897d-a547ab6647a3-3.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Italic/b1f50b86-55a1-4007-897d-a547ab6647a3-1.ttf") format("truetype");
-  font-style: italic;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Escrow";
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Semibold/9266beac-25af-4087-9294-935e118a0a92-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Semibold/9266beac-25af-4087-9294-935e118a0a92-2.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Semibold/9266beac-25af-4087-9294-935e118a0a92-3.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Semibold/9266beac-25af-4087-9294-935e118a0a92-1.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Escrow";
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Semibold-Italic/67d5ddbb-8289-42db-80bf-4e372d4dca66-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Semibold-Italic/67d5ddbb-8289-42db-80bf-4e372d4dca66-2.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Semibold-Italic/67d5ddbb-8289-42db-80bf-4e372d4dca66-3.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Semibold-Italic/67d5ddbb-8289-42db-80bf-4e372d4dca66-1.ttf") format("truetype");
-  font-style: italic;
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Escrow";
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Bold/b87c528c-347c-4843-b385-299b4eec4efa-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Bold/b87c528c-347c-4843-b385-299b4eec4efa-2.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Bold/b87c528c-347c-4843-b385-299b4eec4efa-3.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Bold/b87c528c-347c-4843-b385-299b4eec4efa-1.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Escrow";
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Bold-Italic/1e7e4092-fdf8-456f-9e00-25dec93235d2-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Escrow-Bold-Italic/1e7e4092-fdf8-456f-9e00-25dec93235d2-2.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Bold-Italic/1e7e4092-fdf8-456f-9e00-25dec93235d2-3.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Escrow-Bold-Italic/1e7e4092-fdf8-456f-9e00-25dec93235d2-1.ttf") format("truetype");
-  font-style: italic;
-  font-weight: 700;
-}
-
-/* START: escrow
------------------------------------------------------------------ */
-
-
-
-
 
 /* START: pressura
 ----------------------------------------------------------------- 
@@ -531,12 +353,6 @@
   font-weight: 700;
 }
 
-/* End: pressura
------------------------------------------------------------------ */
-
-
-
-
 
 /* START: pressura mono
 ----------------------------------------------------------------- 
@@ -610,12 +426,6 @@
   font-style: italic;
   font-weight: 700;
 }
-
-/* END: pressura mono
------------------------------------------------------------------ */
-
-
-
 
 
 /* START: stag
@@ -771,132 +581,6 @@
   font-weight: 900;
 }
 
-/* START: stag
------------------------------------------------------------------ */
-
-
-
-
-
-/* START: tisa
------------------------------------------------------------------ 
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
-
-@font-face {
-  font-family: "Tisa";
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Thin/Tisa-Thin.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Thin/Tisa-Thin.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Thin/Tisa-Thin.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Thin/Tisa-Thin.otf") format("opentype");
-  font-style: normal;
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: "Tisa";
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Thin-Italic/Tisa-Thin-Italic.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Thin-Italic/Tisa-Thin-Italic.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Thin-Italic/Tisa-Thin-Italic.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Thin-Italic/Tisa-Thin-Italic.otf") format("opentype");
-  font-style: italic;
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: "Tisa";
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Light/Tisa-Light.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Light/Tisa-Light.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Light/Tisa-Light.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Light/Tisa-Light.otf") format("opentype");
-  font-style: normal;
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "Tisa";
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Light-Italic/Tisa-Light-Italic.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Light-Italic/Tisa-Light-Italic.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Light-Italic/Tisa-Light-Italic.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Light-Italic/Tisa-Light-Italic.otf") format("opentype");
-  font-style: italic;
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "Tisa";
-  src: url("http://www.bu.edu/cdn/fonts/Tisa/Tisa.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Tisa/Tisa.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Tisa/Tisa.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Tisa/Tisa.otf") format("opentype");
-  font-style: normal;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Tisa";
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Italic/Tisa-Italic.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Italic/Tisa-Italic.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Italic/Tisa-Italic.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Italic/Tisa-Italic.otf") format("opentype");
-  font-style: italic;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Tisa";
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Medium/Tisa-Medium.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Medium/Tisa-Medium.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Medium/Tisa-Medium.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Medium/Tisa-Medium.otf") format("opentype");
-  font-style: normal;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Tisa";
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Medium-Italic/Tisa-Medium-Italic.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Medium-Italic/Tisa-Medium-Italic.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Medium-Italic/Tisa-Medium-Italic.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Medium-Italic/Tisa-Medium-Italic.otf") format("opentype");
-  font-style: italic;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Tisa";
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Bold/Tisa-Bold.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Bold/Tisa-Bold.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Bold/Tisa-Bold.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Bold/Tisa-Bold.otf") format("opentype");
-  font-style: normal;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Tisa";
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Bold-Italic/Tisa-Bold-Italic.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Tisa-Bold-Italic/Tisa-Bold-Italic.eot?") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Bold-Italic/Tisa-Bold-Italic.woff") format("woff"),
-       url("http://www.bu.edu/cdn/fonts/Tisa-Bold-Italic/Tisa-Bold-Italic.otf") format("opentype");
-  font-style: italic;
-  font-weight: 700;
-}
-
-/* START: tisa
------------------------------------------------------------------ */
-
-
-
-
 
 /* START: unicod
 ----------------------------------------------------------------- 
@@ -991,5 +675,3 @@
   font-weight: 700;
 }
 
-/* START: unicod
------------------------------------------------------------------ */
