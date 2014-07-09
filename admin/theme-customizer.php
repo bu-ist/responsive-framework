@@ -1,4 +1,43 @@
 <?php
+
+/* - - - - - - - - - - - - - - - - -
+  Admin CSS & JS
+- - - - - - - - - - - - - - - - - */
+function custom_admin_styles() {
+    wp_register_style('admin-stylesheet', if_child_path() . '/admin/admin.css', '');
+    wp_register_script('theme-customizer', if_child_path() . "/admin/theme-customizer.js");
+
+    wp_enqueue_style('admin-stylesheet');
+    wp_enqueue_script('theme-customizer');
+}
+
+add_action('admin_enqueue_scripts', 'custom_admin_styles');
+add_action('customize_controls_enqueue_scripts', 'custom_admin_styles');
+
+
+
+/* - - - - - - - - - - - - - - - - -
+  Body_Class (For Customizer)
+  - - - - - - - - - - - - - - - - - */
+
+add_filter('body_class', 'browser_body_class');
+
+function browser_body_class($classes = '') {
+    $fontPalette = get_option("burf_setting_fonts");
+    $layoutSetting = get_option("burf_setting_layout");
+
+    if ($fontPalette)
+        $classes[] = $fontPalette;
+    if ($layoutSetting)
+        $classes[] = $layoutSetting;
+
+    return $classes;
+}
+
+
+
+
+
 function burf_customize_register($wp_customize){
 
 	/* Custom Control: Radio */
