@@ -1,7 +1,10 @@
 <?php
 
 require_once("responsive-functions.php");
-require_once("admin/theme-customizer.php");
+
+if(!is_child_theme()){
+	require_once("admin/theme-customizer.php");
+}
 
 require_once("flexi-functions/calendar.php");
 require_once("flexi-functions/formats-and-templates.php");
