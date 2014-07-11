@@ -17,9 +17,13 @@ $MQs: false;
 ---------------------- */
 @import 'fonts';
 
-/* ! utils
+/* ! variables
 ---------------------- */
-@import 'utils';
+@import 'variables';
+
+/* ! mixins
+---------------------- */
+@import 'mixins';
 
 /* ! grid
 ---------------------- */
