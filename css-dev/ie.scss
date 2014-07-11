@@ -25,6 +25,10 @@ $MQs: false;
 ---------------------- */
 @import 'mixins';
 
+/* ! type options
+---------------------- */
+@import 'type_options';
+
 /* ! grid
 ---------------------- */
 @import 'grid';
@@ -32,10 +36,6 @@ $MQs: false;
 /* ! layout
 ---------------------- */
 @import 'layout';
-
-/* ! customer options
----------------------- */
-@import 'customizer';
 
 /* ! print
 ---------------------- */
