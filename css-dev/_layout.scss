@@ -329,6 +329,13 @@ header {
 		clear:left;
 		padding-top:10px;
 	}
+	
+	.navToggle {
+		.r1,
+		.r3 {
+			display:none;
+		}
+	}
 }
 
 .l-sidenav.navopen {
