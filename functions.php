@@ -20,6 +20,8 @@ function bu_responsive_init() {
 	}
 	add_action('after_setup_theme', 'bu_responsive_setup');
 
+	if ( ! defined( 'BU_SUPPORTS_SEO' ) ) define('BU_SUPPORTS_SEO', true);
+	
 
 	/* Banner Positions */
 	if (function_exists('bu_register_banner_position')) {
