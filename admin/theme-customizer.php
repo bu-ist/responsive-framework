@@ -143,6 +143,23 @@ function burf_customize_register($wp_customize){
 	        <?php
 	    }
 	}
+	
+	/* Custom Control: Textarea */
+	class Example_Customize_Textarea_Control extends WP_Customize_Control {
+    	public $type = 'textarea';
+ 
+	    public function render_content() {
+	        ?>
+	        <label>
+	        <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+	        <textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
+	        </label>
+	        <?php
+	    }
+	}
+	
+	
+	
    
 	/* Section: Layout Options  */ 
 	$wp_customize->add_section('burf_section_layout', array(
@@ -329,6 +346,93 @@ function burf_customize_register($wp_customize){
                		'scroll' => 'Scroll'
            )))
 	   );
+	   
+
+	/* Section: Footer Options  */ 
+    $wp_customize->add_section('burf_section_footer', array(
+        'title'    => __('Footer Options', 'burf'),
+        //'priority' => 120,
+    ));
+ 
+		/* Setting: Footer Contact Info */ 
+	    $wp_customize->add_setting('burf_setting_footer_contact', array(
+	        'default'        => '',
+	        'capability'     => 'edit_theme_options',
+	        'type'           => 'option',
+	    ));
+	    
+		/* Control: Footer Contact Info  */ 
+		$wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'burf_section_footer', array(
+            'label' => 'Contact Information',
+            'section' => 'burf_section_footer',
+            'settings' => 'burf_setting_footer_contact',
+            'type'     => 'textarea', 
+			'priority' => 1
+	    )));
+	    
+	    
+	    
+	    
+	    /* Settings: Footer Contact Social Links */ 
+	    $wp_customize->add_setting('burf_setting_footer_social_fb', array(
+	        'default'        => '',
+	        'capability'     => 'edit_theme_options',
+	        'type'           => 'option',
+	    ));
+	    $wp_customize->add_setting('burf_setting_footer_social_tw', array(
+	        'default'        => '',
+	        'capability'     => 'edit_theme_options',
+	        'type'           => 'option',
+	    ));
+	    $wp_customize->add_setting('burf_setting_footer_social_ig', array(
+	        'default'        => '',
+	        'capability'     => 'edit_theme_options',
+	        'type'           => 'option',
+	    ));
+	    $wp_customize->add_setting('burf_setting_footer_social_yt', array(
+	        'default'        => '',
+	        'capability'     => 'edit_theme_options',
+	        'type'           => 'option',
+	    ));
+	    $wp_customize->add_setting('burf_setting_footer_social_li', array(
+	        'default'        => '',
+	        'capability'     => 'edit_theme_options',
+	        'type'           => 'option',
+	    ));
+	    
+	    /* Controls: Footer Social Links */ 
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'burf_section_footer_social_links_fb', array(
+            'label' => 'Facebook Link',
+            'section' => 'burf_section_footer',
+            'settings' => 'burf_setting_footer_social_fb',
+            'type'     => 'text', 
+	    )));
+	    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'burf_section_footer_social_links_tw', array(
+            'label' => 'Twitter Link',
+            'section' => 'burf_section_footer',
+            'settings' => 'burf_setting_footer_social_tw',
+            'type'     => 'text', 
+	    )));
+	    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'burf_section_footer_social_links_ig', array(
+            'label' => 'Instagram Link',
+            'section' => 'burf_section_footer',
+            'settings' => 'burf_setting_footer_social_ig',
+            'type'     => 'text', 
+	    )));
+	    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'burf_section_footer_social_links_yt', array(
+            'label' => 'YouTube Link',
+            'section' => 'burf_section_footer',
+            'settings' => 'burf_setting_footer_social_yt',
+            'type'     => 'text', 
+	    )));
+	    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'burf_section_footer_social_links_li', array(
+            'label' => 'LinkedIn Link',
+            'section' => 'burf_section_footer',
+            'settings' => 'burf_setting_footer_social_li',
+            'type'     => 'text', 
+	    )));
+
+
 }
  
 add_action('customize_register', 'burf_customize_register');
