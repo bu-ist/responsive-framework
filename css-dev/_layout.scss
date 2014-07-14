@@ -122,7 +122,11 @@ header {
 	@include clearfix;
 	
 	@include breakpoint(small) {
-		padding:10px 30px;
+		padding:10px 40px;
+		
+		#utility {
+			display: none;
+		}
 	}
 }
 
@@ -156,7 +160,7 @@ header {
 		
 		.current-menu-item a {
 			color: #fff;
-		}	
+		}
 	}
 	
 	@include breakpoint(small) {
@@ -167,6 +171,11 @@ header {
 			display: inline-block;
 			*display: inline;
 			border:none;
+			padding:0 10px;
+		}
+		
+		li:first-child {
+			padding-left:0;
 		}
 	}
 }
@@ -194,6 +203,7 @@ header {
 	@include breakpoint(small) {
 		display:inline;
 		border:none;
+		float:right;
 		
 		li {
 			display: inline-block;
@@ -284,6 +294,7 @@ header {
 			li {
 				display: block;
 				border-bottom: 1px solid rgba(255,255,255,.15);
+				padding:0;
 			}
 		}
 		
@@ -292,6 +303,10 @@ header {
 			
 			li {
 				display: block;
+			}
+			
+			@include breakpoint(small) { 
+				float: none;
 			}
 		}
 	}
@@ -354,9 +369,11 @@ header {
 		fill: #fff;
 	}
 	
-	@include breakpoint(small) { 
+	/*
+@include breakpoint(small) { 
 		margin-top:-5px;	
 	}
+*/
 }
 
 .l-nonav {
@@ -364,6 +381,22 @@ header {
 		#brand {
 			.searchToggle {
 				display: block;
+			}
+			
+			.quicksearch {
+				background: #fff;
+				padding: 0;
+				margin-top:20px;
+				
+				@include breakpoint(small) { 
+					margin-top:40px;
+				}
+			}
+			
+			.search {
+				border-top:1px solid rgba(0,0,0,.15);
+				border-bottom:1px solid rgba(0,0,0,.15);
+				color:#999;
 			}
 		}
 	}	
