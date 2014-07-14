@@ -43,12 +43,12 @@
 					'container' 		=> 'false',
 					'items_wrap' 		=> '<ul>%3$s</ul>',
 				);
+				
 				$utilArgas = array(
 					'theme_location'	=> 'utility',
 					'container' 		=> 'false',
 					'items_wrap' 		=> '<ul>%3$s</ul>',
 				);
-				
 				
 				$headerLayout = get_option("burf_setting_layout");
 			?>
@@ -64,6 +64,7 @@
 								bu_navigation_display_primary(); 
 							}
 						?>
+						<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
 					</nav>
 					<?php get_search_form(); ?>
 				<?php
@@ -97,12 +98,12 @@
 							bu_navigation_display_primary(); 
 						}
 					?>
+					<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
 				</nav>
 				<?php get_search_form(); ?>
 			<?php
 				endif;
 			?>
-			
 			
 			<?php
 				if($headerLayout == "l-sidenav"):
@@ -116,18 +117,15 @@
 						}
 					?>
 					
-					
-					<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
-					
+					<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>				
 				</nav>
 				 
 				<?php get_search_form(); ?>
 			<?php
 				endif;
-			?>
-			
-			
+			?>	
 		</header>
+		
 		<?php if (function_exists('bu_content_banner')) {
 			echo(do_shortcode(bu_content_banner($post->ID, $args = array(
 				'before' => '<div class="banner-container window-width">',
