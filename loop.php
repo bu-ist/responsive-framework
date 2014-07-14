@@ -53,10 +53,7 @@
                 <div class="taxonomies">
                 	 <?php echo custom_taxonomies_terms_links(); ?>
                 </div>
-                
-                
-                
-		</article>
+       </article>
 
 		<?php comments_template( '', true ); ?>
 
