@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	
 		<?php if (function_exists('bu_content_banner')) {
 			echo(do_shortcode(bu_content_banner($post->ID, $args = array(
@@ -37,7 +37,7 @@
 	        <?php edit_post_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
 	        <?php comments_template( '', true ); ?>
 	    
-	        <?php endwhile; ?>
+	        <?php endwhile; endif;?>
 	    </article>
 	    
 	    <?php
