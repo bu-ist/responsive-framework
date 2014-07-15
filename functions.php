@@ -89,6 +89,7 @@ add_action('init', 'bu_responsive_register_scripts');
 
 function bu_responsive_enqueue_header_scripts() {
     wp_enqueue_style('responsi styles');
+    wp_enqueue_script('jquery');
     wp_enqueue_script('responsi modernizer');
 }
 
@@ -99,7 +100,7 @@ add_action('wp_enqueue_scripts', 'bu_responsive_enqueue_header_scripts');
   Enqueue Footer Scripts
   - - - - - - - - - - - - - - - - - */
 
-function bu_responsive_footer_scripts() {
+function bu_responsive_footer_scripts() {  
     wp_enqueue_script('responsi script');
 }
 
