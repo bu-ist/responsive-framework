@@ -23,33 +23,7 @@ function bu_responsive_init() {
 	if ( ! defined( 'BU_SUPPORTS_SEO' ) ) define('BU_SUPPORTS_SEO', true);
 	
 
-	/* Banner Positions */
-	if (function_exists('bu_register_banner_position')) {
-        bu_register_banner_position('window-width', array(
-            'label' => 'Full browser window width',
-            'hint' => 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.'
-        ));
-        bu_register_banner_position('page-width', array(
-            'label' => 'Page width',
-            'hint' => 'Banner will appear above the content and sidebars and should be XY pixels wide.'
-        ));
-        bu_register_banner_position('content-width', array(
-            'label' => 'Content width',
-            'hint' => 'Banner will appear above the title in the content area and should be XY pixels wide.',
-            'default' => true
-        ));
-    }
-
-
-	/* Allowed templates */
-	if (class_exists('AllowedTemplates')) {
-	    if (!isset($banner_templates))
-	        $banner_templates = new AllowedTemplates();
-	    $banner_templates->register(array('single.php', 'default', 'calendar.php', 'news.php', 'blank.php', 'window-width-blank.php', 'page-no-title.php', 'profiles.php'));
-	    
-	    if(!isset($profile_templates)) $profile_templates = new AllowedTemplates();
-		$profile_templates->register(array('profiles.php'));
-	}
+	
     
 	/* Menus & Locations */
 	register_nav_menus(array(
@@ -60,9 +34,33 @@ function bu_responsive_init() {
 
 add_action('init', 'bu_responsive_init');
 
+/* Banner Positions */
+if (function_exists('bu_register_banner_position')) {
+    bu_register_banner_position('window-width', array(
+        'label' => 'Full browser window width',
+        'hint' => 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.'
+    ));
+    bu_register_banner_position('page-width', array(
+        'label' => 'Page width',
+        'hint' => 'Banner will appear above the content and sidebars and should be XY pixels wide.'
+    ));
+    bu_register_banner_position('content-width', array(
+        'label' => 'Content width',
+        'hint' => 'Banner will appear above the title in the content area and should be XY pixels wide.',
+        'default' => true
+    ));
+}
 
 
-
+/* Allowed templates */
+if (class_exists('AllowedTemplates')) {
+    if (!isset($banner_templates))
+        $banner_templates = new AllowedTemplates();
+    $banner_templates->register(array('single.php', 'default', 'calendar.php', 'news.php', 'blank.php', 'window-width-blank.php', 'page-no-title.php', 'profiles.php'));
+    
+    if(!isset($profile_templates)) $profile_templates = new AllowedTemplates();
+	$profile_templates->register(array('profiles.php'));
+}
 
 
 
