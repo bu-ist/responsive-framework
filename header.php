@@ -54,7 +54,7 @@
 			?>
 			
 			<?php
-				if($headerLayout == "l-navbar"):
+				if($headerLayout == "l-navbar" || $headerLayout == ""):
 				?>
 					<nav class="mainNav" role="navigation">
 						<div class="navToggle"><?php include("images/menu.svg"); ?></div>
@@ -63,8 +63,10 @@
 							if(!method_exists('BuAccessControlPlugin', 'is_site_403') || BuAccessControlPlugin::is_site_403() == false){
 								bu_navigation_display_primary(); 
 							}
-						?>
+						
+                                                if ($headerLayout == 'l-navbar') : ?>
 						<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
+                                                <?php endif; ?>
 					</nav>
 					<?php get_search_form(); ?>
 				<?php
