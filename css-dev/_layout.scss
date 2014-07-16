@@ -1,6 +1,16 @@
 /* START: header area
 ----------------------------------------------------------------- */
 
+body {
+	background: #000;
+}
+
+
+
+
+/* START: header area
+----------------------------------------------------------------- */
+
 /* header
 ------------------------ */
 
@@ -90,6 +100,10 @@ header {
 	width:100%;
 	padding:10px 0;
 	color:#fff;
+	
+	@include breakpoint(large) {
+		padding:15px 0;
+	}
 }
 
 .button {
@@ -157,10 +171,10 @@ header {
 		a:hover {
 			color:#fff;
 		}
-		
-		.current-menu-item a {
-			color: #fff;
-		}
+	}
+	
+	li.current_page_item a {
+		color: #fff;
 	}
 	
 	@include breakpoint(small) {
@@ -193,10 +207,15 @@ header {
 		
 	li {
 		border:none;
+		padding:0;
 		
 		a {
 			text-decoration: none;
 			color: #7A7A7A;
+		}
+		
+		a:hover {
+			color:#fff;
 		}
 	}
 	
@@ -209,6 +228,7 @@ header {
 			display: inline-block;
 			*display: inline;
 			border:none;
+			padding-left:10px;
 		}
 	}	
 }
@@ -266,6 +286,7 @@ header {
 		#brand {
 			.searchToggle {
 				display:block;
+				margin-top:-5px;
 			}
 		}
 		
@@ -303,6 +324,7 @@ header {
 			
 			li {
 				display: block;
+				padding:0;
 			}
 			
 			@include breakpoint(small) { 
@@ -312,6 +334,39 @@ header {
 	}
 }
 
+
+
+
+
+/* no navbar setting 
+------------------------ */
+
+.l-nonav {
+	header {	
+		#brand {
+			.searchToggle {
+				display: block;
+				margin-top:-5px;
+			}
+			
+			.quicksearch {
+				background: #fff;
+				padding: 0;
+				margin-top:20px;
+				
+				@include breakpoint(small) { 
+					margin-top:40px;
+				}
+			}
+			
+			.search {
+				border-top:1px solid rgba(0,0,0,.15);
+				border-bottom:1px solid rgba(0,0,0,.15);
+				color:#999;
+			}
+		}
+	}
+}
 
 
 
@@ -369,45 +424,27 @@ header {
 		fill: #fff;
 	}
 	
-	/*
-@include breakpoint(small) { 
-		margin-top:-5px;	
+	@include breakpoint(small) { 
+		margin-top:5px;	
 	}
-*/
-}
-
-.l-nonav {
-	header {	
-		#brand {
-			.searchToggle {
-				display: block;
-			}
-			
-			.quicksearch {
-				background: #fff;
-				padding: 0;
-				margin-top:20px;
-				
-				@include breakpoint(small) { 
-					margin-top:40px;
-				}
-			}
-			
-			.search {
-				border-top:1px solid rgba(0,0,0,.15);
-				border-bottom:1px solid rgba(0,0,0,.15);
-				color:#999;
-			}
-		}
-	}	
 }
 
 
 
 
 
-/* START: .banner-container 
+/* Start: page content
 ----------------------------------------------------------------- */
+
+.container  {
+	padding: 20px;
+	width: 100%;
+	margin:0 auto;
+	@include clearfix;
+}
+
+/* .banner-container 
+------------------------ */
 
 .banner-container {
 	text-align: center;
@@ -419,11 +456,9 @@ header {
 		display: block;
 		margin:0 auto;
 	}
-	
-	@include breakpoint(small) {
-		margin-bottom:20px;
-	}
-	
+}
+
+.window-width {
 	@include breakpoint(large) {
 		background: #333;
 		padding:20px;
@@ -438,30 +473,13 @@ header {
 			background: #333;
 			width:100%;
 		}	
-	}	
+	}
 }
 
 .content-width {
 	background:none;
 	padding:0;
 	margin-bottom:20px;
-}
-
-
-
-
-
-/* Start: page content
------------------------------------------------------------------ */
-
-/* .container 
------------------------- */
-
-.container  {
-	padding: 20px;
-	width: 100%;
-	margin:0 auto;
-	@include clearfix;
 }
 
 
@@ -512,10 +530,6 @@ article {
 	footer {
 		background: none;
 		border:none;
-		
-		p {
-			color:#000;
-		}		
 	}
 }
 

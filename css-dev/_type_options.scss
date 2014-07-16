@@ -145,6 +145,106 @@
 	
 	h3 {
 		font-family: 'Benton';
+		font-weight: 400;
+		font-size:23px;
+		line-height:26px;
+		margin-bottom:20px;
+	}
+	
+	h4 {
+		font-family: 'Benton';
+		font-weight: 700;
+		font-size:20px;
+		line-height:23px;
+		margin-bottom:20px;
+	}
+	
+	h5 {
+		font-family: 'Benton';
+		font-weight: 700;
+		font-size:18px;
+		line-height:21px;
+		margin-bottom:20px;
+	}
+	
+	h6 {
+		font-family: 'Benton';
+		font-weight: 700;
+		font-size:16px;
+		line-height:19px;
+		margin-bottom:20px;
+	}
+	
+	.search {
+		font-family: 'Benton';
+		font-size:18px;
+	}
+	
+	#nav li a {
+		font-family: 'Benton';
+		font-weight: 400;
+		font-size:16px;
+	}
+	
+	#utility li a {
+		font-family: 'Capita';
+		font-weight: 400;
+		font-size:16px;
+		font-style: italic;
+	}	
+}
+
+
+
+
+
+/* START: group 3 (headings / body): benton / capita
+----------------------------------------------------------------- */
+
+/*
+100 - Thin
+200 - Extra Light (Ultra Light)
+300 - Light
+400 - Normal
+500 - Medium
+600 - Semi Bold (Demi Bold)
+700 - Bold
+800 - Extra Bold (Ultra Bold)
+900 - Black (Heavy)
+*/
+
+.f3 {
+	font-family: 'Capita';
+	font-weight: 400;
+	font-size:16px;
+	line-height:24px;
+	
+	p {
+		font-family: 'Capita';
+		font-weight: 400;
+		font-size:16px;
+		line-height:24px;
+		margin-bottom:20px;
+	}
+	
+	h1 {
+		font-family: 'Benton';
+		font-weight: 700;
+		font-size:33px;
+		line-height:36px;
+		margin-bottom:20px;
+	}
+	
+	h2 {
+		font-family: 'Benton';
+		font-weight: 700;
+		font-size:26px;
+		line-height:29px;
+		margin-bottom:20px;
+	}
+	
+	h3 {
+		font-family: 'Benton';
 		font-weight: 700;
 		font-size:23px;
 		line-height:26px;
@@ -198,91 +298,6 @@
 
 
 
-/* START: group 3 (headings / body): benton / capita
------------------------------------------------------------------ */
-
-/*
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
-
-.f3 {
-	font-family: 'Capita';
-	font-weight: 400;
-	font-size:16px;
-	
-	p {
-		font-family: 'Capita';
-		font-weight: 400;
-		font-size:16px;
-	}
-	
-	h1 {
-		font-family: 'Benton';
-		font-weight: 700;
-		font-size:33px;
-	}
-	
-	h2 {
-		font-family: 'Benton';
-		font-weight: 700;
-		font-size:26px;
-	}
-	
-	h3 {
-		font-family: 'Benton';
-		font-weight: 700;
-		font-size:23px;
-	}
-	
-	h4 {
-		font-family: 'Benton';
-		font-weight: 700;
-		font-size:20px;
-	}
-	
-	h5 {
-		font-family: 'Benton';
-		font-weight: 700;
-		font-size:18px;
-	}
-	
-	h6 {
-		font-family: 'Benton';
-		font-weight: 700;
-		font-size:16px;
-	}
-	
-	.search {
-		font-family: 'Benton';
-		font-size:18px;
-	}
-	
-	#nav li a {
-		font-family: 'Benton';
-		font-weight: 700;
-		font-size:20px;
-	}
-	
-	#utility li a {
-		font-family: 'Capita';
-		font-weight: 400;
-		font-size:16px;
-		font-style: italic;
-	}	
-}
-
-
-
-
-
 /* START: group 4 (headings / body): pressura / benton
 ----------------------------------------------------------------- */
 
@@ -302,63 +317,79 @@
 	font-family: 'Benton';
 	font-weight: 400;
 	font-size:16px;
+	line-height:24px;
 	
 	p {
 		font-family: 'Benton';
 		font-weight: 400;
 		font-size:16px;
+		line-height:24px;
+		margin-bottom:20px;
 	}
 	
 	h1 {
 		font-family: 'Pressura';
 		font-weight: 700;
-		font-size:40px;
+		font-size:33px;
 		text-transform: uppercase;
+		line-height:36px;
+		margin-bottom:20px;
 	}
 	
 	h2 {
 		font-family: 'Pressura';
 		font-weight: 700;
-		font-size:34px;
+		font-size:26px;
 		text-transform: uppercase;
+		line-height:29px;
+		margin-bottom:20px;
 	}
 	
 	h3 {
 		font-family: 'Pressura';
 		font-weight: 700;
-		font-size:30px;
+		font-size:23px;
 		text-transform: uppercase;
+		line-height:26px;
+		margin-bottom:20px;
 	}
 	
 	h4 {
 		font-family: 'Pressura';
 		font-weight: 700;
-		font-size:25px;
+		font-size:20px;
 		text-transform: uppercase;
+		line-height:23px;
+		margin-bottom:20px;
 	}
 	
 	h5 {
 		font-family: 'Pressura';
 		font-weight: 700;
-		font-size:23px;
+		font-size:18px;
 		text-transform: uppercase;
+		line-height:21px;
+		margin-bottom:20px;
 	}
 	
 	h6 {
 		font-family: 'Pressura';
 		font-weight: 700;
-		font-size:20px;
+		font-size:16px;
 		text-transform: uppercase;
+		line-height:19px;
+		margin-bottom:20px;
 	}
 	
 	.search {
-		font-family: 'Benton';
+		font-family: 'Pressura';
 		font-size:18px;
+		text-transform: uppercase;
 	}
 	
 	#nav li a {
 		font-family: 'Pressura';
-		font-weight: 500;
+		font-weight: 700;
 		font-size:18px;
 		text-transform: uppercase;
 	}
@@ -394,47 +425,62 @@
 	font-family: 'Benton';
 	font-weight: 400;
 	font-size:16px;
+	line-height:24px;
 	
 	p {
 		font-family: 'Benton';
 		font-weight: 400;
 		font-size:16px;
+		line-height:24px;
+		margin-bottom:20px;
 	}
 	
 	h1 {
 		font-family: 'Stag';
 		font-weight: 500;
 		font-size:33px;
+		line-height:36px;
+		margin-bottom:20px;
 	}
 	
 	h2 {
 		font-family: 'Stag';
 		font-weight: 500;
 		font-size:26px;
+		line-height:29px;
+		margin-bottom:20px;
 	}
 	
 	h3 {
 		font-family: 'Stag';
 		font-weight: 500;
 		font-size:23px;
+		line-height:26px;
+		margin-bottom:20px;
 	}
 	
 	h4 {
 		font-family: 'Stag';
 		font-weight: 500;
 		font-size:20px;
+		line-height:23px;
+		margin-bottom:20px;
 	}
 	
 	h5 {
 		font-family: 'Stag';
 		font-weight: 500;
 		font-size:18px;
+		line-height:21px;
+		margin-bottom:20px;
 	}
 	
 	h6 {
 		font-family: 'Stag';
 		font-weight: 500;
 		font-size:16px;
+		line-height:19px;
+		margin-bottom:20px;
 	}
 	
 	.search {
@@ -445,7 +491,7 @@
 	#nav li a {
 		font-family: 'Stag';
 		font-weight: 500;
-		font-size:20px;
+		font-size:18px;
 	}
 	
 	#utility li a {
