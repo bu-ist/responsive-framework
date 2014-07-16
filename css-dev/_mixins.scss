@@ -66,31 +66,25 @@
 
 /* Same as @mixin mq($point), except allows a longer string of media query conditions
  *     e.g. min-width and max-width, or multiple DPI checkers */
-//@mixin breakpoint-multiple($points) {
+@mixin breakpoint-multiple($points) {
     /* If primary stylesheet indicates media query support (e.g. style.scss), output media queries.
      *     If not (e.g. ie.scss), output the block WITHOUT @media wrapper. */
-//     @if ($MQs) {
-//          @media only screen and #{$points} {
-//              @content;
-//          }
-//     } @else {
-//         @content;
-//     }
-// }
+    @if ($MQs) {
+         @media only screen and #{$points} {
+             @content;
+         }
+    } @else {
+        @content;
+    }
+}
 
-/* Mixin to generate RGBA colors for any style with a fallback for non-rgba
-browsers such as IE8.
-Usage: @include rgba-color('background-color', rgba(black, 0.5), white); */
+
+/* Mixin to generate RGBA colors for any style with a fallback for non-rgba browsers such as IE8
+   Usage: @include rgba-color('background-color', rgba(black, 0.5), white); */
 @mixin rgba-color($attribute, $color, $background) {
-	$percent: alpha($color) * 100%;
-	$opaque: opacify($color, 1);
-	$solid-color: mix($opaque, $background, $percent);
-	# {
-		$attribute
-	}
-	:$solid-color;
-	# {
-		$attribute
-	}
-	:$color;
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  #{$attribute}: $solid-color;
+  #{$attribute}: $color;
 }
