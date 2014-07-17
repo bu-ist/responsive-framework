@@ -453,7 +453,7 @@ function burf_customize_css(){
              p { color: <?php echo($colors[1]); ?> }
              a { color: <?php echo($colors[2]); ?> }
              strong { color: <?php echo($colors[3]); ?> }
-             body {
+             #page_wrapper {
              	background-color: <?php echo($bg_color); ?>;
              	background-image: url(<?php echo($bg_image); ?>);
 			 	background-repeat: <?php echo($bg_repeat); ?>;

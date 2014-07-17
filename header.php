@@ -138,5 +138,7 @@
 				'echo' => false
 				))));
 		} ?>
-
+		
+		<div id="page_wrapper">
+		
 		<div class="container">
