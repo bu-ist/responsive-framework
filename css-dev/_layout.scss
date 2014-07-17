@@ -92,6 +92,18 @@ header {
 	}
 }
 
+.l-nonav {
+	.quicksearch {
+		background: #fff;
+		padding: 0;
+		margin-top:20px;
+		
+		@include breakpoint(small) { 
+			margin-top:40px;
+		}
+	}
+}
+
 .search {
 	background: none;
 	border:none;
@@ -103,6 +115,14 @@ header {
 	
 	@include breakpoint(large) {
 		padding:15px 0;
+	}
+}
+
+.l-nonav {
+	.search {
+		border-top:1px solid rgba(0,0,0,.15);
+		border-bottom:1px solid rgba(0,0,0,.15);
+		color:#999;
 	}
 }
 
@@ -338,35 +358,19 @@ header {
 
 
 
-/* no navbar setting 
------------------------- */
 
-.l-nonav {
-	header {	
-		#brand {
-			.searchToggle {
-				display: block;
-				margin-top:-5px;
-			}
-			
-			.quicksearch {
-				background: #fff;
-				padding: 0;
-				margin-top:20px;
-				
-				@include breakpoint(small) { 
-					margin-top:40px;
-				}
-			}
-			
-			.search {
-				border-top:1px solid rgba(0,0,0,.15);
-				border-bottom:1px solid rgba(0,0,0,.15);
-				color:#999;
-			}
-		}
-	}
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -379,7 +383,6 @@ header {
 	height:35px;
 	float:left;
 	
-	/* paths for svg */
 	.r1,
 	.r2,
 	.r3 {
@@ -391,6 +394,31 @@ header {
 	}	
 }
 	
+.searchToggle {
+	float:right;
+	width:35px;
+	height:35px;
+	cursor: pointer;
+	
+	.p1,
+	.p2 {
+		fill: #fff;
+	}
+	
+	@include breakpoint(small) { 
+		margin-top:5px;	
+	}
+}
+
+.l-nonav {
+	#brand {
+		.searchToggle {
+			display: block;
+			margin-top:-5px;
+		}
+	}
+}
+
 .open {		
 	
 	#nav,
@@ -408,28 +436,23 @@ header {
 	}
 }
 
+.searchToggle.open {
+	.p2 {
+		fill:#ffcc00;
+	}
+}
+
+#brand .searchToggle.open {
+	.p2 {
+		fill:#ffcc00;
+	}
+}
+
 .l-sidenav.navopen {
 	@include breakpoint(extra_small) { 
 	    padding-left:300px;
 	}
 }
-
-.searchToggle {
-	float:right;
-	width:35px;
-	height:35px;
-	
-	.p1,
-	.p2 {
-		fill: #fff;
-	}
-	
-	@include breakpoint(small) { 
-		margin-top:5px;	
-	}
-}
-
-
 
 
 
