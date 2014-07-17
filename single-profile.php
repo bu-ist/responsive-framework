@@ -38,5 +38,4 @@ get_header(); ?>
 			<?php the_taxonomies( array( 'before' => '<div class="profile-tax"><dl>', 'sep' => '', 'after' => '</dl></div><!--/.profiles-tax-->', 'template' => '<dt>%s</dt><dd>%l</dd>' ) ); ?>
 		<?php endwhile; endif; ?>
 	</article>
-</div>
 <?php get_footer(); // will include footer-no-sidebar.php; ?>
