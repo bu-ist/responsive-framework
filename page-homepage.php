@@ -44,5 +44,4 @@ Template Name: Homepage
 	    	endif;	    	
 	    ?>
 	    
-	</div>
 <?php get_footer( 'no-sidebar' ); // will include footer-no-sidebar.php; ?>

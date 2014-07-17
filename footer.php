@@ -1,3 +1,6 @@
+</div><!-- .container -->
+</div><!-- #page_wrapper -->
+
 <?php
 	if(is_dynamic_sidebar("bottom-content-area")):
 		?>

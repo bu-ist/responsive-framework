@@ -324,6 +324,4 @@ remove_filter('the_content', 'sharing_display', 19);
 	?>
 </aside>
 
-</div>
-
 <?php get_footer(); ?>

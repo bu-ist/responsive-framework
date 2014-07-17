@@ -19,5 +19,4 @@ Template Name: News
 	    	endif;	    	
 	    ?>
 	    
-	</div>
 <?php get_footer(); // will include footer-no-sidebar.php; ?>
