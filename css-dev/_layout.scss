@@ -97,6 +97,7 @@ header {
 	border:none;
 	border-top:1px solid rgba(255,255,255,.15);
 	border-bottom:1px solid rgba(255,255,255,.15);
+	@include rgba-color('border-color', rgba($white, .11), $gray_light);
 	width:100%;
 	padding:10px 0;
 	color:$white;
@@ -155,10 +156,12 @@ header {
 	margin: 0;
 	display:none;
 	border-bottom: 1px solid rgba(255,255,255,.15);
+	@include rgba-color('border-color', rgba($white, .11), $gray_light);
 	
 	li {
 		zoom: 1;
 		border-top: 1px solid rgba(255,255,255,.15);
+		@include rgba-color('border-color', rgba($white, .11), $gray_light);
 		display:block;
 		
 		a {
@@ -246,6 +249,7 @@ header {
 		@include breakpoint(extra_small) {
 			border-top:1px solid rgba(0,0,0,.15);
 			border-bottom:1px solid rgba(0,0,0,.15);
+			@include rgba-color('border-color', rgba($black, .11), $gray_dark);
 			color:$gray_lighter;
 		}
 	}
@@ -311,10 +315,12 @@ header {
 		#nav {
 			display: block;
 			border-top: 1px solid rgba(255,255,255,.15);
+			@include rgba-color('border-color', rgba($white, .11), $gray_light);
 			
 			li {
 				display: block;
-				border-bottom: 1px solid rgba(255,255,255,.15);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+				@include rgba-color('border-color', rgba($white, .11), $gray_light);
 				padding:0;
 			}
 		}
@@ -362,6 +368,7 @@ header {
 			.search {
 				border-top:1px solid rgba(0,0,0,.15);
 				border-bottom:1px solid rgba(0,0,0,.15);
+				@include rgba-color('border-color', rgba($black, .11), $gray_dark);
 				color:#999;
 			}
 		}
@@ -404,24 +411,19 @@ header {
 }
 
 .p2 {
-	-webkit-transition: all .5s;
-    transition: all .5s;
-	-ms-transform: rotate(0deg);
-	-ms-transform-origin:50% 50%;
-	-webkit-transform: rotate(0deg);
-	-webkit-transform-origin:50% 50%;
-	transform: rotate(0deg);
-	transform-origin:250% 50%;	
+	@include transition(all, .5s, ease-in-out);
+	@include transform-origin(50% 50%);
+}
+
+.r1,
+.r3 {
+	@include transition(all, .5s, ease-in-out);
+    @include transform-origin(0 50%);
 }
 
 .open {
 	.p2 {
-		-ms-transform: rotate(45deg);
-		-ms-transform-origin:50% 50%;
-		-webkit-transform: rotate(45deg);
-		-webkit-transform-origin:50% 50%;
-		transform: rotate(45deg);
-		transform-origin:250% 50%;	
+		@include rotate(45);
 	}
 }
 
@@ -434,11 +436,16 @@ header {
 		padding-top:10px;
 	}
 	
-	.navToggle {
-		.r1,
-		.r3 {
-			display:none;
-		}
+	.r1 {
+		@include rotate(45);
+	}
+	
+	.r2 {
+		display:none;
+	}
+	
+	.r3 {
+		@include rotate(-45);
 	}
 }
 
@@ -513,7 +520,9 @@ header {
 	[class*="col-"] {
 		padding: 20px;
 		background-color: rgba(255,255,255,.35);
+		@include rgba-color('background-color', rgba($white, .35), $white);
 		border: 1px solid rgba(0,0,0,.15);
+		@include rgba-color('border-color', rgba($black, .11), $gray_light);
 		@include border-radius(0);
 	}
 }
@@ -679,7 +688,9 @@ div {
 	
 	.widget {
 		background-color: rgba(255,255,255,1);
+		@include rgba-color('background-color', rgba($white, .11), $white);
 		border: 1px solid rgba(0,0,0,.15);
+		@include rgba-color('border-color', rgba($black, .11), $gray_light);
 		padding:20px;
 		margin-bottom:20px;
 	}
@@ -712,7 +723,9 @@ div {
 	
 	.widget {
 		color:rgba(255,255,255,.5);
+		@include rgba-color('color', rgba($white, .11), $white);
 		border-top:1px solid rgba(255,255,255,.15);
+		@include rgba-color('border-color', rgba($white, .11), $white);
 		padding:20px;
 		
 		h3 {
@@ -728,6 +741,7 @@ div {
 			width:33.333%;
 			border:none;
 			border-right: 1px solid rgba(255,255,255,.15);
+			@include rgba-color('border-color', rgba($white, .11), $white);
 			padding:0 20px 1000px 20px;
 			margin-bottom: -1000px;
 		}
@@ -736,6 +750,7 @@ div {
 	.widget-first {
 		@include breakpoint(medium) { 
 			border-left: 1px solid rgba(255,255,255,.15);
+			@include rgba-color('border-color', rgba($white, .11), $white);
 		}
 	}
 	
@@ -756,6 +771,7 @@ div {
 footer {
 	background: $black;
 	border-top:1px solid rgba(0,0,0,.15);
+	@include rgba-color('border-color', rgba($black, .11), $black);
 	padding:20px;
 	display: block;
 	clear: both;
