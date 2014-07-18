@@ -112,7 +112,6 @@
     }
 }
 
-
 /* Mixin to generate RGBA colors for any style with a fallback for non-rgba browsers such as IE8
    Usage: @include rgba-color('background-color', rgba(black, 0.5), white); */
 @mixin rgba-color($attribute, $color, $background) {
