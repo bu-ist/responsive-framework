@@ -7,6 +7,7 @@
 	-ms-border-radius: $radius;
 	border-radius: $radius;
 }
+
 @mixin transition($transition-property, $transition-time, $method) {
 	-webkit-transition: $transition-property $transition-time $method;
 	-moz-transition: $transition-property $transition-time $method;
@@ -14,6 +15,38 @@
 	-o-transition: $transition-property $transition-time $method;
 	transition: $transition-property $transition-time $method;
 }
+
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+// rotate
+@mixin rotate($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+ 
+// scale
+@mixin scale($scale) {
+	@include transform(scale($scale));
+} 
+
+// translate
+@mixin translate($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+@mixin transform-origin($origin) {
+	-moz-transform-origin: $origin;
+	-o-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
 @mixin clearfix {
 	&:after {
 		content: "";
@@ -21,6 +54,7 @@
 		clear: both;
 	}
 }
+
 @mixin vertical-center {
 	position: relative;
 	top: 50%;
