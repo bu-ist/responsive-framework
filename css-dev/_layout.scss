@@ -383,15 +383,22 @@ header {
 	height:35px;
 	float:left;
 	
-	.r1,
-	.r2,
-	.r3 {
-		fill:$white;
-	}
-	
 	@include breakpoint(small) {
 		display: none;
 	}	
+}
+
+/* menu icon svg paths */
+.r1,
+.r2,
+.r3 {
+	fill:$white;
+}
+	
+.r1,
+.r3 {
+	@include transition(all, .5s, ease-in-out);
+    @include transform-origin(0 50%);
 }
 	
 .searchToggle {
@@ -400,14 +407,15 @@ header {
 	height:35px;
 	cursor: pointer;
 	
-	.p1,
-	.p2 {
-		fill: $white;
-	}
-	
 	@include breakpoint(small) { 
 		margin-top:5px;	
 	}
+}
+
+/* search icon svg paths */
+.p1,
+.p2 {
+	fill: $white;
 }
 
 .p2 {
@@ -415,18 +423,7 @@ header {
 	@include transform-origin(50% 50%);
 }
 
-.r1,
-.r3 {
-	@include transition(all, .5s, ease-in-out);
-    @include transform-origin(0 50%);
-}
-
-.open {
-	.p2 {
-		@include rotate(45);
-	}
-}
-
+/* when nav or search are opened */
 .open {		
 	
 	#nav,
@@ -447,8 +444,11 @@ header {
 	.r3 {
 		@include rotate(-45);
 	}
+	
+	.p2 {
+		@include rotate(45);
+	}
 }
-
 
 .l-sidenav.navopen {
 	@include breakpoint(extra_small) { 
