@@ -158,6 +158,8 @@ function bu_flexi_posts_widget_formats($formats) {
     return $formats;
 }
 
+add_filter('bu_posts_widget_formats', 'bu_flexi_posts_widget_formats', 1, 1);
+
 function bu_flexi_title_date_callback($post, $args) {
     global $post;
 
@@ -173,7 +175,7 @@ function bu_flexi_title_date_callback($post, $args) {
     }
     $output .= sprintf('<h1><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title());
     $output .= sprintf('<p class="meta"><span class="published">%s</span></p>', BU_PostList::post_date('F j, Y'));
-    $output .= '</div>';
+    $output .= '</section>';
     return $output;
 }
 
