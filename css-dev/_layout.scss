@@ -176,7 +176,9 @@ header {
 		}
 	}
 	
-	li.current_page_item a {
+	li.current_page_item a,
+	li.current_page_parent a,
+	li.current_page_ancestor a {
 		color: $white;
 	}
 	
@@ -196,8 +198,6 @@ header {
 		}
 	}
 }
-
-
 
 
 
@@ -462,7 +462,7 @@ header {
 ----------------------------------------------------------------- */
 
 .container  {
-	padding: 20px;
+	padding: 28px 20px;
 	width: 100%;
 	margin:0 auto;
 	@include clearfix;
@@ -515,7 +515,7 @@ header {
 ------------------------ */
 	
 .row {
-	margin:0 0 20px 0;
+	margin:0 0 28px 0;
 
 	[class*="col-"] {
 		padding: 20px;
@@ -686,9 +686,31 @@ div {
 
 #right-content-area {
 	
+	#contentnav {
+			
+		li {
+			border-top: 1px solid rgba(0, 0, 0, 0.11);
+			@include rgba-color('border-color', rgba($black, .11), $gray_light);
+			padding:14px 0;
+			
+			:last-child {
+				padding-bottom:0;
+			}
+			
+			a:hover,
+			a:focus {
+				color:#000;
+			}
+			
+			li {
+				border:none;
+			}
+		}	
+	}
+
 	.widget {
 		background-color: rgba(255,255,255,1);
-		@include rgba-color('background-color', rgba($white, .11), $white);
+		@include rgba-color('background-color', rgba($white, .35), $white);
 		border: 1px solid rgba(0,0,0,.15);
 		@include rgba-color('border-color', rgba($black, .11), $gray_light);
 		padding:20px;
@@ -716,16 +738,16 @@ div {
 		margin:0 auto;
 		@include clearfix;
 		@include breakpoint(medium) { 
-			padding:20px;
+			padding:0 20px 20px 20px;
 			overflow:hidden;
 		}
 	}
 	
 	.widget {
 		color:rgba(255,255,255,.5);
-		@include rgba-color('color', rgba($white, .11), $white);
-		border-top:1px solid rgba(255,255,255,.15);
-		@include rgba-color('border-color', rgba($white, .11), $white);
+		@include rgba-color('color', rgba($white, .5), $white);
+		border-top:1px solid rgba(255,255,255,.35);
+		@include rgba-color('border-color', rgba($white, .35), $white);
 		padding:20px;
 		
 		h3 {
@@ -757,7 +779,7 @@ div {
 	@include clearfix;
 	
 	@include breakpoint(medium) {
-		padding:20px 0;
+		padding:40px 0;
 	}
 }
 
