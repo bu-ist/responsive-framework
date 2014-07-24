@@ -241,12 +241,12 @@ function burf_customize_register($wp_customize){
             'settings' => 'burf_setting_colors',
             'type'     => 'radio',
 	        'choices'    => array(
-            	'option1' => '#000000,#CC0000,#5399C7,#B0B0B0',
-	            'option2' => '#295E72,#3EA1BB,#87C6D5,#A6D3DF',
-	            'option3' => '#934548,#6FA899,#F3E5D4,#F2BC4F',
-	            'option4' => '#261514,#A6330A,#D96806,#BFBFBD',
-	            'option5' => '#3D3B41,#BAAB80,#F8F0B3,#685F5F',
-	            'option6' => '#8AAE45,#DA3A47,#2A2A2A,#D2D89B'
+            	'option1' => '#000000,#606060,#cc0000,#4a97a7',
+	            'option2' => '#000000,#414141,#0095e2,#f59a23',
+	            'option3' => '#4699d3,#000000,#e98900,#4699d3',
+	            'option4' => '#a6330a,#261514,#f77300,#aaaaaa',
+	            'option5' => '#cc0000,#685f5f,#cc0000,#685f5f',
+	            'option6' => '#ffffff,#909090,#0095e2,#f59a23'
             )
 	            
 	    )));

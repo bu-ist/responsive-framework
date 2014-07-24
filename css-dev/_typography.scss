@@ -1,6 +1,16 @@
 /* START: group 1 (headings / body): capita / benton
 ----------------------------------------------------------------- */
 
+a {
+	text-decoration: none;
+}
+
+
+
+
+/* START: group 1 (headings / body): capita / benton
+----------------------------------------------------------------- */
+
 /*
 100 - Thin
 200 - Extra Light (Ultra Light)
@@ -30,20 +40,41 @@
 	h1 {
 		font-family: 'Capita';
 		font-weight: 700;
-		font-size:33px;
-		line-height:36px;
+		font-size:40px;
+		line-height:43px;
 		margin-bottom:20px;
 	}
 	
 	h2 {
 		font-family: 'Capita';
 		font-weight: 700;
-		font-size:26px;
-		line-height:29px;
+		font-size:33px;
+		line-height:36px;
 		margin-bottom:20px;
 	}
 	
 	h3 {
+		font-family: 'Capita';
+		font-weight: 700;
+		font-size:28px;
+		line-height:31px;
+		margin-bottom:20px;
+	}
+
+		.widget h3 {
+			font-size: 23px;
+			line-height: 26px;
+		}
+		
+	h4 {
+		font-family: 'Capita';
+		font-weight: 700;
+		font-size:24px;
+		line-height:27px;
+		margin-bottom:20px;
+	}
+	
+	h5 {
 		font-family: 'Capita';
 		font-weight: 700;
 		font-size:23px;
@@ -51,27 +82,11 @@
 		margin-bottom:20px;
 	}
 	
-	h4 {
-		font-family: 'Capita';
-		font-weight: 700;
-		font-size:20px;
-		line-height:23px;
-		margin-bottom:20px;
-	}
-	
-	h5 {
+	h6 {
 		font-family: 'Capita';
 		font-weight: 700;
 		font-size:18px;
 		line-height:21px;
-		margin-bottom:20px;
-	}
-	
-	h6 {
-		font-family: 'Capita';
-		font-weight: 700;
-		font-size:16px;
-		line-height:19px;
 		margin-bottom:20px;
 	}
 	
@@ -83,7 +98,7 @@
 	#nav li a {
 		font-family: 'Capita';
 		font-weight: 500;
-		font-size:20px;
+		font-size:18px;
 	}
 	
 	#utility li a {
@@ -130,26 +145,31 @@
 	h1 {
 		font-family: 'Benton';
 		font-weight: 400;
-		font-size:33px;
-		line-height:36px;
+		font-size:35px;
+		line-height:38px;
 		margin-bottom:20px;
 	}
 	
 	h2 {
 		font-family: 'Benton';
 		font-weight: 400;
-		font-size:26px;
-		line-height:29px;
+		font-size:29px;
+		line-height:32px;
 		margin-bottom:20px;
 	}
 	
 	h3 {
 		font-family: 'Benton';
 		font-weight: 400;
-		font-size:23px;
-		line-height:26px;
+		font-size:25px;
+		line-height:28px;
 		margin-bottom:20px;
 	}
+
+		.widget h3 {
+			font-size: 18px;
+			line-height: 21px;
+		}
 	
 	h4 {
 		font-family: 'Benton';
@@ -216,14 +236,14 @@
 .f3 {
 	font-family: 'Capita';
 	font-weight: 400;
-	font-size:16px;
-	line-height:24px;
+	font-size:18px;
+	line-height:26px;
 	
 	p {
 		font-family: 'Capita';
 		font-weight: 400;
-		font-size:16px;
-		line-height:24px;
+		font-size:18px;
+		line-height:26px;
 		margin-bottom:20px;
 	}
 	
@@ -250,6 +270,11 @@
 		line-height:26px;
 		margin-bottom:20px;
 	}
+	
+		.widget h3 {
+			font-size: 18px;
+			line-height: 21px;
+		}
 	
 	h4 {
 		font-family: 'Benton';
@@ -283,7 +308,7 @@
 	#nav li a {
 		font-family: 'Benton';
 		font-weight: 700;
-		font-size:18px;
+		font-size:16px;
 	}
 	
 	#utility li a {
@@ -330,31 +355,45 @@
 	h1 {
 		font-family: 'Pressura';
 		font-weight: 700;
-		font-size:33px;
+		font-size:40px;
 		text-transform: uppercase;
-		line-height:36px;
+		line-height:43px;
 		margin-bottom:20px;
 	}
 	
 	h2 {
 		font-family: 'Pressura';
 		font-weight: 700;
-		font-size:26px;
+		font-size:35px;
 		text-transform: uppercase;
-		line-height:29px;
+		line-height:38px;
 		margin-bottom:20px;
 	}
 	
 	h3 {
 		font-family: 'Pressura';
 		font-weight: 700;
-		font-size:23px;
+		font-size:30px;
 		text-transform: uppercase;
-		line-height:26px;
+		line-height:33px;
 		margin-bottom:20px;
 	}
 	
+		.widget h3 {
+			font-size: 20px;
+			line-height: 23px;
+		}
+	
 	h4 {
+		font-family: 'Pressura';
+		font-weight: 700;
+		font-size:24px;
+		text-transform: uppercase;
+		line-height:27px;
+		margin-bottom:20px;
+	}
+	
+	h5 {
 		font-family: 'Pressura';
 		font-weight: 700;
 		font-size:20px;
@@ -363,21 +402,12 @@
 		margin-bottom:20px;
 	}
 	
-	h5 {
+	h6 {
 		font-family: 'Pressura';
 		font-weight: 700;
 		font-size:18px;
 		text-transform: uppercase;
 		line-height:21px;
-		margin-bottom:20px;
-	}
-	
-	h6 {
-		font-family: 'Pressura';
-		font-weight: 700;
-		font-size:16px;
-		text-transform: uppercase;
-		line-height:19px;
 		margin-bottom:20px;
 	}
 	
@@ -438,40 +468,45 @@
 	h1 {
 		font-family: 'Stag';
 		font-weight: 500;
-		font-size:33px;
-		line-height:36px;
+		font-size:40px;
+		line-height:43px;
 		margin-bottom:20px;
 	}
 	
 	h2 {
 		font-family: 'Stag';
 		font-weight: 500;
-		font-size:26px;
-		line-height:29px;
+		font-size:35px;
+		line-height:38px;
 		margin-bottom:20px;
 	}
 	
 	h3 {
 		font-family: 'Stag';
 		font-weight: 500;
-		font-size:23px;
-		line-height:26px;
+		font-size:30px;
+		line-height:33px;
 		margin-bottom:20px;
 	}
-	
+
+		.widget h3 {
+			font-size: 20px;
+			line-height: 23px;
+		}
+
 	h4 {
 		font-family: 'Stag';
 		font-weight: 500;
-		font-size:20px;
-		line-height:23px;
+		font-size:25px;
+		line-height:28px;
 		margin-bottom:20px;
 	}
 	
 	h5 {
 		font-family: 'Stag';
 		font-weight: 500;
-		font-size:18px;
-		line-height:21px;
+		font-size:20px;
+		line-height:23px;
 		margin-bottom:20px;
 	}
 	
