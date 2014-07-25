@@ -65,6 +65,22 @@ if (class_exists('AllowedTemplates')) {
 
 
 
+function video_func( $atts ) {
+      $atts = shortcode_atts( array(
+ 	      'vid' => '',
+ 	      'id' => '',
+ 	      'class' => ''
+      ), $atts );
+
+	  $retstr = "<div id='" . $atts['id'] . "' class='responsive-video " . $atts['class'] . "'><div>";
+	  $retstr .= "<iframe width='550' height='310' frameborder='0' src='http://www.bu.edu/buniverse/interface/embed/embed.html?v=" . $atts['vid'] . "'></iframe>";
+	  $retstr .= "</div></div>";
+
+      return($retstr);
+}
+add_shortcode('video', 'video_func');
+
+
 
 
 
