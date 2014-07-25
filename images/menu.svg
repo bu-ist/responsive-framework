@@ -1,8 +1,21 @@
-<svg version="1.1" id="main_menu_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
-<title>Navigation</title>
-<desc>This is the navigation menu icon</desc>
-<rect class="r1" y="117.6" width="612" height="110.6"/>
-<rect class="r2" y="340.6" width="612" height="110.6"/>
-<rect class="r3" y="563.6" width="612" height="110.6"/>
+<svg id="main_menu_icon" viewBox="0 0 612 792">
+	<title>Navigation Menu Icon</title>
+	<desc>This is the navigation menu icon</desc>
+	<g>
+		<rect class="r1"
+			  y="117.6"
+			  width="612"
+			  height="110.6"
+			  />
+		<rect class="r2"
+			  y="340.6"
+			  width="612"
+			  height="110.6"
+			  />
+		<rect class="r3"
+			  y="563.6"
+			  width="612"
+			  height="110.6"
+			  />
+	</g>
 </svg>
