@@ -211,8 +211,10 @@ function bu_flexi_posts_widget_default_callback($post, $args) {
 				<a href="%s" rel="nofollow"><strong>%s</strong> comments</a></span></p>', get_the_author(), get_comments_link(), get_comments_number($post->ID));
             break;
     }
-
-    $output .= sprintf('<p class="excerpt">%s</p>', BU_PostList::get_post_excerpt(12));
+    
+	if(BU_PostList::get_post_excerpt(12)){
+	   	$output .= sprintf('<p class="excerpt">%s</p>', BU_PostList::get_post_excerpt(12));
+    }
     $output .= '</section>';
     return $output;
 }
