@@ -8,12 +8,12 @@
 	border-radius: $radius;
 }
 
-@mixin transition($transition-property, $transition-time, $method) {
-	-webkit-transition: $transition-property $transition-time $method;
-	-moz-transition: $transition-property $transition-time $method;
-	-ms-transition: $transition-property $transition-time $method;
-	-o-transition: $transition-property $transition-time $method;
-	transition: $transition-property $transition-time $method;
+@mixin transition($transition-property, $transition-time, $transition-delays, $method) {
+	-webkit-transition: $transition-property $transition-time $transition-delays $method;
+	-moz-transition: $transition-property $transition-time $transition-delays $method;
+	-ms-transition: $transition-property $transition-time $transition-delays $method;
+	-o-transition: $transition-property $transition-time $transition-delays $method;
+	transition: $transition-property $transition-time $transition-delays $method;
 }
 
 @mixin transform($transforms) {
