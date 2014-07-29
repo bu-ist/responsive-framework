@@ -449,10 +449,14 @@ function burf_customize_css(){
 	$bg_attachment = get_option("burf_setting_background_attachment");
     ?>
          <style type="text/css">
-             h1,h2,h3,h4,h5,h6 { color: <?php echo($colors[0]); ?> }
-             p { color: <?php echo($colors[1]); ?> }
-             a { color: <?php echo($colors[2]); ?> }
-             strong { color: <?php echo($colors[3]); ?> }
+             h1,h2,h3,h4,h5,h6,
+             #right-content-area h1,
+             #right-content-area h1 a { color: <?php echo($colors[0]); ?> }
+             strong, #right-content-area h3, #right-content-area h3 a,
+             #bottom-content-area h3, #bottom-content-area h3 a,
+             ol > li:before, ul > li:before { color: <?php echo($colors[3]); ?> }
+             body, p, li, #right-content-area a, #bottom-content-area a { color: <?php echo($colors[1]); ?> }
+             a, .comment-counter a strong { color: <?php echo($colors[2]); ?> }
              #page_wrapper {
              	background-color: <?php echo($bg_color); ?>;
              	background-image: url(<?php echo($bg_image); ?>);
