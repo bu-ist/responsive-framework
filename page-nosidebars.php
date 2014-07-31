@@ -19,7 +19,7 @@ Template Name: No Sidebars
 				))));
 		} ?>
 			
-		<article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
+		<article role="main" class="col-md-12" id="post-<?php the_ID(); ?>">
 			<?php if (function_exists('bu_content_banner')) {
 				echo(do_shortcode(bu_content_banner($post->ID, $args = array(
 					'before' => '<div class="banner-container content-width">',
