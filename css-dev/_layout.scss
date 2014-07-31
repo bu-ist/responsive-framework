@@ -397,6 +397,7 @@ header {
 .r3 {
 	@include transition(all, .5s, 0s, ease-in-out);
     @include transform-origin(0% 50%);
+    opacity:1;
 }
 
 .r2 {
@@ -436,8 +437,8 @@ header {
 		padding-top:10px;
 	}
 	
-	/*
-.r1 {
+/*
+	.r1 {
 		@include rotate(45);
 	}
 	
@@ -797,6 +798,11 @@ h6.bu_collapsible {
 		.widgetnav {
 			margin-bottom: 20px;
 		}
+		
+		h3 {
+			margin-bottom:20px;
+			padding-bottom:15px;
+		}
 	}
 
 .widget-bu-posts {
@@ -810,7 +816,8 @@ h6.bu_collapsible {
 ------------------------ */
 
 .post {
-	padding:20px 0;
+	padding:0 0 20px 0;
+	margin-bottom:20px;
 	
 	h1, h2, h3,
 	h4, h5, h6 {
@@ -867,6 +874,7 @@ h6.bu_collapsible {
 	
 	.date {
 		margin-right:10px;
+		background: #ccc;
 	}
 	
 	a .date {
@@ -950,15 +958,24 @@ h6.bu_collapsible {
 		@include rgba-color('background-color', rgba($white, .35), $white);
 		border: 1px solid rgba(0,0,0,.15);
 		@include rgba-color('border-color', rgba($black, .11), $gray_light);
+		
+		h3 {
+			border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+			@include rgba-color('border-color', rgba($black, .11), $gray_light);
+		}
 	}
 	
 	.post {
-		border-top: 1px solid rgba(0, 0, 0, 0.11);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.11);
 		@include rgba-color('border-color', rgba($black, .11), $gray_light);
 	}
 	
+	.post:nth-last-of-type(1) {
+		border-bottom: none;
+	}
+	
 	.date {
-		border-right:1px solid rgba(0, 0, 0, 0.11);
+		border-right:3px solid rgba(0, 0, 0, 0.11);
 		@include rgba-color('border-color', rgba($black, .11), $gray_light);
 	}
 	
@@ -1010,6 +1027,11 @@ h6.bu_collapsible {
 			padding:0;
 		}
 		
+		h3 {
+			border-bottom: 1px solid rgba(255,255,255,.15);
+			@include rgba-color('border-color', rgba($white, .11), $white);
+		}
+		
 		@include breakpoint(medium) { 
 			float:left;
 			width:33.333%;
@@ -1029,7 +1051,7 @@ h6.bu_collapsible {
 	}
 	
 	.post {
-		border-top: 1px solid rgba(255, 255, 255, 0.11);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.11);
 		@include rgba-color('border-color', rgba($white, .11), $white);
 		
 		h1 {
@@ -1042,8 +1064,12 @@ h6.bu_collapsible {
 	}
 	
 	.date {
-		border-right:1px solid rgba(255, 255, 255, 0.11);
+		border-right:3px solid rgba(255, 255, 255, 0.11);
 		@include rgba-color('border-color', rgba($white, .11), $white);
+	}
+	
+	.day {
+		color:$white;
 	}
 	
 	.comment-counter {
