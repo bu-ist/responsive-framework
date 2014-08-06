@@ -466,6 +466,8 @@ function burf_customize_css(){
              ul > li:before,
              ol > li:before { color: <?php echo($colors[3]); ?> }
              
+             .default .date { background-color: <?php echo($colors[3]); ?> }
+             
              /* general text colors */
              body, p, li,
              #right-content-area a,
