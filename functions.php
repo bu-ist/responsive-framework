@@ -56,7 +56,7 @@ if (function_exists('bu_register_banner_position')) {
 if (class_exists('AllowedTemplates')) {
     if (!isset($banner_templates))
         $banner_templates = new AllowedTemplates();
-    $banner_templates->register(array('single.php', 'default', 'calendar.php', 'news.php', 'blank.php', 'window-width-blank.php', 'page-no-title.php', 'profiles.php'));
+    $banner_templates->register(array('single.php', 'default', 'calendar.php', 'news.php', 'blank.php', 'window-width-blank.php', 'page-no-title.php', 'profiles.php', 'page-nosidebars.php'));
     
     if(!isset($profile_templates)) $profile_templates = new AllowedTemplates();
 	$profile_templates->register(array('profiles.php'));
