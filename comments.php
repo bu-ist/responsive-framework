@@ -63,5 +63,3 @@
 <?php endif; // end have_comments() ?>
 
 <?php comment_form(); ?>
-
-</div><!-- #comments -->
