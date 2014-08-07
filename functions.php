@@ -65,7 +65,7 @@ if (class_exists('AllowedTemplates')) {
 
 
 
-function video_func( $atts ) {
+function buniverse_video_func( $atts ) {
       $atts = shortcode_atts( array(
  	      'vid' => '',
  	      'id' => '',
@@ -83,7 +83,7 @@ function video_func( $atts ) {
 
       return($retstr);
 }
-add_shortcode('video', 'video_func');
+add_shortcode('buniverse', 'buniverse_video_func');
 
 
 
