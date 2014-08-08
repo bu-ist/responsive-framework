@@ -5,13 +5,13 @@ jQuery(function($) {
 		$("nav").toggleClass("open");
 		$("body").toggleClass("navopen");
 		
-		$(".searchToggle, .quicksearch").removeClass("open");
+		$(".searchToggle, #quicksearch").removeClass("open");
 		
 	});
 	
 	$(".searchToggle").on("click", function(){
 		$(this).toggleClass("open");
-		$(".quicksearch").toggleClass("open");
+		$("#quicksearch").toggleClass("open");
 		
 		$("nav, .navToggle").removeClass("open");
 		$("body").removeClass("navopen"); 

@@ -68,7 +68,7 @@
 						<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
                                                 <?php endif; ?>
 					</nav>
-					<?php get_search_form(); ?>
+					<?php responsive_search_form(); ?>
 				<?php
 				endif;
 			?>
@@ -84,7 +84,7 @@
 				<?php endif; ?>
 				<div class="searchToggle"><?php include("images/search.svg"); ?></div>
 				<?php if($headerLayout == "l-nonav"): ?>
-					<?php get_search_form(); ?>
+					<?php responsive_search_form(); ?>
 				<?php endif; ?>
 				
 			</div>
@@ -102,7 +102,7 @@
 					?>
 					<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>
 				</nav>
-				<?php get_search_form(); ?>
+				<?php responsive_search_form(); ?>
 			<?php
 				endif;
 			?>
@@ -122,7 +122,7 @@
 					<nav id="utility" role="utility"><?php wp_nav_menu($utilArgs); ?></nav>				
 				</nav>
 				 
-				<?php get_search_form(); ?>
+				<?php responsive_search_form(); ?>
 			<?php
 				endif;
 			?>	
