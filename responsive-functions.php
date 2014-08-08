@@ -40,6 +40,62 @@ function responsive_comments() {
   comments_template( '', true );
 }
 
+/**
+ * Displays search form for the site based on whether or not there is a site-wide ACL in place
+ */
+function responsive_search_form() {
+
+  // Check that search form is enabled
+  if ( function_exists( 'bu_search_form' ) ) {
+    if ( BU_SearchForm::isEnabled() === true ) {
+      $bu_search = true;
+    } else {
+      return;
+    }
+  }
+
+  // Check for site restrictions through the ACL plugin
+  if ( function_exists( 'bu_acl_get_site_acl' ) ) {
+    $site_acl = bu_acl_get_site_acl();
+
+    if( ! $site_acl->isEmpty() ) {
+      $site_restricted = true;
+    } else {
+      $site_restricted = false;
+    }
+  }
+
+  // Display search form based on whether or not site wide restriction is in place
+  if ( $bu_search && ! $site_restricted ) {
+
+    /*
+      Using custom markup for the Research launch until the BU CMS search plugin can be modified
+      to add a placeholder attribute to the search input.
+     */
+
+    // bu_search_form();
+?>
+<form method="get" action="http://www.bu.edu/phpbin/search/cms.php" id="quicksearch">
+  <fieldset>
+    <input type="hidden" name="site" value="<?php echo home_url('/'); ?>">
+    <select name="context" id="qs_search_scope">
+      <option value="site">This Site</option>
+      <option value="bumc">BU Medical</option>
+      <option value="all_of_bu">All BU</option>
+      <option value="maps">BU Maps</option>
+      <option value="directory">BU Directory</option>
+    </select>
+    <input name="q" type="text" id="q" placeholder="Search site...">
+    <input class="button" type="submit" name="do_search" value="Search">
+  </fieldset>
+</form>
+<?php
+  } else {
+    // If bu_search_form doesn't exist or the site is restricted, use default WP Search
+    get_search_form();
+  }
+}
+
 /* Determines whether or not a child theme */
 function if_child_path() {
     if (is_child_theme()){
