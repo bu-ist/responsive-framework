@@ -25,7 +25,6 @@
 		    $taxObj = get_taxonomy($tax);
 		    echo($taxObj->label . ": " . $title);
 		?>
-        <?php elseif ( is_search() ) : ?><?php printf( __( 'Search Results for: %s' ), '<span>' . get_search_query() . '</span>' ); ?>
         <?php elseif ( is_home() ) : ?>Latest Posts<?php else : ?>
         <?php endif; ?>
     </h1>

@@ -68,10 +68,10 @@ header {
 
 
 
-/* .quicksearch 
+/* #quicksearch 
 ------------------------ */
 
-.quicksearch {
+#quicksearch {
 	display: none;
 	padding:0 15px 20px 15px;
 	margin:0;
@@ -85,13 +85,17 @@ header {
 	label {
 		display:none;
 	}
-	
+
+	select {
+		display: none;
+	}
+
 	@include breakpoint(small) {
 		padding:0 40px 20px 40px;
 	}
 }
 
-.search {
+#q {
 	background: none;
 	border:none;
 	border-top:1px solid rgba(255,255,255,.15);
@@ -117,7 +121,7 @@ header {
 	height: 35px;
 }
 
-.quicksearch.open {
+#quicksearch.open {
 	display: block;
 }
 
@@ -244,7 +248,7 @@ header {
 
 .l-sidenav {
 
-	.search {
+	#q {
 		@include breakpoint(extra_small) {
 			border-top:1px solid rgba(0,0,0,.15);
 			border-bottom:1px solid rgba(0,0,0,.15);
@@ -253,7 +257,7 @@ header {
 		}
 	}
 	
-	.quicksearch.open {	
+	#quicksearch.open {	
 		@include breakpoint(extra_small) {
 			background: $white;
 		}
@@ -357,7 +361,7 @@ header {
 				margin-top:-5px;
 			}
 			
-			.quicksearch {
+			#quicksearch {
 				background: $white;
 				padding: 0;
 				margin-top:20px;
@@ -367,7 +371,7 @@ header {
 				}
 			}
 			
-			.search {
+			#q {
 				border-top:1px solid rgba(0,0,0,.15);
 				border-bottom:1px solid rgba(0,0,0,.15);
 				@include rgba-color('border-color', rgba($black, .11), $gray_dark);
