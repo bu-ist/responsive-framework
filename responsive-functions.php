@@ -24,6 +24,22 @@ function responsive_get_description(){
 	}
 }
 
+/**
+ * Displays the comments template if the current site supports comments.
+ *
+ * If the current site has the '_bu_supports_comments' option set to '1',
+ * the comment template is displayed.
+ *
+ * @see  mu-plugins/bu-comments
+ */
+function responsive_comments() {
+  if ( function_exists( 'bu_supports_comments' ) && ! bu_supports_comments() ) {
+    return;
+  }
+
+  comments_template( '', true );
+}
+
 /* Determines whether or not a child theme */
 function if_child_path() {
     if (is_child_theme()){

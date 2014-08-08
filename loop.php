@@ -55,7 +55,7 @@
                 </div>
        </article>
 
-		<?php comments_template( '', true ); ?>
+		<?php responsive_comments(); ?>
 
 <?php endwhile; // End the loop. Whew. ?>
 

@@ -42,7 +42,7 @@
 		
 		</article>
 
-		<?php if(bu_supports_comments()) { comments_template(); }?>
+		<?php responsive_comments(); ?>
 
 		    <?php endwhile; endif; ?>
 		    
