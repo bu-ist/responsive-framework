@@ -10,21 +10,23 @@ require_once("flexi-functions/calendar.php");
 require_once("flexi-functions/formats-and-templates.php");
 
 
+/* Theme Capabilities */
+function bu_responsive_setup() {
+    add_theme_support('menus');
+    add_theme_support('post-thumbnails');
+
+    // Specific sites must enable comments by setting the _bu_supports_comments option to 1
+    add_theme_support('bu_comments');
+
+    add_post_type_support('page', 'excerpt');
+}
+
+add_action('after_setup_theme', 'bu_responsive_setup');
+
 function bu_responsive_init() {
-	
-	/* Theme Capabilities */
-	function bu_responsive_setup() {
-	    add_theme_support('menus');
-	    add_theme_support('post-thumbnails');
-	    add_post_type_support('page', 'excerpt');
-	}
-	add_action('after_setup_theme', 'bu_responsive_setup');
 
 	if ( ! defined( 'BU_SUPPORTS_SEO' ) ) define('BU_SUPPORTS_SEO', true);
-	
 
-	
-    
 	/* Menus & Locations */
 	register_nav_menus(array(
 	    'primary' => 'Primary Menu',

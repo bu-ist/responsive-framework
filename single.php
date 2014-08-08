@@ -17,7 +17,7 @@
             	<p>Posted <strong><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></strong> on <time datetime="<?php the_time('l, F jS, Y') ?>" pubdate><?php the_time('l, F jS, Y') ?></time> &middot; <a href="<?php the_permalink(); ?>">Permalink</a></p> 
             </footer>
 
-			<?php comments_template( '', true ); ?>
+	        <?php responsive_comments(); ?>
 
             <ul class="navigation">
                 <li class="older">
