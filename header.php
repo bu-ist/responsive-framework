@@ -20,19 +20,12 @@
 		<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico">
 		<link rel="apple-touch-icon" href="<?php echo bloginfo('template_directory'); ?>/apple-touch-icon-precomposed.png"/>
 
-
-		<!-- Stylesheets -->
-		<link rel="stylesheet" type="text/css" href="//cloud.typography.com/6127692/660644/css/fonts.css" />
-		<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+		<?php wp_head(); ?>
 
 		<!--[if (lt IE 9)&(!IEMobile 7) ]>
-			<link rel='stylesheet' type='text/css' href="<?php echo get_template_directory_uri(); ?>/ie.css?&ver=0.1" />
+			<link rel='stylesheet' type='text/css' href="<?php echo get_stylesheet_directory_uri(); ?>/ie.css?&ver=0.1" />
 		<![endif]-->
 		<!-- Stylesheets -->
-		
-		
-		<?php wp_head(); ?>
-		
 	</head>
 
 	<body <?php body_class(); ?> id="top">
