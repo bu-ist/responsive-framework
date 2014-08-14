@@ -2,24 +2,24 @@
 ----------------------------------------------------------------- */
 
 @mixin border-radius($radius) {
-	-webkit-border-radius: $radius;
-	-moz-border-radius: $radius;
 	-ms-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
 	border-radius: $radius;
 }
 
 @mixin transition($transition-property, $transition-time, $method, $transition-delays) {
-	-webkit-transition: $transition-property $transition-time $method $transition-delays;
-	-moz-transition: $transition-property $transition-time $method $transition-delays;
 	-ms-transition: $transition-property $transition-time $method $transition-delays;
 	-o-transition: $transition-property $transition-time $method $transition-delays;
+	-moz-transition: $transition-property $transition-time $method $transition-delays;
+	-webkit-transition: $transition-property $transition-time $method $transition-delays;
 	transition: $transition-property $transition-time $method $transition-delays;
 }
 
 @mixin transform($transforms) {
-	-moz-transform: $transforms;
-	-o-transform: $transforms;
 	-ms-transform: $transforms;
+	-o-transform: $transforms;
+	-moz-transform: $transforms;
 	-webkit-transform: $transforms;
 	transform: $transforms;
 }
@@ -40,9 +40,9 @@
 }
 
 @mixin transform-origin($origin) {
-	-moz-transform-origin: $origin;
-	-o-transform-origin: $origin;
 	-ms-transform-origin: $origin;
+	-o-transform-origin: $origin;
+	-moz-transform-origin: $origin;
 	-webkit-transform-origin: $origin;
 	transform-origin: $origin;
 }
@@ -66,10 +66,10 @@
 }
 
 @mixin animation($str) {
-  -webkit-animation: #{$str};
-  -moz-animation: #{$str};
   -ms-animation: #{$str};
   -o-animation: #{$str};
+  -moz-animation: #{$str};
+  -webkit-animation: #{$str};
   animation: #{$str};      
 }
 
@@ -87,20 +87,21 @@
 }
 */
 
+@mixin vertical-center {
+	position: relative;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
 @mixin clearfix {
 	&:after {
 		content: "";
 		display: table;
 		clear: both;
 	}
-}
-
-@mixin vertical-center {
-	position: relative;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
 }
 
 /* If primary stylesheet indicates media query support (e.g. style.scss), output media queries. If not (e.g. ie.scss), output the block WITHOUT
