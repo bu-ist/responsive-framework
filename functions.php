@@ -97,7 +97,7 @@ add_shortcode('buniverse', 'buniverse_video_func');
 
 function bu_responsive_register_scripts() {
     wp_register_style('responsi-fonts', '//cloud.typography.com/6127692/660644/css/fonts.css', array(), null);
-    wp_register_style('responsi', get_stylesheet_uri(), array('responsi-fonts'));
+    wp_register_style('responsi', get_stylesheet_uri());
     wp_register_script('responsi', get_stylesheet_directory_uri() . "/js/production.js", array('jquery'));
     wp_register_script('responsi-modernizer', if_child_path() . "/js/vendor/modernizer.js");
 }
@@ -110,6 +110,7 @@ add_action('init', 'bu_responsive_register_scripts');
   - - - - - - - - - - - - - - - - - */
 
 function bu_responsive_enqueue_header_scripts() {
+    wp_enqueue_style('responsi-fonts');
     wp_enqueue_style('responsi');
     wp_enqueue_script('responsi-modernizer');
 }
