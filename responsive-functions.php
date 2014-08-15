@@ -25,6 +25,16 @@ function responsive_get_description(){
 }
 
 /**
+ * Whether or not the current network is a bu.edu domain.
+ *
+ * @return bool
+ */
+function responsive_is_bu_domain() {
+  $current_site = get_current_site();
+  return preg_match('#bu.edu$#', $current_site->domain);
+}
+
+/**
  * Displays the comments template if the current site supports comments.
  *
  * If the current site has the '_bu_supports_comments' option set to '1',
