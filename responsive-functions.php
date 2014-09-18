@@ -77,34 +77,18 @@ function responsive_search_form() {
 
   // Display search form based on whether or not site wide restriction is in place
   if ( $bu_search && ! $site_restricted ) {
-
-    /*
-      Using custom markup for the Research launch until the BU CMS search plugin can be modified
-      to add a placeholder attribute to the search input.
-     */
-
-    // bu_search_form();
-?>
-<form method="get" action="http://www.bu.edu/phpbin/search/cms.php" id="quicksearch">
-  <fieldset>
-    <input type="hidden" name="site" value="<?php echo home_url('/'); ?>">
-    <select name="context" id="qs_search_scope">
-      <option value="site">This Site</option>
-      <option value="bumc">BU Medical</option>
-      <option value="all_of_bu">All BU</option>
-      <option value="maps">BU Maps</option>
-      <option value="directory">BU Directory</option>
-    </select>
-    <input name="q" type="text" id="q" placeholder="Search site...">
-    <input class="button" type="submit" name="do_search" value="Search">
-  </fieldset>
-</form>
-<?php
+    bu_search_form();
   } else {
     // If bu_search_form doesn't exist or the site is restricted, use default WP Search
     get_search_form();
   }
 }
+
+function responsi_bu_search_form_query_attributes( $attrs ) {
+  return 'placeholder="Search site..."';
+}
+
+add_filter( 'bu_search_form_query_attributes', 'responsi_bu_search_form_query_attributes' );
 
 /* Determines whether or not a child theme */
 function if_child_path() {
