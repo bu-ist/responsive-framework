@@ -1,5 +1,17 @@
 <?php
 
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.0' );
+
+/**
+ * Theme version.
+ *
+ * Child themes should define this constant.
+ * Used to version theme assets (style.css, production.js, etc.).
+ */
+if ( ! defined( 'RESPONSIVE_THEME_VERSION' ) ) {
+    define( 'RESPONSIVE_THEME_VERSION', RESPONSIVE_FRAMEWORK_VERSION );
+}
+
 require_once("responsive-functions.php");
 
 if(!is_child_theme()){
@@ -98,13 +110,18 @@ add_shortcode('buniverse', 'buniverse_video_func');
 function bu_responsive_register_scripts() {
     global $wp_styles;
 
+    // Main stylesheets (style.css, ie.css) will load from child theme directory.
+    wp_register_style('responsi', get_stylesheet_uri(), array(), RESPONSIVE_THEME_VERSION);
+    wp_register_style('responsi-ie', get_stylesheet_directory_uri() . "/ie.css", array(), RESPONSIVE_THEME_VERSION);
     wp_register_style('responsi-fonts', '//cloud.typography.com/6127692/660644/css/fonts.css', array(), null);
-    wp_register_style('responsi', get_stylesheet_uri());
-    wp_register_style('responsi-ie', get_stylesheet_directory_uri() . "/ie.css" );
-    wp_register_script('responsi', get_stylesheet_directory_uri() . "/js/production.js", array('jquery'));
-    wp_register_script('responsi-modernizer', if_child_path() . "/js/vendor/modernizer.js");
 
-    // Load IE stylesheet conditionally
+    // Main script file (production.js) will load from child theme directory.
+    wp_register_script('responsi', get_stylesheet_directory_uri() . "/js/production.js", array('jquery'), RESPONSIVE_THEME_VERSION);
+
+    // Vendor scripts will load from parent theme directory.
+    wp_register_script('responsi-modernizer', get_template_directory_uri() . "/js/vendor/modernizer.js", array(), '2.8.2');
+
+    // Wraps IE stylesheet in conditional comments.
      $wp_styles->add_data( 'responsi-ie', 'conditional', '(lt IE 9) & (!IEMobile 7)' );
 }
 
