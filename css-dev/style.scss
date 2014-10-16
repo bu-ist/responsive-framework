@@ -2,39 +2,12 @@
 	Theme Name: Responsive Framework
 	Author: BU ID
 	Website: http://www.bu.edu/interactive-design/
-	Version: 1.0
+	Version: 0.1.0
 	Description: Responsive framework, started with Barebones, ........
 ---------------------- */
 
 
-/* ! reset
+/* ! responsive foundation
 ---------------------- */
-@import 'reset';
-
-/* ! fonts
----------------------- */
-@import 'fonts';
-
-/* ! variables
----------------------- */
-@import 'variables';
-
-/* ! mixins
----------------------- */
-@import 'mixins';
-
-/* ! type options
----------------------- */
-@import 'typography';
-
-/* ! grid
----------------------- */
-@import 'grid';
-
-/* ! layout
----------------------- */
-@import 'layout';
-
-/* ! print
----------------------- */
-@import 'print';
+@import 'burf';
+@import 'burf-theme';

@@ -13,14 +13,20 @@ module.exports = function(grunt) {
 				}
 			},
 		    scripts: {
-		        files: ['js-dev/*.js'],
+		        files: [
+		        'bower_components/responsive-foundation/js-dev/*.js',
+		        'js-dev/*.js'
+		        ],
 		        tasks: ['concat', 'uglify'],
 		        options: {
 		            spawn: false,
 		        },
 		    },
 		    css: {
-			    files: ['css-dev/*.scss'],
+			    files: [
+			    'bower_components/responsive-foundation/css-dev/*.scss',
+			    'css-dev/*.scss'
+			    ],
 			    tasks: ['sass'],
 			    options: {
 			        spawn: false,
@@ -30,6 +36,7 @@ module.exports = function(grunt) {
         concat: {
             dist: {
 		        src: [
+		        	'bower_components/responsive-foundation/js-dev/burf.js',
 		            'js-dev/libs/*.js', // All JS in the libs folder
 		            'js-dev/script.js'  // This specific file
 		        ],
@@ -46,7 +53,8 @@ module.exports = function(grunt) {
 		    dist: {
 		        options: {
 		            style: 'compressed',
-		            sourcemap: true
+		            sourcemap: true,
+		            loadPath: 'bower_components/responsive-foundation/css-dev'
 		        },
 		        files: {
 		            'style.css': 'css-dev/style.scss',
