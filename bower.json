@@ -1,0 +1,11 @@
+{
+  "name": "responsive-framework",
+  "version": "0.1.0",
+  "authors": [
+    "Mike Burns <mgburns@bu.edu>"
+  ],
+  "description": "A responsive WordPress theme framework. Uses the Responsive Foundation.",
+  "dependencies": {
+    "responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#develop"
+  }
+}

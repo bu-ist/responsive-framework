@@ -1,4 +1,4 @@
 # Responsive Framework
 
-A responsive WordPress theme framework.
+A responsive WordPress theme framework. Uses the Responsive Foundation.
 
