@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 			},
 			css: {
 				files: [
-				'bower_components/responsive-foundation/css-dev/*.scss',
+				'bower_components/responsive-foundation/css-dev/**/*.scss',
 				'css-dev/*.scss'
 				],
 				tasks: ['sass'],
