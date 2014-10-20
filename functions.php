@@ -117,8 +117,8 @@ function bu_responsive_register_scripts() {
     wp_register_style('responsi-ie', get_stylesheet_directory_uri() . "/ie.css", array(), RESPONSIVE_THEME_VERSION);
     wp_register_style('responsi-fonts', '//cloud.typography.com/6127692/660644/css/fonts.css', array(), null);
 
-    // Main script file (production.js) will load from child theme directory.
-    wp_register_script('responsi', get_stylesheet_directory_uri() . "/js/production$postfix.js", array('jquery'), RESPONSIVE_THEME_VERSION);
+    // Main script file (script.js) will load from child theme directory.
+    wp_register_script('responsi', get_stylesheet_directory_uri() . "/js/script$postfix.js", array('jquery'), RESPONSIVE_THEME_VERSION);
 
     // Vendor scripts will load from parent theme directory.
     wp_register_script('responsi-modernizer', get_template_directory_uri() . "/js/vendor/modernizer$postfix.js", array(), '2.8.3');
