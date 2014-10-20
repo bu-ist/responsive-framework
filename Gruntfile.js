@@ -15,7 +15,8 @@ module.exports = function(grunt) {
 			scripts: {
 				files: [
 				'bower_components/responsive-foundation/js-dev/*.js',
-				'js-dev/*.js'
+				'js-dev/*.js',
+				'js/vendor/**/*.js'
 				],
 				tasks: ['concat', 'uglify'],
 				options: {
@@ -36,17 +37,26 @@ module.exports = function(grunt) {
 		concat: {
 			scripts: {
 				src: [
-					'bower_components/responsive-foundation/js-dev/burf.js',
-					'js-dev/libs/*.js', // All JS in the libs folder
-					'js-dev/script.js'  // This specific file
+					'bower_components/responsive-foundation/js-dev/*.js',
+					'js-dev/*.js'
 				],
 				dest: 'js/production.js',
 			}
 		},
 		uglify: {
 			scripts: {
-				src: 'js/production.js',
-				dest: 'js/production.min.js'
+				expand: true,
+				cwd: 'js',
+				src: ['*.js', '!*.min.js'],
+				dest: 'js',
+				ext: '.min.js'
+			},
+			vendor: {
+				expand: true,
+				cwd: 'js/vendor',
+				src: ['**/*.js', '!**/*.min.js'],
+				dest: 'js/vendor',
+				ext: '.min.js'
 			}
 		},
 		sass: {
