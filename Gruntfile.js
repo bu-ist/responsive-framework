@@ -71,8 +71,24 @@ module.exports = function(grunt) {
 					'ie.css': 'css-dev/ie.scss'
 				}
 			}
-		}
-
+		},
+		version: {
+			bower: {
+				src: ['bower.json']
+			},
+			functions: {
+				options: {
+					prefix: '[\'"]RESPONSIVE_\\w*_VERSION[\'"],\\s*\''
+				},
+				src: ['functions.php']
+			},
+			styles: {
+				options: {
+					prefix: 'Version:\\s*'
+				},
+				src: ['css-dev/style.scss']
+			}
+		},
 	});
 
 	// 3. Where we tell Grunt we plan to use this plug-in.
@@ -80,7 +96,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-sass');
-
+	grunt.loadNpmTasks('grunt-version');
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask('build', ['sass', 'concat', 'uglify']);
