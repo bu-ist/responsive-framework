@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 					'bower_components/responsive-foundation/js-dev/*.js',
 					'js-dev/*.js'
 				],
-				dest: 'js/production.js',
+				dest: 'js/script.js',
 			}
 		},
 		uglify: {
