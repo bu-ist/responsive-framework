@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
 		// 2. All functions go here.
 		watch: {
-			configFiles: {
+			grunt: {
 				files: [ 'Gruntfile.js'],
 				options: {
 					reload: true
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 					spawn: false,
 				},
 			},
-			css: {
+			styles: {
 				files: [
 				'bower_components/responsive-foundation/css-dev/**/*.scss',
 				'css-dev/*.scss'
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
 			}
 		},
 		concat: {
-			dist: {
+			scripts: {
 				src: [
 					'bower_components/responsive-foundation/js-dev/burf.js',
 					'js-dev/libs/*.js', // All JS in the libs folder
@@ -44,13 +44,13 @@ module.exports = function(grunt) {
 			}
 		},
 		uglify: {
-			build: {
+			scripts: {
 				src: 'js/production.js',
 				dest: 'js/production.min.js'
 			}
 		},
 		sass: {
-			dist: {
+			styles: {
 				options: {
 					style: 'compressed',
 					sourcemap: true,
