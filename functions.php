@@ -1,6 +1,6 @@
 <?php
 
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '0.9.0' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '0.9.1' );
 
 /**
  * Theme version.
