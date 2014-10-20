@@ -74,6 +74,6 @@ module.exports = function(grunt) {
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask('build', ['sass', 'concat', 'uglify']);
-	grunt.registerTask('default', ['watch', 'concat', 'uglify']);
+	grunt.registerTask('default', ['watch']);
 
 };
