@@ -60,15 +60,26 @@ module.exports = function(grunt) {
 			}
 		},
 		sass: {
-			styles: {
+			dev: {
 				options: {
-					style: 'compressed',
+					style: 'expanded',
 					sourcemap: true,
 					loadPath: 'bower_components/responsive-foundation/css-dev'
 				},
 				files: {
 					'style.css': 'css-dev/style.scss',
 					'ie.css': 'css-dev/ie.scss'
+				}
+			},
+			prod: {
+				options: {
+					style: 'compressed',
+					sourcemap: true,
+					loadPath: 'bower_components/responsive-foundation/css-dev'
+				},
+				files: {
+					'style.min.css': 'css-dev/style.scss',
+					'ie.min.css': 'css-dev/ie.scss'
 				}
 			}
 		},

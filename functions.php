@@ -113,8 +113,8 @@ function bu_responsive_register_scripts() {
     $postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
     // Main stylesheets (style.css, ie.css) will load from child theme directory.
-    wp_register_style('responsi', get_stylesheet_uri(), array(), RESPONSIVE_THEME_VERSION);
-    wp_register_style('responsi-ie', get_stylesheet_directory_uri() . "/ie.css", array(), RESPONSIVE_THEME_VERSION);
+    wp_register_style('responsi', get_stylesheet_directory_uri() . "/style$postfix.css", array(), RESPONSIVE_THEME_VERSION);
+    wp_register_style('responsi-ie', get_stylesheet_directory_uri() . "/ie$postfix.css", array(), RESPONSIVE_THEME_VERSION);
     wp_register_style('responsi-fonts', '//cloud.typography.com/6127692/660644/css/fonts.css', array(), null);
 
     // Main script file (script.js) will load from child theme directory.
