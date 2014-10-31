@@ -20,7 +20,7 @@ function responsive_get_description() {
 	if ( is_single() ) {
 		single_post_title( '', true );
 	} else {
-		bloginfo( 'name' ); echo " - "; bloginfo( 'description' );
+		bloginfo( 'name' ); echo ' - '; bloginfo( 'description' );
 	}
 }
 
@@ -94,23 +94,22 @@ add_filter( 'bu_search_form_query_attributes', 'responsi_bu_search_form_query_at
 function if_child_path() {
 	if ( is_child_theme() ) {
 		$p = get_template_directory_uri();
-	}else {
+	} else {
 		$p = get_stylesheet_directory_uri();
 	}
 	return $p;
 }
 
-
 /* Get the number of widgets in the sidebar */
 function count_sidebar_widgets( $sidebar_id, $echo = true ) {
 	$the_sidebars = wp_get_sidebars_widgets();
-	if ( !isset( $the_sidebars[$sidebar_id] ) ) {
+	if ( ! isset( $the_sidebars[ $sidebar_id ] ) ) {
 		return __( 'Invalid sidebar ID' );
 	}
 	if ( $echo ) {
-		echo count( $the_sidebars[$sidebar_id] );
+		echo count( $the_sidebars[ $sidebar_id ] );
 	}else {
-		return count( $the_sidebars[$sidebar_id] );
+		return count( $the_sidebars[ $sidebar_id ] );
 	}
 }
 
@@ -127,18 +126,18 @@ function custom_taxonomies_terms_links() {
 
 	$out = array();
 	foreach ( $taxonomies as $taxonomy_slug => $taxonomy ) {
-		if ( $taxonomy_slug !== "category" && $taxonomy_slug !== "post_tag" ) {
+		if ( $taxonomy_slug !== 'category' && $taxonomy_slug !== 'post_tag' ) {
 			// get the terms related to post
 			$terms = get_the_terms( $post->ID, $taxonomy_slug );
 
-			if ( !empty( $terms ) ) {
-				$out[] =  $taxonomy->label . ": ";
+			if ( ! empty( $terms ) ) {
+				$out[] = $taxonomy->label . ': ';
 				foreach ( $terms as $term ) {
 					$out[] =
 						'  <a href="'
 						.    get_term_link( $term->slug, $taxonomy_slug ) .'">'
 						.    $term->name
-						. "</a>";
+						. '</a>';
 				}
 			}
 		}
@@ -149,17 +148,15 @@ function custom_taxonomies_terms_links() {
 
 
 /* Remove Extra Padding for Captions */
-add_filter( 'shortcode_atts_caption', 'fixExtraCaptionPadding' );
 
-function fixExtraCaptionPadding( $attrs ) {
-	if ( !empty( $attrs['width'] ) ) {
+function fix_extra_caption_padding( $attrs ) {
+	if ( ! empty( $attrs['width'] ) ) {
 		$attrs['width'] += 10;
 	}
 	return $attrs;
 }
 
-
-
+add_filter( 'shortcode_atts_caption', 'fix_extra_caption_padding' );
 
 /* - - - - - - - - - - - - - - - - -
   Widget Counts
@@ -172,25 +169,25 @@ function widget_first_last_classes( $params ) {
 	$this_id = $params[0]['id']; // Get the id for the current sidebar we're processing
 	$arr_registered_widgets = wp_get_sidebars_widgets(); // Get an array of ALL registered widgets
 
-	if ( !$my_widget_num ) {// If the counter array doesn't exist, create it
+	if ( ! $my_widget_num ) {// If the counter array doesn't exist, create it
 		$my_widget_num = array();
 	}
 
-	if ( !isset( $arr_registered_widgets[$this_id] ) || !is_array( $arr_registered_widgets[$this_id] ) ) { // Check if the current sidebar has no widgets
+	if ( ! isset( $arr_registered_widgets[ $this_id ] ) || ! is_array( $arr_registered_widgets[ $this_id ] ) ) { // Check if the current sidebar has no widgets
 		return $params; // No widgets in this sidebar... bail early.
 	}
 
-	if ( isset( $my_widget_num[$this_id] ) ) { // See if the counter array has an entry for this sidebar
-		$my_widget_num[$this_id] ++;
+	if ( isset( $my_widget_num[ $this_id ] ) ) { // See if the counter array has an entry for this sidebar
+		$my_widget_num[ $this_id ] ++;
 	} else { // If not, create it starting with 1
-		$my_widget_num[$this_id] = 1;
+		$my_widget_num[ $this_id ] = 1;
 	}
 
-	$class = 'class="widget-' . $my_widget_num[$this_id] . ' '; // Add a widget number class for additional styling options
+	$class = 'class="widget-' . $my_widget_num[ $this_id ] . ' '; // Add a widget number class for additional styling options
 
-	if ( $my_widget_num[$this_id] == 1 ) { // If this is the first widget
+	if ( $my_widget_num[ $this_id ] == 1 ) { // If this is the first widget
 		$class .= 'widget-first ';
-	} elseif ( $my_widget_num[$this_id] == count( $arr_registered_widgets[$this_id] ) ) { // If this is the last widget
+	} elseif ( $my_widget_num[ $this_id ] == count( $arr_registered_widgets[ $this_id ] ) ) { // If this is the last widget
 		$class .= 'widget-last ';
 	}
 
@@ -200,6 +197,3 @@ function widget_first_last_classes( $params ) {
 }
 
 add_filter( 'dynamic_sidebar_params', 'widget_first_last_classes' );
-
-
-?>
