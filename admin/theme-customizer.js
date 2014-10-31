@@ -1,7 +1,7 @@
 jQuery( document ).ready(function($) {
 
-	/* - - - - - Section: Font Colors - - - - - */ 
-	
+	/* - - - - - Section: Font Colors - - - - - */
+
 	/* Initializing the color pickers */
 	if($('.color-picker').length > 0){
 		$('.color-picker').iris({
@@ -9,8 +9,8 @@ jQuery( document ).ready(function($) {
 			change: function(event, ui){
 				$(event.target).val(ui.color.toString()).change();
 				$(this).prev(".wp-color-result").css("background-color", ui.color.toString());
-				
-				
+
+
 				var tempArray = [];
 				$("#burf_section_custom .color-picker").each(function(el, le){
 					//console.log(le);
@@ -20,7 +20,7 @@ jQuery( document ).ready(function($) {
 			}
 		});
 	}
-	
+
 	/* Open the color pickers on Resultbox Click*/
 	$(".wp-color-result").on("click", function(){
 		$(this).siblings(".color-picker").show();
@@ -33,11 +33,11 @@ jQuery( document ).ready(function($) {
 		$(this).siblings(".color-picker").hide();
 		$(this).hide();
 	});
-	
+
 	/* Generate the hidden input's string */
 	$("#burf_section_colors input").on("change", function(){
 		$value = $(this).val().split(',');
-				
+
 		$("#burf_section_custom li").each(function(index){
 			console.log($value[index]);
 			$(this).find(".color-picker").iris('color', $value[index]);
@@ -48,22 +48,22 @@ jQuery( document ).ready(function($) {
 	$("#basic-color").on("click", function(){
 		$("#burf_section_colors").show();
 		$("#burf_section_custom").hide();
-		
+
 		$("#basic-color").hide();
 		$("#advanced-color").show();
 	});
 	$("#advanced-color").on("click", function(){
 		$("#burf_section_colors").hide();
 		$("#burf_section_custom").show();
-		
+
 		$("#basic-color").show();
 		$("#advanced-color").hide();
 	});
-	
-	
 
 
-	/* - - - - - Section: Background Options - - - - - */ 
+
+
+	/* - - - - - Section: Background Options - - - - - */
 	/* Pre-opened color picker */
 	if($('.color-picker-open').length > 0){
 		$('.color-picker-open').iris({
@@ -74,7 +74,7 @@ jQuery( document ).ready(function($) {
 				$(this).prev(".wp-color-result").css("background-color", ui.color.toString());
 			}
 		});
-		
+
 	}
 
 	$("#bg-toggle-color").on("click", function(){
@@ -83,7 +83,7 @@ jQuery( document ).ready(function($) {
 		$("#accordion-section-burf_section_background li:gt(0)").hide();
 		$("#accordion-section-burf_section_background #bg-color").show();
 	});
-	
+
 	$("#bg-toggle-image").on("click", function(){
 		$("#bg-toggle-color").removeClass("active");
 		$(this).addClass("active");

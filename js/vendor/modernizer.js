@@ -45,7 +45,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     slice = classes.slice,
 
-    featureName, 
+    featureName,
 
 
     injectElementWithStyles = function( rule, callback, nodes, testnames ) {
@@ -134,7 +134,7 @@ window.Modernizr = (function( window, document, undefined ) {
       };
     }
     else {
-      hasOwnProp = function (object, property) { 
+      hasOwnProp = function (object, property) {
         return ((property in object) && is(object.constructor.prototype[property], 'undefined'));
       };
     }
@@ -525,7 +525,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
        }
 
-       return Modernizr; 
+       return Modernizr;
      };
 
 
@@ -1070,7 +1070,7 @@ window.Modernizr = (function( window, document, undefined ) {
 Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0));};
 
 // requestAnimationFrame
-// Offload animation repainting to browser for optimized performance. 
+// Offload animation repainting to browser for optimized performance.
 // http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/RequestAnimationFrame/Overview.html
 // By Addy Osmani
 
