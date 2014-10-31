@@ -66,14 +66,14 @@ function bu_flexi_calendar_widget_formats( $formats ) {
 	unset( $formats['big'] );
 
 	$formats['full-date'] = array(
-		'label' => 'Full Date',
-		'callback' => 'bu_flexi_calendar_full_date'
+		'label'    => 'Full Date',
+		'callback' => 'bu_flexi_calendar_full_date',
 	);
 
 
 	$formats['graphic'] = array(
-		'label' => 'Graphic',
-		'callback' => 'bu_calendar_widget_format_big'
+		'label'    => 'Graphic',
+		'callback' => 'bu_calendar_widget_format_big',
 	);
 
 	return $formats;
@@ -86,9 +86,9 @@ function bu_flexi_calendar_full_date( $events, $base_url, $calendar_id = null ) 
 
 		foreach ( $events as $e ) {
 			$url = sprintf( '%s?eid=%s', $base_url, urlencode( $e['id'] ) );
-			if ( !empty( $e['oid'] ) )
+			if ( ! empty( $e['oid'] ) )
 				$url .= '&oid=' . urlencode( $e['oid'] );
-			if ( !empty( $calendar_id ) )
+			if ( ! empty( $calendar_id ) )
 				$url .= '&cid=' . urlencode( $calendar_id );
 
 			if ( isset( $e['subscription_name'] ) )
@@ -104,7 +104,6 @@ function bu_flexi_calendar_full_date( $events, $base_url, $calendar_id = null ) 
 
 add_filter( 'bu_calendar_widget_formats', 'bu_flexi_calendar_widget_formats', 12, 1 );
 
-
 /* - - - - - - - - - - - - - - - - -
   BU Post Widget Formats
   - - - - - - - - - - - - - - - - - */
@@ -114,45 +113,45 @@ function bu_flexi_posts_widget_formats( $formats ) {
 	unset( $formats['date_title_excerpt'] );
 
 	$formats['title_date'] = array(
-		'label' => 'title, date',
-		'callback' => 'bu_flexi_title_date_callback',
-		'supports_thumbnail' => true,
-		'requires_commenting' => false
+		'label'               => 'title, date',
+		'callback'            => 'bu_flexi_title_date_callback',
+		'supports_thumbnail'  => true,
+		'requires_commenting' => false,
 	);
 
 	$formats['title_excerpt'] = array(
-		'label' => 'title, excerpt',
-		'callback' => 'bu_flexi_posts_widget_default_callback',
-		'supports_thumbnail' => true,
-		'requires_commenting' => false
+		'label'               => 'title, excerpt',
+		'callback'            => 'bu_flexi_posts_widget_default_callback',
+		'supports_thumbnail'  => true,
+		'requires_commenting' => false,
 	);
 
 	$formats['title_date_excerpt'] = array(
-		'label' => 'title, date, excerpt',
-		'callback' => 'bu_flexi_posts_widget_default_callback',
-		'supports_thumbnail' => true,
-		'requires_commenting' => false
+		'label'               => 'title, date, excerpt',
+		'callback'            => 'bu_flexi_posts_widget_default_callback',
+		'supports_thumbnail'  => true,
+		'requires_commenting' => false,
 	);
 
 	$formats['title_author_excerpt'] = array(
-		'label' => 'title, author, excerpt',
-		'callback' => 'bu_flexi_posts_widget_default_callback',
-		'supports_thumbnail' => true,
-		'requires_commenting' => false
+		'label'               => 'title, author, excerpt',
+		'callback'            => 'bu_flexi_posts_widget_default_callback',
+		'supports_thumbnail'  => true,
+		'requires_commenting' => false,
 	);
 
 	$formats['title_date_comments_excerpt'] = array(
-		'label' => 'title, date, comments, excerpt',
-		'callback' => 'bu_flexi_posts_widget_default_callback',
-		'supports_thumbnail' => true,
-		'requires_commenting' => true
+		'label'               => 'title, date, comments, excerpt',
+		'callback'            => 'bu_flexi_posts_widget_default_callback',
+		'supports_thumbnail'  => true,
+		'requires_commenting' => true,
 	);
 
 	$formats['title_author_comments_excerpt'] = array(
-		'label' => 'title, author, comments, excerpt',
-		'callback' => 'bu_flexi_posts_widget_default_callback',
-		'supports_thumbnail' => true,
-		'requires_commenting' => true
+		'label'               => 'title, author, comments, excerpt',
+		'callback'            => 'bu_flexi_posts_widget_default_callback',
+		'supports_thumbnail'  => true,
+		'requires_commenting' => true,
 	);
 
 	return $formats;
@@ -167,10 +166,11 @@ function bu_flexi_title_date_callback( $post, $args ) {
 	$output .= '<section class="post">';
 	if ( $args['show_thumbnail'] && function_exists( 'bu_get_thumbnail_src' ) ) {
 		$output .= bu_get_thumbnail_src( $post->ID, array(
-				'maxwidth' => 88,
+				'maxwidth'  => 88,
 				'maxheight' => 88,
-				'classes' => 'thumb',
-				'use_thumb' => true )
+				'classes'   => 'thumb',
+				'use_thumb' => true,
+				)
 		);
 	}
 	$output .= sprintf( '<h1><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title() );
@@ -185,36 +185,38 @@ function bu_flexi_posts_widget_default_callback( $post, $args ) {
 	$output = '';
 	$meta = '';
 	$output .= '<section class="post">';
+
 	if ( $args['show_thumbnail'] && function_exists( 'bu_get_thumbnail_src' ) ) {
 		$output .= bu_get_thumbnail_src( $post->ID, array(
-				'maxwidth' => 260,
+				'maxwidth'  => 260,
 				'maxheight' => 260,
-				'classes' => 'thumb',
-				'use_thumb' => false )
+				'classes'   => 'thumb',
+				'use_thumb' => false,
+				)
 		);
 	}
 	$output .= sprintf( '<h1 class="headline"><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title() );
 
 	switch ( $args['current_format'] ) {
-	case 'title_date_excerpt':
-		$output .= sprintf( '<p class="meta"><span class="published">%s</span></p>', BU_PostList::post_date( 'F j, Y' ) );
-		break;
-	case 'title_author_excerpt':
-		$output .= sprintf( '<p class="meta"><span class="author">by %s</span></p>', get_the_author() );
-		break;
-	case 'title_date_comments_excerpt':
-		$output .= sprintf( '<p class="meta"><span class="published">%s</span>  <span class="comment-counter"> <a href="%s" rel="nofollow"><strong>%s</strong> comments</a></span></p>', BU_PostList::post_date( 'F j, Y' ), get_comments_link(), get_comments_number( $post->ID ) );
-		break;
-
-	case 'title_author_comments_excerpt':
-		$output .= sprintf( '<p class="meta"><span class="author">by %s</span>  <span class="comment-counter">
-				<a href="%s" rel="nofollow"><strong>%s</strong> comments</a></span></p>', get_the_author(), get_comments_link(), get_comments_number( $post->ID ) );
-		break;
+		case 'title_date_excerpt':
+			$output .= sprintf( '<p class="meta"><span class="published">%s</span></p>', BU_PostList::post_date( 'F j, Y' ) );
+			break;
+		case 'title_author_excerpt':
+			$output .= sprintf( '<p class="meta"><span class="author">by %s</span></p>', get_the_author() );
+			break;
+		case 'title_date_comments_excerpt':
+			$output .= sprintf( '<p class="meta"><span class="published">%s</span>  <span class="comment-counter"> <a href="%s" rel="nofollow"><strong>%s</strong> comments</a></span></p>', BU_PostList::post_date( 'F j, Y' ), get_comments_link(), get_comments_number( $post->ID ) );
+			break;
+		case 'title_author_comments_excerpt':
+			$output .= sprintf( '<p class="meta"><span class="author">by %s</span>  <span class="comment-counter">
+					<a href="%s" rel="nofollow"><strong>%s</strong> comments</a></span></p>', get_the_author(), get_comments_link(), get_comments_number( $post->ID ) );
+			break;
 	}
 
 	if ( BU_PostList::get_post_excerpt( 12 ) ) {
 		$output .= sprintf( '<p class="excerpt">%s</p>', BU_PostList::get_post_excerpt( 12 ) );
 	}
+
 	$output .= '</section>';
 	return $output;
 }
@@ -245,5 +247,3 @@ function bu_flexi_profile_sidebar( $args = array() ) {
 // Add support for the custom post type version of profile plugin
 add_theme_support( 'bu-profiles-post_type' );
 add_action( 'bu_flexi_above_profile_sidebar', 'bu_flexi_profile_sidebar_link' );
-
-?>
