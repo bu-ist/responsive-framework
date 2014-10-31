@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<?php get_template_part( 'main-container' ); ?><article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
+	<article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
 
 	<h1>Profile Directory</h1>
 	<?php bu_profile_get_template_part( 'basic' ); ?>

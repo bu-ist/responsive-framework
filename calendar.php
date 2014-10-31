@@ -3,21 +3,6 @@
 Template Name: Calendar
 */
 
-// calendar setup
-function onYearDay( $ts ) {
-	global $buCalendar, $events;
-
-	$contents = null;
-	$day = date( 'Y-m-d', $ts );
-	$contents = null;
-
-	if ( $buCalendar->hasEventsOnDay( $day, $events ) ) {
-		$contents = ' ';
-	}
-
-	return $contents;
-}
-
 $calendarID = array_key_exists( 'cid', $_GET ) ? intval( $_GET['cid'] ) : get_option( 'bu_calendar_id' );
 
 $calendarURI = get_permalink( $post );
@@ -40,7 +25,7 @@ $eventID = array_key_exists( 'eid', $_GET ) ? intval( $_GET['eid'] ) : NULL;
 $topics = $buCalendar->getTopics( $calendarID );
 $topicDetail = ( $topic ) ? $buCalendar->pullTopicDetail( $topic, $topics ) : array( 'name' => 'All Topics' );
 
-if ( !is_null( $eventID ) ) {
+if ( ! is_null( $eventID ) ) {
 	$oid = array_key_exists( 'oid', $_GET ) ? intval( $_GET['oid'] ) : 0;
 	$event = $buCalendar->getEvent( $calendarID, $eventID, $oid );
 	$yyyymmdd = date( 'Ymd', $event['starts'] );
@@ -81,10 +66,10 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 	<div class="container">
 		<?php if ( function_exists( 'bu_content_banner' ) ) {
 	bu_content_banner( $post->ID, $args = array(
-			'before' => '<div class="banner-container">',
-			'after' => '</div>',
-			'class' => 'banner',
-			'position' => 'content-width'
+			'before'   => '<div class="banner-container">',
+			'after'    => '</div>',
+			'class'    => 'banner',
+			'position' => 'content-width',
 
 		) );
 } ?>
@@ -97,7 +82,7 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 				<?php wp_link_pages( array( 'before' => '<p><strong>Pages:</strong> ', 'after' => '</p>', 'next_or_number' => 'number' ) ); ?>
 		<?php endwhile; endif; ?>
 
-		<?php if ( !$calendarID ) { ?>
+		<?php if ( ! $calendarID ) { ?>
 			<p>This site does not have any calendar associated with it.</p>
 		<?php } else {
 		if ( array_key_exists( 'date', $_GET ) ) $timestamp = strtotime( $_GET['date'], 0 );
@@ -111,13 +96,13 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 
 		$cur_mo = intval( date( 'n', $timestamp ) );
 		for ( $mo = 1; $mo <= $months_to_show; $mo++ ) {
-			$days = $days + intval( date( 't', mktime( 0, 0, 0, date( 'n', $timestamp )+$mo, 1 ) ) );  //let the month overflow for month&year
+			$days = $days + intval( date( 't', mktime( 0, 0, 0, date( 'n', $timestamp ) + $mo, 1 ) ) );  //let the month overflow for month&year
 		}
 
-		$params = array( 'maxevents'=>25 );
+		$params = array( 'maxevents' => 25 );
 		$events = $buCalendar->getEvents( $calendarID, $start_date, $days, $topic, $params );
 
-		$last_event = $events[( count( $events )-1 )]['starts'];  //timestamp for the last event retrieved
+		$last_event = $events[ ( count( $events ) - 1 ) ]['starts'];  //timestamp for the last event retrieved
 
 		$range_end = strtotime( '+' . $days . ' day', $timestamp );
 
@@ -175,8 +160,8 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 
 				$event_url = $calendarURI;
 				$event_url = add_query_arg( 'eid', $e['id'], $event_url );
-				if ( !empty( $e['oid'] ) ) $event_url = add_query_arg( 'oid', $e['oid'], $event_url );
-				if ( !empty( $_GET['cid'] ) ) $event_url = add_query_arg( 'cid', intval( $_GET['cid'] ), $event_url );
+				if ( ! empty( $e['oid'] ) ) $event_url = add_query_arg( 'oid', $e['oid'], $event_url );
+				if ( ! empty( $_GET['cid'] ) ) $event_url = add_query_arg( 'cid', intval( $_GET['cid'] ), $event_url );
 				echo "\t";
 				printf( '<li><span class="event-time">%s</span> ', $event_time );
 
@@ -186,7 +171,7 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 				$nDisplayed++;
 				/* not sure how to close a day with multiple events...  */
 
-				if ( count( $events )== $nDisplayed ) {
+				if ( count( $events ) == $nDisplayed ) {
 					echo '</ul>' . PHP_EOL;
 				}
 			}
@@ -202,7 +187,7 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 		<?php } else { ?>
 			<h1><?php echo $event['summary'];?></h1>
 			<div class="eventDetail">
-				<div class="description"><?php print( html_entity_decode( $event['description'] ) ); ?></div>
+				<div class="description"><?php echo html_entity_decode( $event['description'] ); ?></div>
 				<dl class="tabular">
 					<?php if ( $event['start_time'] != '' ) { ?>
 						<dt>Starts:</dt>
@@ -218,66 +203,66 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 
 					<?php if ( $event['speakers'] ) { ?>
 						<dt>Speakers:</dt>
-						<dd><?php print( $event['speakers'] ); ?></dd>
+						<dd><?php echo $event['speakers']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['audience'] ) { ?>
 						<dt>Audience:</dt>
-						<dd><?php print( $event['audience'] ); ?></dd>
+						<dd><?php echo $event['audience']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['departments'] ) { ?>
 						<dt>Departments:</dt>
-						<dd><?php print( $event['departments'] ); ?></dd>
+						<dd><?php echo $event['departments']; ?></dd>
 					<?php } ?>
 
 
 					<?php if ( $event['location'] ) { ?>
 						<dt>Location:</dt>
-						<dd><?php print( $event['location'] ); ?></dd>
+						<dd><?php echo $event['location']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['locationBuilding'] ) { ?>
 						<dt>Address:</dt>
-						<dd><?php print( $event['locationBuilding'] ); ?></dd>
+						<dd><?php echo $event['locationBuilding']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['locationRoom'] ) { ?>
 						<dt>Room:</dt>
-						<dd><?php print( $event['locationRoom'] ); ?></dd>
+						<dd><?php echo $event['locationRoom']; ?></dd>
 					<?php } ?>
 
 					<?php if ( $event['fees'] ) { ?>
 						<dt>Fees:</dt>
-						<dd><?php print( $event['fees'] ); ?></dd>
+						<dd><?php echo $event['fees']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['fee'] ) { ?>
 						<dt>Fees:</dt>
-						<dd><?php print( $event['fee'] ); ?></dd>
+						<dd><?php echo $event['fee']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['feeGeneral'] ) { ?>
 						<dt>Fee (General):</dt>
-						<dd><?php print( $event['feeGeneral'] ); ?></dd>
+						<dd><?php echo $event['feeGeneral']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['feePublic'] ) { ?>
 						<dt>Fee (Public):</dt>
-						<dd><?php print( $event['feePublic'] ); ?></dd>
+						<dd><?php echo $event['feePublic']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['feeStaff'] ) { ?>
 						<dt>Fee (Staff):</dt>
-						<dd><?php print( $event['feeStaff'] ); ?></dd>
+						<dd><?php echo $event['feeStaff']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['feeStudent'] ) { ?>
 						<dt>Fee (Students):</dt>
-						<dd><?php print( $event['feeStudent'] ); ?></dd>
+						<dd><?php echo $event['feeStudent']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['feeBUStudent'] ) { ?>
 						<dt>Fee (BU Students):</dt>
-						<dd><?php print( $event['feeBUStudent'] ); ?></dd>
+						<dd><?php echo $event['feeBUStudent']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['feeSenior'] ) { ?>
 						<dt>Fee (Seniors):</dt>
-						<dd><?php print( $event['feeSenior'] ); ?></dd>
+						<dd><?php echo $event['feeSenior']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['deadline'] ) { ?>
 						<dt>Deadline:</dt>
-						<dd><?php print( $event['deadline'] ); ?></dd>
+						<dd><?php echo $event['deadline']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['url'] ) {
 		$urlText = $event['url'];
@@ -293,11 +278,11 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 
 					<?php if ( $event['contactOrganization'] ) { ?>
 						<dt>Contact Organization:</dt>
-						<dd><?php print( $event['contactOrganization'] ); ?></dd>
+						<dd><?php echo $event['contactOrganization']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['contact_name'] ) { ?>
 						<dt>Contact Name:</dt>
-						<dd><?php print( $event['contact_name'] ); ?></dd>
+						<dd><?php echo $event['contact_name']; ?></dd>
 					<?php } ?>
 					<?php if ( $event['contact_email'] ) { ?>
 						<dt>Contact Email:</dt>
@@ -305,7 +290,7 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 					<?php } ?>
 					<?php if ( $event['phone'] ) { ?>
 						<dt>Contact Phone:</dt>
-						<dd><?php print( $event['phone'] ); ?></dd>
+						<dd><?php echo $event['phone']; ?></dd>
 					<?php } ?>
 
 				</dl><!-- /.eventDetail -->
@@ -318,8 +303,8 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 <aside class="col-md-4" id="right-content-area">
 	<?php
 bu_flexi_calendar_sidebar();
-if ( is_dynamic_sidebar( "right-content-area" ) ) {
-	dynamic_sidebar( "right-content-area" );
+if ( is_dynamic_sidebar( 'right-content-area' ) ) {
+	dynamic_sidebar( 'right-content-area' );
 }
 ?>
 </aside>
