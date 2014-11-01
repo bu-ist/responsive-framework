@@ -95,51 +95,33 @@ endif;
 
 add_action( 'after_setup_theme', 'responsive_setup' );
 
-function bu_responsive_register_scripts() {
+/**
+ * Enqueue front-end scripts & styles.
+ *
+ * TODO: We are loading both the ie.css and style.css for IE <= 8. Fix.
+ */
+function responsive_scripts() {
 	global $wp_styles;
 
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	// Main stylesheets (style.css, ie.css) will load from child theme directory.
-	wp_register_style( 'responsi', get_stylesheet_directory_uri() . "/style$postfix.css", array(), RESPONSIVE_THEME_VERSION );
-	wp_register_style( 'responsi-ie', get_stylesheet_directory_uri() . "/ie$postfix.css", array(), RESPONSIVE_THEME_VERSION );
-	wp_register_style( 'responsi-fonts', '//cloud.typography.com/6127692/660644/css/fonts.css', array(), null );
+	wp_enqueue_style( 'responsi', get_stylesheet_directory_uri() . "/style$postfix.css", array(), RESPONSIVE_THEME_VERSION );
+	wp_enqueue_style( 'responsi-ie', get_stylesheet_directory_uri() . "/ie$postfix.css", array(), RESPONSIVE_THEME_VERSION );
+	wp_enqueue_style( 'responsi-fonts', '//cloud.typography.com/6127692/660644/css/fonts.css', array(), null );
 
 	// Main script file (script.js) will load from child theme directory.
-	wp_register_script( 'responsi', get_stylesheet_directory_uri() . "/js/script$postfix.js", array( 'jquery' ), RESPONSIVE_THEME_VERSION );
+	wp_enqueue_script( 'responsi', get_stylesheet_directory_uri() . "/js/script$postfix.js", array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 
 	// Vendor scripts will load from parent theme directory.
-	wp_register_script( 'responsi-modernizer', get_template_directory_uri() . "/js/vendor/modernizer$postfix.js", array(), '2.8.3' );
+	wp_enqueue_script( 'responsi-modernizer', get_template_directory_uri() . "/js/vendor/modernizer$postfix.js", array(), '2.8.3' );
 
 	// Wraps IE stylesheet in conditional comments.
 	$wp_styles->add_data( 'responsi-ie', 'conditional', '(lt IE 9) & (!IEMobile 7)' );
+
 }
 
-add_action( 'init', 'bu_responsive_register_scripts' );
-
-/* - - - - - - - - - - - - - - - - -
-  Enque Header Scripts and Styles
-  - - - - - - - - - - - - - - - - - */
-
-function bu_responsive_enqueue_header_scripts() {
-	wp_enqueue_style( 'responsi-fonts' );
-	wp_enqueue_style( 'responsi' );
-	wp_enqueue_style( 'responsi-ie' );
-	wp_enqueue_script( 'responsi-modernizer' );
-}
-
-add_action( 'wp_enqueue_scripts', 'bu_responsive_enqueue_header_scripts' );
-
-
-/* - - - - - - - - - - - - - - - - -
-  Enqueue Footer Scripts
-  - - - - - - - - - - - - - - - - - */
-
-function bu_responsive_footer_scripts() {
-	wp_enqueue_script( 'responsi' );
-}
-
-add_action( 'wp_footer', 'bu_responsive_footer_scripts' );
+add_action( 'wp_enqueue_scripts', 'responsive_scripts' );
 
 /* - - - - - - - - - - - - - - - - -
   Sidebars
