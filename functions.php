@@ -193,3 +193,8 @@ require __DIR__ . '/inc/shortcodes.php';
  * Reusable template tags to keep templates logic-free.
  */
 require __DIR__ . '/inc/template-tags.php';
+
+/**
+ * Upgrade routines for schema changes across versions.
+ */
+require __DIR__ . '/inc/upgrade.php';
