@@ -1,5 +1,10 @@
 <?php
 
+// Child themes don't support Customizer.
+if ( is_child_theme() ) {
+	return;
+}
+
 /* - - - - - - - - - - - - - - - - -
   Admin CSS & JS
 - - - - - - - - - - - - - - - - - */

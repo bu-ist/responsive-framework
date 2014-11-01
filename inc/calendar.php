@@ -86,3 +86,51 @@ function bu_flexi_micro_calendar( $args = array() ) {
 	</div>
 	<?php
 }
+
+/* - - - - - - - - - - - - - - - - -
+  BU Calendar Widget Formats
+  - - - - - - - - - - - - - - - - - */
+
+function bu_flexi_calendar_widget_formats( $formats ) {
+
+	unset( $formats['plain'] );
+	unset( $formats['big'] );
+
+	$formats['full-date'] = array(
+		'label'    => 'Full Date',
+		'callback' => 'bu_flexi_calendar_full_date',
+	);
+
+
+	$formats['graphic'] = array(
+		'label'    => 'Graphic',
+		'callback' => 'bu_calendar_widget_format_big',
+	);
+
+	return $formats;
+}
+
+function bu_flexi_calendar_full_date( $events, $base_url, $calendar_id = null ) {
+	$output = '';
+
+	if ( ( is_array( $events ) ) && ( count( $events ) > 0 ) ) {
+
+		foreach ( $events as $e ) {
+			$url = sprintf( '%s?eid=%s', $base_url, urlencode( $e['id'] ) );
+			if ( ! empty( $e['oid'] ) )
+				$url .= '&oid=' . urlencode( $e['oid'] );
+			if ( ! empty( $calendar_id ) )
+				$url .= '&cid=' . urlencode( $calendar_id );
+
+			if ( isset( $e['subscription_name'] ) )
+				$url .= '&sub=' . urlencode( $e['subscription_name'] );
+
+			$output .= sprintf( '<li><span class="date">%s</span> <a href="%s"><span class="title">%s</span></a></li>', date( 'l, F j', $e['starts'] ), esc_url( $url ), $e['summary'] );
+			$output .= "\n";
+		}
+	}
+
+	return $output;
+}
+
+add_filter( 'bu_calendar_widget_formats', 'bu_flexi_calendar_widget_formats', 12, 1 );
