@@ -7,14 +7,21 @@ get_header(); ?>
 
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	<?php $has_details = bu_profile_has_details(); ?>
+	<?php if ( function_exists( 'bu_thumbnail' ) ): ?>
+		<?php $thumb_args = array( 'maxwidth' => 150, 'maxheight' => 150 );?>
+		<?php $profile_thumb = bu_get_thumbnail_src( get_the_ID(), $thumb_args ); ?>
+	<?php else: ?>
+	<?php $profile_thumb = false; ?>
+	<?php endif; ?>
+
 	<article role="main" class="col-md-8 profile-display<?php if ( $has_details ): ?> has-basic<?php endif; ?><?php if ( $profile_thumb ):?> has-thumb<?php endif; ?>">
 		<?php edit_post_link( 'Edit', '<p class="edit-link">', '</p>' ); ?>
 
 		<h1><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h1>
 
-		<?php if ( function_exists( 'bu_thumbnail' ) ): $thumb_args = array( 'maxwidth' => 150, 'maxheight' => 150 );?>
-		<?php bu_thumbnail( '<div class="profile-thumb">', '</div>', $thumb_args ); ?>
-			<?php endif; ?>
+		<?php if ( $profile_thumb ): ?>
+		<div class="profile-thumb"><?php echo $profile_thumb; ?></div>
+		<?php endif; ?>
 
 		<?php if ( $has_details ): ?>
 		<div class="profile-info">

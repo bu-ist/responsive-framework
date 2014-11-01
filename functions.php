@@ -35,6 +35,9 @@ function responsive_setup() {
 	// Specific sites must enable comments by setting the _bu_supports_comments option to 1
 	add_theme_support( 'bu_comments' );
 
+	// Add support for the custom post type version of profile plugin
+	add_theme_support( 'bu-profiles-post_type' );
+
 	// BU Post Details SEO support.
 	if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
 		define( 'BU_SUPPORTS_SEO', true );
@@ -180,13 +183,6 @@ require __DIR__ . '/inc/extras.php';
  * @link http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-post-lists
  */
 require __DIR__ . '/inc/post-lists.php';
-
-/**
- * Plugin support - BU Profiles
- *
- * @link http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-profiles
- */
-require __DIR__ . '/inc/profiles.php';
 
 /**
  * Shortcodes for content editors.
