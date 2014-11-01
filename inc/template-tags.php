@@ -1,6 +1,8 @@
 <?php
 
-/* Get site's title */
+/**
+ * Print the site's title.
+ */
 function responsive_get_title() {
 	global $page, $paged;
 	wp_title( '|', true, 'right' );
@@ -15,7 +17,9 @@ function responsive_get_title() {
 	}
 }
 
-/* Get site's description */
+/**
+ * Print the site's description.
+ */
 function responsive_get_description() {
 	if ( is_single() ) {
 		single_post_title( '', true );
@@ -91,33 +95,17 @@ function responsi_bu_search_form_query_attributes( $attrs ) {
 
 add_filter( 'bu_search_form_query_attributes', 'responsi_bu_search_form_query_attributes' );
 
-/* Determines whether or not a child theme */
-function if_child_path() {
-	if ( is_child_theme() ) {
-		$p = get_template_directory_uri();
-	} else {
-		$p = get_stylesheet_directory_uri();
-	}
-	return $p;
-}
+/**
+ * Generates a list of term links for the given post.
+ *
+ * @todo  Review.
+ */
+function responsive_term_links( $post = null ) {
+	$post = get_post( $post );
 
-/* Get the number of widgets in the sidebar */
-function count_sidebar_widgets( $sidebar_id, $echo = true ) {
-	$the_sidebars = wp_get_sidebars_widgets();
-	if ( ! isset( $the_sidebars[ $sidebar_id ] ) ) {
-		return __( 'Invalid sidebar ID' );
+	if ( ! $post ) {
+		return '';
 	}
-	if ( $echo ) {
-		echo count( $the_sidebars[ $sidebar_id ] );
-	}else {
-		return count( $the_sidebars[ $sidebar_id ] );
-	}
-}
-
-/* Get the term's link */
-function custom_taxonomies_terms_links() {
-	// get post by post id
-	$post = get_post( $post->ID );
 
 	// get post type by post
 	$post_type = $post->post_type;
