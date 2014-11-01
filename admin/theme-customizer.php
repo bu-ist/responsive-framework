@@ -9,8 +9,8 @@ if ( is_child_theme() ) {
   Admin CSS & JS
 - - - - - - - - - - - - - - - - - */
 function custom_admin_styles() {
-	wp_register_style( 'admin-stylesheet', if_child_path() . '/admin/admin.css', '' );
-	wp_register_script( 'theme-customizer', if_child_path() . '/admin/theme-customizer.js' );
+	wp_register_style( 'admin-stylesheet', get_template_directory_uri() . '/admin/admin.css', '' );
+	wp_register_script( 'theme-customizer', get_template_directory_uri() . '/admin/theme-customizer.js' );
 
 	wp_enqueue_style( 'admin-stylesheet' );
 	wp_enqueue_script( 'theme-customizer' );

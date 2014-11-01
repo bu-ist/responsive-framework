@@ -48,7 +48,7 @@ echo $tax_obj->label . ': ' . $title;
 			<?php the_tags( 'Tags: ', ', ', ' ' ); ?>
 		</div>
 		<div class="taxonomies">
-			 <?php echo custom_taxonomies_terms_links(); ?>
+			 <?php echo responsive_term_links(); ?>
 		</div>
 	</article>
 
