@@ -12,69 +12,88 @@ if ( ! defined( 'RESPONSIVE_THEME_VERSION' ) ) {
 	define( 'RESPONSIVE_THEME_VERSION', RESPONSIVE_FRAMEWORK_VERSION );
 }
 
-/* Theme Capabilities */
-function bu_responsive_setup() {
+if ( ! function_exists( 'responsive_setup' ) ):
+
+/**
+ * Sets up theme defaults and registers various core and plugin features.
+ *
+ * Child themes can re-define this function to customize setup configuration.
+ */
+function responsive_setup() {
+
+	// Expose navigation menu UI.
 	add_theme_support( 'menus' );
+
+	// Expose Featured Images for posts.
+	// TODO: Investigate removing in favor of BU Thumbnail
 	add_theme_support( 'post-thumbnails' );
+
+	// Enable excerpts for pages.
+	// TODO: Investigate removing in favor of BU Page Summary
+	add_post_type_support( 'page', 'excerpt' );
 
 	// Specific sites must enable comments by setting the _bu_supports_comments option to 1
 	add_theme_support( 'bu_comments' );
 
-	add_post_type_support( 'page', 'excerpt' );
-}
-
-add_action( 'after_setup_theme', 'bu_responsive_setup' );
-
-function bu_responsive_init() {
-
+	// BU Post Details SEO support.
 	if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
 		define( 'BU_SUPPORTS_SEO', true );
 	}
 
-	/* Menus & Locations */
+	// Custom menu locations.
 	register_nav_menus( array(
 			'primary' => 'Primary Menu',
 			'utility' => 'Utility Navigation',
 		) );
-}
 
-add_action( 'init', 'bu_responsive_init' );
-
-/* Banner Positions */
-if ( function_exists( 'bu_register_banner_position' ) ) {
-	bu_register_banner_position( 'window-width', array(
-			'label' => 'Full browser window width',
-			'hint'  => 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.',
-		) );
-	bu_register_banner_position( 'page-width', array(
-			'label' => 'Page width',
-			'hint'  => 'Banner will appear above the content and sidebars and should be XY pixels wide.',
-		) );
-	bu_register_banner_position( 'content-width', array(
-			'label'   => 'Content width',
-			'hint'    => 'Banner will appear above the title in the content area and should be XY pixels wide.',
-			'default' => true,
-		) );
-}
-
-/* Allowed templates */
-if ( class_exists( 'AllowedTemplates' ) ) {
-	if ( ! isset( $banner_templates ) ) {
-		$banner_templates = new AllowedTemplates();
+	// Content banner locations.
+	if ( function_exists( 'bu_register_banner_position' ) ) {
+		bu_register_banner_position( 'window-width', array(
+				'label' => 'Full browser window width',
+				'hint'  => 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.',
+			) );
+		bu_register_banner_position( 'page-width', array(
+				'label' => 'Page width',
+				'hint'  => 'Banner will appear above the content and sidebars and should be XY pixels wide.',
+			) );
+		bu_register_banner_position( 'content-width', array(
+				'label'   => 'Content width',
+				'hint'    => 'Banner will appear above the title in the content area and should be XY pixels wide.',
+				'default' => true,
+			) );
 	}
 
-	$banner_templates->register( array( 'single.php', 'default', 'calendar.php', 'news.php', 'blank.php', 'window-width-blank.php', 'page-no-title.php', 'profiles.php', 'page-nosidebars.php' ) );
+	// Register supported templates for Content Banner and BU Profile plugins.
+	// TODO: Need to require from BU_INCLUDES
+	if ( class_exists( 'AllowedTemplates' ) ) {
 
-	if ( ! isset( $profile_templates ) ) {
-		$profile_templates = new AllowedTemplates();
+		if ( ! isset( $banner_templates ) ) {
+			$banner_templates = new AllowedTemplates();
+		}
+
+		$banner_templates->register( array(
+			'calendar.php',
+			'default',
+			'news.php',
+			'page-nosidebars.php',
+			'profiles.php',
+			'single.php',
+			) );
+
+		if ( ! isset( $profile_templates ) ) {
+			$profile_templates = new AllowedTemplates();
+		}
+
+		$profile_templates->register( array(
+			'profiles.php'
+			) );
 	}
 
-	$profile_templates->register( array( 'profiles.php' ) );
 }
 
-/* - - - - - - - - - - - - - - - - -
-  Register All Scripts and Styles
-  - - - - - - - - - - - - - - - - - */
+endif;
+
+add_action( 'after_setup_theme', 'responsive_setup' );
 
 function bu_responsive_register_scripts() {
 	global $wp_styles;
