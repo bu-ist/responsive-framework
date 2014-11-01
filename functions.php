@@ -96,6 +96,33 @@ endif;
 add_action( 'after_setup_theme', 'responsive_setup' );
 
 /**
+ * Register widget areas.
+ */
+function responsive_sidebars() {
+	register_sidebar( array(
+			'name'          => 'Right Content Area',
+			'id'            => 'right-content-area',
+			'description'   => 'Description',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3>',
+			'after_title'   => '</h3>',
+		) );
+
+	register_sidebar( array(
+			'name'          => 'Bottom Content Area',
+			'id'            => 'bottom-content-area',
+			'description'   => 'Description',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3>',
+			'after_title'   => '</h3>',
+		) );
+}
+
+add_action( 'widgets_init', 'responsive_sidebars' );
+
+/**
  * Enqueue front-end scripts & styles.
  *
  * TODO: We are loading both the ie.css and style.css for IE <= 8. Fix.
@@ -122,36 +149,6 @@ function responsive_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'responsive_scripts' );
-
-/* - - - - - - - - - - - - - - - - -
-  Sidebars
-  - - - - - - - - - - - - - - - - - */
-
-function bu_responsive_register_sidebars() {
-	if ( function_exists( 'register_sidebar' ) ) {
-		register_sidebar( array(
-				'name' => 'Right Content Area',
-				'id' => 'right-content-area',
-				'description' => 'Description',
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget' => '</div>',
-				'before_title' => '<h3>',
-				'after_title' => '</h3>',
-			) );
-
-		register_sidebar( array(
-				'name' => 'Bottom Content Area',
-				'id' => 'bottom-content-area',
-				'description' => 'Description',
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget' => '</div>',
-				'before_title' => '<h3>',
-				'after_title' => '</h3>',
-			) );
-	}
-}
-
-add_action( 'init', 'bu_responsive_register_sidebars' );
 
 /* - - - - - - - - - - - - - - - - -
   Removes "uncategorized" and "private" from categories
