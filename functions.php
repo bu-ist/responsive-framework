@@ -12,15 +12,6 @@ if ( ! defined( 'RESPONSIVE_THEME_VERSION' ) ) {
 	define( 'RESPONSIVE_THEME_VERSION', RESPONSIVE_FRAMEWORK_VERSION );
 }
 
-require_once 'responsive-functions.php';
-
-if ( ! is_child_theme() ) {
-	require_once 'admin/theme-customizer.php';
-}
-
-require_once 'flexi-functions/calendar.php';
-require_once 'flexi-functions/formats-and-templates.php';
-
 /* Theme Capabilities */
 function bu_responsive_setup() {
 	add_theme_support( 'menus' );
@@ -210,3 +201,41 @@ function the_category_filter( $thelist, $separator = ' ' ) {
 }
 
 add_filter( 'the_category', 'the_category_filter', 10, 2 );
+
+/**
+ * Theme Customizer.
+ */
+require __DIR__ . '/admin/theme-customizer.php';
+
+/**
+ * Plugin support - BU Calendar.
+ *
+ * @link https://github.com/bu-ist/bu-calendar
+ */
+require __DIR__ . '/inc/calendar.php';
+
+/**
+ * Plugin support - Course Feeds.
+ *
+ * @link http://bifrost.bu.edu/svn/repos/wordpress/plugins/course-feeds
+ */
+require __DIR__ . '/inc/course-feeds.php';
+
+/**
+ * Plugin support - BU Post Lists.
+ *
+ * @link http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-post-lists
+ */
+require __DIR__ . '/inc/post-lists.php';
+
+/**
+ * Plugin support - BU Profiles
+ *
+ * @link http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-profiles
+ */
+require __DIR__ . '/inc/profiles.php';
+
+/**
+ * Reusable template tags to keep templates logic-free.
+ */
+require __DIR__ . '/inc/template-tags.php';
