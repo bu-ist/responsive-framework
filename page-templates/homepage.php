@@ -33,10 +33,6 @@ Template Name: Homepage
 			<?php endwhile; ?>
 		</article>
 
-		<?php if ( is_dynamic_sidebar( 'right-content-area' ) ): ?>
-		<aside class="col-md-4" id="right-content-area">
-			<?php dynamic_sidebar( 'right-content-area' ); ?>
-		</aside>
-		<?php endif; ?>
+		<?php get_sidebar(); ?>
 
-<?php get_footer( 'no-sidebar' ); ?>
+<?php get_footer(); ?>

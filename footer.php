@@ -1,14 +1,7 @@
 </div><!-- .container -->
 </div><!-- #page_wrapper -->
 
-<?php
-if ( is_dynamic_sidebar( 'bottom-content-area' ) ): ?>
-<aside id="bottom-content-area">
-	<div>
-		<?php dynamic_sidebar( 'bottom-content-area' ); ?>
-	</div>
-</aside>
-<?php endif; ?>
+<?php get_sidebar( 'bottom' ); ?>
 
 <footer role="contentinfo">
 	<a href="#top" title="Jump back to top">&#8593;</a>
