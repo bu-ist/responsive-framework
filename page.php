@@ -38,8 +38,8 @@
 			<?php edit_post_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
 			<?php responsive_comments(); ?>
 
-			<?php endwhile; endif;?>
 		</article>
+		<?php endwhile; endif;?>
 
 		<?php if ( is_dynamic_sidebar( 'right-content-area' ) ): ?>
 		<aside class="col-md-4" id="right-content-area">
