@@ -2,13 +2,25 @@
 /*
 Template Name: News
 */
-?>
 
-<?php get_header(); ?>
-		<div class="posts col-md-8" >
-			<! -- news posts -->
-		</div>
+get_header(); ?>
 
-		<?php get_sidebar(); ?>
+	<?php while ( have_posts() ) : the_post(); ?>
 
+		<?php if ( function_exists( 'bu_content_banner' ) ) {
+			echo do_shortcode( bu_content_banner( $post->ID, $args = array(
+				'before'   => '<div class="banner-container page-width">',
+				'after'    => '</div>',
+				'class'    => 'banner',
+				//'maxwidth' => 900,
+				'position' => 'page-width',
+				'echo'     => false,
+			) ) );
+		} ?>
+
+		<?php get_template_part( 'template-parts/content', 'single' ); ?>
+
+	<?php endwhile; ?>
+
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

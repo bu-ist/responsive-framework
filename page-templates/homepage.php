@@ -2,10 +2,10 @@
 /*
 Template Name: Homepage
 */
-?>
 
-<?php get_header(); ?>
-	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+get_header(); ?>
+
+	<?php while ( have_posts() ) : the_post(); ?>
 
 		<?php if ( function_exists( 'bu_content_banner' ) ) {
 			echo do_shortcode( bu_content_banner( $post->ID, $args = array(
@@ -17,22 +17,9 @@ Template Name: Homepage
 			) ) );
 		} ?>
 
-		<article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
-			<?php if ( is_front_page() ) { ?>
-				<h1><?php the_title(); ?></h1>
-			<?php } else { ?>
-				<h1><?php the_title(); ?></h1>
-			<?php } ?>
+		<?php get_template_part( 'template-parts/content', 'page' ); ?>
 
-			<?php the_content(); ?>
+	<?php endwhile; ?>
 
-			<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:' ), 'after' => '</div>' ) ); ?>
-
-			<?php // responsive_comments(); ?>
-
-			<?php endwhile; ?>
-		</article>
-
-		<?php get_sidebar(); ?>
-
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
