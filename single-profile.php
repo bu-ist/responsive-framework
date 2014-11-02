@@ -2,9 +2,6 @@
 
 get_header(); ?>
 
-	<?php get_template_part( 'main-container' ); ?>
-	<?php get_sidebar( 'left' ); ?>
-
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	<?php $has_details = bu_profile_has_details(); ?>
 	<?php if ( function_exists( 'bu_thumbnail' ) ): ?>
@@ -36,13 +33,15 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-			<?php if ( get_the_content() !== '' ): ?>
-				<div class="profile-bio">
-					<?php the_content(); ?>
-				</div><!--/.profile-bio-->
-			<?php endif; ?>
+		<?php if ( get_the_content() !== '' ): ?>
+		<div class="profile-bio">
+			<?php the_content(); ?>
+		</div><!--/.profile-bio-->
+		<?php endif; ?>
 
-			<?php the_taxonomies( array( 'before' => '<div class="profile-tax"><dl>', 'sep' => '', 'after' => '</dl></div><!--/.profiles-tax-->', 'template' => '<dt>%s</dt><dd>%l</dd>' ) ); ?>
-		<?php endwhile; endif; ?>
+		<?php the_taxonomies( array( 'before' => '<div class="profile-tax"><dl>', 'sep' => '', 'after' => '</dl></div><!--/.profiles-tax-->', 'template' => '<dt>%s</dt><dd>%l</dd>' ) ); ?>
 	</article>
+
+	<?php endwhile; endif; ?>
+
 <?php get_footer(); ?>
