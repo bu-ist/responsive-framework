@@ -47,4 +47,4 @@ Template Name: No Sidebars
 			<?php endwhile; ?>
 		</article>
 
-<?php get_footer( 'no-sidebar' ); ?>
+<?php get_footer(); ?>

@@ -300,13 +300,6 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 	</div><!--/.container -->
 </article>
 
-<aside class="col-md-4" id="right-content-area">
-	<?php
-bu_flexi_calendar_sidebar();
-if ( is_dynamic_sidebar( 'right-content-area' ) ) {
-	dynamic_sidebar( 'right-content-area' );
-}
-?>
-</aside>
+<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
