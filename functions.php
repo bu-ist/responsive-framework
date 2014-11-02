@@ -12,7 +12,7 @@ if ( ! defined( 'RESPONSIVE_THEME_VERSION' ) ) {
 	define( 'RESPONSIVE_THEME_VERSION', RESPONSIVE_FRAMEWORK_VERSION );
 }
 
-if ( ! function_exists( 'responsive_setup' ) ):
+if ( ! function_exists( 'responsive_setup' ) ) :
 
 /**
  * Sets up theme defaults and registers various core and plugin features.
@@ -69,17 +69,18 @@ function responsive_setup() {
 	// Register supported templates for Content Banner and BU Profile plugins.
 	// TODO: Need to require from BU_INCLUDES
 	if ( class_exists( 'AllowedTemplates' ) ) {
+		global $banner_templates, $profile_templates;
 
 		if ( ! isset( $banner_templates ) ) {
 			$banner_templates = new AllowedTemplates();
 		}
 
 		$banner_templates->register( array(
-			'calendar.php',
 			'default',
-			'news.php',
-			'page-nosidebars.php',
-			'profiles.php',
+			'page-templates/calendar.php',
+			'page-templates/news.php',
+			'page-templates/no-sidebars.php',
+			'page-templates/profiles.php',
 			'single.php',
 			) );
 
@@ -88,7 +89,7 @@ function responsive_setup() {
 		}
 
 		$profile_templates->register( array(
-			'profiles.php'
+			'page-templates/profiles.php'
 			) );
 	}
 
