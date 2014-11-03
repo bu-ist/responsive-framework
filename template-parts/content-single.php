@@ -21,13 +21,6 @@
 
 	<?php responsive_comments(); ?>
 
-	<ul class="navigation">
-		<li class="older">
-			<?php previous_post_link( '%link', '&larr; %title' ); ?>
-		</li>
-		<li class="newer">
-			<?php next_post_link( '%link', '%title &rarr;' ); ?>
-		</li>
-	</ul>
+	<?php responsive_post_nav(); ?>
 
 </article>
