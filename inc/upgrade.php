@@ -8,6 +8,11 @@
  * @since  0.9.1
  */
 
+/**
+ * Stores current theme version in database.
+ *
+ * Allows us to run code when the framework is updated.
+ */
 function responsive_framework_upgrade() {
 	$db_version = get_option( '_responsive_framework_version', false );
 
@@ -16,7 +21,7 @@ function responsive_framework_upgrade() {
 		if ( version_compare( $db_version, RESPONSIVE_FRAMEWORK_VERSION, '<' ) ) {
 			error_log( __FUNCTION__ . ' - Version mismatch detected. Starting upgrade...' );
 
-			// Run upgrade routines as needed
+			// Run version-specific upgrade routine(s)
 			if ( version_compare( $db_version, '0.9.1', '<' ) ) {
 				responsive_upgrade_091();
 			}
@@ -33,6 +38,11 @@ function responsive_framework_upgrade() {
 
 add_action( 'init', 'responsive_framework_upgrade' );
 
+/**
+ * Upgrade for 0.9.1.
+ *
+ * - Page template renaming
+ */
 function responsive_upgrade_091() {
 	global $wpdb;
 
