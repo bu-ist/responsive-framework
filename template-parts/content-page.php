@@ -6,16 +6,7 @@
 
 <article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
 
-	<?php if ( function_exists( 'bu_content_banner' ) ) {
-		echo do_shortcode( bu_content_banner( $post->ID, $args = array(
-			'before'   => '<div class="banner-container content-width">',
-			'after'    => '</div>',
-			'class'    => 'banner',
-			//'maxwidth' => 900,
-			'position' => 'content-width',
-			'echo'     => false,
-		) ) );
-	} ?>
+	<?php responsive_content_banner( 'content-width' ); ?>
 
 	<?php if ( is_front_page() ) { ?>
 		<h1><?php the_title(); ?></h1>

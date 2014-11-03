@@ -134,3 +134,36 @@ function responsive_term_links( $post = null ) {
 
 	return implode( '', $out );
 }
+
+/**
+ * A wrapper around `bu_content_banner` to keep templates clean.
+ *
+ * @param  string $position A registered content banner position.
+ */
+function responsive_content_banner( $position ) {
+	if ( ! function_exists( 'bu_content_banner' ) ) {
+		return;
+	}
+
+	/*
+	 * Only use current post ID for singular requests. Avoids
+	 * banner display for first post in archive requests. We still
+	 * pass a null value to `bu_content_banner` in this case so
+	 * that site-wide content banners are displayed if set.
+	 */
+	$post_id = null;
+	if ( is_singular() ) {
+		// Returns the current post ID
+		$post_id = get_post()->ID;
+	}
+
+	$banner_args = array(
+		'before'   => sprintf( '<div class="banner-container %s">', $position ),
+		'after'    => '</div>',
+		'class'    => 'banner',
+		'position' => $position,
+		'echo'     => false,
+		);
+
+	echo do_shortcode( bu_content_banner( $post_id, $banner_args ) );
+}
