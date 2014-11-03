@@ -101,16 +101,7 @@
 			<?php endif; ?>
 		</header>
 
-		<?php if ( function_exists( 'bu_content_banner' ) ) {
-		echo do_shortcode( bu_content_banner( $post->ID, $args = array(
-			'before'   => '<div class="banner-container window-width">',
-			'after'    => '</div>',
-			'class'    => 'banner',
-			//'maxwidth' => 900,
-			'position' => 'window-width',
-			'echo'     => false,
-			) ) );
-		} ?>
+		<?php responsive_content_banner( 'window-width' ); ?>
 
 		<div id="page_wrapper">
 
