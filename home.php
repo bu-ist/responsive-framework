@@ -16,6 +16,10 @@ get_header(); ?>
 
 				<?php get_template_part( 'template-parts/content' ); ?>
 
+			<?php endwhile; ?>
+
+			<?php responsive_paging_nav(); ?>
+
 			<?php else : ?>
 
 			<?php get_template_part( 'template-parts/content', 'none' ); ?>

@@ -13,16 +13,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php  if (  $wp_query->max_num_pages > 1 ) : ?>
-			<ul class="navigation">
-				<li class="older">
-					<?php next_posts_link( __( 'Older posts' ) ); ?>
-				</li>
-				<li class="newer">
-					<?php previous_posts_link( __( 'Newer posts' ) ); ?>
-				</li>
-			</ul>
-			<?php endif; ?>
+			<?php responsive_paging_nav(); ?>
 
 		<?php else : ?>
 
