@@ -7,20 +7,20 @@ $calendarID = array_key_exists( 'cid', $_GET ) ? intval( $_GET['cid'] ) : get_op
 
 $calendarURI = get_permalink( $post );
 
-$topics = NULL;
-$topicDetail = NULL;
-$event = NULL;
+$topics = null;
+$topicDetail = null;
+$event = null;
 
 /* input */
-$yyyymmdd = array_key_exists( 'date', $_GET ) ? $_GET['date'] : NULL;
+$yyyymmdd = array_key_exists( 'date', $_GET ) ? $_GET['date'] : null;
 
-$topic = NULL;
+$topic = null;
 if ( array_key_exists( 'topic', $_GET ) ) {
 	$topic = intval( $_GET['topic'] );
 }
 $topic = apply_filters( 'bu_flexi_calendar_topic', $topic );
 
-$eventID = array_key_exists( 'eid', $_GET ) ? intval( $_GET['eid'] ) : NULL;
+$eventID = array_key_exists( 'eid', $_GET ) ? intval( $_GET['eid'] ) : null;
 
 $topics = $buCalendar->getTopics( $calendarID );
 $topicDetail = ( $topic ) ? $buCalendar->pullTopicDetail( $topic, $topics ) : array( 'name' => 'All Topics' );
@@ -34,7 +34,9 @@ if ( ! is_null( $eventID ) ) {
 $timestamp = time();
 $now = $timestamp;
 
-if ( $yyyymmdd ) $timestamp = strtotime( $yyyymmdd, 0 );
+if ( $yyyymmdd ) {
+	$timestamp = strtotime( $yyyymmdd, 0 );
+}
 
 $timestamp = strtotime( '00:00', $timestamp );
 
@@ -77,7 +79,9 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 		<?php if ( ! $calendarID ) { ?>
 			<p>This site does not have any calendar associated with it.</p>
 		<?php } else {
-		if ( array_key_exists( 'date', $_GET ) ) $timestamp = strtotime( $_GET['date'], 0 );
+		if ( array_key_exists( 'date', $_GET ) ) {
+			$timestamp = strtotime( $_GET['date'], 0 );
+		}
 
 		$start_date = strtotime( '00:00', $timestamp );
 		$start_date = date( 'Y-m-d', $start_date );
@@ -115,9 +119,9 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 				<div class="event-list">
 					<div id="events">
 						<?php
-		$day = NULL;
-		$time = NULL;
-		$allday = FALSE;
+		$day = null;
+		$time = null;
+		$allday = false;
 		$nDisplayed = 0;
 
 		if ( ( is_array( $events ) ) && ( count( $events ) > 0 ) ) {
@@ -128,13 +132,13 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 				$_allday = $e['allday'];
 				$event_time = '';
 				if ( $_day != $day ) {
-					if ( $nDisplayed != 0 ) {
+					if ( 0 != $nDisplayed ) {
 						echo '</ul>' . PHP_EOL;
 					}
 					printf( '<h3 class="event-date">%s</h3>', $_day );
 					echo PHP_EOL . '<ul>' . PHP_EOL;
 					$day = $_day;
-					$time = NULL;
+					$time = null;
 				}
 				//echo var_dump($e);
 				if ( $_allday ) {
@@ -152,8 +156,12 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 
 				$event_url = $calendarURI;
 				$event_url = add_query_arg( 'eid', $e['id'], $event_url );
-				if ( ! empty( $e['oid'] ) ) $event_url = add_query_arg( 'oid', $e['oid'], $event_url );
-				if ( ! empty( $_GET['cid'] ) ) $event_url = add_query_arg( 'cid', intval( $_GET['cid'] ), $event_url );
+				if ( ! empty( $e['oid'] ) ) {
+					$event_url = add_query_arg( 'oid', $e['oid'], $event_url );
+				}
+				if ( ! empty( $_GET['cid'] ) ) {
+					$event_url = add_query_arg( 'cid', intval( $_GET['cid'] ), $event_url );
+				}
 				echo "\t";
 				printf( '<li><span class="event-time">%s</span> ', $event_time );
 
@@ -169,7 +177,7 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 			}
 		}
 
-		if ( $nDisplayed === 0 ) {
+		if ( 0 === $nDisplayed ) {
 			printf( '<div id="noevents"><p>There are no events in <strong>%s</strong> during the specified time period.</p></div>', $topicDetail['name'] );
 		}
 ?>
