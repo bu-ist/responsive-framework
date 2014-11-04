@@ -418,18 +418,18 @@ function burf_customize_css() {
 	<style type="text/css">
 		 /* heading colors */
 		 h1,h2,h3,h4,h5,h6,
-		 #right-content-area h1,
-		 #right-content-area h1 a {
+		 .sidebar h1,
+		 .sidebar h1 a {
 			color: <?php echo $colors[0]; ?>
 		 }
 
 		 /* accent text colors */
 		 strong,
-		 #right-content-area h3,
-		 #right-content-area h3 a,
-		 #right-content-area a .day,
-		 #bottom-content-area h3,
-		 #bottom-content-area h3 a,
+		 .sidebar h3,
+		 .sidebar h3 a,
+		 .sidebar a .day,
+		 .sidebar h3,
+		 .sidebar h3 a,
 		 ul > li:before,
 		 ol > li:before { color: <?php echo $colors[3]; ?> }
 
@@ -437,14 +437,14 @@ function burf_customize_css() {
 
 		 /* general text colors */
 		 body, p, li,
-		 #right-content-area a,
-		 #bottom-content-area a { color: <?php echo $colors[1]; ?> }
+		 .sidebar a,
+		 .footbar a { color: <?php echo $colors[1]; ?> }
 
 		 /* anchor colors */
 		 a, .comment-counter a strong { color: <?php echo $colors[2]; ?> }
 
 		 /* page background color */
-		 #page_wrapper {
+		 .wrapper {
 			background-color: <?php echo $bg_color; ?>;
 			background-image: url(<?php echo $bg_image; ?>);
 			background-repeat: <?php echo $bg_repeat; ?>;

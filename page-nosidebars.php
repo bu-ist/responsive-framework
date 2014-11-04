@@ -10,7 +10,7 @@ Template Name: No Sidebars
 
 		<?php if ( function_exists( 'bu_content_banner' ) ) {
 		echo do_shortcode( bu_content_banner( $post->ID, $args = array(
-			'before'   => '<div class="banner-container page-width">',
+			'before'   => '<div class="bannerContainer bannerContainer-pageWidth">',
 			'after'    => '</div>',
 			'class'    => 'banner',
 			//'maxwidth' => 900,
@@ -22,7 +22,7 @@ Template Name: No Sidebars
 		<article role="main" class="col-md-12" id="post-<?php the_ID(); ?>">
 			<?php if ( function_exists( 'bu_content_banner' ) ) {
 			echo do_shortcode( bu_content_banner( $post->ID, $args = array(
-					'before'   => '<div class="banner-container content-width">',
+					'before'   => '<div class="bannerContainer bannerContainer-contentWidth">',
 					'after'    => '</div>',
 					'class'    => 'banner',
 					//'maxwidth' => 900,

@@ -5,22 +5,76 @@
 	Version: 0.9.1
 	Description: Responsive framework, started with Barebones, ........
 ---------------------- */
-/* ! responsive foundation
----------------------- */
-/* ! reset
----------------------- */
-/*
-HTML5 Reset :: style.css
-https://github.com/murtaugh/HTML5-Reset
-----------------------------------------------------------
-We have learned much from/been inspired by/taken code where offered from:
-Eric Meyer :: http://meyerweb.com
-HTML5 Doctor :: http://html5doctor.com
-and the HTML5 Boilerplate :: http://html5boilerplate.com
--------------------------------------------------------------------------------*/
-/* Let's default this puppy out
--------------------------------------------------------------------------------*/
-html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+/* basic framework elements
+----------------------------------------------------------------- */
+/* HTML5 Reset
+----------------------------------------------------------------- */
+html,
+body,
+body div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+menu,
+nav,
+section,
+time,
+mark,
+audio,
+video,
+details,
+summary {
   margin: 0;
   padding: 0;
   border: 0;
@@ -31,19 +85,31 @@ html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquot
   background: transparent;
 }
 
-article, aside, figure, footer, header, nav, section, details, summary {
+article,
+aside,
+figure,
+footer,
+header,
+nav,
+section,
+details,
+summary {
   display: block;
 }
 
-/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
-/* Apply a natural box layout model to all elements: http://paulirish.com/2012/box-sizing-border-box-ftw/ */
-*, *:before, *:after {
+html,
+body {
+  -webkit-text-size-adjust: none;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* Responsive images and other embedded objects
-Note: keeping IMG here will cause problems if you're using foreground images as sprites.
-If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
 img,
 a img,
 object,
@@ -53,18 +119,21 @@ embed {
   height: auto;
 }
 
-/* force a vertical scrollbar to prevent a jumpy page */
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* force a vertical scrollbar */
 html {
   overflow-y: scroll;
 }
 
-/* we use a lot of ULs that aren't bulleted.
-don't forget to restore the bullets within content. */
 ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
@@ -80,7 +149,8 @@ del {
   text-decoration: line-through;
 }
 
-abbr[title], dfn[title] {
+abbr[title],
+dfn[title] {
   border-bottom: 1px dotted #000;
   cursor: help;
 }
@@ -89,6 +159,8 @@ abbr[title], dfn[title] {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  font-size: inherit;
+  font: 100%;
 }
 
 th {
@@ -96,7 +168,8 @@ th {
   vertical-align: bottom;
 }
 
-td {
+td,
+td img {
   font-weight: normal;
   vertical-align: top;
 }
@@ -110,19 +183,9 @@ hr {
   padding: 0;
 }
 
-input, select {
+input,
+select {
   vertical-align: middle;
-}
-
-pre {
-  white-space: pre;
-  /* CSS2 */
-  white-space: pre-wrap;
-  /* CSS 2.1 */
-  white-space: pre-line;
-  /* CSS 3 (and 2.1 as well, actually) */
-  word-wrap: break-word;
-  /* IE */
 }
 
 input[type="radio"] {
@@ -141,29 +204,47 @@ input[type="checkbox"] {
   vertical-align: text-bottom;
 }
 
-select, input, textarea {
+select,
+input,
+textarea {
   font: 99% sans-serif;
 }
 
-table {
-  font-size: inherit;
-  font: 100%;
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+  cursor: pointer;
+  /* hand cursor on clickable elements */
+}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button,
+input,
+select,
+textarea {
+  margin: 0;
 }
 
 small {
   font-size: 85%;
 }
 
+/* make buttons play nice in IE */
+button,
+input[type=button] {
+  width: auto;
+  overflow: visible;
+}
+
 strong {
   font-weight: bold;
 }
 
-td, td img {
-  vertical-align: top;
-}
-
-/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
-sub, sup {
+sub,
+sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -177,40 +258,26 @@ sub {
   bottom: -0.25em;
 }
 
-/* standardize any monospaced elements */
-pre, code, kbd, samp {
+pre {
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1) */
+  word-wrap: break-word;
+  /* IE */
+}
+
+pre,
+code,
+kbd,
+samp {
   font-family: monospace, sans-serif;
 }
 
-/* hand cursor on clickable elements */
-.clickable,
-label,
-input[type=button],
-input[type=submit],
-input[type=file],
-button {
-  cursor: pointer;
-}
-
-/* Webkit browsers add a 2px margin outside the chrome of form elements */
-button, input, select, textarea {
-  margin: 0;
-}
-
-/* make buttons play nice in IE */
-button,
-input[type=button] {
-  width: auto;
-  overflow: visible;
-}
-
-/* scale images in IE7 more attractively */
-.ie7 img {
-  -ms-interpolation-mode: bicubic;
-}
-
-/* let's clear some floats */
-.clearfix:before, .clearfix:after {
+.clearfix:before,
+.clearfix:after {
   content: "\0020";
   display: block;
   height: 0;
@@ -225,26 +292,9 @@ input[type=button] {
   zoom: 1;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/* ! fonts
----------------------- */
-/* START: benton
------------------------------------------------------------------ 
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
+/* fonts
+----------------------------------------------------------------- */
+/* Benton */
 @font-face {
   font-family: "Benton";
   src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot");
@@ -301,18 +351,7 @@ input[type=button] {
   font-style: italic;
   font-weight: 900;
 }
-/* START: benton compressed
------------------------------------------------------------------ 
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
+/* Benton Compressed */
 @font-face {
   font-family: "BentonComp";
   src: url("http://www.bu.edu/cdn/fonts/BentonSansComp-Bold/45b0ce09-9fae-45f1-8b3d-fdd995b91c6b-2.eot");
@@ -341,18 +380,7 @@ input[type=button] {
   font-style: italic;
   font-weight: 900;
 }
-/* START: capita
------------------------------------------------------------------ 
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
+/* Capita */
 @font-face {
   font-family: "Capita";
   src: url("http://www.bu.edu/cdn/fonts/Capita-Extra-Light/Capita-Extra-Light.eot");
@@ -437,18 +465,7 @@ input[type=button] {
   font-style: italic;
   font-weight: 800;
 }
-/* START: pressura
------------------------------------------------------------------ 
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
+/* Pressura */
 @font-face {
   font-family: "Pressura";
   src: url("http://www.bu.edu/cdn/fonts/Pressura-Light/Pressura-Light.eot");
@@ -491,18 +508,7 @@ input[type=button] {
   font-style: italic;
   font-weight: 700;
 }
-/* START: pressura mono
------------------------------------------------------------------ 
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
+/* Pressura Mono */
 @font-face {
   font-family: "PressuraMono";
   src: url("http://www.bu.edu/cdn/fonts/Pressura-Mono-Light/Pressura-Mono-Light.eot");
@@ -545,18 +551,7 @@ input[type=button] {
   font-style: italic;
   font-weight: 700;
 }
-/* START: stag
------------------------------------------------------------------ 
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
+/* Stag */
 @font-face {
   font-family: "Stag";
   src: url("http://www.bu.edu/cdn/fonts/Stag-Web-Thin/07d0bcd1-4418-48ad-8aa4-a2baf5076441-2.eot");
@@ -655,18 +650,7 @@ input[type=button] {
   font-style: italic;
   font-weight: 900;
 }
-/* START: unicod
------------------------------------------------------------------ 
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
+/* Unicod */
 @font-face {
   font-family: "Unicod";
   src: url("http://www.bu.edu/cdn/fonts/Unicod-Light/21FD57_6_0.eot");
@@ -723,42 +707,11 @@ input[type=button] {
   font-style: italic;
   font-weight: 700;
 }
-/* ! variables
----------------------- */
-/* START: variables
+/* variables
 ----------------------------------------------------------------- */
-/* branding typography */
-/* colors */
-/* grid */
-/* .container,
-#bottom-content-area div
-widths  */
-/* ! mixins
----------------------- */
-/* START:mixins
+/* mixins
 ----------------------------------------------------------------- */
-/* usage:
-@include keyframes(slide-down) {
-  0% { opacity: 1; }
-  90% { opacity: 0; }
-}
-
-.element {
-  width: 100px;
-  height: 100px;
-  background: black;
-  @include animation('slide-down 5s 3');
-}
-*/
-/* If primary stylesheet indicates media query support (e.g. style.scss), output media queries.
-   If not (e.g. ie.scss), output the block WITHOUT @media wrapper. */
-/* Same as @mixin mq($point), except allows a longer string of media query conditions
-   e.g. min-width and max-width, or multiple DPI checkers */
-/* Mixin to generate RGBA colors for any style with a fallback for non-rgba browsers such as IE8
-   Usage: @include rgba-color('background-color', rgba(black, 0.5), white); */
-/* ! type options
----------------------- */
-/* START: group 1 (headings / body): capita / benton
+/* typography
 ----------------------------------------------------------------- */
 a {
   text-decoration: none;
@@ -770,32 +723,23 @@ a:active {
   text-decoration: underline;
 }
 
-/* START: group 1 (headings / body): capita / benton
+/* group 1: capita / benton
 ----------------------------------------------------------------- */
-/*
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
 .f1 {
   font-family: 'Benton';
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
 }
-.f1 p {
+
+p {
   font-family: 'Benton';
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
   margin-bottom: 24px;
 }
+
 .f1 h1 {
   font-family: 'Capita';
   font-weight: 700;
@@ -803,6 +747,7 @@ a:active {
   line-height: 43px;
   margin-bottom: 22px;
 }
+
 .f1 h2 {
   font-family: 'Capita';
   font-weight: 700;
@@ -810,6 +755,7 @@ a:active {
   line-height: 36px;
   margin-bottom: 22px;
 }
+
 .f1 h3 {
   font-family: 'Capita';
   font-weight: 700;
@@ -817,10 +763,12 @@ a:active {
   line-height: 31px;
   margin-bottom: 22px;
 }
+
 .f1 .widget h3 {
   font-size: 23px;
   line-height: 26px;
 }
+
 .f1 h4 {
   font-family: 'Capita';
   font-weight: 700;
@@ -828,6 +776,7 @@ a:active {
   line-height: 27px;
   margin-bottom: 22px;
 }
+
 .f1 h5 {
   font-family: 'Capita';
   font-weight: 700;
@@ -835,6 +784,7 @@ a:active {
   line-height: 26px;
   margin-bottom: 22px;
 }
+
 .f1 h6 {
   font-family: 'Capita';
   font-weight: 700;
@@ -842,41 +792,34 @@ a:active {
   line-height: 21px;
   margin-bottom: 22px;
 }
+
 .f1 #q {
   font-family: 'Capita';
   font-size: 18px;
 }
-.f1 #nav li a {
+
+.f1 .primaryNav li a {
   font-family: 'Capita';
   font-weight: 500;
   font-size: 18px;
 }
-.f1 #utility li a {
+
+.f1 .utilityNav li a {
   font-family: 'Capita';
   font-weight: 400;
   font-size: 16px;
   font-style: italic;
 }
 
-/* START: group 2 (headings / body): benton / benton
+/* group 2: benton / benton
 ----------------------------------------------------------------- */
-/*
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
 .f2 {
   font-family: 'Benton';
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
 }
+
 .f2 p {
   font-family: 'Benton';
   font-weight: 400;
@@ -884,6 +827,7 @@ a:active {
   line-height: 28px;
   margin-bottom: 24px;
 }
+
 .f2 h1 {
   font-family: 'Benton';
   font-weight: 400;
@@ -891,6 +835,7 @@ a:active {
   line-height: 38px;
   margin-bottom: 22px;
 }
+
 .f2 h2 {
   font-family: 'Benton';
   font-weight: 400;
@@ -898,6 +843,7 @@ a:active {
   line-height: 32px;
   margin-bottom: 22px;
 }
+
 .f2 h3 {
   font-family: 'Benton';
   font-weight: 400;
@@ -905,10 +851,12 @@ a:active {
   line-height: 28px;
   margin-bottom: 22px;
 }
+
 .f2 .widget h3 {
   font-size: 18px;
   line-height: 21px;
 }
+
 .f2 h4 {
   font-family: 'Benton';
   font-weight: 700;
@@ -916,6 +864,7 @@ a:active {
   line-height: 23px;
   margin-bottom: 22px;
 }
+
 .f2 h5 {
   font-family: 'Benton';
   font-weight: 700;
@@ -923,6 +872,7 @@ a:active {
   line-height: 21px;
   margin-bottom: 22px;
 }
+
 .f2 h6 {
   font-family: 'Benton';
   font-weight: 700;
@@ -930,41 +880,34 @@ a:active {
   line-height: 19px;
   margin-bottom: 22px;
 }
+
 .f2 #q {
   font-family: 'Benton';
   font-size: 18px;
 }
-.f2 #nav li a {
+
+.f2 .primaryNav li a {
   font-family: 'Benton';
   font-weight: 400;
   font-size: 16px;
 }
-.f2 #utility li a {
+
+.f2 .utilityNav li a {
   font-family: 'Capita';
   font-weight: 400;
   font-size: 16px;
   font-style: italic;
 }
 
-/* START: group 3 (headings / body): benton / capita
+/* group 3: benton / capita
 ----------------------------------------------------------------- */
-/*
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
 .f3 {
   font-family: 'Capita';
   font-weight: 400;
   font-size: 18px;
   line-height: 30px;
 }
+
 .f3 p {
   font-family: 'Capita';
   font-weight: 400;
@@ -972,6 +915,7 @@ a:active {
   line-height: 30px;
   margin-bottom: 24px;
 }
+
 .f3 h1 {
   font-family: 'Benton';
   font-weight: 700;
@@ -979,6 +923,7 @@ a:active {
   line-height: 36px;
   margin-bottom: 22px;
 }
+
 .f3 h2 {
   font-family: 'Benton';
   font-weight: 700;
@@ -986,6 +931,7 @@ a:active {
   line-height: 29px;
   margin-bottom: 22px;
 }
+
 .f3 h3 {
   font-family: 'Benton';
   font-weight: 700;
@@ -993,10 +939,12 @@ a:active {
   line-height: 26px;
   margin-bottom: 22px;
 }
+
 .f3 .widget h3 {
   font-size: 18px;
   line-height: 21px;
 }
+
 .f3 h4 {
   font-family: 'Benton';
   font-weight: 700;
@@ -1004,6 +952,7 @@ a:active {
   line-height: 23px;
   margin-bottom: 22px;
 }
+
 .f3 h5 {
   font-family: 'Benton';
   font-weight: 700;
@@ -1011,6 +960,7 @@ a:active {
   line-height: 21px;
   margin-bottom: 22px;
 }
+
 .f3 h6 {
   font-family: 'Benton';
   font-weight: 700;
@@ -1018,41 +968,34 @@ a:active {
   line-height: 19px;
   margin-bottom: 22px;
 }
+
 .f3 #q {
   font-family: 'Benton';
   font-size: 18px;
 }
-.f3 #nav li a {
+
+.f3 .primaryNav li a {
   font-family: 'Benton';
   font-weight: 700;
   font-size: 16px;
 }
-.f3 #utility li a {
+
+.f3 .utilityNav li a {
   font-family: 'Capita';
   font-weight: 400;
   font-size: 16px;
   font-style: italic;
 }
 
-/* START: group 4 (headings / body): pressura / benton
+/* group 4: pressura / benton
 ----------------------------------------------------------------- */
-/*
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
 .f4 {
   font-family: 'Benton';
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
 }
+
 .f4 p {
   font-family: 'Benton';
   font-weight: 400;
@@ -1060,6 +1003,7 @@ a:active {
   line-height: 28px;
   margin-bottom: 24px;
 }
+
 .f4 h1 {
   font-family: 'Pressura';
   font-weight: 700;
@@ -1068,6 +1012,7 @@ a:active {
   line-height: 43px;
   margin-bottom: 22px;
 }
+
 .f4 h2 {
   font-family: 'Pressura';
   font-weight: 700;
@@ -1076,6 +1021,7 @@ a:active {
   line-height: 38px;
   margin-bottom: 22px;
 }
+
 .f4 h3 {
   font-family: 'Pressura';
   font-weight: 700;
@@ -1084,10 +1030,12 @@ a:active {
   line-height: 33px;
   margin-bottom: 22px;
 }
+
 .f4 .widget h3 {
   font-size: 20px;
   line-height: 23px;
 }
+
 .f4 h4 {
   font-family: 'Pressura';
   font-weight: 700;
@@ -1096,6 +1044,7 @@ a:active {
   line-height: 27px;
   margin-bottom: 22px;
 }
+
 .f4 h5 {
   font-family: 'Pressura';
   font-weight: 700;
@@ -1104,6 +1053,7 @@ a:active {
   line-height: 23px;
   margin-bottom: 22px;
 }
+
 .f4 h6 {
   font-family: 'Pressura';
   font-weight: 700;
@@ -1112,43 +1062,36 @@ a:active {
   line-height: 21px;
   margin-bottom: 22px;
 }
+
 .f4 #q {
   font-family: 'Pressura';
   font-size: 18px;
   text-transform: uppercase;
 }
-.f4 #nav li a {
+
+.f4 .primaryNav li a {
   font-family: 'Pressura';
   font-weight: 700;
   font-size: 18px;
   text-transform: uppercase;
 }
-.f4 #utility li a {
+
+.f4 .utilityNav li a {
   font-family: 'Capita';
   font-weight: 400;
   font-size: 16px;
   font-style: italic;
 }
 
-/* START: group 5 (headings / body): stag / benton
+/* group 5: stag / benton
 ----------------------------------------------------------------- */
-/*
-100 - Thin
-200 - Extra Light (Ultra Light)
-300 - Light
-400 - Normal
-500 - Medium
-600 - Semi Bold (Demi Bold)
-700 - Bold
-800 - Extra Bold (Ultra Bold)
-900 - Black (Heavy)
-*/
 .f5 {
   font-family: 'Benton';
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
 }
+
 .f5 p {
   font-family: 'Benton';
   font-weight: 400;
@@ -1156,6 +1099,7 @@ a:active {
   line-height: 28px;
   margin-bottom: 24px;
 }
+
 .f5 h1 {
   font-family: 'Stag';
   font-weight: 500;
@@ -1163,6 +1107,7 @@ a:active {
   line-height: 43px;
   margin-bottom: 22px;
 }
+
 .f5 h2 {
   font-family: 'Stag';
   font-weight: 500;
@@ -1170,6 +1115,7 @@ a:active {
   line-height: 38px;
   margin-bottom: 22px;
 }
+
 .f5 h3 {
   font-family: 'Stag';
   font-weight: 500;
@@ -1177,10 +1123,12 @@ a:active {
   line-height: 33px;
   margin-bottom: 22px;
 }
+
 .f5 .widget h3 {
   font-size: 20px;
   line-height: 23px;
 }
+
 .f5 h4 {
   font-family: 'Stag';
   font-weight: 500;
@@ -1188,6 +1136,7 @@ a:active {
   line-height: 28px;
   margin-bottom: 22px;
 }
+
 .f5 h5 {
   font-family: 'Stag';
   font-weight: 500;
@@ -1195,6 +1144,7 @@ a:active {
   line-height: 23px;
   margin-bottom: 22px;
 }
+
 .f5 h6 {
   font-family: 'Stag';
   font-weight: 500;
@@ -1202,37 +1152,119 @@ a:active {
   line-height: 19px;
   margin-bottom: 22px;
 }
+
 .f5 #q {
   font-family: 'Stag';
   font-size: 18px;
 }
-.f5 #nav li a {
+
+.f5 .primaryNav li a {
   font-family: 'Stag';
   font-weight: 500;
   font-size: 18px;
 }
-.f5 #utility li a {
+
+.f5 .utilityNav li a {
   font-family: 'Stag';
   font-weight: 400;
   font-size: 16px;
   font-style: italic;
 }
 
-/* ! grid
----------------------- */
-/* START: grid
+/* grid
 ----------------------------------------------------------------- */
-/* default */
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5,
-.col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10,
-.col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3,
-.col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8,
-.col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-1,
-.col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6,
-.col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11,
-.col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4,
-.col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9,
-.col-lg-10, .col-lg-11, .col-lg-12 {
+.container, .footbar .footbar-container {
+  padding: 28px 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+.container:after, .footbar .footbar-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row {
+  margin: 0 0 32px;
+}
+
+.row [class*="col-"] {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.35);
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-color: #6c6c6c;
+  border-color: rgba(0, 0, 0, 0.11);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+}
+
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+
+.row:after {
+  clear: both;
+}
+
+.row .row:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+
+/* default (mobile) */
+.col-xs-1,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-sm-1,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-lg-1,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12 {
   position: relative;
   min-height: 1px;
 }
@@ -1301,12 +1333,21 @@ a:active {
 
 /* small screens */
 @media (min-width: 768px) {
-  .container, #bottom-content-area div {
+  .container, .footbar .footbar-container,
+  .footbar div {
     max-width: 750px;
   }
 
-  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5,
-  .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10,
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
   .col-sm-11 {
     float: left;
   }
@@ -1361,12 +1402,21 @@ a:active {
 }
 /* medium screens */
 @media (min-width: 992px) {
-  .container, #bottom-content-area div {
+  .container, .footbar .footbar-container,
+  .footbar div {
     max-width: 970px;
   }
 
-  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5,
-  .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10,
+  .col-md-1,
+  .col-md-2,
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  .col-md-6,
+  .col-md-7,
+  .col-md-8,
+  .col-md-9,
+  .col-md-10,
   .col-md-11 {
     float: left;
   }
@@ -1421,12 +1471,20 @@ a:active {
 }
 /* large screens */
 @media (min-width: 1200px) {
-  .container, #bottom-content-area div {
+  .container, .footbar .footbar-container {
     max-width: 1170px;
   }
 
-  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5,
-  .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10,
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
   .col-lg-11 {
     float: left;
   }
@@ -1479,22 +1537,15 @@ a:active {
     width: 100%;
   }
 }
-/* ! print
----------------------- */
-/* START: something
+/* theme-specific elements
 ----------------------------------------------------------------- */
-@media print {
-  /*! hi there */
-}
-/* ! layout
----------------------- */
-/* START: globals
+/* globals
 ----------------------------------------------------------------- */
 body {
   background: black;
 }
 
-/* START: components
+/* components
 ----------------------------------------------------------------- */
 /* .button */
 .button {
@@ -1508,18 +1559,18 @@ body {
   border: none;
 }
 
-/* .responsive-video */
-.responsive-video {
+/* .responsiveVideo */
+.responsiveVideo {
   margin-bottom: 14px;
   padding-bottom: 56.25%;
   padding-top: 45px;
   position: relative;
 }
 
-.responsive-video div,
-.responsive-video embed,
-.responsive-video object,
-.responsive-video iframe {
+.responsiveVideo div,
+.responsiveVideo embed,
+.responsiveVideo object,
+.responsiveVideo iframe {
   height: 100% !important;
   left: 0;
   position: absolute;
@@ -1527,45 +1578,13 @@ body {
   width: 100% !important;
 }
 
-/* collapsibles */
+/* collapsibles (class name requires underscore due to dependency on front-end library) */
 h1.bu_collapsible,
 h2.bu_collapsible,
 h3.bu_collapsible,
 h4.bu_collapsible,
 h5.bu_collapsible,
 h6.bu_collapsible {
-  margin-bottom: 0;
-}
-
-/* .row (bootstrap grid) */
-.row {
-  margin: 0 0 32px 0;
-}
-.row [class*="col-"] {
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.35);
-  background-color: white;
-  background-color: rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-color: #6c6c6c;
-  border-color: rgba(0, 0, 0, 0.11);
-  -ms-border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-}
-
-.row:before,
-.row:after {
-  display: table;
-  content: " ";
-}
-
-.row:after {
-  clear: both;
-}
-
-.row .row:nth-last-of-type(1) {
   margin-bottom: 0;
 }
 
@@ -1635,7 +1654,7 @@ table th[class*="col-"] {
   float: none;
 }
 
-/* START: header area
+/* header area
 ----------------------------------------------------------------- */
 /* header */
 header {
@@ -1669,8 +1688,7 @@ header:after {
   font-style: normal;
 }
 
-/* .searchToggle appears only when header is
-small and above, otherwise it's hidden */
+/* .searchToggle appears only when header is small and above, otherwise it's hidden */
 #brand .searchToggle {
   display: none;
 }
@@ -1685,7 +1703,7 @@ small and above, otherwise it's hidden */
   width: auto;
 }
 
-/* #quicksearch */
+/* #quicksearch (use WordPress plugin class name) */
 #quicksearch {
   position: relative;
   display: none;
@@ -1711,18 +1729,19 @@ small and above, otherwise it's hidden */
   display: none;
 }
 
-#quicksearch.open {
+#quicksearch.is-open {
   display: block;
 }
 
 #q {
+  border-color: #888888;
+  border-color: rgba(255, 255, 255, 0.11);
   width: 100%;
   padding: 10px 0;
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  border-color: #888888;
-  border-color: rgba(255, 255, 255, 0.11);
+  border-style: solid;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
   color: white;
   background: none;
 }
@@ -1733,49 +1752,51 @@ small and above, otherwise it's hidden */
 }
 
 /* .mainNav */
-.mainNav {
+.navContainer {
   background: #151515;
   display: block;
   padding: 15px 20px 10px 15px;
 }
-.mainNav:after {
+.navContainer:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.mainNav #utility {
+.navContainer .utilityNav {
   display: none;
 }
 
-.mainNav.open {
+.navContainer.is-open {
   height: auto;
 }
 
-/* #nav */
-#nav {
-  margin: 0;
-  display: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+/* .primaryNav */
+.primaryNav {
   border-color: #888888;
   border-color: rgba(255, 255, 255, 0.11);
+  margin: 0;
+  display: none;
+  border-bottom-width: 1px;
+  border-style: solid;
 }
 @media (min-width: 768px) {
-  #nav {
+  .primaryNav {
     display: inline;
     border: none;
   }
 }
 
-#nav li {
-  zoom: 1;
-  display: block;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+.primaryNav li {
   border-color: #888888;
   border-color: rgba(255, 255, 255, 0.11);
+  zoom: 1;
+  display: block;
+  border-top-width: 1px;
+  border-style: solid;
 }
 @media (min-width: 768px) {
-  #nav li {
+  .primaryNav li {
     display: inline-block;
     *display: inline;
     border: none;
@@ -1784,19 +1805,19 @@ small and above, otherwise it's hidden */
 }
 
 @media (min-width: 768px) {
-  #nav li:first-child {
+  .primaryNav li:first-child {
     padding-left: 5px;
   }
 }
 
-#nav a {
+.primaryNav a {
   display: block;
   padding: 10px 0;
   text-decoration: none;
   color: #7a7a7a;
 }
 
-#nav a:hover {
+.primaryNav a:hover {
   color: white;
 }
 
@@ -1806,25 +1827,25 @@ li.current_page_ancestor a {
   color: white;
 }
 
-/* #utility */
-#utility {
+/* .utilityNav */
+.utilityNav {
   border: none;
   display: none;
 }
 @media (min-width: 768px) {
-  #utility {
+  .utilityNav {
     display: inline;
     border: none;
     float: right;
   }
 }
 
-#utility li {
+.utilityNav li {
   border: none;
   padding: 0;
 }
 @media (min-width: 768px) {
-  #utility li {
+  .utilityNav li {
     display: inline-block;
     *display: inline;
     border: none;
@@ -1832,16 +1853,16 @@ li.current_page_ancestor a {
   }
 }
 
-#utility a {
+.utilityNav a {
   text-decoration: none;
   color: #7a7a7a;
 }
 
-#utility a:hover {
+.utilityNav a:hover {
   color: white;
 }
 @media (min-width: 768px) {
-  #utility a:hover {
+  .utilityNav a:hover {
     color: black;
   }
 }
@@ -1885,35 +1906,35 @@ li.current_page_ancestor a {
 .navToggle span,
 .navToggle span:before,
 .navToggle span:after {
+  -webkit-transition: all 250ms ease-in-out 0s;
+  -moz-transition: all 250ms ease-in-out 0s;
   -ms-transition: all 250ms ease-in-out 0s;
   -o-transition: all 250ms ease-in-out 0s;
-  -moz-transition: all 250ms ease-in-out 0s;
-  -webkit-transition: all 250ms ease-in-out 0s;
   transition: all 250ms ease-in-out 0s;
 }
 
-.navToggle.open span {
+.navToggle.is-open span {
   background-color: transparent;
 }
 
-.navToggle.open span:before,
-.navToggle.open span:after {
+.navToggle.is-open span:before,
+.navToggle.is-open span:after {
   top: 0;
 }
 
-.navToggle.open span:before {
+.navToggle.is-open span:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-.navToggle.open span:after {
+.navToggle.is-open span:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
@@ -1934,63 +1955,50 @@ li.current_page_ancestor a {
 }
 
 /* when nav or search are opened */
-.open #nav,
-.open #utility {
+.is-open .primaryNav,
+.is-open .utilityNav {
   display: block;
   clear: left;
   padding-top: 10px;
 }
 
-/* Start: .container
+/* .bannerContainer
 ----------------------------------------------------------------- */
-.container {
-  padding: 28px 20px;
-  width: 100%;
-  margin: 0 auto;
-}
-.container:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Start: .banner-container
------------------------------------------------------------------ */
-.banner-container {
+.bannerContainer {
   text-align: center;
   padding: 0;
 }
 
-.banner-container img {
+.bannerContainer img {
   display: block;
   margin: 0 auto;
 }
 
 @media (min-width: 1200px) {
-  .window-width {
+  .bannerContainer-windowWidth {
     background: #333333;
     padding: 20px;
   }
 }
 
-.page-width {
+.bannerContainer-pageWidth {
   margin-bottom: 20px;
 }
 
 @media (min-width: 992px) {
-  .page-width img {
+  .bannerContainer-pageWidth img {
     background: #333333;
     width: 100%;
   }
 }
 
-.content-width {
+.bannerContainer-contentWidth {
   background: none;
   padding: 0;
   margin-bottom: 20px;
 }
 
-/* Start: content formatting
+/* content formatting
 ----------------------------------------------------------------- */
 /* article */
 article header {
@@ -2002,10 +2010,10 @@ article footer {
   border: none;
 }
 
-/* inline images: right aligned */
+/* inline images (use WordPress class names) */
 img.alignright {
   float: right;
-  margin: .0 0 10px 10px;
+  margin: 0.0 0 10px 10px;
 }
 
 div.alignright {
@@ -2025,7 +2033,6 @@ div.alignright img {
   margin-bottom: 5px;
 }
 
-/* inline images: left aligned */
 img.alignleft {
   float: left;
   margin: 0 10px 10px 0;
@@ -2048,7 +2055,6 @@ div.alignleft img {
   margin-bottom: 5px;
 }
 
-/* inline images: center aligned */
 img.aligncenter {
   display: block;
   margin: 0 auto 10px;
@@ -2069,7 +2075,7 @@ div.aligncenter img {
   margin-bottom: 5px;
 }
 
-/* inline images: captions */
+/* inline images (use WordPress class names) */
 .wp-caption p {
   color: #9f9f9f;
   clear: both;
@@ -2088,7 +2094,7 @@ div.aligncenter img {
   margin-bottom: 30px;
 }
 
-/* START: forms
+/* forms (use Gravity Forms class names)
 ----------------------------------------------------------------- */
 .gform_wrapper li {
   list-style: none;
@@ -2107,7 +2113,7 @@ div.aligncenter img {
   margin-left: 1px;
 }
 
-/* START: widgets shared styles
+/* widgets shared styles
 ----------------------------------------------------------------- */
 /* .widget */
 .widget {
@@ -2133,59 +2139,60 @@ div.aligncenter img {
   padding-bottom: 0;
 }
 
-/* .post */
-.post {
+.widget-bu-posts .post {
   padding: 0 0 20px 0;
   margin-bottom: 20px;
 }
-.post:after {
+.widget-bu-posts .post:after {
   content: "";
   display: table;
   clear: both;
 }
+.widget-bu-posts .post:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
 
-.post h1,
-.post h2,
-.post h3,
-.post h4,
-.post h5,
-.post h6 {
+.widget-bu-posts .post h1,
+.widget-bu-posts .post h2,
+.widget-bu-posts .post h3,
+.widget-bu-posts .post h4,
+.widget-bu-posts .post h5,
+.widget-bu-posts .post h6 {
   font-size: 18px;
   line-height: 21px;
   margin-bottom: 0;
 }
 
-.post p {
+.widget-bu-posts .post p {
   margin: 0;
 }
 
-.thumb {
+.widget-bu-posts .thumb {
   float: left;
   margin: 0 10px 10px 0;
 }
 
-.published {
+.widget-bu-posts .published {
   font-style: italic;
 }
 
-.meta {
+.widget-bu-posts .meta {
   font-size: 12px;
   font-style: italic;
 }
 
-.post:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-/* .comment-counter */
-.comment-counter {
+.widget-bu-posts .comment-counter {
   margin-left: 4px;
   padding-left: 8px;
 }
 
 /* calendar styles: .default */
-.default .date {
+.widget-bu-calendar .default .date {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
   margin-right: 10px;
   display: block;
   width: 3em;
@@ -2194,50 +2201,47 @@ div.aligncenter img {
   border: none;
   font-weight: 700;
   color: white !important;
-  -ms-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
 }
 
-.default a .date {
+.widget-bu-calendar .default a .date {
   color: #000;
 }
 
-.default li {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(0, 0, 0, 0.11);
+.widget-bu-calendar .default li {
   border-color: #6c6c6c;
   border-color: rgba(0, 0, 0, 0.11);
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top-width: 1px;
+  border-style: solid;
 }
 
-.default li:first-child {
+.widget-bu-calendar .default li:first-child {
   border: none;
   padding: 0;
 }
 
 /* calendar styles: .full-date */
-.full-date .date {
+.widget-bu-calendar .full-date .date {
   display: block;
   font-size: 12px;
   font-style: italic;
 }
 
-.full-date li {
-  border-top: 1px solid rgba(0, 0, 0, 0.11);
+.widget-bu-calendar .full-date li {
   border-color: #6c6c6c;
   border-color: rgba(0, 0, 0, 0.11);
+  border-top-width: 1px;
+  border-style: solid;
   padding: 10px 0;
 }
-
-.full-date li:first-child {
+.widget-bu-calendar .full-date li:first-child {
   border: none;
   margin-top: -20px;
 }
 
 /* calendar styles: .graphic */
-.graphic .date {
+.widget-bu-calendar .graphic .date {
   float: left;
   width: 3em;
   margin: 0 10px 20px 0;
@@ -2245,7 +2249,7 @@ div.aligncenter img {
   text-align: center;
 }
 
-.graphic .day {
+.widget-bu-calendar .graphic .day {
   display: block;
   font-weight: 700;
   padding-top: 5px;
@@ -2253,21 +2257,21 @@ div.aligncenter img {
   margin-bottom: -5px;
 }
 
-.graphic .month {
+.widget-bu-calendar .graphic .month {
   text-transform: uppercase;
   font-size: 12px;
 }
 
-.graphic li:after {
+.widget-bu-calendar .graphic li:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* START: sidebar
+/* sidebar
 ----------------------------------------------------------------- */
 @media (min-width: 992px) {
-  #right-content-area {
+  .sidebar {
     padding: 0 0 0 20px;
   }
 }
@@ -2278,14 +2282,15 @@ div.aligncenter img {
 }
 
 #contentnav li {
-  border-top: 1px solid rgba(0, 0, 0, 0.11);
   border-color: #6c6c6c;
   border-color: rgba(0, 0, 0, 0.11);
+  border-top-width: 1px;
+  border-style: solid;
   margin: 0;
   padding: 14px 0;
 }
 
-#contentnav li :last-child {
+#contentnav li:last-child {
   padding-bottom: 0;
 }
 
@@ -2304,162 +2309,169 @@ div.aligncenter img {
   padding: 5px 0 5px 20px;
 }
 
-#right-content-area .widget_bu_pages {
+.sidebar .widget_bu_pages {
   padding: 20px 20px 10px 20px !important;
 }
 
-#right-content-area .widget {
-  background-color: white;
-  background-color: white;
-  background-color: rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(0, 0, 0, 0.15);
+.sidebar .widget {
   border-color: #6c6c6c;
   border-color: rgba(0, 0, 0, 0.11);
+  border-width: 1px;
+  border-style: solid;
 }
 
-#right-content-area .widget h3 {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+.sidebar .widget h3 {
   border-color: #6c6c6c;
   border-color: rgba(0, 0, 0, 0.11);
+  border-bottom-width: 1px;
+  border-style: solid;
 }
 
-#right-content-area .post {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+.sidebar .post {
   border-color: #6c6c6c;
   border-color: rgba(0, 0, 0, 0.11);
+  border-bottom-width: 1px;
+  border-style: solid;
 }
 
-#right-content-area .post:nth-last-of-type(1) {
+.sidebar .post:nth-last-of-type(1) {
   border-bottom: none;
 }
 
-#right-content-area .graphic .date {
-  border-right: 3px solid rgba(0, 0, 0, 0.11);
+.sidebar .graphic .date {
   border-color: #6c6c6c;
   border-color: rgba(0, 0, 0, 0.11);
+  border-right-width: 3px;
+  border-style: solid;
 }
 
-#right-content-area .comment-counter {
-  border-left: 1px solid rgba(0, 0, 0, 0.11);
+.sidebar .comment-counter {
   border-color: #6c6c6c;
   border-color: rgba(0, 0, 0, 0.11);
+  border-left-width: 1px;
+  border-style: solid;
 }
 
-#right-content-area .date,
-#right-content-area .widget p {
-  color: rgba(0, 0, 0, 0.5);
+.sidebar .date,
+.sidebar .widget p {
   color: black;
   color: rgba(0, 0, 0, 0.5);
 }
 
-/* START: #bottom-content-area
+/* .footbar
 ----------------------------------------------------------------- */
-#bottom-content-area {
+.footbar {
   background: #222222;
   clear: left;
   width: 100%;
 }
-#bottom-content-area div {
-  margin: 0 auto;
-}
-#bottom-content-area div:after {
+.footbar:after {
   content: "";
   display: table;
   clear: both;
 }
 @media (min-width: 992px) {
-  #bottom-content-area div {
-    padding: 0 20px;
-    overflow: hidden;
-  }
-}
-#bottom-content-area .widget {
-  color: rgba(255, 255, 255, 0.5);
-  color: white;
-  color: rgba(255, 255, 255, 0.5);
-  border-top: 3px solid rgba(255, 255, 255, 0.35);
-  border-color: white;
-  border-color: rgba(255, 255, 255, 0.35);
-  padding: 20px;
-}
-#bottom-content-area .widget .textwidget {
-  padding: 0;
-}
-#bottom-content-area .widget h3 {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  border-color: white;
-  border-color: rgba(255, 255, 255, 0.11);
-}
-@media (min-width: 992px) {
-  #bottom-content-area .widget {
-    float: left;
-    width: 33.333%;
-    border: none;
-    border-right: 1px solid rgba(255, 255, 255, 0.15);
-    border-color: white;
-    border-color: rgba(255, 255, 255, 0.11);
-    padding: 0 20px 1000px 20px;
-    margin-bottom: -1000px;
-  }
-}
-#bottom-content-area .widget-first {
-  border-top: none;
-}
-@media (min-width: 992px) {
-  #bottom-content-area .widget-first {
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
-    border-color: white;
-    border-color: rgba(255, 255, 255, 0.11);
-  }
-}
-#bottom-content-area .post {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
-  border-color: white;
-  border-color: rgba(255, 255, 255, 0.11);
-}
-#bottom-content-area .post h1 {
-  color: white;
-}
-#bottom-content-area .post h1 a {
-  color: white;
-}
-#bottom-content-area .date {
-  border-right: 3px solid rgba(255, 255, 255, 0.11);
-  border-color: white;
-  border-color: rgba(255, 255, 255, 0.11);
-}
-#bottom-content-area .day {
-  color: white;
-}
-#bottom-content-area .comment-counter {
-  border-left: rgba(255, 255, 255, 0.11);
-  border-color: white;
-  border-color: rgba(255, 255, 255, 0.11);
-}
-#bottom-content-area .date,
-#bottom-content-area .widget p {
-  color: rgba(255, 255, 255, 0.5);
-  color: white;
-  color: rgba(255, 255, 255, 0.5);
-}
-#bottom-content-area:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-@media (min-width: 992px) {
-  #bottom-content-area {
+  .footbar {
     padding: 40px 0;
   }
 }
 
-/* START: footer
+@media (min-width: 992px) {
+  .footbar .footbar-container {
+    padding: 0 20px;
+    overflow: hidden;
+  }
+}
+
+.footbar .widget {
+  border-color: white;
+  border-color: rgba(255, 255, 255, 0.35);
+  border-top-width: 3px;
+  border-style: solid;
+  padding: 20px;
+}
+@media (min-width: 992px) {
+  .footbar .widget {
+    border-color: white;
+    border-color: rgba(255, 255, 255, 0.11);
+    float: left;
+    width: 33.333%;
+    border: none;
+    border-right-width: 1px;
+    border-style: solid;
+    padding: 0 20px 1000px 20px;
+    margin-bottom: -1000px;
+  }
+}
+
+.footbar .widget h3 {
+  border-color: white;
+  border-color: rgba(255, 255, 255, 0.11);
+  border-bottom-width: 1px;
+  border-style: solid;
+}
+
+.footbar .textwidget {
+  padding: 0;
+}
+
+.footbar .widget-first {
+  border-top: none;
+}
+@media (min-width: 992px) {
+  .footbar .widget-first {
+    border-color: white;
+    border-color: rgba(255, 255, 255, 0.11);
+    border-left-width: 1px;
+    border-style: solid;
+  }
+}
+
+.footbar .post {
+  border-color: white;
+  border-color: rgba(255, 255, 255, 0.11);
+  border-bottom-width: 1px;
+  border-style: solid;
+}
+
+.footbar .post h1 {
+  color: white;
+}
+
+.footbar .post h1 a {
+  color: white;
+}
+
+.footbar .date {
+  border-color: white;
+  border-color: rgba(255, 255, 255, 0.11);
+  border-right-width: 3px;
+  border-style: solid;
+}
+
+.footbar .day {
+  color: white;
+}
+
+.footbar .comment-counter {
+  border-color: white;
+  border-color: rgba(255, 255, 255, 0.11);
+}
+
+.footbar .date,
+.footbar .widget p {
+  color: white;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* footer
 ----------------------------------------------------------------- */
 footer {
-  background: black;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
   border-color: black;
   border-color: rgba(0, 0, 0, 0.11);
+  background: black;
+  border-top-width: 1px;
+  border-style: solid;
   padding: 20px;
   display: block;
   clear: both;
