@@ -111,7 +111,9 @@
 			'echo'     => false,
 			) ) );
 		} ?>
-
+		
+		<div id="page-container">
+		
 		<div id="page_wrapper">
 
 		<div class="container">
