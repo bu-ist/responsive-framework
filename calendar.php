@@ -66,7 +66,7 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 	<div class="container">
 		<?php if ( function_exists( 'bu_content_banner' ) ) {
 	bu_content_banner( $post->ID, $args = array(
-			'before'   => '<div class="banner-container">',
+			'before'   => '<div class="bannerContainer">',
 			'after'    => '</div>',
 			'class'    => 'banner',
 			'position' => 'content-width',
@@ -300,11 +300,11 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 	</div><!--/.container -->
 </article>
 
-<aside class="col-md-4" id="right-content-area">
+<aside class="col-md-4 sidebar">
 	<?php
 bu_flexi_calendar_sidebar();
-if ( is_dynamic_sidebar( 'right-content-area' ) ) {
-	dynamic_sidebar( 'right-content-area' );
+if ( is_dynamic_sidebar( 'sidebar' ) ) {
+	dynamic_sidebar( 'sidebar' );
 }
 ?>
 </aside>

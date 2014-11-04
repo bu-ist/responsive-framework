@@ -9,7 +9,7 @@ Template Name: Homepage
 
 		<?php if ( function_exists( 'bu_content_banner' ) ) {
 			echo do_shortcode( bu_content_banner( $post->ID, $args = array(
-				'before'   => '<div class="banner-container">',
+				'before'   => '<div class="bannerContainer">',
 				'after'    => '</div>',
 				'class'    => 'banner',
 				'position' => 'content-width',
@@ -33,9 +33,9 @@ Template Name: Homepage
 			<?php endwhile; ?>
 		</article>
 
-		<?php if ( is_dynamic_sidebar( 'right-content-area' ) ): ?>
-		<aside class="col-md-4" id="right-content-area">
-			<?php dynamic_sidebar( 'right-content-area' ); ?>
+		<?php if ( is_dynamic_sidebar( 'sidebar' ) ): ?>
+		<aside class="col-md-4 sidebar">
+			<?php dynamic_sidebar( 'sidebar' ); ?>
 		</aside>
 		<?php endif; ?>
 

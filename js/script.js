@@ -1,19 +1,19 @@
 jQuery(function($) {
 	/* Side Nav Toggler */
 	$(".navToggle").on("click", function(){
-		$(this).toggleClass("open");
-		$("nav").toggleClass("open");
-		$("body").toggleClass("navopen");
+		$(this).toggleClass("is-open");
+		$("nav").toggleClass("is-open");
+		$("body").toggleClass("nav-open");
 		
-		$(".searchToggle, #quicksearch").removeClass("open");
+		$(".searchToggle, #quickSearch").removeClass("is-open");
 		
 	});
 	
 	$(".searchToggle").on("click", function(){
-		$(this).toggleClass("open");
-		$("#quicksearch").toggleClass("open");
+		$(this).toggleClass("is-open");
+		$("#quickSearch").toggleClass("is-open");
 		
-		$("nav, .navToggle").removeClass("open");
-		$("body").removeClass("navopen"); 
+		$("nav, .navToggle").removeClass("is-open");
+		$("body").removeClass("nav-open"); 
 	});
 });

@@ -159,8 +159,8 @@ add_action( 'wp_footer', 'bu_responsive_footer_scripts' );
 function bu_responsive_register_sidebars() {
 	if ( function_exists( 'register_sidebar' ) ) {
 		register_sidebar( array(
-				'name' => 'Right Content Area',
-				'id' => 'right-content-area',
+				'name' => 'Main Sidebar',
+				'id' => 'sidebar',
 				'description' => 'Description',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget' => '</div>',
@@ -169,8 +169,8 @@ function bu_responsive_register_sidebars() {
 			) );
 
 		register_sidebar( array(
-				'name' => 'Bottom Content Area',
-				'id' => 'bottom-content-area',
+				'name' => 'Footer Content Area',
+				'id' => 'footbar',
 				'description' => 'Description',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget' => '</div>',

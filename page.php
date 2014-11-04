@@ -4,7 +4,7 @@
 
 		<?php if ( function_exists( 'bu_content_banner' ) ) {
 		echo do_shortcode( bu_content_banner( $post->ID, $args = array(
-			'before'   => '<div class="banner-container page-width">',
+			'before'   => '<div class="bannerContainer bannerContainer-pageWidth">',
 			'after'    => '</div>',
 			'class'    => 'banner',
 			//'maxwidth' => 900,
@@ -16,7 +16,7 @@
 		<article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
 			<?php if ( function_exists( 'bu_content_banner' ) ) {
 				echo do_shortcode( bu_content_banner( $post->ID, $args = array(
-					'before'   => '<div class="banner-container content-width">',
+					'before'   => '<div class="bannerContainer bannerContainer-contentWidth">',
 					'after'    => '</div>',
 					'class'    => 'banner',
 					//'maxwidth' => 900,
@@ -41,9 +41,9 @@
 			<?php endwhile; endif;?>
 		</article>
 
-		<?php if ( is_dynamic_sidebar( 'right-content-area' ) ): ?>
-		<aside class="col-md-4" id="right-content-area">
-			<?php dynamic_sidebar( 'right-content-area' ); ?>
+		<?php if ( is_dynamic_sidebar( 'sidebar' ) ): ?>
+		<aside class="col-md-4 sidebar">
+			<?php dynamic_sidebar( 'sidebar' ); ?>
 		</aside>
 		<?php endif; ?>
 

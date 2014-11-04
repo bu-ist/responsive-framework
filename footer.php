@@ -1,10 +1,10 @@
 </div><!-- .container -->
-</div><!-- #page_wrapper -->
+</div><!-- .wrapper -->
 
 <?php
 if ( is_dynamic_sidebar( 'bottom-content-area' ) ): ?>
-<aside id="bottom-content-area">
-	<div>
+<aside class="footbar">
+	<div class="footbar-container">
 		<?php dynamic_sidebar( 'bottom-content-area' ); ?>
 	</div>
 </aside>
@@ -36,7 +36,5 @@ if ( $footer_social_li ) { echo '<a class="social-li" href="' . $footer_social_f
 </footer>
 
 <?php wp_footer(); ?>
-
-</div><!-- #page-container -->
 </body>
 </html>
