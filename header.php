@@ -100,7 +100,9 @@
 				<?php responsive_search_form(); ?>
 			<?php endif; ?>
 		</header>
-
+		
+		<div id="page-container">
+			
 		<?php if ( function_exists( 'bu_content_banner' ) ) {
 		echo do_shortcode( bu_content_banner( $post->ID, $args = array(
 			'before'   => '<div class="banner-container window-width">',
@@ -111,8 +113,6 @@
 			'echo'     => false,
 			) ) );
 		} ?>
-		
-		<div id="page-container">
 		
 		<div id="page_wrapper">
 
