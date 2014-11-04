@@ -37,5 +37,6 @@ if ( $footer_social_li ) { echo '<a class="social-li" href="' . $footer_social_f
 
 <?php wp_footer(); ?>
 
+</div><!-- #page-container -->
 </body>
 </html>
