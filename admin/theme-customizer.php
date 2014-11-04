@@ -26,10 +26,12 @@ function browser_body_class( $classes = '' ) {
 	$font_palette = get_option( 'burf_setting_fonts' );
 	$layout_setting = get_option( 'burf_setting_layout' );
 
-	if ( $font_palette )
+	if ( $font_palette ) {
 		$classes[] = $font_palette;
-	if ( $layout_setting )
+	}
+	if ( $layout_setting ) {
 		$classes[] = $layout_setting;
+	}
 
 	return $classes;
 }

@@ -22,8 +22,9 @@ function responsive_category_filter( $thelist, $separator = ' ' ) {
 		$newlist = array();
 		foreach ( $cats as $cat ) {
 			$catname = trim( strip_tags( $cat ) );
-			if ( ! in_array( $catname, $exclude2 ) )
+			if ( ! in_array( $catname, $exclude2 ) ) {
 				$newlist[] = $cat;
+			}
 		}
 		return implode( $separator, $newlist );
 	} else {
@@ -74,7 +75,7 @@ function responsive_widget_counts( $params ) {
 
 	$class = 'class="widget-' . $my_widget_num[ $this_id ] . ' '; // Add a widget number class for additional styling options
 
-	if ( $my_widget_num[ $this_id ] == 1 ) { // If this is the first widget
+	if ( 1 == $my_widget_num[ $this_id ] ) { // If this is the first widget
 		$class .= 'widget-first ';
 	} elseif ( $my_widget_num[ $this_id ] == count( $arr_registered_widgets[ $this_id ] ) ) { // If this is the last widget
 		$class .= 'widget-last ';

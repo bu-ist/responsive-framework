@@ -65,7 +65,7 @@ function responsive_search_form() {
 
 	// Check that search form is enabled
 	if ( function_exists( 'bu_search_form' ) ) {
-		if ( BU_SearchForm::isEnabled() === true ) {
+		if ( true === BU_SearchForm::isEnabled() ) {
 			$bu_search = true;
 		} else {
 			return;
@@ -118,7 +118,7 @@ function responsive_term_links( $post = null ) {
 
 	$out = array();
 	foreach ( $taxonomies as $taxonomy_slug => $taxonomy ) {
-		if ( $taxonomy_slug !== 'category' && $taxonomy_slug !== 'post_tag' ) {
+		if ( 'category' !== $taxonomy_slug && 'post_tag' !== $taxonomy_slug ) {
 			// get the terms related to post
 			$terms = get_the_terms( $post->ID, $taxonomy_slug );
 

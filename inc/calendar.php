@@ -104,7 +104,6 @@ function bu_flexi_calendar_widget_formats( $formats ) {
 		'callback' => 'bu_flexi_calendar_full_date',
 	);
 
-
 	$formats['graphic'] = array(
 		'label'    => 'Graphic',
 		'callback' => 'bu_calendar_widget_format_big',
@@ -120,13 +119,15 @@ function bu_flexi_calendar_full_date( $events, $base_url, $calendar_id = null ) 
 
 		foreach ( $events as $e ) {
 			$url = sprintf( '%s?eid=%s', $base_url, urlencode( $e['id'] ) );
-			if ( ! empty( $e['oid'] ) )
+			if ( ! empty( $e['oid'] ) ) {
 				$url .= '&oid=' . urlencode( $e['oid'] );
-			if ( ! empty( $calendar_id ) )
+			}
+			if ( ! empty( $calendar_id ) ) {
 				$url .= '&cid=' . urlencode( $calendar_id );
-
-			if ( isset( $e['subscription_name'] ) )
+			}
+			if ( isset( $e['subscription_name'] ) ) {
 				$url .= '&sub=' . urlencode( $e['subscription_name'] );
+			}
 
 			$output .= sprintf( '<li><span class="date">%s</span> <a href="%s"><span class="title">%s</span></a></li>', date( 'l, F j', $e['starts'] ), esc_url( $url ), $e['summary'] );
 			$output .= "\n";
