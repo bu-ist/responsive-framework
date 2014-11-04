@@ -1,4 +1,7 @@
 <?php
+/**
+ * BU Course Feeds plugin support functions & templates.
+ */
 
 /* - - - - - - - - - - - - - - - - -
   Course Feed Template

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Custom template tags for this framework
+ */
 
 /**
  * Print the site's title.

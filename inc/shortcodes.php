@@ -1,5 +1,11 @@
 <?php
+/**
+ * Theme Shortcodes
+ */
 
+/**
+ * Renders BUniverse video player.
+ */
 function buniverse_video_func( $atts ) {
 	$atts = shortcode_atts( array(
 			'vid'     => '',
