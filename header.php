@@ -36,15 +36,18 @@
 			?>
 
 			<?php if ( $headerLayout == 'l-navbar' || $headerLayout == '' ): ?>
-			<nav class="mainNav" role="navigation">
+			<nav class="navContainer" role="navigation">
 				<div class="navToggle"><?php include 'images/menu.svg'; ?></div>
 				<div class="searchToggle"><?php include 'images/search.svg'; ?></div>
 				<?php if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || BuAccessControlPlugin::is_site_403() == false ) {
-					bu_navigation_display_primary();
+					bu_navigation_display_primary( array( 
+						'container_id'    => '',
+						'container_class' => 'primaryNav',
+						) );
 				}
 
 				if ( $headerLayout == 'l-navbar' ) : ?>
-				<nav id="utility" role="utility"><?php wp_nav_menu( $utilArgs ); ?></nav>
+				<nav class="utilityNav" role="navigation"><?php wp_nav_menu( $utilArgs ); ?></nav>
 				<?php endif; ?>
 			</nav>
 
@@ -59,7 +62,7 @@
 				<p class="desc"><?php bloginfo( 'description' ); ?></p>
 
 				<?php if ( $headerLayout == 'l-navbar' || $headerLayout == 'l-branding' ): ?>
-				<nav id="utility" role="utility"><?php wp_nav_menu( $utilArgs ); ?></nav>
+				<nav class="utilityNav" role="navigation"><?php wp_nav_menu( $utilArgs ); ?></nav>
 				<?php endif; ?>
 
 				<div class="searchToggle"><?php include 'images/search.svg'; ?></div>
@@ -70,42 +73,48 @@
 			</div>
 
 			<?php if ( $headerLayout == 'l-branding' ): ?>
-			<nav class="mainNav" role="navigation">
+			<nav class="navContainer" role="navigation">
 				<div class="navToggle"><?php include 'images/menu.svg'; ?></div>
 				<div class="searchToggle"><?php include 'images/search.svg'; ?></div>
 				<?php
 				if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || BuAccessControlPlugin::is_site_403() == false ) {
-					bu_navigation_display_primary();
+					bu_navigation_display_primary( array( 
+						'container_id'    => '',
+						'container_class' => 'primaryNav',
+						) );
 				}
 				?>
-				<nav id="utility" role="utility"><?php wp_nav_menu( $utilArgs ); ?></nav>
+				<nav class="utilityNav" role="navigation"><?php wp_nav_menu( $utilArgs ); ?></nav>
 			</nav>
 
 			<?php responsive_search_form(); ?>
 			<?php endif; ?>
 
 			<?php if ( $headerLayout == 'l-sidenav' ): ?>
-				<nav class="mainNav" role="navigation">
+				<nav class="navContainer" role="navigation">
 					<div class="navToggle"><?php include 'images/menu.svg'; ?></div>
 					<div class="searchToggle"><?php include 'images/search.svg'; ?></div>
 					<?php
 					if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || BuAccessControlPlugin::is_site_403() == false ) {
-						bu_navigation_display_primary();
+						bu_navigation_display_primary( array( 
+						'container_id'    => '',
+						'container_class' => 'primaryNav',
+						) );
 					}
 					?>
 
-					<nav id="utility" role="utility"><?php wp_nav_menu( $utilArgs ); ?></nav>
+					<nav class="utilityNav" role="navigation"><?php wp_nav_menu( $utilArgs ); ?></nav>
 				</nav>
 
 				<?php responsive_search_form(); ?>
 			<?php endif; ?>
 		</header>
 		
-		<div id="page-container">
+		<div class="wrapper">
 			
 		<?php if ( function_exists( 'bu_content_banner' ) ) {
 		echo do_shortcode( bu_content_banner( $post->ID, $args = array(
-			'before'   => '<div class="banner-container window-width">',
+			'before'   => '<div class="bannerContainer bannerContainer-windowWidth">',
 			'after'    => '</div>',
 			'class'    => 'banner',
 			//'maxwidth' => 900,
@@ -113,7 +122,4 @@
 			'echo'     => false,
 			) ) );
 		} ?>
-		
-		<div id="page_wrapper">
-
-		<div class="container">
+			<div class="container">

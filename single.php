@@ -31,9 +31,9 @@
 			<?php endwhile; // end of the loop. ?>
 		</article>
 
-		<?php if ( is_dynamic_sidebar( 'right-content-area' ) ): ?>
-			<aside class="col-md-4" id="right-content-area">
-				<?php dynamic_sidebar( 'right-content-area' ); ?>
+		<?php if ( is_dynamic_sidebar( 'sidebar' ) ): ?>
+			<aside class="col-md-4 sidebar">
+				<?php dynamic_sidebar( 'sidebar' ); ?>
 			</aside>
 		<?php endif; ?>
 
