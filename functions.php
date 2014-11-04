@@ -192,6 +192,11 @@ require __DIR__ . '/inc/extras.php';
 require __DIR__ . '/inc/post-lists.php';
 
 /**
+ * Theme settings API.
+ */
+require __DIR__ . '/inc/settings.php';
+
+/**
  * Shortcodes for content editors.
  */
 require __DIR__ . '/inc/shortcodes.php';
