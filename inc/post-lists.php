@@ -1,4 +1,7 @@
 <?php
+/**
+ * BU Post List plugin support functions & templates.
+ */
 
 /* - - - - - - - - - - - - - - - - -
   BU Post Widget Formats

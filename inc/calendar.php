@@ -1,4 +1,7 @@
 <?php
+/**
+ * BU Calendar plugin support functions & templates.
+ */
 
 /*
  * @global object $buCalendar
