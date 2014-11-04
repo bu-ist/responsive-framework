@@ -171,6 +171,24 @@ function responsive_content_banner( $position ) {
 	echo do_shortcode( bu_content_banner( $post_id, $banner_args ) );
 }
 
+function responsive_primary_nav() {
+	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
+		false == BuAccessControlPlugin::is_site_403() ) {
+		bu_navigation_display_primary();
+	}
+}
+
+function responsive_utility_nav() {
+	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
+		false == BuAccessControlPlugin::is_site_403() ) {
+		wp_nav_menu( array(
+			'theme_location' => 'utility',
+			'container'      => 'false',
+			'items_wrap'     => '<ul>%3$s</ul>',
+		) );
+	}
+}
+
 if ( ! function_exists( 'responsive_paging_nav' ) ) :
 
 /**
