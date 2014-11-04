@@ -1,5 +1,11 @@
 <?php
+/**
+ * Responsive Framework functions and theme setup
+ */
 
+/**
+ * Framework version.
+ */
 define( 'RESPONSIVE_FRAMEWORK_VERSION', '0.9.1' );
 
 /**

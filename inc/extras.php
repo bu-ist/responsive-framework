@@ -1,4 +1,7 @@
 <?php
+/**
+ * Core filters
+ */
 
 /**
  * Removes "uncategorized" and "private" from categories.
