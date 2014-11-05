@@ -1688,280 +1688,6 @@ header:after {
   font-style: normal;
 }
 
-/* .searchToggle appears only when header is small and above, otherwise it's hidden */
-#brand .searchToggle {
-  display: none;
-}
-@media (min-width: 768px) {
-  #brand .searchToggle {
-    padding: 40px;
-  }
-}
-
-#brand .desc {
-  float: left;
-  width: auto;
-}
-
-/* #quicksearch (use WordPress plugin class name) */
-#quicksearch {
-  position: relative;
-  display: none;
-  padding: 0 15px 20px 15px;
-  margin: 0;
-  background: #151515;
-}
-@media (min-width: 768px) {
-  #quicksearch {
-    padding: 0 20px 20px 20px;
-  }
-}
-
-#quicksearch fieldset {
-  margin: 0;
-}
-
-#quicksearch label {
-  display: none;
-}
-
-#quicksearch select {
-  display: none;
-}
-
-#quicksearch.is-open {
-  display: block;
-}
-
-#q {
-  border-color: #888888;
-  border-color: rgba(255, 255, 255, 0.11);
-  width: 100%;
-  padding: 10px 0;
-  border: none;
-  border-style: solid;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  color: white;
-  background: none;
-}
-@media (min-width: 1200px) {
-  #q {
-    padding: 15px 0;
-  }
-}
-
-/* .mainNav */
-.navContainer {
-  background: #151515;
-  display: block;
-  padding: 15px 20px 10px 15px;
-}
-.navContainer:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.navContainer .utilityNav {
-  display: none;
-}
-
-.navContainer.is-open {
-  height: auto;
-}
-
-/* .primaryNav */
-.primaryNav {
-  border-color: #888888;
-  border-color: rgba(255, 255, 255, 0.11);
-  margin: 0;
-  display: none;
-  border-bottom-width: 1px;
-  border-style: solid;
-}
-@media (min-width: 768px) {
-  .primaryNav {
-    display: inline;
-    border: none;
-  }
-}
-
-.primaryNav li {
-  border-color: #888888;
-  border-color: rgba(255, 255, 255, 0.11);
-  zoom: 1;
-  display: block;
-  border-top-width: 1px;
-  border-style: solid;
-}
-@media (min-width: 768px) {
-  .primaryNav li {
-    display: inline-block;
-    *display: inline;
-    border: none;
-    padding: 0 10px;
-  }
-}
-
-@media (min-width: 768px) {
-  .primaryNav li:first-child {
-    padding-left: 5px;
-  }
-}
-
-.primaryNav a {
-  display: block;
-  padding: 10px 0;
-  text-decoration: none;
-  color: #7a7a7a;
-}
-
-.primaryNav a:hover {
-  color: white;
-}
-
-li.current_page_item a,
-li.current_page_parent a,
-li.current_page_ancestor a {
-  color: white;
-}
-
-/* .utilityNav */
-.utilityNav {
-  border: none;
-  display: none;
-}
-@media (min-width: 768px) {
-  .utilityNav {
-    display: inline;
-    border: none;
-    float: right;
-  }
-}
-
-.utilityNav li {
-  border: none;
-  padding: 0;
-}
-@media (min-width: 768px) {
-  .utilityNav li {
-    display: inline-block;
-    *display: inline;
-    border: none;
-    padding-left: 10px;
-  }
-}
-
-.utilityNav a {
-  text-decoration: none;
-  color: #7a7a7a;
-}
-
-.utilityNav a:hover {
-  color: white;
-}
-@media (min-width: 768px) {
-  .utilityNav a:hover {
-    color: black;
-  }
-}
-
-/* nav menu */
-.navToggle {
-  float: left;
-  height: 30px;
-  width: 30px;
-  text-indent: -1000px;
-  position: relative;
-  cursor: pointer;
-}
-@media (min-width: 768px) {
-  .navToggle {
-    display: none;
-  }
-}
-
-.navToggle span,
-.navToggle span:before,
-.navToggle span:after {
-  position: absolute;
-  top: 10px;
-  display: block;
-  height: 4px;
-  width: 30px;
-  background: white;
-  cursor: pointer;
-  content: '';
-}
-
-.navToggle span:before {
-  top: -10px;
-}
-
-.navToggle span:after {
-  bottom: -10px;
-}
-
-.navToggle span,
-.navToggle span:before,
-.navToggle span:after {
-  -webkit-transition: all 250ms ease-in-out 0s;
-  -moz-transition: all 250ms ease-in-out 0s;
-  -ms-transition: all 250ms ease-in-out 0s;
-  -o-transition: all 250ms ease-in-out 0s;
-  transition: all 250ms ease-in-out 0s;
-}
-
-.navToggle.is-open span {
-  background-color: transparent;
-}
-
-.navToggle.is-open span:before,
-.navToggle.is-open span:after {
-  top: 0;
-}
-
-.navToggle.is-open span:before {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.navToggle.is-open span:after {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-
-/* search icon */
-.searchToggle {
-  float: right;
-  width: 30px;
-  height: 30px;
-  margin-top: -3px;
-  text-indent: -5000px;
-  cursor: pointer;
-  background: transparent url(images/search.png) no-repeat 0 0;
-}
-@media (min-width: 768px) {
-  .searchToggle {
-    margin-top: 10px;
-  }
-}
-
-/* when nav or search are opened */
-.is-open .primaryNav,
-.is-open .utilityNav {
-  display: block;
-  clear: left;
-  padding-top: 10px;
-}
-
 /* .bannerContainer
 ----------------------------------------------------------------- */
 .bannerContainer {
@@ -2483,6 +2209,366 @@ footer {
 footer p {
   margin: 0;
   color: white;
+}
+
+/* common
+----------------------------------------------------------------- */
+/* .searchToggle appears only when header is small and above, otherwise it's hidden */
+#brand .searchToggle {
+  display: none;
+  	/*
+  @include breakpoint(small) {
+  		padding: 40px;
+  	}
+  	*/
+}
+
+#brand .desc {
+  float: left;
+  width: auto;
+}
+
+/* #quicksearch (use WordPress plugin class name) */
+#quicksearch {
+  position: relative;
+  display: none;
+  padding: 0 15px 20px 15px;
+  margin: 0;
+  background: #151515;
+}
+@media (min-width: 768px) {
+  #quicksearch {
+    padding: 0 20px 20px 20px;
+  }
+}
+
+#quicksearch fieldset {
+  margin: 0;
+}
+
+#quicksearch label {
+  display: none;
+}
+
+#quicksearch select {
+  display: none;
+}
+
+#quicksearch.is-open {
+  display: block;
+}
+
+#q {
+  border-color: #888888;
+  border-color: rgba(255, 255, 255, 0.11);
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-style: solid;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  color: white;
+  background: none;
+}
+@media (min-width: 1200px) {
+  #q {
+    padding: 15px 0;
+  }
+}
+
+/* nav menu */
+.navToggle {
+  float: left;
+  height: 30px;
+  width: 30px;
+  text-indent: -1000px;
+  position: relative;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .navToggle {
+    display: none;
+  }
+}
+
+.navToggle span,
+.navToggle span:before,
+.navToggle span:after {
+  position: absolute;
+  top: 10px;
+  display: block;
+  height: 4px;
+  width: 30px;
+  background: white;
+  cursor: pointer;
+  content: '';
+}
+
+.navToggle span:before {
+  top: -10px;
+}
+
+.navToggle span:after {
+  bottom: -10px;
+}
+
+.navToggle span,
+.navToggle span:before,
+.navToggle span:after {
+  -webkit-transition: all 250ms ease-in-out 0s;
+  -moz-transition: all 250ms ease-in-out 0s;
+  -ms-transition: all 250ms ease-in-out 0s;
+  -o-transition: all 250ms ease-in-out 0s;
+  transition: all 250ms ease-in-out 0s;
+}
+
+.navToggle.is-open span {
+  background-color: transparent;
+}
+
+.navToggle.is-open span:before,
+.navToggle.is-open span:after {
+  top: 0;
+}
+
+.navToggle.is-open span:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.navToggle.is-open span:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+/* search icon */
+.searchToggle {
+  float: right;
+  width: 30px;
+  height: 30px;
+  margin-top: -3px;
+  text-indent: -5000px;
+  cursor: pointer;
+  background: transparent url(images/search.png) no-repeat 0 0;
+}
+@media (min-width: 768px) {
+  .searchToggle {
+    margin-top: 5px;
+  }
+}
+
+/* when nav or search are opened */
+.is-open .primaryNav,
+.is-open .utilityNav {
+  display: block;
+  clear: left;
+  padding-top: 10px;
+}
+
+/* nav above and below masthead
+----------------------------------------------------------------- */
+/* .mainNav */
+.navContainer {
+  background: #151515;
+  display: block;
+  padding: 15px 20px 10px 15px;
+}
+.navContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (min-width: 768px) {
+  .navContainer .utilityNav {
+    display: none;
+  }
+}
+
+.navContainer.is-open {
+  height: auto;
+}
+
+/* .primaryNav */
+.primaryNav {
+  border-color: #888888;
+  border-color: rgba(255, 255, 255, 0.11);
+  margin: 0;
+  display: none;
+  border-bottom-width: 1px;
+  border-style: solid;
+}
+@media (min-width: 768px) {
+  .primaryNav {
+    display: inline;
+    border: none;
+  }
+}
+
+.primaryNav li {
+  border-color: #888888;
+  border-color: rgba(255, 255, 255, 0.11);
+  zoom: 1;
+  display: block;
+  border-top-width: 1px;
+  border-style: solid;
+}
+@media (min-width: 768px) {
+  .primaryNav li {
+    display: inline-block;
+    *display: inline;
+    border: none;
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .primaryNav li:first-child {
+    padding-left: 5px;
+  }
+}
+
+.primaryNav a {
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  color: #7a7a7a;
+}
+
+.primaryNav a:hover {
+  color: white;
+}
+
+li.current_page_item a,
+li.current_page_parent a,
+li.current_page_ancestor a {
+  color: white;
+}
+
+/* .utilityNav */
+.utilityNav {
+  border: none;
+  display: none;
+}
+@media (min-width: 768px) {
+  .utilityNav {
+    display: inline;
+    border: none;
+    float: right;
+  }
+}
+
+.utilityNav li {
+  border: none;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .utilityNav li {
+    display: inline-block;
+    *display: inline;
+    border: none;
+    padding-left: 10px;
+  }
+}
+
+.utilityNav a {
+  text-decoration: none;
+  color: #7a7a7a;
+}
+
+.utilityNav a:hover {
+  color: white;
+}
+@media (min-width: 768px) {
+  .utilityNav a:hover {
+    color: black;
+  }
+}
+
+/* nav on left
+----------------------------------------------------------------- */
+.l-sidenav .contentWrapper {
+  -webkit-transition: all 0.1s ease-in-out 0s;
+  -moz-transition: all 0.1s ease-in-out 0s;
+  -ms-transition: all 0.1s ease-in-out 0s;
+  -o-transition: all 0.1s ease-in-out 0s;
+  transition: all 0.1s ease-in-out 0s;
+}
+@media (min-width: 768px) {
+  .l-sidenav .contentWrapper {
+    margin-left: 60px;
+  }
+}
+@media (min-width: 1200px) {
+  .l-sidenav .contentWrapper {
+    margin-left: 300px;
+  }
+}
+
+@media (min-width: 768px) {
+  .l-sidenav .navContainer {
+    background: none;
+    position: absolute;
+    width: 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  .l-sidenav .primaryNav,
+  .l-sidenav .navContainer .searchToggle {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .l-sidenav #brand .searchToggle {
+    display: block;
+    margin-top: -5px;
+    background-position: 100% 0;
+  }
+}
+
+.l-sidenav .navToggle {
+  display: block;
+}
+@media (min-width: 1200px) {
+  .l-sidenav .navToggle {
+    display: none;
+  }
+}
+
+/* no nav
+----------------------------------------------------------------- */
+.l-nonav #brand .searchToggle {
+  display: block;
+  margin-top: -5px;
+  background-position: 100% 0;
+}
+
+.l-nonav #brand #quicksearch {
+  background: white;
+  padding: 0;
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  .l-nonav #brand #quicksearch {
+    margin-top: 40px;
+  }
+}
+
+.l-nonav #brand #q {
+  border-color: #6c6c6c;
+  border-color: rgba(0, 0, 0, 0.11);
+  border-top-width: 1px;
+  border-style: solid;
+  margin-top: 20px;
+  color: #999;
 }
 
 /*# sourceMappingURL=style.css.map */
