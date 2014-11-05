@@ -37,8 +37,8 @@
 
 		<?php if ( $headerLayout == 'l-navbar' || $headerLayout == '' ): ?>
 		<nav class="navContainer" role="navigation">
-			<div class="navToggle"><?php include 'images/menu.svg'; ?></div>
-			<div class="searchToggle"><?php include 'images/search.svg'; ?></div>
+			<a class="navToggle" href="#nav"><span>Menu</span></a>
+			<div class="searchToggle">Search</div>
 			<?php if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || BuAccessControlPlugin::is_site_403() == false ) {
 				bu_navigation_display_primary( array( 
 					'container_id'    => '',
@@ -65,7 +65,7 @@
 			<nav class="utilityNav" role="navigation"><?php wp_nav_menu( $utilArgs ); ?></nav>
 			<?php endif; ?>
 
-			<div class="searchToggle"><?php include 'images/search.svg'; ?></div>
+			<div class="searchToggle">Search</div>
 
 			<?php if ( $headerLayout == 'l-nonav' ): ?>
 				<?php responsive_search_form(); ?>
@@ -74,8 +74,8 @@
 
 		<?php if ( $headerLayout == 'l-branding' ): ?>
 		<nav class="navContainer" role="navigation">
-			<div class="navToggle"><?php include 'images/menu.svg'; ?></div>
-			<div class="searchToggle"><?php include 'images/search.svg'; ?></div>
+			<a class="navToggle" href="#nav"><span>Menu</span></a>
+			<div class="searchToggle">Search</div>
 			<?php
 			if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || BuAccessControlPlugin::is_site_403() == false ) {
 				bu_navigation_display_primary( array( 
@@ -92,8 +92,8 @@
 
 		<?php if ( $headerLayout == 'l-sidenav' ): ?>
 			<nav class="navContainer" role="navigation">
-				<div class="navToggle"><?php include 'images/menu.svg'; ?></div>
-				<div class="searchToggle"><?php include 'images/search.svg'; ?></div>
+				<a class="navToggle" href="#nav"><span>Menu</span></a>
+				<div class="searchToggle">Search</div>
 				<?php
 				if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || BuAccessControlPlugin::is_site_403() == false ) {
 					bu_navigation_display_primary( array( 
