@@ -428,8 +428,8 @@ function burf_customize_css() {
 		 .sidebar h3,
 		 .sidebar h3 a,
 		 .sidebar a .day,
-		 .sidebar h3,
-		 .sidebar h3 a,
+		 .footbar h3,
+		 .footbar h3 a,
 		 ul > li:before,
 		 ol > li:before { color: <?php echo $colors[3]; ?> }
 
