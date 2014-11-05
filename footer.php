@@ -2,10 +2,10 @@
 		</div><!-- .contentWrapper -->
 
 		<?php
-		if ( is_dynamic_sidebar( 'bottom-content-area' ) ): ?>
+		if ( is_dynamic_sidebar( 'footbar' ) ): ?>
 		<aside class="footbar">
 			<div class="footbar-container">
-				<?php dynamic_sidebar( 'bottom-content-area' ); ?>
+				<?php dynamic_sidebar( 'footbar' ); ?>
 			</div>
 		</aside>
 		<?php endif; ?>
