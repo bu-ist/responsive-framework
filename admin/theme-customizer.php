@@ -444,7 +444,7 @@ function burf_customize_css() {
 		 a, .comment-counter a strong { color: <?php echo $colors[2]; ?> }
 
 		 /* page background color */
-		 .wrapper {
+		 .contentWrapper {
 			background-color: <?php echo $bg_color; ?>;
 			background-image: url(<?php echo $bg_image; ?>);
 			background-repeat: <?php echo $bg_repeat; ?>;
