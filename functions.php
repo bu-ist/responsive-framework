@@ -110,8 +110,8 @@ add_action( 'after_setup_theme', 'responsive_setup' );
  */
 function responsive_sidebars() {
 	register_sidebar( array(
-			'name'          => 'Right Content Area',
-			'id'            => 'right-content-area',
+			'name'          => 'Main Sidebar',
+			'id'            => 'sidebar',
 			'description'   => 'Description',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
@@ -120,8 +120,8 @@ function responsive_sidebars() {
 		) );
 
 	register_sidebar( array(
-			'name'          => 'Bottom Content Area',
-			'id'            => 'bottom-content-area',
+			'name'          => 'Footer Content Area',
+			'id'            => 'footbar',
 			'description'   => 'Description',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
