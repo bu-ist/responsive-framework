@@ -10,7 +10,7 @@
 
 	<p class="desc"><?php bloginfo( 'description' ); ?></p>
 
-	<div class="searchToggle"><?php include get_template_directory() . '/images/search.svg'; ?></div>
+	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
 
 	<?php responsive_search_form(); ?>
 </div>
