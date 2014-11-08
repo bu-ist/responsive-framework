@@ -7,11 +7,11 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php responsive_content_banner( 'page-width' ); ?>
+		<?php responsive_content_banner( 'pageWidth' ); ?>
 
 		<article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
 
-			<?php responsive_content_banner( 'content-width' ); ?>
+			<?php responsive_content_banner( 'contentWidth' ); ?>
 
 			<h1><?php the_title(); ?></h1>
 
