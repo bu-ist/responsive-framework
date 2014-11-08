@@ -57,15 +57,15 @@ function responsive_setup() {
 
 	// Content banner locations.
 	if ( function_exists( 'bu_register_banner_position' ) ) {
-		bu_register_banner_position( 'window-width', array(
+		bu_register_banner_position( 'windowWidth', array(
 				'label' => 'Full browser window width',
 				'hint'  => 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.',
 			) );
-		bu_register_banner_position( 'page-width', array(
+		bu_register_banner_position( 'pageWidth', array(
 				'label' => 'Page width',
 				'hint'  => 'Banner will appear above the content and sidebars and should be XY pixels wide.',
 			) );
-		bu_register_banner_position( 'content-width', array(
+		bu_register_banner_position( 'contentWidth', array(
 				'label'   => 'Content width',
 				'hint'    => 'Banner will appear above the title in the content area and should be XY pixels wide.',
 				'default' => true,

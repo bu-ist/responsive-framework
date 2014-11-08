@@ -66,7 +66,7 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 
 <article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
 	<div class="container">
-		<?php responsive_content_banner( 'content-width' ); ?>
+		<?php responsive_content_banner( 'contentWidth' ); ?>
 
 		<?php if ( is_null( $eventID ) ) { ?>
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
