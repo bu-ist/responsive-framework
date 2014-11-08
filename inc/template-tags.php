@@ -161,7 +161,7 @@ function responsive_content_banner( $position ) {
 	}
 
 	$banner_args = array(
-		'before'   => sprintf( '<div class="banner-container %s">', $position ),
+		'before'   => sprintf( '<div class="bannerContainer bannerContainer-%s">', $position ),
 		'after'    => '</div>',
 		'class'    => 'banner',
 		'position' => $position,

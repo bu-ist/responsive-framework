@@ -32,6 +32,6 @@
 	<div class="wrapper">
 		<div class="contentWrapper">
 
-			<?php responsive_content_banner( 'window-width' ); ?>
+			<?php responsive_content_banner( 'windowWidth' ); ?>
 
 			<div class="container">

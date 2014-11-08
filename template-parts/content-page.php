@@ -6,7 +6,7 @@
 
 <article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
 
-	<?php responsive_content_banner( 'content-width' ); ?>
+	<?php responsive_content_banner( 'contentWidth' ); ?>
 
 	<?php if ( is_front_page() ) { ?>
 		<h1><?php the_title(); ?></h1>
