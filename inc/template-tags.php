@@ -174,7 +174,10 @@ function responsive_content_banner( $position ) {
 function responsive_primary_nav() {
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
 		false == BuAccessControlPlugin::is_site_403() ) {
-		bu_navigation_display_primary();
+		bu_navigation_display_primary( array(
+					'container_id'    => 'primaryNav',
+					'container_class' => 'primaryNav',
+					) );
 	}
 }
 

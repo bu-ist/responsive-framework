@@ -3,13 +3,13 @@
  * Header layout with navigation bar over branding.
  */
 ?>
-<nav class="mainNav" role="navigation">
-	<div class="navToggle"><?php include get_template_directory() . '/images/menu.svg'; ?></div>
-	<div class="searchToggle"><?php include get_template_directory() . '/images/search.svg'; ?></div>
+<nav class="navContainer" role="navigation">
+	<a href="#primaryNav" class="navToggle"><span>Menu</span></a>
+	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
 
 	<?php responsive_primary_nav(); ?>
 
-	<nav id="utility" role="utility"><?php responsive_utility_nav(); ?></nav>
+	<nav class="utilityNav" role="navigation"><?php responsive_utility_nav(); ?></nav>
 </nav>
 
 <?php responsive_search_form(); ?>
@@ -21,8 +21,8 @@
 
 	<p class="desc"><?php bloginfo( 'description' ); ?></p>
 
-	<nav id="utility" role="utility"><?php responsive_utility_nav(); ?></nav>
+	<nav class="utilityNav" role="navigation"><?php responsive_utility_nav(); ?></nav>
 
-	<div class="searchToggle"><?php include get_template_directory() . '/images/search.svg'; ?></div>
+	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
 
 </div>
