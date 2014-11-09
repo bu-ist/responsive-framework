@@ -33,4 +33,6 @@
 		 <?php echo responsive_term_links(); ?>
 	</div>
 
+	<?php edit_post_link( 'Edit', '<p class="edit-link">', '</p>' ); ?>
+
 </article>
