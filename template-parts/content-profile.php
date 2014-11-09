@@ -14,7 +14,8 @@ if ( function_exists( 'bu_thumbnail' ) ) {
 ?>
 
 <article role="main" class="col-md-8 profile-display<?php if ( $has_details ) : ?> has-basic<?php endif; ?><?php if ( $profile_thumb ) : ?> has-thumb<?php endif; ?>">
-	<?php edit_post_link( 'Edit', '<p class="edit-link">', '</p>' ); ?>
+
+	<?php responsive_content_banner( 'contentWidth' ); ?>
 
 	<h1><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h1>
 
@@ -42,5 +43,9 @@ if ( function_exists( 'bu_thumbnail' ) ) {
 	<?php endif; ?>
 
 	<?php the_taxonomies( array( 'before' => '<div class="profile-tax"><dl>', 'sep' => '', 'after' => '</dl></div><!--/.profiles-tax-->', 'template' => '<dt>%s</dt><dd>%l</dd>' ) ); ?>
+
+	<?php edit_post_link( 'Edit', '<p class="edit-link">', '</p>' ); ?>
+
+	<?php responsive_comments(); ?>
 
 </article>
