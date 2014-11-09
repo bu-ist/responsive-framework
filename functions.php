@@ -84,6 +84,7 @@ function responsive_setup() {
 		$banner_templates->register( array(
 			'default',
 			'page-templates/calendar.php',
+			'page-templates/homepage.php',
 			'page-templates/news.php',
 			'page-templates/no-sidebars.php',
 			'page-templates/profiles.php',

@@ -64,8 +64,10 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 ?>
 <?php get_header(); ?>
 
+<?php responsive_content_banner( 'pageWidth' ); ?>
+
 <article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
-	<div class="container">
+
 		<?php responsive_content_banner( 'contentWidth' ); ?>
 
 		<?php if ( is_null( $eventID ) ) { ?>
@@ -297,7 +299,6 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 
 			</div>
 		<?php } ?>
-	</div><!--/.container -->
 </article>
 
 <?php get_sidebar(); ?>
