@@ -2404,8 +2404,14 @@ li.current_page_ancestor a {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.l-sidenav #quicksearch {
+  background: white;
+  padding: 0;
+  margin-top: 20px;
+}
 @media (min-width: 768px) {
   .l-sidenav #quicksearch {
+    margin-top: 60px;
     background: white;
   }
 }

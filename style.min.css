@@ -27,7 +27,7 @@ footer p{margin:0;color:#fff}@font-face{font-family:"Benton";src:url("http://www
 .l-sidenav .contentWrapper{-webkit-transition:all 0.1s ease-in-out 0s;-moz-transition:all 0.1s ease-in-out 0s;-ms-transition:all 0.1s ease-in-out 0s;-o-transition:all 0.1s ease-in-out 0s;transition:all 0.1s ease-in-out 0s}@media (min-width: 768px){.l-sidenav .contentWrapper{margin-left:60px}}@media (min-width: 1200px){.l-sidenav .contentWrapper{margin-left:300px}}
 @media (min-width: 768px){.l-sidenav .navContainer{background:none;position:absolute;width:300px}}@media (min-width: 1200px){.l-sidenav .navContainer{display:block;padding:20px}}
 .l-sidenav .primaryNav{border-bottom:1px solid #fff;border-bottom:1px solid rgba(255,255,255,0.15)}@media (min-width: 768px){.l-sidenav .primaryNav{display:none}}@media (min-width: 1200px){.l-sidenav .primaryNav{display:block;margin-top:0}}
-.l-sidenav .primaryNav li{display:block;padding:0}.l-sidenav .primaryNav a{border-top:1px solid #fff;border-top:1px solid rgba(255,255,255,0.15)}@media (min-width: 768px){.l-sidenav #quicksearch{background:#fff}}
+.l-sidenav .primaryNav li{display:block;padding:0}.l-sidenav .primaryNav a{border-top:1px solid #fff;border-top:1px solid rgba(255,255,255,0.15)}.l-sidenav #quicksearch{background:#fff;padding:0;margin-top:20px}@media (min-width: 768px){.l-sidenav #quicksearch{margin-top:60px;background:#fff}}
 @media (min-width: 768px){.l-sidenav #q{border-top:1px solid #000;border-top:1px solid rgba(0,0,0,0.15);border-bottom:1px solid #000;border-bottom:1px solid rgba(0,0,0,0.15)}}
 @media (min-width: 768px){.l-sidenav .navContainer .searchToggle{display:none}}
 @media (min-width: 768px){.l-sidenav #brand .searchToggle{display:block;margin-top:-5px;background-position:100% 0}}
