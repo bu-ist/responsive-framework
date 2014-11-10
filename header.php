@@ -67,7 +67,7 @@
 
 			<div class="searchToggle">Search</div>
 
-			<?php if ( $headerLayout == 'l-nonav' ): ?>
+			<?php if ( $headerLayout == 'l-nonav' || $headerLayout =='l-sidenav' ): ?>
 				<?php responsive_search_form(); ?>
 			<?php endif; ?>
 		</div>
@@ -106,7 +106,6 @@
 				<nav class="utilityNav" role="navigation"><?php wp_nav_menu( $utilArgs ); ?></nav>
 			</nav>
 
-			<?php responsive_search_form(); ?>
 		<?php endif; ?>
 	</header>
 	
