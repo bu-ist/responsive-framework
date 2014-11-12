@@ -2,7 +2,7 @@
 
 			<?php get_sidebar( 'bottom' ); ?>
 
-			<footer role="contentinfo">
+			<footer class="siteFooter" role="contentinfo">
 				<a href="#top" title="Jump back to top">&#8593;</a>
 
 			<?php if ( function_exists( 'bu_footer_content' ) ) {

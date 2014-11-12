@@ -11,8 +11,6 @@
 	<p class="siteDescription"><?php bloginfo( 'description' ); ?></p>
 
 	<nav class="utilityNav" role="navigation"><?php responsive_utility_nav(); ?></nav>
-
-	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
 </div>
 
 <nav class="navContainer" role="navigation">

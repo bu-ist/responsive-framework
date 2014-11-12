@@ -462,4 +462,4 @@ function burf_customize_css() {
 	<?php
 }
 
-add_action( 'wp_head', 'burf_customize_css' );
+// add_action( 'wp_head', 'burf_customize_css' );

@@ -5,11 +5,7 @@
 	Version: 0.9.1
 	Description: Responsive framework, started with Barebones, ........
 ---------------------- */
-/* basic framework elements
------------------------------------------------------------------ */
 /* mixins
------------------------------------------------------------------ */
-/* font options
 ----------------------------------------------------------------- */
 /* Benton */
 @font-face {
@@ -426,6 +422,14 @@
 }
 /* grid
 ----------------------------------------------------------------- */
+.wrapper {
+  overflow: hidden;
+}
+
+.contentWrapper {
+  position: relative;
+}
+
 .container, .footbar .footbar-container {
   padding: 28px 20px;
   width: 100%;
@@ -438,7 +442,7 @@
 }
 
 .row {
-  margin: 0 0 32px;
+  margin: 0 -20px;
 }
 
 .row [class*="col-"] {
@@ -457,10 +461,6 @@
 
 .row .row:nth-last-of-type(1) {
   margin-bottom: 0;
-}
-
-[class*="col-"] *:first-child {
-  margin-top: 0;
 }
 
 /* default (mobile) */
@@ -831,10 +831,6 @@ a {
   color: #0000ee;
 }
 
-a:visited {
-  color: #551a8b;
-}
-
 /* Address `outline` inconsistency between Chrome and other browsers. */
 a:focus {
   outline: thin dotted;
@@ -928,6 +924,21 @@ h6 small {
   font-size: .75em;
   font-weight: normal;
   color: #9f9f9f;
+}
+
+hgroup {
+  margin: 25px 0;
+}
+
+/* remove margins from headings within hgroup */
+hgroup h1,
+hgroup h2,
+hgroup h3,
+hgroup h4,
+hgroup h5,
+hgroup h6,
+hgroup p {
+  margin: 0;
 }
 
 /* Address styling not present in IE 7/8/9, Safari 5, and Chrome. */
@@ -1051,6 +1062,7 @@ nav ul,
 nav ol {
   list-style: none;
   list-style-image: none;
+  margin: 0;
 }
 
 /* remove margin from nested lists */
@@ -1148,6 +1160,18 @@ table thead {
   color: black;
   text-align: left;
   vertical-align: bottom;
+}
+
+/* tables that use grid width classes */
+table col[class*="col-"] {
+  display: table-column;
+  float: none;
+}
+
+table td[class*="col-"],
+table th[class*="col-"] {
+  display: table-cell;
+  float: none;
 }
 
 /* Striped tables
@@ -1335,54 +1359,47 @@ textarea {
   border: none;
 }
 
-/* theme-specific elements
------------------------------------------------------------------ */
-/* globals
------------------------------------------------------------------ */
 body {
-  background: #151515;
-}
-
-.wrapper {
-  overflow: hidden;
+  background: black;
 }
 
 .contentWrapper {
-  position: relative;
-}
-
-/* header area
------------------------------------------------------------------ */
-/* header */
-header {
-  padding: 0;
   background: white;
 }
-header:after {
+
+/* masthead
+----------------------------------------------------------------- */
+.masthead {
+  background: white;
+}
+.masthead:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* #brand */
-#brand {
+.brand {
   padding: 40px 20px;
   overflow: hidden;
 }
 
-#siteName {
+.siteName {
   float: left;
   font-family: "Whitney SSm A", "Whitney SSm B";
   font-weight: 600;
-  font-style: normal;
   text-decoration: none;
   color: black;
 }
+.siteName:visited {
+  color: black;
+}
 
-#siteName span {
-  font-family: "Whitney SSm A", "Whitney SSm B";
+.siteName span {
   font-weight: 400;
-  font-style: normal;
+}
+
+.siteDescription {
+  margin: 0;
 }
 
 /* .bannerContainer
@@ -1402,7 +1419,7 @@ header:after {
 }
 
 .bannerContainer-pageWidth img {
-  background: #333333;
+  background: #222222;
   width: 100%;
 }
 
@@ -1410,145 +1427,6 @@ header:after {
   background: none;
   padding: 0;
   margin-bottom: 20px;
-}
-
-/* content formatting
------------------------------------------------------------------ */
-/* article */
-article header {
-  background: none;
-}
-
-article footer {
-  background: none;
-  border: none;
-}
-
-/* lists */
-article ul,
-article ol {
-  counter-reset: li;
-  margin-bottom: 24px;
-  margin-left: 20px;
-}
-
-article ul > li,
-article ol > li {
-  list-style-type: none;
-  position: relative;
-  margin-left: 20px;
-  padding: 2px 0;
-}
-
-article ul > li:before,
-article ol > li:before {
-  content: counter(li);
-  counter-increment: li;
-  position: absolute;
-  top: -3px;
-  left: -2em;
-  width: 2em;
-  margin-right: 8px;
-  padding: 4px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 700;
-}
-
-article li ul,
-article li ol {
-  margin: 6px 0 0 0;
-  counter-reset: li;
-}
-
-article ul > li:before {
-  content: "+";
-  font-size: 30px;
-  font-weight: 400;
-}
-
-/* inline images (use WordPress class names) */
-img.alignright {
-  float: right;
-  margin: 0.0 0 10px 10px;
-}
-
-div.alignright {
-  float: right;
-  margin: 0 0 10px 10px;
-  background: white;
-  width: auto !important;
-  padding: 10px;
-  max-width: 100%;
-}
-
-div.alignright p {
-  margin-bottom: 0;
-}
-
-div.alignright img {
-  margin-bottom: 5px;
-}
-
-img.alignleft {
-  float: left;
-  margin: 0 10px 10px 0;
-}
-
-div.alignleft {
-  float: left;
-  margin: 0 10px 10px 0;
-  background: white;
-  width: auto !important;
-  padding: 10px;
-  max-width: 100%;
-}
-
-div.alignleft p {
-  margin-bottom: 0;
-}
-
-div.alignleft img {
-  margin-bottom: 5px;
-}
-
-img.aligncenter {
-  display: block;
-  margin: 0 auto 10px;
-}
-
-div.aligncenter {
-  margin: 0 auto;
-  background: white;
-  padding: 10px;
-  max-width: 100%;
-}
-
-div.aligncenter p {
-  margin-bottom: 0;
-}
-
-div.aligncenter img {
-  margin-bottom: 5px;
-}
-
-/* inline images (use WordPress class names) */
-.wp-caption p {
-  color: #9f9f9f;
-  clear: both;
-  font-size: 12px;
-  line-height: 16px;
-}
-
-.wp-caption img {
-  margin-bottom: 10px;
-  margin-top: 0;
-}
-
-/* slideshows */
-.bu-slideshow-container {
-  text-align: center;
-  margin-bottom: 30px;
 }
 
 /* sidebar
@@ -1589,47 +1467,6 @@ div.aligncenter img {
   padding: 5px 0 5px 20px;
 }
 
-.sidebar .widget_bu_pages {
-  padding: 0 20px;
-}
-
-.sidebar .widget {
-  border: 1px solid black;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  background: white;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.sidebar .widget h3 {
-  border-bottom: 1px solid black;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-.sidebar .post {
-  border-bottom: 1px solid black;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-.sidebar .post:nth-last-of-type(1) {
-  border-bottom: none;
-}
-
-.sidebar .graphic .date {
-  border-right: 3px solid black;
-  border-right: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.sidebar .comment-counter {
-  border-left: 1px solid black;
-  border-left: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-/*
-.sidebar .date, 
-.sidebar .widget p {
-	@include rgba-color('color', rgba($color-grayScale-0, .5), $color-grayScale-0);
-}
-*/
 /* .footbar
 ----------------------------------------------------------------- */
 .footbar {
@@ -1701,7 +1538,7 @@ div.aligncenter img {
 
 /* footer
 ----------------------------------------------------------------- */
-footer {
+.siteFooter {
   background: black;
   border-top: 1px solid white;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
@@ -1711,13 +1548,11 @@ footer {
   padding: 40px;
 }
 
-footer p {
+.siteFooter p {
   margin: 0;
   color: white;
 }
 
-/* font options
------------------------------------------------------------------ */
 /* Benton */
 @font-face {
   font-family: "Benton";
@@ -2131,454 +1966,6 @@ footer p {
   font-style: italic;
   font-weight: 700;
 }
-/* group 1: capita / benton (default)
------------------------------------------------------------------ */
-.f1 {
-  font-family: 'Benton';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 28px;
-}
-
-.f1 p {
-  font-family: 'Benton';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 28px;
-  margin-bottom: 24px;
-}
-
-.f1 h1 {
-  font-family: 'Capita';
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 43px;
-  margin-bottom: 22px;
-}
-
-.f1 h2 {
-  font-family: 'Capita';
-  font-weight: 700;
-  font-size: 33px;
-  line-height: 36px;
-  margin-bottom: 22px;
-}
-
-.f1 h3 {
-  font-family: 'Capita';
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 31px;
-  margin-bottom: 22px;
-}
-
-.f1 .widget h3 {
-  font-size: 23px;
-  line-height: 26px;
-}
-
-.f1 h4 {
-  font-family: 'Capita';
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 27px;
-  margin-bottom: 22px;
-}
-
-.f1 h5 {
-  font-family: 'Capita';
-  font-weight: 700;
-  font-size: 23px;
-  line-height: 26px;
-  margin-bottom: 22px;
-}
-
-.f1 h6 {
-  font-family: 'Capita';
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 21px;
-  margin-bottom: 22px;
-}
-
-.f1 #q {
-  font-family: 'Capita';
-  font-size: 18px;
-}
-
-.f1 .primaryNav li a {
-  font-family: 'Capita';
-  font-weight: 500;
-  font-size: 18px;
-}
-
-.f1 .utilityNav li a {
-  font-family: 'Capita';
-  font-weight: 400;
-  font-size: 16px;
-  font-style: italic;
-}
-
-/* START: group 1 (headings / body): capita / benton
------------------------------------------------------------------ */
-.f2 {
-  font-family: 'Benton';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 28px;
-}
-
-.f2 p {
-  font-family: 'Benton';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 28px;
-  margin-bottom: 24px;
-}
-
-.f2 h1 {
-  font-family: 'Benton';
-  font-weight: 400;
-  font-size: 35px;
-  line-height: 38px;
-  margin-bottom: 22px;
-}
-
-.f2 h2 {
-  font-family: 'Benton';
-  font-weight: 400;
-  font-size: 29px;
-  line-height: 32px;
-  margin-bottom: 22px;
-}
-
-.f2 h3 {
-  font-family: 'Benton';
-  font-weight: 400;
-  font-size: 25px;
-  line-height: 28px;
-  margin-bottom: 22px;
-}
-
-f2 .widget h3 {
-  font-size: 18px;
-  line-height: 21px;
-}
-
-.f2 h4 {
-  font-family: 'Benton';
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 23px;
-  margin-bottom: 22px;
-}
-
-.f2 h5 {
-  font-family: 'Benton';
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 21px;
-  margin-bottom: 22px;
-}
-
-.f2 h6 {
-  font-family: 'Benton';
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  margin-bottom: 22px;
-}
-
-.f2 #q {
-  font-family: 'Benton';
-  font-size: 18px;
-}
-
-.f2 #nav li a {
-  font-family: 'Benton';
-  font-weight: 400;
-  font-size: 16px;
-}
-
-.f2 #utility li a {
-  font-family: 'Capita';
-  font-weight: 400;
-  font-size: 16px;
-  font-style: italic;
-}
-
-/* START: group 3 (headings / body): benton / capita
------------------------------------------------------------------ */
-.f3 {
-  font-family: 'Capita';
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
-}
-
-.f3 p {
-  font-family: 'Capita';
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 30px;
-  margin-bottom: 24px;
-}
-
-.f3 h1 {
-  font-family: 'Benton';
-  font-weight: 700;
-  font-size: 33px;
-  line-height: 36px;
-  margin-bottom: 22px;
-}
-
-.f3 h2 {
-  font-family: 'Benton';
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 29px;
-  margin-bottom: 22px;
-}
-
-.f3 h3 {
-  font-family: 'Benton';
-  font-weight: 700;
-  font-size: 23px;
-  line-height: 26px;
-  margin-bottom: 22px;
-}
-
-.f3 .widget h3 {
-  font-size: 18px;
-  line-height: 21px;
-}
-
-.f3 h4 {
-  font-family: 'Benton';
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 23px;
-  margin-bottom: 22px;
-}
-
-.f3 h5 {
-  font-family: 'Benton';
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 21px;
-  margin-bottom: 22px;
-}
-
-.f3 h6 {
-  font-family: 'Benton';
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  margin-bottom: 22px;
-}
-
-.f3 #q {
-  font-family: 'Benton';
-  font-size: 18px;
-}
-
-.f3 #nav li a {
-  font-family: 'Benton';
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.f3 #utility li a {
-  font-family: 'Capita';
-  font-weight: 400;
-  font-size: 16px;
-  font-style: italic;
-}
-
-/* START: group 4 (headings / body): pressura / benton
------------------------------------------------------------------ */
-.f4 {
-  font-family: 'Benton';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 28px;
-}
-
-.f4 p {
-  font-family: 'Benton';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 28px;
-  margin-bottom: 24px;
-}
-
-.f4 h1 {
-  font-family: 'Pressura';
-  font-weight: 700;
-  font-size: 40px;
-  text-transform: uppercase;
-  line-height: 43px;
-  margin-bottom: 22px;
-}
-
-.f4 h2 {
-  font-family: 'Pressura';
-  font-weight: 700;
-  font-size: 35px;
-  text-transform: uppercase;
-  line-height: 38px;
-  margin-bottom: 22px;
-}
-
-.f4 h3 {
-  font-family: 'Pressura';
-  font-weight: 700;
-  font-size: 30px;
-  text-transform: uppercase;
-  line-height: 33px;
-  margin-bottom: 22px;
-}
-
-.f4 .widget h3 {
-  font-size: 20px;
-  line-height: 23px;
-}
-
-.f4 h4 {
-  font-family: 'Pressura';
-  font-weight: 700;
-  font-size: 24px;
-  text-transform: uppercase;
-  line-height: 27px;
-  margin-bottom: 22px;
-}
-
-.f4 h5 {
-  font-family: 'Pressura';
-  font-weight: 700;
-  font-size: 20px;
-  text-transform: uppercase;
-  line-height: 23px;
-  margin-bottom: 22px;
-}
-
-.f4 h6 {
-  font-family: 'Pressura';
-  font-weight: 700;
-  font-size: 18px;
-  text-transform: uppercase;
-  line-height: 21px;
-  margin-bottom: 22px;
-}
-
-.f4 #q {
-  font-family: 'Pressura';
-  font-size: 18px;
-  text-transform: uppercase;
-}
-
-.f4 #nav li a {
-  font-family: 'Pressura';
-  font-weight: 700;
-  font-size: 18px;
-  text-transform: uppercase;
-}
-
-.f4 #utility li a {
-  font-family: 'Capita';
-  font-weight: 400;
-  font-size: 16px;
-  font-style: italic;
-}
-
-/* START: group 5 (headings / body): stag / benton
------------------------------------------------------------------ */
-.f5 {
-  font-family: 'Benton';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 28px;
-}
-
-.f5 p {
-  font-family: 'Benton';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 28px;
-  margin-bottom: 24px;
-}
-
-.f5 h1 {
-  font-family: 'Stag';
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 43px;
-  margin-bottom: 22px;
-}
-
-.f5 h2 {
-  font-family: 'Stag';
-  font-weight: 500;
-  font-size: 35px;
-  line-height: 38px;
-  margin-bottom: 22px;
-}
-
-.f5 h3 {
-  font-family: 'Stag';
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 33px;
-  margin-bottom: 22px;
-}
-
-.f5 .widget h3 {
-  font-size: 20px;
-  line-height: 23px;
-}
-
-.f5 h4 {
-  font-family: 'Stag';
-  font-weight: 500;
-  font-size: 25px;
-  line-height: 28px;
-  margin-bottom: 22px;
-}
-
-.f5 h5 {
-  font-family: 'Stag';
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 23px;
-  margin-bottom: 22px;
-}
-
-.f5 h6 {
-  font-family: 'Stag';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  margin-bottom: 22px;
-}
-
-.f5 #q {
-  font-family: 'Stag';
-  font-size: 18px;
-}
-
-.f5 #nav li a {
-  font-family: 'Stag';
-  font-weight: 500;
-  font-size: 18px;
-}
-
-.f5 #utility li a {
-  font-family: 'Stag';
-  font-weight: 400;
-  font-size: 16px;
-  font-style: italic;
-}
-
 /* common
 ----------------------------------------------------------------- */
 /* .searchToggle appears only when header is small and above, otherwise it's hidden */
@@ -2939,15 +2326,94 @@ h6.bu_collapsible {
   margin-bottom: 0;
 }
 
+/* WordPress inline images (use WP standard class names) */
+img.alignright {
+  float: right;
+  margin: 0.0 0 10px 10px;
+}
+
+div.alignright {
+  float: right;
+  margin: 0 0 10px 10px;
+  background: white;
+  width: auto !important;
+  padding: 10px;
+  max-width: 100%;
+}
+
+div.alignright p {
+  margin-bottom: 0;
+}
+
+div.alignright img {
+  margin-bottom: 5px;
+}
+
+img.alignleft {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
+div.alignleft {
+  float: left;
+  margin: 0 10px 10px 0;
+  background: white;
+  width: auto !important;
+  padding: 10px;
+  max-width: 100%;
+}
+
+div.alignleft p {
+  margin-bottom: 0;
+}
+
+div.alignleft img {
+  margin-bottom: 5px;
+}
+
+img.aligncenter {
+  display: block;
+  margin: 0 auto 10px;
+}
+
+div.aligncenter {
+  margin: 0 auto;
+  background: white;
+  padding: 10px;
+  max-width: 100%;
+}
+
+div.aligncenter p {
+  margin-bottom: 0;
+}
+
+div.aligncenter img {
+  margin-bottom: 5px;
+}
+
+.wp-caption p {
+  color: #9f9f9f;
+  clear: both;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.wp-caption img {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+/* slideshows */
+.bu-slideshow-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 /* widgets
------------------------------------------------------------------ */
-/* widgets shared styles
 ----------------------------------------------------------------- */
 /* .widget */
 .widget {
-  padding: 20px;
-  margin-bottom: 20px;
-  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
 }
 
 .widgetnav {
@@ -3090,6 +2556,444 @@ h6.bu_collapsible {
   content: "";
   display: table;
   clear: both;
+}
+
+/* group 1: capita / benton (default)
+----------------------------------------------------------------- */
+/*
+.f1 {
+	font-family: 'Benton';
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 28px;
+} 
+.f1 p {
+	font-family: 'Benton';
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 28px;
+	margin-bottom: 24px;
+}
+.f1 h1 {
+	font-family: 'Capita';
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 43px;
+	margin-bottom: 22px;
+}
+.f1 h2 {
+	font-family: 'Capita';
+	font-weight: 700;
+	font-size: 33px;
+	line-height: 36px;
+	margin-bottom: 22px;
+}
+.f1 h3 {
+	font-family: 'Capita';
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 31px;
+	margin-bottom: 22px;
+}
+.f1 .widget h3 {
+	font-size: 23px;
+	line-height: 26px;
+}
+.f1 h4 {
+	font-family: 'Capita';
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 27px;
+	margin-bottom: 22px;
+}
+.f1 h5 {
+	font-family: 'Capita';
+	font-weight: 700;
+	font-size: 23px;
+	line-height: 26px;
+	margin-bottom: 22px;
+}
+.f1 h6 {
+	font-family: 'Capita';
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 21px;
+	margin-bottom: 22px;
+}
+.f1 #q {
+	font-family: 'Capita';
+	font-size: 18px;
+}
+.f1 .primaryNav li a {
+	font-family: 'Capita';
+	font-weight: 500;
+	font-size: 18px;
+}
+.f1 .utilityNav li a {
+	font-family: 'Capita';
+	font-weight: 400;
+	font-size: 16px;
+	font-style: italic;
+}
+*/
+/* START: group 1 (headings / body): capita / benton
+----------------------------------------------------------------- */
+.f2 {
+  font-family: 'Benton';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.f2 p {
+  font-family: 'Benton';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  margin-bottom: 24px;
+}
+
+.f2 h1 {
+  font-family: 'Benton';
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 38px;
+  margin-bottom: 22px;
+}
+
+.f2 h2 {
+  font-family: 'Benton';
+  font-weight: 400;
+  font-size: 29px;
+  line-height: 32px;
+  margin-bottom: 22px;
+}
+
+.f2 h3 {
+  font-family: 'Benton';
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 28px;
+  margin-bottom: 22px;
+}
+
+f2 .widget h3 {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.f2 h4 {
+  font-family: 'Benton';
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  margin-bottom: 22px;
+}
+
+.f2 h5 {
+  font-family: 'Benton';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 22px;
+}
+
+.f2 h6 {
+  font-family: 'Benton';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 22px;
+}
+
+.f2 #q {
+  font-family: 'Benton';
+  font-size: 18px;
+}
+
+.f2 #nav li a {
+  font-family: 'Benton';
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.f2 #utility li a {
+  font-family: 'Capita';
+  font-weight: 400;
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* START: group 3 (headings / body): benton / capita
+----------------------------------------------------------------- */
+.f3 {
+  font-family: 'Capita';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.f3 p {
+  font-family: 'Capita';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  margin-bottom: 24px;
+}
+
+.f3 h1 {
+  font-family: 'Benton';
+  font-weight: 700;
+  font-size: 33px;
+  line-height: 36px;
+  margin-bottom: 22px;
+}
+
+.f3 h2 {
+  font-family: 'Benton';
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+  margin-bottom: 22px;
+}
+
+.f3 h3 {
+  font-family: 'Benton';
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 26px;
+  margin-bottom: 22px;
+}
+
+.f3 .widget h3 {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.f3 h4 {
+  font-family: 'Benton';
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  margin-bottom: 22px;
+}
+
+.f3 h5 {
+  font-family: 'Benton';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 22px;
+}
+
+.f3 h6 {
+  font-family: 'Benton';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 22px;
+}
+
+.f3 #q {
+  font-family: 'Benton';
+  font-size: 18px;
+}
+
+.f3 #nav li a {
+  font-family: 'Benton';
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.f3 #utility li a {
+  font-family: 'Capita';
+  font-weight: 400;
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* START: group 4 (headings / body): pressura / benton
+----------------------------------------------------------------- */
+.f4 {
+  font-family: 'Benton';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.f4 p {
+  font-family: 'Benton';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  margin-bottom: 24px;
+}
+
+.f4 h1 {
+  font-family: 'Pressura';
+  font-weight: 700;
+  font-size: 40px;
+  text-transform: uppercase;
+  line-height: 43px;
+  margin-bottom: 22px;
+}
+
+.f4 h2 {
+  font-family: 'Pressura';
+  font-weight: 700;
+  font-size: 35px;
+  text-transform: uppercase;
+  line-height: 38px;
+  margin-bottom: 22px;
+}
+
+.f4 h3 {
+  font-family: 'Pressura';
+  font-weight: 700;
+  font-size: 30px;
+  text-transform: uppercase;
+  line-height: 33px;
+  margin-bottom: 22px;
+}
+
+.f4 .widget h3 {
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.f4 h4 {
+  font-family: 'Pressura';
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  line-height: 27px;
+  margin-bottom: 22px;
+}
+
+.f4 h5 {
+  font-family: 'Pressura';
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  line-height: 23px;
+  margin-bottom: 22px;
+}
+
+.f4 h6 {
+  font-family: 'Pressura';
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  line-height: 21px;
+  margin-bottom: 22px;
+}
+
+.f4 #q {
+  font-family: 'Pressura';
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.f4 #nav li a {
+  font-family: 'Pressura';
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.f4 #utility li a {
+  font-family: 'Capita';
+  font-weight: 400;
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* START: group 5 (headings / body): stag / benton
+----------------------------------------------------------------- */
+.f5 {
+  font-family: 'Benton';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.f5 p {
+  font-family: 'Benton';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  margin-bottom: 24px;
+}
+
+.f5 h1 {
+  font-family: 'Stag';
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 43px;
+  margin-bottom: 22px;
+}
+
+.f5 h2 {
+  font-family: 'Stag';
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 38px;
+  margin-bottom: 22px;
+}
+
+.f5 h3 {
+  font-family: 'Stag';
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 33px;
+  margin-bottom: 22px;
+}
+
+.f5 .widget h3 {
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.f5 h4 {
+  font-family: 'Stag';
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 28px;
+  margin-bottom: 22px;
+}
+
+.f5 h5 {
+  font-family: 'Stag';
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  margin-bottom: 22px;
+}
+
+.f5 h6 {
+  font-family: 'Stag';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 22px;
+}
+
+.f5 #q {
+  font-family: 'Stag';
+  font-size: 18px;
+}
+
+.f5 #nav li a {
+  font-family: 'Stag';
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.f5 #utility li a {
+  font-family: 'Stag';
+  font-weight: 400;
+  font-size: 16px;
+  font-style: italic;
 }
 
 /*# sourceMappingURL=ie.css.map */
