@@ -1,42 +1,17 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template file used to render a single post.
+ */
 
-	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+get_header(); ?>
 
-		<article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
-			<header>
-				<h1><?php the_title(); ?></h1>
-			</header>
+	<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php the_post_thumbnail( 'full' );?>
+		<?php responsive_content_banner( 'pageWidth' ); ?>
 
-			<?php the_content(); ?>
+		<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-			<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:' ), 'after' => '</div>' ) ); ?>
+	<?php endwhile; ?>
 
-			<footer class="entry-meta">
-				<p>Posted <strong><?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago'; ?></strong> on <time datetime="<?php the_time( 'l, F jS, Y' ) ?>" pubdate><?php the_time( 'l, F jS, Y' ) ?></time> &middot; <a href="<?php the_permalink(); ?>">Permalink</a></p>
-			</footer>
-
-			<?php responsive_comments(); ?>
-
-			<ul class="navigation">
-				<li class="older">
-					<?php previous_post_link( '%link', '&larr; %title' ); ?>
-				</li>
-				<li class="newer">
-					<?php next_post_link( '%link', '%title &rarr;' ); ?>
-				</li>
-			</ul>
-
-			<?php endwhile; // end of the loop. ?>
-		</article>
-
-		<?php if ( is_dynamic_sidebar( 'sidebar' ) ): ?>
-			<aside class="col-md-4 sidebar">
-				<?php dynamic_sidebar( 'sidebar' ); ?>
-			</aside>
-		<?php endif; ?>
-
-	</div><!-- why am i here? -->
-
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

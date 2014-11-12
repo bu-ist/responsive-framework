@@ -1,7 +1,7 @@
 <?php
-/**
- * Template file used to render a static page.
- */
+/*
+Template Name: Homepage
+*/
 
 get_header(); ?>
 

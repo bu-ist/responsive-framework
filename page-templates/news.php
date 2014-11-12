@@ -1,7 +1,7 @@
 <?php
-/**
- * Template file used to render a static page.
- */
+/*
+Template Name: News
+*/
 
 get_header(); ?>
 
@@ -9,7 +9,7 @@ get_header(); ?>
 
 		<?php responsive_content_banner( 'pageWidth' ); ?>
 
-		<?php get_template_part( 'template-parts/content', 'page' ); ?>
+		<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
 	<?php endwhile; ?>
 

@@ -1,7 +1,7 @@
 <?php
-/**
- * Template file used to render a static page.
- */
+/*
+Template Name: No Sidebars
+*/
 
 get_header(); ?>
 
@@ -13,5 +13,4 @@ get_header(); ?>
 
 	<?php endwhile; ?>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

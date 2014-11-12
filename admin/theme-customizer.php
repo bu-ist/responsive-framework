@@ -1,11 +1,16 @@
 <?php
 
+// Child themes don't support Customizer.
+if ( is_child_theme() ) {
+	return;
+}
+
 /* - - - - - - - - - - - - - - - - -
   Admin CSS & JS
 - - - - - - - - - - - - - - - - - */
 function custom_admin_styles() {
-	wp_register_style( 'admin-stylesheet', if_child_path() . '/admin/admin.css', '' );
-	wp_register_script( 'theme-customizer', if_child_path() . '/admin/theme-customizer.js' );
+	wp_register_style( 'admin-stylesheet', get_template_directory_uri() . '/admin/admin.css', '' );
+	wp_register_script( 'theme-customizer', get_template_directory_uri() . '/admin/theme-customizer.js' );
 
 	wp_enqueue_style( 'admin-stylesheet' );
 	wp_enqueue_script( 'theme-customizer' );
@@ -21,10 +26,12 @@ function browser_body_class( $classes = '' ) {
 	$font_palette = get_option( 'burf_setting_fonts' );
 	$layout_setting = get_option( 'burf_setting_layout' );
 
-	if ( $font_palette )
+	if ( $font_palette ) {
 		$classes[] = $font_palette;
-	if ( $layout_setting )
+	}
+	if ( $layout_setting ) {
 		$classes[] = $layout_setting;
+	}
 
 	return $classes;
 }
