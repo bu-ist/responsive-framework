@@ -1,6 +1,7 @@
 jQuery(function($) {
 	/* Side Nav Toggler */
-	$(".navToggle").on("click", function(){
+	$(".navToggle").on("click", function(e){
+		e.preventDefault();
 		$(this).toggleClass("is-open");
 		$("nav").toggleClass("is-open");
 		$("body").toggleClass("nav-open");
@@ -9,7 +10,8 @@ jQuery(function($) {
 		
 	});
 	
-	$(".searchToggle").on("click", function(){
+	$(".searchToggle").on("click", function(e){
+		e.preventDefault();
 		$(this).toggleClass("is-open");
 		$("#quicksearch").toggleClass("is-open");
 		
