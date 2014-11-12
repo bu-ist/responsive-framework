@@ -24,102 +24,14 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> id="top">
+
 	<header role="banner">
-		<?php
-		$utilArgs = array(
-			'theme_location' => 'utility',
-			'container'      => 'false',
-			'items_wrap'     => '<ul>%3$s</ul>',
-		);
-
-		$headerLayout = get_option( 'burf_setting_layout' );
-		?>
-
-		<?php if ( $headerLayout == 'l-navbar' || $headerLayout == '' ): ?>
-		<nav class="navContainer" role="navigation">
-			<a class="navToggle" href="#nav"><span>Menu</span></a>
-			<div class="searchToggle">Search</div>
-			<?php if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || BuAccessControlPlugin::is_site_403() == false ) {
-				bu_navigation_display_primary( array( 
-					'container_id'    => '',
-					'container_class' => 'primaryNav',
-					) );
-			}
-
-			if ( $headerLayout == 'l-navbar' ) : ?>
-			<nav class="utilityNav" role="navigation"><?php wp_nav_menu( $utilArgs ); ?></nav>
-			<?php endif; ?>
-		</nav>
-
-		<?php responsive_search_form(); ?>
-		<?php endif; ?>
-
-		<div id="brand">
-			<a id="siteName" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo">
-				Boston University <span><?php bloginfo( 'name' ); ?></span>
-			</a>
-
-			<p class="desc"><?php bloginfo( 'description' ); ?></p>
-
-			<?php if ( $headerLayout == 'l-navbar' || $headerLayout == 'l-branding' ): ?>
-			<nav class="utilityNav" role="navigation"><?php wp_nav_menu( $utilArgs ); ?></nav>
-			<?php endif; ?>
-
-			<div class="searchToggle">Search</div>
-
-			<?php if ( $headerLayout == 'l-nonav' || $headerLayout =='l-sidenav' ): ?>
-				<?php responsive_search_form(); ?>
-			<?php endif; ?>
-		</div>
-
-		<?php if ( $headerLayout == 'l-branding' ): ?>
-		<nav class="navContainer" role="navigation">
-			<a class="navToggle" href="#nav"><span>Menu</span></a>
-			<div class="searchToggle">Search</div>
-			<?php
-			if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || BuAccessControlPlugin::is_site_403() == false ) {
-				bu_navigation_display_primary( array( 
-					'container_id'    => '',
-					'container_class' => 'primaryNav',
-					) );
-			}
-			?>
-			<nav class="utilityNav" role="navigation"><?php wp_nav_menu( $utilArgs ); ?></nav>
-		</nav>
-
-		<?php responsive_search_form(); ?>
-		<?php endif; ?>
-
-		<?php if ( $headerLayout == 'l-sidenav' ): ?>
-			<nav class="navContainer" role="navigation">
-				<a class="navToggle" href="#nav"><span>Menu</span></a>
-				<div class="searchToggle">Search</div>
-				<?php
-				if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || BuAccessControlPlugin::is_site_403() == false ) {
-					bu_navigation_display_primary( array( 
-					'container_id'    => '',
-					'container_class' => 'primaryNav',
-					) );
-				}
-				?>
-
-				<nav class="utilityNav" role="navigation"><?php wp_nav_menu( $utilArgs ); ?></nav>
-			</nav>
-
-		<?php endif; ?>
+		<?php get_template_part( 'template-parts/header', responsive_layout() ); ?>
 	</header>
-	
+
 	<div class="wrapper">
 		<div class="contentWrapper">
-		
-		<?php if ( function_exists( 'bu_content_banner' ) ) {
-			echo do_shortcode( bu_content_banner( $post->ID, $args = array(
-				'before'   => '<div class="bannerContainer bannerContainer-windowWidth">',
-				'after'    => '</div>',
-				'class'    => 'banner',
-				//'maxwidth' => 900,
-				'position' => 'window-width',
-				'echo'     => false,
-				) ) );
-		} ?>
+
+			<?php responsive_content_banner( 'windowWidth' ); ?>
+
 			<div class="container">
