@@ -2723,10 +2723,6 @@ f2 .widget h3 {
   width: 100%;
   padding: 10px 0;
   border: none;
-  border-top: 1px solid white;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 1px solid white;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   color: white;
   background: none;
 }
@@ -2858,8 +2854,6 @@ f2 .widget h3 {
 .primaryNav {
   display: none;
   margin: 40px 0 20px 0;
-  border-bottom: 1px solid white;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 @media (min-width: 768px) {
   .primaryNav {
@@ -2892,8 +2886,7 @@ f2 .widget h3 {
   padding: 10px 0;
   text-decoration: none;
   color: #7a7a7a;
-  border-top: 1px solid white;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid #333333;
 }
 @media (min-width: 768px) {
   .primaryNav a {
@@ -2986,8 +2979,8 @@ li.current_page_ancestor a {
 }
 
 .l-sidenav .primaryNav {
-  border-bottom: 1px solid white;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #333333;
 }
 @media (min-width: 768px) {
   .l-sidenav .primaryNav {
@@ -3007,8 +3000,8 @@ li.current_page_ancestor a {
 }
 
 .l-sidenav .primaryNav a {
-  border-top: 1px solid white;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid #333333;
+  border-top: 1px solid #333333;
 }
 
 .l-sidenav #quicksearch {
@@ -3025,10 +3018,10 @@ li.current_page_ancestor a {
 
 @media (min-width: 768px) {
   .l-sidenav #q {
-    border-top: 1px solid black;
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
-    border-bottom: 1px solid black;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-top: 1px solid #333333;
+    border-top: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-bottom: 1px solid #333333;
   }
 }
 
@@ -3108,17 +3101,17 @@ li.current_page_ancestor a {
 }
 
 .l-nonav #q {
-  border-top: 1px solid white;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid #333333;
+  border-top: 1px solid #333333;
   margin-top: 20px;
   color: #7a7a7a;
 }
 @media (min-width: 768px) {
   .l-nonav #q {
-    border-top: 1px solid black;
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
-    border-bottom: 1px solid black;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-top: 1px solid #333333;
+    border-top: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-bottom: 1px solid #333333;
   }
 }
 
