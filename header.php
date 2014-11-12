@@ -25,7 +25,7 @@
 </head>
 <body <?php body_class(); ?> id="top">
 
-	<header role="banner">
+	<header class="masthead" role="banner">
 		<?php get_template_part( 'template-parts/header', responsive_layout() ); ?>
 	</header>
 
