@@ -62,7 +62,7 @@ function bu_flexi_title_date_callback( $post, $args ) {
 	global $post;
 
 	$output = '';
-	$output .= '<section class="post">';
+	$output .= '<article class="post">';
 	if ( $args['show_thumbnail'] && function_exists( 'bu_get_thumbnail_src' ) ) {
 		$output .= bu_get_thumbnail_src( $post->ID, array(
 				'maxwidth'  => 88,
@@ -83,7 +83,7 @@ function bu_flexi_posts_widget_default_callback( $post, $args ) {
 
 	$output = '';
 	$meta = '';
-	$output .= '<section class="post">';
+	$output .= '<article class="post">';
 
 	if ( $args['show_thumbnail'] && function_exists( 'bu_get_thumbnail_src' ) ) {
 		$output .= bu_get_thumbnail_src( $post->ID, array(
@@ -116,6 +116,6 @@ function bu_flexi_posts_widget_default_callback( $post, $args ) {
 		$output .= sprintf( '<p class="excerpt">%s</p>', BU_PostList::get_post_excerpt( 12 ) );
 	}
 
-	$output .= '</section>';
+	$output .= '</article>';
 	return $output;
 }
