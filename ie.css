@@ -431,7 +431,7 @@
 }
 
 .container, .footbar .footbar-container {
-  padding: 28px 20px;
+  padding: 35px 20px;
   width: 100%;
   margin: 0 auto;
 }
@@ -492,6 +492,7 @@
 .col-md-2,
 .col-md-3,
 .col-md-4,
+.footbar-container .widget,
 .col-md-5,
 .col-md-6,
 .col-md-7,
@@ -656,6 +657,7 @@
 .col-md-2,
 .col-md-3,
 .col-md-4,
+.footbar-container .widget,
 .col-md-5,
 .col-md-6,
 .col-md-7,
@@ -678,7 +680,7 @@
   width: 25%;
 }
 
-.col-md-4 {
+.col-md-4, .footbar-container .widget {
   width: 33.33333333333333%;
 }
 
@@ -921,7 +923,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: black;
+  color: #000000;
 }
 
 h1 small,
@@ -1087,7 +1089,7 @@ ol ol {
 ----------------------------------------------------------------- */
 code {
   color: #7a7a7a;
-  background: whitesmoke;
+  background: #f5f5f5;
 }
 
 code {
@@ -1102,7 +1104,7 @@ code {
 .code {
   margin: 30px 0;
   padding: 20px;
-  background: whitesmoke;
+  background: #f5f5f5;
   border: 1px solid #eeeeee;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -1168,7 +1170,7 @@ table th:first-child {
 
 table thead {
   background: #eeeeee;
-  color: black;
+  color: #000000;
   text-align: left;
   vertical-align: bottom;
 }
@@ -1225,7 +1227,7 @@ form {
 
 /* Define consistent border, margin, and padding. */
 fieldset {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   margin: 0;
   padding: 20px;
 }
@@ -1371,17 +1373,17 @@ textarea {
 }
 
 body {
-  background: black;
+  background: #000000;
 }
 
 .contentWrapper {
-  background: white;
+  background: #ffffff;
 }
 
 /* masthead
 ----------------------------------------------------------------- */
 .masthead {
-  background: white;
+  background: #ffffff;
 }
 .masthead:after {
   content: "";
@@ -1399,10 +1401,10 @@ body {
   font-family: "Whitney SSm A", "Whitney SSm B";
   font-weight: 600;
   text-decoration: none;
-  color: black;
+  color: #000000;
 }
 .siteName:visited {
-  color: black;
+  color: #000000;
 }
 
 .siteName span {
@@ -1437,7 +1439,7 @@ body {
 .bannerContainer-contentWidth {
   background: none;
   padding: 0;
-  margin-bottom: 35px;
+  margin: 25px 0 35px;
 }
 
 /* sidebar
@@ -1449,10 +1451,9 @@ body {
 /* .footbar
 ----------------------------------------------------------------- */
 .footbar {
-  background: whitesmoke;
-  clear: left;
+  background: #f5f5f5;
   width: 100%;
-  padding: 40px 0;
+  padding: 35px 0;
 }
 .footbar:after {
   content: "";
@@ -1461,43 +1462,13 @@ body {
 }
 
 .footbar .footbar-container {
-  padding: 0 20px;
-  overflow: hidden;
-}
-
-.footbar .widget {
-  float: left;
-  width: 33.333%;
-  padding: 0 20px 1000px 20px;
-  margin-bottom: -1000px;
-}
-
-.footbar .post {
-  border-bottom: 1px solid white;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.footbar .post h1 {
-  color: white;
-}
-
-.footbar .post h1 a {
-  color: white;
-}
-
-.footbar .date {
-  border-right: 1px solid white;
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.footbar .day {
-  color: white;
+  padding: 0;
 }
 
 /* footer
 ----------------------------------------------------------------- */
 .siteFooter {
-  background: black;
+  background: #000000;
   border-top: 1px solid white;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding: 20px;
@@ -1508,7 +1479,7 @@ body {
 
 .siteFooter p {
   margin: 0;
-  color: white;
+  color: #ffffff;
 }
 
 /* Benton */
@@ -1966,7 +1937,7 @@ body {
   width: 100%;
   padding: 10px 0;
   border: none;
-  color: white;
+  color: #ffffff;
   background: none;
 }
 
@@ -2109,13 +2080,13 @@ body {
 }
 
 .primaryNav a:hover {
-  color: white;
+  color: #ffffff;
 }
 
 li.current_page_item a,
 li.current_page_parent a,
 li.current_page_ancestor a {
-  color: white;
+  color: #ffffff;
 }
 
 /* .utilityNav */
@@ -2142,8 +2113,8 @@ li.current_page_ancestor a {
 }
 
 .utilityNav a:hover {
-  color: white;
-  color: black;
+  color: #ffffff;
+  color: #000000;
 }
 
 /* nav on left
@@ -2180,11 +2151,11 @@ li.current_page_ancestor a {
 }
 
 .l-sidenav #quicksearch {
-  background: white;
+  background: #ffffff;
   padding: 0;
   margin-top: 20px;
   margin-top: 60px;
-  background: white;
+  background: #ffffff;
 }
 
 .l-sidenav #q {
@@ -2209,7 +2180,7 @@ li.current_page_ancestor a {
 }
 
 .l-sidenav .utilityNav a:hover {
-  color: white;
+  color: #ffffff;
 }
 
 .l-sidenav .utilityNav li {
@@ -2236,7 +2207,7 @@ li.current_page_ancestor a {
 }
 
 .l-nonav #brand #quicksearch {
-  background: white;
+  background: #ffffff;
   padding: 0;
   margin-top: 20px;
   margin-top: 40px;
@@ -2293,7 +2264,7 @@ img.alignright {
 div.alignright {
   float: right;
   margin: 0 0 10px 10px;
-  background: white;
+  background: #ffffff;
   width: auto !important;
   padding: 10px;
   max-width: 100%;
@@ -2315,7 +2286,7 @@ img.alignleft {
 div.alignleft {
   float: left;
   margin: 0 10px 10px 0;
-  background: white;
+  background: #ffffff;
   width: auto !important;
   padding: 10px;
   max-width: 100%;
@@ -2336,7 +2307,7 @@ img.aligncenter {
 
 div.aligncenter {
   margin: 0 auto;
-  background: white;
+  background: #ffffff;
   padding: 10px;
   max-width: 100%;
 }
@@ -2371,14 +2342,19 @@ div.aligncenter img {
 ----------------------------------------------------------------- */
 /* widget */
 .widget {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
+}
+
+.footbar-container .widget {
+  padding: 0 20px;
 }
 
 .widgetTitle {
   font-size: 16px;
   line-height: 1.3;
   font-family: "Benton", Helvetica, san-serif;
-  border-bottom: 4px solid #000;
+  border: 4px solid #000000;
+  border-width: 0 0 4px 0;
   padding: 0 0 4px 0;
 }
 
@@ -2409,13 +2385,16 @@ div.aligncenter img {
 }
 
 .widget-bu-posts .excerpt {
-  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 5px 0 0;
 }
 
 .widget-bu-posts .thumb {
   display: block;
   float: left;
   margin: 5px 15px 15px 0;
+  max-width: 45%;
 }
 
 .widget-bu-posts .published {
@@ -2424,117 +2403,150 @@ div.aligncenter img {
 
 .widget-bu-posts .meta {
   font-size: 11px;
-  margin: 0;
+  margin: 5px 0 0;
 }
 
 /* content nav */
 #contentnav h3 {
+  margin-bottom: 0;
+}
+
+#contentnav ul {
+  margin: 25px 0 0;
+  border: 1px solid #cccccc;
+  border-width: 1px 0;
+}
+
+#contentnav h3 + ul {
+  margin-top: 0;
+  border-width: 0 0 1px;
+}
+
+#contentnav li {
+  border: 1px solid #cccccc;
+  border-width: 1px 0 0 0;
+}
+#contentnav li:first-child {
   border: none;
-  margin: 0;
 }
 
 #contentnav li a {
   display: block;
-  border-bottom: 1px solid black;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  margin: 0;
-  padding: 14px 0;
-}
-
-#contentnav li:last-child a {
-  border: none;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #0000ee;
 }
 
 #contentnav li a:hover,
 #contentnav li a:focus {
-  color: black;
+  color: #0000ee;
   text-decoration: none;
 }
 
+#contentnav .current_page_item a {
+  color: #cc0000;
+}
+
+#contentnav .current_page_item li a {
+  color: #0000ee;
+}
+
 #contentnav li ul {
-  margin-top: 5px;
+  margin: 0;
+  border: none;
 }
 
 #contentnav li ul li {
   border: none;
-  padding: 5px 0 5px 20px;
+  padding: 0 0 0 20px;
+}
+
+#contentnav li li a {
+  font-size: 16px;
 }
 
 /* calendar */
 .widget-bu-calendar .default .date {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  border-radius: 3px;
-  margin-right: 10px;
-  display: block;
-  width: 3em;
-  float: left;
-  text-align: center;
-  border: none;
   font-weight: 700;
-  color: white !important;
+  color: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .widget-bu-calendar .default a .date {
-  color: black;
+  color: #000000;
 }
 
 .widget-bu-calendar .default li {
-  border-top: 1px solid black;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
-  margin-top: 20px;
-  padding-top: 20px;
+  border: 1px solid #cccccc;
+  border-width: 1px 0 0 0;
+  margin-top: 10px;
+  padding-top: 10px;
 }
-
 .widget-bu-calendar .default li:first-child {
   border: none;
   padding: 0;
 }
 
+.widget-bu-calendar .default a {
+  position: relative;
+  padding-left: 60px;
+  display: block;
+}
+
 /* calendar: full-date */
 .widget-bu-calendar .full-date .date {
   display: block;
-  font-size: 12px;
-  font-style: italic;
+  font-size: 11px;
 }
 
 .widget-bu-calendar .full-date li {
-  border-top: 1px solid black;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid #cccccc;
+  border-width: 1px 0 0 0;
   padding: 10px 0;
 }
 .widget-bu-calendar .full-date li:first-child {
   border: none;
-  margin-top: -20px;
+  padding: 0 0 10px;
 }
 
 /* calendar: graphic */
+.widget-bu-calendar .graphic li {
+  padding-top: 10px;
+}
+.widget-bu-calendar .graphic li:first-child {
+  padding-top: 0;
+}
+
+.widget-bu-calendar .graphic a {
+  position: relative;
+  padding-left: 60px;
+  display: block;
+  min-height: 48px;
+}
+
 .widget-bu-calendar .graphic .date {
-  float: left;
-  width: 3em;
-  margin: 0 10px 20px 0;
-  padding-right: 10px;
   text-align: center;
+  width: 48px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .widget-bu-calendar .graphic .day {
   display: block;
+  font-size: 21px;
+  line-height: 1.15;
   font-weight: 700;
-  padding-top: 5px;
-  font-size: 24px;
-  margin-bottom: -5px;
+  color: #000000;
 }
 
 .widget-bu-calendar .graphic .month {
   text-transform: uppercase;
   font-size: 12px;
-}
-
-.widget-bu-calendar .graphic li:after {
-  content: "";
-  display: table;
-  clear: both;
+  line-height: 1.15;
+  color: #000000;
 }
 
 /* group 1: capita / benton (default)
