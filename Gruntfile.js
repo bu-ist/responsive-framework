@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 			dev: {
 				options: {
 					style: 'expanded',
-					sourcemap: true,
+					//sourcemap: true,
 					loadPath: 'bower_components/responsive-foundation/css-dev'
 				},
 				files: {
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 			prod: {
 				options: {
 					style: 'compressed',
-					sourcemap: true,
+					//sourcemap: true,
 					loadPath: 'bower_components/responsive-foundation/css-dev'
 				},
 				files: {
