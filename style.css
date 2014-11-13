@@ -869,6 +869,10 @@ body {
   color: #444444;
 }
 
+section {
+  margin: 60px 0 0 0;
+}
+
 /* Embedded content
 ----------------------------------------------------------------- */
 /* 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3. 
@@ -913,6 +917,7 @@ a:focus {
 a:active,
 a:hover {
   outline: 0;
+  text-decoration: none;
 }
 
 /* Typography
@@ -1136,6 +1141,7 @@ nav ol {
   list-style: none;
   list-style-image: none;
   margin: 0;
+  padding: 0;
 }
 
 /* remove margin from nested lists */
@@ -1509,7 +1515,7 @@ body {
 .bannerContainer-contentWidth {
   background: none;
   padding: 0;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 
 /* sidebar
