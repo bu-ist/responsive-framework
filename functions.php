@@ -116,7 +116,7 @@ function responsive_sidebars() {
 			'description'   => 'Description',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h3>',
+			'before_title'  => '<h3 class="widgetTitle">',
 			'after_title'   => '</h3>',
 		) );
 
@@ -126,7 +126,7 @@ function responsive_sidebars() {
 			'description'   => 'Description',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h3>',
+			'before_title'  => '<h3 class="widgetTitle">',
 			'after_title'   => '</h3>',
 		) );
 }
