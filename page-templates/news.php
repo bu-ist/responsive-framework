@@ -9,7 +9,7 @@ get_header(); ?>
 
 		<?php responsive_content_banner( 'pageWidth' ); ?>
 
-		<?php get_template_part( 'template-parts/content', 'single' ); ?>
+		<?php get_template_part( 'template-parts/content', 'news' ); ?>
 
 	<?php endwhile; ?>
 

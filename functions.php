@@ -87,7 +87,7 @@ function responsive_setup() {
 	// Register supported templates for Content Banner and BU Profile plugins.
 	// TODO: Need to require from BU_INCLUDES
 	if ( class_exists( 'AllowedTemplates' ) ) {
-		global $banner_templates, $profile_templates;
+		global $banner_templates, $profile_templates, $news_templates;
 
 		if ( ! isset( $banner_templates ) ) {
 			$banner_templates = new AllowedTemplates();
@@ -109,6 +109,14 @@ function responsive_setup() {
 
 		$profile_templates->register( array(
 			'page-templates/profiles.php'
+			) );
+
+		if ( ! isset( $news_templates ) ) {
+			$news_templates = new AllowedTemplates();
+		}
+
+		$news_templates->register( array(
+			'page-templates/news.php'
 			) );
 	}
 
