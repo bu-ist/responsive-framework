@@ -42,6 +42,18 @@ function responsive_is_bu_domain() {
 }
 
 /**
+ * Whether or not comments are open for this site.
+ *
+ * If the BU Comments plugin is not active, this will always return true.
+ */
+function responsive_has_comment_support() {
+	if ( function_exists( 'bu_supports_comments' ) ) {
+		return bu_supports_comments();
+	}
+	return true;
+}
+
+/**
  * Displays the comments template if the current site supports comments.
  *
  * If the current site has the '_bu_supports_comments' option set to '1',
@@ -50,7 +62,7 @@ function responsive_is_bu_domain() {
  * @see  mu-plugins/bu-comments
  */
 function responsive_comments() {
-	if ( function_exists( 'bu_supports_comments' ) && ! bu_supports_comments() ) {
+	if ( ! responsive_has_comment_support() ) {
 		return;
 	}
 

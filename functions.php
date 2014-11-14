@@ -34,15 +34,27 @@ function responsive_setup() {
 	// TODO: Investigate removing in favor of BU Thumbnail
 	add_theme_support( 'post-thumbnails' );
 
+	// Use HTML5 markup for WP provided components where supported.
+	add_theme_support( 'html5', array(
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption'
+		) );
+
 	// Enable excerpts for pages.
 	// TODO: Investigate removing in favor of BU Page Summary
 	add_post_type_support( 'page', 'excerpt' );
 
-	// Specific sites must enable comments by setting the _bu_supports_comments option to 1
-	add_theme_support( 'bu_comments' );
-
-	// Add support for the custom post type version of profile plugin
+	// Add support for the custom post type version of profile plugin.
 	add_theme_support( 'bu-profiles-post_type' );
+
+	// By default, comments are disabled for BU sites.
+	// Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
+	// @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
+	if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
+		define( 'BU_SUPPORTS_COMMENTS', true );
+	}
 
 	// BU Post Details SEO support.
 	if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
@@ -157,6 +169,10 @@ function responsive_scripts() {
 	// Wraps IE stylesheet in conditional comments.
 	$wp_styles->add_data( 'responsi-ie', 'conditional', '(lt IE 9) & (!IEMobile 7)' );
 
+	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
+	if ( is_singular() && responsive_has_comment_support() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'responsive_scripts' );
