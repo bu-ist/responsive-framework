@@ -2254,7 +2254,7 @@ li.current_page_ancestor a {
 
 /* nav on left
 ----------------------------------------------------------------- */
-.l-sidenav .contentWrapper {
+.l-sideNav .contentWrapper {
   -webkit-transition: all 0.1s ease-in-out 0s;
   -moz-transition: all 0.1s ease-in-out 0s;
   -ms-transition: all 0.1s ease-in-out 0s;
@@ -2262,70 +2262,70 @@ li.current_page_ancestor a {
   transition: all 0.1s ease-in-out 0s;
 }
 @media (min-width: 768px) {
-  .l-sidenav .contentWrapper {
+  .l-sideNav .contentWrapper {
     margin-left: 60px;
   }
 }
 @media (min-width: 1200px) {
-  .l-sidenav .contentWrapper {
+  .l-sideNav .contentWrapper {
     margin-left: 300px;
   }
 }
 
 @media (min-width: 768px) {
-  .l-sidenav .navContainer {
+  .l-sideNav .navContainer {
     background: none;
     position: absolute;
     width: 300px;
   }
 }
 @media (min-width: 1200px) {
-  .l-sidenav .navContainer {
+  .l-sideNav .navContainer {
     display: block;
     padding: 20px;
   }
 }
 
-.l-sidenav .primaryNav {
+.l-sideNav .primaryNav {
   border-bottom: 1px solid #333333;
   border-bottom: 1px solid #333333;
 }
 @media (min-width: 768px) {
-  .l-sidenav .primaryNav {
+  .l-sideNav .primaryNav {
     display: none;
   }
 }
 @media (min-width: 1200px) {
-  .l-sidenav .primaryNav {
+  .l-sideNav .primaryNav {
     display: block;
     margin-top: 0;
   }
 }
 
-.l-sidenav .primaryNav li {
+.l-sideNav .primaryNav li {
   display: block;
   padding: 0;
 }
 
-.l-sidenav .primaryNav a {
+.l-sideNav .primaryNav a {
   border-top: 1px solid #333333;
   border-top: 1px solid #333333;
 }
 
-.l-sidenav #quicksearch {
+.l-sideNav #quicksearch {
   background: #ffffff;
   padding: 0;
   margin-top: 20px;
 }
 @media (min-width: 768px) {
-  .l-sidenav #quicksearch {
+  .l-sideNav #quicksearch {
     margin-top: 60px;
     background: #ffffff;
   }
 }
 
 @media (min-width: 768px) {
-  .l-sidenav #q {
+  .l-sideNav #q {
     border-top: 1px solid #333333;
     border-top: 1px solid #333333;
     border-bottom: 1px solid #333333;
@@ -2334,88 +2334,88 @@ li.current_page_ancestor a {
 }
 
 @media (min-width: 768px) {
-  .l-sidenav .navContainer .searchToggle {
+  .l-sideNav .navContainer .searchToggle {
     display: none;
   }
 }
 
 @media (min-width: 768px) {
-  .l-sidenav .brand .searchToggle {
+  .l-sideNav .brand .searchToggle {
     display: block;
     margin-top: -5px;
     background-position: 100% 0;
   }
 }
 
-.l-sidenav .navToggle {
+.l-sideNav .navToggle {
   display: block;
 }
 @media (min-width: 1200px) {
-  .l-sidenav .navToggle {
+  .l-sideNav .navToggle {
     display: none;
   }
 }
 
 @media (min-width: 1200px) {
-  .l-sidenav .utilityNav {
+  .l-sideNav .utilityNav {
     display: block;
     float: none;
   }
 }
 
-.l-sidenav .utilityNav a:hover {
+.l-sideNav .utilityNav a:hover {
   color: #ffffff;
 }
 
-.l-sidenav .utilityNav li {
+.l-sideNav .utilityNav li {
   display: block;
   padding-left: 0;
 }
 
 @media (min-width: 768px) {
-  .l-sidenav.nav-open .contentWrapper {
+  .l-sideNav.nav-open .contentWrapper {
     left: 240px;
   }
 }
 @media (min-width: 1200px) {
-  .l-sidenav.nav-open .contentWrapper {
+  .l-sideNav.nav-open .contentWrapper {
     left: 0;
   }
 }
 
-.l-sidenav.nav-open .primaryNav,
-.l-sidenav.nav-open .utilityNav {
+.l-sideNav.nav-open .primaryNav,
+.l-sideNav.nav-open .utilityNav {
   display: block;
   float: none;
 }
 
 /* no nav
 ----------------------------------------------------------------- */
-.l-nonav .brand .searchToggle {
+.l-noNav .brand .searchToggle {
   display: block;
   margin-top: -5px;
   background-position: 100% 0;
 }
 
-.l-nonav .brand #quicksearch {
+.l-noNav .brand #quicksearch {
   background: #ffffff;
   padding: 0;
   margin-top: 20px;
 }
 @media (min-width: 768px) {
-  .l-nonav .brand #quicksearch {
+  .l-noNav .brand #quicksearch {
     margin-top: 40px;
   }
 }
 
-.l-nonav #q {
+.l-noNav #q {
   border-top: 1px solid #333333;
   border-top: 1px solid #333333;
   margin-top: 20px;
   color: #7a7a7a;
 }
 @media (min-width: 768px) {
-  .l-nonav #q {
+  .l-noNav #q {
     border-top: 1px solid #333333;
     border-top: 1px solid #333333;
     border-bottom: 1px solid #333333;

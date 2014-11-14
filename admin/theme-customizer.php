@@ -30,7 +30,7 @@ function browser_body_class( $classes = '' ) {
 		$classes[] = $font_palette;
 	}
 	if ( $layout_setting ) {
-		$classes[] = $layout_setting;
+		$classes[] = "l-$layout_setting";
 	}
 
 	return $classes;
@@ -169,12 +169,7 @@ function burf_customize_register( $wp_customize ) {
 				'section'        => 'burf_section_layout',
 				'settings'       => 'burf_setting_layout',
 				'type'           => 'radio',
-				'choices' => array(
-					'l-branding' => 'Site Branding Top',
-					'l-navbar'   => 'Navigation Bar Top',
-					'l-sidenav'  => 'Side Navigation',
-					'l-nonav'    => 'No Navigation',
-				)
+				'choices'        => responsive_layout_options(),
 			) ) );
 
 	/* Section: Font Options  */
