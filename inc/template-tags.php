@@ -208,10 +208,24 @@ if ( ! function_exists( 'responsive_paging_nav' ) ) :
 
 /**
  * Display navigation to next/previous set of posts when applicable.
+ *
+ * @param  WP_Query $query [description]
  */
-function responsive_paging_nav() {
+function responsive_paging_nav( WP_Query $query = null ) {
+	global $wp_query;
+
+	// By default the `*_posts_link` functions rely on the global
+	// WP_Query instance. We temporarily overwrite it here so that
+	// pagination can work for custom queries (e.g. for the News
+	// template).
+	$tmp_query = null;
+	if ( ! is_null( $query ) ) {
+		$tmp_query = $wp_query;
+		$wp_query = $query;
+	}
+
 	// Don't print empty markup if there's only one page.
-	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+	if ( $wp_query->max_num_pages < 2 ) {
 		return;
 	}
 	?>
@@ -230,6 +244,11 @@ function responsive_paging_nav() {
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
+
+	// Restore the global WP_Query instance if we replaced it.
+	if ( ! is_null( $query ) && $tmp_query ) {
+		$wp_query = $tmp_query;
+	}
 }
 
 endif;

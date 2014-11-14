@@ -119,3 +119,16 @@ function bu_flexi_posts_widget_default_callback( $post, $args ) {
 	$output .= '</article>';
 	return $output;
 }
+
+/**
+ * Checks all of the News template display options to determine
+ * whether or not we have meta to display.
+ */
+function responsive_post_lists_show_news_meta( $settings ) {
+	return ( $settings['disp_date'] === 'yes' ||
+		$settings['disp_comments'] === 'yes' ||
+		$settings['disp_author'] === 'yes' ||
+		$settings['disp_cat'] === 'yes' ||
+		$settings['disp_author'] === 'yes' ||
+		$settings['disp_tags'] === 'yes' );
+}
