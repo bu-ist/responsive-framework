@@ -6,13 +6,20 @@
 /**
  * Returns layout slug for currently active theme layout.
  *
- * Possible values:
- * 	- l-branding (default)
- * 	- l-navbar
- * 	- l-nonav
- * 	- l-sidebar
+ * @see  responsive_layout_options()
  */
 function responsive_layout() {
-	$layout = get_option( 'burf_setting_layout', 'l-branding' );
-	return $layout;
+	return get_option( 'burf_setting_layout', 'default' );
+}
+
+/**
+ * Returns layout options available via Customizer.
+ */
+function responsive_layout_options() {
+	return array(
+		'default' => 'Default',
+		'topNav'  => 'Top Navigation Bar',
+		'sideNav' => 'Side Navigation Bar',
+		'noNav'   => 'No Navigation Bar',
+		);
 }
