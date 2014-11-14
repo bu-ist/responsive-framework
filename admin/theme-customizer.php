@@ -24,7 +24,7 @@ add_action( 'customize_controls_enqueue_scripts', 'custom_admin_styles' );
   - - - - - - - - - - - - - - - - - */
 function browser_body_class( $classes = '' ) {
 	$font_palette = get_option( 'burf_setting_fonts' );
-	$layout_setting = get_option( 'burf_setting_layout' );
+	$layout_setting = responsive_layout();
 
 	if ( $font_palette ) {
 		$classes[] = $font_palette;
@@ -165,12 +165,16 @@ function burf_customize_register( $wp_customize ) {
 		) );
 
 	/* Control: Layout Select*/
-	$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_section_layout', array(
-				'section'        => 'burf_section_layout',
-				'settings'       => 'burf_setting_layout',
-				'type'           => 'radio',
-				'choices'        => responsive_layout_options(),
-			) ) );
+
+	// Hide the layout options if the current theme is forcing a specific layout.
+	if ( ! defined( 'BU_RESPONSIVE_LAYOUT' ) ) {
+		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_section_layout', array(
+					'section'        => 'burf_section_layout',
+					'settings'       => 'burf_setting_layout',
+					'type'           => 'radio',
+					'choices'        => responsive_layout_options(),
+				) ) );
+	}
 
 	/* Section: Font Options  */
 	$wp_customize->add_section( 'burf_section_fonts', array(
