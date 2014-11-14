@@ -1,6 +1,6 @@
 <?php
 /**
- * Default header layout. (l-branding).
+ * Default header layout.
  */
 ?>
 <div class="brand">
