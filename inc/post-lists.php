@@ -3,52 +3,57 @@
  * BU Post List plugin support functions & templates.
  */
 
-/* - - - - - - - - - - - - - - - - -
-  BU Post Widget Formats
-  - - - - - - - - - - - - - - - - - */
+if ( ! function_exists( 'responsive_posts_widget_formats' ) ) :
 
-function bu_flexi_posts_widget_formats( $formats ) {
+function responsive_posts_widget_formats( $formats ) {
 
 	unset( $formats['date_title_excerpt'] );
 
+	$formats['title_only'] = array(
+		'label'               => 'title only (no thumbnail)',
+		'callback'            => 'responsive_posts_widget_format_display',
+		'requires_commenting' => false,
+		'supports_thumbnail'  => false,
+	);
+
 	$formats['title_date'] = array(
 		'label'               => 'title, date',
-		'callback'            => 'bu_flexi_title_date_callback',
+		'callback'            => 'responsive_posts_widget_format_display',
 		'supports_thumbnail'  => true,
 		'requires_commenting' => false,
 	);
 
 	$formats['title_excerpt'] = array(
 		'label'               => 'title, excerpt',
-		'callback'            => 'bu_flexi_posts_widget_default_callback',
+		'callback'            => 'responsive_posts_widget_format_display',
 		'supports_thumbnail'  => true,
 		'requires_commenting' => false,
 	);
 
 	$formats['title_date_excerpt'] = array(
 		'label'               => 'title, date, excerpt',
-		'callback'            => 'bu_flexi_posts_widget_default_callback',
+		'callback'            => 'responsive_posts_widget_format_display',
 		'supports_thumbnail'  => true,
 		'requires_commenting' => false,
 	);
 
 	$formats['title_author_excerpt'] = array(
 		'label'               => 'title, author, excerpt',
-		'callback'            => 'bu_flexi_posts_widget_default_callback',
+		'callback'            => 'responsive_posts_widget_format_display',
 		'supports_thumbnail'  => true,
 		'requires_commenting' => false,
 	);
 
 	$formats['title_date_comments_excerpt'] = array(
 		'label'               => 'title, date, comments, excerpt',
-		'callback'            => 'bu_flexi_posts_widget_default_callback',
+		'callback'            => 'responsive_posts_widget_format_display',
 		'supports_thumbnail'  => true,
 		'requires_commenting' => true,
 	);
 
 	$formats['title_author_comments_excerpt'] = array(
 		'label'               => 'title, author, comments, excerpt',
-		'callback'            => 'bu_flexi_posts_widget_default_callback',
+		'callback'            => 'responsive_posts_widget_format_display',
 		'supports_thumbnail'  => true,
 		'requires_commenting' => true,
 	);
@@ -56,47 +61,45 @@ function bu_flexi_posts_widget_formats( $formats ) {
 	return $formats;
 }
 
-add_filter( 'bu_posts_widget_formats', 'bu_flexi_posts_widget_formats', 1, 1 );
+endif;
 
-function bu_flexi_title_date_callback( $post, $args ) {
+add_filter( 'bu_posts_widget_formats', 'responsive_posts_widget_formats', 1, 1 );
+
+/**
+ * One BU Post Lists widget format callback to rule them all.
+ */
+function responsive_posts_widget_format_display( $post, $args ) {
 	global $post;
 
-	$output = '';
-	$output .= '<article class="post">';
+	$output = '<article class="post">';
+
+	// Thumbnail
 	if ( $args['show_thumbnail'] && function_exists( 'bu_get_thumbnail_src' ) ) {
+
+		// Thumbnail dimensions change for formats with less content.
+		if ( 'title_date' === $args['current_format'] ) {
+			$max_width = $max_height = 88;
+			$use_thumb = true;
+		} else {
+			$max_width = $max_height = 260;
+			$use_thumb = false;
+		}
+
 		$output .= bu_get_thumbnail_src( $post->ID, array(
-				'maxwidth'  => 88,
-				'maxheight' => 88,
+				'maxwidth'  => $max_width,
+				'maxheight' => $max_height,
 				'classes'   => 'thumb',
-				'use_thumb' => true,
+				'use_thumb' => $use_thumb,
 				)
 		);
 	}
-	$output .= sprintf( '<h1><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title() );
-	$output .= sprintf( '<p class="meta"><span class="published">%s</span></p>', BU_PostList::post_date( 'F j, Y' ) );
-	$output .= '</section>';
-	return $output;
-}
 
-function bu_flexi_posts_widget_default_callback( $post, $args ) {
-	global $post;
-
-	$output = '';
-	$meta = '';
-	$output .= '<article class="post">';
-
-	if ( $args['show_thumbnail'] && function_exists( 'bu_get_thumbnail_src' ) ) {
-		$output .= bu_get_thumbnail_src( $post->ID, array(
-				'maxwidth'  => 260,
-				'maxheight' => 260,
-				'classes'   => 'thumb',
-				'use_thumb' => false,
-				)
-		);
-	}
+	// Title
 	$output .= sprintf( '<h1 class="headline"><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title() );
 
+	// Meta
 	switch ( $args['current_format'] ) {
+		case 'title_date':
 		case 'title_date_excerpt':
 			$output .= sprintf( '<p class="meta"><span class="published">%s</span></p>', BU_PostList::post_date( 'F j, Y' ) );
 			break;
@@ -112,11 +115,14 @@ function bu_flexi_posts_widget_default_callback( $post, $args ) {
 			break;
 	}
 
-	if ( BU_PostList::get_post_excerpt( 12 ) ) {
+	// Excerpt
+	$show_excerpt = ( false !== strpos( $args['current_format'], 'excerpt' ) );
+	if ( $show_excerpt && BU_PostList::get_post_excerpt( 12 ) ) {
 		$output .= sprintf( '<p class="excerpt">%s</p>', BU_PostList::get_post_excerpt( 12 ) );
 	}
 
 	$output .= '</article>';
+
 	return $output;
 }
 
