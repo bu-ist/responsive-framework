@@ -891,7 +891,6 @@ a img,
 object,
 embed {
   max-width: 100%;
-  width: auto;
   height: auto;
 }
 
@@ -1453,6 +1452,9 @@ body {
 ----------------------------------------------------------------- */
 .masthead {
   background: #ffffff;
+  position: relative;
+  border: 1px solid #cccccc;
+  border-width: 0 0 1px 0;
 }
 .masthead:after {
   content: "";
@@ -1498,7 +1500,7 @@ body {
 
 @media (min-width: 1200px) {
   .bannerContainer-windowWidth {
-    background: #222222;
+    background: #f0f0f0;
     padding: 20px;
   }
 }
@@ -1509,7 +1511,7 @@ body {
 
 @media (min-width: 992px) {
   .bannerContainer-pageWidth img {
-    background: #222222;
+    background: #f0f0f0;
     width: 100%;
   }
 }
@@ -1555,8 +1557,7 @@ body {
 ----------------------------------------------------------------- */
 .siteFooter {
   background: #000000;
-  border-top: 1px solid white;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid #cccccc;
   padding: 20px;
   display: block;
   clear: both;
@@ -1992,7 +1993,7 @@ body {
   display: none;
 }
 
-.brand .desc {
+.brand .siteDescription {
   float: left;
   width: auto;
 }
@@ -2015,10 +2016,7 @@ body {
   margin: 0;
 }
 
-#quicksearch label {
-  display: none;
-}
-
+#quicksearch label,
 #quicksearch select {
   display: none;
 }
@@ -2043,9 +2041,8 @@ body {
 /* nav menu */
 .navToggle {
   float: left;
-  height: 30px;
-  width: 30px;
-  text-indent: -1000px;
+  height: 60px;
+  width: 60px;
   position: relative;
   cursor: pointer;
 }
@@ -2059,7 +2056,8 @@ body {
 .navToggle span:before,
 .navToggle span:after {
   position: absolute;
-  top: 10px;
+  top: 28px;
+  left: 15px;
   display: block;
   height: 4px;
   width: 30px;
@@ -2070,10 +2068,12 @@ body {
 
 .navToggle span:before {
   top: -10px;
+  left: 0;
 }
 
 .navToggle span:after {
-  bottom: -10px;
+  top: 10px;
+  left: 0;
 }
 
 .navToggle span,
@@ -2114,12 +2114,10 @@ body {
 /* search icon */
 .searchToggle {
   float: right;
-  width: 30px;
-  height: 30px;
-  margin-top: -3px;
-  text-indent: -5000px;
+  width: 60px;
+  height: 60px;
   cursor: pointer;
-  background: transparent url(images/search.png) no-repeat 0 0;
+  background: transparent url(images/search.png) no-repeat 15px 13px;
 }
 @media (min-width: 768px) {
   .searchToggle {
@@ -2140,12 +2138,17 @@ body {
 .navContainer {
   background: #151515;
   display: block;
-  padding: 15px 20px 10px 15px;
+  padding: 0 10px;
 }
 .navContainer:after {
   content: "";
   display: table;
   clear: both;
+}
+@media (min-width: 768px) {
+  .navContainer {
+    padding: 0 10px 0 20px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -2161,12 +2164,14 @@ body {
 /* .primaryNav */
 .primaryNav {
   display: none;
-  margin: 40px 0 20px 0;
+  margin: 40px 10px 20px 10px;
+  border-bottom: 1px solid #333333;
 }
 @media (min-width: 768px) {
   .primaryNav {
     display: inline;
     border: none;
+    margin: 0;
   }
 }
 
@@ -2179,13 +2184,6 @@ body {
     display: inline-block;
     *display: inline;
     border: none;
-    padding: 0 10px;
-  }
-}
-
-@media (min-width: 768px) {
-  .primaryNav li:first-child {
-    padding-left: 5px;
   }
 }
 
@@ -2196,32 +2194,78 @@ body {
   color: #7a7a7a;
   border-top: 1px solid #333333;
 }
+.primaryNav a:hover, .primaryNav a:focus {
+  color: #ffffff;
+}
 @media (min-width: 768px) {
   .primaryNav a {
     border: none;
+    line-height: 70px;
+    padding: 0 10px;
   }
 }
 
-.primaryNav a:hover {
+@media (min-width: 768px) {
+  .l-default .primaryNav li:first-child a,
+  .l-topNav .primaryNav li:first-child a {
+    padding: 0 10px 0 0;
+  }
+}
+
+.primaryNav li.current_page_item a,
+.primaryNav li.current_page_parent a,
+.primaryNav li.current_page_ancestor a {
   color: #ffffff;
 }
 
-li.current_page_item a,
-li.current_page_parent a,
-li.current_page_ancestor a {
-  color: #ffffff;
+.primaryNav ul {
+  display: none;
+}
+@media (min-width: 768px) {
+  .primaryNav ul {
+    display: block;
+    position: absolute;
+    left: -9999px;
+    z-index: 2;
+    background: #000000;
+    width: 240px;
+  }
+}
+
+.primaryNav li:hover ul,
+.primaryNav li:focus ul {
+  left: auto;
+}
+
+.primaryNav li li {
+  display: block;
+  padding: 0 10px;
+}
+
+.primaryNav li li a {
+  line-height: 1.5;
+  padding: 10px 0;
+}
+
+.l-default .primaryNav li li:first-child a,
+.l-default .primaryNav li:first-child li a,
+.l-topNav .primaryNav li li:first-child a,
+.l-topNav .primaryNav li:first-child li a {
+  padding: 10px 0;
 }
 
 /* .utilityNav */
 .utilityNav {
   border: none;
   display: none;
+  margin: 0 10px 20px;
 }
 @media (min-width: 768px) {
   .utilityNav {
     display: inline;
     border: none;
     float: right;
+    margin: 0;
   }
 }
 
@@ -2242,25 +2286,17 @@ li.current_page_ancestor a {
   text-decoration: none;
   color: #7a7a7a;
 }
-
-.utilityNav a:hover {
+.utilityNav a:hover, .utilityNav a:focus {
   color: #ffffff;
 }
 @media (min-width: 768px) {
-  .utilityNav a:hover {
+  .utilityNav a:hover, .utilityNav a:focus {
     color: #000000;
   }
 }
 
 /* nav on left
 ----------------------------------------------------------------- */
-.l-sideNav .contentWrapper {
-  -webkit-transition: all 0.1s ease-in-out 0s;
-  -moz-transition: all 0.1s ease-in-out 0s;
-  -ms-transition: all 0.1s ease-in-out 0s;
-  -o-transition: all 0.1s ease-in-out 0s;
-  transition: all 0.1s ease-in-out 0s;
-}
 @media (min-width: 768px) {
   .l-sideNav .contentWrapper {
     margin-left: 60px;
@@ -2272,6 +2308,9 @@ li.current_page_ancestor a {
   }
 }
 
+.l-sideNav .navContainer {
+  padding: 0;
+}
 @media (min-width: 768px) {
   .l-sideNav .navContainer {
     background: none;
@@ -2288,7 +2327,6 @@ li.current_page_ancestor a {
 
 .l-sideNav .primaryNav {
   border-bottom: 1px solid #333333;
-  border-bottom: 1px solid #333333;
 }
 @media (min-width: 768px) {
   .l-sideNav .primaryNav {
@@ -2298,7 +2336,7 @@ li.current_page_ancestor a {
 @media (min-width: 1200px) {
   .l-sideNav .primaryNav {
     display: block;
-    margin-top: 0;
+    margin: 0 0 20px;
   }
 }
 
@@ -2309,7 +2347,17 @@ li.current_page_ancestor a {
 
 .l-sideNav .primaryNav a {
   border-top: 1px solid #333333;
-  border-top: 1px solid #333333;
+  padding: 10px 0;
+  line-height: 1.5;
+}
+
+.l-sideNav .primaryNav ul {
+  display: none;
+}
+
+.l-sideNav .is-open .primaryNav,
+.l-sideNav .is-open .utilityNav {
+  margin: 0 10px 20px;
 }
 
 .l-sideNav #quicksearch {
@@ -2324,13 +2372,8 @@ li.current_page_ancestor a {
   }
 }
 
-@media (min-width: 768px) {
-  .l-sideNav #q {
-    border-top: 1px solid #333333;
-    border-top: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-  }
+.l-sideNav #q {
+  color: #444444;
 }
 
 @media (min-width: 768px) {
@@ -2342,8 +2385,11 @@ li.current_page_ancestor a {
 @media (min-width: 768px) {
   .l-sideNav .brand .searchToggle {
     display: block;
-    margin-top: -5px;
-    background-position: 100% 0;
+    background-position: -45px 15px;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 22px;
   }
 }
 
@@ -2391,16 +2437,28 @@ li.current_page_ancestor a {
 
 /* no nav
 ----------------------------------------------------------------- */
+.l-noNav .brand {
+  padding: 40px 80px 40px 20px;
+}
+
+.l-noNav .siteName {
+  float: none;
+}
+
 .l-noNav .brand .searchToggle {
   display: block;
-  margin-top: -5px;
-  background-position: 100% 0;
+  background-position: -45px 15px;
+  margin: 0;
+  position: absolute;
+  right: 10px;
+  top: 22px;
 }
 
 .l-noNav .brand #quicksearch {
   background: #ffffff;
   padding: 0;
   margin-top: 20px;
+  margin-right: -60px;
 }
 @media (min-width: 768px) {
   .l-noNav .brand #quicksearch {
@@ -2409,22 +2467,19 @@ li.current_page_ancestor a {
 }
 
 .l-noNav #q {
-  border-top: 1px solid #333333;
-  border-top: 1px solid #333333;
   margin-top: 20px;
-  color: #7a7a7a;
-}
-@media (min-width: 768px) {
-  .l-noNav #q {
-    border-top: 1px solid #333333;
-    border-top: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-  }
+  color: #444444;
 }
 
 /* components
 ----------------------------------------------------------------- */
+/* hide text */
+.hide-text, .navToggle, .searchToggle {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 /* .responsiveVideo */
 .responsiveVideo {
   margin-bottom: 14px;
