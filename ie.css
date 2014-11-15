@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! ----------------------
 	Theme Name: Responsive Framework
 	Author: BU ID
@@ -892,7 +893,7 @@ h5,
 
 h6,
 .font-small {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   margin: 25px 0;
 }
@@ -1137,7 +1138,7 @@ table {
 table caption {
   padding: 0 0 10px;
   color: #9f9f9f;
-  font-size: 13px;
+  font-size: 14px;
   font-style: italic;
   text-align: center;
 }
@@ -2391,8 +2392,77 @@ div.aligncenter img {
   margin-bottom: 30px;
 }
 
-/* widgets
+/* comments
 ----------------------------------------------------------------- */
+.comments-area {
+  color: #666;
+}
+
+.comments-area ol {
+  padding: 0;
+  margin: 0;
+}
+
+.comments-area li {
+  list-style: none;
+}
+
+.comments-list {
+  font-size: 14px;
+}
+
+.comments-list li li article {
+  padding-left: 30px;
+}
+
+.comments-list li li li article {
+  padding-left: 60px;
+}
+
+.comments-list li li li li article {
+  padding-left: 90px;
+}
+
+.comments-list li li li li li article {
+  padding-left: 120px;
+}
+
+.comments-list article {
+  position: relative;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+  padding: 20px 0 0;
+}
+
+.reply a {
+  color: #aaa;
+}
+
+.comment-author {
+  color: #aaa;
+}
+
+.comment-author img {
+  display: none;
+}
+
+.comment-author .fn {
+  font-size: 16px;
+  color: #000;
+}
+
+.comment-metadata time {
+  display: none;
+}
+
+.comment-content p {
+  margin: 15px 0;
+}
+
+.comment-content p:first-child {
+  margin-top: 1px;
+}
+
 /* widget */
 .widget {
   margin-bottom: 35px;
@@ -2406,9 +2476,23 @@ div.aligncenter img {
   font-size: 16px;
   line-height: 1.3;
   font-family: "Benton", Helvetica, san-serif;
+  color: #000000;
   border: 4px solid #000000;
   border-width: 0 0 4px 0;
   padding: 0 0 4px 0;
+}
+
+.widgetTitle a {
+  color: #000000;
+  text-decoration: none;
+}
+.widgetTitle a:after {
+  content: " →";
+  color: #aaa;
+}
+
+.widgetTitle a:hover:after {
+  color: #000;
 }
 
 .widget ul {
@@ -2440,7 +2524,7 @@ div.aligncenter img {
 .widget-bu-posts .excerpt {
   font-size: 16px;
   line-height: 1.5;
-  margin: 5px 0 0;
+  margin: 8px 0 0;
 }
 
 .widget-bu-posts .thumb {
@@ -2451,12 +2535,13 @@ div.aligncenter img {
 }
 
 .widget-bu-posts .published {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .widget-bu-posts .meta {
-  font-size: 11px;
-  margin: 5px 0 0;
+  font-size: 12px;
+  margin: 0;
+  color: #aaaaaa;
 }
 
 /* content nav */
@@ -2551,7 +2636,7 @@ div.aligncenter img {
 /* calendar: full-date */
 .widget-bu-calendar .full-date .date {
   display: block;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .widget-bu-calendar .full-date li {
