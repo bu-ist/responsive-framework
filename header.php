@@ -9,7 +9,7 @@
 	<title><?php responsive_get_title(); ?></title>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="viewport" content="initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
 	<meta http-equiv="ClearType" content="true" />
 
 	<?php if ( responsive_is_bu_domain() ): ?><meta name="copyright" content="&copy; <?php echo date( 'Y' ); ?> Boston University" /><?php endif; ?>
