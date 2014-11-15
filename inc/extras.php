@@ -4,6 +4,26 @@
  */
 
 /**
+ * Adds custom classes to body class.
+ */
+function responsive_body_class( $classes = '' ) {
+	$font_palette = get_option( 'burf_setting_fonts' );
+	$layout_setting = responsive_layout();
+
+	if ( $font_palette ) {
+		$classes[] = $font_palette;
+	}
+
+	if ( $layout_setting ) {
+		$classes[] = "l-$layout_setting";
+	}
+
+	return $classes;
+}
+
+add_filter( 'body_class', 'responsive_body_class' );
+
+/**
  * Removes "uncategorized" and "private" from categories.
  *
  * @todo Review.
