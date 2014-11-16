@@ -26,9 +26,19 @@ module.exports = function(grunt) {
 			styles: {
 				files: [
 				'bower_components/responsive-foundation/css-dev/**/*.scss',
+				'!bower_components/responsive-foundation/css-dev/customizer/**/*.scss',
 				'css-dev/*.scss'
 				],
-				tasks: ['sass'],
+				tasks: ['sass:dev', 'sass:prod'],
+				options: {
+					spawn: false,
+				}
+			},
+			fonts: {
+				files: [
+				'bower_components/responsive-foundation/css-dev/customizer/font-palettes/*.scss',
+				],
+				tasks: ['sass:fonts'],
 				options: {
 					spawn: false,
 				}
@@ -79,6 +89,19 @@ module.exports = function(grunt) {
 					'style.min.css': 'css-dev/style.scss',
 					'ie.min.css': 'css-dev/ie.scss'
 				}
+			},
+			fonts: {
+				options: {
+					style: 'compressed',
+					sourcemap: 'none'
+				},
+				files: [{
+					expand: true,
+					cwd: 'bower_components/responsive-foundation/css-dev/customizer/font-palettes',
+					src: ['*.scss'],
+					dest: 'css',
+					ext: '.css'
+				}]
 			}
 		},
 		version: {
@@ -106,7 +129,7 @@ module.exports = function(grunt) {
 				src: 'hooks/post-merge',
 				dest: '.git/hooks/post-merge'
 			}
- 		}
+		}
 	});
 
 	// 3. Where we tell Grunt we plan to use this plug-in.
