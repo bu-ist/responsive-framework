@@ -191,6 +191,11 @@ add_action( 'wp_enqueue_scripts', 'responsive_scripts' );
 require __DIR__ . '/admin/theme-customizer.php';
 
 /**
+ * BU branding support.
+ */
+require __DIR__ . '/inc/branding.php';
+
+/**
  * Plugin support - BU Calendar.
  *
  * @link https://github.com/bu-ist/bu-calendar
