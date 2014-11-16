@@ -29,3 +29,28 @@ function responsive_layout_options() {
 		'noNav'   => 'No Navigation Bar',
 		);
 }
+
+/**
+ * Returns the site's current font palette.
+ */
+function responsive_get_font_palette() {
+	// TODO: Is this actually useful?
+	if ( defined( 'BU_RESPONSIVE_FONT_PALETTE' ) && array_key_exists( BU_RESPONSIVE_FONT_PALETTE, responsive_font_options() ) ) {
+		return BU_RESPONSIVE_FONT_PALETTE;
+	}
+
+	return get_option( 'burf_setting_fonts', 'f1' );
+}
+
+/**
+ * Returns font palette options available via Customizer.
+ */
+function responsive_font_options() {
+	return array(
+		'f1' => 'Capita,Benton',
+		'f2' => 'Benton,Benton',
+		'f3' => 'Benton,Capita',
+		'f4' => 'Pressura,Benton',
+		'f5' => 'Stag,Benton',
+		);
+}

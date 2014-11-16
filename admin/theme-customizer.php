@@ -61,13 +61,7 @@ function responsive_customize_register( $wp_customize ) {
 		'section'  => 'burf_section_fonts',
 		'settings' => 'burf_setting_fonts',
 		'type'     => 'radio',
-		'choices' => array(
-			'f1'   => 'Capita,Benton',
-			'f2'   => 'Benton,Benton',
-			'f3'   => 'Benton,Capita',
-			'f4'   => 'Pressura,Benton',
-			'f5'   => 'Stag,Benton',
-		),
+		'choices'  => responsive_font_options(),
 	) ) );
 
 	// Colors
@@ -269,52 +263,103 @@ function responsive_customize_register( $wp_customize ) {
 
 add_action( 'customize_register', 'responsive_customize_register' );
 
-function burf_customize_css() {
+function responsive_customize_colors_css() {
 	$colors = explode( ',', get_option( 'burf_setting_colors' ) );
 	$bg_color = get_option( 'burf_setting_background_color' );
 	$bg_image = get_option( 'burf_setting_background_image' );
 	$bg_repeat = get_option( 'burf_setting_background_repeat' );
 	$bg_position = get_option( 'burf_setting_background_position' );
 	$bg_attachment = get_option( 'burf_setting_background_attachment' );
-	?>
-	<style type="text/css">
-		 /* heading colors */
-		 h1,h2,h3,h4,h5,h6,
-		 .sidebar h1,
-		 .sidebar h1 a {
-			color: <?php echo $colors[0]; ?>
-		 }
 
-		 /* accent text colors */
-		 strong,
-		 .sidebar h3,
-		 .sidebar h3 a,
-		 .sidebar a .day,
-		 .footbar h3,
-		 .footbar h3 a,
-		 ul > li:before,
-		 ol > li:before { color: <?php echo $colors[3]; ?> }
-
-		 .default .date { background-color: <?php echo $colors[3]; ?> }
-
-		 /* general text colors */
-		 body, p, li,
-		 .sidebar a,
-		 .footbar a { color: <?php echo $colors[1]; ?> }
-
-		 /* anchor colors */
-		 a, .comment-counter a strong { color: <?php echo $colors[2]; ?> }
-
-		 /* page background color */
-		 .contentWrapper {
-			background-color: <?php echo $bg_color; ?>;
-			background-image: url(<?php echo $bg_image; ?>);
-			background-repeat: <?php echo $bg_repeat; ?>;
-			background-position: top <?php echo $bg_position; ?>;
-			background-attachment: <?php echo $bg_attachment; ?>;
-		 }
-	</style>
-	<?php
+	$css = <<<CSS
+/* heading colors */
+h1, h2, h3, h4, h5, h6,
+.sidebar h1,
+.sidebar h1 a {
+	color: $colors[0]
 }
 
-// add_action( 'wp_head', 'burf_customize_css' );
+/* accent text colors */
+strong,
+.sidebar h3,
+.sidebar h3 a,
+.sidebar a .day,
+.footbar h3,
+.footbar h3 a,
+ul > li:before,
+ol > li:before { color: $colors[3] }
+
+.default .date { background-color: $colors[3] }
+
+/* general text colors */
+body, p, li,
+.sidebar a,
+.footbar a { color: $colors[1] }
+
+/* anchor colors */
+a, .comment-counter a strong { color: $colors[2] }
+
+
+CSS;
+
+	// Background image / color
+	if ( $bg_image && $bg_color ) {
+		$css .= <<<CSS
+/* page background */
+.contentWrapper {
+	background-color: $bg_color;
+	background-image: url($bg_image);
+	background-repeat: $bg_repeat;
+	background-position: top $bg_position;
+	background-attachment: $bg_attachment;
+}
+CSS;
+	} else if ( $bg_image ) {
+		$css .= <<<CSS
+/* page background */
+.contentWrapper {
+	background-image: url($bg_image);
+	background-repeat: $bg_repeat;
+	background-position: top $bg_position;
+	background-attachment: $bg_attachment;
+}
+CSS;
+	} else if ( $bg_color ) {
+		$css .= <<<CSS
+/* page background */
+.contentWrapper {
+	background-color: $bg_color;
+}
+CSS;
+	}
+
+	return $css;
+}
+
+
+/**
+ * Loads font palette stylesheet as configured via Customizer.
+ *
+ * @todo  performance testing
+ */
+function responsive_customize_fonts() {
+	$font_palette = responsive_get_font_palette();
+
+	if ( $font_palette ) {
+		// Option 1 - External <link>
+		// wp_enqueue_style( 'responsive-font-options', get_template_directory_uri() . "/css/$font.css", array( 'responsi' ), RESPONSIVE_FRAMEWORK_VERSION );
+
+		// Option 2 - Render inline
+		$fonts_css = file_get_contents( get_template_directory() . "/css/$font_palette.css" );
+		if ( $fonts_css ) {
+			wp_add_inline_style( 'responsi', $fonts_css );
+		}
+	}
+
+	$colors_css = responsive_customize_colors_css();
+	if ( $colors_css ) {
+		wp_add_inline_style( 'responsi', $colors_css );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'responsive_customize_fonts' );

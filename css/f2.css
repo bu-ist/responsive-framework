@@ -1,0 +1,43 @@
+body {
+	font-family: "Benton-Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+.widget h3,
+h4,
+h5,
+h6,
+#q {
+	font-family: "Capita", serif;
+}
+
+.primary-nav-menu li a {
+	font-family: "Capita", serif;
+	font-weight: 700;
+}
+
+.utility-nav li a {
+	font-family: "Capita", serif;
+	font-weight: 400;
+}
+
+.primary-nav-menu li a {
+	font-weight: 500;
+	font-size: 17px;
+}
+
+.utility-nav li a {
+	font-style: italic;
+}
+
+blockquote {
+	border-color: #0f69d7;
+	border-left: 0.125em solid;
+	padding: 5px 15px;
+}
+
+blockquote > p:last-of-type {
+	margin-bottom: 0;
+}
