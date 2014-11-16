@@ -39,7 +39,7 @@ function responsive_setup() {
 			'comment-form',
 			'comment-list',
 			'gallery',
-			'caption'
+			'caption',
 		) );
 
 	// Enable excerpts for pages.
@@ -137,7 +137,7 @@ function responsive_sidebars() {
 	register_sidebar( array(
 			'name'          => 'Main Sidebar',
 			'id'            => 'sidebar',
-			'description'   => 'Description',
+			'description'   => 'Add widgets here to appear in your sidebar.',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widgetTitle">',
@@ -147,7 +147,7 @@ function responsive_sidebars() {
 	register_sidebar( array(
 			'name'          => 'Footer Content Area',
 			'id'            => 'footbar',
-			'description'   => 'Description',
+			'description'   => 'Add widgets here to appear in your footer.',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widgetTitle">',
