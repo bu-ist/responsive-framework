@@ -26,6 +26,4 @@
 
 	<?php responsive_comments(); ?>
 
-	<?php responsive_post_nav(); ?>
-
 </article>
