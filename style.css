@@ -421,6 +421,35 @@
   font-style: italic;
   font-weight: 700;
 }
+/* Tiempos Text */
+@font-face {
+  font-family: "TiemposText";
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "TiemposText";
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "TiemposText";
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.eot");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "TiemposText";
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.eot");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 700;
+}
 /* grid
 ----------------------------------------------------------------- */
 .wrapper {
@@ -867,8 +896,8 @@ textarea {
 /* Address margins handled incorrectly in IE 6/7. */
 body {
   margin: 0;
-  font-family: "Benton", Helvetica, san-serif;
-  line-height: 1.5;
+  font-family: "TiemposText", Georgia, serif;
+  line-height: 1.6;
   color: #444444;
 }
 
@@ -903,11 +932,11 @@ svg:not(:root) {
 /* Links
 ----------------------------------------------------------------- */
 a {
-  color: #0000ee;
+  color: #0f69d7;
 }
 
 a:visited {
-  color: #551a8b;
+  color: #7337af;
 }
 
 /* Address `outline` inconsistency between Chrome and other browsers. */
@@ -935,8 +964,8 @@ h1,
 h2,
 .font-largest {
   font-size: 37px;
-  line-height: 1.2;
-  margin: 25px 0;
+  line-height: 1.22;
+  margin: 27px 0;
 }
 
 h3,
@@ -956,33 +985,33 @@ h4,
 h5,
 .font-medium {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 25px 0;
 }
 
 h6,
 .font-small {
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 25px 0;
 }
 
 /* Generic font size classes */
 .font-smaller {
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 25px 0;
 }
 
 .font-smallest {
   font-size: 11px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 25px 0;
 }
 
 .font-micro {
   font-size: 10px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 25px 0;
 }
 
@@ -993,6 +1022,7 @@ h4,
 h5,
 h6 {
   color: #000000;
+  font-family: "Benton", Helvetica, sans-serif;
 }
 
 h1 small,
@@ -1293,6 +1323,7 @@ table th[class*="col-"] {
 form {
   margin: 0;
   /* 1 */
+  font-family: "Benton", Helvetica, sans-serif;
 }
 
 /* Define consistent border, margin, and padding. */
@@ -2321,8 +2352,41 @@ body {
   font-style: italic;
   font-weight: 700;
 }
+/* Tiempos Text */
+@font-face {
+  font-family: "TiemposText";
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "TiemposText";
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "TiemposText";
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.eot");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "TiemposText";
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.eot");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 700;
+}
 /* common
 ----------------------------------------------------------------- */
+nav {
+  font-family: "Benton", Helvetica, sans-serif;
+}
+
 /* .searchToggle appears only when header is small and above, otherwise it's hidden */
 .brand .searchToggle {
   display: none;
@@ -2578,7 +2642,7 @@ body {
 }
 
 .primaryNav li li a {
-  line-height: 1.5;
+  line-height: 1.6;
   padding: 10px 0;
 }
 
@@ -2683,7 +2747,7 @@ body {
 .l-sideNav .primaryNav a {
   border-top: 1px solid #333333;
   padding: 10px 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .l-sideNav .primaryNav ul {
@@ -2968,6 +3032,7 @@ div.aligncenter img {
   margin: 15px 0;
   padding: 15px 0 0;
   font-size: 14px;
+  font-family: "Benton", Helvetica, sans-serif;
 }
 
 .reply a {
@@ -3101,7 +3166,7 @@ div.aligncenter img {
 .widgetTitle {
   font-size: 16px;
   line-height: 1.3;
-  font-family: "Benton", Helvetica, san-serif;
+  font-family: "Benton", Helvetica, sans-serif;
   color: #000000;
   border: 4px solid #000000;
   border-width: 0 0 4px 0;
@@ -3149,8 +3214,8 @@ div.aligncenter img {
 
 .widget-bu-posts .excerpt {
   font-size: 16px;
-  line-height: 1.5;
-  margin: 8px 0 0;
+  line-height: 1.6;
+  margin: 4px 0 0;
 }
 
 .widget-bu-posts .thumb {
@@ -3166,7 +3231,7 @@ div.aligncenter img {
 
 .widget-bu-posts .meta {
   font-size: 12px;
-  margin: 0;
+  margin: 5px 0 0;
   color: #aaaaaa;
 }
 
@@ -3198,21 +3263,21 @@ div.aligncenter img {
   display: block;
   padding: 10px 0;
   font-size: 16px;
-  color: #0000ee;
+  color: #0f69d7;
 }
 
 #contentnav li a:hover,
 #contentnav li a:focus {
-  color: #0000ee;
+  color: #0f69d7;
   text-decoration: none;
 }
 
 #contentnav .current_page_item a {
-  color: #cc0000;
+  color: #000000;
 }
 
 #contentnav .current_page_item li a {
-  color: #0000ee;
+  color: #0f69d7;
 }
 
 #contentnav li ul {
