@@ -8,6 +8,121 @@
 ---------------------- */
 /* mixins
 ----------------------------------------------------------------- */
+/* Benton */
+@font-face {
+  font-family: "Benton";
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Benton";
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-1.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Benton";
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Medium/8e221891-e89b-4eae-95ca-6346d9a41d20-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Medium/8e221891-e89b-4eae-95ca-6346d9a41d20-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Medium/8e221891-e89b-4eae-95ca-6346d9a41d20-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Medium/8e221891-e89b-4eae-95ca-6346d9a41d20-1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Benton";
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Medium-Italic/289d6a90-eab9-4614-9e7d-c0df14839178-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Medium-Italic/289d6a90-eab9-4614-9e7d-c0df14839178-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Medium-Italic/289d6a90-eab9-4614-9e7d-c0df14839178-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Medium-Italic/289d6a90-eab9-4614-9e7d-c0df14839178-1.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Benton";
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Benton";
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-1.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Benton";
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Black/bc06c909-a731-43ae-a772-ea42520c81b9-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Black/bc06c909-a731-43ae-a772-ea42520c81b9-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Black/bc06c909-a731-43ae-a772-ea42520c81b9-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Black/bc06c909-a731-43ae-a772-ea42520c81b9-1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 900;
+}
+@font-face {
+  font-family: "Benton";
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Black-Italic/9afa6c31-8572-45ee-8575-c3c541f31e3f-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Black-Italic/9afa6c31-8572-45ee-8575-c3c541f31e3f-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Black-Italic/9afa6c31-8572-45ee-8575-c3c541f31e3f-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Black-Italic/9afa6c31-8572-45ee-8575-c3c541f31e3f-1.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 900;
+}
+/* Benton Compressed */
+@font-face {
+  font-family: "BentonComp";
+  src: url("http://www.bu.edu/cdn/fonts/BentonSansComp-Bold/45b0ce09-9fae-45f1-8b3d-fdd995b91c6b-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/BentonSansComp-Bold/45b0ce09-9fae-45f1-8b3d-fdd995b91c6b-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/BentonSansComp-Bold/45b0ce09-9fae-45f1-8b3d-fdd995b91c6b-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/BentonSansComp-Bold/45b0ce09-9fae-45f1-8b3d-fdd995b91c6b-1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "BentonComp";
+  src: url("http://www.bu.edu/cdn/fonts/BentonSansComp-Bold-Italic/c881d891-c9fe-443f-9067-4fd904cc7ec7-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/BentonSansComp-Bold-Italic/c881d891-c9fe-443f-9067-4fd904cc7ec7-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/BentonSansComp-Bold-Italic/c881d891-c9fe-443f-9067-4fd904cc7ec7-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/BentonSansComp-Bold-Italic/c881d891-c9fe-443f-9067-4fd904cc7ec7-1.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "BentonComp";
+  src: url("http://www.bu.edu/cdn/fonts/BentonSansComp-Black/3207ad65-d574-4dc0-8ddc-cfbe21c91dd1-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/BentonSansComp-Black/3207ad65-d574-4dc0-8ddc-cfbe21c91dd1-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/BentonSansComp-Black/3207ad65-d574-4dc0-8ddc-cfbe21c91dd1-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/BentonSansComp-Black/3207ad65-d574-4dc0-8ddc-cfbe21c91dd1-1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 900;
+}
+@font-face {
+  font-family: "BentonComp";
+  src: url("http://www.bu.edu/cdn/fonts/BentonSansComp-Black-Italic/31575122-efa9-4080-a2c0-264add7bf098-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/BentonSansComp-Black-Italic/31575122-efa9-4080-a2c0-264add7bf098-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/BentonSansComp-Black-Italic/31575122-efa9-4080-a2c0-264add7bf098-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/BentonSansComp-Black-Italic/31575122-efa9-4080-a2c0-264add7bf098-1.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 900;
+}
+/* Tiempos Text */
+@font-face {
+  font-family: "TiemposText";
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "TiemposText";
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "TiemposText";
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.eot");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "TiemposText";
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.eot");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 700;
+}
 /* grid
 ----------------------------------------------------------------- */
 .wrapper {
@@ -454,8 +569,8 @@ textarea {
 /* Address margins handled incorrectly in IE 6/7. */
 body {
   margin: 0;
-  font-family: "Benton", Helvetica, san-serif;
-  line-height: 1.5;
+  font-family: "TiemposText", Georgia, serif;
+  line-height: 1.6;
   color: #444444;
 }
 
@@ -490,11 +605,11 @@ svg:not(:root) {
 /* Links
 ----------------------------------------------------------------- */
 a {
-  color: #0000ee;
+  color: #0f69d7;
 }
 
 a:visited {
-  color: #551a8b;
+  color: #7337af;
 }
 
 /* Address `outline` inconsistency between Chrome and other browsers. */
@@ -522,8 +637,8 @@ h1,
 h2,
 .font-largest {
   font-size: 37px;
-  line-height: 1.2;
-  margin: 25px 0;
+  line-height: 1.22;
+  margin: 27px 0;
 }
 
 h3,
@@ -543,33 +658,33 @@ h4,
 h5,
 .font-medium {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 25px 0;
 }
 
 h6,
 .font-small {
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 25px 0;
 }
 
 /* Generic font size classes */
 .font-smaller {
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 25px 0;
 }
 
 .font-smallest {
   font-size: 11px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 25px 0;
 }
 
 .font-micro {
   font-size: 10px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 25px 0;
 }
 
@@ -580,6 +695,7 @@ h4,
 h5,
 h6 {
   color: #000000;
+  font-family: "Benton", Helvetica, sans-serif;
 }
 
 h1 small,
@@ -874,19 +990,20 @@ table th[class*="col-"] {
   border-bottom-width: 0;
 }
 
-/* Forms
+/* Forms: Noemalize
 ----------------------------------------------------------------- */
 /* 1. Correct margin displayed oddly in IE 6/7. */
 form {
   margin: 0;
   /* 1 */
+  font-family: "Benton", Helvetica, sans-serif;
 }
 
 /* Define consistent border, margin, and padding. */
 fieldset {
-  border: 1px solid #ccc;
-  margin: 0;
-  padding: 20px;
+  border: 0;
+  margin: 30px 0;
+  padding: 0;
 }
 
 /* 1. Correct color not being inherited in IE 6/7/8/9. 
@@ -904,8 +1021,7 @@ legend {
 
 /* 1. Correct font size not being inherited in all browsers. 
    2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5, and Chrome. 
-   3. Improve appearance and consistency in all browsers.
-   4. Remove default webkit appearance */
+   3. Improve appearance and consistency in all browsers.  */
 button,
 input,
 select,
@@ -918,8 +1034,6 @@ textarea {
   /* 3 */
   *vertical-align: middle;
   /* 3 */
-  -webkit-appearance: none;
-  /* 4 */
 }
 
 /* Address Firefox 3+ setting `line-height` on `input` using ` !important` in the UA stylesheet. */
@@ -935,9 +1049,10 @@ select {
 }
 
 /* 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls. 
-   2. Removed from normalize.css: Correct inability to style clickable `input` types in iOS: -webkit-appearance: button. 
+   2. Removed from normalize.css: "Correct inability to style clickable `input` types in iOS which added -webkit-appearance: button."
    3. Improve usability and consistency of cursor style between image-type `input` and others. 
-   4. Remove inner spacing in IE 7 without affecting normal text inputs. Known issue:inner spacing remains in IE 6. */
+   4. Remove inner spacing in IE 7 without affecting normal text inputs. Known issue:inner spacing remains in IE 6.
+   5. Remove WebKit default button business. */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -946,6 +1061,8 @@ input[type="submit"] {
   /* 3 */
   *overflow: visible;
   /* 4 */
+  -webkit-appearance: none;
+  /* 5 */
 }
 
 /* Re-set default cursor for disabled elements. */
@@ -967,6 +1084,7 @@ input[type="radio"] {
   /* 3 */
   *width: 13px;
   /* 3 */
+  margin-right: 4px;
 }
 
 /* 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome. 
@@ -998,6 +1116,217 @@ textarea {
   /* 2 */
 }
 
+/* Forms: Style (adapted from Pure CSS v0.5.0)
+----------------------------------------------------------------- */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="week"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+select,
+textarea {
+  padding: 0.5em 0.6em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #eee;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+select:focus,
+textarea:focus {
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+  border-color: #129fea;
+  outline: 1px auto #129fea;
+  box-shadow: 0 0 4px 0 rgba(18, 159, 234, 0.2);
+  -webkit-box-shadow: 0 0 4px 0 rgba(18, 159, 234, 0.2);
+  -moz-box-shadow: 0 0 4px 0 rgba(18, 159, 234, 0.2);
+}
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: thin dotted #333333;
+  outline: 1px auto #129fea;
+  box-shadow: 0 0 4px 0 rgba(18, 159, 234, 0.2);
+  -webkit-box-shadow: 0 0 4px 0 rgba(18, 159, 234, 0.2);
+  -moz-box-shadow: 0 0 4px 0 rgba(18, 159, 234, 0.2);
+}
+
+.checkbox,
+.radio {
+  margin: 0.5em 0;
+  display: block;
+}
+
+input[type="text"][disabled],
+input[type="password"][disabled],
+input[type="email"][disabled],
+input[type="url"][disabled],
+input[type="date"][disabled],
+input[type="month"][disabled],
+input[type="time"][disabled],
+input[type="datetime"][disabled],
+input[type="datetime-local"][disabled],
+input[type="week"][disabled],
+input[type="number"][disabled],
+input[type="search"][disabled],
+input[type="tel"][disabled],
+input[type="color"][disabled],
+select[disabled],
+textarea[disabled] {
+  cursor: not-allowed;
+  background-color: #eaeded;
+  color: #cad2d3;
+}
+
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  background: #eee;
+  color: #777;
+  border-color: #ccc;
+}
+
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+  color: #b94a48;
+  border-color: #ee5f5b;
+}
+
+input:focus:invalid:focus,
+textarea:focus:invalid:focus,
+select:focus:invalid:focus {
+  border-color: #e9322d;
+}
+
+input[type="file"]:focus:invalid:focus,
+input[type="radio"]:focus:invalid:focus,
+input[type="checkbox"]:focus:invalid:focus {
+  outline-color: #e9322d;
+}
+
+select {
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+select[multiple] {
+  height: auto;
+}
+
+label {
+  margin: 0.5em 0 0.2em;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 0 0 4px;
+  border: 1px solid #e5e5e5;
+  border-width: 0 0 1px 0;
+  font-weight: 700;
+}
+
+.form-row {
+  margin: 0 0 10px;
+}
+
+.form-controls {
+  margin: 20px 0 0;
+}
+
+.required {
+  color: #c00 !important;
+}
+
+/* Form Stacked */
+.form-stacked input[type="text"],
+.form-stacked input[type="password"],
+.form-stacked input[type="email"],
+.form-stacked input[type="url"],
+.form-stacked input[type="date"],
+.form-stacked input[type="month"],
+.form-stacked input[type="time"],
+.form-stacked input[type="datetime"],
+.form-stacked input[type="datetime-local"],
+.form-stacked input[type="week"],
+.form-stacked input[type="number"],
+.form-stacked input[type="search"],
+.form-stacked input[type="tel"],
+.form-stacked input[type="color"],
+.form-stacked select,
+.form-stacked label,
+.form-stacked textarea,
+.form-aligned select,
+.form-aligned label,
+.form-aligned textarea {
+  display: block;
+  margin: 0.25em 0;
+}
+
+/* Aligned Forms */
+@media (min-width: 992px) {
+  .form-aligned input,
+  .form-aligned textarea,
+  .form-aligned select {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+  }
+
+  .form-aligned textarea {
+    vertical-align: top;
+  }
+
+  .form-aligned .form-row label {
+    display: inline-block;
+    width: 200px;
+    margin: 0 20px 0 0;
+    vertical-align: middle;
+    text-align: right;
+  }
+
+  .form-aligned .form-row-checkbox,
+  .form-aligned .form-row-radio {
+    margin: 0 0 10px;
+    margin-left: 220px;
+  }
+
+  .form-aligned .form-controls {
+    margin-left: 220px;
+  }
+}
 /* Gravity Forms
 ----------------------------------------------------------------- */
 .gform_wrapper li {
@@ -1285,6 +1614,10 @@ body {
 
 /* common
 ----------------------------------------------------------------- */
+nav {
+  font-family: "Benton", Helvetica, sans-serif;
+}
+
 /* .searchToggle appears only when header is small and above, otherwise it's hidden */
 .brand .searchToggle {
   display: none;
@@ -1414,7 +1747,7 @@ body {
   width: 60px;
   height: 60px;
   cursor: pointer;
-  background: transparent url(images/search.png) no-repeat 15px 13px;
+  background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAA7XmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS41LWMwMjEgNzkuMTU1NzcyLCAyMDE0LzAxLzEzLTE5OjQ0OjAwICAgICAgICAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgICAgICAgICB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIKICAgICAgICAgICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgICAgICAgICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICAgICAgICAgICB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyI+CiAgICAgICAgIDx4bXA6Q3JlYXRvclRvb2w+QWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCk8L3htcDpDcmVhdG9yVG9vbD4KICAgICAgICAgPHhtcDpDcmVhdGVEYXRlPjIwMTQtMTAtMDFUMTA6NTM6MzMtMDQ6MDA8L3htcDpDcmVhdGVEYXRlPgogICAgICAgICA8eG1wOk1vZGlmeURhdGU+MjAxNC0xMC0wMVQxMTozNjozMi0wNDowMDwveG1wOk1vZGlmeURhdGU+CiAgICAgICAgIDx4bXA6TWV0YWRhdGFEYXRlPjIwMTQtMTAtMDFUMTE6MzY6MzItMDQ6MDA8L3htcDpNZXRhZGF0YURhdGU+CiAgICAgICAgIDx4bXBNTTpJbnN0YW5jZUlEPnhtcC5paWQ6MjZhODY1YzktNmExOC00MWY5LWE3ODYtNWM5NjI5YTVkZWE1PC94bXBNTTpJbnN0YW5jZUlEPgogICAgICAgICA8eG1wTU06RG9jdW1lbnRJRD54bXAuZGlkOjBFQjA1NDdBNDE5RjExRTRBMkVCQTIxQTZDMzAzMjcyPC94bXBNTTpEb2N1bWVudElEPgogICAgICAgICA8eG1wTU06RGVyaXZlZEZyb20gcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICA8c3RSZWY6aW5zdGFuY2VJRD54bXAuaWlkOjBFQjA1NDc3NDE5RjExRTRBMkVCQTIxQTZDMzAzMjcyPC9zdFJlZjppbnN0YW5jZUlEPgogICAgICAgICAgICA8c3RSZWY6ZG9jdW1lbnRJRD54bXAuZGlkOjBFQjA1NDc4NDE5RjExRTRBMkVCQTIxQTZDMzAzMjcyPC9zdFJlZjpkb2N1bWVudElEPgogICAgICAgICA8L3htcE1NOkRlcml2ZWRGcm9tPgogICAgICAgICA8eG1wTU06T3JpZ2luYWxEb2N1bWVudElEPnhtcC5kaWQ6MEVCMDU0N0E0MTlGMTFFNEEyRUJBMjFBNkMzMDMyNzI8L3htcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD4KICAgICAgICAgPHhtcE1NOkhpc3Rvcnk+CiAgICAgICAgICAgIDxyZGY6U2VxPgogICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmFjdGlvbj5zYXZlZDwvc3RFdnQ6YWN0aW9uPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6aW5zdGFuY2VJRD54bXAuaWlkOjJjMzUxNzIyLWE5YmItNGVmNC1iYzA1LTJhYWM4Yzg0MmQwYTwvc3RFdnQ6aW5zdGFuY2VJRD4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OndoZW4+MjAxNC0xMC0wMVQxMToyODoxNi0wNDowMDwvc3RFdnQ6d2hlbj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OnNvZnR3YXJlQWdlbnQ+QWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCk8L3N0RXZ0OnNvZnR3YXJlQWdlbnQ+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDpjaGFuZ2VkPi88L3N0RXZ0OmNoYW5nZWQ+CiAgICAgICAgICAgICAgIDwvcmRmOmxpPgogICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmFjdGlvbj5zYXZlZDwvc3RFdnQ6YWN0aW9uPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6aW5zdGFuY2VJRD54bXAuaWlkOjI2YTg2NWM5LTZhMTgtNDFmOS1hNzg2LTVjOTYyOWE1ZGVhNTwvc3RFdnQ6aW5zdGFuY2VJRD4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OndoZW4+MjAxNC0xMC0wMVQxMTozNjozMi0wNDowMDwvc3RFdnQ6d2hlbj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OnNvZnR3YXJlQWdlbnQ+QWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCk8L3N0RXZ0OnNvZnR3YXJlQWdlbnQ+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDpjaGFuZ2VkPi88L3N0RXZ0OmNoYW5nZWQ+CiAgICAgICAgICAgICAgIDwvcmRmOmxpPgogICAgICAgICAgICA8L3JkZjpTZXE+CiAgICAgICAgIDwveG1wTU06SGlzdG9yeT4KICAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9wbmc8L2RjOmZvcm1hdD4KICAgICAgICAgPHBob3Rvc2hvcDpDb2xvck1vZGU+MzwvcGhvdG9zaG9wOkNvbG9yTW9kZT4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPHRpZmY6WFJlc29sdXRpb24+NzIwMDAwLzEwMDAwPC90aWZmOlhSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj43MjAwMDAvMTAwMDA8L3RpZmY6WVJlc29sdXRpb24+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVuaXQ+CiAgICAgICAgIDxleGlmOkNvbG9yU3BhY2U+NjU1MzU8L2V4aWY6Q29sb3JTcGFjZT4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjkwPC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjkwPC9leGlmOlBpeGVsWURpbWVuc2lvbj4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9InciPz5JbUS1AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqY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") no-repeat 15px 13px;
 }
 @media (min-width: 768px) {
   .searchToggle {
@@ -1540,7 +1873,7 @@ body {
 }
 
 .primaryNav li li a {
-  line-height: 1.5;
+  line-height: 1.6;
   padding: 10px 0;
 }
 
@@ -1645,7 +1978,7 @@ body {
 .l-sideNav .primaryNav a {
   border-top: 1px solid #333333;
   padding: 10px 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .l-sideNav .primaryNav ul {
@@ -1905,7 +2238,7 @@ div.aligncenter img {
 }
 
 .comments-list {
-  font-size: 14px;
+  border-bottom: 1px solid #ddd;
 }
 
 .comments-list li li article {
@@ -1926,9 +2259,11 @@ div.aligncenter img {
 
 .comments-list article {
   position: relative;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #ddd;
   margin: 15px 0;
   padding: 15px 0 0;
+  font-size: 14px;
+  font-family: "Benton", Helvetica, sans-serif;
 }
 
 .reply a {
@@ -1966,6 +2301,7 @@ div.aligncenter img {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   border-radius: 5px;
+  position: relative;
   margin: 15px 0 20px;
   padding: 20px;
   background: #f6f6f7;
@@ -1979,20 +2315,21 @@ div.aligncenter img {
 
 .comment-respond fieldset {
   border: 0;
+  margin: 0;
   padding: 0;
 }
 
-.comment-respond .form-row {
-  margin: 0 0 10px;
-}
-
 .comment-respond .comment-form-submit {
-  margin-bottom: 0;
+  margin: 15px 0 0;
 }
 
 .comment-respond fieldset .form-tip {
-  display: block;
   font-size: 12px;
+}
+@media (min-width: 768px) {
+  .comment-respond fieldset .form-tip {
+    display: block;
+  }
 }
 
 .comment-respond fieldset .form-tip,
@@ -2001,24 +2338,26 @@ div.aligncenter img {
 }
 
 .comment-respond label {
-  float: left;
-  width: 25%;
-  padding-right: 10px;
+  display: block;
+  margin: 0 0 2px;
+}
+@media (min-width: 768px) {
+  .comment-respond label {
+    float: left;
+    width: 25%;
+    margin: 0.5em 0 0.2em;
+    padding-right: 10px;
+  }
 }
 
-.comment-respond .cancel-comment-reply {
-  display: inline-block;
-  margin-left: 20px;
-  float: right;
-  font-size: 12px;
-}
-
-.comment-form .button, .comment-form button,
-.comment-form html input[type="button"],
-html .comment-form input[type="button"],
-.comment-form input[type="reset"],
-.comment-form input[type="submit"] {
-  margin-left: 25%;
+@media (min-width: 768px) {
+  .comment-form .button, .comment-form button,
+  .comment-form html input[type="button"],
+  html .comment-form input[type="button"],
+  .comment-form input[type="reset"],
+  .comment-form input[type="submit"] {
+    margin-left: 25%;
+  }
 }
 
 .comment-form textarea {
@@ -2027,8 +2366,21 @@ html .comment-form input[type="button"],
   -ms-transition: height 5ms ease-in-out 0s;
   -o-transition: height 5ms ease-in-out 0s;
   transition: height 5ms ease-in-out 0s;
-  width: 75%;
   height: 6em;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .comment-form textarea {
+    width: 75%;
+  }
+}
+
+.comment-respond .cancel-comment-reply {
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 12px;
 }
 
 /* widget */
@@ -2045,7 +2397,7 @@ html .comment-form input[type="button"],
 .widgetTitle {
   font-size: 16px;
   line-height: 1.3;
-  font-family: "Benton", Helvetica, san-serif;
+  font-family: "Benton", Helvetica, sans-serif;
   color: #000000;
   border: 4px solid #000000;
   border-width: 0 0 4px 0;
@@ -2087,14 +2439,14 @@ html .comment-form input[type="button"],
 
 .widget-bu-posts .headline {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.4;
   margin: 0;
 }
 
 .widget-bu-posts .excerpt {
   font-size: 16px;
-  line-height: 1.5;
-  margin: 8px 0 0;
+  line-height: 1.6;
+  margin: 4px 0 0;
 }
 
 .widget-bu-posts .thumb {
@@ -2110,7 +2462,7 @@ html .comment-form input[type="button"],
 
 .widget-bu-posts .meta {
   font-size: 12px;
-  margin: 0;
+  margin: 5px 0 0;
   color: #aaaaaa;
 }
 
@@ -2142,21 +2494,21 @@ html .comment-form input[type="button"],
   display: block;
   padding: 10px 0;
   font-size: 16px;
-  color: #0000ee;
+  color: #0f69d7;
 }
 
 #contentnav li a:hover,
 #contentnav li a:focus {
-  color: #0000ee;
+  color: #0f69d7;
   text-decoration: none;
 }
 
 #contentnav .current_page_item a {
-  color: #cc0000;
+  color: #000000;
 }
 
 #contentnav .current_page_item li a {
-  color: #0000ee;
+  color: #0f69d7;
 }
 
 #contentnav li ul {

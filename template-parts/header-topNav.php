@@ -15,9 +15,7 @@
 <?php responsive_search_form(); ?>
 
 <div class="brand">
-	<a class="siteName" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-		Boston University <span><?php bloginfo( 'name' ); ?></span>
-	</a>
+	<?php responsive_branding(); ?>
 
 	<p class="siteDescription"><?php bloginfo( 'description' ); ?></p>
 
