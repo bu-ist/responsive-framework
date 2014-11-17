@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "Capita";
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Capita";
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Benton-Sans";
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Benton-Sans";
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Benton-Sans";
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Benton-Sans";
+  font-style: italic;
+  font-weight: 700;
+}
+
+body {
+  font-family: "Capita", serif;
+}
+
+h1,
+h2,
+h3,
+.widget h3,
+h4,
+h5,
+h6,
+#q {
+  font-family: "Benton-Sans", sans-serif;
+}
+
+.primary-nav-menu li a {
+  font-family: "Benton-Sans", sans-serif;
+  font-weight: 700;
+}
+
+.utility-nav li a {
+  font-family: "Benton-Sans", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+.widget h3 {
+  font-weight: 400;
+}
+
+.primary-nav-menu li a {
+  font-weight: 400;
+}
+
+.utility-nav li a {
+  font-family: "Capita", serif;
+  font-style: italic;
+}
+
+blockquote {
+  position: relative;
+}
+
+blockquote::before {
+  content: "\201C";
+  font-size: 3em;
+  left: -25px;
+  position: absolute;
+  top: -25px;
+}
