@@ -356,10 +356,10 @@ function responsive_customize_fonts() {
 		}
 	}
 
-	$colors_css = responsive_customize_colors_css();
-	if ( $colors_css ) {
-		wp_add_inline_style( 'responsi', $colors_css );
-	}
+	// $colors_css = responsive_customize_colors_css();
+	// if ( $colors_css ) {
+	// 	wp_add_inline_style( 'responsi', $colors_css );
+	// }
 }
 
 add_action( 'wp_enqueue_scripts', 'responsive_customize_fonts' );
