@@ -230,7 +230,7 @@ function responsive_paging_nav( WP_Query $query = null ) {
 	}
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation' ); ?></h1>
+		<h3 class="screen-reader-text"><?php _e( 'Posts navigation' ); ?></h3>
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
