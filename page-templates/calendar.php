@@ -66,7 +66,7 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 
 <?php responsive_content_banner( 'pageWidth' ); ?>
 
-<article role="main" class="col-md-8" id="post-<?php the_ID(); ?>">
+<article role="main" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 		<?php responsive_content_banner( 'contentWidth' ); ?>
 

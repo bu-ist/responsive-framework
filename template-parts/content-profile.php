@@ -13,7 +13,7 @@ if ( function_exists( 'bu_thumbnail' ) ) {
 }
 ?>
 
-<article role="main" class="col-md-8 profile-display<?php if ( $has_details ) : ?> has-basic<?php endif; ?><?php if ( $profile_thumb ) : ?> has-thumb<?php endif; ?>">
+<article role="main" <?php post_class(); ?>>
 
 	<?php responsive_content_banner( 'contentWidth' ); ?>
 
