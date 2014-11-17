@@ -22,8 +22,6 @@ $bu_news_display_options = BU_News_Page_Template::$display_content;
 
 	<?php edit_post_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
 
-	<?php responsive_comments(); ?>
-
 	<?php $news_query = BU_News_Page_Template::query_posts(); ?>
 	<?php if ( $news_query->have_posts() ) : ?>
 	<section class="news-posts">
@@ -42,20 +40,19 @@ $bu_news_display_options = BU_News_Page_Template::$display_content;
 				$show_meta = responsive_post_lists_show_news_meta( $bu_news_display_options );
 				if ( $show_meta ) {
 
-					echo '<p class="meta">';
-					BU_News_Page_Template::show_author( '<span class="author"><em>By ', '</em></span><br>' );
-					BU_News_Page_Template::show_date( '<span class="date"><strong>', '</strong></span>' );
-					BU_News_Page_Template::show_categories( ' <span class="category">in ', '.</span>' );
-					echo '</p>';
-
-					BU_News_Page_Template::show_comments( ' <span class="comment-counter">', '</span>' );
+					echo '<div class="meta">';
+					BU_News_Page_Template::show_author( '<span class="author"><em>By</em> ', '</span>' );
+					BU_News_Page_Template::show_date( '<span class="date">', '</span>' );
+					BU_News_Page_Template::show_categories( '<span class="category"><em>in</em> ', '</span>' );
+					BU_News_Page_Template::show_comments( '<span class="comment-counter">', '</span>' );
+					echo '</div>';
 				}
 
 				BU_News_Page_Template::show_content( '', '', 'More' );
 
 				if ( $show_meta ) {
-					echo '<p class="meta">';
-					BU_News_Page_Template::show_tags( ' <span class="tags">Tagged: <em>', '</em></span>' );
+					echo '<p class="meta tag-list">';
+					BU_News_Page_Template::show_tags( ' <span class="tags"><em>Tagged:</em> ', '</span>' );
 					echo '</p>';
 				}
 			?>
