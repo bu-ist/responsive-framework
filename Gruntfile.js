@@ -63,7 +63,8 @@ module.exports = function(grunt) {
 			dev: {
 				options: {
 					style: 'expanded',
-					loadPath: 'bower_components/responsive-foundation/css-dev'
+					loadPath: 'bower_components/responsive-foundation/css-dev',
+					bundleExec: true
 				},
 				files: {
 					'style.css': 'css-dev/style.scss',
@@ -73,7 +74,8 @@ module.exports = function(grunt) {
 			prod: {
 				options: {
 					style: 'compressed',
-					loadPath: 'bower_components/responsive-foundation/css-dev'
+					loadPath: 'bower_components/responsive-foundation/css-dev',
+					bundleExec: true
 				},
 				files: {
 					'style.min.css': 'css-dev/style.scss',
