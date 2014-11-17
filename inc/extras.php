@@ -7,6 +7,8 @@
  * Adds custom classes to body class.
  */
 function responsive_body_class( $classes = '' ) {
+	global $wp_query;
+
 	$font_palette = get_option( 'burf_setting_fonts' );
 	$layout_setting = responsive_layout();
 
@@ -16,6 +18,26 @@ function responsive_body_class( $classes = '' ) {
 
 	if ( $layout_setting ) {
 		$classes[] = "l-$layout_setting";
+	}
+
+	// Cleans up page template releated body classes
+	if ( is_page() ) {
+		$page_id = $wp_query->get_queried_object_id();
+
+		// Find classes added by core and remove
+		$core_classes = preg_grep( '/page-template-.*?/', $classes );
+		$classes = array_diff( $classes, $core_classes );
+
+		if ( is_page_template() ) {
+			$template = get_page_template_slug( $page_id );
+			$template = str_replace( 'page-templates', '', $template );
+			$template = str_replace( '.', '-', $template );
+			$template = str_replace( '-php', '', $template );
+
+			$classes[] = 'page-template-' . sanitize_html_class( $template );
+		} else {
+			$classes[] = 'page-template-default';
+		}
 	}
 
 	return $classes;
