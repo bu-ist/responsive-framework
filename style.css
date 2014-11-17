@@ -195,11 +195,13 @@
 .col-md-2,
 .col-md-3,
 .col-md-4,
+.sidebar,
 .footbar-container .widget,
 .col-md-5,
 .col-md-6,
 .col-md-7,
 .col-md-8,
+article[role=main],
 .col-md-9,
 .col-md-10,
 .col-md-11,
@@ -362,11 +364,13 @@
   .col-md-2,
   .col-md-3,
   .col-md-4,
+  .sidebar,
   .footbar-container .widget,
   .col-md-5,
   .col-md-6,
   .col-md-7,
   .col-md-8,
+  article[role=main],
   .col-md-9,
   .col-md-10,
   .col-md-11 {
@@ -385,7 +389,7 @@
     width: 25%;
   }
 
-  .col-md-4, .footbar-container .widget {
+  .col-md-4, .sidebar, .footbar-container .widget {
     width: 33.33333333333333%;
   }
 
@@ -401,7 +405,7 @@
     width: 58.333333333333336%;
   }
 
-  .col-md-8 {
+  .col-md-8, article[role=main] {
     width: 66.66666666666666%;
   }
 
@@ -631,61 +635,61 @@ h1,
 .font-jumbo {
   font-size: 49px;
   line-height: 1.15;
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 
 h2,
 .font-largest {
   font-size: 37px;
   line-height: 1.22;
-  margin: 27px 0;
+  margin: 0 0 27px 0;
 }
 
 h3,
 .font-larger {
   font-size: 28px;
   line-height: 1.25;
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 
 h4,
 .font-large {
   font-size: 21px;
   line-height: 1.3;
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 
 h5,
 .font-medium {
   font-size: 16px;
   line-height: 1.6;
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 
 h6,
 .font-small {
   font-size: 14px;
   line-height: 1.6;
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 
 /* Generic font size classes */
 .font-smaller {
   font-size: 12px;
   line-height: 1.6;
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 
 .font-smallest {
   font-size: 11px;
   line-height: 1.6;
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 
 .font-micro {
   font-size: 10px;
   line-height: 1.6;
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 
 h1,
@@ -710,7 +714,7 @@ h6 small {
 }
 
 hgroup {
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 
 /* remove margins from headings within hgroup */
@@ -761,7 +765,7 @@ mark {
 /* Address margins set differently in IE 6/7. */
 p,
 pre {
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 
 /* Correct font family set oddly in IE 6, Safari 4/5, and Chrome. */
@@ -826,7 +830,7 @@ dl,
 menu,
 ol,
 ul {
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 
 dd {
@@ -1561,6 +1565,8 @@ body {
   margin: 25px 0 35px;
 }
 
+/* content
+----------------------------------------------------------------- */
 /* sidebar
 ----------------------------------------------------------------- */
 @media (min-width: 992px) {
@@ -1769,16 +1775,16 @@ nav {
   background: #151515;
   display: block;
   padding: 0 10px;
+  /*
+  	@include breakpoint(small) {
+  		padding: 0 10px 0 20px;
+  	}
+  */
 }
 .navContainer:after {
   content: "";
   display: table;
   clear: both;
-}
-@media (min-width: 768px) {
-  .navContainer {
-    padding: 0 10px 0 20px;
-  }
 }
 
 @media (min-width: 768px) {
@@ -1835,13 +1841,14 @@ nav {
   }
 }
 
-@media (min-width: 768px) {
-  .l-default .primaryNav li:first-child a,
-  .l-topNav .primaryNav li:first-child a {
-    padding: 0 10px 0 0;
-  }
+/*
+.l-default .primaryNav li:first-child a,
+.l-topNav .primaryNav li:first-child a {
+	@include breakpoint(small) {
+		padding: 0 10px 0 0;
+	}	
 }
-
+*/
 .primaryNav li.current_page_item a,
 .primaryNav li.current_page_parent a,
 .primaryNav li.current_page_ancestor a {
@@ -1874,16 +1881,18 @@ nav {
 
 .primaryNav li li a {
   line-height: 1.6;
+  color: #7a7a7a;
   padding: 10px 0;
 }
 
+/*
 .l-default .primaryNav li li:first-child a,
 .l-default .primaryNav li:first-child li a,
 .l-topNav .primaryNav li li:first-child a,
-.l-topNav .primaryNav li:first-child li a {
-  padding: 10px 0;
+.l-topNav .primaryNav li:first-child li a, {
+	padding: 10px 0;
 }
-
+*/
 /* .utilityNav */
 .utilityNav {
   border: none;
@@ -2220,6 +2229,7 @@ div.aligncenter img {
 .bu-slideshow-container {
   text-align: center;
   margin-bottom: 30px;
+  z-index: 1;
 }
 
 /* comments
@@ -2317,6 +2327,10 @@ div.aligncenter img {
   border: 0;
   margin: 0;
   padding: 0;
+}
+
+.comment-respond p {
+  margin: 0 0 20px;
 }
 
 .comment-respond .comment-form-submit {
@@ -2485,6 +2499,7 @@ div.aligncenter img {
 #contentnav li {
   border: 1px solid #cccccc;
   border-width: 1px 0 0 0;
+  font-family: "Benton", Helvetica, sans-serif;
 }
 #contentnav li:first-child {
   border: none;
@@ -2608,5 +2623,7 @@ div.aligncenter img {
   line-height: 1.15;
   color: #000000;
 }
+
+/* News Template */
 
 /*# sourceMappingURL=style.css.map */
