@@ -4,7 +4,7 @@
  */
 ?>
 
-<article role="main" id="post-<?php the_ID(); ?>">
+<article role="main" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php responsive_content_banner( 'contentWidth' ); ?>
 

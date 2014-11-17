@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-	<article role="main" class="page-content search-content">
+	<article role="main" <?php post_class(); ?>>
 
 		<?php if ( have_posts() ) : ?>
 
