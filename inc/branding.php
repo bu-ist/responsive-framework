@@ -86,18 +86,17 @@ function responsive_branding() {
 
 	// Container classes
 	$classes = array();
-	$classes[] = 'brand-type-' . $branding['type'];
+	$classes[] = 'brand-' . $branding['type'];
 	if ( $branding['parent'] ) {
 		$classes[] = 'brand-has-parent';
 	}
 	$classes = implode( ' ', $classes );
 
 	?>
-	<div class="brandContainer <?php esc_attr_e( $classes ); ?>">
-		<a class="siteName" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( $name ); ?>" rel="home">
-			Boston University <span><?php esc_html_e( $name ); ?></span>
-			<?php echo $subname; ?>
-		</a>
-	</div>
+	<a class="<?php esc_attr_e( $classes ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( $name ); ?>" rel="home">
+		<strong>Boston University</strong> 
+		<?php esc_html_e( $name ); ?>
+		<span class="siteName"><?php echo $subname; ?></span>
+	</a>
 	<?php
 }
