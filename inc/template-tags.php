@@ -267,7 +267,7 @@ function responsive_post_nav() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation' ); ?></h1>
+		<h3 class="screen-reader-text"><?php _e( 'Post navigation' ); ?></h3>
 		<div class="nav-links">
 			<?php
 				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link' ) );
