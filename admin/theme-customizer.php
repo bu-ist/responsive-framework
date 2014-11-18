@@ -272,28 +272,27 @@ CSS;
 
 
 /**
- * Loads font palette stylesheet as configured via Customizer.
+ * Appends inline styles based on Customizer configuration.
  *
  * @todo  performance testing
  */
 function responsive_customize_fonts() {
+	echo '<style type="text/css">';
+
 	$font_palette = responsive_get_font_palette();
-
 	if ( $font_palette ) {
-		// Option 1 - External <link>
-		// wp_enqueue_style( 'responsive-font-options', get_template_directory_uri() . "/css/$font.css", array( 'responsi' ), RESPONSIVE_FRAMEWORK_VERSION );
-
-		// Option 2 - Render inline
 		$fonts_css = file_get_contents( get_template_directory() . "/css/$font_palette.css" );
 		if ( $fonts_css ) {
-			wp_add_inline_style( 'responsi', $fonts_css );
+			echo esc_html( $fonts_css );
 		}
 	}
 
-	 $colors_css = responsive_customize_colors_css();
-	 if ( $colors_css ) {
-	 	wp_add_inline_style( 'responsi', $colors_css );
-	 }
+	$colors_css = responsive_customize_colors_css();
+	if ( $colors_css ) {
+		echo esc_html( $colors_css );
+	}
+
+	echo '</style>';
 }
 
-//add_action( 'wp_enqueue_scripts', 'responsive_customize_fonts' );
+// add_action( 'wp_head', 'responsive_customize_fonts' );
