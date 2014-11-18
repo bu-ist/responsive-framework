@@ -163,13 +163,9 @@ add_action( 'widgets_init', 'responsive_sidebars' );
  * TODO: We are loading both the ie.css and style.css for IE <= 8. Fix.
  */
 function responsive_scripts() {
-	global $wp_styles;
-
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	// Main stylesheets (style.css, ie.css) will load from child theme directory.
-	wp_enqueue_style( 'responsi', get_stylesheet_directory_uri() . "/style$postfix.css", array(), RESPONSIVE_THEME_VERSION );
-	wp_enqueue_style( 'responsi-ie', get_stylesheet_directory_uri() . "/ie$postfix.css", array(), RESPONSIVE_THEME_VERSION );
 	wp_enqueue_style( 'responsi-fonts', '//cloud.typography.com/6127692/660644/css/fonts.css', array(), null );
 
 	// Main script file (script.js) will load from child theme directory.
@@ -178,9 +174,6 @@ function responsive_scripts() {
 	// Vendor scripts will load from parent theme directory.
 	wp_enqueue_script( 'responsi-modernizer', get_template_directory_uri() . "/js/vendor/modernizer$postfix.js", array(), '2.8.3' );
 
-	// Wraps IE stylesheet in conditional comments.
-	$wp_styles->add_data( 'responsi-ie', 'conditional', '(lt IE 9) & (!IEMobile 7)' );
-
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
 	if ( is_singular() && responsive_has_comment_support() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -188,6 +181,25 @@ function responsive_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'responsive_scripts' );
+
+/**
+ * Print main theme stylesheet with IE fallback.
+ *
+ * Works for both parent and child themes.
+ */
+function responsive_styles() {
+	$suffix    = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+	$style_css = add_query_arg( 'ver', RESPONSIVE_THEME_VERSION, get_stylesheet_directory_uri() . "/style$suffix.css" );
+	$ie_css    = add_query_arg( 'ver', RESPONSIVE_THEME_VERSION, get_stylesheet_directory_uri() . "/ie$suffix.css" );
+?>
+	<!--[if gt IE 8]><!-->
+	<link rel="stylesheet" id="responsi-css"  href="<?php echo esc_url( $style_css ); ?>" type="text/css" media="all" />
+	<!--<![endif]-->
+	<!--[if (lt IE 9) & (!IEMobile 7)]>
+	<link rel="stylesheet" id="responsi-ie-css"   href="<?php echo esc_url( $ie_css ); ?>" type="text/css" media="all" />
+	<![endif]-->
+<?php
+}
 
 /**
  * Theme Customizer.
