@@ -5,6 +5,9 @@
 			<footer class="siteFooter" role="contentinfo">
 				<a href="#top" title="Jump back to top">&#8593;</a>
 
+				<?php responsive_branding_masterplate(); ?>
+
+
 			<?php if ( function_exists( 'bu_footer_content' ) ) {
 				bu_footer_content();
 			}

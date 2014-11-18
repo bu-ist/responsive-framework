@@ -100,3 +100,13 @@ function responsive_branding() {
 	</a>
 	<?php
 }
+
+/**
+ * Display the BU masterplate if branding configuration requires it.
+ */
+function responsive_branding_masterplate() {
+	$branding = bu_get_branding();
+	if ( ! in_array( $branding['type'], array( 'signature', 'unbranded' ) ) ) {
+		echo '<a href="#" class="brand-masterPlate">Boston University</a>';
+	}
+}
