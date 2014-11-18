@@ -230,7 +230,7 @@ function responsive_paging_nav( WP_Query $query = null ) {
 	}
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation' ); ?></h1>
+		<h3 class="screen-reader-text"><?php _e( 'Posts navigation' ); ?></h3>
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
@@ -279,3 +279,98 @@ function responsive_post_nav() {
 }
 
 endif;
+
+/**
+ * Display the appropriate content for the primary sidebar depending on current page request.
+ *
+ * @global WP_Query $wp_query
+ */
+function responsive_primary_sidebar() {
+	$queried_object = get_queried_object();
+
+	// Single page (i.e. page.php, custom-template.php) or static front page (front-page.php)
+	if ( is_page() || is_front_page() ) {
+		$template = get_page_template_slug();
+		responsive_primary_sidebar_for_page_template( $template );
+	}
+	// Single post (i.e. single.php, single-profile.php)
+	else if ( is_single() ) {
+		responsive_primary_sidebar_for_post_type( $queried_object->post_type );
+	}
+	// Specific post type archive (i.e. archive-profile.php)
+	else if ( is_post_type_archive() ) {
+		responsive_primary_sidebar_for_post_type( $queried_object->name );
+	}
+	// Taxonomy term archive (taxonomy.php, category.php, tag.php)
+	else if ( is_tax() || is_category() || is_tag() ) {
+		$post_types = responsive_get_queried_post_types();
+		if ( count( $post_types ) > 1 ) {
+				dynamic_sidebar( 'sidebar' );
+		} else {
+			responsive_primary_sidebar_for_post_type( reset( $post_types ) );
+		}
+	}
+	// Anything else (archive.php, home.php, date.php, author.php, etc.)
+	else {
+		dynamic_sidebar( 'sidebar' );
+	}
+
+}
+
+/**
+ * Display primary sidebar for specific post type
+ *
+ * @param string $post_type Name of post type
+ */
+function responsive_primary_sidebar_for_post_type( $post_type ) {
+	switch ( $post_type ) {
+		// case 'profile':
+		// 	responsive_profile_sidebar();
+		// 	break;
+		default:
+			dynamic_sidebar( 'sidebar' );
+	}
+}
+
+/**
+ * Display primary sidebar for specific page template
+ *
+ * @param string $template name of template to check
+ */
+function responsive_primary_sidebar_for_page_template( $template ) {
+	switch ( $template ) {
+		case 'page-templates/calendar.php':
+			responsive_calendar_sidebar();
+			break;
+		// case 'page-templates/profiles.php':
+		// 	responsive_profile_sidebar();
+		// 	break;
+		default:
+			dynamic_sidebar( 'sidebar' );
+	}
+}
+
+/**
+ * A helper function to determine which post type is currently being queried for
+ *
+ * @return array all queried post types for the current page request
+ */
+function responsive_get_queried_post_types() {
+	$queried_object = get_queried_object();
+
+	// Post (post object)
+	if ( is_single() || is_page() ) {
+		return array(  $queried_object->post_type );
+	}
+
+	// Archive (post type object)
+	if ( is_post_type_archive() ) {
+		return array(  $queried_object->name );
+	}
+
+	// Archive (post type object)
+	if ( is_tax() || is_category() || is_tag() ) {
+		$tax = get_taxonomy( $queried_object->taxonomy );
+		return $tax->object_type;
+	}
+}
