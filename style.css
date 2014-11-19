@@ -905,128 +905,6 @@ code {
   background: none;
 }
 
-/* Branding
------------------------------------------------------------------ */
-.brand {
-  height: 90px;
-  padding: 0 0 0 20px;
-  overflow: hidden;
-  font-family: "Whitney SSm A", "Whitney SSm B";
-  font-size: 18px;
-  line-height: 1.3;
-}
-.lt-ie9 .brand {
-  display: table;
-}
-.lt-ie9 .brand > * {
-  display: table-cell;
-  top: auto;
-  vertical-align: middle;
-}
-.brand > * {
-  display: block;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.brand [class*="brand-"] {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  display: block;
-  float: left;
-  font-weight: 400;
-  text-decoration: none;
-  color: #000000;
-}
-.lt-ie9 .brand [class*="brand-"] {
-  top: auto;
-}
-.brand [class*="brand-"]:visited {
-  color: #000000;
-}
-
-.brand a strong {
-  font-weight: 600;
-}
-
-.brand .siteDescription {
-  display: none;
-}
-@media (min-width: 992px) {
-  .brand .siteDescription {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    display: block;
-    color: #9f9f9f;
-    font-size: 16px;
-    font-family: "TiemposText", Georgia, serif;
-  }
-  .lt-ie9 .brand .siteDescription {
-    top: auto;
-  }
-}
-
-/* Sub-brand signature */
-.brand-signature {
-  background: url("http://www.bu.edu/cdn/images/logos/subbrand49x35.png") no-repeat 0 49%;
-  padding: 6px 30px 6px 56px;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .brand-signature {
-    background-image: url("http://www.bu.edu/cdn/images/logos/subbrand49x35-retina.png");
-    background-size: 49px 35px;
-  }
-}
-
-.brand-signature strong {
-  display: none;
-}
-
-/* Logotype & master plate */
-/* Sponsored branding (sometimes called non-entity, but people don't like that) */
-.brand-non-entity {
-  font-size: 14px;
-}
-
-.brand-non-entity .siteName,
-.brand-unbranded .siteName {
-  display: block;
-  color: #c00;
-  font-family: "Whitney SSm A", "Whitney SSm B";
-  font-weight: 600;
-  font-size: 20px;
-}
-
-.brand-unbranded .siteName {
-  font-family: "Benton", Helvetica, sans-serif;
-}
-
-/* Master logo in footer */
-.brand-masterPlate {
-  display: block;
-  background: url("http://www.bu.edu/cdn/images/logos/masterplate112x50.png") no-repeat 0 0;
-  width: 112px;
-  height: 50px;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .brand-masterPlate {
-    background-image: url("http://www.bu.edu/cdn/images/logos/masterplate112x50-retina.png");
-    background-size: 112px 50px;
-  }
-}
-
 /* Tables
 ----------------------------------------------------------------- */
 /* 1. From normalize.css: removes most spacing between table cells. */
@@ -1732,6 +1610,128 @@ body {
   color: #ffffff;
 }
 
+/* Branding
+----------------------------------------------------------------- */
+.brand {
+  height: 100px;
+  padding: 0 0 0 20px;
+  overflow: hidden;
+  font-family: "Whitney SSm A", "Whitney SSm B";
+  font-size: 18px;
+  line-height: 1.3;
+}
+.lt-ie9 .brand {
+  display: table;
+}
+.lt-ie9 .brand > * {
+  display: table-cell;
+  top: auto;
+  vertical-align: middle;
+}
+.brand > * {
+  display: block;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.brand [class*="brand-"] {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: block;
+  float: left;
+  font-weight: 400;
+  text-decoration: none;
+  color: #000000;
+}
+.lt-ie9 .brand [class*="brand-"] {
+  top: auto;
+}
+.brand [class*="brand-"]:visited {
+  color: #000000;
+}
+
+.brand a strong {
+  font-weight: 600;
+}
+
+.brand .siteDescription {
+  display: none;
+}
+@media (min-width: 992px) {
+  .brand .siteDescription {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    display: block;
+    color: #9f9f9f;
+    font-size: 16px;
+    font-family: "TiemposText", Georgia, serif;
+  }
+  .lt-ie9 .brand .siteDescription {
+    top: auto;
+  }
+}
+
+/* Sub-brand signature */
+.brand-signature {
+  background: url("http://www.bu.edu/cdn/images/logos/subbrand49x35.png") no-repeat 0 49%;
+  padding: 6px 30px 6px 56px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .brand-signature {
+    background-image: url("http://www.bu.edu/cdn/images/logos/subbrand49x35-retina.png");
+    background-size: 49px 35px;
+  }
+}
+
+.brand-signature strong {
+  display: none;
+}
+
+/* Logotype & master plate */
+/* Sponsored branding (sometimes called non-entity, but people don't like that) */
+.brand-non-entity {
+  font-size: 14px;
+}
+
+.brand-non-entity .siteName,
+.brand-unbranded .siteName {
+  display: block;
+  color: #c00;
+  font-family: "Whitney SSm A", "Whitney SSm B";
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.brand-unbranded .siteName {
+  font-family: "Benton", Helvetica, sans-serif;
+}
+
+/* Master logo in footer */
+.brand-masterPlate {
+  display: block;
+  background: url("http://www.bu.edu/cdn/images/logos/masterplate112x50.png") no-repeat 0 0;
+  width: 112px;
+  height: 50px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .brand-masterPlate {
+    background-image: url("http://www.bu.edu/cdn/images/logos/masterplate112x50-retina.png");
+    background-size: 112px 50px;
+  }
+}
+
 /* common
 ----------------------------------------------------------------- */
 nav {
@@ -1868,12 +1868,7 @@ nav {
   width: 60px;
   height: 60px;
   cursor: pointer;
-  background: transparent url("images/search.png") no-repeat 15px 13px;
-}
-@media (min-width: 768px) {
-  .searchToggle {
-    margin-top: 5px;
-  }
+  background: transparent url("images/search.png") no-repeat 15px 14px;
 }
 
 /* when nav or search are opened */
@@ -1911,7 +1906,6 @@ nav {
 .primaryNav {
   display: none;
   margin: 40px 10px 20px 10px;
-  border-bottom: 1px solid #333333;
 }
 @media (min-width: 768px) {
   .primaryNav {
@@ -1946,7 +1940,7 @@ nav {
 @media (min-width: 768px) {
   .primaryNav a {
     border: none;
-    line-height: 70px;
+    line-height: 60px;
     padding: 0 10px;
   }
 }
@@ -2128,7 +2122,7 @@ nav {
 @media (min-width: 768px) {
   .l-sideNav .brand .searchToggle {
     display: block;
-    background-position: -45px 15px;
+    background-position: -45px 14px;
     margin: 0;
     position: absolute;
     right: 10px;
@@ -2190,7 +2184,7 @@ nav {
 
 .l-noNav .brand .searchToggle {
   display: block;
-  background-position: -45px 15px;
+  background-position: -45px 14px;
   margin: 0;
   position: absolute;
   right: 10px;
@@ -2224,7 +2218,7 @@ nav {
 }
 
 /* message */
-.message, .single .meta {
+.message, .single article[role=main] .meta, .singleEvent .dateSummary {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -2534,7 +2528,7 @@ div.aligncenter img {
 }
 
 .widgetTitle {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.3;
   font-family: "Benton", Helvetica, sans-serif;
   color: #000000;
@@ -2577,13 +2571,13 @@ div.aligncenter img {
 }
 
 .widget-bu-posts .headline {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.4;
   margin: 0;
 }
 
 .widget-bu-posts .excerpt {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.4;
   margin: 4px 0 0;
 }
@@ -2596,12 +2590,12 @@ div.aligncenter img {
 }
 
 .widget-bu-posts .published {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .widget-bu-posts .meta {
-  font-size: 14px;
-  margin: 5px 0 0;
+  font-size: 12px;
+  margin: 0;
   color: #aaaaaa;
 }
 
@@ -2631,7 +2625,7 @@ div.aligncenter img {
 #contentnav li a {
   display: block;
   padding: 10px 0;
-  font-size: 18px;
+  font-size: 16px;
   color: #0f69d7;
 }
 
@@ -2660,7 +2654,7 @@ div.aligncenter img {
 }
 
 #contentnav li li a {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /* calendar */
@@ -2700,7 +2694,7 @@ div.aligncenter img {
 /* calendar: full-date */
 .widget-bu-calendar .full-date .date {
   display: block;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .widget-bu-calendar .full-date li {
@@ -2746,7 +2740,7 @@ div.aligncenter img {
 
 .widget-bu-calendar .graphic .month {
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.3;
   color: #000000;
 }
@@ -2831,7 +2825,7 @@ div.aligncenter img {
   display: none;
 }
 
-.single .meta {
+.single article[role=main] .meta {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -2891,6 +2885,189 @@ div.aligncenter img {
 .event-list .event-link a:hover,
 .event-list .event-link a:focus {
   color: #0f69d7;
+}
+
+/* Calendar Sidebar */
+.monthCalendar {
+  width: 100%;
+}
+
+.monthCalendar caption {
+  font-style: normal;
+  font-family: "Benton", Helvetica, sans-serif;
+  font-size: 18px;
+  color: #7a7a7a;
+}
+
+.monthCalendar th,
+.monthCalendar td {
+  font-family: "Benton", Helvetica, sans-serif;
+  width: 14.285714285%;
+  text-align: center;
+  padding: 4px;
+}
+
+.monthCalendar th {
+  background: #eeeeee;
+  color: #000000;
+}
+
+.monthCalendar td a {
+  color: #0f69d7;
+}
+
+.monthCalendar td a:hover,
+.monthCalendar td a:focus {
+  color: #0f69d7;
+}
+
+.monthCalendar .out {
+  background: #f5f5f5;
+}
+
+.monthCalendar .out a {
+  color: #9f9f9f;
+  text-decoration: none;
+}
+
+.monthCalendar .today {
+  background: #eeeeee;
+}
+
+.monthCalendar .today a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.calendar-topics ul {
+  padding-left: 20px;
+}
+
+/* Calendar Single */
+.singleEvent .label {
+  font-family: "Benton", Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.singleEvent .dateSummary {
+  margin: 0 0 20px 0;
+}
+@media (min-width: 768px) {
+  .singleEvent .dateSummary {
+    float: right;
+    width: 33.33333333333333%;
+    margin: 0 0 20px 20px;
+  }
+}
+
+.singleEvent .dateSummary ul {
+  margin: 0;
+  padding: 0;
+}
+
+.singleEvent .dateSummary li {
+  list-style: none;
+  margin-top: 10px;
+}
+.singleEvent .dateSummary li:first-child {
+  margin-top: 0;
+}
+
+.singleEvent .dateSummary .label {
+  display: block;
+}
+
+.singleEvent .dateSummary li em {
+  display: none;
+}
+
+.singleEvent .dateSummary .time {
+  display: block;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.singleEvent .description {
+  margin: 0 0 25px 0;
+}
+
+/* Collapsible divs */
+.bu_collapsible {
+  padding-right: 30px;
+  position: relative;
+}
+
+.bu_collapsible:after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -4px;
+  width: 0;
+  height: 0;
+  content: "";
+  border: 8px solid transparent;
+  border-top-color: #cccccc;
+}
+
+.bu_collapsible_open .bu_collapsible:after {
+  border-top-color: transparent;
+  border-bottom-color: #cccccc;
+  margin-top: -12px;
+}
+
+.bu_collapsible:hover:after,
+.bu_collapsible:focus:after {
+  border-top-color: #0f69d7;
+}
+
+.bu_collapsible_open .bu_collapsible:hover:after,
+.bu_collapsible_open .bu_collapsible:focus:after {
+  border-top-color: transparent;
+  border-bottom-color: #0f69d7;
+}
+
+/* Profiles */
+.profile-listing ul {
+  padding: 0;
+}
+
+.profile-listing li {
+  list-style: none;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.profile-listing .profile-name {
+  color: #0f69d7;
+  font-family: "Benton", Helvetica, sans-serif;
+}
+
+.profile-listing .profile-title {
+  color: #555555;
+  font-family: "TiemposText", Georgia, serif;
+  display: block;
+}
+
+.profile-listing .basic {
+  border-top: 1px solid #cccccc;
+}
+
+.profile-listing .basic li {
+  border-bottom: 1px solid #cccccc;
+  min-height: 36px;
+  padding: 25px 51px 25px 0;
+  margin-bottom: 0;
+}
+
+.profile-listing .basic img {
+  position: absolute;
+  right: 0;
+}
+
+.profile-listing .basic li p {
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

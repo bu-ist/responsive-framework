@@ -14,8 +14,8 @@
 						<?php if ( function_exists( 'bu_thumbnail' ) ): $thumb_args = array( 'maxwidth' => 36, 'maxheight' => 36 ); ?>
 							<?php bu_thumbnail( '', '', $thumb_args ); ?>
 						<?php endif; ?>
-						<span class="profile-name"><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></span>
-						<?php bu_profile_detail( 'title', array( 'before' => '<span class="profile-title">', 'after' => '</span>', 'format' => 'multi-line' ) ); ?>
+						<p class="profile-name"><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></p>
+						<?php bu_profile_detail( 'title', array( 'before' => '<p class="profile-title">', 'after' => '</p>', 'format' => 'multi-line' ) ); ?>
 					</a>
 				</li>
 			<?php endwhile; ?>
