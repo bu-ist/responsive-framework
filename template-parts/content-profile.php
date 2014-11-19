@@ -15,8 +15,6 @@ if ( function_exists( 'bu_thumbnail' ) ) {
 
 <article role="main" <?php post_class(); ?>>
 
-	<?php responsive_content_banner( 'contentWidth' ); ?>
-
 	<h1><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h1>
 
 	<?php if ( $profile_thumb ) : ?>
