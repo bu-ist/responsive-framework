@@ -49,6 +49,10 @@ function responsive_setup() {
 	// Add support for the custom post type version of profile plugin.
 	add_theme_support( 'bu-profiles-post_type' );
 
+	// Default flexi multi-line style doesn't need the extra <p> tags
+    remove_filter('bu_profile_detail_multi_line', 'wpautop');
+    add_filter('bu_profile_detail_multi_line', 'nl2br');
+
 	// By default, comments are disabled for BU sites.
 	// Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
 	// @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
