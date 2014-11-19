@@ -63,8 +63,8 @@ function responsive_setup() {
 
 	// Custom menu locations.
 	register_nav_menus( array(
-			'primary' => 'Primary Menu',
 			'utility' => 'Utility Navigation',
+			'social'  => 'Social Links',
 		) );
 
 	// Content banner locations.
