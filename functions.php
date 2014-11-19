@@ -159,20 +159,18 @@ add_action( 'widgets_init', 'responsive_sidebars' );
 
 /**
  * Enqueue front-end scripts & styles.
- *
- * TODO: We are loading both the ie.css and style.css for IE <= 8. Fix.
  */
-function responsive_scripts() {
+function responsive_enqueue_scripts() {
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-	// Main stylesheets (style.css, ie.css) will load from child theme directory.
-	wp_enqueue_style( 'responsi-fonts', '//cloud.typography.com/6127692/660644/css/fonts.css', array(), null );
+	// Branding fonts
+	wp_enqueue_style( 'responsive-branding-fonts', '//cloud.typography.com/6127692/660644/css/fonts.css', array(), null );
 
 	// Main script file (script.js) will load from child theme directory.
-	wp_enqueue_script( 'responsi', get_stylesheet_directory_uri() . "/js/script$postfix.js", array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 
 	// Vendor scripts will load from parent theme directory.
-	wp_enqueue_script( 'responsi-modernizer', get_template_directory_uri() . "/js/vendor/modernizer$postfix.js", array(), '2.8.3' );
+	wp_enqueue_script( 'responsive-modernizer', get_template_directory_uri() . "/js/vendor/modernizer$postfix.js", array(), '2.8.3' );
 
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
 	if ( is_singular() && responsive_has_comment_support() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -180,7 +178,7 @@ function responsive_scripts() {
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'responsive_scripts' );
+add_action( 'wp_enqueue_scripts', 'responsive_enqueue_scripts' );
 
 /**
  * Print main theme stylesheet with IE fallback.
