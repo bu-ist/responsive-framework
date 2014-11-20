@@ -2,7 +2,7 @@
 
 			<?php get_sidebar( 'bottom' ); ?>
 
-			<footer class="siteFooter" role="contentinfo">
+			<footer class="siteFooter has-branding" role="contentinfo">
 
 			<!--
 
@@ -21,14 +21,15 @@
 			2. Using custom menus for both siteFooter-links and siteFooter-social, allow ability to show/hide menu title in <h3>. 
 
 			-->
-			
+
+				<div class="siteFooter-brand">
+					<a href="#" class="brand-masterPlate">Boston University</a>
+				</div>
+				
 				<div class="siteFooter-content">
 
-					<div class="siteFooter-brand">
-						<a href="#" class="brand-masterPlate">Boston University</a>
-					</div>
-
 					<div class="siteFooter-info">
+						<h1>Related Sites</h1>
 						<p>This is some content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad minima similique aut quia placeat maxime.</p>
 					</div>
 				
@@ -54,7 +55,7 @@
 
 			<?php wp_footer(); ?>
 
-		</div><!-- .contentWrapper -->
-	</div><!-- .wrapper -->
+		</div>
+	</div>
 </body>
 </html>
