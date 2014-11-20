@@ -205,6 +205,14 @@ function responsive_customize_colors_css() {
 	$bg_position = get_option( 'burf_setting_background_position' );
 	$bg_attachment = get_option( 'burf_setting_background_attachment' );
 
+	// Escape all the things
+	$colors = array_map( 'esc_attr', $colors );
+	$bg_color = esc_attr( $bg_color );
+	$bg_image = esc_url( $bg_image );
+	$bg_repeat = esc_attr( $bg_repeat );
+	$bg_position = esc_attr( $bg_position );
+	$bg_attachment = esc_attr( $bg_attachment );
+
 	$css = <<<CSS
 /* heading colors */
 h1, h2, h3, h4, h5, h6,
@@ -283,13 +291,13 @@ function responsive_customize_fonts() {
 	if ( $font_palette ) {
 		$fonts_css = file_get_contents( get_template_directory() . "/css/$font_palette.css" );
 		if ( $fonts_css ) {
-			echo esc_html( $fonts_css );
+			echo $fonts_css . PHP_EOL;
 		}
 	}
 
 	$colors_css = responsive_customize_colors_css();
 	if ( $colors_css ) {
-		echo esc_html( $colors_css );
+		echo $colors_css . PHP_EOL;
 	}
 
 	echo '</style>';
