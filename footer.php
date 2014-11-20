@@ -3,28 +3,53 @@
 			<?php get_sidebar( 'bottom' ); ?>
 
 			<footer class="siteFooter" role="contentinfo">
-				<a href="#top" title="Jump back to top">&#8593;</a>
 
-			<?php if ( function_exists( 'bu_footer_content' ) ) {
-				bu_footer_content();
-			}
+			<!--
 
-			$footer_contact = get_option( 'burf_setting_footer_contact' );
-			$footer_social_fb = get_option( 'burf_setting_footer_social_fb' );
-			$footer_social_tw = get_option( 'burf_setting_footer_social_tw' );
-			$footer_social_ig = get_option( 'burf_setting_footer_social_ig' );
-			$footer_social_yt = get_option( 'burf_setting_footer_social_yt' );
-			$footer_social_li = get_option( 'burf_setting_footer_social_li' );
+			1. Add stateful classes to .siteFooter-wrapper to change column widths:
+				
+				.has-branding          ==> has master plate. This one can be inserted separately
 
-			if ( $footer_contact ) { echo $footer_contact; }
+				.has-info
+				.has-links 
+				.has-social
+				.has-info-links-social
+				.has-info-links
+				.has-info-social
+				.has-links-social
 
-			if ( $footer_social_fb ) { echo '<a class="social-fb" href="' . $footer_social_fb . '">facebook</a>'; }
-			if ( $footer_social_tw ) { echo '<a class="social-tw" href="' . $footer_social_fb . '">twitter</a>'; }
-			if ( $footer_social_ig ) { echo '<a class="social-ig" href="' . $footer_social_fb . '">instagram</a>'; }
-			if ( $footer_social_yt ) { echo '<a class="social-yt" href="' . $footer_social_fb . '">youtube</a>'; }
-			if ( $footer_social_li ) { echo '<a class="social-li" href="' . $footer_social_fb . '">linkedin</a>'; }
+			2. Using custom menus for both siteFooter-links and siteFooter-social, allow ability to show/hide menu title in <h3>. 
 
-			?>
+			-->
+			
+				<div class="siteFooter-content">
+
+					<div class="siteFooter-brand">
+						<a href="#" class="brand-masterPlate">Boston University</a>
+					</div>
+
+					<div class="siteFooter-info">
+						<p>This is some content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad minima similique aut quia placeat maxime.</p>
+					</div>
+				
+					<nav class="siteFooter-links">
+						<h3>Related Sites</h3>
+						<ul>
+							<li><a href="#">Department of Footer Links &amp; HTML Semantics</a></li>
+							<li><a href="#">Another Relevant Website</a></li>
+						</ul>
+					</nav>
+
+					<nav class="siteFooter-social">
+						<h3>Follow Us</h3>
+						<ul>
+							<li><a href="#">Facebook</a></li>
+							<li><a href="#">Twitter</a></li>
+							<li><a href="#">Friendster</a></li>
+						</ul>
+					</nav>
+				</div>
+
 			</footer>
 
 			<?php wp_footer(); ?>
