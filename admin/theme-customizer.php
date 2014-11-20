@@ -193,72 +193,6 @@ function responsive_customize_register( $wp_customize ) {
 		'settings' => 'burf_setting_footer_contact',
 		'type'     => 'textarea',
 	) ) );
-
-	// Social Links
-	$wp_customize->add_setting( 'burf_setting_footer_social_fb', array(
-		'default'    => '',
-		'capability' => 'edit_theme_options',
-		'type'       => 'option',
-	) );
-
-	$wp_customize->add_setting( 'burf_setting_footer_social_tw', array(
-		'default'    => '',
-		'capability' => 'edit_theme_options',
-		'type'       => 'option',
-	) );
-
-	$wp_customize->add_setting( 'burf_setting_footer_social_ig', array(
-		'default'    => '',
-		'capability' => 'edit_theme_options',
-		'type'       => 'option',
-	) );
-
-	$wp_customize->add_setting( 'burf_setting_footer_social_yt', array(
-		'default'    => '',
-		'capability' => 'edit_theme_options',
-		'type'       => 'option',
-	) );
-
-	$wp_customize->add_setting( 'burf_setting_footer_social_li', array(
-		'default'    => '',
-		'capability' => 'edit_theme_options',
-		'type'       => 'option',
-	) );
-
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'burf_section_footer_social_links_fb', array(
-		'label'    => 'Facebook Link',
-		'section'  => 'burf_section_footer',
-		'settings' => 'burf_setting_footer_social_fb',
-		'type'     => 'text',
-	) ) );
-
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'burf_section_footer_social_links_tw', array(
-		'label'    => 'Twitter Link',
-		'section'  => 'burf_section_footer',
-		'settings' => 'burf_setting_footer_social_tw',
-		'type'     => 'text',
-	) ) );
-
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'burf_section_footer_social_links_ig', array(
-		'label'    => 'Instagram Link',
-		'section'  => 'burf_section_footer',
-		'settings' => 'burf_setting_footer_social_ig',
-		'type'     => 'text',
-	) ) );
-
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'burf_section_footer_social_links_yt', array(
-		'label'    => 'YouTube Link',
-		'section'  => 'burf_section_footer',
-		'settings' => 'burf_setting_footer_social_yt',
-		'type'     => 'text',
-	) ) );
-
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'burf_section_footer_social_links_li', array(
-		'label'    => 'LinkedIn Link',
-		'section'  => 'burf_section_footer',
-		'settings' => 'burf_setting_footer_social_li',
-		'type'     => 'text',
-	) ) );
 }
 
 add_action( 'customize_register', 'responsive_customize_register' );
@@ -338,28 +272,27 @@ CSS;
 
 
 /**
- * Loads font palette stylesheet as configured via Customizer.
+ * Appends inline styles based on Customizer configuration.
  *
  * @todo  performance testing
  */
 function responsive_customize_fonts() {
+	echo '<style type="text/css">';
+
 	$font_palette = responsive_get_font_palette();
-
 	if ( $font_palette ) {
-		// Option 1 - External <link>
-		// wp_enqueue_style( 'responsive-font-options', get_template_directory_uri() . "/css/$font.css", array( 'responsi' ), RESPONSIVE_FRAMEWORK_VERSION );
-
-		// Option 2 - Render inline
 		$fonts_css = file_get_contents( get_template_directory() . "/css/$font_palette.css" );
 		if ( $fonts_css ) {
-			wp_add_inline_style( 'responsi', $fonts_css );
+			echo esc_html( $fonts_css );
 		}
 	}
 
-	 $colors_css = responsive_customize_colors_css();
-	 if ( $colors_css ) {
-	 	wp_add_inline_style( 'responsi', $colors_css );
-	 }
+	$colors_css = responsive_customize_colors_css();
+	if ( $colors_css ) {
+		echo esc_html( $colors_css );
+	}
+
+	echo '</style>';
 }
 
-//add_action( 'wp_enqueue_scripts', 'responsive_customize_fonts' );
+// add_action( 'wp_head', 'responsive_customize_fonts' );

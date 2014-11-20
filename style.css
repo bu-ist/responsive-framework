@@ -2218,7 +2218,7 @@ nav {
 }
 
 /* message */
-.message, .single .meta {
+.message, .single article[role=main] .meta, .singleEvent .dateSummary {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -2825,7 +2825,7 @@ div.aligncenter img {
   display: none;
 }
 
-.single .meta {
+.single article[role=main] .meta {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -2885,6 +2885,189 @@ div.aligncenter img {
 .event-list .event-link a:hover,
 .event-list .event-link a:focus {
   color: #0f69d7;
+}
+
+/* Calendar Sidebar */
+.monthCalendar {
+  width: 100%;
+}
+
+.monthCalendar caption {
+  font-style: normal;
+  font-family: "Benton", Helvetica, sans-serif;
+  font-size: 18px;
+  color: #7a7a7a;
+}
+
+.monthCalendar th,
+.monthCalendar td {
+  font-family: "Benton", Helvetica, sans-serif;
+  width: 14.285714285%;
+  text-align: center;
+  padding: 4px;
+}
+
+.monthCalendar th {
+  background: #eeeeee;
+  color: #000000;
+}
+
+.monthCalendar td a {
+  color: #0f69d7;
+}
+
+.monthCalendar td a:hover,
+.monthCalendar td a:focus {
+  color: #0f69d7;
+}
+
+.monthCalendar .out {
+  background: #f5f5f5;
+}
+
+.monthCalendar .out a {
+  color: #9f9f9f;
+  text-decoration: none;
+}
+
+.monthCalendar .today {
+  background: #eeeeee;
+}
+
+.monthCalendar .today a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.calendar-topics ul {
+  padding-left: 20px;
+}
+
+/* Calendar Single */
+.singleEvent .label {
+  font-family: "Benton", Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.singleEvent .dateSummary {
+  margin: 0 0 20px 0;
+}
+@media (min-width: 768px) {
+  .singleEvent .dateSummary {
+    float: right;
+    width: 33.33333333333333%;
+    margin: 0 0 20px 20px;
+  }
+}
+
+.singleEvent .dateSummary ul {
+  margin: 0;
+  padding: 0;
+}
+
+.singleEvent .dateSummary li {
+  list-style: none;
+  margin-top: 10px;
+}
+.singleEvent .dateSummary li:first-child {
+  margin-top: 0;
+}
+
+.singleEvent .dateSummary .label {
+  display: block;
+}
+
+.singleEvent .dateSummary li em {
+  display: none;
+}
+
+.singleEvent .dateSummary .time {
+  display: block;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.singleEvent .description {
+  margin: 0 0 25px 0;
+}
+
+/* Collapsible divs */
+.bu_collapsible {
+  padding-right: 30px;
+  position: relative;
+}
+
+.bu_collapsible:after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -4px;
+  width: 0;
+  height: 0;
+  content: "";
+  border: 8px solid transparent;
+  border-top-color: #cccccc;
+}
+
+.bu_collapsible_open .bu_collapsible:after {
+  border-top-color: transparent;
+  border-bottom-color: #cccccc;
+  margin-top: -12px;
+}
+
+.bu_collapsible:hover:after,
+.bu_collapsible:focus:after {
+  border-top-color: #0f69d7;
+}
+
+.bu_collapsible_open .bu_collapsible:hover:after,
+.bu_collapsible_open .bu_collapsible:focus:after {
+  border-top-color: transparent;
+  border-bottom-color: #0f69d7;
+}
+
+/* Profiles */
+.profile-listing ul {
+  padding: 0;
+}
+
+.profile-listing li {
+  list-style: none;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.profile-listing .profile-name {
+  color: #0f69d7;
+  font-family: "Benton", Helvetica, sans-serif;
+}
+
+.profile-listing .profile-title {
+  color: #555555;
+  font-family: "TiemposText", Georgia, serif;
+  display: block;
+}
+
+.profile-listing .basic {
+  border-top: 1px solid #cccccc;
+}
+
+.profile-listing .basic li {
+  border-bottom: 1px solid #cccccc;
+  min-height: 36px;
+  padding: 25px 51px 25px 0;
+  margin-bottom: 0;
+}
+
+.profile-listing .basic img {
+  position: absolute;
+  right: 0;
+}
+
+.profile-listing .basic li p {
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
