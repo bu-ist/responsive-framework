@@ -187,117 +187,117 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 				</div>
 			<?php } ?>
 		<?php } else { ?>
-			<h1><?php echo $event['summary'];?></h1>
-			<div class="eventDetail">
-				<div class="description"><?php echo html_entity_decode( $event['description'] ); ?></div>
-				<dl class="tabular">
-					<?php if ( $event['start_time'] != '' ) { ?>
-						<dt>Starts:</dt>
-						<dd><?php printf( '%s on %s', date( 'g:i a', $event['starts'] ), date( 'l, F j, Y', $event['starts'] ) ); ?></dd>
-						<?php if ( $event['ends'] > 0 ) { ?>
-							<dt>Ends:</dt>
-							<dd><?php printf( '%s on %s', date( 'g:i a', $event['ends'] ), date( 'l, F j, Y', $event['ends'] ) ); ?></dd>
-						<?php }
-	} else {
-		printf( '<dt class="allday">All Day</dt><dd>on %s</dd>', date( 'l, F j, Y', $event['starts'] - intval( date( 'Z' ) ) ) );
-	}
-?>
+			<div class="singleEvent">
+				<div class="eventSummary">
+					<h1><?php echo $event['summary'];?></h1>
+					<div class="dateSummary">
+						<ul>
+							<?php if ( $event['start_time'] != '' ) { ?>
+							<li><span class="label">Starts: </span><?php printf( '<span class="time">%s</span><em> on </em><span class="date">%s</span>', date( 'g:i a', $event['starts'] ), date( 'l, F j, Y', $event['starts'] ) ); ?></li>
+							<?php if ( $event['ends'] > 0 ) { ?>
+								<li><span class="label">Ends: </span><?php printf( '<span class="time">%s</span><em> on </em><span class="date">%s</span>', date( 'g:i a', $event['ends'] ), date( 'l, F j, Y', $event['ends'] ) ); ?></dd>
+								<?php }
+								} else {
+									printf( '<li class="allday"><span class="label">All Day</span><em> on </em><span class="date">%s</span></li>', date( 'l, F j, Y', $event['starts'] - intval( date( 'Z' ) ) ) );
+								}
+							?>
+						</ul>
+					</div>
+					<div class="description"><?php echo html_entity_decode( $event['description'] ); ?></div>
+				</div>
+				<div class="additionalDetails">
+					<dl class="tabular">
+						<?php if ( $event['speakers'] ) { ?>
+							<dt class="label">Speakers:</dt>
+							<dd><?php echo $event['speakers']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['audience'] ) { ?>
+							<dt class="label">Audience:</dt>
+							<dd><?php echo $event['audience']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['departments'] ) { ?>
+							<dt class="label">Departments:</dt>
+							<dd><?php echo $event['departments']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['location'] ) { ?>
+							<dt class="label">Location:</dt>
+							<dd><?php echo $event['location']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['locationBuilding'] ) { ?>
+							<dt class="label">Address:</dt>
+							<dd><?php echo $event['locationBuilding']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['locationRoom'] ) { ?>
+							<dt class="label">Room:</dt>
+							<dd><?php echo $event['locationRoom']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['fees'] ) { ?>
+							<dt class="label">Fees:</dt>
+							<dd><?php echo $event['fees']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['fee'] ) { ?>
+							<dt class="label">Fees:</dt>
+							<dd><?php echo $event['fee']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['feeGeneral'] ) { ?>
+							<dt class="label">Fee (General):</dt>
+							<dd><?php echo $event['feeGeneral']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['feePublic'] ) { ?>
+							<dt class="label">Fee (Public):</dt>
+							<dd><?php echo $event['feePublic']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['feeStaff'] ) { ?>
+							<dt class="label">Fee (Staff):</dt>
+							<dd><?php echo $event['feeStaff']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['feeStudent'] ) { ?>
+							<dt class="label">Fee (Students):</dt>
+							<dd><?php echo $event['feeStudent']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['feeBUStudent'] ) { ?>
+							<dt class="label">Fee (BU Students):</dt>
+							<dd><?php echo $event['feeBUStudent']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['feeSenior'] ) { ?>
+							<dt class="label">Fee (Seniors):</dt>
+							<dd><?php echo $event['feeSenior']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['deadline'] ) { ?>
+							<dt class="label">Deadline:</dt>
+							<dd><?php echo $event['deadline']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['url'] ) {
+							$urlText = $event['url'];
+							if ( $event['urlText'] ) {
+								$urlText = $event['urlText'];
+							}
+						?>
+							<dt class="label">Registration:</dt>
+							<dd><?php printf( '<a href="%s">%s</a>', $event['url'], $urlText ); ?></dd>
+						<?php } ?>
+						<?php if ( $event['contactOrganization'] ) { ?>
+							<dt class="label">Contact Organization:</dt>
+							<dd><?php echo $event['contactOrganization']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['contact_name'] ) { ?>
+							<dt class="label">Contact Name:</dt>
+							<dd><?php echo $event['contact_name']; ?></dd>
+						<?php } ?>
+						<?php if ( $event['contact_email'] ) { ?>
+							<dt class="label">Contact Email:</dt>
+							<dd><?php printf( '<a href="mailto:%s">%s</a>', $event['contact_email'], $event['contact_email'] ); ?></dd>
+						<?php } ?>
+						<?php if ( $event['phone'] ) { ?>
+							<dt class="label">Contact Phone:</dt>
+							<dd><?php echo $event['phone']; ?></dd>
+						<?php } ?>
+	
+					</dl>
 
-					<?php if ( $event['speakers'] ) { ?>
-						<dt>Speakers:</dt>
-						<dd><?php echo $event['speakers']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['audience'] ) { ?>
-						<dt>Audience:</dt>
-						<dd><?php echo $event['audience']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['departments'] ) { ?>
-						<dt>Departments:</dt>
-						<dd><?php echo $event['departments']; ?></dd>
-					<?php } ?>
+				</div><!-- /.eventDetail -->
 
-
-					<?php if ( $event['location'] ) { ?>
-						<dt>Location:</dt>
-						<dd><?php echo $event['location']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['locationBuilding'] ) { ?>
-						<dt>Address:</dt>
-						<dd><?php echo $event['locationBuilding']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['locationRoom'] ) { ?>
-						<dt>Room:</dt>
-						<dd><?php echo $event['locationRoom']; ?></dd>
-					<?php } ?>
-
-					<?php if ( $event['fees'] ) { ?>
-						<dt>Fees:</dt>
-						<dd><?php echo $event['fees']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['fee'] ) { ?>
-						<dt>Fees:</dt>
-						<dd><?php echo $event['fee']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['feeGeneral'] ) { ?>
-						<dt>Fee (General):</dt>
-						<dd><?php echo $event['feeGeneral']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['feePublic'] ) { ?>
-						<dt>Fee (Public):</dt>
-						<dd><?php echo $event['feePublic']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['feeStaff'] ) { ?>
-						<dt>Fee (Staff):</dt>
-						<dd><?php echo $event['feeStaff']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['feeStudent'] ) { ?>
-						<dt>Fee (Students):</dt>
-						<dd><?php echo $event['feeStudent']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['feeBUStudent'] ) { ?>
-						<dt>Fee (BU Students):</dt>
-						<dd><?php echo $event['feeBUStudent']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['feeSenior'] ) { ?>
-						<dt>Fee (Seniors):</dt>
-						<dd><?php echo $event['feeSenior']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['deadline'] ) { ?>
-						<dt>Deadline:</dt>
-						<dd><?php echo $event['deadline']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['url'] ) {
-		$urlText = $event['url'];
-		if ( $event['urlText'] ) {
-			$urlText = $event['urlText'];
-		}
-
-?>
-
-						<dt>Registration:</dt>
-						<dd><?php printf( '<a href="%s">%s</a>', $event['url'], $urlText ); ?></dd>
-					<?php } ?>
-
-					<?php if ( $event['contactOrganization'] ) { ?>
-						<dt>Contact Organization:</dt>
-						<dd><?php echo $event['contactOrganization']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['contact_name'] ) { ?>
-						<dt>Contact Name:</dt>
-						<dd><?php echo $event['contact_name']; ?></dd>
-					<?php } ?>
-					<?php if ( $event['contact_email'] ) { ?>
-						<dt>Contact Email:</dt>
-						<dd><?php printf( '<a href="mailto:%s">%s</a>', $event['contact_email'], $event['contact_email'] ); ?></dd>
-					<?php } ?>
-					<?php if ( $event['phone'] ) { ?>
-						<dt>Contact Phone:</dt>
-						<dd><?php echo $event['phone']; ?></dd>
-					<?php } ?>
-
-				</dl><!-- /.eventDetail -->
-
-			</div>
+			</div><!-- /.singleEvent -->
 		<?php } ?>
 </article>
 
