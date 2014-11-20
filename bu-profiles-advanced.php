@@ -12,10 +12,10 @@
 				<li<?php if ( bu_profile_detail( 'title', array( 'echo' => false ) ) ): ?> class="has-title"<?php endif; ?>>
 					<a href="<?php the_permalink(); ?>">
 						<?php if ( function_exists( 'bu_thumbnail' ) ): $thumb_args = array( 'maxwidth' => 150, 'maxheight' => 150 ); ?>
-							<?php bu_thumbnail( '', '', $thumb_args ); ?>
+							<?php bu_thumbnail( '<figure>', '</figure>', $thumb_args ); ?>
 						<?php endif; ?>
-						<span class="profile-name"><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></span>
-						<?php bu_profile_detail( 'title', array( 'before' => '<span class="profile-title">', 'after' => '</span>', 'format' => 'multi-line' ) ); ?>
+						<p class="profile-name"><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></p>
+						<?php bu_profile_detail( 'title', array( 'before' => '<p class="profile-title">', 'after' => '</p>', 'format' => 'multi-line' ) ); ?>
 					</a>
 				</li>
 			<?php endwhile; ?>
