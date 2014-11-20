@@ -42,9 +42,10 @@ function bu_get_branding() {
  */
 function bu_branding_types() {
 	return array(
-		'logotype'   => 'Logotype',
-		'signature'  => 'Signature',
-		'non-entity' => 'Non-Entity',
+		'logotype'    => 'Logotype',
+		'signature'   => 'Signature',
+		'non-entity'  => 'Non-Entity',
+		'unbranded'   => 'Unbranded',
 		);
 }
 
@@ -82,21 +83,30 @@ function bu_branding_parent_entity() {
 function responsive_branding() {
 	$branding = bu_get_branding();
 	$name = $branding['parent'] ? $branding['parent'] : get_bloginfo( 'name' );
-	$subname = $branding['parent'] ? '<br><span>' . get_bloginfo( 'name' ) . '</span>' : '';
+	$subname = $branding['parent'] ? get_bloginfo( 'name' ) : '';
 
 	// Container classes
-	$classes = array();
-	$classes[] = 'brand-' . $branding['type'];
-	if ( $branding['parent'] ) {
-		$classes[] = 'brand-has-parent';
-	}
-	$classes = implode( ' ', $classes );
+	$class_attr = 'brand-' . $branding['type'];
 
 	?>
-	<a class="<?php esc_attr_e( $classes ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( $name ); ?>" rel="home">
-		<strong>Boston University</strong> 
+	<a class="<?php esc_attr_e( $class_attr ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( $name ); ?>" rel="home">
+		<?php if ( 'unbranded' !== $branding['type'] ) : ?>
+		<strong>Boston University</strong>
 		<?php esc_html_e( $name ); ?>
 		<span class="siteName"><?php echo $subname; ?></span>
+		<?php else : ?>
+		<span class="siteName"><?php echo $name; ?></span>
+		<?php endif; ?>
 	</a>
 	<?php
+}
+
+/**
+ * Display the BU masterplate if branding configuration requires it.
+ */
+function responsive_branding_masterplate() {
+	$branding = bu_get_branding();
+	if ( ! in_array( $branding['type'], array( 'signature', 'unbranded' ) ) ) {
+		echo '<a href="#" class="brand-masterPlate">Boston University</a>';
+	}
 }

@@ -34,12 +34,12 @@ function responsive_calendar_sidebar( $args = array() ) {
 	if ( is_page_template( $args['page_template'] ) && ! empty( $args['calendar_uri'] ) ) { ?>
 
 		<div class="widget">
-			<h2 class="widgettitle">Event Calendar</h2>
+			<h2 class="widgetTitle">Event Calendar</h2>
 			<?php echo $buCalendar->buildMonthCalendar( $yyyymmdd ); ?>
 		</div>
 		<?php if ( $args['show_topics'] ): ?>
 		<div id="calendar-topics" class="widget">
-			<h4>Event Topics</h4>
+			<h2 class="widgetTitle">Event Topics</h2>
 			<p><a class="content_nav_header" href="<?php echo $all_topics_url; ?>">All Topics</a></p>
 		<?php  echo $buCalendar->buildTopicTree( $topics ); ?>
 		</div>
@@ -103,3 +103,29 @@ function responsive_calendar_format_callback( $events, $base_url, $calendar_id =
 }
 
 add_filter( 'bu_calendar_widget_formats', 'responsive_calendar_widget_formats', 12, 1 );
+
+/**
+ * Ensure that sidebar mini-calendar view adds a 'busy' class to days with events.
+ *
+ * The mini-calendar is built in the BU Calendar plugin using the NIS_HTML_Calendar class.
+ * The calendar plugin adds this function as a callback for `NIS_HTML_Calendar::onDate`,
+ * but it requires themes to define the function.
+ *
+ * This was done to allow themes to add custom markup inside the day <td> element.
+ * We don't add any markup (hence the empty space below), but if we return no content
+ * it won't add the `busy` class to the <td>.
+ *
+ * Yes, this is insane, and should be fixed when there's time.
+ */
+function onYearDay( $ts ) {
+	global $buCalendar, $events;
+
+	$day = date( 'Y-m-d', $ts );
+	$contents = null;
+
+	if ( $buCalendar->hasEventsOnDay( $day, $events ) ) {
+		$contents = ' ';
+	}
+
+	return $contents;
+}
