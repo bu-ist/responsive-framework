@@ -31,13 +31,12 @@
 						<p>This is some content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad minima similique aut quia placeat maxime.</p>
 					</div>
 				
+				<?php if ( responsive_has_footer_links() ) : ?>
 					<nav class="siteFooter-links">
 						<h3>Related Sites</h3>
-						<ul>
-							<li><a href="#">Department of Footer Links &amp; HTML Semantics</a></li>
-							<li><a href="#">Another Relevant Website</a></li>
-						</ul>
+						<?php bu_footer_content(); ?>
 					</nav>
+				<?php endif; ?>
 
 				<?php if ( has_nav_menu( 'social' ) ) : ?>
 					<nav class="siteFooter-social" role="navigation">
