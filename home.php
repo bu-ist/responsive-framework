@@ -5,30 +5,23 @@
 
 get_header(); ?>
 
-		<div class="posts col-md-8" >
+	<?php if ( have_posts() ) : ?>
 
-			<section class="row">
+		<h1>Latest Posts</h1>
 
-			<?php if ( have_posts() ) : ?>
-				<h1>Latest Posts</h1>
+	<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+		<?php get_template_part( 'template-parts/content' ); ?>
 
-				<?php get_template_part( 'template-parts/content' ); ?>
+	<?php endwhile; ?>
 
-			<?php endwhile; ?>
+	<?php responsive_paging_nav(); ?>
 
-			<?php responsive_paging_nav(); ?>
+	<?php else : ?>
 
-			<?php else : ?>
+		<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-			<?php endif; ?>
-
-			</section>
-
-		</div>
+	<?php endif; ?>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
