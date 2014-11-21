@@ -4,33 +4,16 @@
 
 			<footer class="siteFooter <?php responsive_extra_footer_classes(); ?>" role="contentinfo">
 
-			<!--
-
-			1. Add stateful classes to .siteFooter-wrapper to change column widths:
-				
-				.has-branding          ==> has master plate. This one can be inserted separately
-
-				.has-info
-				.has-links 
-				.has-social
-				.has-info-links-social
-				.has-info-links
-				.has-info-social
-				.has-links-social
-
-			2. Using custom menus for both siteFooter-links and siteFooter-social, allow ability to show/hide menu title in <h3>. 
-
-			-->
-
 				<?php responsive_branding_masterplate( array( 'before' => '<div class="siteFooter-brand">', 'after' => '</div>' ) ); ?>
 
 				<div class="siteFooter-content">
 
+				<?php if ( responsive_customizer_has_footer_info() ) : ?>
 					<div class="siteFooter-info">
-						<h1>Related Sites</h1>
-						<p>This is some content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad minima similique aut quia placeat maxime.</p>
+						<?php responsive_customizer_footer_info(); ?>
 					</div>
-				
+				<?php endif; ?>
+
 				<?php if ( responsive_has_footer_links() ) : ?>
 					<nav class="siteFooter-links">
 						<h3>Related Sites</h3>
