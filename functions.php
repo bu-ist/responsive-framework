@@ -145,6 +145,28 @@ function responsive_sidebars() {
 		) );
 
 	register_sidebar( array(
+			'name'          => 'Posts Content Area',
+			'id'            => 'posts',
+			'description'   => 'Add widgets here for display on posts and archives. Only the first 2 widgets will appear.',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widgetTitle">',
+			'after_title'   => '</h3>',
+		) );
+
+	if ( defined( 'BU_PROFILES_PLUGIN_ACTIVE' ) ) {
+		register_sidebar( array(
+				'name'          => 'Profiles Content Area',
+				'id'            => 'profiles',
+				'description'   => 'Add widgets here for display on profile pages and archives. Only the first 2 widgets will appear.',
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h3 class="widgetTitle">',
+				'after_title'   => '</h3>',
+			) );
+	}
+
+	register_sidebar( array(
 			'name'          => 'Footer Content Area',
 			'id'            => 'footbar',
 			'description'   => 'Add widgets here to appear in your footer.',
@@ -153,6 +175,7 @@ function responsive_sidebars() {
 			'before_title'  => '<h3 class="widgetTitle">',
 			'after_title'   => '</h3>',
 		) );
+
 }
 
 add_action( 'widgets_init', 'responsive_sidebars' );
