@@ -26,5 +26,12 @@ get_header(); ?>
 
 	<?php endif; ?>
 
-<?php get_sidebar(); ?>
+<?php
+if ( is_date() || is_author() || is_category() || is_tag() ) :
+	get_sidebar( 'posts' );
+else :
+	get_sidebar();
+endif;
+?>
+
 <?php get_footer(); ?>
