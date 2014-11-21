@@ -4,7 +4,12 @@
 
 			<footer class="siteFooter <?php responsive_extra_footer_classes(); ?>" role="contentinfo">
 
-				<?php responsive_branding_masterplate( array( 'before' => '<div class="siteFooter-brand">', 'after' => '</div>' ) ); ?>
+				<?php
+					responsive_branding_masterplate( array(
+						'before' => '<div class="siteFooter-brand">',
+						'after'  => '</div>'
+					) );
+				?>
 
 				<div class="siteFooter-content">
 
