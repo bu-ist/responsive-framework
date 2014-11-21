@@ -1,3 +1,3 @@
 	<aside class="sidebar">
-		<?php responsive_primary_sidebar(); ?>
+		<?php dynamic_sidebar( 'sidebar' ); ?>
 	</aside>
