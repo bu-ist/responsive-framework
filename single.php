@@ -13,5 +13,5 @@ get_header(); ?>
 
 	<?php endwhile; ?>
 
-<?php get_sidebar(); ?>
+<?php get_sidebar( 'posts' ); ?>
 <?php get_footer(); ?>
