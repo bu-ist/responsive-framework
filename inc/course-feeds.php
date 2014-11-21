@@ -3,11 +3,10 @@
  * BU Course Feeds plugin support functions & templates.
  */
 
-/* - - - - - - - - - - - - - - - - -
-  Course Feed Template
-  - - - - - - - - - - - - - - - - - */
-
-function bu_flexi_course_template( $template ) {
+/**
+ * Default display callback for the [bu-course-feed] shortcode.
+ */
+function responsive_course_template( $template ) {
 	$template = <<<TPL
 <div class="cf-course">
 	<h4>{{title}}</h4>
@@ -21,9 +20,12 @@ TPL;
 	return $template;
 }
 
-add_filter( 'bu_course_feeds_default_course_template', 'bu_flexi_course_template', 10, 1 );
+add_filter( 'bu_course_feeds_default_course_template', 'responsive_course_template', 10, 1 );
 
-function bu_flexi_section_template( $template ) {
+/**
+ * Default display callback for the [bu-course-feed_section] shortcode.
+ */
+function responsive_section_template( $template ) {
 	$template = <<<TPL
 <em>{{section_id}}, {{date_start}} to {{date_end}} {{year}}</em><br />
 <table>
@@ -41,7 +43,12 @@ TPL;
 	return $template;
 }
 
-function bu_flexi_schedule_template( $template ) {
+add_filter( 'bu_course_feeds_default_section_template', 'responsive_section_template', 10, 1 );
+
+/**
+ * Default display callback for the [bu-course-feed_schedule] shortcode.
+ */
+function responsive_schedule_template( $template ) {
 	$template = <<<TPL
 <tr>
 	<td>{{days}}</td>
@@ -56,4 +63,4 @@ TPL;
 	return $template;
 }
 
-add_filter( 'bu_course_feeds_default_schedule_template', 'bu_flexi_schedule_template', 10, 1 );
+add_filter( 'bu_course_feeds_default_schedule_template', 'responsive_schedule_template', 10, 1 );
