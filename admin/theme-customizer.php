@@ -1,10 +1,5 @@
 <?php
 
-// Child themes don't support Customizer.
-if ( is_child_theme() ) {
-	return;
-}
-
 require_once __DIR__ . '/customizer-controls.php';
 
 /**
@@ -23,19 +18,18 @@ add_action( 'customize_controls_enqueue_scripts', 'responsive_customizer_scripts
 function responsive_customize_register( $wp_customize ) {
 
 	// Layout
-	$wp_customize->add_section( 'burf_section_layout', array(
-		'title'    => __( 'Layout Options', 'burf' ),
-		'priority' => 30,
-	) );
-
-	$wp_customize->add_setting( 'burf_setting_layout', array(
-		'default'    => '',
-		'capability' => 'edit_theme_options',
-		'type'       => 'option',
-	) );
-
-	// Hide the layout options if the current theme is forcing a specific layout.
 	if ( ! defined( 'BU_RESPONSIVE_LAYOUT' ) ) {
+		$wp_customize->add_section( 'burf_section_layout', array(
+			'title'    => __( 'Layout Options', 'burf' ),
+			'priority' => 30,
+		) );
+
+		$wp_customize->add_setting( 'burf_setting_layout', array(
+			'default'    => '',
+			'capability' => 'edit_theme_options',
+			'type'       => 'option',
+		) );
+
 		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_section_layout', array(
 			'section'        => 'burf_section_layout',
 			'settings'       => 'burf_setting_layout',
@@ -44,135 +38,139 @@ function responsive_customize_register( $wp_customize ) {
 		) ) );
 	}
 
-	// Fonts
-	$wp_customize->add_section( 'burf_section_fonts', array(
-		'title'    => __( 'Font Options', 'burf' ),
-		'priority' => 31,
-	) );
+	// Fonts and colors are only useful for Framework
+	if ( ! is_child_theme() ) {
 
-	$wp_customize->add_setting( 'burf_setting_fonts', array(
-		'default'        => '',
-		'capability'     => 'edit_theme_options',
-		'type'           => 'option',
-	) );
+		// Fonts
+		$wp_customize->add_section( 'burf_section_fonts', array(
+			'title'    => __( 'Font Options', 'burf' ),
+			'priority' => 31,
+		) );
 
-	$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_section_fonts', array(
-		'label'    => 'Font Picker Setting',
-		'section'  => 'burf_section_fonts',
-		'settings' => 'burf_setting_fonts',
-		'type'     => 'radio',
-		'choices'  => responsive_font_options(),
-	) ) );
+		$wp_customize->add_setting( 'burf_setting_fonts', array(
+			'default'        => '',
+			'capability'     => 'edit_theme_options',
+			'type'           => 'option',
+		) );
 
-	// Colors
-	$wp_customize->add_section( 'burf_section_colors', array(
-		'title'    => __( 'Text Color Options', 'burf' ),
-		'priority' => 32,
-	) );
+		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_section_fonts', array(
+			'label'    => 'Font Picker Setting',
+			'section'  => 'burf_section_fonts',
+			'settings' => 'burf_setting_fonts',
+			'type'     => 'radio',
+			'choices'  => responsive_font_options(),
+		) ) );
 
-	$wp_customize->add_setting( 'burf_setting_colors', array(
-		'default'    => '',
-		'capability' => 'edit_theme_options',
-		'type'       => 'option',
-	) );
+		// Colors
+		$wp_customize->add_section( 'burf_section_colors', array(
+			'title'    => __( 'Text Color Options', 'burf' ),
+			'priority' => 32,
+		) );
 
-	$wp_customize->add_control( new BURF_Customize_Colors( $wp_customize, 'burf_section_colors', array(
-		'label'       => 'Color Picker Setting',
-		'section'     => 'burf_section_colors',
-		'settings'    => 'burf_setting_colors',
-		'type'        => 'radio',
-		'choices' => array(
-			'option1' => '#000000,#606060,#cc0000,#4a97a7',
-			'option2' => '#000000,#414141,#0095e2,#f59a23',
-			'option3' => '#4699d3,#000000,#e98900,#4699d3',
-			'option4' => '#a6330a,#261514,#f77300,#aaaaaa',
-			'option5' => '#cc0000,#685f5f,#cc0000,#685f5f',
-			'option6' => '#ffffff,#909090,#0095e2,#f59a23',
-		)
-	) ) );
+		$wp_customize->add_setting( 'burf_setting_colors', array(
+			'default'    => '',
+			'capability' => 'edit_theme_options',
+			'type'       => 'option',
+		) );
 
-	// Background
-	$wp_customize->add_section( 'burf_section_background', array(
-		'title'    => __( 'Background Options', 'burf' ),
-		'priority' => 33,
-	) );
+		$wp_customize->add_control( new BURF_Customize_Colors( $wp_customize, 'burf_section_colors', array(
+			'label'       => 'Color Picker Setting',
+			'section'     => 'burf_section_colors',
+			'settings'    => 'burf_setting_colors',
+			'type'        => 'radio',
+			'choices' => array(
+				'option1' => '#000000,#606060,#cc0000,#4a97a7',
+				'option2' => '#000000,#414141,#0095e2,#f59a23',
+				'option3' => '#4699d3,#000000,#e98900,#4699d3',
+				'option4' => '#a6330a,#261514,#f77300,#aaaaaa',
+				'option5' => '#cc0000,#685f5f,#cc0000,#685f5f',
+				'option6' => '#ffffff,#909090,#0095e2,#f59a23',
+			)
+		) ) );
 
-	$wp_customize->add_setting( 'burf_setting_background_color', array(
-		'default'        => '',
-		'capability'     => 'edit_theme_options',
-		'type'           => 'option',
-	) );
+		// Background
+		$wp_customize->add_section( 'burf_section_background', array(
+			'title'    => __( 'Background Options', 'burf' ),
+			'priority' => 33,
+		) );
 
-	$wp_customize->add_control( new BURF_Customize_Background_Color( $wp_customize, 'burf_section_background_colors', array(
-		'label'    => 'Background Setting',
-		'section'  => 'burf_section_background',
-		'settings' => 'burf_setting_background_color',
-		'type'     => 'radio',
-	) ) );
+		$wp_customize->add_setting( 'burf_setting_background_color', array(
+			'default'        => '',
+			'capability'     => 'edit_theme_options',
+			'type'           => 'option',
+		) );
 
-	$wp_customize->add_setting( 'burf_setting_background_image', array(
-		'default'    => '',
-		'capability' => 'edit_theme_options',
-		'type'       => 'option',
-	) );
+		$wp_customize->add_control( new BURF_Customize_Background_Color( $wp_customize, 'burf_section_background_colors', array(
+			'label'    => 'Background Setting',
+			'section'  => 'burf_section_background',
+			'settings' => 'burf_setting_background_color',
+			'type'     => 'radio',
+		) ) );
 
-	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'background', array(
-		'label'      => __( 'Upload an image', 'burf' ),
-		'section'    => 'burf_section_background',
-		'settings'   => 'burf_setting_background_image',
-	) ) );
+		$wp_customize->add_setting( 'burf_setting_background_image', array(
+			'default'    => '',
+			'capability' => 'edit_theme_options',
+			'type'       => 'option',
+		) );
 
-	$wp_customize->add_setting( 'burf_setting_background_repeat', array(
-		'default'        => '',
-		'capability'     => 'edit_theme_options',
-		'type'           => 'option',
-	) );
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'background', array(
+			'label'      => __( 'Upload an image', 'burf' ),
+			'section'    => 'burf_section_background',
+			'settings'   => 'burf_setting_background_image',
+		) ) );
 
-	$wp_customize->add_setting( 'burf_setting_background_position', array(
-		'default'        => '',
-		'capability'     => 'edit_theme_options',
-		'type'           => 'option',
-	) );
+		$wp_customize->add_setting( 'burf_setting_background_repeat', array(
+			'default'        => '',
+			'capability'     => 'edit_theme_options',
+			'type'           => 'option',
+		) );
 
-	$wp_customize->add_setting( 'burf_setting_background_attachment', array(
-		'default'        => '',
-		'capability'     => 'edit_theme_options',
-		'type'           => 'option',
-	) );
+		$wp_customize->add_setting( 'burf_setting_background_position', array(
+			'default'        => '',
+			'capability'     => 'edit_theme_options',
+			'type'           => 'option',
+		) );
 
-	$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_background_repeat', array(
-		'label'         => __( 'Background Repeat', 'burf' ),
-		'section'       => 'burf_section_background',
-		'settings'      => 'burf_setting_background_repeat',
-		'choices' => array(
-			'no-repeat' => 'None',
-			'repeat'    => 'Tile',
-			'repeat-x'  => 'Repeat Horizonally',
-			'repeat-y'  => 'Repeat Vertically',
-		)
-	) ) );
+		$wp_customize->add_setting( 'burf_setting_background_attachment', array(
+			'default'        => '',
+			'capability'     => 'edit_theme_options',
+			'type'           => 'option',
+		) );
 
-	$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_background_position', array(
-		'label'      => __( 'Background Position', 'burf' ),
-		'section'    => 'burf_section_background',
-		'settings'   => 'burf_setting_background_position',
-		'choices' => array(
-			'left'   => 'Left',
-			'right'  => 'Right',
-			'center' => 'Center',
-		)
-	) ) );
+		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_background_repeat', array(
+			'label'         => __( 'Background Repeat', 'burf' ),
+			'section'       => 'burf_section_background',
+			'settings'      => 'burf_setting_background_repeat',
+			'choices' => array(
+				'no-repeat' => 'None',
+				'repeat'    => 'Tile',
+				'repeat-x'  => 'Repeat Horizonally',
+				'repeat-y'  => 'Repeat Vertically',
+			)
+		) ) );
 
-	/* Control: Background Image Option: Attachment */
-	$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_background_attachment', array(
-		'label'      => __( 'Background Attachment', 'burf' ),
-		'section'    => 'burf_section_background',
-		'settings'   => 'burf_setting_background_attachment',
-		'choices' => array(
-			'fixed'  => 'Fixed',
-			'scroll' => 'Scroll',
-		)
-	) ) );
+		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_background_position', array(
+			'label'      => __( 'Background Position', 'burf' ),
+			'section'    => 'burf_section_background',
+			'settings'   => 'burf_setting_background_position',
+			'choices' => array(
+				'left'   => 'Left',
+				'right'  => 'Right',
+				'center' => 'Center',
+			)
+		) ) );
+
+		/* Control: Background Image Option: Attachment */
+		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_background_attachment', array(
+			'label'      => __( 'Background Attachment', 'burf' ),
+			'section'    => 'burf_section_background',
+			'settings'   => 'burf_setting_background_attachment',
+			'choices' => array(
+				'fixed'  => 'Fixed',
+				'scroll' => 'Scroll',
+			)
+		) ) );
+	}
 
 	// Footer
 	$wp_customize->add_section( 'burf_section_footer', array(
@@ -180,7 +178,7 @@ function responsive_customize_register( $wp_customize ) {
 		'priority' => 34,
 	) );
 
-	// Contact Info
+	// Additiona Info (free-form textarea)
 	$wp_customize->add_setting( 'burf_setting_footer_info', array(
 		'default'    => '',
 		'capability' => 'edit_theme_options',
@@ -284,7 +282,13 @@ CSS;
  *
  * @todo  performance testing
  */
-function responsive_customize_fonts() {
+function responsive_customizer_styles() {
+
+	// Child themes can't set colors / fonts via Customizer, so bail.
+	if ( is_child_theme() ) {
+		return;
+	}
+
 	echo '<style type="text/css">';
 
 	$font_palette = responsive_get_font_palette();
@@ -303,4 +307,4 @@ function responsive_customize_fonts() {
 	echo '</style>';
 }
 
-// add_action( 'wp_head', 'responsive_customize_fonts' );
+// add_action( 'wp_head', 'responsive_customizer_styles' );
