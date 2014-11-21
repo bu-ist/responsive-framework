@@ -102,11 +102,41 @@ function responsive_branding() {
 }
 
 /**
+ * Whether or not the current site requires the BU masterplate in the footer.
+ *
+ * TODO: Document logic
+ *
+ * @return [type] [description]
+ */
+function responsive_branding_has_masterplate() {
+	return ! in_array( $branding['type'], array( 'signature', 'unbranded' ) );
+}
+
+/**
  * Display the BU masterplate if branding configuration requires it.
  */
-function responsive_branding_masterplate() {
+function responsive_branding_masterplate( $args = array() ) {
+	$defaults = array(
+		'before' => '',
+		'after'  => '',
+		);
+	$args = wp_parse_args( $args, $defaults );
+
 	$branding = bu_get_branding();
-	if ( ! in_array( $branding['type'], array( 'signature', 'unbranded' ) ) ) {
-		echo '<a href="#" class="brand-masterPlate">Boston University</a>';
+	if ( responsive_branding_has_masterplate() ) {
+		echo $args['before'] . '<a href="#" class="brand-masterPlate">Boston University</a>' . $args['after'];
 	}
 }
+
+/**
+ * Adds branding classes to the footer container.
+ */
+function responsive_branding_footer_classes( $classes ) {
+	if ( responsive_branding_has_masterplate() ) {
+		$classes[] = 'has-branding';
+	}
+
+	return $classes;
+}
+
+add_filter( 'responsive_extra_footer_classes', 'responsive_branding_footer_classes' );

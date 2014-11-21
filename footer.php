@@ -2,7 +2,7 @@
 
 			<?php get_sidebar( 'bottom' ); ?>
 
-			<footer class="siteFooter has-branding" role="contentinfo">
+			<footer class="siteFooter <?php responsive_extra_footer_classes(); ?>" role="contentinfo">
 
 			<!--
 
@@ -22,10 +22,8 @@
 
 			-->
 
-				<div class="siteFooter-brand">
-					<a href="#" class="brand-masterPlate">Boston University</a>
-				</div>
-				
+				<?php responsive_branding_masterplate( array( 'before' => '<div class="siteFooter-brand">', 'after' => '</div>' ) ); ?>
+
 				<div class="siteFooter-content">
 
 					<div class="siteFooter-info">
