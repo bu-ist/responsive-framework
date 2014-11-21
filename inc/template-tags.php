@@ -447,3 +447,15 @@ function responsive_sidebar_classes( $sidebar_id ) {
 
 	echo "widgetCount-$count";
 }
+
+/**
+ * Generates class attributes for the site footer container.
+ *
+ * Provides the `responsive_extra_footer_classes` filter for child theme extension.
+ */
+function responsive_extra_footer_classes() {
+	$classes = apply_filters( 'responsive_extra_footer_classes', array() );
+	$classes = array_unique( array_map( 'esc_attr', $classes ) );
+
+	echo implode( ' ', $classes );
+}
