@@ -189,6 +189,9 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 		<?php } else { ?>
 			<div class="singleEvent">
 				<div class="eventSummary">
+
+					<p><a href="<?php the_permalink(); ?>">&larr; Back to Calendar</a></p>
+
 					<h1><?php echo $event['summary'];?></h1>
 					<div class="dateSummary">
 						<ul>
@@ -292,7 +295,7 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 							<dt class="label">Contact Phone:</dt>
 							<dd><?php echo $event['phone']; ?></dd>
 						<?php } ?>
-	
+
 					</dl>
 
 				</div><!-- /.eventDetail -->
@@ -301,6 +304,8 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 		<?php } ?>
 </article>
 
-<?php get_sidebar(); ?>
+<?php if ( is_null( $eventID ) ) {
+	get_sidebar();
+} ?>
 
 <?php get_footer(); ?>
