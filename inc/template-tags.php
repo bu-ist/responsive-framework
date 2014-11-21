@@ -386,3 +386,30 @@ function responsive_get_queried_post_types() {
 		return $tax->object_type;
 	}
 }
+
+/**
+ * Returns the number of widgets contained in the given sidebar.
+ *
+ * @param  string $sidebar_id  The sidebar to check
+ * @return int|bool            Number of widgets, or false if the sidebar is not registered.
+ */
+function responsive_get_widget_counts( $sidebar_id ) {
+	$sidebars = wp_get_sidebars_widgets();
+
+	if ( array_key_exists( $sidebar_id, $sidebars ) ) {
+		return count( $sidebars[ $sidebar_id ] );
+	}
+	return false;
+}
+
+/**
+ * Prints out contextual classes for sidebar containers.
+ *
+ * Used to included widget counts.
+ */
+function responsive_sidebar_classes( $sidebar_id ) {
+	$widget_count = responsive_get_widget_counts( $sidebar_id );
+	$count = ( $widget_count > 0 ) ? $widget_count : 'none';
+
+	echo "widgetCount-$count";
+}
