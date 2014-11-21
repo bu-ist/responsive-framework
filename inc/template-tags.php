@@ -375,6 +375,51 @@ function responsive_posts_archive_link( $args = array() ) {
 }
 
 /**
+ * Display a profiles archive link.
+ *
+ * A thin wrapper around the BU Profiles-provided `bu_profile_archive_link` function.
+ *
+ * @param array $args {
+ *     Optional. Arguments to configure link markup.
+ *
+ *     @type  string $label The link label.
+ *     @type  string $class The class attribute for the anchor tag.
+ *     @type  bool   $echo If true, print link. Otherwise return it.
+ * }
+ * @return string The profiles archive anchor tag.
+ */
+function responsive_profiles_archive_link( $args = array() ) {
+	$defaults = array(
+		'before' => '<p>',
+		'after'  => '</p>',
+		'class'  => 'profilesArchiveLink',
+		'echo'   => true,
+		);
+	$args = wp_parse_args( $args, $defaults );
+
+	$link = '';
+
+	if ( function_exists( 'bu_profile_archive_link' ) ) {
+		$link = bu_profile_archive_link( array(
+			'before' => $args['before'],
+			'after'  => $args['after'],
+			'echo' => false,
+			) );
+	}
+
+	// TODO: Add support for these arguments to `bu_profile_archive_link', remove this hack.
+	if ( $args['class'] ) {
+		$link = str_replace( 'class="profile_archive_link"', 'class="' . $args['class'] . '"', $link );
+	}
+
+	if ( $args['echo'] ) {
+		echo $link;
+	} else {
+		return $link;
+	}
+}
+
+/**
  * Display the appropriate content for the primary sidebar depending on current page request.
  *
  * @global WP_Query $wp_query
