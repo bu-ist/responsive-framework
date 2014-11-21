@@ -14,10 +14,15 @@
 					</div>
 				<?php endif; ?>
 
-				<?php if ( responsive_has_footer_links() ) : ?>
-					<nav class="siteFooter-links">
+				<?php if ( has_nav_menu( 'footer' ) ) : ?>
+					<nav class="siteFooter-links" role="navigation">
 						<h3>Related Sites</h3>
-						<?php bu_footer_content(); ?>
+						<?php
+							wp_nav_menu( array(
+								'theme_location' => 'footer',
+								'depth'          => 1,
+							) );
+						?>
 					</nav>
 				<?php endif; ?>
 

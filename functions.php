@@ -65,10 +65,14 @@ function responsive_setup() {
 		define( 'BU_SUPPORTS_SEO', true );
 	}
 
+	// Disable BU Links Footer editor under Appearance menu
+	define( 'BU_DISABLE_FOOTER_EDITOR', true );
+
 	// Custom menu locations.
 	register_nav_menus( array(
-			'utility' => 'Utility Navigation',
+			'footer'  => 'Footer Links',
 			'social'  => 'Social Links',
+			'utility' => 'Utility Navigation',
 		) );
 
 	// Content banner locations.
