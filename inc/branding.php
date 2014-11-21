@@ -109,6 +109,7 @@ function responsive_branding() {
  * @return [type] [description]
  */
 function responsive_branding_has_masterplate() {
+	$branding = bu_get_branding();
 	return ! in_array( $branding['type'], array( 'signature', 'unbranded' ) );
 }
 
