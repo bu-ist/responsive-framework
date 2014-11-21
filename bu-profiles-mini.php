@@ -16,7 +16,9 @@
 						<?php bu_profile_detail( 'first_name', array( 'before' => '<p class="name">' ) ); ?>
 						<?php bu_profile_detail( 'last_name', array( 'after' => '</p>' ) ); ?>
 						<?php bu_profile_detail( 'email', array( 'format' => 'email', 'before' => '<p class="email">', 'after' => '</p>' ) ); ?>
-						<?php bu_profile_detail( '_bu_page_description', array( 'before' => '<p class="summary">', 'after' => '</p>', 'format' => 'multi-line' ) ); ?>
+						<?php if ( function_exists( 'bu_page_summary' ) ) : ?>
+							<?php bu_page_summary( '<p class="summary">', '</p>' ); ?>
+						<?php endif; ?>
 					</div>
 				</li>
 			<?php endwhile; ?>
