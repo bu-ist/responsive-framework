@@ -314,10 +314,13 @@ function responsive_get_posts_archive_link() {
 	}
 
 	if ( ! $archive_link ) {
-		// Posts page as set by Settings > Reading
-		if ( 'page' == get_option( 'show_on_front' ) && $posts_page = get_option( 'page_for_posts' ) ) {
-			$archive_link = get_permalink( $posts_page );
-		// Home page if Settings > Reading is configured to display latest posts
+		// If current site has Settings > Reading set to display Posts on a page use that
+		if ( 'page' == get_option( 'show_on_front' ) ) {
+			$posts_page = get_option( 'page_for_posts' );
+			if ( $posts_page ) {
+				$archive_link = get_permalink( $posts_page );
+			}
+		// Use home page link if Settings > Reading is set to display latest posts
 		} else {
 			$archive_link = home_url();
 		}
