@@ -246,6 +246,11 @@ require __DIR__ . '/inc/calendar.php';
 require __DIR__ . '/inc/course-feeds.php';
 
 /**
+ * Customizer settings API.
+ */
+require __DIR__ . '/inc/customizer.php';
+
+/**
  * Extra core filters.
  */
 require __DIR__ . '/inc/extras.php';
@@ -262,11 +267,6 @@ require __DIR__ . '/inc/polyfill.php';
  * @link http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-post-lists
  */
 require __DIR__ . '/inc/post-lists.php';
-
-/**
- * Theme settings API.
- */
-require __DIR__ . '/inc/settings.php';
 
 /**
  * Shortcodes for content editors.
