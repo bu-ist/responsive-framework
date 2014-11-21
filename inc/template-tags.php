@@ -470,6 +470,10 @@ function responsive_extra_footer_classes() {
 	// Build an array to capture current footer content permutation
 	$footer_components = array();
 
+	// Is the Customizer-provided footer info in use?
+	if ( responsive_customizer_has_footer_info() ) {
+		$footer_components[] = 'info';
+	}
 	// Is the BU Links footer links in use?
 	if ( responsive_has_footer_links() ) {
 		$footer_components[] = 'links';

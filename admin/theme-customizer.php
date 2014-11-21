@@ -181,16 +181,16 @@ function responsive_customize_register( $wp_customize ) {
 	) );
 
 	// Contact Info
-	$wp_customize->add_setting( 'burf_setting_footer_contact', array(
+	$wp_customize->add_setting( 'burf_setting_footer_info', array(
 		'default'    => '',
 		'capability' => 'edit_theme_options',
 		'type'       => 'option',
 	) );
 
 	$wp_customize->add_control( new BURF_Customize_Textarea( $wp_customize, 'burf_section_footer', array(
-		'label'    => 'Contact Information',
+		'label'    => 'Additional Information',
 		'section'  => 'burf_section_footer',
-		'settings' => 'burf_setting_footer_contact',
+		'settings' => 'burf_setting_footer_info',
 		'type'     => 'textarea',
 	) ) );
 }

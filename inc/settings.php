@@ -54,3 +54,28 @@ function responsive_font_options() {
 		'f5' => 'Stag,Benton',
 		);
 }
+
+/**
+ * Returns any content entered into the Footer > Additional Info textarea.
+ */
+function responsive_get_customizer_footer_info() {
+	return get_option( 'burf_setting_footer_info' );
+}
+
+/**
+ * Prints out additional footer info content.
+ */
+function responsive_customizer_footer_info() {
+	$footer_info = responsive_get_customizer_footer_info();
+	if ( $footer_info ) {
+		echo $footer_info;
+	}
+}
+
+/**
+ * Returns whether or not the additional info textarea has any content.
+ */
+function responsive_customizer_has_footer_info() {
+	$footer_info = responsive_get_customizer_footer_info();
+	return ! empty( $footer_info );
+}
