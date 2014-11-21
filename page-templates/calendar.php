@@ -305,7 +305,7 @@ remove_filter( 'the_content', 'sharing_display', 19 );
 </article>
 
 <?php if ( is_null( $eventID ) ) {
-	get_sidebar();
+	get_sidebar( 'calendar' );
 } ?>
 
 <?php get_footer(); ?>
