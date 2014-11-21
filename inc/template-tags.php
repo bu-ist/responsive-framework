@@ -303,6 +303,10 @@ function responsive_primary_sidebar() {
 	else if ( is_post_type_archive() ) {
 		responsive_primary_sidebar_for_post_type( $queried_object->name );
 	}
+	// Blog, author and date archives are limited to posts by default
+	else if ( is_home() || is_author() || is_date() ) {
+		responsive_primary_sidebar_for_post_type( 'post' );
+	}
 	// Taxonomy term archive (taxonomy.php, category.php, tag.php)
 	else if ( is_tax() || is_category() || is_tag() ) {
 		$post_types = responsive_get_queried_post_types();
@@ -312,7 +316,7 @@ function responsive_primary_sidebar() {
 			responsive_primary_sidebar_for_post_type( reset( $post_types ) );
 		}
 	}
-	// Anything else (archive.php, home.php, date.php, author.php, etc.)
+	// Everything else
 	else {
 		dynamic_sidebar( 'sidebar' );
 	}
@@ -326,9 +330,12 @@ function responsive_primary_sidebar() {
  */
 function responsive_primary_sidebar_for_post_type( $post_type ) {
 	switch ( $post_type ) {
-		// case 'profile':
-		// 	responsive_profile_sidebar();
-		// 	break;
+		case 'post':
+			dynamic_sidebar( 'posts' );
+			break;
+		case 'profile':
+			dynamic_sidebar( 'profiles' );
+			break;
 		default:
 			dynamic_sidebar( 'sidebar' );
 	}
@@ -344,9 +351,12 @@ function responsive_primary_sidebar_for_page_template( $template ) {
 		case 'page-templates/calendar.php':
 			responsive_calendar_sidebar();
 			break;
-		// case 'page-templates/profiles.php':
-		// 	responsive_profile_sidebar();
-		// 	break;
+		case 'page-templates/profiles.php':
+			dynamic_sidebar( 'profiles' );
+			break;
+		case 'page-templates/news.php':
+			dynamic_sidebar( 'posts' );
+			break;
 		default:
 			dynamic_sidebar( 'sidebar' );
 	}
