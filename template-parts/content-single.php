@@ -24,6 +24,8 @@
 		<p><em>Posted</em> <span class="date-offset"><?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago'; ?></sspan> <em>on</em> <span class="date"><time datetime="<?php the_time( 'l, F jS, Y' ) ?>" pubdate><?php the_time( 'l, F jS, Y' ) ?></time></span></p>
 	</footer>
 
+	<?php responsive_posts_archive_link(); ?>
+
 	<?php edit_post_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
 
 	<?php responsive_comments(); ?>

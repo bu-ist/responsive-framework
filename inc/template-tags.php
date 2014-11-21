@@ -283,6 +283,98 @@ function responsive_post_nav() {
 endif;
 
 /**
+ * Attempts to find a suitable post archive link for this site.
+ *
+ * 1. First page with news template applied set to "All Categories"
+ * 2. Permalink for page set as "Posts page" via Settings > Reading
+ * 3. Home page if front page displays latest posts
+ *
+ * Child themes can override if they're doing something crazy by hooking
+ * in to the `responsive_get_posts_archive_link` filter.
+ *
+ * @todo Move news template category logic to the bu-post-lists plugin.
+ *
+ * @return mixed Post archive link, or false if no good candidates were found.
+ */
+function responsive_get_posts_archive_link() {
+	$archive_link = false;
+
+	// Look first for pages with the News template applied
+	$news_pages = get_pages( array(
+		'meta_key'   => '_wp_page_template',
+		'meta_value' => 'page-templates/news.php',
+		) );
+
+	// Find the first news page set to display "All Categories"
+	foreach ( $news_pages as $page ) {
+		$categories = get_post_meta( $page->ID, '_bu_list_news_category', true );
+		if ( 0 == $categories ) {
+			$archive_link = get_permalink( $page );
+			break;
+		}
+	}
+
+	if ( ! $archive_link ) {
+		// Posts page as set by Settings > Reading
+		if ( 'page' == get_option( 'show_on_front' ) && $posts_page = get_option( 'page_for_posts' ) ) {
+			$archive_link = get_permalink( $posts_page );
+		// Home page if Settings > Reading is configured to display latest posts
+		} else {
+			$archive_link = home_url();
+		}
+	}
+
+	return apply_filters( 'responsive_get_posts_archive_link', $archive_link );
+}
+
+/**
+ * Display a post archive link.
+ *
+ * @param array $args {
+ *     Optional. Arguments to configure link markup.
+ *
+ *     @type  string $label The link label.
+ *     @type  string $class The class attribute for the anchor tag.
+ *     @type  bool   $echo If true, print link. Otherwise return it.
+ * }
+ * @return string The post archive anchor tag.
+ */
+function responsive_posts_archive_link( $args = array() ) {
+	$defaults = array(
+		'label'  => '&larr; Views all posts',
+		'before' => '<p>',
+		'after'  => '</p>',
+		'class'  => 'postsArchiveLink',
+		'echo'   => true,
+		);
+	$args = wp_parse_args( $args, $defaults );
+
+	$link = '';
+	$class_attr = '';
+	if ( ! empty( $args['class'] ) ) {
+		$class_attr = ' class="' . esc_attr( $args['class'] ) . '"';
+	}
+
+	$archive_link = responsive_get_posts_archive_link();
+
+	if ( $archive_link ) {
+		$link = sprintf( '%s<a href="%s"%s>%s</a>%s',
+			$args['before'],
+			esc_url( $archive_link ),
+			$class_attr,
+			$args['label'],
+			$args['after']
+			);
+	}
+
+	if ( $args['echo'] ) {
+		echo $link;
+	} else {
+		return $link;
+	}
+}
+
+/**
  * Display the appropriate content for the primary sidebar depending on current page request.
  *
  * @global WP_Query $wp_query
