@@ -227,9 +227,7 @@ function responsive_paging_nav( WP_Query $query = null ) {
 	}
 
 	// Don't print empty markup if there's only one page.
-	if ( $wp_query->max_num_pages < 2 ) {
-		return;
-	}
+	if ( $wp_query->max_num_pages >= 2 ) :
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
 		<h3 class="screen-reader-text"><?php _e( 'Posts navigation' ); ?></h3>
@@ -246,6 +244,7 @@ function responsive_paging_nav( WP_Query $query = null ) {
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
+	endif;
 
 	// Restore the global WP_Query instance if we replaced it.
 	if ( ! is_null( $query ) && $tmp_query ) {
