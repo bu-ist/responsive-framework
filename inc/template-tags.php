@@ -454,7 +454,22 @@ function responsive_sidebar_classes( $sidebar_id ) {
  * Provides the `responsive_extra_footer_classes` filter for child theme extension.
  */
 function responsive_extra_footer_classes() {
-	$classes = apply_filters( 'responsive_extra_footer_classes', array() );
+	$classes = array();
+
+	// Build an array to capture current footer content permutation
+	$footer_components = array();
+
+	// Is the custom social menu in use?
+	if ( has_nav_menu( 'social' ) ) {
+		$footer_components[] = 'social';
+	}
+
+	// Combine all components in to one stateful class
+	if ( ! empty( $footer_components ) ) {
+		$classes[] = 'has-' . implode( '-', $footer_components );
+	}
+
+	$classes = apply_filters( 'responsive_extra_footer_classes', $classes );
 	$classes = array_unique( array_map( 'esc_attr', $classes ) );
 
 	echo implode( ' ', $classes );

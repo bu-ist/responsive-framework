@@ -39,14 +39,18 @@
 						</ul>
 					</nav>
 
-					<nav class="siteFooter-social">
+				<?php if ( has_nav_menu( 'social' ) ) : ?>
+					<nav class="siteFooter-social" role="navigation">
 						<h3>Follow Us</h3>
-						<ul>
-							<li><a href="#">Facebook</a></li>
-							<li><a href="#">Twitter</a></li>
-							<li><a href="#">Friendster</a></li>
-						</ul>
+						<?php
+							wp_nav_menu( array(
+								'theme_location' => 'social',
+								'depth'          => 1,
+							) );
+						?>
 					</nav>
+				<?php endif; ?>
+
 				</div>
 
 			</footer>
