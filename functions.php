@@ -252,6 +252,12 @@ require __DIR__ . '/inc/course-feeds.php';
 require __DIR__ . '/inc/extras.php';
 
 /**
+ * WP 4.1 Polyfills.
+ * TODO: Remove post-4.1. upgrade.
+ */
+require __DIR__ . '/inc/polyfill.php';
+
+/**
  * Plugin support - BU Post Lists.
  *
  * @link http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-post-lists
