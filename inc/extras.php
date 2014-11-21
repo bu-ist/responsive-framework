@@ -129,3 +129,44 @@ function responsive_widget_counts( $params ) {
 }
 
 add_filter( 'dynamic_sidebar_params', 'responsive_widget_counts' );
+
+/**
+ * Limit widget counts for certain sidebars.
+ *
+ * By default this is applied to the 'posts' and 'profiles' sidebars.
+ * Child themes can tie in to this logic by using the `responsive_limit_sidebars_widgets` filter.
+ */
+function responsive_limit_sidebars_widgets( $sidebars_widgets ) {
+
+	if ( ! is_admin() ) {
+		$sidebars_to_limit = apply_filters( 'responsive_limit_sidebars_widgets', array(
+			'posts'    => 2,
+			'profiles' => 2,
+			) );
+
+		foreach ( $sidebars_to_limit as $sidebar => $max_widget_count ) {
+
+			// Ignore unreasonable values
+			if ( $max_widget_count < 1 || $max_widget_count > 10 ) {
+				continue;
+			}
+
+			// Make sure the sidebar we're being asked to limit is registered
+			if ( ! array_key_exists( $sidebar, $sidebars_widgets ) ) {
+				continue;
+			}
+
+			// Make sure the sidebar currently exceeds our limit
+			if ( count( $sidebars_widgets[ $sidebar ] ) < $max_widget_count ) {
+				continue;
+			}
+
+			// Truncate extra widgets for the given sidebar
+			$sidebars_widgets[ $sidebar ] = array_slice( $sidebars_widgets[ $sidebar ], 0, $max_widget_count );
+		}
+	}
+
+	return $sidebars_widgets;
+}
+
+add_filter( 'sidebars_widgets', 'responsive_limit_sidebars_widgets', 10, 1 );
