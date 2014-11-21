@@ -89,46 +89,43 @@ function responsive_caption_attributes( $attrs ) {
 add_filter( 'shortcode_atts_caption', 'responsive_caption_attributes' );
 
 /**
- * Widget Counts.
+ * Append classes indicating current widget index to widget containers.
  *
- * @todo  Review.
+ * The dynamic_sidebars filter is called prior to displaying each widget. We
+ * use a static variable to keep track of how many times it's called for each
+ * sidebar, and use it to add a class that includes the current index.
  *
- * @link http://wordpress.org/support/topic/how-to-first-and-last-css-classes-for-sidebar-widgets
+ * Note that this currently fails with BU Text and BU Link widgets due to the
+ * custom per-post configuration.
  */
 function responsive_widget_counts( $params ) {
+	static $widget_counter = array();
 
-	global $my_widget_num; // Global a counter array
-	$this_id = $params[0]['id']; // Get the id for the current sidebar we're processing
-	$arr_registered_widgets = wp_get_sidebars_widgets(); // Get an array of ALL registered widgets
+	$current_sidebar = $params[0]['id'];
+	$sidebars = wp_get_sidebars_widgets();
 
-	if ( ! $my_widget_num ) {// If the counter array doesn't exist, create it
-		$my_widget_num = array();
+	// Bail if current sidebar doesn't exist or has no widgets
+	if ( ! array_key_exists( $current_sidebar, $sidebars ) || empty( $sidebars[ $current_sidebar ] ) ) {
+		return $params;
 	}
 
-	if ( ! isset( $arr_registered_widgets[ $this_id ] ) || ! is_array( $arr_registered_widgets[ $this_id ] ) ) { // Check if the current sidebar has no widgets
-		return $params; // No widgets in this sidebar... bail early.
+	// Initialize or increment our static widget counter by one for this widget
+	if ( array_key_exists( $current_sidebar, $widget_counter ) ) {
+		$widget_counter[ $current_sidebar ] ++;
+	} else {
+		$widget_counter[ $current_sidebar ] = 1;
 	}
 
-	if ( isset( $my_widget_num[ $this_id ] ) ) { // See if the counter array has an entry for this sidebar
-		$my_widget_num[ $this_id ] ++;
-	} else { // If not, create it starting with 1
-		$my_widget_num[ $this_id ] = 1;
-	}
+	// Build the class attribute for this widget
+	$class = 'widget-' . $widget_counter[ $current_sidebar ];
 
-	$class = 'class="widget-' . $my_widget_num[ $this_id ] . ' '; // Add a widget number class for additional styling options
-
-	if ( 1 == $my_widget_num[ $this_id ] ) { // If this is the first widget
-		$class .= 'widget-first ';
-	} elseif ( $my_widget_num[ $this_id ] == count( $arr_registered_widgets[ $this_id ] ) ) { // If this is the last widget
-		$class .= 'widget-last ';
-	}
-
-	$params[0]['before_widget'] = preg_replace( '/class=\"/', "$class", $params[0]['before_widget'], 1 );
+	// Supplement the class defined in the sidebar's before_widget argument
+	$params[0]['before_widget'] = preg_replace( '/(class="widget.*?)(")/', '$1 '. $class . '$2', $params[0]['before_widget'] );
 
 	return $params;
 }
 
-add_filter( 'dynamic_sidebar_params', 'responsive_widget_counts' );
+add_filter( 'dynamic_sidebar_params', 'responsive_widget_counts', 1, 1 );
 
 /**
  * Limit widget counts for certain sidebars.
