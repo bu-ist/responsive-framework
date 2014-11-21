@@ -50,7 +50,6 @@ function responsive_upgrade_091() {
 	$relocate_map = array(
 		'calendar.php'        => 'page-templates/calendar.php',
 		'news.php'            => 'page-templates/news.php',
-		'page-homepage.php'   => 'page-templates/homepage.php',
 		'page-nosidebars.php' => 'page-templates/no-sidebars.php',
 		'profiles.php'        => 'page-templates/profiles.php',
 		);
