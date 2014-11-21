@@ -449,17 +449,6 @@ function responsive_sidebar_classes( $sidebar_id ) {
 }
 
 /**
- * Returns whether or not the BU Links Footer has any content.
- */
-function responsive_has_footer_links() {
-	if ( function_exists( 'bu_get_footer_content' ) ) {
-		$footer_links = bu_get_footer_content();
-		return ! empty( $footer_links );
-	}
-	return false;
-}
-
-/**
  * Generates class attributes for the site footer container.
  *
  * Provides the `responsive_extra_footer_classes` filter for child theme extension.
@@ -474,8 +463,8 @@ function responsive_extra_footer_classes() {
 	if ( responsive_customizer_has_footer_info() ) {
 		$footer_components[] = 'info';
 	}
-	// Is the BU Links footer links in use?
-	if ( responsive_has_footer_links() ) {
+	// Is the custom footer links menu in use?
+	if ( has_nav_menu( 'footer' ) ) {
 		$footer_components[] = 'links';
 	}
 	// Is the custom social menu in use?
