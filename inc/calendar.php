@@ -116,6 +116,8 @@ add_filter( 'bu_calendar_widget_formats', 'responsive_calendar_widget_formats', 
  * it won't add the `busy` class to the <td>.
  *
  * Yes, this is insane, and should be fixed when there's time.
+ *
+ * @todo  Move to calendar plugin.
  */
 function onYearDay( $ts ) {
 	global $buCalendar, $events;
@@ -129,3 +131,31 @@ function onYearDay( $ts ) {
 
 	return $contents;
 }
+
+/**
+ * Appends calendar template body classes.
+ *
+ * @todo  Move to calendar plugin.
+ */
+function responsive_calendar_body_classes( $classes ) {
+	$calendar_templates = apply_filters( 'responsive_calendar_templates', array(
+		'page-templates/calendar.php',
+		) );
+	$is_calendar_template = array_filter( $calendar_templates, 'is_page_template' );
+
+	// The current request is for one of our calendar templates
+	if ( $is_calendar_template ) {
+		if ( isset( $_GET['eid'] ) ) {
+			$classes[] = 'single-calendar';
+		} else {
+			$classes[] = 'archive-calendar';
+		}
+		if ( isset( $_GET['topic'] ) ) {
+			$classes[] = 'calendar-topic';
+		}
+	}
+
+	return $classes;
+}
+
+add_filter( 'body_class', 'responsive_calendar_body_classes' );
