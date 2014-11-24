@@ -185,6 +185,13 @@ function responsive_content_banner( $position ) {
 	echo do_shortcode( bu_content_banner( $post_id, $banner_args ) );
 }
 
+/**
+ * Renders the primary navigation menu.
+ *
+ * If the current site has a site-wide ACL applied nothing will be displayed.
+ *
+ * @uses  BU Naviagation plugin
+ */
 function responsive_primary_nav() {
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
 		false == BuAccessControlPlugin::is_site_403() ) {
@@ -195,6 +202,11 @@ function responsive_primary_nav() {
 	}
 }
 
+/**
+ * Renders utility navigation menu.
+ *
+ * If the current site has a site-wide ACL applied nothing will be displayed.
+ */
 function responsive_utility_nav() {
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
 		false == BuAccessControlPlugin::is_site_403() ) {
@@ -204,6 +216,16 @@ function responsive_utility_nav() {
 			'items_wrap'     => '<ul>%3$s</ul>',
 		) );
 	}
+}
+
+/**
+ * Renders footer links custom menu.
+ */
+function responsive_footer_menu() {
+	wp_nav_menu( array(
+		'theme_location' => 'footer',
+		'depth'          => 1,
+	) );
 }
 
 /**
