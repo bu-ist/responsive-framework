@@ -395,10 +395,10 @@ function responsive_get_posts_archive_link() {
  */
 function responsive_posts_archive_link( $args = array() ) {
 	$defaults = array(
-		'label'  => '&larr; Views all posts',
+		'label'  => 'Views all posts',
 		'before' => '<p>',
 		'after'  => '</p>',
-		'class'  => 'postsArchiveLink',
+		'class'  => 'archiveLink postsArchiveLink',
 		'echo'   => true,
 		);
 	$args = wp_parse_args( $args, $defaults );
@@ -446,7 +446,7 @@ function responsive_profiles_archive_link( $args = array() ) {
 	$defaults = array(
 		'before' => '<p>',
 		'after'  => '</p>',
-		'class'  => 'profilesArchiveLink',
+		'class'  => 'archiveLink profilesArchiveLink',
 		'echo'   => true,
 		);
 	$args = wp_parse_args( $args, $defaults );
