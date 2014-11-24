@@ -7,7 +7,7 @@
 				<?php
 					responsive_branding_masterplate( array(
 						'before' => '<div class="siteFooter-brand">',
-						'after'  => '</div>'
+						'after'  => '</div>',
 					) );
 				?>
 
