@@ -173,24 +173,45 @@ function responsive_customize_register( $wp_customize ) {
 	}
 
 	// Footer
+	$menu_url = admin_url( 'nav-menus.php?action=locations' );
 	$wp_customize->add_section( 'burf_section_footer', array(
-		'title' => __( 'Footer Options', 'burf' ),
-		'priority' => 34,
+		'title'       => __( 'Footer', 'burf' ),
+		'description' => "Footer links can be managed using the <a href=\"$menu_url\">Footer and Social Links Custom Menu locations</a>.",
+		'priority'    => 34,
 	) );
 
 	// Additiona Info (free-form textarea)
-	$wp_customize->add_setting( 'burf_setting_footer_info', array(
+	$wp_customize->add_setting( 'burf_setting_footer[text]', array(
 		'default'    => '',
 		'capability' => 'edit_theme_options',
 		'type'       => 'option',
 	) );
 
-	$wp_customize->add_control( new BURF_Customize_Textarea( $wp_customize, 'burf_section_footer', array(
+	$wp_customize->add_setting( 'burf_setting_footer[autop]', array(
+		'default'    => '',
+		'capability' => 'edit_theme_options',
+		'type'       => 'option',
+	) );
+
+	// Core <textarea> type added in WP 4.0
+	$footer_info_args = array(
 		'label'    => 'Additional Information',
 		'section'  => 'burf_section_footer',
-		'settings' => 'burf_setting_footer_info',
+		'settings' => 'burf_setting_footer[text]',
 		'type'     => 'textarea',
-	) ) );
+	);
+	if ( version_compare( $GLOBALS['wp_version'], '4.0', '<' ) ) {
+		$wp_customize->add_control( new BURF_Customize_Textarea( $wp_customize, 'burf_section_footer_info', $footer_info_args ) );
+	} else {
+		$wp_customize->add_control( 'burf_section_footer_info', $footer_info_args );
+	}
+
+	$wp_customize->add_control( 'burf_section_footer_autop', array(
+		'label'    => 'Automatically add paragraphs',
+		'section'  => 'burf_section_footer',
+		'settings' => 'burf_setting_footer[autop]',
+		'type'     => 'checkbox',
+	) );
 }
 
 add_action( 'customize_register', 'responsive_customize_register' );
