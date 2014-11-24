@@ -206,6 +206,36 @@ function responsive_utility_nav() {
 	}
 }
 
+/**
+ * Renders the social links menu for the footer.
+ *
+ * A filter is used to ensure the menu link has a title attribute.
+ */
+function responsive_social_menu() {
+
+	add_filter( 'nav_menu_link_attributes', 'responsive_social_nav_menu_link_attributes', 10, 2 );
+
+	wp_nav_menu( array(
+		'theme_location' => 'social',
+		'depth'          => 1,
+		'link_before'    => '<i aria-hidden="true"></i><span>',
+		'link_after'     => '</span>',
+	) );
+
+	remove_filter( 'nav_menu_link_attributes', 'responsive_social_nav_menu_link_attributes', 10, 2 );
+}
+
+/**
+ * Sets <a> tags title attribute to the item title if none is set.
+ */
+function responsive_social_nav_menu_link_attributes( $atts, $item ) {
+	if ( empty( $atts['title'] ) ) {
+		$atts['title'] = $item->title;
+	}
+
+	return $atts;
+}
+
 if ( ! function_exists( 'responsive_paging_nav' ) ) :
 
 /**
