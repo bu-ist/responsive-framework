@@ -59,7 +59,17 @@ function responsive_font_options() {
  * Returns any content entered into the Footer > Additional Info textarea.
  */
 function responsive_get_customizer_footer_info() {
-	return get_option( 'burf_setting_footer_info' );
+	$defaults = array(
+		'text'  => '',
+		'autop' => false,
+		);
+	$footer = get_option( 'burf_setting_footer', $defaults );
+
+	if ( $footer['autop'] ) {
+		return wpautop( $footer['text'] );
+	} else {
+		return $footer['text'];
+	}
 }
 
 /**
