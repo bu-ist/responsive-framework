@@ -18,7 +18,7 @@ if ( function_exists( 'bu_thumbnail' ) ) {
 	<h1><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h1>
 
 	<?php if ( $profile_thumb ) : ?>
-	<div class="profile-thumb"><?php echo $profile_thumb; ?></div>
+	<div class="profile-thumb"><figure><?php echo $profile_thumb; ?></figure></div>
 	<?php endif; ?>
 
 	<?php if ( $has_details ) : ?>
