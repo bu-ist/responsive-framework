@@ -6,6 +6,10 @@
 	Description: Responsive framework, started with Barebones, ........
 ---------------------- */
 
+@import 'burf/variables';
+
+@import 'burf-theme/variables';
+
 // Import from responsive-foundation
 @import 'burf';
 @import 'burf-theme';
