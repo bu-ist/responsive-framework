@@ -22,12 +22,7 @@
 				<?php if ( has_nav_menu( 'footer' ) ) : ?>
 					<nav class="siteFooter-links" role="navigation">
 						<h3>Related Sites</h3>
-						<?php
-							wp_nav_menu( array(
-								'theme_location' => 'footer',
-								'depth'          => 1,
-							) );
-						?>
+						<?php responsive_footer_menu(); ?>
 					</nav>
 				<?php endif; ?>
 
