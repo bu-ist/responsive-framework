@@ -34,12 +34,7 @@
 				<?php if ( has_nav_menu( 'social' ) ) : ?>
 					<nav class="siteFooter-social" role="navigation">
 						<h3>Follow Us</h3>
-						<?php
-							wp_nav_menu( array(
-								'theme_location' => 'social',
-								'depth'          => 1,
-							) );
-						?>
+						<?php responsive_social_menu(); ?>
 					</nav>
 				<?php endif; ?>
 
