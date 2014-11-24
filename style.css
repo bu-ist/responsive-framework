@@ -140,7 +140,7 @@
 }
 
 .container, .footbar .footbar-container {
-  padding: 40px 20px;
+  padding: 35px 20px 0;
   width: 100%;
   margin: 0 auto;
 }
@@ -148,6 +148,11 @@
   content: "";
   display: table;
   clear: both;
+}
+@media (min-width: 768px) {
+  .container, .footbar .footbar-container {
+    padding: 60px 20px 0;
+  }
 }
 
 .row {
@@ -218,10 +223,14 @@
 .profile-listing .advanced li,
 .col-md-5,
 .col-md-6,
+.sidebarPosts .widget,
+.sidebarProfiles .widget,
 .profile-listing .mini li,
 .col-md-7,
 .col-md-8,
 article[role=main],
+.sidebarPosts,
+.sidebarProfiles,
 .col-md-9,
 .col-md-10,
 .col-md-11,
@@ -306,8 +315,7 @@ article[role=main],
 
 /* small screens */
 @media (min-width: 768px) {
-  .container, .footbar .footbar-container,
-  .footbar div {
+  .container, .footbar .footbar-container {
     max-width: 750px;
   }
 
@@ -386,8 +394,7 @@ article[role=main],
 }
 /* medium screens */
 @media (min-width: 992px) {
-  .container, .footbar .footbar-container,
-  .footbar div {
+  .container, .footbar .footbar-container {
     max-width: 970px;
   }
 
@@ -400,10 +407,14 @@ article[role=main],
   .profile-listing .advanced li,
   .col-md-5,
   .col-md-6,
+  .sidebarPosts .widget,
+  .sidebarProfiles .widget,
   .profile-listing .mini li,
   .col-md-7,
   .col-md-8,
   article[role=main],
+  .sidebarPosts,
+  .sidebarProfiles,
   .col-md-9,
   .col-md-10,
   .col-md-11 {
@@ -430,7 +441,8 @@ article[role=main],
     width: 41.66666666666667%;
   }
 
-  .col-md-6, .profile-listing .mini li {
+  .col-md-6, .sidebarPosts .widget,
+  .sidebarProfiles .widget, .profile-listing .mini li {
     width: 50%;
   }
 
@@ -438,7 +450,8 @@ article[role=main],
     width: 58.333333333333336%;
   }
 
-  .col-md-8, article[role=main] {
+  .col-md-8, article[role=main], .sidebarPosts,
+  .sidebarProfiles {
     width: 66.66666666666666%;
   }
 
@@ -1390,7 +1403,8 @@ select[multiple] {
 .button, button,
 html input[type="button"],
 input[type="reset"],
-input[type="submit"], .news-posts nav a {
+input[type="submit"], .news-posts nav a, .single .archiveLink,
+.single-calendar .archiveLink {
   /* Structure */
   display: inline-block;
   *display: inline;
@@ -1414,7 +1428,8 @@ input[type="submit"], .news-posts nav a {
 .button::-moz-focus-inner, button::-moz-focus-inner,
 html input[type="button"]::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,
-input[type="submit"]::-moz-focus-inner, .news-posts nav a::-moz-focus-inner {
+input[type="submit"]::-moz-focus-inner, .news-posts nav a::-moz-focus-inner, .single .archiveLink::-moz-focus-inner,
+.single-calendar .archiveLink::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
@@ -1422,7 +1437,8 @@ input[type="submit"]::-moz-focus-inner, .news-posts nav a::-moz-focus-inner {
 .button, button,
 html input[type="button"],
 input[type="reset"],
-input[type="submit"], .news-posts nav a {
+input[type="submit"], .news-posts nav a, .single .archiveLink,
+.single-calendar .archiveLink {
   font-family: inherit;
   font-size: 100%;
   *font-size: 90%;
@@ -1452,12 +1468,16 @@ html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
 .news-posts nav a:hover,
+.single .archiveLink:hover,
+.single-calendar .archiveLink:hover,
 .button:focus,
 button:focus,
 html input[type="button"]:focus,
 input[type="reset"]:focus,
 input[type="submit"]:focus,
-.news-posts nav a:focus {
+.news-posts nav a:focus,
+.single .archiveLink:focus,
+.single-calendar .archiveLink:focus {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.1)));
   background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.1));
@@ -1469,7 +1489,8 @@ input[type="submit"]:focus,
 .button:focus, button:focus,
 html input[type="button"]:focus,
 input[type="reset"]:focus,
-input[type="submit"]:focus, .news-posts nav a:focus {
+input[type="submit"]:focus, .news-posts nav a:focus, .single .archiveLink:focus,
+.single-calendar .archiveLink:focus {
   outline: 0;
 }
 
@@ -1479,14 +1500,17 @@ button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active,
-.news-posts nav a:active {
+.news-posts nav a:active,
+.single .archiveLink:active,
+.single-calendar .archiveLink:active {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
 }
 
 .button[disabled], button[disabled],
 html input[disabled][type="button"],
 input[disabled][type="reset"],
-input[disabled][type="submit"], .news-posts nav a[disabled],
+input[disabled][type="submit"], .news-posts nav a[disabled], .single [disabled].archiveLink,
+.single-calendar [disabled].archiveLink,
 .button-disabled,
 .button-disabled:hover,
 .button-disabled:focus,
@@ -1510,7 +1534,8 @@ input[disabled][type="submit"], .news-posts nav a[disabled],
 .button::-moz-focus-inner, button::-moz-focus-inner,
 html input[type="button"]::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,
-input[type="submit"]::-moz-focus-inner, .news-posts nav a::-moz-focus-inner {
+input[type="submit"]::-moz-focus-inner, .news-posts nav a::-moz-focus-inner, .single .archiveLink::-moz-focus-inner,
+.single-calendar .archiveLink::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
@@ -1578,11 +1603,32 @@ body {
 .bannerContainer-contentWidth {
   background: none;
   padding: 0;
-  margin: 0 0 35px;
+  margin: -15px 0 35px;
+}
+@media (min-width: 768px) {
+  .bannerContainer-contentWidth {
+    margin-top: 0;
+  }
 }
 
 /* content
 ----------------------------------------------------------------- */
+article[role=main] {
+  padding-bottom: 10px;
+}
+@media (min-width: 768px) {
+  article[role=main] {
+    padding-bottom: 35px;
+  }
+}
+
+/* narrow content */
+.single-calendar article[role=main],
+.single-profile article[role=main] {
+  margin: 0 auto;
+  float: none;
+}
+
 /* sidebar
 ----------------------------------------------------------------- */
 .sidebar {
@@ -1590,7 +1636,31 @@ body {
 }
 @media (min-width: 992px) {
   .sidebar {
+    padding: 0 0 35px 60px;
+  }
+}
+
+/* narrow sidebar */
+.sidebarPosts,
+.sidebarProfiles {
+  margin: 0 auto;
+  float: none;
+}
+.sidebarPosts:after,
+.sidebarProfiles:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (min-width: 992px) {
+  .sidebarPosts .widget,
+  .sidebarProfiles .widget {
     padding: 0 0 0 60px;
+  }
+  .sidebarPosts .widget:first-child,
+  .sidebarProfiles .widget:first-child {
+    padding: 0;
   }
 }
 
@@ -1599,6 +1669,7 @@ body {
 .footbar {
   background: #f5f5f5;
   width: 100%;
+  padding-bottom: 20px;
 }
 .footbar:after {
   content: "";
@@ -1607,13 +1678,22 @@ body {
 }
 @media (min-width: 992px) {
   .footbar {
-    padding: 60px 0 20px;
+    padding: 60px 20px 0;
   }
 }
 
 @media (min-width: 992px) {
   .footbar .footbar-container {
     padding: 0 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .footbar-container .widget {
+    padding: 0 0 0 60px;
+  }
+  .footbar-container .widget:first-child {
+    padding: 0;
   }
 }
 
@@ -1726,7 +1806,7 @@ body {
 /* Branding
 ----------------------------------------------------------------- */
 .brand {
-  height: 100px;
+  height: 120px;
   padding: 0 0 0 20px;
   overflow: hidden;
   font-family: "Whitney SSm A", "Whitney SSm B";
@@ -1812,7 +1892,6 @@ body {
   display: none;
 }
 
-/* Logotype & master plate */
 /* Sponsored branding (sometimes called non-entity, but people don't like that) */
 .brand-non-entity {
   font-size: 14px;
@@ -2333,6 +2412,13 @@ nav a {
   right: 0;
 }
 
+/* back link */
+.backLink:before, .single .archiveLink:before,
+.single-calendar .archiveLink:before {
+  content: '← ';
+  color: #aaa;
+}
+
 /* message */
 .message, .single article[role=main] .meta, .singleEvent .dateSummary {
   -webkit-border-radius: 3px;
@@ -2605,7 +2691,9 @@ div.aligncenter img {
   .comment-form html input[type="button"],
   html .comment-form input[type="button"],
   .comment-form input[type="reset"],
-  .comment-form input[type="submit"], .comment-form .news-posts nav a, .news-posts nav .comment-form a {
+  .comment-form input[type="submit"], .comment-form .news-posts nav a, .news-posts nav .comment-form a, .comment-form .single .archiveLink, .single .comment-form .archiveLink,
+  .comment-form .single-calendar .archiveLink,
+  .single-calendar .comment-form .archiveLink {
     margin-left: 25%;
   }
 }
@@ -2637,15 +2725,6 @@ div.aligncenter img {
 .widget {
   margin-bottom: 40px;
   font-size: 16px;
-}
-
-@media (min-width: 992px) {
-  .footbar-container .widget {
-    padding: 0 0 0 60px;
-  }
-  .footbar-container .widget:first-child {
-    padding: 0;
-  }
 }
 
 .widgetTitle {
@@ -2957,6 +3036,7 @@ div.aligncenter img {
   border-left-color: #000000;
   font-size: 16px;
   padding: 20px;
+  margin-bottom: 30px;
 }
 
 .single .meta .post-title {
@@ -2976,6 +3056,11 @@ div.aligncenter img {
 
 .single .meta em {
   color: #7a7a7a;
+}
+
+.single .archiveLink,
+.single-calendar .archiveLink {
+  width: 100%;
 }
 
 /* Calendar */
@@ -3339,6 +3424,50 @@ div.aligncenter img {
 
 .profile-listing .advanced figure img {
   width: 100%;
+}
+
+/* single profile */
+.single-profile article[role=main] h1 {
+  text-align: center;
+  padding-top: 145px;
+}
+
+.single-profile figure {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.single-profile figure img {
+  width: 100%;
+}
+
+.single-profile .profile-info {
+  border: 1px solid #ccc;
+  border-width: 1px 0;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.single-profile .profile-info dt {
+  text-transform: uppercase;
+  font-family: "Benton", Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #aaaaaa;
+}
+
+.single-profile .profile-info dd {
+  font-size: 16px;
+  margin: 0 0 20px 0;
 }
 
 /*# sourceMappingURL=style.css.map */
