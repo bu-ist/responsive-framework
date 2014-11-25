@@ -15,7 +15,8 @@ if ( function_exists( 'bu_thumbnail' ) ) {
 
 <article role="main" <?php post_class(); ?>>
 
-	<h1><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h1>
+	<h1 class="name"><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h1>
+	<h2 class="title"><?php bu_profile_detail( 'title' ); ?></h2>
 
 	<?php if ( $profile_thumb ) : ?>
 	<div class="profile-thumb"><figure><?php echo $profile_thumb; ?></figure></div>
@@ -23,13 +24,13 @@ if ( function_exists( 'bu_thumbnail' ) ) {
 
 	<?php if ( $has_details ) : ?>
 	<div class="profile-info">
-		<dl>
-		<?php bu_profile_detail( 'title', array( 'before' => '<dt>Title</dt><dd>', 'after' => '</dd>', 'post_id' => get_the_ID(), 'format' => 'multi-line' ) ); ?>
-		<?php bu_profile_detail( 'office', array( 'before' => '<dt>Office</dt><dd>', 'after' => '</dd>', 'post_id' => get_the_ID(), 'format' => 'multi-line' ) ); ?>
-		<?php bu_profile_detail( 'email', array( 'before' => '<dt>Email</dt><dd>', 'after' => '</dd>', 'post_id' => get_the_ID(), 'format' => 'email' ) ); ?>
-		<?php bu_profile_detail( 'phone', array( 'before' => '<dt>Phone</dt><dd>', 'after' => '</dd>', 'post_id' => get_the_ID() ) ); ?>
-		<?php bu_profile_detail( 'education', array( 'before' => '<dt>Education</dt><dd>', 'after' => '</dd>', 'post_id' => get_the_ID(), 'format' => 'multi-line' ) ); ?>
-		</dl>
+		<ul>
+		<?php bu_profile_detail( 'title', array( 'before' => '<li class="title"><span class="label">Title </span>', 'after' => '</li>', 'post_id' => get_the_ID(), 'format' => 'multi-line' ) ); ?>
+		<?php bu_profile_detail( 'office', array( 'before' => '<li class="office"><span class="label">Office </span>', 'after' => '</li>', 'post_id' => get_the_ID(), 'format' => 'multi-line' ) ); ?>
+		<?php bu_profile_detail( 'email', array( 'before' => '<li class="email"><span class="label">Email </span>', 'after' => '</li>', 'post_id' => get_the_ID(), 'format' => 'email' ) ); ?>
+		<?php bu_profile_detail( 'phone', array( 'before' => '<li class="phone"><span class="label">Phone </span>', 'after' => '</li>', 'post_id' => get_the_ID() ) ); ?>
+		<?php bu_profile_detail( 'education', array( 'before' => '<li class="education"><span class="label">Education </span>', 'after' => '</li>', 'post_id' => get_the_ID(), 'format' => 'multi-line' ) ); ?>
+		</ul>
 	</div><!--/.profile-info-->
 
 	<?php endif; ?>
