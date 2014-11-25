@@ -16,6 +16,8 @@ TODO:
 [ ] Move to plugin
 */
 
+define( 'BU_BRANDING_DEFAULT_TYPE', 'logotype' );
+
 define( 'BU_BRANDING_TYPE_OPTION', 'bu_branding' );
 define( 'BU_BRANDING_PARENT_OPTION', 'bu_branding_parent' );
 
@@ -61,7 +63,7 @@ function bu_branding_type() {
 		return BU_BRANDING_TYPE;
 	}
 
-	return get_option( BU_BRANDING_TYPE_OPTION, 'logotype' );
+	return get_option( BU_BRANDING_TYPE_OPTION, BU_BRANDING_DEFAULT_TYPE );
 }
 
 /**
@@ -76,6 +78,54 @@ function bu_branding_parent_entity() {
 
 	return get_option( BU_BRANDING_PARENT_OPTION, '' );
 }
+
+/**
+ * Customizer interface for managing branding options.
+ */
+function responsive_branding_customize_register( $wp_customize ) {
+
+	// If current theme is defining both branding type and parent hide this panel
+	if ( ! defined( 'BU_BRANDING_TYPE' ) || ! defined( 'BU_BRANDING_PARENT' ) ) {
+		$wp_customize->add_section( 'bu_branding', array(
+			'title'    => __( 'Branding', 'burf' ),
+			'capability' => 'bu_manage_branding',
+			'priority' => 30,
+		) );
+
+		// Render radio options for branding type
+		if ( ! defined( 'BU_BRANDING_TYPE' ) ) {
+			$wp_customize->add_setting( BU_BRANDING_TYPE_OPTION, array(
+				'default'    => BU_BRANDING_DEFAULT_TYPE,
+				'capability' => 'bu_manage_branding',
+				'type'       => 'option',
+			) );
+			$wp_customize->add_control( BU_BRANDING_TYPE_OPTION, array(
+				'label'      => 'Type',
+				'section'    => 'bu_branding',
+				'settings'   => BU_BRANDING_TYPE_OPTION,
+				'type'       => 'radio',
+				'choices'    => bu_branding_types(),
+			) );
+		}
+
+		// Render text field for parent entity
+		if ( ! defined( 'BU_BRANDING_PARENT' ) ) {
+			$wp_customize->add_setting( BU_BRANDING_PARENT_OPTION, array(
+				'default'    => '',
+				'capability' => 'bu_manage_branding',
+				'type'       => 'option',
+			) );
+			$wp_customize->add_control( BU_BRANDING_PARENT_OPTION, array(
+				'label'      => 'Sponsor',
+				'section'    => 'bu_branding',
+				'settings'   => BU_BRANDING_PARENT_OPTION,
+				'type'       => 'text',
+			) );
+		}
+	}
+}
+
+add_filter( 'customize_register', 'responsive_branding_customize_register' );
 
 /**
  * Display branding HTML.
