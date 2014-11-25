@@ -12,8 +12,6 @@
 
 	<?php responsive_content_banner( 'contentWidth' ); ?>
 
-	<?php the_post_thumbnail( 'full' );?>
-
 	<?php the_content(); ?>
 
 	<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:' ), 'after' => '</div>' ) ); ?>

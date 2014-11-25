@@ -30,10 +30,6 @@ function responsive_setup() {
 	// Expose navigation menu UI.
 	add_theme_support( 'menus' );
 
-	// Expose Featured Images for posts.
-	// TODO: Investigate removing in favor of BU Thumbnail
-	add_theme_support( 'post-thumbnails' );
-
 	// Use HTML5 markup for WP provided components where supported.
 	add_theme_support( 'html5', array(
 			'comment-form',
