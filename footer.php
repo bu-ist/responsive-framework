@@ -21,14 +21,12 @@
 
 				<?php if ( has_nav_menu( 'footer' ) ) : ?>
 					<nav class="siteFooter-links" role="navigation">
-						<h3>Related Sites</h3>
 						<?php responsive_footer_menu(); ?>
 					</nav>
 				<?php endif; ?>
 
 				<?php if ( has_nav_menu( 'social' ) ) : ?>
 					<nav class="siteFooter-social" role="navigation">
-						<h3>Follow Us</h3>
 						<?php responsive_social_menu(); ?>
 					</nav>
 				<?php endif; ?>
