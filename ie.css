@@ -199,6 +199,8 @@
 .siteFooter-info,
 .has-links-social .siteFooter-links,
 .has-links-social .siteFooter-social,
+.sidebarPosts .widget,
+.sidebarProfiles .widget,
 .col-sm-7,
 .col-sm-8,
 .has-info-links .siteFooter-info,
@@ -219,14 +221,10 @@
 .profile-listing .advanced li,
 .col-md-5,
 .col-md-6,
-.sidebarPosts .widget,
-.sidebarProfiles .widget,
 .profile-listing .mini li,
 .col-md-7,
 .col-md-8,
 article[role=main],
-.sidebarPosts,
-.sidebarProfiles,
 .col-md-9,
 .col-md-10,
 .col-md-11,
@@ -327,6 +325,8 @@ article[role=main],
 .siteFooter-info,
 .has-links-social .siteFooter-links,
 .has-links-social .siteFooter-social,
+.sidebarPosts .widget,
+.sidebarProfiles .widget,
 .col-sm-7,
 .col-sm-8,
 .has-info-links .siteFooter-info,
@@ -359,7 +359,8 @@ article[role=main],
 }
 
 .col-sm-6, .siteFooter-info, .has-links-social .siteFooter-links,
-.has-links-social .siteFooter-social {
+.has-links-social .siteFooter-social, .sidebarPosts .widget,
+.sidebarProfiles .widget {
   width: 50%;
 }
 
@@ -401,14 +402,10 @@ article[role=main],
 .profile-listing .advanced li,
 .col-md-5,
 .col-md-6,
-.sidebarPosts .widget,
-.sidebarProfiles .widget,
 .profile-listing .mini li,
 .col-md-7,
 .col-md-8,
 article[role=main],
-.sidebarPosts,
-.sidebarProfiles,
 .col-md-9,
 .col-md-10,
 .col-md-11 {
@@ -435,8 +432,7 @@ article[role=main],
   width: 41.66666666666667%;
 }
 
-.col-md-6, .sidebarPosts .widget,
-.sidebarProfiles .widget, .profile-listing .mini li {
+.col-md-6, .profile-listing .mini li {
   width: 50%;
 }
 
@@ -444,8 +440,7 @@ article[role=main],
   width: 58.333333333333336%;
 }
 
-.col-md-8, article[role=main], .sidebarPosts,
-.sidebarProfiles {
+.col-md-8, article[role=main] {
   width: 66.66666666666666%;
 }
 
@@ -1332,7 +1327,8 @@ select[multiple] {
 .button, button,
 html input[type="button"],
 input[type="reset"],
-input[type="submit"], .news-posts nav a, .single .archiveLink,
+input[type="submit"], .news-posts .paging-navigation a,
+.archive .paging-navigation a, .single .archiveLink,
 .single-calendar .archiveLink {
   /* Structure */
   display: inline-block;
@@ -1357,7 +1353,8 @@ input[type="submit"], .news-posts nav a, .single .archiveLink,
 .button::-moz-focus-inner, button::-moz-focus-inner,
 html input[type="button"]::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,
-input[type="submit"]::-moz-focus-inner, .news-posts nav a::-moz-focus-inner, .single .archiveLink::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner, .news-posts .paging-navigation a::-moz-focus-inner,
+.archive .paging-navigation a::-moz-focus-inner, .single .archiveLink::-moz-focus-inner,
 .single-calendar .archiveLink::-moz-focus-inner {
   padding: 0;
   border: 0;
@@ -1366,7 +1363,8 @@ input[type="submit"]::-moz-focus-inner, .news-posts nav a::-moz-focus-inner, .si
 .button, button,
 html input[type="button"],
 input[type="reset"],
-input[type="submit"], .news-posts nav a, .single .archiveLink,
+input[type="submit"], .news-posts .paging-navigation a,
+.archive .paging-navigation a, .single .archiveLink,
 .single-calendar .archiveLink {
   font-family: inherit;
   font-size: 100%;
@@ -1396,7 +1394,8 @@ button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
-.news-posts nav a:hover,
+.news-posts .paging-navigation a:hover,
+.archive .paging-navigation a:hover,
 .single .archiveLink:hover,
 .single-calendar .archiveLink:hover,
 .button:focus,
@@ -1404,7 +1403,8 @@ button:focus,
 html input[type="button"]:focus,
 input[type="reset"]:focus,
 input[type="submit"]:focus,
-.news-posts nav a:focus,
+.news-posts .paging-navigation a:focus,
+.archive .paging-navigation a:focus,
 .single .archiveLink:focus,
 .single-calendar .archiveLink:focus {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
@@ -1418,7 +1418,8 @@ input[type="submit"]:focus,
 .button:focus, button:focus,
 html input[type="button"]:focus,
 input[type="reset"]:focus,
-input[type="submit"]:focus, .news-posts nav a:focus, .single .archiveLink:focus,
+input[type="submit"]:focus, .news-posts .paging-navigation a:focus,
+.archive .paging-navigation a:focus, .single .archiveLink:focus,
 .single-calendar .archiveLink:focus {
   outline: 0;
 }
@@ -1429,7 +1430,8 @@ button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active,
-.news-posts nav a:active,
+.news-posts .paging-navigation a:active,
+.archive .paging-navigation a:active,
 .single .archiveLink:active,
 .single-calendar .archiveLink:active {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
@@ -1438,7 +1440,8 @@ input[type="submit"]:active,
 .button[disabled], button[disabled],
 html input[disabled][type="button"],
 input[disabled][type="reset"],
-input[disabled][type="submit"], .news-posts nav a[disabled], .single [disabled].archiveLink,
+input[disabled][type="submit"], .news-posts .paging-navigation a[disabled],
+.archive .paging-navigation a[disabled], .single [disabled].archiveLink,
 .single-calendar [disabled].archiveLink,
 .button-disabled,
 .button-disabled:hover,
@@ -1463,15 +1466,22 @@ input[disabled][type="submit"], .news-posts nav a[disabled], .single [disabled].
 .button::-moz-focus-inner, button::-moz-focus-inner,
 html input[type="button"]::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,
-input[type="submit"]::-moz-focus-inner, .news-posts nav a::-moz-focus-inner, .single .archiveLink::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner, .news-posts .paging-navigation a::-moz-focus-inner,
+.archive .paging-navigation a::-moz-focus-inner, .single .archiveLink::-moz-focus-inner,
 .single-calendar .archiveLink::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
 
-.button-primary,
+.button-primary, .news-posts .paging-navigation a,
+.archive .paging-navigation a, .single .archiveLink,
+.single-calendar .archiveLink,
 .button-selected,
 a.button-primary,
+.news-posts .paging-navigation a,
+.archive .paging-navigation a,
+.single a.archiveLink,
+.single-calendar a.archiveLink,
 a.button-selected {
   background-color: #0078e7;
   color: #fff;
@@ -1534,40 +1544,11 @@ article[role=main] {
   padding-bottom: 35px;
 }
 
-/* narrow content */
-.single-calendar article[role=main],
-.single-profile article[role=main] {
-  margin: 0 auto;
-  float: none;
-}
-
 /* sidebar
 ----------------------------------------------------------------- */
 .sidebar {
   font-size: 16px;
   padding: 0 0 35px 60px;
-}
-
-/* narrow sidebar */
-.sidebarPosts,
-.sidebarProfiles {
-  margin: 0 auto;
-  float: none;
-}
-.sidebarPosts:after,
-.sidebarProfiles:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.sidebarPosts .widget,
-.sidebarProfiles .widget {
-  padding: 0 0 0 60px;
-}
-.sidebarPosts .widget:first-child,
-.sidebarProfiles .widget:first-child {
-  padding: 0;
 }
 
 /* .footbar
@@ -2973,11 +2954,11 @@ nav a {
 .backLink:before, .single .archiveLink:before,
 .single-calendar .archiveLink:before {
   content: '← ';
-  color: #aaa;
+  color: #fff;
 }
 
 /* message */
-.message, .single article[role=main] .meta, .singleEvent .dateSummary {
+.message, .single article[role=main] .meta, .singleEvent .dateSummary, .single-profile .profile-info {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -3239,7 +3220,9 @@ div.aligncenter img {
 .comment-form html input[type="button"],
 html .comment-form input[type="button"],
 .comment-form input[type="reset"],
-.comment-form input[type="submit"], .comment-form .news-posts nav a, .news-posts nav .comment-form a, .comment-form .single .archiveLink, .single .comment-form .archiveLink,
+.comment-form input[type="submit"], .comment-form .news-posts .paging-navigation a, .news-posts .paging-navigation .comment-form a,
+.comment-form .archive .paging-navigation a,
+.archive .paging-navigation .comment-form a, .comment-form .single .archiveLink, .single .comment-form .archiveLink,
 .comment-form .single-calendar .archiveLink,
 .single-calendar .comment-form .archiveLink {
   margin-left: 25%;
@@ -3488,34 +3471,86 @@ html .comment-form input[type="button"],
   color: #000000;
 }
 
-/* News Template */
-.page-template-news article[role=main] {
+/* template contents:
+
+	1. Narrow Content Column
+	2. Narrow Sidebar
+	3. News & Archive Template
+	4. Single Post
+	5. Calendar Template
+	6. Calendar Single Event
+
+----------------------------------------------------------------- */
+/* Narrow Content Column
+----------------------------------------------------------------- */
+.archive .content .content-container,
+.page-template-news .content .content-container,
+.single-post .content .content-container,
+.single-calendar .content .content-container,
+.single-profile .content .content-container {
+  max-width: 750px;
+}
+
+.page-template-news article[role=main],
+.single-post article[role=main],
+.single-calendar article[role=main],
+.single-profile article[role=main] {
+  margin: 0 auto;
+  float: none;
+  width: 100%;
+}
+
+/* Narrow Sidebar
+----------------------------------------------------------------- */
+.sidebarPosts,
+.sidebarProfiles {
   margin: 0 auto;
   float: none;
 }
-
-.page-template-news .sidebar {
-  display: none;
+.sidebarPosts:after,
+.sidebarProfiles:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.news-posts h2 {
+.sidebarPosts .widget,
+.sidebarProfiles .widget {
+  padding: 0 0 0 60px;
+}
+.sidebarPosts .widget:first-child,
+.sidebarProfiles .widget:first-child {
+  padding: 0;
+}
+
+/* News & Archive Template
+----------------------------------------------------------------- */
+.news-posts h2,
+.archive .content-container h2 {
   margin-bottom: 10px;
 }
 
-.news-posts .post {
+.news-posts .post,
+.archive .content-container article {
   margin-top: 30px;
   padding-top: 30px;
   border: 1px solid #dddddd;
   border-width: 1px 0 0 0;
+  position: relative;
 }
 
-.news-posts .post:first-child {
+.news-posts .post:first-child,
+.archive .content-container article:first-child {
   margin-top: 0;
   padding-top: 0;
   border-top: none;
 }
 
-.news-posts .meta {
+.news-posts .meta,
+.archive .content-container .entry-meta,
+.archive .content-container .categories,
+.archive .content-container .tags,
+.archive .content-container .taxonomies {
   margin-bottom: 20px;
   font-family: "Benton", Helvetica, sans-serif;
   font-size: 14px;
@@ -3534,40 +3569,37 @@ html .comment-form input[type="button"],
   color: #7a7a7a;
 }
 
-.news-posts nav {
+.news-posts .paging-navigation,
+.archive .paging-navigation {
   margin-top: 30px;
   padding-top: 30px;
   border: 1px solid #dddddd;
   border-width: 1px 0 0 0;
 }
-.news-posts nav:after {
+.news-posts .paging-navigation:after,
+.archive .paging-navigation:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.news-posts nav .screen-reader-text {
+.news-posts .paging-navigation .screen-reader-text,
+.archive .paging-navigation .screen-reader-text {
   display: none;
 }
 
-.news-posts nav .nav-previous {
+.news-posts .paging-navigation .nav-previous,
+.archive .paging-navigation .nav-previous {
   float: left;
 }
 
-.news-posts nav .nav-next {
+.news-posts .paging-navigation .nav-next,
+.archive .paging-navigation .nav-next {
   float: right;
 }
 
-/* Single post */
-.single-post article[role=main] {
-  margin: 0 auto;
-  float: none;
-}
-
-.single-post .sidebar {
-  display: none;
-}
-
+/* Single Post
+----------------------------------------------------------------- */
 .single article[role=main] .meta {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -3606,7 +3638,8 @@ html .comment-form input[type="button"],
   width: 100%;
 }
 
-/* Calendar */
+/* Calendar Template
+----------------------------------------------------------------- */
 .calendar-topic {
   font-size: 21px;
 }
@@ -3636,7 +3669,7 @@ html .comment-form input[type="button"],
   color: #0f69d7;
 }
 
-/* Calendar Sidebar */
+/* sidebar */
 .monthCalendar {
   width: 100%;
 }
@@ -3692,11 +3725,14 @@ html .comment-form input[type="button"],
   padding-left: 20px;
 }
 
-/* Calendar Single */
+/* Calendar Single Event
+----------------------------------------------------------------- */
 .singleEvent .label {
   font-family: "Benton", Helvetica, sans-serif;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 700;
+  color: #9f9f9f;
+  text-transform: uppercase;
 }
 
 .singleEvent .dateSummary {
@@ -3738,14 +3774,19 @@ html .comment-form input[type="button"],
   margin: 0 0 25px 0;
 }
 
-/*
+.singleEvent .additionalDetails dd {
+  margin: 0 0 20px 0;
+}
+
+/* Plugins contents:
 
 	1. Collapsible divs
 	2. Profiles
 	3. Course feeds
 
-*/
-/* Collapsible divs */
+----------------------------------------------------------------- */
+/* Collapsible Divs
+----------------------------------------------------------------- */
 .bu_collapsible {
   padding-right: 30px;
   position: relative;
@@ -3780,7 +3821,8 @@ html .comment-form input[type="button"],
   border-bottom-color: #0f69d7;
 }
 
-/* Profiles */
+/* Profiles
+----------------------------------------------------------------- */
 .profile-listing:after {
   content: "";
   display: table;
@@ -3961,6 +4003,11 @@ html .comment-form input[type="button"],
 .single-profile article[role=main] h1 {
   text-align: center;
   padding-top: 145px;
+  margin-bottom: 0;
+}
+
+.single-profile article[role=main] h2 {
+  text-align: center;
 }
 
 .single-profile figure {
@@ -3982,23 +4029,34 @@ html .comment-form input[type="button"],
 }
 
 .single-profile .profile-info {
-  border: 1px solid #ccc;
-  border-width: 1px 0;
-  padding-top: 20px;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
+  float: right;
+  width: 33.33333333333333%;
+  margin: 0 0 20px 20px;
 }
 
-.single-profile .profile-info dt {
+.single-profile .profile-info ul {
+  margin: 0;
+  padding: 0;
+}
+
+.single-profile .profile-info li {
+  font-size: 16px;
+  list-style: none;
+  margin: 0 0 20px 0;
+  word-wrap: break-word;
+}
+
+.single-profile .profile-info .label {
   text-transform: uppercase;
   font-family: "Benton", Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: #aaaaaa;
+  display: block;
 }
 
-.single-profile .profile-info dd {
-  font-size: 16px;
-  margin: 0 0 20px 0;
-}
+/* Course Feeds
+----------------------------------------------------------------- */
 
 /*# sourceMappingURL=ie.css.map */
