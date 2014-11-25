@@ -132,8 +132,13 @@ add_filter( 'customize_register', 'responsive_branding_customize_register' );
  */
 function responsive_branding() {
 	$branding = bu_get_branding();
-	$name = $branding['parent'] ? $branding['parent'] : get_bloginfo( 'name' );
-	$subname = $branding['parent'] ? get_bloginfo( 'name' ) : '';
+	if ( 'non-entity' == $branding['type'] ) {
+		$name = $branding['parent'];
+		$subname = get_bloginfo( 'name' );
+	} else {
+		$name = get_bloginfo( 'name' );
+		$subname = '';
+	}
 
 	// Container classes
 	$class_attr = 'brand-' . $branding['type'];
@@ -155,8 +160,6 @@ function responsive_branding() {
  * Whether or not the current site requires the BU masterplate in the footer.
  *
  * TODO: Document logic
- *
- * @return [type] [description]
  */
 function responsive_branding_has_masterplate() {
 	$branding = bu_get_branding();
