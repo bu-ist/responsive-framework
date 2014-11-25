@@ -32,8 +32,8 @@
 	</header>
 
 	<div class="wrapper">
-		<div class="contentWrapper">
+		<div class="content">
 
 			<?php responsive_content_banner( 'windowWidth' ); ?>
 
-			<div class="container">
+			<div class="content-container">

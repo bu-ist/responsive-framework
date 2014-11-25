@@ -267,7 +267,7 @@ CSS;
 	if ( $bg_image && $bg_color ) {
 		$css .= <<<CSS
 /* page background */
-.contentWrapper {
+.content {
 	background-color: $bg_color;
 	background-image: url($bg_image);
 	background-repeat: $bg_repeat;
@@ -278,7 +278,7 @@ CSS;
 	} else if ( $bg_image ) {
 		$css .= <<<CSS
 /* page background */
-.contentWrapper {
+.content {
 	background-image: url($bg_image);
 	background-repeat: $bg_repeat;
 	background-position: top $bg_position;
@@ -288,7 +288,7 @@ CSS;
 	} else if ( $bg_color ) {
 		$css .= <<<CSS
 /* page background */
-.contentWrapper {
+.content {
 	background-color: $bg_color;
 }
 CSS;

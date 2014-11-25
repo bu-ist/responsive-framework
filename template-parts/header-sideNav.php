@@ -13,8 +13,8 @@
 	<?php responsive_search_form(); ?>
 </div>
 
-<nav class="navContainer" role="navigation">
-	<a href="#primaryNav" class="navToggle"><span>Menu</span></a>
+<nav class="primaryNav" role="navigation">
+	<a href="#primaryNav-menu" class="navToggle"><span>Menu</span></a>
 	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
 
 	<?php responsive_primary_nav(); ?>
