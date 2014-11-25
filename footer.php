@@ -1,4 +1,4 @@
-			</div><!-- .container -->
+			</div><!-- .content-container -->
 
 			<?php get_sidebar( 'bottom' ); ?>
 

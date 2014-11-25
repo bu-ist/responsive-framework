@@ -135,17 +135,17 @@
   overflow: hidden;
 }
 
-.contentWrapper {
+.content {
   position: relative;
 }
 
-.container, .footbar .footbar-container {
+.container, .content-container, .footbar .footbar-container {
   padding: 35px 20px 0;
   width: 100%;
   margin: 0 auto;
   padding: 60px 20px 0;
 }
-.container:after, .footbar .footbar-container:after {
+.container:after, .content-container:after, .footbar .footbar-container:after {
   content: "";
   display: table;
   clear: both;
@@ -310,7 +310,7 @@ article[role=main],
 }
 
 /* small screens */
-.container, .footbar .footbar-container {
+.container, .content-container, .footbar .footbar-container {
   max-width: 750px;
 }
 
@@ -388,7 +388,7 @@ article[role=main],
 }
 
 /* medium screens */
-.container, .footbar .footbar-container {
+.container, .content-container, .footbar .footbar-container {
   max-width: 970px;
 }
 
@@ -1481,7 +1481,7 @@ body {
   background: #000000;
 }
 
-.contentWrapper {
+.content {
   background: #ffffff;
 }
 
@@ -2713,7 +2713,7 @@ nav a {
 }
 
 /* when nav or search are opened */
-.is-open .primaryNav,
+.is-open .primaryNav-menu,
 .is-open .utilityNav {
   display: block;
   clear: left;
@@ -2722,27 +2722,27 @@ nav a {
 /* nav above and below masthead
 ----------------------------------------------------------------- */
 /* .mainNav */
-.navContainer {
+.primaryNav {
   background: #151515;
   display: block;
   padding: 0 10px;
 }
-.navContainer:after {
+.primaryNav:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.navContainer .utilityNav {
+.primaryNav .utilityNav {
   display: none;
 }
 
-.navContainer.is-open {
+.primaryNav.is-open {
   height: auto;
 }
 
-/* .primaryNav */
-.primaryNav {
+/* .primaryNav-menu */
+.primaryNav-menu {
   display: none;
   margin: 40px 10px 20px 10px;
   display: inline;
@@ -2750,7 +2750,7 @@ nav a {
   margin: 0;
 }
 
-.primaryNav li {
+.primaryNav-menu li {
   zoom: 1;
   display: block;
   display: inline-block;
@@ -2758,7 +2758,7 @@ nav a {
   border: none;
 }
 
-.primaryNav a {
+.primaryNav-menu a {
   display: block;
   padding: 10px 0;
   text-decoration: none;
@@ -2768,16 +2768,16 @@ nav a {
   line-height: 60px;
   padding: 0 10px;
 }
-.primaryNav a:hover, .primaryNav a:focus {
+.primaryNav-menu a:hover, .primaryNav-menu a:focus {
   color: #ffffff;
 }
 
-.primaryNav li a.active,
-.primaryNav li a.active_section {
+.primaryNav-menu li a.active,
+.primaryNav-menu li a.active_section {
   color: #ffffff;
 }
 
-.primaryNav ul {
+.primaryNav-menu ul {
   display: none;
   display: block;
   position: absolute;
@@ -2787,17 +2787,17 @@ nav a {
   width: 240px;
 }
 
-.primaryNav li:hover ul,
-.primaryNav li:focus ul {
+.primaryNav-menu li:hover ul,
+.primaryNav-menu li:focus ul {
   left: auto;
 }
 
-.primaryNav li li {
+.primaryNav-menu li li {
   display: block;
   padding: 0 10px;
 }
 
-.primaryNav li li a {
+.primaryNav-menu li li a {
   line-height: 1.6;
   color: #9f9f9f;
   padding: 10px 0;
@@ -2844,38 +2844,38 @@ nav a {
 
 /* nav on left
 ----------------------------------------------------------------- */
-.l-sideNav .contentWrapper {
+.l-sideNav .content {
   margin-left: 60px;
 }
 
-.l-sideNav .navContainer {
+.l-sideNav .primaryNav {
   padding: 0;
   background: none;
   position: absolute;
   width: 300px;
 }
 
-.l-sideNav .primaryNav {
+.l-sideNav .primaryNav-menu {
   border-bottom: 1px solid #333333;
   display: none;
 }
 
-.l-sideNav .primaryNav li {
+.l-sideNav .primaryNav-menu li {
   display: block;
   padding: 0;
 }
 
-.l-sideNav .primaryNav a {
+.l-sideNav .primaryNav-menu a {
   border-top: 1px solid #333333;
   padding: 10px 0;
   line-height: 1.6;
 }
 
-.l-sideNav .primaryNav ul {
+.l-sideNav .primaryNav-menu ul {
   display: none;
 }
 
-.l-sideNav .is-open .primaryNav,
+.l-sideNav .is-open .primaryNav-menu,
 .l-sideNav .is-open .utilityNav {
   margin: 0 10px 20px;
 }
@@ -2892,7 +2892,7 @@ nav a {
   color: #555555;
 }
 
-.l-sideNav .navContainer .searchToggle {
+.l-sideNav .primaryNav .searchToggle {
   display: none;
 }
 
@@ -2918,11 +2918,11 @@ nav a {
   padding-left: 0;
 }
 
-.l-sideNav.nav-open .contentWrapper {
+.l-sideNav.nav-open .content {
   left: 240px;
 }
 
-.l-sideNav.nav-open .primaryNav,
+.l-sideNav.nav-open .primaryNav-menu,
 .l-sideNav.nav-open .utilityNav {
   display: block;
   float: none;
