@@ -19,7 +19,7 @@ TODO:
 define( 'BU_BRANDING_DEFAULT_TYPE', 'logotype' );
 
 define( 'BU_BRANDING_TYPE_OPTION', 'bu_branding' );
-define( 'BU_BRANDING_PARENT_OPTION', 'bu_branding_parent' );
+define( 'BU_BRANDING_SPONSOR_OPTION', 'bu_branding_sponsor' );
 
 // TODO: Implement
 // define( 'BU_BRANDING_OFFICIAL_OPTION', 'bu_branding_is_official' );
@@ -34,8 +34,8 @@ define( 'BU_BRANDING_PARENT_OPTION', 'bu_branding_parent' );
  */
 function bu_get_branding() {
 	return array(
-		'type'   => bu_branding_type(),
-		'parent' => bu_branding_parent_entity(),
+		'type'    => bu_branding_type(),
+		'sponsor' => bu_branding_sponsor(),
 		);
 }
 
@@ -46,7 +46,7 @@ function bu_branding_types() {
 	return array(
 		'logotype'    => 'Logotype',
 		'signature'   => 'Signature',
-		'non-entity'  => 'Non-Entity',
+		'sponsored'   => 'Sponsored',
 		'unbranded'   => 'Unbranded',
 		);
 }
@@ -67,16 +67,16 @@ function bu_branding_type() {
 }
 
 /**
- * Get parent / sponsoring entity for this site.
+ * Get sponsoring entity for this site.
  *
- * Themes can define the BU_BRANDING_PARENT constant to force a specific parent entity.
+ * Themes can define the BU_BRANDING_SPONSOR constant to force a specific sponsoring entity.
  */
-function bu_branding_parent_entity() {
-	if ( defined( 'BU_BRANDING_PARENT' ) ) {
-		return BU_BRANDING_PARENT;
+function bu_branding_sponsor() {
+	if ( defined( 'BU_BRANDING_SPONSOR' ) ) {
+		return BU_BRANDING_SPONSOR;
 	}
 
-	return get_option( BU_BRANDING_PARENT_OPTION, '' );
+	return get_option( BU_BRANDING_SPONSOR_OPTION, '' );
 }
 
 /**
@@ -84,8 +84,8 @@ function bu_branding_parent_entity() {
  */
 function responsive_branding_customize_register( $wp_customize ) {
 
-	// If current theme is defining both branding type and parent hide this panel
-	if ( ! defined( 'BU_BRANDING_TYPE' ) || ! defined( 'BU_BRANDING_PARENT' ) ) {
+	// If current theme is defining both branding type and sponsor hide this panel
+	if ( ! defined( 'BU_BRANDING_TYPE' ) || ! defined( 'BU_BRANDING_SPONSOR' ) ) {
 		$wp_customize->add_section( 'bu_branding', array(
 			'title'    => __( 'Branding', 'burf' ),
 			'capability' => 'bu_manage_branding',
@@ -108,17 +108,17 @@ function responsive_branding_customize_register( $wp_customize ) {
 			) );
 		}
 
-		// Render text field for parent entity
-		if ( ! defined( 'BU_BRANDING_PARENT' ) ) {
-			$wp_customize->add_setting( BU_BRANDING_PARENT_OPTION, array(
+		// Render text field for sponsoring entity
+		if ( ! defined( 'BU_BRANDING_SPONSOR' ) ) {
+			$wp_customize->add_setting( BU_BRANDING_SPONSOR_OPTION, array(
 				'default'    => '',
 				'capability' => 'bu_manage_branding',
 				'type'       => 'option',
 			) );
-			$wp_customize->add_control( BU_BRANDING_PARENT_OPTION, array(
+			$wp_customize->add_control( BU_BRANDING_SPONSOR_OPTION, array(
 				'label'      => 'Sponsor',
 				'section'    => 'bu_branding',
-				'settings'   => BU_BRANDING_PARENT_OPTION,
+				'settings'   => BU_BRANDING_SPONSOR_OPTION,
 				'type'       => 'text',
 			) );
 		}
@@ -132,8 +132,8 @@ add_filter( 'customize_register', 'responsive_branding_customize_register' );
  */
 function responsive_branding() {
 	$branding = bu_get_branding();
-	if ( 'non-entity' == $branding['type'] ) {
-		$name = $branding['parent'];
+	if ( 'sponsored' == $branding['type'] ) {
+		$name = $branding['sponsor'];
 		$subname = get_bloginfo( 'name' );
 	} else {
 		$name = get_bloginfo( 'name' );

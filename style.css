@@ -597,7 +597,8 @@ figure {
 /* Base
 ----------------------------------------------------------------- */
 /* 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using `em` units. 
-   2. Prevent iOS text size adjust after orientation change, without disabling user zoom. */
+   2. Prevent iOS text size adjust after orientation change, without disabling user zoom. 
+   3. Normalize font rendering in Firefox */
 html {
   font-size: 100%;
   /* 1 */
@@ -605,6 +606,8 @@ html {
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
+  -moz-osx-font-smoothing: grayscale;
+  /* 3 */
 }
 
 /* Address `font-family` inconsistency between `textarea` and other form elements. */
@@ -1892,12 +1895,12 @@ article[role=main] {
   display: none;
 }
 
-/* Sponsored branding (sometimes called non-entity, but people don't like that) */
-.brand-non-entity {
+/* Sponsored branding */
+.brand-sponsored {
   font-size: 14px;
 }
 
-.brand-non-entity .siteName,
+.brand-sponsored .siteName,
 .brand-unbranded .siteName {
   display: block;
   color: #c00;
@@ -1922,6 +1925,757 @@ article[role=main] {
     background-image: url("http://www.bu.edu/cdn/images/logos/masterplate112x50-retina.png");
     background-size: 112px 50px;
   }
+}
+
+@font-face {
+  font-family: "bu-default-icons";
+  src: url("http://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.eot?") format("embedded-opentype");
+  src: url("http://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.ttf") format("truetype"), url("http://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.svg#bu-default-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+??????;
+  /* Include all Unicode possiblities */
+}
+/* This triggers a redraw in IE to Fix IE8"s :before content rendering. */
+html:hover [class^="icon-"] {
+  -ms-zoom: 1;
+}
+
+.icon, .siteFooter-social a i,
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  display: inline-block;
+  vertical-align: bottom;
+  font-family: "bu-default-icons";
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+  speak: none;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* social icons */
+.icon-dropbox {
+  content: "";
+}
+
+.icon-facebook {
+  content: "";
+}
+
+.icon-facebook-alt, .siteFooter-social a[href*="facebook.com"] i:before {
+  content: "";
+}
+
+.icon-flickr, .siteFooter-social a[href*="flickr.com"] i:before {
+  content: "";
+}
+
+.icon-foursquare, .siteFooter-social a[href*="foursquare.com"] i:before {
+  content: "";
+}
+
+.icon-github, .siteFooter-social a[href*="github.com"] i:before {
+  content: "";
+}
+
+.icon-googleplus, .siteFooter-social a[href*="googleplus.com"] i:before {
+  content: "";
+}
+
+.icon-instagram, .siteFooter-social a[href*="instagram.com"] i:before {
+  content: "";
+}
+
+.icon-kickstarter, .siteFooter-social a[href*="kickstarter.com"] i:before {
+  content: "";
+}
+
+.icon-linkedin, .siteFooter-social a[href*="linkedin.com"] i:before {
+  content: "";
+}
+
+.icon-paypal {
+  content: "";
+}
+
+.icon-pinterest, .siteFooter-social a[href*="pinterest.com"] i:before {
+  content: "";
+}
+
+.icon-reddit {
+  content: "";
+}
+
+.icon-renren {
+  content: "";
+}
+
+.icon-retweet {
+  content: "";
+}
+
+.icon-soundcloud {
+  content: "";
+}
+
+.icon-spotify {
+  content: "";
+}
+
+.icon-stackexchange {
+  content: "";
+}
+
+.icon-stackoverflow {
+  content: "";
+}
+
+.icon-spotify {
+  content: "";
+}
+
+.icon-stackoverflow {
+  content: "";
+}
+
+.icon-twitter, .siteFooter-social a[href*="twitter.com"] i:before {
+  content: "";
+}
+
+.icon-twitter-alt {
+  content: "";
+}
+
+.icon-tumblr, .siteFooter-social a[href*="tumblr.com"] i:before {
+  content: "";
+}
+
+.icon-vimeo, .siteFooter-social a[href*="vimeo.com"] i:before {
+  content: "";
+}
+
+.icon-vine {
+  content: "";
+}
+
+.icon-weibo {
+  content: "";
+}
+
+.icon-wordpress {
+  content: "";
+}
+
+.icon-youtube, .siteFooter-social a[href*="youtube.com"] i:before {
+  content: "";
+}
+
+/* general icons */
+.icon-action {
+  content: "";
+}
+
+.icon-alert {
+  content: "⚠";
+}
+
+.icon-android {
+  content: "";
+}
+
+.icon-appleinc {
+  content: "";
+}
+
+.icon-burst {
+  content: "";
+}
+
+.icon-calculator {
+  content: "";
+}
+
+.icon-cart {
+  content: "";
+}
+
+.icon-code {
+  content: "";
+}
+
+.icon-compass {
+  content: "";
+}
+
+.icon-contract {
+  content: "";
+}
+
+.icon-dashboard {
+  content: "";
+}
+
+.icon-download {
+  content: "";
+}
+
+.icon-downloadbox {
+  content: "";
+}
+
+.icon-ban {
+  content: "🚫";
+}
+
+.icon-barchart {
+  content: "📊";
+}
+
+.icon-bike {
+  content: "🚲";
+}
+
+.icon-book {
+  content: "📕";
+}
+
+.icon-bookmark {
+  content: "🔖";
+}
+
+.icon-box {
+  content: "📦";
+}
+
+.icon-briefcase {
+  content: "💼";
+}
+
+.icon-bug {
+  content: "🐛";
+}
+
+.icon-calendar {
+  content: "📅";
+}
+
+.icon-camera {
+  content: "📷";
+}
+
+.icon-car {
+  content: "🚘";
+}
+
+.icon-chat {
+  content: "💬";
+}
+
+.icon-check {
+  content: "✓";
+}
+
+.icon-clipboard {
+  content: "📋";
+}
+
+.icon-clock {
+  content: "⏲";
+}
+
+.icon-cloud {
+  content: "☁";
+}
+
+.icon-compose {
+  content: "📝";
+}
+
+.icon-contacts {
+  content: "📇";
+}
+
+.icon-crosshair {
+  content: "⌖";
+}
+
+.icon-delete {
+  content: "␡";
+}
+
+.icon-desktop {
+  content: "💻";
+}
+
+.icon-directleft {
+  content: "◃";
+}
+
+.icon-directright {
+  content: "▹";
+}
+
+.icon-directup {
+  content: "▴";
+}
+
+.icon-dislike {
+  content: "👎";
+}
+
+.icon-down {
+  content: "⬇";
+}
+
+.icon-dropdown {
+  content: "▾";
+}
+
+.icon-emptycart {
+  content: "";
+}
+
+.icon-grid {
+  content: "";
+}
+
+.icon-index {
+  content: "";
+}
+
+.icon-envelope {
+  content: "✉";
+}
+
+.icon-expand {
+  content: "⤢";
+}
+
+.icon-fastforward {
+  content: "⧣";
+}
+
+.icon-file {
+  content: "📄";
+}
+
+.icon-files {
+  content: "";
+}
+
+.icon-flag {
+  content: "⚑";
+}
+
+.icon-flask {
+  content: "";
+}
+
+.icon-folder {
+  content: "📁";
+}
+
+.icon-globe {
+  content: "🌐";
+}
+
+.icon-headphones {
+  content: "🎧";
+}
+
+.icon-heart {
+  content: "♥";
+}
+
+.icon-home {
+  content: "⌂";
+}
+
+.icon-hyphen {
+  content: "-";
+}
+
+.icon-infinity {
+  content: "∞";
+}
+
+.icon-info {
+  content: "ℹ";
+}
+
+.icon-key {
+  content: "🔑";
+}
+
+.icon-laptop {
+  content: "";
+}
+
+.icon-layers {
+  content: "";
+}
+
+.icon-layout {
+  content: "";
+}
+
+.icon-left {
+  content: "⬅";
+}
+
+.icon-lightbulb {
+  content: "💡";
+}
+
+.icon-lightning {
+  content: "☇";
+}
+
+.icon-like {
+  content: "👍";
+}
+
+.icon-like-alt {
+  content: "👋";
+}
+
+.icon-link {
+  content: "🔛";
+}
+
+.icon-link-alt {
+  content: "";
+}
+
+.icon-list {
+  content: "";
+}
+
+.icon-location {
+  content: "";
+}
+
+.icon-lock {
+  content: "🔒";
+}
+
+.icon-map {
+  content: "";
+}
+
+.icon-megaphone {
+  content: "📢";
+}
+
+.icon-menu {
+  content: "";
+}
+
+.icon-mic {
+  content: "🎤";
+}
+
+.icon-music {
+  content: "♫";
+}
+
+.icon-navigate {
+  content: "";
+}
+
+.icon-navigateleft {
+  content: "◅";
+}
+
+.icon-navigateright {
+  content: "▻";
+}
+
+.icon-navigatedown {
+  content: "";
+}
+
+.icon-navigateup {
+  content: "";
+}
+
+.icon-notebook {
+  content: "📓";
+}
+
+.icon-notifications {
+  content: "🔔";
+}
+
+.icon-pause {
+  content: "";
+}
+
+.icon-phone {
+  content: "📞";
+}
+
+.icon-picture {
+  content: "🌄";
+}
+
+.icon-piechart {
+  content: "";
+}
+
+.icon-pinboard {
+  content: "";
+}
+
+.icon-pin {
+  content: "📍";
+}
+
+.icon-plane {
+  content: "✈";
+}
+
+.icon-planet {
+  content: "";
+}
+
+.icon-play {
+  content: "▶";
+}
+
+.icon-plus {
+  content: "+";
+}
+
+.icon-poo {
+  content: "💩";
+}
+
+.icon-print {
+  content: "⎙";
+}
+
+.icon-puzzle {
+  content: "";
+}
+
+v
+.icon-record {
+  content: "●";
+}
+
+.icon-rss {
+  content: "";
+}
+
+.icon-rss-alt {
+  content: "";
+}
+
+.icon-redirect {
+  content: "↪";
+}
+
+.icon-refresh {
+  content: "↻";
+}
+
+.icon-replay {
+  content: "↺";
+}
+
+.icon-reply {
+  content: "↩";
+}
+
+.icon-rewind {
+  content: "⏪";
+}
+
+.icon-right {
+  content: "➡";
+}
+
+.icon-rotaryphone {
+  content: "☎";
+}
+
+.icon-scaledown {
+  content: "";
+}
+
+.icon-scaleup {
+  content: "";
+}
+
+.icon-screwdriver {
+  content: "";
+}
+
+.icon-share {
+  content: "";
+}
+
+.icon-signpost {
+  content: "";
+}
+
+.icon-smartphone {
+  content: "";
+}
+
+.icon-search {
+  content: "🔎";
+}
+
+.icon-settings {
+  content: "⚙";
+}
+
+.icon-skipback {
+  content: "⏮";
+}
+
+.icon-skipforward {
+  content: "⏭";
+}
+
+.icon-star {
+  content: "⋆";
+}
+
+.icon-stop {
+  content: "■";
+}
+
+.icon-stock {
+  content: "";
+}
+
+.icon-storagebox {
+  content: "";
+}
+
+.icon-sync {
+  content: "";
+}
+
+.icon-tablet {
+  content: "";
+}
+
+.icon-tag {
+  content: "";
+}
+
+.icon-thermometer {
+  content: "";
+}
+
+.icon-thumbnails {
+  content: "";
+}
+
+.icon-toolbox {
+  content: "";
+}
+
+.icon-tv {
+  content: "📺";
+}
+
+.icon-unlock {
+  content: "🔓";
+}
+
+.icon-up {
+  content: "⠆";
+}
+
+.icon-upload {
+  content: "";
+}
+
+.icon-uploadcloud {
+  content: "";
+}
+
+.icon-user {
+  content: "👤";
+}
+
+.icon-users {
+  content: "👥";
+}
+
+.icon-utensils {
+  content: "🍴";
+}
+
+.icon-video {
+  content: "📹";
+}
+
+.icon-view {
+  content: "👀";
+}
+
+.icon-volume {
+  content: "🔈";
+}
+
+.icon-watch {
+  content: "⌚";
+}
+
+.icon-wrench {
+  content: "🔧";
+}
+
+.icon-write {
+  content: "✎";
+}
+
+.icon-wifi {
+  content: "";
+}
+
+/* Footer links */
+.siteFooter-social a {
+  -webkit-transition: color 200ms ease-in-out 0s;
+  -moz-transition: color 200ms ease-in-out 0s;
+  -ms-transition: color 200ms ease-in-out 0s;
+  -o-transition: color 200ms ease-in-out 0s;
+  transition: color 200ms ease-in-out 0s;
+}
+
+.siteFooter-social a i {
+  font-size: 21px;
+}
+
+/* hide labels */
+.siteFooter-social a[href*="facebook.com"] span,
+.siteFooter-social a[href*="flickr.com"] span,
+.siteFooter-social a[href*="foursquare.com"] span,
+.siteFooter-social a[href*="github.com"] span,
+.siteFooter-social a[href*="googleplus.com"] span,
+.siteFooter-social a[href*="instagram.com"] span,
+.siteFooter-social a[href*="kickstarter.com"] span,
+.siteFooter-social a[href*="linkedin.com"] span,
+.siteFooter-social a[href*="pinterest.com"] span,
+.siteFooter-social a[href*="tumblr.com"] span,
+.siteFooter-social a[href*="twitter.com"] span,
+.siteFooter-social a[href*="youtube.com"] span,
+.siteFooter-social a[href*="vimeo.com"] span {
+  display: none;
 }
 
 /* common
