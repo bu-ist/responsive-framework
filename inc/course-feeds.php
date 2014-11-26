@@ -27,7 +27,8 @@ add_filter( 'bu_course_feeds_default_course_template', 'responsive_course_templa
  */
 function responsive_section_template( $template ) {
 	$template = <<<TPL
-<em>{{section_id}}, {{date_start}} to {{date_end}} {{year}}</em><br />
+<p class=""><em>{{section_id}}, {{date_start}} to {{date_end}} {{year}}</em></p>
+<div class="responsive-table">
 <table>
 	<tr>
 		<th>Days</th>
@@ -39,6 +40,7 @@ function responsive_section_template( $template ) {
 	</tr>
 	[bu-course-feed_schedule]
 </table>
+</div>
 TPL;
 	return $template;
 }
