@@ -9,7 +9,7 @@
 
 	<?php responsive_primary_nav(); ?>
 
-	<nav class="utilityNav" role="navigation"><?php responsive_utility_nav(); ?></nav>
+	<?php responsive_utility_nav(); ?>
 </nav>
 
 <?php responsive_search_form(); ?>
@@ -19,7 +19,7 @@
 
 	<p class="siteDescription"><?php bloginfo( 'description' ); ?></p>
 
-	<nav class="utilityNav" role="navigation"><?php responsive_utility_nav(); ?></nav>
+	<?php responsive_utility_nav(); ?>
 
 	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
 

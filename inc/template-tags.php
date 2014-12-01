@@ -205,16 +205,41 @@ function responsive_primary_nav() {
 /**
  * Renders utility navigation menu.
  *
- * If the current site has a site-wide ACL applied nothing will be displayed.
+ * If the current site has a site-wide ACL applied or the utility menu has
+ * no items nothing will be displayed.
+ *
+ * @param array $args {
+ *     Optional. Arguments to configure menu markup.
+ *
+ *     @type  string $before HTML markup to display before menu.
+ *     @type  string $after  HTML markup to display after menu.
+ * }
  */
-function responsive_utility_nav() {
+function responsive_utility_nav( $args = array() ) {
+	if ( ! has_nav_menu( 'utility' ) ) {
+		return;
+	}
+
+	$defaults = array(
+		'before' => '<nav class="utilityNav" role="navigation">',
+		'after'  => '</nav>',
+		);
+	$args = wp_parse_args( $args, $defaults );
+	$menu = '';
+
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
 		false == BuAccessControlPlugin::is_site_403() ) {
-		wp_nav_menu( array(
+		$menu = wp_nav_menu( array(
 			'theme_location' => 'utility',
-			'container'      => 'false',
-			'items_wrap'     => '<ul>%3$s</ul>',
+			'menu_id'        => 'utilityNav-menu',
+			'menu_class'     => 'utilityNav-menu',
+			'container'      => false,
+			'echo'           => false,
 		) );
+	}
+
+	if ( $menu ) {
+		echo $args['before'] . $menu . $args['after'];
 	}
 }
 
