@@ -106,11 +106,11 @@ function responsive_search_form() {
 	}
 }
 
-function responsi_bu_search_form_query_attributes( $attrs ) {
+function responsive_bu_search_form_query_attributes( $attrs ) {
 	return 'placeholder="Search site..."';
 }
 
-add_filter( 'bu_search_form_query_attributes', 'responsi_bu_search_form_query_attributes' );
+add_filter( 'bu_search_form_query_attributes', 'responsive_bu_search_form_query_attributes' );
 
 /**
  * Generates a list of term links for the given post.
