@@ -93,30 +93,30 @@ function responsive_setup() {
 			$banner_templates = new AllowedTemplates();
 		}
 
-		$banner_templates->register( array(
+		$banner_templates->register( apply_filters( 'responsive_banner_templates', array(
 			'default',
 			'page-templates/calendar.php',
 			'page-templates/news.php',
 			'page-templates/no-sidebars.php',
 			'page-templates/profiles.php',
 			'single.php',
-			) );
+			) ) );
 
 		if ( ! isset( $profile_templates ) ) {
 			$profile_templates = new AllowedTemplates();
 		}
 
-		$profile_templates->register( array(
+		$profile_templates->register( apply_filters( 'responsive_profile_templates', array(
 			'page-templates/profiles.php'
-			) );
+			) ) );
 
 		if ( ! isset( $news_templates ) ) {
 			$news_templates = new AllowedTemplates();
 		}
 
-		$news_templates->register( array(
+		$news_templates->register( apply_filters( 'responsive_news_templates', array(
 			'page-templates/news.php'
-			) );
+			) ) );
 	}
 
 }
