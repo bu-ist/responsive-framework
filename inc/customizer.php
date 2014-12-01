@@ -75,10 +75,24 @@ function responsive_get_customizer_footer_info() {
 /**
  * Prints out additional footer info content.
  */
-function responsive_customizer_footer_info() {
+function responsive_customizer_footer_info( $args = array() ) {
+	$defaults = array(
+		'before' => '<div class="siteFooter-info">',
+		'after'  => '</div>',
+		'echo'   => true,
+		);
+	$args = wp_parse_args( $args, $defaults );
+	$output = '';
+
 	$footer_info = responsive_get_customizer_footer_info();
 	if ( $footer_info ) {
-		echo $footer_info;
+		$output = $args['before'] . $footer_info . $args['after'];
+	}
+
+	if ( $args['echo'] ) {
+		echo $output;
+	} else {
+		return $output;
 	}
 }
 
