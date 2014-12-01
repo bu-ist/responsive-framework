@@ -7,33 +7,12 @@
 
 	<footer class="siteFooter <?php responsive_extra_footer_classes(); ?>" role="contentinfo">
 
-		<?php
-			responsive_branding_masterplate( array(
-				'before' => '<div class="siteFooter-brand">',
-				'after'  => '</div>',
-			) );
-		?>
+		<?php responsive_branding_masterplate(); ?>
 
 		<div class="siteFooter-content">
-
-		<?php if ( responsive_customizer_has_footer_info() ) : ?>
-			<div class="siteFooter-info">
-				<?php responsive_customizer_footer_info(); ?>
-			</div>
-		<?php endif; ?>
-
-		<?php if ( has_nav_menu( 'footer' ) ) : ?>
-			<nav class="siteFooter-links" role="navigation">
-				<?php responsive_footer_menu(); ?>
-			</nav>
-		<?php endif; ?>
-
-		<?php if ( has_nav_menu( 'social' ) ) : ?>
-			<nav class="siteFooter-social" role="navigation">
-				<?php responsive_social_menu(); ?>
-			</nav>
-		<?php endif; ?>
-
+			<?php responsive_customizer_footer_info(); ?>
+			<?php responsive_footer_menu(); ?>
+			<?php responsive_social_menu(); ?>
 		</div>
 
 	</footer>

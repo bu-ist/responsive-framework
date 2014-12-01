@@ -168,11 +168,18 @@ function responsive_branding_has_masterplate() {
 
 /**
  * Display the BU masterplate if branding configuration requires it.
+ *
+ * @param array $args {
+ *     Optional. Arguments to configure masterplate markup.
+ *
+ *     @type  string $before HTML markup to display before masterplate.
+ *     @type  string $after  HTML markup to display after masterplate.
+ * }
  */
 function responsive_branding_masterplate( $args = array() ) {
 	$defaults = array(
-		'before' => '',
-		'after'  => '',
+		'before' => '<div class="siteFooter-brand">',
+		'after'  => '</div>',
 		);
 	$args = wp_parse_args( $args, $defaults );
 
