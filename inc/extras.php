@@ -46,35 +46,30 @@ function responsive_body_class( $classes = '' ) {
 add_filter( 'body_class', 'responsive_body_class' );
 
 /**
- * Removes "uncategorized" and "private" from categories.
+ * Removes "Uncategorized" from category listings.
  *
- * @todo Review.
+ * Child themes can add extra categories for exclusion by way of the `responsive_category_lists_exclusions`
+ * filter.
  */
-function responsive_category_filter( $thelist, $separator = ' ' ) {
-	if ( ! defined( 'WP_ADMIN' ) ) {
-		// Category IDs to exclude
-		$exclude = array( 1, 5 );
+function responsive_filter_category_lists( $thelist, $separator = null ) {
+	if ( is_admin() || is_null( $seperator ) ) {
+		$category_links = explode( $separator, $thelist );
 
-		$exclude2 = array();
-		foreach ( $exclude as $c ) {
-			$exclude2[] = get_cat_name( $c );
+		$categories_to_exclude = apply_filters( 'responsive_category_lists_exclusions', array( 'Uncategorized' ) );
+		foreach ( $categories_to_exclude as &$cat ) {
+			$cat = preg_quote( $cat, '!' );
 		}
 
-		$cats = explode( $separator, $thelist );
-		$newlist = array();
-		foreach ( $cats as $cat ) {
-			$catname = trim( strip_tags( $cat ) );
-			if ( ! in_array( $catname, $exclude2 ) ) {
-				$newlist[] = $cat;
-			}
-		}
-		return implode( $separator, $newlist );
-	} else {
-		return $thelist;
+		$exclude_pattern = sprintf(  '!<\s*a[^>]*>%s<\s*/a[^>]*>!im', implode( '|', $categories_to_exclude ) );
+		$category_links = preg_grep( $exclude_pattern, $category_links, PREG_GREP_INVERT );
+
+		$thelist = implode( $separator, $category_links );
 	}
+
+	return $thelist;
 }
 
-add_filter( 'the_category', 'responsive_category_filter', 10, 2 );
+add_filter( 'the_category', 'responsive_filter_category_lists', 10, 2 );
 
 /**
  * Filter shortcode attributes for [caption] to fix padding.
