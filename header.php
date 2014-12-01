@@ -9,17 +9,20 @@
 	<title><?php responsive_get_title(); ?></title>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
 	<meta http-equiv="ClearType" content="true" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
 
-	<?php if ( responsive_is_bu_domain() ): ?><meta name="copyright" content="&copy; <?php echo date( 'Y' ); ?> Boston University" /><?php endif; ?>
-	<?php if ( ! responsive_is_bu_domain() ): ?><link rel="shortcut icon" href="<?php bloginfo( 'template_directory' ); ?>/favicon-g.ico" /><?php endif; ?>
-	<?php if ( function_exists( 'bu_meta' ) ) : bu_meta(); else : ?><meta name="description" content="<?php responsive_get_description(); ?>" /><?php endif; ?>
+	<?php if ( function_exists( 'bu_meta' ) ) : bu_meta(); else : ?><meta name="description" content="Boston University is a leading private research institution with two primary campuses in the heart of Boston and programs around the world." /><?php endif; ?>
+
+	<?php if ( responsive_is_bu_domain() ) : ?>
+	<meta name="copyright" content="&copy; <?php echo date( 'Y' ); ?> Boston University" />
+	<?php else : ?>
+	<link rel="shortcut icon" href="<?php bloginfo( 'template_directory' ); ?>/icons/favicon-g.ico" />
+	<?php endif; ?>
 
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-	<link rel="shortcut icon" href="<?php bloginfo( 'template_directory' ); ?>/favicon.ico">
-	<link rel="apple-touch-icon" href="<?php echo bloginfo( 'template_directory' ); ?>/apple-touch-icon-precomposed.png"/>
+	<link rel="apple-touch-icon" href="<?php bloginfo( 'template_directory' ); ?>/icons/apple-touch-icon-precomposed.png"/>
 
 	<?php responsive_styles(); ?>
 
