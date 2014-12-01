@@ -19,7 +19,8 @@
 	<footer class="meta">
 		<h4 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 		<h5 class="byline"><em>By </em><?php the_author(); ?></h5>
-		<p><em>Posted</em> <span class="date-offset"><?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago'; ?></sspan> <em>on</em> <span class="date"><time datetime="<?php the_time( 'l, F jS, Y' ) ?>" pubdate><?php the_time( 'l, F jS, Y' ) ?></time></span></p>
+		<p class="postedDateCategory"><em class="posted">Posted </em><span class="date-offset"><?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago'; ?></sspan><em class="on"> on </em><span class="date"><time datetime="<?php the_time( 'l, F jS, Y' ) ?>" pubdate><?php the_time( 'l, F jS, Y' ) ?></time></span><span class="categories"><em> in </em><?php the_category( ', ' ); ?></span></p>
+		<p class="tagged"><?php the_tags( '<em>Tagged: </em>', ', ' ); ?></p>
 	</footer>
 
 	<?php responsive_posts_archive_link(); ?>
