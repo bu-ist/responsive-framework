@@ -2773,6 +2773,7 @@ html #quicksearch input[type="button"],
 .primaryNav.is-open {
   height: auto;
   padding-bottom: 20px;
+  padding-bottom: 0;
 }
 
 .primaryNav-menu {
@@ -2878,9 +2879,15 @@ html #quicksearch input[type="button"],
   text-decoration: none;
   color: #7a7a7a;
 }
-.utilityNav a:hover, .utilityNav a:focus {
-  color: #aaaaaa;
+.utilityNav a:hover {
   color: #000000;
+}
+
+.primaryNav .utilityNav a {
+  color: #aaaaaa;
+}
+.primaryNav .utilityNav a:hover {
+  color: #ffffff;
 }
 
 /* sideNav
@@ -3091,9 +3098,7 @@ img.alignright {
 div.alignright {
   float: right;
   margin: 0 0 10px 10px;
-  background: #ffffff;
   width: auto !important;
-  padding: 10px;
   max-width: 100%;
 }
 
@@ -3113,9 +3118,7 @@ img.alignleft {
 div.alignleft {
   float: left;
   margin: 0 10px 10px 0;
-  background: #ffffff;
   width: auto !important;
-  padding: 10px;
   max-width: 100%;
 }
 
@@ -3134,8 +3137,6 @@ img.aligncenter {
 
 div.aligncenter {
   margin: 0 auto;
-  background: #ffffff;
-  padding: 10px;
   max-width: 100%;
 }
 
@@ -3147,7 +3148,8 @@ div.aligncenter img {
   margin-bottom: 5px;
 }
 
-.wp-caption {
+.wp-caption,
+.wp-caption-text {
   color: #9f9f9f;
   font-size: 14px;
   line-height: 1.4;
@@ -3388,7 +3390,16 @@ html .comment-form input[type="button"],
   font-size: 12px;
 }
 
-/* widget */
+/* widget contents:
+
+	1. Basic Widgets
+	2. BU Posts
+	3. Content Nav
+	4. Calendar
+
+----------------------------------------------------------------- */
+/* Basic Widgets
+----------------------------------------------------------------- */
 .widget {
   margin-bottom: 40px;
   font-size: 16px;
@@ -3424,7 +3435,8 @@ html .comment-form input[type="button"],
   padding: 0;
 }
 
-/* BU Posts */
+/* BU Posts
+----------------------------------------------------------------- */
 .widget-bu-posts .post {
   margin-bottom: 25px;
 }
@@ -3466,30 +3478,37 @@ html .comment-form input[type="button"],
   color: #aaaaaa;
 }
 
-/* content nav */
-#contentnav h3 {
+/* Content Nav
+----------------------------------------------------------------- */
+#contentnav h3,
+.widget_nav_menu h3 {
   margin-bottom: 0;
 }
 
-#contentnav ul {
+#contentnav ul,
+.widget_nav_menu ul {
   border: 1px solid #cccccc;
   border-width: 1px 0;
 }
 
-#contentnav h3 + ul {
+#contentnav h3 + ul,
+.widget_nav_menu h3 + ul {
   border-width: 0 0 1px;
 }
 
-#contentnav li {
+#contentnav li,
+.widget_nav_menu li {
   border: 1px solid #cccccc;
   border-width: 1px 0 0 0;
   font-family: "Benton", Helvetica, sans-serif;
 }
-#contentnav li:first-child {
+#contentnav li:first-child,
+.widget_nav_menu li:first-child {
   border: none;
 }
 
-#contentnav li a {
+#contentnav li a,
+.widget_nav_menu li a {
   display: block;
   padding: 10px 0;
   font-size: 16px;
@@ -3497,34 +3516,42 @@ html .comment-form input[type="button"],
 }
 
 #contentnav li a:hover,
-#contentnav li a:focus {
+#contentnav li a:focus,
+.widget_nav_menu li a:hover,
+.widget_nav_menu li a:focus {
   color: #0f69d7;
   text-decoration: none;
 }
 
-#contentnav .current_page_item a {
+#contentnav .current_page_item a,
+.widget_nav_menu .current_page_item a {
   color: #000000;
 }
 
-#contentnav .current_page_item li a {
+#contentnav .current_page_item li a,
+.widget_nav_menu .current_page_item li a {
   color: #0f69d7;
 }
 
-#contentnav li ul {
+#contentnav li ul,
+.widget_nav_menu li ul {
   margin: 0;
   border: none;
 }
 
-#contentnav li ul li {
+#contentnav li ul li,
+.widget_nav_menu li ul li {
   border: none;
   padding: 0 0 0 20px;
 }
 
-#contentnav li li a {
+#contentnav li li a,
+.widget_nav_menu li li a {
   font-size: 16px;
 }
 
-/* calendar */
+/* Calendar
+----------------------------------------------------------------- */
 .widget-bu-calendar .date {
   font-family: "Benton", Helvetica, sans-serif;
 }
@@ -3628,6 +3655,7 @@ html .comment-form input[type="button"],
 .page-template-news .content .content-container,
 .single-post .content .content-container,
 .single-calendar .content .content-container,
+.page-template-profiles .content .content-container,
 .single-profile .content .content-container {
   max-width: 750px;
 }
@@ -3635,7 +3663,9 @@ html .comment-form input[type="button"],
 .page-template-news article[role=main],
 .single-post article[role=main],
 .single-calendar article[role=main],
-.single-profile article[role=main] {
+.page-template-profiles article[role=main],
+.single-profile article[role=main],
+.post-type-archive-profile article[role=main] {
   margin: 0 auto;
   float: none;
   width: 100%;
@@ -3767,6 +3797,10 @@ html .comment-form input[type="button"],
 
 .single .meta p {
   font-family: "Benton", Helvetica, sans-serif;
+  margin-bottom: 10px;
+}
+
+.single .meta p:last-child {
   margin-bottom: 0;
 }
 
