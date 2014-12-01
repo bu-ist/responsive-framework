@@ -245,31 +245,82 @@ function responsive_utility_nav( $args = array() ) {
 
 /**
  * Renders footer links custom menu.
+ *
+ * @param array $args {
+ *     Optional. Arguments to configure menu markup.
+ *
+ *     @type  string $before HTML markup to display before menu.
+ *     @type  string $after  HTML markup to display after menu.
+ * }
  */
-function responsive_footer_menu() {
-	wp_nav_menu( array(
+function responsive_footer_menu( $args = array() ) {
+	if ( ! has_nav_menu( 'footer' ) ) {
+		return;
+	}
+
+	$defaults = array(
+		'before' => '<nav class="siteFooter-links" role="navigation">',
+		'after'  => '</nav>',
+		);
+	$args = wp_parse_args( $args, $defaults );
+	$menu = '';
+
+	$menu = wp_nav_menu( array(
 		'theme_location' => 'footer',
 		'depth'          => 1,
+		'menu_id'        => 'siteFooter-links-menu',
+		'menu_class'     => 'siteFooter-links-menu',
+		'container'      => false,
+		'echo'           => false,
 	) );
+
+	if ( $menu ) {
+		echo $args['before'] . $menu . $args['after'];
+	}
 }
 
 /**
  * Renders the social links menu for the footer.
  *
  * A filter is used to ensure the menu link has a title attribute.
+ *
+ * @param array $args {
+ *     Optional. Arguments to configure menu markup.
+ *
+ *     @type  string $before HTML markup to display before menu.
+ *     @type  string $after  HTML markup to display after menu.
+ * }
  */
-function responsive_social_menu() {
+function responsive_social_menu( $args = array() ) {
+	if ( ! has_nav_menu( 'social' ) ) {
+		return;
+	}
+
+	$defaults = array(
+		'before' => '<nav class="siteFooter-social" role="navigation">',
+		'after'  => '</nav>',
+		);
+	$args = wp_parse_args( $args, $defaults );
+	$menu = '';
 
 	add_filter( 'nav_menu_link_attributes', 'responsive_social_nav_menu_link_attributes', 10, 2 );
 
-	wp_nav_menu( array(
+	$menu = wp_nav_menu( array(
 		'theme_location' => 'social',
 		'depth'          => 1,
 		'link_before'    => '<i aria-hidden="true"></i><span>',
 		'link_after'     => '</span>',
+		'menu_id'        => 'siteFooter-social-menu',
+		'menu_class'     => 'siteFooter-social-menu',
+		'container'      => false,
+		'echo'           => false,
 	) );
 
 	remove_filter( 'nav_menu_link_attributes', 'responsive_social_nav_menu_link_attributes', 10, 2 );
+
+	if ( $menu ) {
+		echo $args['before'] . $menu . $args['after'];
+	}
 }
 
 /**
