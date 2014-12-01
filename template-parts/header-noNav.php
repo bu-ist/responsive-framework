@@ -10,8 +10,7 @@
 
 	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
 
-	<nav class="utilityNav" role="navigation"><?php responsive_utility_nav(); ?></nav>
-
+	<?php responsive_utility_nav(); ?>
 </div>
 
 <?php responsive_search_form(); ?>
