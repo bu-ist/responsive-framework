@@ -75,11 +75,11 @@ function responsive_setup() {
 			) );
 		bu_register_banner_position( 'pageWidth', array(
 				'label' => 'Page width',
-				'hint'  => 'Banner will appear above the content and sidebars and should be XY pixels wide.',
+				'hint'  => 'Banner will appear above the content and sidebars and should be 1130 pixels wide.',
 			) );
 		bu_register_banner_position( 'contentWidth', array(
 				'label'   => 'Content width',
-				'hint'    => 'Banner will appear above the title in the content area and should be XY pixels wide.',
+				'hint'    => 'Banner will appear above the title in the content area and should be 760 pixels wide.',
 				'default' => true,
 			) );
 	}
