@@ -81,6 +81,9 @@ function bu_branding_sponsor() {
 
 /**
  * Customizer interface for managing branding options.
+ *
+ * Defined here (as opposed to in `admin/theme-customizer.php`) to keep this
+ * code self-contained in case we decide to move it to a plugin.
  */
 function responsive_branding_customize_register( $wp_customize ) {
 
@@ -159,7 +162,8 @@ function responsive_branding() {
 /**
  * Whether or not the current site requires the BU masterplate in the footer.
  *
- * TODO: Document logic
+ * Currently this will return true if the branding type is not Signature or
+ * Unbranded.
  */
 function responsive_branding_has_masterplate() {
 	$branding = bu_get_branding();
