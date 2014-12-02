@@ -22,6 +22,8 @@ function responsive_get_title() {
 
 /**
  * Print the site's description.
+ *
+ * TODO: Remove once child themes have migrated to 1.0.0.
  */
 function responsive_get_description() {
 	if ( is_single() ) {
@@ -106,6 +108,9 @@ function responsive_search_form() {
 	}
 }
 
+/**
+ * Add a placeholder attribute to the search form added by BU CMS.
+ */
 function responsive_bu_search_form_query_attributes( $attrs ) {
 	return 'placeholder="Search site..."';
 }
@@ -113,9 +118,7 @@ function responsive_bu_search_form_query_attributes( $attrs ) {
 add_filter( 'bu_search_form_query_attributes', 'responsive_bu_search_form_query_attributes' );
 
 /**
- * Generates a list of term links for the given post.
- *
- * @todo  Review.
+ * Generates a list of term links (excluding categories and tags) for the given post.
  */
 function responsive_term_links( $post = null ) {
 	$post = get_post( $post );
@@ -124,16 +127,13 @@ function responsive_term_links( $post = null ) {
 		return '';
 	}
 
-	// get post type by post
-	$post_type = $post->post_type;
-
-	// get post type taxonomies
-	$taxonomies = get_object_taxonomies( $post_type, 'objects' );
+	// Get taxonomies registered for the current post type
+	$taxonomies = get_object_taxonomies( $post->post_type, 'objects' );
 
 	$out = array();
 	foreach ( $taxonomies as $taxonomy_slug => $taxonomy ) {
 		if ( 'category' !== $taxonomy_slug && 'post_tag' !== $taxonomy_slug ) {
-			// get the terms related to post
+
 			$terms = get_the_terms( $post->ID, $taxonomy_slug );
 
 			if ( ! empty( $terms ) ) {
@@ -154,6 +154,8 @@ function responsive_term_links( $post = null ) {
 
 /**
  * A wrapper around `bu_content_banner` to keep templates clean.
+ *
+ * TODO: Some of this logic should be moved to the plugin (e.g `is_singular` check, `do_shortcode`)
  *
  * @param  string $position A registered content banner position.
  */

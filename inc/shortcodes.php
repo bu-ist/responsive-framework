@@ -5,8 +5,10 @@
 
 /**
  * Renders BUniverse video player.
+ *
+ * TODO: Move to a plugin.
  */
-function buniverse_video_func( $atts ) {
+function buniverse_shortcode( $atts ) {
 	$atts = shortcode_atts( array(
 			'vid'     => '',
 			'id'      => '',
@@ -25,4 +27,4 @@ function buniverse_video_func( $atts ) {
 	return $retstr;
 }
 
-add_shortcode( 'buniverse', 'buniverse_video_func' );
+add_shortcode( 'buniverse', 'buniverse_shortcode' );
