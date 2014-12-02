@@ -1,3 +1,6 @@
+# 1.0.0
+
+* Deemed stable for child theme development
 
 # 0.9.1
 
