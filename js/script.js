@@ -1,23 +1,18 @@
-jQuery(function($) {
-	/* Side Nav Toggler */
-	$(".navToggle").on("click", function(e){
+/**
+ * Toggle behavior for navigation / search buttons.
+ */
+( function ( $ ) {
+	$( '.navToggle' ).on( 'click', function ( e ) {
 		e.preventDefault();
-		$(this).toggleClass("is-open");
-		$("nav").toggleClass("is-open");
-		$("body").toggleClass("nav-open");
-		
-		$(".searchToggle, #quicksearch").removeClass("is-open");
-		$("body").removeClass("search-open");
-		
+		$( 'nav, .navToggle' ).toggleClass( 'is-open' );
+		$( '.searchToggle, #quicksearch' ).removeClass( 'is-open' );
+		$( 'body' ).toggleClass( 'nav-open' ).removeClass( 'search-open' );
 	});
-	
-	$(".searchToggle").on("click", function(e){
+
+	$( '.searchToggle' ).on( 'click', function ( e ) {
 		e.preventDefault();
-		$(".searchToggle").toggleClass("is-open");
-		$("#quicksearch").toggleClass("is-open");
-		$("body").toggleClass("search-open");
-		
-		$("nav, .navToggle").removeClass("is-open");
-		$("body").removeClass("nav-open");
+		$( 'nav, .navToggle' ).removeClass( 'is-open' );
+		$( '.searchToggle, #quicksearch' ).toggleClass( 'is-open' );
+		$( 'body' ).toggleClass( 'search-open' ).removeClass('nav-open');
 	});
-});
+} ( jQuery ) );
