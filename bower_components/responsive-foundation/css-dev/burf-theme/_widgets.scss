@@ -1,0 +1,238 @@
+/* widget contents:
+
+	1. Basic Widgets
+	2. BU Posts
+	3. Content Nav
+	4. Calendar
+
+----------------------------------------------------------------- */
+
+/* Basic Widgets
+----------------------------------------------------------------- */
+
+.widget {
+	margin-bottom: $widget-marginBottom;
+	font-size: $fontSize-widget;
+}
+.widgetTitle {
+	font-size: $fontSize-widgetTitle;
+	line-height: $lineHeight-widgetTitle;
+	font-family: $fontFamily-widgetTitle;
+	color: $color-widgetTitle;
+	border: $border-widgetTitle;
+	border-width: $borderWidth-widgetTitle;
+	padding: 0 0 4px 0;
+}
+.widgetTitle a {
+	color: $color-widgetTitle;
+	text-decoration: none;
+
+	&:after {
+		content: " →";
+		color: #aaa;
+	}
+}
+.widgetTitle a:hover {
+
+	&:after {
+		color: #000;
+	}
+}
+.widget ul {
+	list-style: none;
+	list-style-image: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* BU Posts
+----------------------------------------------------------------- */
+
+.widget-bu-posts {
+	
+}
+.widget-bu-posts .post {
+	@include clearfix;
+	margin-bottom: 25px;
+	
+	&:last-child {
+		//border-bottom: none;
+		margin-bottom: 0;
+	}
+}
+.widget-bu-posts .headline {
+	font-size: $fontSize-widget-postHeadline;
+	line-height: $lineHeight-widget-postHeadline;
+	margin: 0;
+}
+.widget-bu-posts .excerpt {
+	font-size: $fontSize-widget-postExcerpt;
+	line-height: $lineHeight-widget-postExcerpt;
+	margin: 4px 0 0;
+}
+.widget-bu-posts .thumb {
+	display: block;
+	float: left;
+	margin: 5px 15px 15px 0;
+	max-width: 45%;
+}
+.widget-bu-posts .published {
+	font-size: $fontSize-widget-postDate;
+}
+.widget-bu-posts .meta {
+	font-size: $fontSize-widget-postMeta;
+	margin: 0;
+	color: $color-widget-postMeta;
+}
+.widget-bu-posts .comment-counter {
+}
+
+/* Content Nav
+----------------------------------------------------------------- */
+
+#contentnav h3,
+.widget_nav_menu h3 {
+	margin-bottom: 0;
+}
+#contentnav ul,
+.widget_nav_menu ul {
+	border: $border-widget-contentnav;
+	border-width: $borderWidth-widget-contentnav;
+}
+#contentnav h3 + ul,
+.widget_nav_menu h3 + ul {
+	border-width: 0 0 1px;
+}
+#contentnav li,
+.widget_nav_menu li {
+	border: $border-widgetList;
+	border-width: $borderWidth-widgetList;
+	font-family: $fontFamily-widget-contentnav;
+
+	&:first-child {
+		border: none;
+	}
+}
+#contentnav li a,
+.widget_nav_menu li a {
+	display: block;
+	padding: 10px 0;
+	font-size: $fontSize-widget-contentnav-link;
+	color: $color-widget-contentnav;
+}
+#contentnav li a:hover,
+#contentnav li a:focus,
+.widget_nav_menu li a:hover,
+.widget_nav_menu li a:focus {
+	color: $color-widget-contentnav-hover;
+	text-decoration: none;
+}
+#contentnav .current_page_item a,
+.widget_nav_menu .current_page_item a {
+	 color: $color-widget-contentnav-active;
+}
+#contentnav .current_page_item li a,
+.widget_nav_menu .current_page_item li a {
+	color: $color-widget-contentnav;
+}
+#contentnav li ul,
+.widget_nav_menu li ul {
+	margin: 0;
+	border: none;
+}
+#contentnav li ul li,
+.widget_nav_menu li ul li {
+	border: none;
+	padding: 0 0 0 20px;
+}
+#contentnav li li a,
+.widget_nav_menu li li a {
+	font-size: $fontSize-widget-contentnav-nestedLink;
+}
+
+/* Calendar
+----------------------------------------------------------------- */
+
+.widget-bu-calendar {
+
+}
+.widget-bu-calendar .date {
+	font-family: $fontFamily-widget-calendar-date;
+}
+.widget-bu-calendar .default .date {
+	font-weight: 700;
+	color: $color-widget-calendarDate;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.widget-bu-calendar .default a .date {
+	color: $color-grayScale-0;
+}
+.widget-bu-calendar .default li {
+	border: $border-widgetList;
+	border-width: $borderWidth-widgetList;
+	margin-top: 10px;
+	padding-top: 10px;
+	
+	&:first-child {
+		border: none;
+		padding: 0;
+	}
+}
+.widget-bu-calendar .default a {
+	position: relative;
+	padding-left: 60px;
+	display: block;
+}
+
+/* calendar: full-date */
+.widget-bu-calendar .full-date .date {
+	display: block;
+	font-size: $fontSize-widget-calendarDate;
+}
+.widget-bu-calendar .full-date li {
+	border: $border-widgetList;
+	border-width: $borderWidth-widgetList;
+	padding: 10px 0;
+
+	&:first-child {
+		border: none;
+		padding: 0 0 10px;
+	}
+}
+
+/* calendar: graphic */
+.widget-bu-calendar .graphic li {
+	padding-top: 10px;
+
+	&:first-child {
+		padding-top: 0;
+	}
+}
+.widget-bu-calendar .graphic a {
+	position: relative;
+	padding-left: 60px;
+	display: block;
+	min-height: 48px;
+}
+.widget-bu-calendar .graphic .date {
+	text-align: center;
+	width: 48px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.widget-bu-calendar .graphic .day {
+	display: block;
+	font-size: $fontSize-widget-calendarDateDay;
+	line-height: $lineHeight-widget-calendarDate;
+	font-weight: 700;
+	color: $color-widget-calendarDateDay;
+}
+.widget-bu-calendar .graphic .month {
+	text-transform: uppercase;
+	font-size: $fontSize-widget-calendarDateMonth;
+	line-height: $lineHeight-widget-calendarDate;
+	color: $color-widget-calendarDateMonth;
+}
