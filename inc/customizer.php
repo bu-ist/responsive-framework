@@ -34,7 +34,6 @@ function responsive_layout_options() {
  * Returns the site's current font palette.
  */
 function responsive_get_font_palette() {
-	// TODO: Is this actually useful?
 	if ( defined( 'BU_RESPONSIVE_FONT_PALETTE' ) && array_key_exists( BU_RESPONSIVE_FONT_PALETTE, responsive_font_options() ) ) {
 		return BU_RESPONSIVE_FONT_PALETTE;
 	}
