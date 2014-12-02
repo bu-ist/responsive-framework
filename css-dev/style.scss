@@ -1,40 +1,11 @@
 /*! ----------------------
 	Theme Name: Responsive Framework
-	Author: BU ID
+	Author: Boston University Interactive Design
 	Website: http://www.bu.edu/interactive-design/
-	Version: 0.9.1
-	Description: Responsive framework, started with Barebones, ........
+	Version: 1.0.0
+	Description: A responsive WordPress theme framework built with the Responsive Foundation.
 ---------------------- */
 
-
-/* ! reset
----------------------- */
-@import 'reset';
-
-/* ! fonts
----------------------- */
-@import 'fonts';
-
-/* ! variables
----------------------- */
-@import 'variables';
-
-/* ! mixins
----------------------- */
-@import 'mixins';
-
-/* ! type options
----------------------- */
-@import 'typography';
-
-/* ! grid
----------------------- */
-@import 'grid';
-
-/* ! layout
----------------------- */
-@import 'layout';
-
-/* ! print
----------------------- */
-@import 'print';
+// Import from responsive-foundation
+@import 'burf-base';
+@import 'burf-theme';
