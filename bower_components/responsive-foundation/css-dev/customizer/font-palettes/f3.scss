@@ -1,0 +1,77 @@
+@import 'fonts/capita';
+@import 'fonts/benton';
+
+body {
+	font-family: 'Capita';
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 30px;
+}
+p {
+	font-family: 'Capita';
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 30px;
+	margin-bottom: 24px;
+}
+h1 {
+	font-family: 'Benton';
+	font-weight: 700;
+	font-size: 33px;
+	line-height: 36px;
+	margin-bottom: 22px;
+}
+h2 {
+	font-family: 'Benton';
+	font-weight: 700;
+	font-size: 26px;
+	line-height: 29px;
+	margin-bottom: 22px;
+}
+h3 {
+	font-family: 'Benton';
+	font-weight: 700;
+	font-size: 23px;
+	line-height: 26px;
+	margin-bottom: 22px;
+}
+.widget h3 {
+	font-size: 18px;
+	line-height: 21px;
+}
+h4 {
+	font-family: 'Benton';
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 23px;
+	margin-bottom: 22px;
+}
+h5 {
+	font-family: 'Benton';
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 21px;
+	margin-bottom: 22px;
+}
+h6 {
+	font-family: 'Benton';
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19px;
+	margin-bottom: 22px;
+}
+#q {
+	font-family: 'Benton';
+	font-size: 18px;
+}
+#nav li a {
+	font-family: 'Benton';
+	font-weight: 700;
+	font-size: 16px;
+}
+#utility li a {
+	font-family: 'Capita';
+	font-weight: 400;
+	font-size: 16px;
+	font-style: italic;
+}
