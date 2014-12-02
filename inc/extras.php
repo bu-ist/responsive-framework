@@ -52,19 +52,21 @@ add_filter( 'body_class', 'responsive_body_class' );
  * filter.
  */
 function responsive_filter_category_lists( $thelist, $separator = null ) {
-	if ( is_admin() || is_null( $seperator ) ) {
-		$category_links = explode( $separator, $thelist );
-
-		$categories_to_exclude = apply_filters( 'responsive_category_lists_exclusions', array( 'Uncategorized' ) );
-		foreach ( $categories_to_exclude as &$cat ) {
-			$cat = preg_quote( $cat, '!' );
-		}
-
-		$exclude_pattern = sprintf(  '!<\s*a[^>]*>%s<\s*/a[^>]*>!im', implode( '|', $categories_to_exclude ) );
-		$category_links = preg_grep( $exclude_pattern, $category_links, PREG_GREP_INVERT );
-
-		$thelist = implode( $separator, $category_links );
+	if ( is_admin() || is_null( $separator ) ) {
+		return $thelist;
 	}
+
+	$category_links = explode( $separator, $thelist );
+
+	$categories_to_exclude = apply_filters( 'responsive_category_lists_exclusions', array( 'Uncategorized' ) );
+	foreach ( $categories_to_exclude as &$cat ) {
+		$cat = preg_quote( $cat, '!' );
+	}
+
+	$exclude_pattern = sprintf(  '!<\s*a[^>]*>%s<\s*/a[^>]*>!im', implode( '|', $categories_to_exclude ) );
+	$category_links = preg_grep( $exclude_pattern, $category_links, PREG_GREP_INVERT );
+
+	$thelist = implode( $separator, $category_links );
 
 	return $thelist;
 }
