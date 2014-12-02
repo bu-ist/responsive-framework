@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * This hides the Font / Color / Background Customizer panels and associated styles.
+ *
+ * TODO: Remove once the colors / font palettes have been finalized
+ */
+define( 'RESPONSIVE_CUSTOMIZER_DISABLE', true );
+
 require_once __DIR__ . '/customizer-controls.php';
 
 /**
@@ -39,7 +46,7 @@ function responsive_customize_register( $wp_customize ) {
 	}
 
 	// Fonts and colors are only useful for Framework
-	if ( ! is_child_theme() ) {
+	if ( ! is_child_theme() && ! defined( 'RESPONSIVE_CUSTOMIZER_DISABLE' ) ) {
 
 		// Fonts
 		$wp_customize->add_section( 'burf_section_fonts', array(
@@ -328,4 +335,6 @@ function responsive_customizer_styles() {
 	echo '</style>';
 }
 
-// add_action( 'wp_head', 'responsive_customizer_styles' );
+if ( ! defined( 'RESPONSIVE_CUSTOMIZER_DISABLE' ) ) {
+	add_action( 'wp_head', 'responsive_customizer_styles' );
+}
