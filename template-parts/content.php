@@ -19,19 +19,8 @@
 
 	<?php the_excerpt(); ?>
 
-	<?php if ( has_category() ) : ?>
-	<div class="categories">
-		Categories: <?php the_category( ', ' ); ?>
-	</div>
-	<?php endif; ?>
-
-	<div class="tags">
-		<?php the_tags( 'Tags: ', ', ', ' ' ); ?>
-	</div>
-
-	<div class="taxonomies">
-		 <?php echo responsive_term_links(); ?>
-	</div>
+	<?php responsive_category_links( array( 'before' => '<div class="categories">Categories: ', 'after' => '</div>' ) ); ?>
+	<?php the_tags( '<div class="tags">Tags: ', ', ', '</div>' ); ?>
 
 	<?php edit_post_link( 'Edit', '<p class="edit-link">', '</p>' ); ?>
 
