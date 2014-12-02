@@ -118,6 +118,37 @@ function responsive_bu_search_form_query_attributes( $attrs ) {
 add_filter( 'bu_search_form_query_attributes', 'responsive_bu_search_form_query_attributes' );
 
 /**
+ * Generates a list of category links.
+ *
+ * Thin wrapper around `get_the_category_list` that makes it behave more like `the_tags`.
+ *
+ * @param array $args {
+ *     Optional. Arguments to configure term link markup.
+ *
+ *     @type  string $before     HTML markup to display before links.
+ *     @type  string $after      HTML markup to display after links.
+ *     @type  string $separator  String to insert between links.
+ *     @type  string $parents    How to display the parents.
+ *     @type  int    $post_id    Post ID to retrieve categories for.
+ * }
+ */
+function responsive_category_links( $args = array() ) {
+	$defaults = array(
+		'before'    => '<span class="categories">Categories: ',
+		'after'     => '</span>',
+		'separator' => ', ',
+		'parents'   => '',
+		'post_id'   => null,
+		);
+	$args = wp_parse_args( $args, $defaults );
+
+	$categories = get_the_category_list( $args['separator'], $args['parents'], $args['post_id'] );
+	if ( $categories ) {
+		echo $args['before'] . $categories . $args['after'];
+	}
+}
+
+/**
  * Generates a list of term links (excluding categories and tags) for the given post.
  */
 function responsive_term_links( $post = null ) {
