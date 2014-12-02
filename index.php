@@ -1,17 +1,25 @@
-<?php get_header(); ?>
-		<div class="posts col-md-8" >
-			<?php get_template_part( 'loop', 'index' ); ?>
-		</div>
-	
-		<?php
-	    	if(is_dynamic_sidebar("right-content-area")):
-				?>
-				<aside class="col-md-4" id="right-content-area">
-					<?php dynamic_sidebar("right-content-area"); ?>
-				</aside>
-				<?php
-	    	endif;	    	
-	    ?>
-	    
-	</div>
-<?php get_footer(); // will include footer-no-sidebar.php; ?>
+<?php
+/**
+ * The main template file.
+ */
+
+get_header(); ?>
+
+		<?php if ( have_posts() ) : ?>
+
+			<?php while ( have_posts() ) : the_post(); ?>
+
+				<?php get_template_part( 'template-parts/content' ); ?>
+
+			<?php endwhile; ?>
+
+			<?php responsive_paging_nav(); ?>
+
+		<?php else : ?>
+
+			<?php get_template_part( 'template-parts/content', 'none' ); ?>
+
+		<?php endif; ?>
+
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>

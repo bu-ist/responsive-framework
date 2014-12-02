@@ -1,22 +1,37 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Generic post archive template.
+ */
+
+get_header(); ?>
+
+	<?php if ( have_posts() ) : ?>
+
+		<?php
+			the_archive_title( '<h1>', '</h1>' );
+			the_archive_description( '<div class="taxonomyDescription">', '</div>' );
+		?>
+
+	<?php while ( have_posts() ): the_post(); ?>
+
+		<?php get_template_part( 'template-parts/content' ); ?>
+
+	<?php endwhile; ?>
+
+	<?php responsive_paging_nav(); ?>
+
+	<?php else : ?>
+
+		<?php get_template_part( 'template-parts/content', 'none' ); ?>
+
+	<?php endif; ?>
 
 <?php
-	if ( have_posts() )
-		the_post();
-?>
-
-<?php
-	/* Since we called the_post() above, we need to
-	 * rewind the loop back to the beginning that way
-	 * we can run the loop properly, in full.
-	 */
-	rewind_posts();
-
-	/* Run the loop for the archives page to output the posts.
-	 * If you want to overload this in a child theme then include a file
-	 * called loop-archives.php and that will be used instead.
-	 */
-	 get_template_part( 'loop', 'archive' );
+if ( is_date() || is_author() || is_category() || is_tag() ) :
+	get_sidebar( 'posts' );
+else :
+	get_sidebar();
+endif;
 ?>
 
 <?php get_footer(); ?>

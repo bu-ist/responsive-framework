@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "Benton-Sans";
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Benton-Sans";
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Benton-Sans";
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Benton-Sans";
+  font-style: italic;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "TiemposHeadline";
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "TiemposHeadline";
+  font-style: italic;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "TiemposText";
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "TiemposText";
+  font-style: italic;
+  font-weight: 400;
+}
+
+body {
+  font-family: "Benton-Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+.widget h3,
+h4,
+h5,
+h6,
+#q {
+  font-family: "TiemposHeadline", serif;
+}
+
+.primary-nav-menu li a {
+  font-family: "TiemposHeadline", serif;
+  font-weight: 700;
+}
+
+.utility-nav li a {
+  font-family: "TiemposHeadline", serif;
+  font-weight: 400;
+}
+
+#q {
+  font-family: "TiemposText", serif;
+  text-transform: uppercase;
+}
+
+.primary-nav-menu li a {
+  font-family: "TiemposText", serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.utility-nav li a {
+  font-family: "TiemposText", serif;
+  font-style: italic;
+}
+
+blockquote {
+  border-color: #eee;
+  border-style: solid;
+  border-width: 2px 0;
+  padding: 1.25em 0;
+  position: relative;
+}
+
+blockquote::before {
+  background: #fff;
+  content: "\201C";
+  font-family: "TiemposHeadline", serif;
+  font-size: 3em;
+  font-weight: 700;
+  left: 50%;
+  line-height: 30px;
+  position: absolute;
+  text-align: center;
+  top: 12px;
+  transform: translate(-50%, -50%);
+  width: 40px;
+}
+
+blockquote > p:last-of-type {
+  margin-bottom: 0;
+}

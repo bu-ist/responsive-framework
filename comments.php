@@ -1,65 +1,74 @@
-<?php ?>
-
-<aside class="comments">
-	<?php if ( post_password_required() ) : ?>
-    <p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.' ); ?></p>
-</aside>
-
-<?php
-		/* Stop the rest of comments.php from being processed,
-		 * but don't kill the script entirely -- we still have
-		 * to fully load the template.
-		 */
-		return;
-	endif;
+<?php if ( post_password_required() ) {
+	return;
+}
 ?>
 
-<?php
-	// You can start editing here -- including this comment!
-?>
+<section id="comments" class="comments-area">
 
-<?php if ( have_comments() ) : ?>
-            <h2><?php
-			printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number() ),
-			number_format_i18n( get_comments_number() ), get_the_title() );
-			?></h2>
+	<?php if ( have_comments() ) : ?>
+		<h2 class="comments-title">
+			<?php
+				printf( _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title', '_s' ),
+					number_format_i18n( get_comments_number() ) );
+			?>
+		</h2>
 
-<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-    <ul class="navigation">
-        <li class="older">
-            <?php previous_comments_link( __( 'Older Comments' ) ); ?>
-        </li> 
-        <li class="newer">
-			<?php next_comments_link( __( 'Newer Comments' ) ); ?>
-        </li>
-    </ul>
-<?php endif; // check for comment navigation ?>
+		<ol class="comments-list">
+			<?php
+				wp_list_comments( array(
+					'style'      => 'ol',
+					'short_ping' => true,
+					'max_depth'  => '2',
+				) );
+			?>
+		</ol>
 
-<ol class="commentlist">
-    <?php wp_list_comments( array( 'callback' => 'post_comments' ) ); ?>
-</ol>
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+		<nav class="comments-nav" role="navigation">
+			<div class="comments-nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', '_s' ) ); ?></div>
+			<div class="comments-nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', '_s' ) ); ?></div>
+		</nav>
+		<?php endif; // check for comment navigation ?>
 
-<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>			
-    <ul class="navigation">
-        <li class="older">
-            <?php previous_comments_link( __( 'Older Comments' ) ); ?>
-        </li> 
-        <li class="newer">
-			<?php next_comments_link( __( 'Newer Comments' ) ); ?>
-        </li>
-    </ul>
-<?php endif; // check for comment navigation ?>
+	<?php endif; // have_comments() ?>
 
-<?php else : // or, if we don't have comments:
+	<?php
+		// If comments are closed and there are comments, let's leave a little note, shall we?
+		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+	?>
+		<p class="comments-closed"><?php _e( 'Comments are closed.', '_s' ); ?></p>
+	<?php endif; ?>
 
-	/* If there are no comments and comments are closed,
-	 * let's leave a little note, shall we?
-	 */
-	if ( ! comments_open() && is_single() ) :
-?>
-	<p class="nocomments"><?php _e( 'Comments are closed.' ); ?></p>
-<?php endif; // end ! comments_open() ?>
+	<?php if ( comments_open() ) : // this is displayed if there are no comments so far ?>
+	<div id="respond" class="comment-respond">
 
-<?php endif; // end have_comments() ?>
+		<h3 class="comment-respond-title"><?php comment_form_title( 'Post Your Comment', 'Reply to %s' ); ?></h3>
 
-<?php comment_form(); ?>
+		<?php if ( get_option( 'comment_registration' ) && ! is_user_logged_in() ) : ?>
+			<p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p>
+		<?php else : ?>
+			<form action="<?php echo get_option( 'siteurl' ); ?>/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<fieldset>
+					<?php if ( is_user_logged_in() ) : ?>
+						<p>Logged in as <a href="<?php echo get_option( 'siteurl' ); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Log out of this account">Log out &raquo;</a></p>
+					<?php else : ?>
+						<div class="form-row"><label for="author">Name<?php if ( $req ) echo '<em class="required">*</em>'; ?></label><input type="text" name="author" id="author" value="<?php echo esc_attr( $comment_author ); ?>" size="22" tabindex="1" <?php if ( $req ) echo 'aria-required="true"'; ?> /></div>
+						<div class="form-row"><label for="email">Email<?php if ( $req ) echo '<em class="required">*</em>'; ?></label><input type="text" name="email" id="email" value="<?php echo esc_attr( $comment_author_email ); ?>" size="22" tabindex="2" <?php if ( $req ) echo 'aria-required="true"'; ?> /></div>
+					<?php endif; ?>
+
+					<div class="form-row"><label for="comment">Comment <span class="form-tip">(<a href="http://www.bu.edu/tech/web/departments/wordpress/management/comment-guidelines/">view guidelines</a>)</span></label><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></div>
+					<div class="comment-form-submit form-row">
+						<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment" />
+						<span class="cancel-comment-reply"><?php cancel_comment_reply_link( 'Cancel' ); ?></span>
+					</div>
+
+					<?php comment_id_fields(); ?>
+					<?php do_action( 'comment_form' ); ?>
+				</fieldset>
+			</form>
+		<?php endif; // if registration required and not logged in ?>
+	</div>
+
+<?php endif; ?>
+
+</section>

@@ -1,0 +1,94 @@
+@font-face {
+  font-family: "Benton-Sans";
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Benton-Sans";
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Benton-Sans";
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Benton-Sans";
+  font-style: italic;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Pressura";
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Pressura";
+  font-style: italic;
+  font-weight: 700;
+}
+
+body {
+  font-family: "Benton-Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+.widget h3,
+h4,
+h5,
+h6,
+#q {
+  font-family: "Pressura", sans-serif;
+}
+
+.primary-nav-menu li a {
+  font-family: "Pressura", sans-serif;
+  font-weight: 700;
+}
+
+.utility-nav li a {
+  font-family: "Pressura", sans-serif;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+.widget h3,
+h4,
+h5,
+h6,
+#q {
+  text-transform: uppercase;
+}
+
+.primary-nav-menu li a {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.utility-nav li a {
+  font-family: "Benton-Sans", sans-serif;
+  font-style: italic;
+}
+
+blockquote::before {
+  content: "\201C";
+  display: block;
+  font-family: "Pressura", sans-serif;
+  font-size: 4em;
+  font-weight: 700;
+  margin-top: -36px;
+}
+
+blockquote > p:first-of-type {
+  margin: -45px 0 25px;
+}

@@ -1,6 +1,5 @@
-<?php ?>
-<section role="complementary" class="secondary-content">
-	<?php if ( !function_exists('dynamic_sidebar')
-        || !dynamic_sidebar() ) : ?>
-	<?php endif; ?>
-</section>
+<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
+	<aside class="sidebar">
+		<?php dynamic_sidebar( 'sidebar' ); ?>
+	</aside>
+<?php endif; ?>
