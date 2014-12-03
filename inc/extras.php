@@ -164,3 +164,6 @@ function responsive_limit_sidebars_widgets( $sidebars_widgets ) {
 }
 
 add_filter( 'sidebars_widgets', 'responsive_limit_sidebars_widgets', 10, 1 );
+
+// Adds support for shortcodes to core text widget
+add_filter( 'widget_text', 'do_shortcode' );
