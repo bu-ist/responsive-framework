@@ -31,7 +31,9 @@
 <body <?php body_class(); ?> id="top">
 
 	<header class="masthead" role="banner">
-		<?php get_template_part( 'template-parts/header', responsive_layout() ); ?>
+		<div class="masthead-container">
+			<?php get_template_part( 'template-parts/header', responsive_layout() ); ?>
+		</div>
 	</header>
 
 	<div class="wrapper">

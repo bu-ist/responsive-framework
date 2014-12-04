@@ -5,11 +5,10 @@
 ?>
 <div class="brand">
 	<?php responsive_branding(); ?>
-
 	<p class="siteDescription"><?php bloginfo( 'description' ); ?></p>
-
-	<?php responsive_utility_nav(); ?>
 </div>
+
+<?php responsive_utility_nav(); ?>
 
 <nav class="primaryNav" role="navigation">
 	<a href="#primaryNav-menu" class="navToggle"><span>Menu</span></a>
