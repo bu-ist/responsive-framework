@@ -19,8 +19,8 @@
 
 	<p class="siteDescription"><?php bloginfo( 'description' ); ?></p>
 
-	<?php responsive_utility_nav(); ?>
-
 	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
 
 </div>
+
+<?php responsive_utility_nav(); ?>

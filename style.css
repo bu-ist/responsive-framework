@@ -1600,6 +1600,10 @@ body {
   clear: both;
 }
 
+.masthead-container {
+  position: relative;
+}
+
 /* .bannerContainer
 ----------------------------------------------------------------- */
 .bannerContainer {
@@ -2919,7 +2923,7 @@ html #quicksearch input[type="button"],
 }
 
 @media (min-width: 768px) {
-  .primaryNav .utilityNav {
+  .masthead-container .primaryNav .utilityNav {
     display: none;
   }
 }
@@ -3024,21 +3028,11 @@ html #quicksearch input[type="button"],
 }
 
 @media (min-width: 768px) {
-  .brand .utilityNav {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    display: inline;
-    float: right;
+  .masthead-container .utilityNav {
+    display: block;
     border: none;
-    margin: 0 20px 0 0;
+    margin: 0;
     padding: 0;
-  }
-  .lt-ie9 .brand .utilityNav {
-    top: auto;
   }
 }
 
@@ -3068,6 +3062,16 @@ html #quicksearch input[type="button"],
 }
 .primaryNav .utilityNav a:hover {
   color: #ffffff;
+}
+
+/* default
+----------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .l-default .utilityNav {
+    position: absolute;
+    top: 49px;
+    right: 20px;
+  }
 }
 
 /* sideNav
@@ -3199,10 +3203,15 @@ html #quicksearch input[type="button"],
   }
 }
 
+.l-sideNav .masthead-container .utilityNav {
+  margin: 0 10px;
+}
 @media (min-width: 1200px) {
-  .l-sideNav .utilityNav {
+  .l-sideNav .masthead-container .utilityNav {
     display: block;
-    float: none;
+    position: relative;
+    top: auto;
+    right: auto;
   }
 }
 
@@ -3224,6 +3233,7 @@ html #quicksearch input[type="button"],
 @media (min-width: 1200px) {
   .l-sideNav.nav-open .content {
     left: 0;
+    margin-left: 240px;
   }
 }
 
@@ -3235,6 +3245,14 @@ html #quicksearch input[type="button"],
 
 /* top nav
 ----------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .l-topNav .utilityNav {
+    position: absolute;
+    top: 109px;
+    right: 20px;
+  }
+}
+
 .l-topNav #quicksearch {
   border-bottom: 1px solid #dddddd;
 }
@@ -3251,12 +3269,15 @@ html #quicksearch input[type="button"],
   padding-right: 60px;
 }
 
-.l-noNav .brand .utilityNav {
+.l-noNav .masthead-container .utilityNav {
   display: none;
 }
 @media (min-width: 768px) {
-  .l-noNav .brand .utilityNav {
+  .l-noNav .masthead-container .utilityNav {
     display: block;
+    position: absolute;
+    top: 49px;
+    right: 80px;
   }
 }
 
