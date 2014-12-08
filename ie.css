@@ -1373,17 +1373,12 @@ input[type="submit"], .news-posts .paging-navigation a,
   *overflow: visible;
   /*IE 6/7 - Because of IE's overly large left/right padding on buttons */
   padding: 0.5em 1em;
-  color: #444;
-  /* rgba not supported (IE 8) */
-  color: rgba(0, 0, 0, 0.8);
-  /* rgba supported */
-  *color: #444;
-  /* IE 6 & 7 */
+  color: #444444;
   border: 1px solid #999;
   /*IE 6/7/8*/
   border: none transparent;
   /*IE9 + everything else*/
-  background-color: #E6E6E6;
+  background-color: #eeeeee;
   text-decoration: none;
   border-radius: 2px;
 }
@@ -1501,7 +1496,7 @@ a.button-primary,
 .single-calendar a.archiveLink,
 a.button-selected {
   background-color: #0078e7;
-  color: #fff;
+  color: #ffffff;
 }
 
 body {
@@ -1583,6 +1578,8 @@ article[role=main] {
   background: #f5f5f5;
   width: 100%;
   padding-bottom: 20px;
+  border: 1px solid #cccccc;
+  border-width: 1px 0 0 0;
 }
 .footbar:after {
   content: "";
@@ -1591,6 +1588,7 @@ article[role=main] {
 }
 
 .footbar .footbar-container {
+  background: #f5f5f5;
   padding: 60px 20px 0;
 }
 
@@ -1821,8 +1819,6 @@ article[role=main] {
   src: url("http://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.ttf") format("truetype"), url("http://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.svg#bu-default-icons") format("svg");
   font-weight: normal;
   font-style: normal;
-  unicode-range: U+??????;
-  /* Include all Unicode possiblities */
 }
 /* This triggers a redraw in IE to Fix IE8"s :before content rendering. */
 html:hover [class^="icon-"] {
@@ -2845,6 +2841,9 @@ html #quicksearch input[type="button"],
   color: #ffffff;
   padding: 10px 0;
 }
+.primaryNav-menu li li a:hover, .primaryNav-menu li li a:focus {
+  color: #aaaaaa;
+}
 
 /* utilityNav
 ----------------------------------------------------------------- */
@@ -2898,6 +2897,10 @@ html #quicksearch input[type="button"],
 
 /* sideNav
 ----------------------------------------------------------------- */
+.l-sideNav .wrapper {
+  background: #000000;
+}
+
 .l-sideNav .content {
   margin-left: 60px;
 }
@@ -3055,8 +3058,8 @@ html #quicksearch input[type="button"],
 /* back link */
 .backLink:before, .single .archiveLink:before,
 .single-calendar .archiveLink:before {
-  content: '← ';
-  color: #fff;
+  content: "← ";
+  color: #ffffff;
 }
 
 /* message */
@@ -3432,11 +3435,25 @@ html .comment-form input[type="button"],
 }
 .widgetTitle a:after {
   content: " →";
-  color: #aaa;
+  color: #aaaaaa;
 }
 
 .widgetTitle a:hover:after {
-  color: #000;
+  color: #000000;
+}
+
+.widget a {
+  color: #0f69d7;
+}
+.widget a:hover, .widget a:focus {
+  color: #0f69d7;
+}
+
+.footbar .widget a {
+  color: #0f69d7;
+}
+.footbar .widget a:hover, .footbar .widget a:focus {
+  color: #0f69d7;
 }
 
 .widget ul {
@@ -3444,6 +3461,15 @@ html .comment-form input[type="button"],
   list-style-image: none;
   margin: 0;
   padding: 0;
+}
+
+.widget h1,
+.widget h2,
+.widget h3,
+.widget h4,
+.widget h5,
+.widget h6 {
+  font-family: "Benton", Helvetica, sans-serif;
 }
 
 /* BU Posts
