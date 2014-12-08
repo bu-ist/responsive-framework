@@ -140,6 +140,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-version');
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
