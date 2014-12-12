@@ -6,7 +6,7 @@
          url("http://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.svg#bu-default-icons") format("svg");
     font-weight: normal;
     font-style: normal;
-    unicode-range: U+??????; /* Include all Unicode possiblities */
+    // unicode-range: U+??????; /* Include all Unicode possiblities */
 }
 /* This triggers a redraw in IE to Fix IE8"s :before content rendering. */
 html:hover [class^="icon-"] {

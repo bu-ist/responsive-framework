@@ -330,12 +330,10 @@ select[multiple] {
     *font-size: 90%; /*IE 6/7 - To reduce IE's oversized button text*/
     *overflow: visible; /*IE 6/7 - Because of IE's overly large left/right padding on buttons */
     padding: 0.5em 1em;
-    color: #444; /* rgba not supported (IE 8) */
-    color: rgba(0, 0, 0, 0.80); /* rgba supported */
-    *color: #444; /* IE 6 & 7 */
+    color: $color-button-text;
     border: 1px solid #999;  /*IE 6/7/8*/
     border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
-    background-color: #E6E6E6;
+    background-color: $color-button-bg;
     text-decoration: none;
     border-radius: 2px;
 }
@@ -383,6 +381,6 @@ select[multiple] {
 .button-selected,
 a.button-primary,
 a.button-selected {
-    background-color: rgb(0, 120, 231);
-    color: #fff;
+    background-color: $color-button-primary-bg;
+    color: $color-button-primary-text;
 }

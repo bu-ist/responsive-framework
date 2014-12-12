@@ -16,6 +16,8 @@ $color-primaryNav-border:                  $color-grayScale-3 !default;
 $color-primaryNav-link:                    $color-grayScale-f !default;
 $color-primaryNav-link-hover:              $color-grayScale-a !default;
 $color-primaryNav-link-current:            $color-grayScale-9 !default;
+$color-primaryNav-dropdown-link:           $color-primaryNav-link !default;
+$color-primaryNav-dropdown-link-hover:     $color-primaryNav-link-hover !default;
 $color-navToggle:                          $color-grayScale-f !default;
 $color-navToggle-hover:                    $color-grayScale-a !default;
 $color-navToggle-alt:                      $color-grayScale-9 !default;
@@ -49,16 +51,25 @@ $color-calendarMonth-cellLinkToday:        $color-grayScale-0 !default;
 $color-profile-name:                       $color-link !default;
 $color-profile-title:                      $color-base !default;
 $color-profile-mini-border:                $color-grayScale-e !default;
+$color-profile-info-label:                 $color-grayScale-a !default;
+$color-backLink-before:                    $color-grayScale-f !default;
 $color-widgetTitle:                        $color-grayScale-0 !default;
+$color-widgetTitle-link-after:             $color-grayScale-a !default;
+$color-widgetTitle-link-after-hover:       $color-grayScale-0 !default;
+$color-widget-link:                        $color-link !default;
+$color-widget-link-hover:                  $color-link !default;
 $color-widget-calendarDate:                $color-grayScale-0 !default;
-$color-widget-calendarDateDay:             $color-grayScale-0 !default;
-$color-widget-calendarDateMonth:           $color-grayScale-0 !default;
+$color-widget-calendarDateDay:             $color-widget-calendarDate !default;
+$color-widget-calendarDateMonth:           $color-widget-calendarDate !default;
 $color-widget-contentnav:                  $color-link !default;
 $color-widget-contentnav-hover:            $color-link !default;
 $color-widget-contentnav-active:           $color-link-active !default;
 $color-widget-postMeta:                    $color-grayScale-a !default;
 $color-footbar-bg:                         $color-grayScale-f5 !default;
 $color-footbar-border:                     $color-grayScale-c !default;
+$color-footbar-container-bg:               $color-footbar-bg !default;
+$color-footbar-widget-link:                $color-link !default;
+$color-footbar-widget-link-hover:          $color-link !default;
 $color-siteFooter-bg:                      $color-grayScale-0 !default;
 $color-comments:                           $color-base !default;
 $color-comment-reply:                      $color-grayScale-a !default;
@@ -122,6 +133,7 @@ $fontFamily-calendarMonth-caption:         $fontFamily-sansSerif !default;
 $fontFamily-calendarMonth-cell:            $fontFamily-sansSerif !default;
 $fontFamily-singleEvent-label:             $fontFamily-sansSerif !default;
 $fontFamily-widgetTitle:                   $fontFamily-sansSerif !default;
+$fontFamily-widget-heading:                $fontFamily-sansSerif !default;
 $fontFamily-widget-contentnav:             $fontFamily-sansSerif !default;
 $fontFamily-widget-calendar-date:          $fontFamily-sansSerif !default;
 $fontFamily-comment:                       $fontFamily-sansSerif !default;
@@ -142,7 +154,6 @@ $padding-single-meta:                      20px !default;
 $padding-monthCalendar-cell:               4px !default;
 $widget-marginBottom:                      40px !default;
 $footbar-paddingBottom:                    20px !default;
-
 
 // borders & shadows
 // -----------------------------------------------------------------
@@ -176,14 +187,21 @@ $borderWidth-comment:                      1px 0 0 0 !default;
 $border-commentForm:                       1px solid $color-grayScale-e !default;
 $borderWidth-commentForm:                  3px !default;
 $border-profiles:                          1px solid $color-grayScale-c !default;
-$borderRadius-profile-figure:              50%;
-$boxShadow-table:                          inset -20px 0px 20px -10px $color-grayScale-f0;
+$borderRadius-profile-figure:              50% !default;
+$boxShadow-table:                          inset -20px 0px 20px -10px $color-grayScale-f0 !default;
+$border-footbar:                           1px solid $color-footbar-border !default;
+$borderWidth-footbar:                      1px 0 0 0 !default;
 
 // dimensions
 // -----------------------------------------------------------------
 
 $height-brand:                             120px !default;
 $width-sideNav:                            240px !default;
+
+// content
+// -----------------------------------------------------------------
+$widgetTitle-link-after:                   " →" !default;
+$backLink-before:                          "← " !default;
 
 
 // images

@@ -169,7 +169,7 @@ nav a {
 	display: block;
 	padding: 0 10px;
 }
-.primaryNav .utilityNav {
+.masthead-container .primaryNav .utilityNav {
 	@include breakpoint(small) {
 		display: none;	
 	}	
@@ -244,8 +244,13 @@ nav a {
 }
 .primaryNav-menu li li a {
 	line-height: $lineHeight-base;
-	color: $color-primaryNav-link;
+	color: $color-primaryNav-dropdown-link;
 	padding: 10px 0;
+	
+	&:hover,
+	&:focus {
+		color: $color-primaryNav-dropdown-link-hover;
+	}
 }
 
 /* utilityNav
@@ -259,13 +264,11 @@ nav a {
 	border-width: $borderWidth-utilityNav;
 	font-size: $fontSize-utilityNav;
 }
-.brand .utilityNav {
+.masthead-container .utilityNav {
 	@include breakpoint(small) {
-		@include vertical-center;
-		display: inline;
-		float: right;
+		display: block;
 		border: none;
-		margin: 0 20px 0 0;
+		margin: 0;
 		padding: 0;
 	}
 }
@@ -296,22 +299,29 @@ nav a {
 	}
 }
 
+/* default
+----------------------------------------------------------------- */
+
+.l-default .utilityNav {
+	@include breakpoint(small) {
+		position: absolute;
+		top: 49px;
+		right: 20px;
+	}
+}
+
 /* sideNav
 ----------------------------------------------------------------- */
 
+.l-sideNav .wrapper {
+	background: $color-primaryNav-bg;
+}
 .l-sideNav .content {
 	@include breakpoint(small) {
-		margin-left:60px;
+		margin-left: 60px;
 	}
 	@include breakpoint(large) {	
 		margin-left: $width-sideNav;
-	}
-}
-.l-sideNav .content-container,
-.l-sideNav .footbar-container {
-	@include breakpoint(small) {
-		padding-left: 60px;
-		padding-right: 60px;
 	}
 }
 .l-sideNav .primaryNav  {	
@@ -401,10 +411,13 @@ nav a {
 		display: none;
 	}
 }
-.l-sideNav .utilityNav {
+.l-sideNav .masthead-container .utilityNav {
+	margin: 0 10px;
 	@include breakpoint(large) {
 		display: block;
-		float: none;
+		position: relative;
+		top: auto;
+		right: auto;
 	}
 }
 .l-sideNav .utilityNav a:hover {
@@ -421,6 +434,7 @@ nav a {
 	}
 	@include breakpoint(large) {
 		left: 0;
+		margin-left: 240px;
 	}
 }
 .l-sideNav.nav-open .primaryNav-menu,
@@ -431,6 +445,14 @@ nav a {
 
 /* top nav
 ----------------------------------------------------------------- */
+
+.l-topNav .utilityNav {
+	@include breakpoint(small) {
+		position: absolute;
+		top: 109px;
+		right: 20px;
+	}
+}
 
 .l-topNav #quicksearch {
 	border-bottom: 1px solid $color-grayScale-d;
@@ -447,11 +469,14 @@ nav a {
 .l-noNav .brand {
 	padding-right: 60px;
 }
-.l-noNav .brand .utilityNav {
+.l-noNav .masthead-container .utilityNav {
 	display: none;
 
 	@include breakpoint(small) {
 		display: block;
+		position: absolute;
+		top: 49px;
+		right: 80px;
 	}
 }
 .l-noNav .brand .searchToggle {
