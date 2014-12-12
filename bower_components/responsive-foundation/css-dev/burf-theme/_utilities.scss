@@ -11,8 +11,8 @@
 /* back link */
 .backLink {
 	&:before {
-		content: '← ';
-		color: #fff;
+		content: $backLink-before;
+		color: $color-backLink-before;
 	}
 }
 
@@ -63,7 +63,7 @@ img.alignright {
 div.alignright {
 	float: right;
 	margin: 0 0 10px 10px;
-	width: auto !important;
+	//width: auto !important;
 	max-width: 100%;
 }
 div.alignright p {
@@ -79,7 +79,7 @@ img.alignleft {
 div.alignleft {
 	float: left;
 	margin: 0 10px 10px 0;
-	width: auto !important;
+	//width: auto !important;
 	max-width: 100%;
 }
 div.alignleft p {

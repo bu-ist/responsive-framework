@@ -1,6 +1,6 @@
 {
   "name": "responsive-foundation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/bu-ist/responsive-foundation",
   "authors": [
     "Mike Burns <mgburns@bu.edu>"
@@ -24,13 +24,13 @@
     "node_modules",
     "bower_components"
   ],
-  "_release": "1.0.0",
+  "_release": "1.0.1",
   "_resolution": {
     "type": "version",
-    "tag": "1.0.0",
-    "commit": "20bd6f5081174c2baa49a4f668574580fd101bff"
+    "tag": "1.0.1",
+    "commit": "919133d266f06d01d62e42ed2a02553ab342b262"
   },
   "_source": "git@github.com:bu-ist/responsive-foundation.git",
-  "_target": "1.0.0",
+  "_target": "1.0.1",
   "_originalSource": "git@github.com:bu-ist/responsive-foundation.git"
 }

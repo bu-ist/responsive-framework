@@ -28,14 +28,28 @@
 	text-decoration: none;
 
 	&:after {
-		content: " →";
-		color: #aaa;
+		content: $widgetTitle-link-after;
+		color: $color-widgetTitle-link-after;
 	}
 }
 .widgetTitle a:hover {
 
 	&:after {
-		color: #000;
+		color: $color-widgetTitle-link-after-hover;
+	}
+}
+.widget a {
+	color: $color-widget-link;
+
+	&:hover, &:focus {
+		color: $color-widget-link-hover;
+	}
+}
+.footbar .widget a {
+	color: $color-footbar-widget-link;
+
+	&:hover, &:focus {
+		color: $color-footbar-widget-link-hover;
 	}
 }
 .widget ul {
@@ -43,6 +57,14 @@
 	list-style-image: none;
 	margin: 0;
 	padding: 0;
+}
+.widget h1,
+.widget h2,
+.widget h3,
+.widget h4,
+.widget h5,
+.widget h6 {
+	font-family: $fontFamily-widget-heading;
 }
 
 /* BU Posts
