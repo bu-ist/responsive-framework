@@ -1,3 +1,9 @@
+# 1.0.1
+
+* Add shortcode parsing for core text widgets
+* Fix footbar position in sideNav layout
+* Refactored header markup
+
 # 1.0.0
 
 * Deemed stable for child theme development
