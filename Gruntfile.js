@@ -107,9 +107,6 @@ module.exports = function(grunt) {
 			}
 		},
 		version: {
-			bower: {
-				src: ['bower.json']
-			},
 			functions: {
 				options: {
 					prefix: '[\'"]RESPONSIVE_\\w*_VERSION[\'"],\\s*\''
