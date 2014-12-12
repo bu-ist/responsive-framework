@@ -6,7 +6,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.0.0' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.0.1' );
 
 /**
  * Theme version.
@@ -42,8 +42,8 @@ function responsive_setup() {
 	add_theme_support( 'bu-profiles-post_type' );
 
 	// Default flexi multi-line style doesn't need the extra <p> tags
-    remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
-    add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
+	remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
+	add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
 
 	// By default, comments are disabled for BU sites.
 	// Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.

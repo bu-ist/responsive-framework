@@ -1,9 +1,9 @@
 			</div><!-- .content-container -->
 
-		</div>
-	</div>
+		<?php get_sidebar( 'bottom' ); ?>
 
-	<?php get_sidebar( 'bottom' ); ?>
+		</div><!-- .content -->
+	</div><!-- .wrapper -->
 
 	<footer class="siteFooter <?php responsive_extra_footer_classes(); ?>" role="contentinfo">
 
