@@ -22,12 +22,12 @@ function responsive_layout() {
  * Returns layout options available via Customizer.
  */
 function responsive_layout_options() {
-	return array(
+	return apply_filters( 'responsive_layout_options', array(
 		'default' => 'Default',
 		'topNav'  => 'Top Navigation Bar',
 		'sideNav' => 'Side Navigation Bar',
 		'noNav'   => 'No Navigation Bar',
-		);
+		) );
 }
 
 /**
