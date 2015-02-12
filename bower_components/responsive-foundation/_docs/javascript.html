@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="initial-scale=1" />
+	<meta http-equiv="ClearType" content="true" />
+
+	<title>Responsive Foundation Style Guide | Javascript</title>
+	<link type="text/css" rel="stylesheet" href="vendor/rainbow.css" >
+	<link type="text/css" rel="stylesheet" href="css/docs.css" >
+	<script type="application/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="application/javascript" src="vendor/rainbow.js"></script>
+</head>
+<body class="f1">
+	<header role="banner">
+		<nav class="primaryNav" role="navigation">
+			<div class="navToggle"><span>Menu</span></div>
+			<ul id="nav" class="primaryNav-menu">
+				<li class="page_item"><a href="index.html" class="level_1">Home</a></li>
+				<li class="page_item"><a href="base.html" class="level_1">Sass: Base</a></li>
+				<li class="page_item"><a href="theme.html" class="level_1">Sass: Theme</a></li>
+				<li class="page_item current_page_item"><a href="javascript.html" class="level_1 active">Javascript</a></li>
+			</ul>
+		</nav>
+
+		<div id="brand">
+			<a id="siteName" href="#" title="" rel="home" class="logo">Responsive Foundation <small>Style Guide</small></a>
+		</div>
+	</header>
+
+	<div class="wrapper">
+		<div class="content">
+			<div class="container">
+				<article id="content" role="main" class="col-md-8">
+					<h2>Javascript</h2>
+
+					<h3>Toggle <small>| toggle.js</small></h3>
+					<p>Adds responsive navigation menu for small screens, expandable search form.</p>
+					<p>Markup for responsive navigation menu:</p>
+<pre class="code"><code data-language="html">&lt;button class="navToggle"&gt;Toggle Navigation&lt;/button&gt;
+
+&lt;nav class="mainNav" role="navigation"&gt;
+	&lt;ul id="nav"&gt;
+		&lt;li&gt;&lt;a href="#1"&gt;Link #1&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#2"&gt;Link #2&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;nav&gt;
+</code></pre>
+					<p>Markup for expandable search form:</p>
+<pre class="code"><code data-language="html">&lt;button class="searchToggle"&gt;Toggle Search&lt;/button&gt;
+
+&lt;form id="quicksearch" method="get" action=""&gt;
+	&lt;input name="q" type="text" id="q" placeholder="Search site..."&gt;
+	&lt;input class="button" type="submit" name="do_search" value="Search" &gt;
+&lt;form&gt;
+</code></pre>
+					<p>Styles for this functionality live in the <code>burf-theme</code>.</p>
+				</article><!-- #content -->
+
+				<aside class="col-md-4 sidebar">
+					<div class="widget">
+						<h3>Resources</h3>
+						<ul>
+							<li><a href="https://github.com/bu-ist/coding-standards/">BU Coding Standards</a></li>
+						</ul>
+					</div>
+				</aside><!-- .sidebar -->
+
+			</div><!-- .container -->
+		</div><!-- .content -->
+	</div><!-- .wrapper -->
+
+	<aside class="footbar">
+		<div class="footbar-container">
+			<div class="widget">
+				<h3>Code</h3>
+				<ul>
+					<li><a href="https://github.com/bu-ist/responsive-foundation/">Responsive Foundation</a></li>
+					<li><a href="https://github.com/bu-ist/responsive-framework/">Responsive Framework</a></li>
+				</ul>
+			</div>
+		</div>
+	</aside>
+
+	<footer role="contentinfo">
+		<a href="#top" title="Jump back to top">&#8593;</a>
+	</footer>
+
+	<script type="application/javascript" src="js/docs.js"></script>
+</body>
+</html>
