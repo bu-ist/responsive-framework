@@ -1,0 +1,497 @@
+/* common
+----------------------------------------------------------------- */
+
+nav {
+	font-family: $fontFamily-navigation;
+	font-size: $fontSize-navigation;
+}
+nav a {
+	text-decoration: none;
+}
+
+/* .searchToggle appears only when header is small and above, otherwise it's hidden */
+.brand .searchToggle {
+	display: none;
+}
+.brand .siteDescription {
+	float: left;
+	width: auto;
+}
+
+/* quicksearch (use WordPress plugin class name)
+----------------------------------------------------------------- */
+#quicksearch {
+	position: relative;
+	display: none;
+	padding: 30px 20px;
+	margin: 0;
+	background: $color-search-bg;
+}
+#quicksearch fieldset {
+	margin: 0;
+
+	@include breakpoint(small) {
+		max-width: $container-S;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+}
+#quicksearch label,
+#quicksearch select {
+	display: none;
+}
+#quicksearch .button {
+	@extend .button-primary;
+	@include border-radius($borderRadius-quicksearch-button);
+	width: 25%;
+	padding-left: 0;
+	padding-right: 0;
+
+	@include breakpoint(small) {
+		width: 15%;
+	}
+}
+#quicksearch.is-open {
+	display: block;
+	border-bottom: $border-search;
+}
+#q {
+	@include border-radius($borderRadius-quicksearch-input);
+	width: 75%;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: $color-search-text;
+
+	@include breakpoint(small) {
+		width: 85%;
+	}
+}
+
+/* searchToggle
+----------------------------------------------------------------- */
+.searchToggle {
+	@extend .icon;
+	@extend .icon-search;
+	@include transition(color, 200ms, ease-in-out, 0s);
+	float: right;
+	width: 60px;
+	height: 60px;
+	font-size: 31px;
+	line-height: 60px;
+	padding: 0;
+	color: $color-navToggle;
+	text-align: center;
+
+	&:visited {
+		color: $color-navToggle;
+	}
+	&:hover {
+		color: $color-navToggle-hover;
+	}
+}
+.searchToggle span {
+	display: none;
+}
+
+.searchToggle.is-open {
+	@extend .icon-close;
+}
+
+/* when nav or search are opened */
+.is-open .primaryNav-menu,
+.is-open .utilityNav {
+	display: block;
+	clear: left;
+}
+
+
+/* navToggle
+----------------------------------------------------------------- */
+
+.navToggle {
+	@extend %hide-text;
+	float: left;
+	height: 60px;
+	width: 60px;
+	position: relative;
+	cursor: pointer;
+
+	@include breakpoint(small) {
+		display: none;
+	}
+}
+.navToggle span,
+.navToggle span:before,
+.navToggle span:after {
+	position: absolute;
+	top: 28px;
+	left: 15px;
+	display: block;
+	height: 4px;
+	width: 30px;
+	background: white;
+	cursor: pointer;
+	content: '';
+}
+.navToggle span:before {
+	top: -10px;
+	left: 0;
+}
+.navToggle span:after {
+	top: 10px;
+	left: 0;
+}
+.navToggle span,
+.navToggle span:before,
+.navToggle span:after {
+	@include transition(all, 250ms, ease-in-out, 0s);
+}
+.navToggle.is-open span {
+	background-color: transparent;
+}
+.navToggle.is-open span:before,
+.navToggle.is-open span:after {
+	top: 0;
+}
+.navToggle.is-open span:before {
+	@include rotate (45);
+}
+.navToggle.is-open span:after {
+	@include rotate (-45);
+}
+
+/* primaryNav and menu
+----------------------------------------------------------------- */
+
+.primaryNav {
+	@include clearfix;
+	background: $color-primaryNav-bg;
+	display: block;
+	padding: 0 10px;
+}
+.masthead-container .primaryNav .utilityNav {
+	@include breakpoint(small) {
+		display: none;	
+	}	
+}
+.primaryNav.is-open {
+	height: auto;
+	padding-bottom: 20px;
+
+	@include breakpoint(small) {
+		padding-bottom: 0;
+	}
+}
+.primaryNav-menu {
+	display: none;
+	margin: 40px 10px 0 10px;
+
+	@include breakpoint(small) {
+		display: inline;
+		border: none;
+		margin: 0;
+	}
+}
+.primaryNav-menu li {
+	zoom: 1;
+	display: block;
+	@include breakpoint(small) {
+		display: inline-block;
+		*display: inline;
+		border: none;
+	}
+}
+.primaryNav-menu a {
+	display: block;
+	padding: 10px 0;
+	text-decoration: none;
+	color: $color-primaryNav-link;
+	border: 1px solid $color-primaryNav-border;
+	border-width: $borderWidth-primaryNav;
+	
+	&:hover,
+	&:focus {
+		color: $color-primaryNav-link-hover;
+	}
+	@include breakpoint(small) {
+		border:none;
+		line-height: 60px;
+		padding: 0 10px;
+	}
+}
+.primaryNav-menu li a.active,
+.primaryNav-menu li a.active_section {
+	color: $color-primaryNav-link-current;
+}
+.primaryNav-menu ul {
+	display: none;
+	@include breakpoint(small) {
+		display: block;
+		position: absolute;
+		left: -9999px;
+		z-index: 2;
+		background: $color-primaryNav-dropdown-bg;
+		width: 240px;
+	}
+}
+.primaryNav-menu li:hover ul,
+.primaryNav-menu li:focus ul {
+	left: auto;
+}
+.primaryNav-menu li li {
+	display: block;
+	padding: 0 10px;
+}
+.primaryNav-menu li li a {
+	line-height: $lineHeight-base;
+	color: $color-primaryNav-dropdown-link;
+	padding: 10px 0;
+	
+	&:hover,
+	&:focus {
+		color: $color-primaryNav-dropdown-link-hover;
+	}
+}
+
+/* utilityNav
+----------------------------------------------------------------- */
+
+.utilityNav {
+	display: none;
+	margin: 0 10px;
+	padding: 20px 0 0;
+	border: 1px solid $color-primaryNav-border;
+	border-width: $borderWidth-utilityNav;
+	font-size: $fontSize-utilityNav;
+}
+.masthead-container .utilityNav {
+	@include breakpoint(small) {
+		display: block;
+		border: none;
+		margin: 0;
+		padding: 0;
+	}
+}
+.utilityNav li {
+	border: none;
+	padding: 0;
+
+	@include breakpoint(small) {
+		display: inline-block;
+		*display: inline;
+		border: none;
+		padding-left: 10px;
+	}
+}
+.utilityNav a {
+	text-decoration: none;
+	color: $color-utilityNav-link;
+
+	&:hover {
+		color: $color-utilityNav-link-hover;
+	}
+}
+.primaryNav .utilityNav a {
+	color: $color-utilityNav-inPrimaryNav-link;
+
+	&:hover {
+		color: $color-utilityNav-inPrimaryNav-link-hover;
+	}
+}
+
+/* default
+----------------------------------------------------------------- */
+
+.l-default .utilityNav {
+	@include breakpoint(small) {
+		position: absolute;
+		top: 49px;
+		right: 20px;
+	}
+}
+
+/* sideNav
+----------------------------------------------------------------- */
+
+.l-sideNav .wrapper {
+	background: $color-primaryNav-bg;
+}
+.l-sideNav .content {
+	@include breakpoint(small) {
+		margin-left: 60px;
+	}
+	@include breakpoint(large) {	
+		margin-left: $width-sideNav;
+	}
+}
+.l-sideNav .primaryNav  {	
+	@include breakpoint(small) {	
+		background: none;
+		position: absolute;
+		top: $height-brand;
+		width: $width-sideNav;
+	}
+	@include breakpoint(large) {	
+		display: block;
+		padding: 20px 10px;
+	}
+}
+.search-open.l-sideNav .primaryNav  {	
+	@include breakpoint(small) {
+		top: $height-brand + 98px; /* adds the height of the open search form */
+	}
+}
+.l-sideNav .navToggle {
+	@include breakpoint(small) {
+		margin-left: -10px;
+	}
+} 
+.l-sideNav .primaryNav-menu {
+	@include breakpoint(small) {	
+		display: none;
+		margin: 0 10px;
+	}
+	@include breakpoint(large) {	
+		display: block;
+	}
+}
+.l-sideNav .primaryNav-menu li {
+	display: block;
+	padding: 0;
+}
+.l-sideNav .primaryNav-menu a {
+	padding: 10px 0;
+	border: 1px solid $color-primaryNav-border;
+	border-width: $borderWidth-primaryNav;
+	line-height: $lineHeight-base;
+}
+.l-sideNav .primaryNav-menu li:first-child a {
+	@include breakpoint(large) {
+		border: 0;
+	}
+}
+.l-sideNav .primaryNav-menu ul {
+	display: none;
+}
+/* sideNav and noNav: quicksearch */
+.l-sideNav #quicksearch {
+	@include breakpoint(small) {	
+		border: 1px solid $color-quicksearch-border;
+		border-width: $borderWidth-quicksearch;
+	}
+}
+.l-sideNav .brand .searchToggle,
+.l-noNav .brand .searchToggle {
+	color: $color-navToggle-alt;
+
+	&:visited {
+		color: $color-navToggle-alt;
+	}
+
+	&:hover {
+		color: $color-navToggle-alt-hover;
+	}
+
+	@include breakpoint(small) {
+		@include vertical-center;
+		display: block;
+		right: 10px;
+	}
+}
+.l-sideNav .primaryNav .searchToggle {
+	@include breakpoint(small) {	
+		display: none;
+	}
+}
+/* sideNav: navToggle */
+.l-sideNav .navToggle {
+	display: block;
+	
+	@include breakpoint(large) {
+		display: none;
+	}
+}
+.l-sideNav .masthead-container .utilityNav {
+	margin: 0 10px;
+	@include breakpoint(large) {
+		display: block;
+		position: relative;
+		top: auto;
+		right: auto;
+	}
+}
+.l-sideNav .utilityNav a:hover {
+	color: $color-grayScale-f;
+}
+.l-sideNav .utilityNav li {
+	display: block;
+	padding-left: 0;
+}
+.l-sideNav.nav-open .content {
+	@include breakpoint(small) {
+		left: 240px;
+		margin-left: 0;
+	}
+	@include breakpoint(large) {
+		left: 0;
+		margin-left: 240px;
+	}
+}
+.l-sideNav.nav-open .primaryNav-menu,
+.l-sideNav.nav-open .utilityNav {
+	display: block;
+	float: none;
+}
+
+/* top nav
+----------------------------------------------------------------- */
+
+.l-topNav .utilityNav {
+	@include breakpoint(small) {
+		position: absolute;
+		top: 109px;
+		right: 20px;
+	}
+}
+
+.l-topNav #quicksearch {
+	border-bottom: 1px solid $color-grayScale-d;
+}
+
+/* noNav
+----------------------------------------------------------------- */
+
+.l-noNav .primaryNav {
+	@include breakpoint(small) {
+		display: none;
+	}
+}
+.l-noNav .brand {
+	padding-right: 60px;
+}
+.l-noNav .masthead-container .utilityNav {
+	display: none;
+
+	@include breakpoint(small) {
+		display: block;
+		position: absolute;
+		top: 49px;
+		right: 80px;
+	}
+}
+.l-noNav .brand .searchToggle {
+	display: block;
+	font-size: 24px;
+	margin: 0 -60px 0 0;
+
+	@include breakpoint(small) {
+		
+	}
+}
+.l-noNav #quicksearch {	
+	border-top: 1px solid $color-grayScale-d;
+}
+
+
+
+
