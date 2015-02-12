@@ -189,7 +189,7 @@ function responsive_branding_masterplate( $args = array() ) {
 
 	$branding = bu_get_branding();
 	if ( responsive_branding_has_masterplate() ) {
-		echo $args['before'] . '<a href="#" class="brand-masterPlate">Boston University</a>' . $args['after'];
+		echo $args['before'] . '<a href="http://www.bu.edu" class="brand-masterPlate">Boston University</a>' . $args['after'];
 	}
 }
 
