@@ -1,3 +1,7 @@
+# 1.0.2
+
+* Add href to BU masterplate
+
 # 1.0.1
 
 * Add shortcode parsing for core text widgets
