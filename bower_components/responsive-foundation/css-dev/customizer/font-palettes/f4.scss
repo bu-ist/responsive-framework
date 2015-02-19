@@ -1,0 +1,85 @@
+@import 'fonts/benton';
+@import 'fonts/pressura';
+
+body {
+	font-family: 'Benton';
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 28px;
+}
+p {
+	font-family: 'Benton';
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 28px;
+	margin-bottom: 24px;
+}
+h1 {
+	font-family: 'Pressura';
+	font-weight: 700;
+	font-size: 40px;
+	text-transform: uppercase;
+	line-height: 43px;
+	margin-bottom: 22px;
+}
+h2 {
+	font-family: 'Pressura';
+	font-weight: 700;
+	font-size: 35px;
+	text-transform: uppercase;
+	line-height: 38px;
+	margin-bottom: 22px;
+}
+h3 {
+	font-family: 'Pressura';
+	font-weight: 700;
+	font-size: 30px;
+	text-transform: uppercase;
+	line-height: 33px;
+	margin-bottom: 22px;
+}
+.widget h3 {
+	font-size: 20px;
+	line-height: 23px;
+}
+h4 {
+	font-family: 'Pressura';
+	font-weight: 700;
+	font-size: 24px;
+	text-transform: uppercase;
+	line-height: 27px;
+	margin-bottom: 22px;
+}
+h5 {
+	font-family: 'Pressura';
+	font-weight: 700;
+	font-size: 20px;
+	text-transform: uppercase;
+	line-height: 23px;
+	margin-bottom: 22px;
+}
+h6 {
+	font-family: 'Pressura';
+	font-weight: 700;
+	font-size: 18px;
+	text-transform: uppercase;
+	line-height: 21px;
+	margin-bottom: 22px;
+}
+#q {
+	font-family: 'Pressura';
+	font-size: 18px;
+	text-transform: uppercase;
+}
+#nav li a {
+	font-family: 'Pressura';
+	font-weight: 700;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+#utility li a {
+	font-family: 'Capita';
+	font-weight: 400;
+	font-size: 16px;
+	font-style: italic;
+}

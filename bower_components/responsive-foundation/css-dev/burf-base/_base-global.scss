@@ -1,0 +1,106 @@
+/* base
+================================================================= */
+
+/* Box model
+----------------------------------------------------------------- */
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* HTML5 display definitions
+----------------------------------------------------------------- */
+
+/* Correct `block` display not defined in IE 6/7/8/9 and Firefox 3. */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+	display: block;
+}
+/* Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3. */
+audio,
+canvas,
+video {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+/* Prevent modern browsers from displaying `audio` without controls. Remove excess height in iOS 5 devices. */
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+/* Address styling not present in IE 7/8/9, Firefox 3, and Safari 4. Known issue:no IE 6 support. */
+[hidden] {
+	display: none !important;
+}
+/* Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11. */
+figure {
+	margin: 0;
+}
+
+/* Base
+----------------------------------------------------------------- */
+
+/* 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using `em` units. 
+   2. Prevent iOS text size adjust after orientation change, without disabling user zoom. 
+   3. Normalize font rendering in Firefox */
+html {
+	font-size: 100%; /* 1 */
+	-ms-text-size-adjust: 100%; /* 2 */
+	-webkit-text-size-adjust: 100%; /* 2 */
+	-moz-osx-font-smoothing: grayscale; /* 3 */
+}
+/* Address `font-family` inconsistency between `textarea` and other form elements. */
+html,
+button,
+input,
+select,
+textarea {
+	font-family: inherit;
+}
+/* Address margins handled incorrectly in IE 6/7. */
+body {
+	margin: 0;
+	font-size: $fontSize-base;
+	font-family: $fontFamily-base;
+	line-height: $lineHeight-base;
+	color: $color-base;
+}
+section {
+	margin: 60px 0 0 0;
+}
+
+/* Embedded content
+----------------------------------------------------------------- */
+
+/* 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3. 
+   2. Improve image quality when scaled in IE 7. */
+img {
+	border: 0; /* 1 */
+	-ms-interpolation-mode: bicubic; /* 2 */
+}
+img,
+a img,
+object,
+embed {
+	max-width: 100%;
+	height: auto;
+}
+/* Correct overflow displayed oddly in IE 9. */
+svg:not(:root) {
+	overflow: hidden;
+}
