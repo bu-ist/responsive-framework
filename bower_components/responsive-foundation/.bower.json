@@ -1,0 +1,36 @@
+{
+  "name": "responsive-foundation",
+  "version": "1.0.3",
+  "homepage": "https://github.com/bu-ist/responsive-foundation",
+  "authors": [
+    "Mike Burns <mgburns@bu.edu>"
+  ],
+  "description": "A front-end framework for developing responsive sites at Boston University.",
+  "main": [
+    "css-dev/burf.scss",
+    "js-dev/burf.js"
+  ],
+  "keywords": [
+    "responsive",
+    "bu",
+    "foundation",
+    "bootstrap",
+    "framework"
+  ],
+  "license": "GPLv2",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "_release": "1.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.3",
+    "commit": "eab5f58ee4684521a8b82730f293463c3396b847"
+  },
+  "_source": "git@github.com:bu-ist/responsive-foundation.git",
+  "_target": "1.0.3",
+  "_originalSource": "git@github.com:bu-ist/responsive-foundation.git"
+}
