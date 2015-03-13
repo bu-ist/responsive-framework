@@ -16,7 +16,7 @@ function buniverse_shortcode( $atts ) {
 			'caption' => '',
 		), $atts );
 
-	$retstr = '<div class="vid"> <div id="'. $atts['id'] . '" class="responsive-video ' . $atts['class'] . '"><div>';
+	$retstr = '<div class="vid"> <div id="'. $atts['id'] . '" class="responsiveVideo ' . $atts['class'] . '"><div>';
 	$retstr .= '<iframe width="550" height="310" frameborder="0" src="http://www.bu.edu/buniverse/interface/embed/embed.html?v=' . $atts['vid'] . '"></iframe>';
 	$retstr .= '</div></div>';
 	if ( $atts['caption'] ) {
