@@ -5,15 +5,32 @@
 
 get_header(); ?>
 
-		<article role="main" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article role="main" class="profiles-archive">
+	<?php if ( have_posts() ) : ?>
 
-			<h1>Profile Directory</h1>
+		<h1>Profile Directory</h1>
 
-			<?php bu_profile_get_template_part( 'basic' ); ?>
+		<div class="profile-listing">
+			<ul class="basic">
 
-			<?php responsive_paging_nav(); ?>
+		<?php while ( have_posts() ): the_post();
 
-		</article><!-- #post-<?php the_ID(); ?> -->
+			get_template_part( 'template-parts/content', 'profiles' );
+
+		endwhile; ?>
+
+			</ul>
+		</div>
+
+		<?php responsive_paging_nav(); ?>
+
+	<?php else : ?>
+
+		<?php get_template_part( 'template-parts/content', 'none' ); ?>
+
+	<?php endif; ?>
+	</article>
 
 <?php get_sidebar( 'profiles' ); ?>
+
 <?php get_footer(); ?>
