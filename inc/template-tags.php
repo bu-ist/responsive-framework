@@ -418,29 +418,31 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 
 endif;
 
-if ( ! function_exists( 'responsive_post_nav' ) ) :
+if ( ! function_exists( 'responsive_post_navigation' ) ) :
 
 /**
  * Display navigation to next/previous post when applicable.
  */
-function responsive_post_nav() {
-	// Don't print empty markup if there's nowhere to navigate.
-	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
-	$next     = get_adjacent_post( false, '', false );
-	if ( ! $next && ! $previous ) {
-		return;
-	}
+function responsive_post_navigation( $args = array() ) {
+	$args = wp_parse_args( $args, array(
+		'prev_text'          => '<span class="meta-nav">&larr;</span>&nbsp;%title',
+		'next_text'          => '%title&nbsp;<span class="meta-nav">&rarr;</span>',
+		'screen_reader_text' => 'Post navigation',
+		) );
+
+	$previous   = get_previous_post_link( '<div class="nav-previous">%link</div>', $args['prev_text'] );
+	$next       = get_next_post_link( '<div class="nav-next">%link</div>', $args['next_text'] );
+
+	if ( $previous || $next ) :
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h3 class="screen-reader-text"><?php _e( 'Post navigation' ); ?></h3>
+		<h3 class="screen-reader-text"><?php echo $args['screen_reader_text']; ?></h3>
 		<div class="nav-links">
-			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link'     ) );
-			?>
+			<?php echo $previous . $next; ?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
+	endif;
 }
 
 endif;
