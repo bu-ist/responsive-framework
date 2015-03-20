@@ -22,13 +22,7 @@ get_header(); ?>
 			</ul>
 		</div>
 
-		<?php
-			responsive_posts_navigation( array(
-				'prev_text'          => '<span class="meta-nav">&larr;</span> Previous',
-				'next_text'          => 'Next <span class="meta-nav">&rarr;</span>',
-				'screen_reader_text' => 'Profiles Navigation',
-			) );
-		?>
+		<?php responsive_posts_navigation(); ?>
 
 	<?php else : ?>
 

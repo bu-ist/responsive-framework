@@ -60,11 +60,7 @@ $bu_news_display_options = BU_News_Page_Template::$display_content;
 
 		<?php endwhile; ?>
 
-		<?php responsive_posts_navigation( array(
-				'prev_text'          => '<span class="meta-nav">&larr;</span> Newer posts',
-				'next_text'          => 'Older posts <span class="meta-nav">&rarr;</span>',
-				'screen_reader_text' => 'Posts Navigation',
-			), $news_query ); ?>
+		<?php responsive_posts_navigation( null, $news_query ); ?>
 
 	</section>
 
