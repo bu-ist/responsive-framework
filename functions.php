@@ -278,3 +278,8 @@ require __DIR__ . '/inc/template-tags.php';
  * Upgrade routines for schema changes across versions.
  */
 require __DIR__ . '/inc/upgrade.php';
+
+/**
+ * Deprecated functions for backwards compatibility.
+ */
+require __DIR__ . '/inc/deprecated.php';
