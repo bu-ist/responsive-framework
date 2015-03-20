@@ -30,7 +30,7 @@ get_header(); ?>
 		</div>
 		<?php endif; ?>
 
-		<?php responsive_paging_nav(); ?>
+		<?php responsive_posts_navigation(); ?>
 
 	<?php else : ?>
 

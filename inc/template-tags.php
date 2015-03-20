@@ -367,14 +367,14 @@ function responsive_social_nav_menu_link_attributes( $atts, $item ) {
 	return $atts;
 }
 
-if ( ! function_exists( 'responsive_paging_nav' ) ) :
+if ( ! function_exists( 'responsive_posts_navigation' ) ) :
 
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
  * @param  WP_Query $query [description]
  */
-function responsive_paging_nav( WP_Query $query = null ) {
+function responsive_posts_navigation( $args = array(), WP_Query $query = null ) {
 	global $wp_query;
 
 	// By default the `*_posts_link` functions rely on the global
@@ -389,19 +389,22 @@ function responsive_paging_nav( WP_Query $query = null ) {
 
 	// Don't print empty markup if there's only one page.
 	if ( $wp_query->max_num_pages >= 2 ) :
+		$args = wp_parse_args( $args, array(
+				'prev_text'          => '<span class="meta-nav">&larr;</span> Newer posts',
+				'next_text'          => 'Older posts <span class="meta-nav">&rarr;</span>',
+				'screen_reader_text' => 'Posts navigation',
+			) );
 	?>
-	<nav class="navigation paging-navigation" role="navigation">
-		<h3 class="screen-reader-text"><?php _e( 'Posts navigation' ); ?></h3>
+	<nav class="navigation posts-navigation paging-navigation" role="navigation">
+		<h3 class="screen-reader-text"><?php echo $args['screen_reader_text'] ?></h3>
 		<div class="nav-links">
+			<?php if ( get_previous_posts_link() ) : ?>
+			<div class="nav-previous"><?php previous_posts_link( $args['prev_text'] ); ?></div>
+			<?php endif; ?>
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts' ) ); ?></div>
+			<div class="nav-next"><?php next_posts_link( $args['next_text'] ); ?></div>
 			<?php endif; ?>
-
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>' ) ); ?></div>
-			<?php endif; ?>
-
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
@@ -415,29 +418,31 @@ function responsive_paging_nav( WP_Query $query = null ) {
 
 endif;
 
-if ( ! function_exists( 'responsive_post_nav' ) ) :
+if ( ! function_exists( 'responsive_post_navigation' ) ) :
 
 /**
  * Display navigation to next/previous post when applicable.
  */
-function responsive_post_nav() {
-	// Don't print empty markup if there's nowhere to navigate.
-	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
-	$next     = get_adjacent_post( false, '', false );
-	if ( ! $next && ! $previous ) {
-		return;
-	}
+function responsive_post_navigation( $args = array() ) {
+	$args = wp_parse_args( $args, array(
+		'prev_text'          => '<span class="meta-nav">&larr;</span>&nbsp;%title',
+		'next_text'          => '%title&nbsp;<span class="meta-nav">&rarr;</span>',
+		'screen_reader_text' => 'Post navigation',
+		) );
+
+	$previous   = get_previous_post_link( '<div class="nav-previous">%link</div>', $args['prev_text'] );
+	$next       = get_next_post_link( '<div class="nav-next">%link</div>', $args['next_text'] );
+
+	if ( $previous || $next ) :
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h3 class="screen-reader-text"><?php _e( 'Post navigation' ); ?></h3>
+		<h3 class="screen-reader-text"><?php echo $args['screen_reader_text']; ?></h3>
 		<div class="nav-links">
-			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link'     ) );
-			?>
+			<?php echo $previous . $next; ?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
+	endif;
 }
 
 endif;
