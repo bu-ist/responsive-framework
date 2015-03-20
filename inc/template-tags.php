@@ -389,11 +389,20 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 
 	// Don't print empty markup if there's only one page.
 	if ( $wp_query->max_num_pages >= 2 ) :
-		$args = wp_parse_args( $args, array(
-				'prev_text'          => '<span class="meta-nav">&larr;</span> Newer posts',
-				'next_text'          => 'Older posts <span class="meta-nav">&rarr;</span>',
-				'screen_reader_text' => 'Posts navigation',
-			) );
+		$archive_type = responsive_archive_type( $wp_query );
+		$defaults = array(
+				'prev_text'          => '<span class="meta-nav">&larr;</span> Previous',
+				'next_text'          => 'Next <span class="meta-nav">&rarr;</span>',
+				'screen_reader_text' => ucfirst( $archive_type ) . ' navigation',
+			);
+
+		// Post archive labels are more specifc
+		if ( 'posts' == $archive_type ) {
+			$defaults['prev_text'] = '<span class="meta-nav">&larr;</span> Newer posts';
+			$defaults['next_text'] = 'Older posts <span class="meta-nav">&rarr;</span>';
+		}
+
+		$args = wp_parse_args( $args, $defaults );
 	?>
 	<nav class="navigation posts-navigation paging-navigation" role="navigation">
 		<h3 class="screen-reader-text"><?php echo $args['screen_reader_text'] ?></h3>
