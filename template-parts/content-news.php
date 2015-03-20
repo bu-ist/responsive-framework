@@ -51,9 +51,7 @@ $bu_news_display_options = BU_News_Page_Template::$display_content;
 				BU_News_Page_Template::show_content( '', '', 'More' );
 
 				if ( $show_meta ) {
-					echo '<p class="meta tag-list">';
-					BU_News_Page_Template::show_tags( ' <span class="tags"><em>Tagged:</em> ', '</span>' );
-					echo '</p>';
+					BU_News_Page_Template::show_tags( '<p class="meta tag-list"><span class="tags"><em>Tagged:</em> ', '</span></p>' );
 				}
 			?>
 		</article>
