@@ -18,7 +18,7 @@ get_header(); ?>
 
 	<?php endwhile; ?>
 
-	<?php responsive_paging_nav(); ?>
+	<?php responsive_posts_navigation(); ?>
 
 	<?php else : ?>
 
