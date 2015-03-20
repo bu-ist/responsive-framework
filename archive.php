@@ -3,7 +3,10 @@
  * Generic post archive template.
  */
 
-get_header(); ?>
+get_header();
+
+$archive_type = responsive_archive_type();
+?>
 
 	<?php if ( have_posts() ) : ?>
 
@@ -14,18 +17,18 @@ get_header(); ?>
 
 		<?php
 		// Profiles get some special sauce.
-		if ( responsive_is_archive_type( 'profiles' ) ) : ?>
+		if ( 'profiles' === $archive_type ) : ?>
 		<div class="profile-listing">
 			<ul class="basic">
 		<?php endif; ?>
 
 		<?php while ( have_posts() ): the_post();
 
-			get_template_part( 'template-parts/content', responsive_archive_type() );
+			get_template_part( 'template-parts/content', $archive_type );
 
 		endwhile; ?>
 
-		<?php if ( responsive_is_archive_type( 'profiles' ) ) : ?>
+		<?php if ( 'profiles' === $archive_type ) : ?>
 			</ul>
 		</div>
 		<?php endif; ?>
@@ -38,6 +41,6 @@ get_header(); ?>
 
 	<?php endif; ?>
 
-<?php get_sidebar( responsive_archive_type() ); ?>
+<?php get_sidebar( $archive_type ); ?>
 
 <?php get_footer(); ?>
