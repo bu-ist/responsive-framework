@@ -654,58 +654,58 @@ function responsive_extra_footer_classes() {
 /**
  * Get list of all post types included for the given query
  *
- * @param  WP_Query $query Query object to check. Defaults to main query.
+ * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
  * @return array  Array of post type names
  */
 function responsive_queried_post_types( WP_Query $query = null ) {
 	if ( is_null( $query ) ) {
-		$query = $GLOBALS['wp_the_query'];
+		$query = $GLOBALS['wp_query'];
 	}
 
-	$post_types = array();
 	$queried_object = $query->get_queried_object();
 
 	// Post = post object
 	if ( $query->is_single() || $query->is_page() ) {
-		$post_types[] = $queried_object->post_type;
+		$post_types = array( $queried_object->post_type );
 	}
 
 	// Post type archive = post type object
-	if ( $query->is_post_type_archive() ) {
-		$post_types[] = $queried_object->name;
+	else if ( $query->is_post_type_archive() ) {
+		$post_types = array( $queried_object->name );
 	}
 
 	// Taxonomy archive = taxonomy object
-	if ( $query->is_tax() || $query->is_category() || $query->is_tag() ) {
+	else if ( $query->is_tax() || $query->is_category() || $query->is_tag() ) {
 		$tax = get_taxonomy( $queried_object->taxonomy );
 		$post_types = $tax->object_type;
 	}
 
-	return $post_types;
+	// All other requests default to posts (author archives, date archives, etc.)
+	else {
+		$post_types = array( 'post' );
+	}
+
+	return apply_filters( 'responsive_queried_post_types', $post_types, $query );
 }
 
 /**
  * Determine primary post type of archive query
  *
+ * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
  * @return string Post type name. Uses lowercase version of plural (name) label.
  */
-function responsive_archive_type() {
-
-	if ( ! is_archive() ) {
-		return false;
-	}
-
-	$post_types = responsive_queried_post_types();
+function responsive_archive_type( WP_Query $query = null ) {
+	$post_types = responsive_queried_post_types( $query );
 
 	// Default type
 	$archive_type = 'posts';
 
 	// Use plural label
-	if ( 1 == count( $post_types ) ) {
-		$pt = reset( $post_types );
-		$pto = get_post_type_object( $pt );
-		$labels = get_post_type_labels( $pto );
-		$archive_type = strtolower( $labels->name );
+	if ( is_array( $post_types ) && 1 == count( $post_types ) ) {
+		$pto = get_post_type_object( reset( $post_types ) );
+		if ( $pto ) {
+			$archive_type = strtolower( $pto->label );
+		}
 	}
 
 	return apply_filters( 'responsive_archive_type', $archive_type, $post_types );
@@ -715,8 +715,9 @@ function responsive_archive_type() {
  * Is the archive query for the given post type?
  *
  * @param  string $type Plural post type name for comparison.
+ * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
  * @return bool
  */
-function responsive_is_archive_type( $type ) {
-	return ( strtolower( $type ) == responsive_archive_type() );
+function responsive_is_archive_type( $type, WP_Query $query = null ) {
+	return ( strtolower( $type ) == responsive_archive_type( $query ) );
 }
