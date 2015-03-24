@@ -228,6 +228,11 @@ require __DIR__ . '/admin/theme-customizer.php';
 require __DIR__ . '/inc/branding.php';
 
 /**
+ * BUniverse support.
+ */
+require __DIR__ . '/inc/buniverse.php';
+
+/**
  * Plugin support - BU Calendar.
  *
  * @link https://github.com/bu-ist/bu-calendar
@@ -257,11 +262,6 @@ require __DIR__ . '/inc/extras.php';
  * @link http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-post-lists
  */
 require __DIR__ . '/inc/post-lists.php';
-
-/**
- * Shortcodes for content editors.
- */
-require __DIR__ . '/inc/shortcodes.php';
 
 /**
  * Reusable template tags to keep templates logic-free.
