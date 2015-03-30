@@ -15,7 +15,6 @@
  *     @type  int    $width           Width attribute for <iframe>. Default 550.
  *     @type  int    $height          Height attribute for <iframe>. Default 310.
  *     @type  string $caption         Caption content.
- *     @type  bool   $allowfullscreen Whether or not to allow fullscreen embeds. Default true.
  * }
  * @param  string $content Shortcode content. Unused.
  */
