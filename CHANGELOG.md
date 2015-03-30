@@ -1,3 +1,21 @@
+# 1.1.0
+
+* Add basic BUniverse embed provider
+* Archive template now utilizes profile template parts for profile-specific taxonomy archives (#22)
+* Profile shortcode templates now utilize template partials
+* Navigation template tags now support customizable labels and screen reader text (#23)
+* Navigation template tags are now post type-agnostic
+* Fix posts navigation button placement (they were reversed)
+* Fix #18: Empty <p> tags when no post meta exists for News template
+* Fix #21: Use correct class attribute for `[buniverse]` shortcode
+* Introduce `responsive_archive_type()` and `responsive_queried_post_types()` helpers (#22)
+* Deprecate `responsive_paging_nav()` in favor of `responsive_posts_navigation()`
+* Deprecate `responsive_post_nav()` in favor of `responsive_post_navigation()`
+
+ # 1.0.3
+
+* Update to [Responsive Foundation 1.0.3](https://github.com/bu-ist/responsive-foundation/releases/tag/1.0.3)
+
 # 1.0.2
 
 * Add href to BU masterplate
