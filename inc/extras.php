@@ -167,3 +167,20 @@ add_filter( 'sidebars_widgets', 'responsive_limit_sidebars_widgets', 10, 1 );
 
 // Adds support for shortcodes to core text widget
 add_filter( 'widget_text', 'do_shortcode' );
+
+/**
+ * Set the default "Link To" value for image attachments to "None".
+ *
+ * The actual default is "File", which is confusing for many users,
+ * especially when images are sized appropriately. It also presents
+ * usability issues on mobile, where it's easy to accidentally navigate
+ * to the image while scrolling.
+ *
+ * There is core consensus that "None" should be the default.
+ * @see  https://core.trac.wordpress.org/ticket/31467
+ */
+function responsive_image_default_link_type() {
+	update_option( 'image_default_link_type', 'none' );
+}
+
+add_filter( 'admin_init', 'responsive_image_default_link_type' );
