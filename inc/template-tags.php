@@ -367,14 +367,14 @@ function responsive_social_nav_menu_link_attributes( $atts, $item ) {
 	return $atts;
 }
 
-if ( ! function_exists( 'responsive_paging_nav' ) ) :
+if ( ! function_exists( 'responsive_posts_navigation' ) ) :
 
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
  * @param  WP_Query $query [description]
  */
-function responsive_paging_nav( WP_Query $query = null ) {
+function responsive_posts_navigation( $args = array(), WP_Query $query = null ) {
 	global $wp_query;
 
 	// By default the `*_posts_link` functions rely on the global
@@ -389,19 +389,31 @@ function responsive_paging_nav( WP_Query $query = null ) {
 
 	// Don't print empty markup if there's only one page.
 	if ( $wp_query->max_num_pages >= 2 ) :
+		$archive_type = responsive_archive_type( $wp_query );
+		$defaults = array(
+				'prev_text'          => '<span class="meta-nav">&larr;</span> Previous',
+				'next_text'          => 'Next <span class="meta-nav">&rarr;</span>',
+				'screen_reader_text' => ucfirst( $archive_type ) . ' navigation',
+			);
+
+		// Post archive labels are more specifc
+		if ( 'posts' == $archive_type ) {
+			$defaults['prev_text'] = '<span class="meta-nav">&larr;</span> Newer posts';
+			$defaults['next_text'] = 'Older posts <span class="meta-nav">&rarr;</span>';
+		}
+
+		$args = wp_parse_args( $args, $defaults );
 	?>
-	<nav class="navigation paging-navigation" role="navigation">
-		<h3 class="screen-reader-text"><?php _e( 'Posts navigation' ); ?></h3>
+	<nav class="navigation posts-navigation paging-navigation" role="navigation">
+		<h3 class="screen-reader-text"><?php echo $args['screen_reader_text'] ?></h3>
 		<div class="nav-links">
+			<?php if ( get_previous_posts_link() ) : ?>
+			<div class="nav-previous"><?php previous_posts_link( $args['prev_text'] ); ?></div>
+			<?php endif; ?>
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts' ) ); ?></div>
+			<div class="nav-next"><?php next_posts_link( $args['next_text'] ); ?></div>
 			<?php endif; ?>
-
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>' ) ); ?></div>
-			<?php endif; ?>
-
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
@@ -415,29 +427,31 @@ function responsive_paging_nav( WP_Query $query = null ) {
 
 endif;
 
-if ( ! function_exists( 'responsive_post_nav' ) ) :
+if ( ! function_exists( 'responsive_post_navigation' ) ) :
 
 /**
  * Display navigation to next/previous post when applicable.
  */
-function responsive_post_nav() {
-	// Don't print empty markup if there's nowhere to navigate.
-	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
-	$next     = get_adjacent_post( false, '', false );
-	if ( ! $next && ! $previous ) {
-		return;
-	}
+function responsive_post_navigation( $args = array() ) {
+	$args = wp_parse_args( $args, array(
+		'prev_text'          => '<span class="meta-nav">&larr;</span>&nbsp;%title',
+		'next_text'          => '%title&nbsp;<span class="meta-nav">&rarr;</span>',
+		'screen_reader_text' => 'Post navigation',
+		) );
+
+	$previous   = get_previous_post_link( '<div class="nav-previous">%link</div>', $args['prev_text'] );
+	$next       = get_next_post_link( '<div class="nav-next">%link</div>', $args['next_text'] );
+
+	if ( $previous || $next ) :
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h3 class="screen-reader-text"><?php _e( 'Post navigation' ); ?></h3>
+		<h3 class="screen-reader-text"><?php echo $args['screen_reader_text']; ?></h3>
 		<div class="nav-links">
-			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link'     ) );
-			?>
+			<?php echo $previous . $next; ?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
+	endif;
 }
 
 endif;
@@ -644,4 +658,75 @@ function responsive_extra_footer_classes() {
 	$classes = array_unique( array_map( 'esc_attr', $classes ) );
 
 	echo implode( ' ', $classes );
+}
+
+/**
+ * Get list of all post types included for the given query
+ *
+ * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
+ * @return array  Array of post type names
+ */
+function responsive_queried_post_types( WP_Query $query = null ) {
+	if ( is_null( $query ) ) {
+		$query = $GLOBALS['wp_query'];
+	}
+
+	$queried_object = $query->get_queried_object();
+
+	// Post = post object
+	if ( $query->is_single() || $query->is_page() ) {
+		$post_types = array( $queried_object->post_type );
+	}
+
+	// Post type archive = post type object
+	else if ( $query->is_post_type_archive() ) {
+		$post_types = array( $queried_object->name );
+	}
+
+	// Taxonomy archive = taxonomy object
+	else if ( $query->is_tax() || $query->is_category() || $query->is_tag() ) {
+		$tax = get_taxonomy( $queried_object->taxonomy );
+		$post_types = $tax->object_type;
+	}
+
+	// All other requests default to posts (author archives, date archives, etc.)
+	else {
+		$post_types = array( 'post' );
+	}
+
+	return apply_filters( 'responsive_queried_post_types', $post_types, $query );
+}
+
+/**
+ * Determine primary post type of archive query
+ *
+ * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
+ * @return string Post type name. Uses lowercase version of plural (name) label.
+ */
+function responsive_archive_type( WP_Query $query = null ) {
+	$post_types = responsive_queried_post_types( $query );
+
+	// Default type
+	$archive_type = 'posts';
+
+	// Use plural label
+	if ( is_array( $post_types ) && 1 == count( $post_types ) ) {
+		$pto = get_post_type_object( reset( $post_types ) );
+		if ( $pto ) {
+			$archive_type = strtolower( $pto->label );
+		}
+	}
+
+	return apply_filters( 'responsive_archive_type', $archive_type, $post_types );
+}
+
+/**
+ * Is the archive query for the given post type?
+ *
+ * @param  string $type Plural post type name for comparison.
+ * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
+ * @return bool
+ */
+function responsive_is_archive_type( $type, WP_Query $query = null ) {
+	return ( strtolower( $type ) == responsive_archive_type( $query ) );
 }
