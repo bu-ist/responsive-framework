@@ -573,28 +573,9 @@ function responsive_profiles_archive_link( $args = array() ) {
 		'echo'   => true,
 		);
 	$args = wp_parse_args( $args, $defaults );
-	$link = '';
 
 	if ( function_exists( 'bu_profile_archive_link' ) ) {
-		$link = bu_profile_archive_link( array(
-			'before' => $args['before'],
-			'after'  => $args['after'],
-			'echo' => false,
-			) );
-	}
-
-	// TODO: Add support for these arguments to `bu_profile_archive_link', remove this hack.
-	if ( $args['class'] ) {
-		$link = str_replace( 'class="profile_archive_link"', 'class="' . $args['class'] . '"', $link );
-	}
-
-	// TODO: `bu_profile_archive_link` doesn't include before / after markup when not echo'ing. Fix.
-	$link = $args['before'] . $link . $args['after'];
-
-	if ( $args['echo'] ) {
-		echo $link;
-	} else {
-		return $link;
+		return bu_profile_archive_link( $args );
 	}
 }
 
