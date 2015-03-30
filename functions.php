@@ -6,7 +6,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.0.3' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.1.0' );
 
 /**
  * Theme version.
@@ -228,6 +228,11 @@ require __DIR__ . '/admin/theme-customizer.php';
 require __DIR__ . '/inc/branding.php';
 
 /**
+ * BUniverse support.
+ */
+require __DIR__ . '/inc/buniverse.php';
+
+/**
  * Plugin support - BU Calendar.
  *
  * @link https://github.com/bu-ist/bu-calendar
@@ -252,22 +257,11 @@ require __DIR__ . '/inc/customizer.php';
 require __DIR__ . '/inc/extras.php';
 
 /**
- * WP 4.1 Polyfills.
- * TODO: Remove post-4.1. upgrade.
- */
-require __DIR__ . '/inc/polyfill.php';
-
-/**
  * Plugin support - BU Post Lists.
  *
  * @link http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-post-lists
  */
 require __DIR__ . '/inc/post-lists.php';
-
-/**
- * Shortcodes for content editors.
- */
-require __DIR__ . '/inc/shortcodes.php';
 
 /**
  * Reusable template tags to keep templates logic-free.
@@ -278,3 +272,8 @@ require __DIR__ . '/inc/template-tags.php';
  * Upgrade routines for schema changes across versions.
  */
 require __DIR__ . '/inc/upgrade.php';
+
+/**
+ * Deprecated functions for backwards compatibility.
+ */
+require __DIR__ . '/inc/deprecated.php';
