@@ -31,11 +31,58 @@ function responsive_branding() {
  * @see  mu-plugins/bu-branding
  */
 function responsive_branding_masterplate( $args = array() ) {
+	$defaults = array(
+		'before' => '<div class="siteFooter-brand">',
+		'after'  => '</div>',
+		);
+	$args = wp_parse_args( $args, $defaults );
+
 	if ( function_exists( 'bu_branding_masterplate' ) ) {
 		return bu_branding_masterplate( $args );
 	}
 	return false;
 }
+
+/**
+ * Display the BUMC logo if branding is configured to do so.
+ *
+ * Wrapper around `bu_branding_bumc_logo`.
+ *
+ * @see  mu-plugins/bu-branding
+ */
+function responsive_branding_bumc_logo( $args = array() ) {
+	$defaults = array(
+		'before' => '<div class="siteFooter-bumc">',
+		'after'  => '</div>',
+		);
+	$args = wp_parse_args( $args, $defaults );
+
+	if ( function_exists( 'bu_branding_bumc_logo' ) ) {
+		return bu_branding_bumc_logo( $args );
+	}
+	return false;
+}
+
+/**
+ * Display the disclaimer if branding is configured to do so.
+ *
+ * Wrapper around `bu_branding_disclaimer`.
+ *
+ * @see  mu-plugins/bu-branding
+ */
+function responsive_branding_disclaimer( $args = array() ) {
+	$defaults = array(
+		'before' => '<div class="siteFooter-disclaimer">',
+		'after'  => '</div>',
+		);
+	$args = wp_parse_args( $args, $defaults );
+
+	if ( function_exists( 'bu_branding_disclaimer' ) ) {
+		return bu_branding_disclaimer( $args );
+	}
+	return false;
+}
+
 
 /**
  * Adds branding classes to the footer container.
