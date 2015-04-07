@@ -264,6 +264,13 @@ require __DIR__ . '/inc/extras.php';
 require __DIR__ . '/inc/post-lists.php';
 
 /**
+ * Plugin support - BU Sharing.
+ *
+ * @link http://github.com/bu-ist/bu-sharing
+ */
+require __DIR__ . '/inc/sharing.php';
+
+/**
  * Reusable template tags to keep templates logic-free.
  */
 require __DIR__ . '/inc/template-tags.php';

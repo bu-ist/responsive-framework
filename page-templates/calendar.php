@@ -58,9 +58,6 @@ if ( $timestamp > $boundary_future ) {
 	$yyyymmdd = date( 'Ymd', $timestamp );
 }
 
-// Remove default sharedaddy display location
-remove_filter( 'the_content', 'sharing_display', 19 );
-
 ?>
 <?php get_header(); ?>
 
