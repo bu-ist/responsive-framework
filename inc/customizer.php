@@ -4,6 +4,21 @@
  */
 
 /**
+ * Enable Customizer for all Responsive Framework sites.
+ *
+ * The BU UI Modifications plugin currently hides the Customizer by default
+ * as most existing themes don't benefit from it given the limited capabilities
+ * that Site Admin have.
+ */
+function responsive_enable_customizer() {
+	if ( class_exists( 'BuInterfaceModifications' ) ) {
+		remove_action( 'admin_menu', array( 'BuInterfaceModifications', 'hide_customizer' ) );
+	}
+}
+
+add_action( 'init', 'responsive_enable_customizer', 12 );
+
+/**
  * Returns layout slug for currently active theme layout.
  *
  * Child themes can force a specific layout option by defining the BU_RESPONSIVE_LAYOUT
