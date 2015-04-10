@@ -186,8 +186,6 @@ function responsive_term_links( $post = null ) {
 /**
  * A wrapper around `bu_content_banner` to keep templates clean.
  *
- * TODO: Some of this logic should be moved to the plugin (e.g `is_singular` check, `do_shortcode`)
- *
  * @param  string $position A registered content banner position.
  */
 function responsive_content_banner( $position ) {
@@ -198,10 +196,10 @@ function responsive_content_banner( $position ) {
 	/*
 	 * Only use current post ID for singular requests. Avoids
 	 * banner display for first post in archive requests. We still
-	 * pass a null value to `bu_content_banner` in this case so
+	 * pass a false value to `bu_content_banner` in this case so
 	 * that site-wide content banners are displayed if set.
 	 */
-	$post_id = null;
+	$post_id = false;
 	if ( is_singular() ) {
 		// Returns the current post ID
 		$post_id = get_post()->ID;
@@ -215,7 +213,7 @@ function responsive_content_banner( $position ) {
 		'echo'     => false,
 		);
 
-	echo do_shortcode( bu_content_banner( $post_id, $banner_args ) );
+	echo bu_content_banner( $post_id, $banner_args );
 }
 
 /**
