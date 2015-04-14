@@ -98,3 +98,15 @@ function responsive_branding_footer_classes( $classes ) {
 }
 
 add_filter( 'responsive_extra_footer_classes', 'responsive_branding_footer_classes' );
+
+/**
+ * Prevent duplicate loading of branding styles by BU Branding.
+ */
+function responsive_dequeue_branding_fonts() {
+	if ( wp_style_is( 'bu-branding' ) ) {
+		wp_dequeue_style( 'bu-branding' );
+		wp_enqueue_style( 'bu-branding-fonts' );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'responsive_dequeue_branding_fonts', 12 );
