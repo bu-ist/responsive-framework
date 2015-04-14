@@ -1,95 +1,51 @@
-jQuery( document ).ready(function($) {
 
-	/* - - - - - Section: Font Colors - - - - - */
+/* global responsiveColor, Color */
+/**
+ * Add a listener to the Color Scheme control to update other color controls to new values/defaults.
+ * Also trigger an update of the Color Scheme CSS when a color is changed.
+ */
 
-	/* Initializing the color pickers */
-	if($('.color-picker').length > 0){
-		$('.color-picker').iris({
-			color: $(this).val(),
-			change: function(event, ui){
-				$(event.target).val(ui.color.toString()).change();
-				$(this).prev(".wp-color-result").css("background-color", ui.color.toString());
+( function( api ) {
+	var cssTemplate = wp.template( 'responsive-framework-color-scheme' ),
+		colorScheme = responsiveColor.schemes,
+		colorSettings = _.keys( responsiveColor.regions );
 
+	api.controlConstructor.select = api.Control.extend( {
+		ready: function() {
+			if ( 'burf_color_scheme' === this.id ) {
+				this.setting.bind( 'change', function( value ) {
 
-				var tempArray = [];
-				$("#burf_section_custom .color-picker").each(function(el, le){
-					//console.log(le);
-					tempArray.push($(this).val());
-				});
-				$("#hiddenColor").attr("value", tempArray.join(",")).change();
+					// Update color pickers when new scheme is selected
+					_.each( colorSettings, function ( setting, index ) {
+						api( setting ).set( colorScheme[ value ].colors[ index ] );
+						api.control( setting ).container.find( '.color-picker-hex' )
+							.data( 'data-default-color', colorScheme[ value ].colors[ index ] )
+							.wpColorPicker( 'defaultColor', colorScheme[ value ].colors[ index ] );
+					});
+				} );
 			}
+		}
+	} );
+
+	// Generate the CSS for the current Color Scheme.
+	function updateCSS() {
+		var scheme = api( 'burf_color_scheme' )(), css,
+			colors = _.object( colorSettings, colorScheme[ scheme ].colors );
+
+		// Merge in color scheme overrides.
+		_.each( colorSettings, function( setting ) {
+			colors[ setting ] = api( setting )();
 		});
+
+		css = cssTemplate( colors );
+
+		api.previewer.send( 'update-color-scheme-css', css );
 	}
 
-	/* Open the color pickers on Resultbox Click*/
-	$(".wp-color-result").on("click", function(){
-		$(this).siblings(".color-picker").show();
-		$(this).siblings(".iris-picker").show();
-		$(this).siblings(".wp-color-close").show();
-	});
-	/* And close them with the close button */
-	$(".wp-color-close").on("click", function(){
-		$(this).siblings(".iris-picker").hide();
-		$(this).siblings(".color-picker").hide();
-		$(this).hide();
-	});
-
-	/* Generate the hidden input's string */
-	$("#burf_section_colors input").on("change", function(){
-		$value = $(this).val().split(',');
-
-		$("#burf_section_custom li").each(function(index){
-			console.log($value[index]);
-			$(this).find(".color-picker").iris('color', $value[index]);
-		});
-	});
-
-	/* Toggling between Baic and Advanced */
-	$("#basic-color").on("click", function(){
-		$("#burf_section_colors").show();
-		$("#burf_section_custom").hide();
-
-		$("#basic-color").hide();
-		$("#advanced-color").show();
-	});
-	$("#advanced-color").on("click", function(){
-		$("#burf_section_colors").hide();
-		$("#burf_section_custom").show();
-
-		$("#basic-color").show();
-		$("#advanced-color").hide();
-	});
-
-
-
-
-	/* - - - - - Section: Background Options - - - - - */
-	/* Pre-opened color picker */
-	if($('.color-picker-open').length > 0){
-		$('.color-picker-open').iris({
-			color: $(this).val(),
-			hide: false,
-			change: function(event, ui){
-				$(event.target).val(ui.color.toString()).change();
-				$(this).prev(".wp-color-result").css("background-color", ui.color.toString());
-			}
-		});
-
-	}
-
-	$("#bg-toggle-color").on("click", function(){
-		$("#bg-toggle-image").removeClass("active");
-		$(this).addClass("active");
-		$("#accordion-section-burf_section_background li:gt(0)").hide();
-		$("#accordion-section-burf_section_background #bg-color").show();
-	});
-
-	$("#bg-toggle-image").on("click", function(){
-		$("#bg-toggle-color").removeClass("active");
-		$(this).addClass("active");
-		$("#accordion-section-burf_section_background li:gt(0)").show();
-		$("#accordion-section-burf_section_background #bg-color").hide();
-	});
-
-
-});
+	// Update the CSS whenever a color setting is changed.
+	_.each( colorSettings, function( setting ) {
+		api( setting, function( setting ) {
+			setting.bind( updateCSS );
+		} );
+	} );
+} )( wp.customize );
