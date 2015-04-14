@@ -1,11 +1,7 @@
 <?php
-
 /**
  * This hides the Font / Color / Background Customizer panels and associated styles.
- *
- * TODO: Remove once the colors / font palettes have been finalized
  */
-define( 'RESPONSIVE_CUSTOMIZER_DISABLE', true );
 
 require_once __DIR__ . '/customizer-controls.php';
 
