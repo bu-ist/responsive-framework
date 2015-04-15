@@ -235,9 +235,33 @@ function responsive_get_color_schemes() {
 		'default' => array(
 			'label'  => 'Default',
 			'colors' => array(
-				'#9F9F9F',
-				'#fff',
-				'#000',
+				'#7a7a7a',    // 0 - Utility Nav Link Text Color
+				'#ffffff',    // 1 - Button text colors (masthead, but it's overwritten)
+				'#000000',    // 2 - Utility Nav Link Focus / Text Headings
+				'#000000',    // 3 - Body, Primary Nav wrapper
+				'#333333',    // 4 - Sidenav Border Colors
+				'#000000',    // 5 - Widget Title / Widget Title Links
+				'#0f69d7',    // 6 - Primary Link Text
+				'#000000',    // 7 - Border colors (masthead, footer)
+				'#f5f5f5',    // 8 - Footbar background color
+				'#000000',    // 9 - Footbar widget text
+				'#cccccc',    // 10 - Input border colors
+				'#0f69d7',    // 11 - Footbar widget link text
+				'#aaaaaa',    // 12 - Primary nav link text active / hover
+				'#ffffff',    // 13 - Primary nav link text, Search toggle
+				'#f5f5f5',    // 14 - Comment respond background
+				'#cccccc',    // 15 - Footbar UL / LI border colors
+				'#aaaaaa',    // 16 - Sidenav Utility Nav A text
+				'#ffffff',    // 17 - Sidenav Utility Nav A text (hover)
+				'#ffffff',    // 18 - More Button Colors (redudnant with color1)
+			),
+		),
+		'one' => array(
+			'label'  => 'One',
+			'colors' => array(
+				'#9f9f9f',
+				'#ffffff',
+				'#000000',
 				'#2c3e50',
 				'#091928',
 				'#2c3e50',
@@ -248,84 +272,84 @@ function responsive_get_color_schemes() {
 				'#f2e5c8',
 				'#1477da',
 				'#e7b032',
-				'#fff',
+				'#ffffff',
 				'#fefaf1',
 				'#f2e5c8',
-				'#9F9F9F',
-				'#fff',
-				'#fff',
+				'#9f9f9f',
+				'#ffffff',
+				'#ffffff',
 			),
 		),
 		'two' => array(
 			'label'  => 'Two',
 			'colors' => array(
-				'#9F9F9F',
-				'#fff',
-				'#000',
+				'#9f9f9f',
+				'#ffffff',
+				'#000000',
 				'#ead333',
 				'#f9e138',
 				'#0d6167',
-				'#000',
+				'#000000',
 				'#ead333',
 				'#2d3435',
-				'#fff',
+				'#ffffff',
 				'#e1e9ec',
 				'#9db2b5',
 				'#756a1c',
-				'#000',
+				'#000000',
 				'#e9f0f3',
-				'#000',
-				'#9F9F9F',
+				'#000000',
+				'#9f9f9f',
 				'#756a1c',
-				'#000',
+				'#000000',
 			),
 		),
 		'three' => array(
 			'label'  => 'Three',
 			'colors' => array(
-				'#9F9F9F',
-				'#fff',
-				'#000',
+				'#9f9f9f',
+				'#ffffff',
+				'#000000',
 				'#5aa7a5',
 				'#63b6b4',
 				'#566970',
 				'#59986c',
 				'#5aa7a5',
 				'#edf7fa',
-				'#000',
+				'#000000',
 				'#5aa7a5',
 				'#59986c',
-				'#000',
-				'#fff',
+				'#000000',
+				'#ffffff',
 				'#edf7fa',
 				'#dee7ea',
 				'#566970',
-				'#000',
-				'#fff',
+				'#000000',
+				'#ffffff',
 			),
 		),
 		'four' => array(
 			'label'  => 'Four',
 			'colors' => array(
-				'#9F9F9F',
-				'#fff',
-				'#000',
+				'#9f9f9f',
+				'#ffffff',
+				'#000000',
 				'#cc0000',
 				'#a40000',
-				'#000',
-				'#3385C8',
+				'#000000',
+				'#3385c8',
 				'#cccccc',
 				'#eeeeee',
-				'#000',
+				'#000000',
 				'#cccccc',
 				'#cc0000',
-				'#000',
-				'#fff',
+				'#000000',
+				'#ffffff',
 				'#eeeeee',
 				'#eeeeee',
 				'#bbbbbb',
-				'#fff',
-				'#fff',
+				'#ffffff',
+				'#ffffff',
 			),
 		),
 	);
@@ -400,7 +424,11 @@ function responsive_get_color_scheme_css() {
 	// Merge, giving preference to custom colors
 	$colors = wp_parse_args( $custom_colors, $colors );
 
-	// TODO: Default palette == don't add extra styles
+	// Default color scheme without custom colors. Bail.
+	$color_schemes = responsive_get_color_schemes();
+	if ( array_values( $colors ) == $color_schemes['default']['colors'] ) {
+		return '';
+	}
 
 	return responsive_framework_get_color_regions_css( $colors );
 }
