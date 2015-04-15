@@ -109,6 +109,54 @@ function responsive_customize_register( $wp_customize ) {
 		}
 	}
 
+	// Theme Options
+	$wp_customize->add_section( 'burf_display_options', array(
+		'title'       => __( 'Display Options', 'burf' ),
+		'description' => 'Change visibility of post meta fields. Note that the "News" page template has its own display options.',
+		'priority'    => 39,
+	) );
+
+	$wp_customize->add_setting( 'burf_display_options[categories]', array(
+		'default'    => true,
+		'capability' => 'edit_theme_options',
+		'type'       => 'option',
+	) );
+
+	$wp_customize->add_control( 'burf_display_options_categories', array(
+		'label'       => 'Display post categories?',
+		// 'description' => 'Whether or not post categories should be featured on post listings.',
+		'section'     => 'burf_display_options',
+		'settings'    => 'burf_display_options[categories]',
+		'type'        => 'checkbox',
+	) );
+
+	$wp_customize->add_setting( 'burf_display_options[tags]', array(
+		'default'    => true,
+		'capability' => 'edit_theme_options',
+		'type'       => 'option',
+	) );
+
+	$wp_customize->add_control( 'burf_display_options_tags', array(
+		'label'       => 'Display post tags?',
+		// 'description' => 'Whether or not post tags should be featured on post listings.',
+		'section'     => 'burf_display_options',
+		'settings'    => 'burf_display_options[tags]',
+		'type'        => 'checkbox',
+	) );
+
+	$wp_customize->add_setting( 'burf_display_options[author]', array(
+		'default'    => false,
+		'capability' => 'edit_theme_options',
+		'type'       => 'option',
+	) );
+
+	$wp_customize->add_control( 'burf_display_options_author', array(
+		'label'       => 'Display post authors?',
+		// 'description' => 'Whether or not post authors should be featured on post listings.',
+		'section'     => 'burf_display_options',
+		'settings'    => 'burf_display_options[author]',
+		'type'        => 'checkbox',
+	) );
 	// Footer
 	$menu_url = admin_url( 'nav-menus.php?action=locations' );
 	$wp_customize->add_section( 'burf_section_footer', array(
