@@ -454,6 +454,65 @@ function responsive_post_navigation( $args = array() ) {
 
 endif;
 
+if ( ! function_exists( 'responsive_post_meta' ) ) :
+
+/**
+ * Render post meta entry HTML.
+ */
+function responsive_post_meta() {
+	$display = responsive_display_options();
+?>
+	<div class="entry-meta">
+		<?php if ( $display['author'] ) : ?>
+		<span class="author"><em>By</em> <?php the_author_posts_link(); ?></span>
+		<?php endif; ?>
+		<?php if ( $display['date'] ) : ?>
+		<span class="date"><time datetime="<?php esc_attr_e( get_the_date( 'c' ) ) ?>" pubdate><?php echo get_the_date( 'F jS Y' ) ?></time></span>
+		<?php endif; ?>
+		<?php if ( $display['categories'] && $category_list = get_the_category_list( ', ' )) : ?>
+		<span class="category"><em>in</em> <?php echo $category_list; ?></span>
+		<?php endif; ?>
+		<?php if ( bu_supports_comments() ) : ?>
+		<span class="comment-counter"><a href="<?php comments_link(); ?>" rel="nofollow"><?php comments_number( '<strong>0</strong> comments', '<strong>1</strong> comment', '<strong>%</strong> comments' ); ?></a></span>
+		<?php endif; ?>
+	</div>
+<?php
+}
+
+endif;
+
+/**
+ * Returns one or more Customizer display option value.
+ *
+ * Site admin can configure display of the following post meta for single and archive post templates:
+ * 	- Categories
+ * 	- Tags
+ * 	- Author
+ *
+ * @param  string $option Specific option value to return ('categories', 'tags', or 'author'). Optional.
+ * @return mixed          Post display options array, or the specified option.
+ */
+function responsive_display_options( $option = null ) {
+	$defaults = array(
+		'categories'     => true,
+		'tags'           => true,
+		'author'         => false,
+		);
+
+	// Merge defaults with option values
+	$display_options = array_merge( $defaults, get_option( 'burf_display_options', array() ) );
+
+	if ( is_scalar( $option ) ) {
+		if ( array_key_exists( $option, $display_options ) ) {
+			return $display_options[ $option ];
+		} else {
+			return false;
+		}
+	} else {
+		return $display_options;
+	}
+}
+
 /**
  * Attempts to find a suitable post archive link for this site.
  *
