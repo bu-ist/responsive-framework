@@ -632,6 +632,7 @@ a.button-primary,
 .single-calendar a.archiveLink,
 a.button-selected {
 	background-color: {$colors['color7']};
+	color: {$colors['color18']};
 }
 
 /* COLOR 8: Tan */
@@ -720,53 +721,6 @@ textarea,
 .footbar #contentnav li,
 .footbar .widget_nav_menu li {
 	border-color:{$colors['color15']};
-}
-
-/* color 18 */
-.button, button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"],
-.news-posts .paging-navigation a,
-.archive .paging-navigation a,
-.single .archiveLink,
-.single-calendar .archiveLink,
-.button-primary,
-#quicksearch .button,
-#quicksearch button,
-#quicksearch html input[type="button"],
-html #quicksearch input[type="button"],
-#quicksearch input[type="reset"],
-#quicksearch input[type="submit"],
-#quicksearch .news-posts .paging-navigation a,
-.news-posts .paging-navigation #quicksearch a,
-#quicksearch .archive .paging-navigation a,
-.archive .paging-navigation #quicksearch a,
-#quicksearch .single .archiveLink,
-.single #quicksearch .archiveLink,
-#quicksearch .single-calendar .archiveLink,
-.single-calendar #quicksearch .archiveLink,
-.news-posts .paging-navigation a,
-.archive .paging-navigation a,
-.single .archiveLink,
-.single-calendar .archiveLink,
-.button-selected,
-a.button-primary,
-#quicksearch a.button,
-#quicksearch .news-posts .paging-navigation a,
-.news-posts .paging-navigation #quicksearch a,
-#quicksearch .archive .paging-navigation a,
-.archive .paging-navigation #quicksearch a,
-#quicksearch .single a.archiveLink,
-.single #quicksearch a.archiveLink,
-#quicksearch .single-calendar a.archiveLink,
-.single-calendar #quicksearch a.archiveLink,
-.news-posts .paging-navigation a,
-.archive .paging-navigation a,
-.single a.archiveLink,
-.single-calendar a.archiveLink,
-a.button-selected {
-	color: {$colors['color18']};
 }
 CSS;
 
