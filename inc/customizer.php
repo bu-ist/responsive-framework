@@ -392,7 +392,7 @@ function responsive_get_color_scheme_choices() {
  * @return array An associative array of either the current or default color scheme values.
  */
 function responsive_get_color_scheme() {
-	$color_scheme_option = get_theme_mod( 'burf_color_scheme', 'default' );
+	$color_scheme_option = get_option( 'burf_color_scheme', 'default' );
 	$color_schemes       = responsive_get_color_schemes();
 
 	if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {
@@ -412,8 +412,13 @@ function responsive_get_color_scheme_css() {
 	// Get custom selected colors
 	$color_regions = responsive_customizer_color_regions();
 	$custom_colors = array();
+	$custom_colors_option = get_option( 'burf_custom_colors', array() );
 	foreach ( $color_regions as $name => $color ) {
-		$custom_colors[ $name ] = get_theme_mod( $name, $color['default'] );
+		if ( array_key_exists( $name, $custom_colors_option ) ) {
+			$custom_colors[ $name ] = $custom_colors_option[ $name ];
+		} else {
+			$custom_colors[ $name ] = $color['default'];
+		}
 	}
 
 	// Get colors from current scheme
