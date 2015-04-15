@@ -118,15 +118,12 @@ function responsive_customizer_has_footer_info() {
 	return ! empty( $footer_info );
 }
 
-
 /**
  * Register customizer color regions.
- *
- * @return [type] [description]
  */
 function responsive_customizer_color_regions() {
 	$schemes = responsive_get_color_schemes();
-	return apply_filters( 'responsive_framework_color_regions', array(
+	return array(
 		'color0' => array(
 				'label'       => 'Color Region 0',
 				'description' => '',
@@ -222,7 +219,7 @@ function responsive_customizer_color_regions() {
 				'description' => '',
 				'default'     => $schemes['default']['colors'][18],
 			),
-	), $schemes );
+	);
 }
 
 /**
@@ -391,15 +388,46 @@ function responsive_get_color_scheme_choices() {
  *
  * @return array An associative array of either the current or default color scheme values.
  */
-function responsive_get_color_scheme() {
-	$color_scheme_option = get_option( 'burf_color_scheme', 'default' );
-	$color_schemes       = responsive_get_color_schemes();
-
-	if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {
-		return $color_schemes[ $color_scheme_option ]['colors'];
+function responsive_get_color_scheme( $scheme = null ) {
+	// Load the current color scheme if none was passed
+	if ( ! is_scalar( $scheme ) ) {
+		$scheme = get_option( 'burf_color_scheme', 'default' );
 	}
 
-	return $color_schemes['default']['colors'];
+	// Return requested theme if found
+	$schemes = responsive_get_color_schemes();
+	if ( array_key_exists( $scheme, $schemes ) ) {
+		return $schemes[ $scheme ];
+	}
+
+	// Return default otherwise
+	return $schemes['default'];
+}
+
+/**
+ * Return the HEX color values for the given color scheme.
+ *
+ * If no $scheme is passed, the currently active scheme is used.
+ *
+ * @param  string $scheme A color scheme to retrieve colors for. Optional.
+ * @return array          Color scheme colors, indexed by region name.
+ */
+function responsive_get_color_scheme_colors( $scheme = null ) {
+	$scheme = responsive_get_color_scheme( $scheme );
+
+	// Combine region names and color values into associative array
+	$region_names = array_keys( responsive_customizer_color_regions() );
+	$colors = array_combine( $region_names, $scheme['colors'] );
+	return $colors;
+}
+
+/**
+ * Return custom color values set through Customizer.
+ *
+ * @return array Custom colors, indexed by region name.
+ */
+function responsive_get_custom_colors() {
+	return get_option( 'burf_custom_colors', array() );
 }
 
 /**
@@ -409,29 +437,17 @@ function responsive_get_color_scheme() {
  */
 function responsive_get_color_scheme_css() {
 
-	// Get custom selected colors
-	$color_regions = responsive_customizer_color_regions();
-	$custom_colors = array();
-	$custom_colors_option = get_option( 'burf_custom_colors', array() );
-	foreach ( $color_regions as $name => $color ) {
-		if ( array_key_exists( $name, $custom_colors_option ) ) {
-			$custom_colors[ $name ] = $custom_colors_option[ $name ];
-		} else {
-			$custom_colors[ $name ] = $color['default'];
-		}
-	}
-
 	// Get colors from current scheme
-	$color_scheme = responsive_get_color_scheme();
-	$region_names = array_keys( responsive_customizer_color_regions() );
-	$colors = array_combine( $region_names, $color_scheme );
+	$scheme_colors = responsive_get_color_scheme_colors();
+
+	// Get custom selected colors
+	$custom_colors = responsive_get_custom_colors();
 
 	// Merge, giving preference to custom colors
-	$colors = wp_parse_args( $custom_colors, $colors );
+	$colors = array_merge( $scheme_colors, $custom_colors );
 
 	// Default color scheme without custom colors. Bail.
-	$color_schemes = responsive_get_color_schemes();
-	if ( array_values( $colors ) == $color_schemes['default']['colors'] ) {
+	if ( $colors == responsive_get_color_scheme_colors( 'default' ) ) {
 		return '';
 	}
 
