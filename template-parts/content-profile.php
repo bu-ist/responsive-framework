@@ -41,6 +41,8 @@ if ( function_exists( 'bu_thumbnail' ) ) {
 	</div><!--/.profile-bio-->
 	<?php endif; ?>
 
+	<?php responsive_share_tools(); ?>
+
 	<?php the_taxonomies( array( 'before' => '<div class="profile-tax"><dl>', 'sep' => '', 'after' => '</dl></div><!--/.profiles-tax-->', 'template' => '<dt>%s</dt><dd>%l</dd>' ) ); ?>
 
 	<?php edit_post_link( 'Edit', '<p class="edit-link">', '</p>' ); ?>
