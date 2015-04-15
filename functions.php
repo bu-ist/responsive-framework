@@ -6,7 +6,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.1.0' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.2.0' );
 
 /**
  * Theme version.
@@ -37,6 +37,9 @@ function responsive_setup() {
 			'gallery',
 			'caption',
 		) );
+
+	// Add support for branding plugin
+	add_theme_support( 'bu-branding' );
 
 	// Add support for the custom post type version of profile plugin.
 	add_theme_support( 'bu-profiles-post_type' );
@@ -181,9 +184,6 @@ add_action( 'widgets_init', 'responsive_sidebars' );
 function responsive_enqueue_scripts() {
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-	// Branding fonts
-	wp_enqueue_style( 'responsive-branding-fonts', '//cloud.typography.com/6127692/660644/css/fonts.css', array(), null );
-
 	// Main script file (script.js) will load from child theme directory.
 	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 
@@ -262,6 +262,13 @@ require __DIR__ . '/inc/extras.php';
  * @link http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-post-lists
  */
 require __DIR__ . '/inc/post-lists.php';
+
+/**
+ * Plugin support - BU Sharing.
+ *
+ * @link http://github.com/bu-ist/bu-sharing
+ */
+require __DIR__ . '/inc/sharing.php';
 
 /**
  * Reusable template tags to keep templates logic-free.
