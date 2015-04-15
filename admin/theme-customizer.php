@@ -79,6 +79,7 @@ function responsive_customize_register( $wp_customize ) {
 			'default'           => 'default',
 			'sanitize_callback' => 'responsive_sanitize_color_scheme',
 			'transport'         => 'postMessage',
+			'type'              => 'option'
 		) );
 
 		$wp_customize->add_control( 'burf_color_scheme', array(
@@ -93,13 +94,14 @@ function responsive_customize_register( $wp_customize ) {
 		foreach ( responsive_customizer_color_regions() as $option => $colors ) {
 
 			// Add custom header and sidebar text color setting and control.
-			$wp_customize->add_setting( $option, array(
+			$wp_customize->add_setting( "burf_custom_colors[$option]", array(
 				'default'           => $colors['default'],
 				'sanitize_callback' => 'sanitize_hex_color',
 				'transport'         => 'postMessage',
+				'type'              => 'option'
 			) );
 
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $option, array(
+			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, "burf_custom_colors[$option]", array(
 				'label'       => $colors['label'],
 				'description' => $colors['description'],
 				'section'     => 'colors',

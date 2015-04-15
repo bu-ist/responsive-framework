@@ -17,8 +17,8 @@
 
 					// Update color pickers when new scheme is selected
 					_.each( colorSettings, function ( setting, index ) {
-						api( setting ).set( colorScheme[ value ].colors[ index ] );
-						api.control( setting ).container.find( '.color-picker-hex' )
+						api( 'burf_custom_colors[' + setting + ']' ).set( colorScheme[ value ].colors[ index ] );
+						api.control( 'burf_custom_colors[' + setting + ']' ).container.find( '.color-picker-hex' )
 							.data( 'data-default-color', colorScheme[ value ].colors[ index ] )
 							.wpColorPicker( 'defaultColor', colorScheme[ value ].colors[ index ] );
 					});
@@ -34,7 +34,7 @@
 
 		// Merge in color scheme overrides.
 		_.each( colorSettings, function( setting ) {
-			colors[ setting ] = api( setting )();
+			colors[ setting ] = api( 'burf_custom_colors[' + setting + ']' )();
 		});
 
 		css = cssTemplate( colors );
@@ -44,7 +44,7 @@
 
 	// Update the CSS whenever a color setting is changed.
 	_.each( colorSettings, function( setting ) {
-		api( setting, function( setting ) {
+		api( 'burf_custom_colors[' + setting + ']', function( setting ) {
 			setting.bind( updateCSS );
 		} );
 	} );
