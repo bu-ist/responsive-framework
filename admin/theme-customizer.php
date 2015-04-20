@@ -38,7 +38,7 @@ function responsive_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_setting( 'burf_setting_layout', array(
-			'default'    => '',
+			'default'    => 'default',
 			'capability' => 'edit_theme_options',
 			'type'       => 'option',
 		) );
@@ -61,7 +61,7 @@ function responsive_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_setting( 'burf_setting_fonts', array(
-			'default'        => '',
+			'default'        => 'f1',
 			'capability'     => 'edit_theme_options',
 			'type'           => 'option',
 		) );
