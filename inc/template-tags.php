@@ -74,6 +74,16 @@ function responsive_comments() {
 }
 
 /**
+ * Whether or not search form should be displayed.
+ */
+function responsive_search_is_enabled() {
+	if ( class_exists( 'BU_SearchForm' ) ) {
+		return BU_SearchForm::isEnabled();
+	}
+	return true;
+}
+
+/**
  * Displays search form for the site based on whether or not there is a site-wide ACL in place
  */
 function responsive_search_form() {
@@ -81,7 +91,7 @@ function responsive_search_form() {
 
 	// Check that search form is enabled
 	if ( function_exists( 'bu_search_form' ) ) {
-		if ( true === BU_SearchForm::isEnabled() ) {
+		if ( responsive_search_is_enabled() ) {
 			$bu_search = true;
 		} else {
 			return;
