@@ -526,7 +526,7 @@ function responsive_get_posts_archive_link() {
  */
 function responsive_posts_archive_link( $args = array() ) {
 	$defaults = array(
-		'label'  => 'Views all posts',
+		'label'  => 'View all posts',
 		'before' => '<p>',
 		'after'  => '</p>',
 		'class'  => 'archiveLink postsArchiveLink',
