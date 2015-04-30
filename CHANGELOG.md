@@ -1,3 +1,13 @@
+# 1.2.0
+
+* Add support for BU Branding plugin
+* Add template tags for display of BUMC logo and disclaimer
+* Add support for BU Sharing plugin
+* Introduce `responsive_share_tools()` for share tools display
+* Ensure Customizer is accessible to non-super admin
+* Remove shims for BU Profiles / Content Banner template tags that have been integrated into plugins
+* Add hooks to upgrade function to support pending migration of Research theme
+
 # 1.1.0
 
 * Add basic BUniverse embed provider
