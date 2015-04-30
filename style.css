@@ -2407,8 +2407,12 @@ html:hover [class^="icon-"] {
 }
 
 /* social icons */
-.icon-dropbox:before {
+.icon-dropbox:before, .siteFooter-social a[href*="dropbox.com"] i:before {
   content: "";
+}
+
+.icon-dropbox-alt:before {
+  content: "";
 }
 
 .icon-facebook:before, .siteFooter-social a[href*="facebook.com"] i:before {
@@ -2420,43 +2424,91 @@ html:hover [class^="icon-"] {
 }
 
 .icon-flickr:before, .siteFooter-social a[href*="flickr.com"] i:before {
-  content: "";
+  content: "";
+}
+
+.icon-flickr-alt:before {
+  content: "";
 }
 
 .icon-foursquare:before, .siteFooter-social a[href*="foursquare.com"] i:before {
   content: "";
 }
 
+.icon-foursquare-alt:before {
+  content: "";
+}
+
 .icon-github:before, .siteFooter-social a[href*="github.com"] i:before {
   content: "";
 }
 
-.icon-googleplus:before, .siteFooter-social a[href*="googleplus.com"] i:before {
+.icon-github-alt:before {
+  content: "";
+}
+
+.icon-googleplus:before, .siteFooter-social a[href*="plus.google.com"] i:before {
   content: "";
+}
+
+.icon-googleplus-alt:before {
+  content: "";
 }
 
 .icon-instagram:before, .siteFooter-social a[href*="instagram.com"] i:before {
   content: "";
 }
 
+.icon-instagram-alt:before {
+  content: "";
+}
+
 .icon-kickstarter:before, .siteFooter-social a[href*="kickstarter.com"] i:before {
   content: "";
+}
+
+.icon-kickstarter-alt:before {
+  content: "";
 }
 
 .icon-linkedin:before, .siteFooter-social a[href*="linkedin.com"] i:before {
   content: "";
 }
 
+.icon-linkedin-alt:before {
+  content: "";
+}
+
 .icon-paypal:before {
   content: "";
+}
+
+.icon-paypal-alt:before {
+  content: "";
 }
 
 .icon-pinterest:before, .siteFooter-social a[href*="pinterest.com"] i:before {
   content: "";
 }
 
-.icon-reddit:before {
+.icon-pinterest-alt:before {
+  content: "";
+}
+
+.icon-pocket:before, .siteFooter-social a[href*="getpocket.com"] i:before {
+  content: "";
+}
+
+.icon-pocket-alt:before {
+  content: "";
+}
+
+.icon-reddit:before, .siteFooter-social a[href*="reddit.com"] i:before {
   content: "";
+}
+
+.icon-reddit-alt:before {
+  content: "";
 }
 
 .icon-renren:before {
@@ -2471,6 +2523,10 @@ html:hover [class^="icon-"] {
   content: "";
 }
 
+.icon-soundcloud-alt:before {
+  content: "";
+}
+
 .icon-spotify:before {
   content: "";
 }
@@ -2479,16 +2535,28 @@ html:hover [class^="icon-"] {
   content: "";
 }
 
-.icon-stackoverflow:before {
-  content: "";
-}
-
-.icon-spotify:before {
-  content: "";
+.icon-stackexchange-alt:before {
+  content: "";
 }
 
 .icon-stackoverflow:before {
   content: "";
+}
+
+.icon-stackoverflow-alt:before {
+  content: "";
+}
+
+.icon-stackoverflow-alt:before {
+  content: "";
+}
+
+.icon-stumbleupon:before {
+  content: "";
+}
+
+.icon-stumbleupon-alt:before {
+  content: "";
 }
 
 .icon-twitter:before, .siteFooter-social a[href*="twitter.com"] i:before {
@@ -2503,16 +2571,32 @@ html:hover [class^="icon-"] {
   content: "";
 }
 
+.icon-tumblr-alt:before {
+  content: "\F62A";
+}
+
 .icon-vimeo:before, .siteFooter-social a[href*="vimeo.com"] i:before {
   content: "";
 }
 
-.icon-vine:before {
-  content: "";
+.icon-vimeo-alt:before {
+  content: "";
+}
+
+.icon-vine:before, .siteFooter-social a[href*="vine.co"] i:before {
+  content: "";
+}
+
+.icon-vine-alt:before {
+  content: "";
 }
 
 .icon-weibo:before {
   content: "";
+}
+
+.icon-weibo-alt:before {
+  content: "";
 }
 
 .icon-wordpress:before {
@@ -2521,6 +2605,10 @@ html:hover [class^="icon-"] {
 
 .icon-youtube:before, .siteFooter-social a[href*="youtube.com"] i:before {
   content: "";
+}
+
+.icon-youtube-alt:before {
+  content: "";
 }
 
 /* general icons */
@@ -3111,19 +3199,23 @@ v
 }
 
 /* hide labels */
+.siteFooter-social a[href*="dropbox.com"] span,
 .siteFooter-social a[href*="facebook.com"] span,
 .siteFooter-social a[href*="flickr.com"] span,
 .siteFooter-social a[href*="foursquare.com"] span,
 .siteFooter-social a[href*="github.com"] span,
-.siteFooter-social a[href*="googleplus.com"] span,
 .siteFooter-social a[href*="instagram.com"] span,
 .siteFooter-social a[href*="kickstarter.com"] span,
 .siteFooter-social a[href*="linkedin.com"] span,
 .siteFooter-social a[href*="pinterest.com"] span,
+.siteFooter-social a[href*="plus.google.com"] span,
+.siteFooter-social a[href*="getpocket.com"] span,
+.siteFooter-social a[href*="reddit.com"] span,
 .siteFooter-social a[href*="tumblr.com"] span,
 .siteFooter-social a[href*="twitter.com"] span,
-.siteFooter-social a[href*="youtube.com"] span,
-.siteFooter-social a[href*="vimeo.com"] span {
+.siteFooter-social a[href*="vimeo.com"] span,
+.siteFooter-social a[href*="vine.co"] span,
+.siteFooter-social a[href*="youtube.com"] span {
   display: none;
 }
 
