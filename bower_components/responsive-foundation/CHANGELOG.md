@@ -1,3 +1,10 @@
+# 1.0.4
+
+* Add alternate social icons from [BU Icon Font](https://github.com/bu-ist/bu-icon-font)
+* Add social footer link selectors for Dropbox, Pocket, Reddit, Vimeo and Vine
+* Fix social footer link selector for Google+
+* Fix Flickr / Vine glyphs (Fixes [bu-ist/responsive-framework#19](/bu-ist/responsive-framework/issues/19))
+
 # 1.0.3
 
 * Fix issue with .button font-family (#7). Props ashleykolodziej.
