@@ -1,3 +1,12 @@
+# 1.2.1
+
+* Change empty value for calendar event time from '&nbsp;' to ''
+* Add site initialization and Flexi migration logic (dormant pending release of Site Manager 4.0.0)
+* Fix #30: Don't display search icon when search is disabled
+* Fix #32: Don't override threaded comment depth set via Settings > Discussion
+* Fix #19: Update social media icons to add alternate icons, fix issues with Flickr / Vine and Google+. See https://github.com/bu-ist/responsive-foundation/commit/a30470947bc5bf05533e183e31f2060dd89d99c2.
+* Fix typo with archive button.
+
 # 1.2.0
 
 * Add support for BU Branding plugin

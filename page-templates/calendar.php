@@ -139,7 +139,7 @@ if ( $timestamp > $boundary_future ) {
 					$day = $_day;
 					$time = null;
 				}
-				//echo var_dump($e);
+
 				if ( $_allday ) {
 					if ( $_allday != $allday ) {
 						$event_time = 'All Day';
@@ -148,8 +148,6 @@ if ( $timestamp > $boundary_future ) {
 					if ( $_time != $time ) {
 						$event_time = $_time;
 						$time = $_time;
-					} else {
-						$event_time = '&nbsp;';
 					}
 				}
 

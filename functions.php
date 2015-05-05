@@ -6,7 +6,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.2.0' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.2.1' );
 
 /**
  * Theme version.
@@ -218,6 +218,26 @@ function responsive_styles() {
 }
 
 /**
+ * Maybe trigger theme migration procedure.
+ */
+function responsive_maybe_migrate_theme( $old_name, $old_theme ) {
+	// Theme migrations require Site Manager > 4.0
+	if ( ! defined( 'BU_SITE_MANAGER_VERSION' ) || version_compare( BU_SITE_MANAGER_VERSION, '4.0', '<' ) ) {
+		return;
+	}
+
+	$new_theme = wp_get_theme();
+
+	if ( 'flexi-framework' == $old_theme->get_template() ) {
+		require __DIR__ . '/inc/migration-helpers.php';
+		error_log( sprintf( '[%s] Migrating from %s to %s...', __FUNCTION__, $old_theme->get_template(), $new_theme->get_template() ) );
+		responsive_flexi_migration();
+	}
+}
+
+add_action( 'after_switch_theme', 'responsive_maybe_migrate_theme', 1, 2 );
+
+/**
  * Theme Customizer.
  */
 require __DIR__ . '/admin/theme-customizer.php';
@@ -279,6 +299,13 @@ require __DIR__ . '/inc/template-tags.php';
  * Upgrade routines for schema changes across versions.
  */
 require __DIR__ . '/inc/upgrade.php';
+
+/**
+ * WP-CLI commands.
+ */
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	require __DIR__ . '/inc/wp-cli.php';
+}
 
 /**
  * Deprecated functions for backwards compatibility.

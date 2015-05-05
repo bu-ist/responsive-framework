@@ -18,7 +18,6 @@
 				wp_list_comments( array(
 					'style'      => 'ol',
 					'short_ping' => true,
-					'max_depth'  => '2',
 				) );
 			?>
 		</ol>
