@@ -210,7 +210,7 @@ add_action( 'customize_register', 'responsive_customize_register' );
 function responsive_framework_color_scheme_template() {
 	$colors = array();
 	foreach ( responsive_customizer_color_regions() as $slug => $color ) {
-		$colors[ $slug ] = "{{ data.$slug }}";
+		$colors[ $slug ] = "{{ data['$slug'] }}";
 	}
 	?>
 	<script type="text/html" id="tmpl-responsive-framework-color-scheme">
