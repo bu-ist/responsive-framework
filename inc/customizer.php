@@ -124,100 +124,115 @@ function responsive_customizer_has_footer_info() {
 function responsive_customizer_color_regions() {
 	$schemes = responsive_get_color_schemes();
 	return array(
-		'color0' => array(
-				'label'       => 'Color Region 0',
-				'description' => '',
+		'primaryNav-bg' => array(
+				'label'       => 'Background Color',
 				'default'     => $schemes['default']['colors'][0],
+				'group'       => 'Navigation Bar',
 			),
-		'color1' => array(
-				'label'       => 'Color Region 1',
-				'description' => '',
+		'primaryNav-border' => array(
+				'label'       => 'Border Color',
 				'default'     => $schemes['default']['colors'][1],
+				'group'       => 'Navigation Bar',
 			),
-		'color2' => array(
-				'label'       => 'Color Region 2',
-				'description' => '',
+		'primaryNav-link' => array(
+				'label'       => 'Primary Nav Links',
 				'default'     => $schemes['default']['colors'][2],
+				'group'       => 'Navigation Bar',
 			),
-		'color3' => array(
-				'label'       => 'Color Region 3',
-				'description' => '',
+		'utilityNav-link' => array(
+				'label'       => 'Utility Nav Links',
 				'default'     => $schemes['default']['colors'][3],
+				'group'       => 'Navigation Bar',
 			),
-		'color4' => array(
-				'label'       => 'Color Region 4',
-				'description' => '',
+		'primaryNav-hover' => array(
+				'label'       => 'Primary Nav Links Hover',
 				'default'     => $schemes['default']['colors'][4],
+				'group'       => 'Navigation Bar',
 			),
-		'color5' => array(
-				'label'       => 'Color Region 5',
-				'description' => '',
+		'content-heading' => array(
+				'label'       => 'Headings',
 				'default'     => $schemes['default']['colors'][5],
+				'group'       => 'Content Area',
 			),
-		'color6' => array(
-				'label'       => 'Color Region 6',
-				'description' => '',
+		'content-base' => array(
+				'label'       => 'Base',
 				'default'     => $schemes['default']['colors'][6],
+				'group'       => 'Content Area',
 			),
-		'color7' => array(
-				'label'       => 'Color Region 7',
-				'description' => '',
+		'content-link' => array(
+				'label'       => 'Links',
 				'default'     => $schemes['default']['colors'][7],
+				'group'       => 'Content Area',
 			),
-		'color8' => array(
-				'label'       => 'Color Region 8',
-				'description' => '',
+		'content-link-hover' => array(
+				'label'       => 'Links Hover',
 				'default'     => $schemes['default']['colors'][8],
+				'group'       => 'Content Area',
 			),
-		'color9' => array(
-				'label'       => 'Color Region 9',
-				'description' => '',
+		'sidebar-bg' => array(
+				'label'       => 'Widget Background',
 				'default'     => $schemes['default']['colors'][9],
+				'group'       => 'Sidebar',
 			),
-		'color10' => array(
-				'label'       => 'Color Region 10',
-				'description' => '',
+		'sidebar-widgetTitle' => array(
+				'label'       => 'Widget Title',
 				'default'     => $schemes['default']['colors'][10],
+				'group'       => 'Sidebar',
 			),
-		'color11' => array(
-				'label'       => 'Color Region 11',
-				'description' => '',
+		'sidebar-widgetTitle-border' => array(
+				'label'       => 'Widget Title Border',
 				'default'     => $schemes['default']['colors'][11],
+				'group'       => 'Sidebar',
 			),
-		'color12' => array(
-				'label'       => 'Color Region 12',
-				'description' => '',
+		'sidebar-link' => array(
+				'label'       => 'Link',
 				'default'     => $schemes['default']['colors'][12],
+				'group'       => 'Sidebar',
 			),
-		'color13' => array(
-				'label'       => 'Color Region 13',
-				'description' => '',
+		'sidebar-link-hover' => array(
+				'label'       => 'Link Hover',
 				'default'     => $schemes['default']['colors'][13],
+				'group'       => 'Sidebar',
 			),
-		'color14' => array(
-				'label'       => 'Color Region 14',
-				'description' => '',
+		'sidebar-base' => array(
+				'label'       => 'Base',
 				'default'     => $schemes['default']['colors'][14],
+				'group'       => 'Sidebar',
 			),
-		'color15' => array(
-				'label'       => 'Color Region 15',
-				'description' => '',
+		'footbar-bg' => array(
+				'label'       => 'Background',
 				'default'     => $schemes['default']['colors'][15],
+				'group'       => 'Footbar',
 			),
-		'color16' => array(
-				'label'       => 'Color Region 16',
-				'description' => '',
+		'footbar-topBorder' => array(
+				'label'       => 'Top Border',
 				'default'     => $schemes['default']['colors'][16],
+				'group'       => 'Footbar',
 			),
-		'color17' => array(
-				'label'       => 'Color Region 17',
-				'description' => '',
+		'footbar-widgetTitle' => array(
+				'label'       => 'Widget Title',
 				'default'     => $schemes['default']['colors'][17],
+				'group'       => 'Footbar',
 			),
-		'color18' => array(
-				'label'       => 'Color Region 18',
-				'description' => '',
+		'footbar-widgetTitle-border' => array(
+				'label'       => 'Widget Title Border',
 				'default'     => $schemes['default']['colors'][18],
+				'group'       => 'Footbar',
+			),
+		'footbar-link' => array(
+				'label'       => 'Link',
+				'default'     => $schemes['default']['colors'][19],
+				'group'       => 'Footbar',
+			),
+		'footbar-link-hover' => array(
+				'label'       => 'Link Hover',
+				'default'     => $schemes['default']['colors'][20],
+				'group'       => 'Footbar',
+			),
+		'footbar-base' => array(
+				'label'       => 'Base',
+				'default'     => $schemes['default']['colors'][21],
+				'group'       => 'Footbar',
 			),
 	);
 }
@@ -232,121 +247,55 @@ function responsive_get_color_schemes() {
 		'default' => array(
 			'label'  => 'Default',
 			'colors' => array(
-				'#7a7a7a',    // 0 - Utility Nav Link Text Color
-				'#ffffff',    // 1 - Button text colors (masthead, but it's overwritten)
-				'#000000',    // 2 - Utility Nav Link Focus / Text Headings
-				'#000000',    // 3 - Body, Primary Nav wrapper
-				'#333333',    // 4 - Sidenav Border Colors
-				'#000000',    // 5 - Widget Title / Widget Title Links
-				'#0f69d7',    // 6 - Primary Link Text
-				'#000000',    // 7 - Border colors (masthead, footer)
-				'#f5f5f5',    // 8 - Footbar background color
-				'#000000',    // 9 - Footbar widget text
-				'#cccccc',    // 10 - Input border colors
-				'#0f69d7',    // 11 - Footbar widget link text
-				'#aaaaaa',    // 12 - Primary nav link text active / hover
-				'#ffffff',    // 13 - Primary nav link text, Search toggle
-				'#f5f5f5',    // 14 - Comment respond background
-				'#cccccc',    // 15 - Footbar UL / LI border colors
-				'#aaaaaa',    // 16 - Sidenav Utility Nav A text
-				'#ffffff',    // 17 - Sidenav Utility Nav A text (hover)
-				'#ffffff',    // 18 - More Button Colors (redudnant with color1)
-			),
-		),
-		'one' => array(
-			'label'  => 'One',
-			'colors' => array(
-				'#9f9f9f',
+				'#000000',
+				'#333333',
 				'#ffffff',
+				'#aaaaaa',
+				'#aaaaaa',
 				'#000000',
-				'#2c3e50',
-				'#091928',
-				'#2c3e50',
-				'#1477da',
-				'#e7b032',
-				'#fefaf1',
-				'#2c3e50',
-				'#f2e5c8',
-				'#1477da',
-				'#e7b032',
-				'#ffffff',
-				'#fefaf1',
-				'#f2e5c8',
-				'#9f9f9f',
-				'#ffffff',
-				'#ffffff',
-			),
-		),
-		'two' => array(
-			'label'  => 'Two',
-			'colors' => array(
-				'#9f9f9f',
-				'#ffffff',
+				'#555555',
+				'#0f69d7',
+				'#0f69d7',
+				'',
 				'#000000',
-				'#ead333',
-				'#f9e138',
-				'#0d6167',
 				'#000000',
-				'#ead333',
-				'#2d3435',
-				'#ffffff',
-				'#e1e9ec',
-				'#9db2b5',
-				'#756a1c',
-				'#000000',
-				'#e9f0f3',
-				'#000000',
-				'#9f9f9f',
-				'#756a1c',
-				'#000000',
-			),
-		),
-		'three' => array(
-			'label'  => 'Three',
-			'colors' => array(
-				'#9f9f9f',
-				'#ffffff',
-				'#000000',
-				'#5aa7a5',
-				'#63b6b4',
-				'#566970',
-				'#59986c',
-				'#5aa7a5',
-				'#edf7fa',
-				'#000000',
-				'#5aa7a5',
-				'#59986c',
-				'#000000',
-				'#ffffff',
-				'#edf7fa',
-				'#dee7ea',
-				'#566970',
-				'#000000',
-				'#ffffff',
-			),
-		),
-		'four' => array(
-			'label'  => 'Four',
-			'colors' => array(
-				'#9f9f9f',
-				'#ffffff',
-				'#000000',
-				'#cc0000',
-				'#a40000',
-				'#000000',
-				'#3385c8',
+				'#0f69d7',
+				'#0f69d7',
+				'#555555',
+				'#f5f5f5',
 				'#cccccc',
-				'#eeeeee',
 				'#000000',
-				'#cccccc',
-				'#cc0000',
 				'#000000',
+				'#0f69d7',
+				'#0f69d7',
+				'#555555',
+			),
+		),
+		'slacker' => array(
+			'label'  => 'Slacker',
+			'colors' => array(
+				'#24243a',
+				'#3c3c50',
 				'#ffffff',
-				'#eeeeee',
-				'#eeeeee',
-				'#bbbbbb',
+				'#7c7c9d',
+				'#9f9fec',
+				'#24243a',
+				'#24243a',
+				'#dd982b',
+				'#000000',
+				'#52527e',
+				'#ffffff',
+				'#6a6a9d',
+				'#ecb438',
 				'#ffffff',
 				'#ffffff',
+				'#1a1a22',
+				'#1a1a22',
+				'#ffffff',
+				'#323242',
+				'#ecb438',
+				'#ffffff',
+				'#8080a2',
 			),
 		),
 	);
@@ -462,85 +411,78 @@ function responsive_get_color_scheme_css() {
  */
 function responsive_framework_get_color_regions_css( $colors ) {
 
-	return <<<CSS
-.utilityNav a {
-	color:{$colors['color0']};
+	$sidebar_widget_styles = '';
+	if ( $colors['sidebar-bg'] ) {
+		$sidebar_widget_styles =<<<CSS
+/* sidebar widget background color
+----------------------------------------------------------------- */
+
+.sidebar .widget {
+	background: {$colors['sidebar-bg']};
+	padding:24px;
 }
+CSS;
 
-.utilityNav a:hover, .utilityNav a:focus {
-	color:{$colors['color2']};
-}
-
-.l-sideNav .utilityNav a {
-	color:{$colors['color16']};
-}
-
-.l-sideNav .utilityNav a:hover, .l-sideNav .utilityNav a:focus {
-	color:{$colors['color17']};
-}
-
-
-/* COLOR 1: White */
-.masthead,
-.button, button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"],
-.news-posts .paging-navigation a,
-.wrapper .navigation .nav-links a,
-.archive .paging-navigation a,
-.single .archiveLink,
-.single .archiveLink:visited,
-.single-calendar .archiveLink,
-.single-calendar .archiveLink:visited  {
-	color: {$colors['color1']};
-}
-
-/* COLOR 2: Black */
-.masthead .brand a,
-.masthead .brand a:hover,
-.masthead .brand a:focus,
-.masthead .brand a:visited,
-h1 small,
-h2 small,
-h3 small,
-h4 small,
-h5 small,
-h6 small,
-.single-profile .profile-info .label {
-	color:{$colors['color2']};
-}
-
-/* COLOR 3 */
-body, .primaryNav, .l-sideNav .wrapper  {
-	background: {$colors['color3']};
-}
-
-@media (min-width: 768px) {
-	.primaryNav-menu ul {
-		background: {$colors['color3']};
 	}
+
+	return <<<CSS
+/* navigation bar and links
+----------------------------------------------------------------- */
+
+/* navbar bg color */
+.l-sideNav .wrapper,
+.primaryNav,
+.primaryNav-menu ul {
+	background: {$colors['primaryNav-bg']};
 }
 
-/* COLOR 4 */
+/* main nav and nav border color */
+.primaryNav-menu a,
 .l-sideNav .primaryNav-menu a {
-	border-color:{$colors['color4']};
+	color: {$colors['primaryNav-link']};
+	border-color: {$colors['primaryNav-border']};
 }
 
-/* COLOR 5 */
-h1, h2, h3, h4, h5, h6,
-.widgetTitle, .widgetTitle a,
-#contentnav li a, .widget_nav_menu li a,
-#contentnav li a:hover, #contentnav li a:focus,
-.widget_nav_menu li a:hover, .widget_nav_menu li a:focus,
-#contentnav .current_page_item a,
-.widget_nav_menu .current_page_item a,
-#contentnav .current_page_item li a,
-.widget_nav_menu .current_page_item li a {
-	color: {$colors['color5']};
+/* utility nav color */
+.l-sideNav .utilityNav a {
+	color: {$colors['utilityNav-link']};
 }
 
-/* COLOR 6: Blue */
+/* main nav and utility nav hover color */
+.primaryNav-menu a:hover,
+.l-sideNav .utilityNav a:hover,
+.primaryNav-menu li a.active,
+.primaryNav-menu li a.active_section,
+.primaryNav-menu li li a:hover,
+.primaryNav-menu li li a:focus {
+	color: {$colors['primaryNav-hover']};
+}
+
+/* content area
+----------------------------------------------------------------- */
+
+/* heading color */
+.wrapper h1,
+.wrapper h2,
+.wrapper h3,
+.wrapper h4,
+.wrapper h5,
+.wrapper h6,
+.wrapper h1 a,
+.wrapper h2 a,
+.wrapper h3 a,
+.wrapper h4 a,
+.wrapper h5 a,
+.wrapper h6 a {
+	color: {$colors['content-heading']};
+}
+
+/* text color */
+body {
+	color: {$colors['content-base']};
+}
+
+/* link color */
 .wrapper a,
 .wrapper a:visited,
 .widget a,
@@ -551,62 +493,120 @@ h1, h2, h3, h4, h5, h6,
 .event-list .event-link a:focus,
 .monthCalendar td a,
 .monthCalendar td a:hover,
-.monthCalendar td a:focus,
+.monthCalendar td,
 .bu_collapsible:hover:after,
 .bu_collapsible:focus:after,
 .bu_collapsible_open .bu_collapsible:hover:after,
 .bu_collapsible_open .bu_collapsible:focus:after,
 .profile-listing a .profile-name {
-	color: {$colors['color6']};
+	color: {$colors['content-link']};
 }
 
-/* COLOR 7: Gold */
-.masthead,
+/* link hover color */
+.wrapper a:hover,
+.widget a:hover,
+.event-list .event-link a:hover,
+.monthCalendar td a:hover, {
+	color: {$colors['content-link-hover']};
+}
+
+{$sidebar_widget_styles}
+
+/* sidebar area
+----------------------------------------------------------------- */
+
+/* widget border color */
+.sidebar .widgetTitle,
+.sidebar #contentnav ul,
+.sidebar .widget_nav_menu ul,
+.sidebar #contentnav li,
+.sidebar .widget_nav_menu li {
+	border-color: {$colors['sidebar-widgetTitle-border']};
+}
+
+.sidebar .widgetTitle {
+	color: {$colors['sidebar-widgetTitle']};
+}
+
+/* text color */
+.sidebar .widget {
+	color: {$colors['sidebar-base']};
+}
+
+/* link color */
+.sidebar .widget a,
+.sidebar #contentnav li a,
+.sidebar .widget_nav_menu li a {
+	color: {$colors['sidebar-link']};
+}
+
+/* link hover color */
+.sidebar .widget a:hover,
+.sidebar #contentnav li a:hover,
+.sidebar .widget_nav_menu li a:hover {
+	color: {$colors['sidebar-link-hover']};
+}
+
+/* footbar area
+----------------------------------------------------------------- */
+
+/* background color */
 .footbar,
-.primaryNav-menu a,
-.utilityNav,
-.widgetTitle {
-	border-color: {$colors['color7']};
+.footbar .footbar-container,
+.bannerContainer-windowWidth {
+	background: {$colors['footbar-bg']};
 }
 
-@media (min-width: 768px) {
-	.l-sideNav #quicksearch {
-		border-color: {$colors['color7']};
-	}
+/* top border color */
+.footbar {
+	border-color: {$colors['footbar-topBorder']};
 }
 
+/* widget title color */
+.footbar .widgetTitle {
+	color: {$colors['footbar-widgetTitle']};
+}
+
+/* border color */
+.footbar .widgetTitle,
+.footbar #contentnav ul,
+.footbar .widget_nav_menu ul,
+.footbar #contentnav li,
+.footbar .widget_nav_menu li {
+	border-color: {$colors['footbar-widgetTitle-border']};
+}
+
+/* link color */
+.footbar .widget a,
+.footbar #contentnav li a,
+.footbar .widget_nav_menu li a {
+	color: {$colors['footbar-link']};
+}
+
+/* link hover color */
+.footbar .widget a:hover,
+.footbar #contentnav li a:hover,
+.footbar .widget_nav_menu li a:hover {
+	color: {$colors['footbar-link-hover']};
+}
+
+/* text color */
+.footbar .widget {
+	color: {$colors['footbar-base']};
+}
+
+/* non-configurable styles
+----------------------------------------------------------------- */
+
+.comment-respond,
+#quicksearch,
+.l-sideNav #quicksearch,
 .message,
 .single article[role=main] .meta,
 .singleEvent .dateSummary,
-.single-profile .profile-info,
-.single article[role=main] .meta {
-	border-left-color: {$colors['color7']};
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
-select:focus,
-textarea:focus {
-	border-color: {$colors['color7']};
-	outline: 1px auto {$colors['color7']};
-}
-
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="checkbox"]:focus {
-	outline: 1px auto {$colors['color7']};
+.single-profile .profile-info {
+	background: #f5f8ff;
+	border-color: #dfdfea;
 }
 
 .button, button,
@@ -636,8 +636,7 @@ html #quicksearch input[type="button"],
 .archive .paging-navigation a,
 .single .archiveLink,
 .single-calendar .archiveLink,
-.button-selected,
-a.button-primary,
+.button-selected, a.button-primary,
 #quicksearch a.button,
 #quicksearch .news-posts .paging-navigation a,
 .news-posts .paging-navigation #quicksearch a,
@@ -652,97 +651,10 @@ a.button-primary,
 .single a.archiveLink,
 .single-calendar a.archiveLink,
 a.button-selected {
-	background-color: {$colors['color7']};
-	color: {$colors['color18']};
+	background: #4fc3a0;
+	color: #fff;
 }
 
-/* COLOR 8: Tan */
-.footbar,
-.footbar .footbar-container,
-#quicksearch,
-.message,
-.single article[role=main] .meta,
-.singleEvent .dateSummary,
-.single-profile .profile-info {
-	background-color: {$colors['color8']};
-}
-
-/* COLOR 9 */
-.footbar .widget, .footbar .widgetTitle, .footbar .widgetTitle a {
-	color:{$colors['color9']};
-}
-
-/* COLOR 10: Tanner */
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="url"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="week"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
-select,
-textarea,
-.comments-list article,
-.comment-respond,
-#contentnav ul,
-.widget_nav_menu ul,
-#contentnav li,
-.widget_nav_menu li,
-.widget-bu-calendar .default li,
-.widget-bu-calendar .full-date li,
-.news-posts .post,
-.archive .content-container article,
-.news-posts .paging-navigation,
-.archive .paging-navigation,
-.single article[role=main] .meta {
-	border-color: {$colors['color10']};
-}
-
-/* COLOR 11 */
-.footbar .widget a,
-.footbar .widget a:hover,
-.footbar .widget a:focus,
-.footbar #contentnav li a, .footbar .widget_nav_menu li a,
-.footbar #contentnav li a:hover, .footbar #contentnav li a:focus {
-	color:{$colors['color11']};
-}
-
-/* color 12 */
-.primaryNav-menu a:hover,
-.primaryNav-menu a:focus,
-.primaryNav-menu li a.active,
-.primaryNav-menu li a.active_section,
-.primaryNav-menu li li a:hover, .primaryNav-menu li li a:focus,
-.l-noNav .searchToggle:hover, .searchToggle:hover {
-	color:{$colors['color12']};
-}
-
-/* color 13 */
-.primaryNav-menu a,
-.primaryNav-menu li li a,
-.searchToggle, .l-noNav .searchToggle:hover {
-	color:{$colors['color13']};
-}
-
-/* color 14 */
-.comment-respond {
-	background: {$colors['color14']};
-}
-
-/* color 15 */
-.footbar #contentnav ul,
-.footbar .widget_nav_menu ul,
-.footbar #contentnav li,
-.footbar .widget_nav_menu li {
-	border-color:{$colors['color15']};
-}
 CSS;
 
 }
