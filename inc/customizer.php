@@ -119,120 +119,115 @@ function responsive_customizer_has_footer_info() {
 }
 
 /**
+ * Customizer color groups.
+ */
+function responsive_customizer_color_groups() {
+	return array(
+		'navbar'       => 'Navigation Bar',
+		'content'      => 'Content Area',
+		'sidebar'      => 'Sidebar Area',
+		'footbar'      => 'Footbar Area'
+		);
+}
+
+/**
  * Register customizer color regions.
  */
 function responsive_customizer_color_regions() {
 	$schemes = responsive_get_color_schemes();
 	return array(
-		'primaryNav-bg' => array(
+		'navbar-bg' => array(
 				'label'       => 'Background Color',
-				'default'     => $schemes['default']['colors'][0],
-				'group'       => 'Navigation Bar',
+				'group'       => 'navbar',
 			),
-		'primaryNav-border' => array(
+		'navbar-primary-link' => array(
+				'label'       => 'Main Nav Color',
+				'group'       => 'navbar',
+			),
+		'navbar-primary-hover' => array(
+				'label'       => 'Main Nav Hover Color',
+				'group'       => 'navbar',
+			),
+		'navbar-utility-link' => array(
+				'label'       => 'Utility Nav Color',
+				'group'       => 'navbar',
+			),
+		'navbar-utility-link-hover' => array(
+				'label'       => 'Utility Nav Hover Color',
+				'group'       => 'navbar',
+			),
+		'navbar-primary-border' => array(
 				'label'       => 'Border Color',
-				'default'     => $schemes['default']['colors'][1],
-				'group'       => 'Navigation Bar',
-			),
-		'primaryNav-link' => array(
-				'label'       => 'Primary Nav Links',
-				'default'     => $schemes['default']['colors'][2],
-				'group'       => 'Navigation Bar',
-			),
-		'utilityNav-link' => array(
-				'label'       => 'Utility Nav Links',
-				'default'     => $schemes['default']['colors'][3],
-				'group'       => 'Navigation Bar',
-			),
-		'primaryNav-hover' => array(
-				'label'       => 'Primary Nav Links Hover',
-				'default'     => $schemes['default']['colors'][4],
-				'group'       => 'Navigation Bar',
+				'group'       => 'navbar',
 			),
 		'content-heading' => array(
-				'label'       => 'Headings',
-				'default'     => $schemes['default']['colors'][5],
-				'group'       => 'Content Area',
+				'label'       => 'Heading Color',
+				'group'       => 'content',
 			),
-		'content-base' => array(
-				'label'       => 'Base',
-				'default'     => $schemes['default']['colors'][6],
-				'group'       => 'Content Area',
+		'content-text' => array(
+				'label'       => 'Text Color',
+				'group'       => 'content',
 			),
 		'content-link' => array(
-				'label'       => 'Links',
-				'default'     => $schemes['default']['colors'][7],
-				'group'       => 'Content Area',
+				'label'       => 'Link Color',
+				'group'       => 'content',
 			),
 		'content-link-hover' => array(
-				'label'       => 'Links Hover',
-				'default'     => $schemes['default']['colors'][8],
-				'group'       => 'Content Area',
+				'label'       => 'Link Hover Color',
+				'group'       => 'content',
 			),
 		'sidebar-bg' => array(
-				'label'       => 'Widget Background',
-				'default'     => $schemes['default']['colors'][9],
-				'group'       => 'Sidebar',
+				'label'       => 'Background Color',
+				'group'       => 'sidebar',
+				'optional'    => true,
 			),
-		'sidebar-widgetTitle' => array(
-				'label'       => 'Widget Title',
-				'default'     => $schemes['default']['colors'][10],
-				'group'       => 'Sidebar',
+		'sidebar-heading' => array(
+				'label'       => 'Heading Color',
+				'group'       => 'sidebar',
 			),
-		'sidebar-widgetTitle-border' => array(
-				'label'       => 'Widget Title Border',
-				'default'     => $schemes['default']['colors'][11],
-				'group'       => 'Sidebar',
+		'sidebar-heading-border' => array(
+				'label'       => 'Heading Border Color',
+				'group'       => 'sidebar',
+			),
+		'sidebar-text' => array(
+				'label'       => 'Text Color',
+				'group'       => 'sidebar',
 			),
 		'sidebar-link' => array(
-				'label'       => 'Link',
-				'default'     => $schemes['default']['colors'][12],
-				'group'       => 'Sidebar',
+				'label'       => 'Link Color',
+				'group'       => 'sidebar',
 			),
 		'sidebar-link-hover' => array(
-				'label'       => 'Link Hover',
-				'default'     => $schemes['default']['colors'][13],
-				'group'       => 'Sidebar',
-			),
-		'sidebar-base' => array(
-				'label'       => 'Base',
-				'default'     => $schemes['default']['colors'][14],
-				'group'       => 'Sidebar',
+				'label'       => 'Link Hover Color',
+				'group'       => 'sidebar',
 			),
 		'footbar-bg' => array(
-				'label'       => 'Background',
-				'default'     => $schemes['default']['colors'][15],
-				'group'       => 'Footbar',
+				'label'       => 'Background Color',
+				'group'       => 'footbar',
 			),
 		'footbar-topBorder' => array(
-				'label'       => 'Top Border',
-				'default'     => $schemes['default']['colors'][16],
-				'group'       => 'Footbar',
+				'label'       => 'Top Border Color',
+				'group'       => 'footbar',
 			),
-		'footbar-widgetTitle' => array(
-				'label'       => 'Widget Title',
-				'default'     => $schemes['default']['colors'][17],
-				'group'       => 'Footbar',
+		'footbar-heading' => array(
+				'label'       => 'Heading Color',
+				'group'       => 'footbar',
 			),
-		'footbar-widgetTitle-border' => array(
-				'label'       => 'Widget Title Border',
-				'default'     => $schemes['default']['colors'][18],
-				'group'       => 'Footbar',
+		'footbar-heading-border' => array(
+				'label'       => 'Heading Border Color',
+				'group'       => 'footbar',
+			),
+		'footbar-text' => array(
+				'label'       => 'Text Color',
+				'group'       => 'footbar',
 			),
 		'footbar-link' => array(
-				'label'       => 'Link',
-				'default'     => $schemes['default']['colors'][19],
-				'group'       => 'Footbar',
+				'label'       => 'Link Color',
+				'group'       => 'footbar',
 			),
 		'footbar-link-hover' => array(
-				'label'       => 'Link Hover',
-				'default'     => $schemes['default']['colors'][20],
-				'group'       => 'Footbar',
-			),
-		'footbar-base' => array(
-				'label'       => 'Base',
-				'default'     => $schemes['default']['colors'][21],
-				'group'       => 'Footbar',
+				'label'       => 'Link Hover Color',
+				'group'       => 'footbar',
 			),
 	);
 }
@@ -247,55 +242,57 @@ function responsive_get_color_schemes() {
 		'default' => array(
 			'label'  => 'Default',
 			'colors' => array(
-				'#000000',
-				'#333333',
-				'#ffffff',
-				'#aaaaaa',
-				'#aaaaaa',
-				'#000000',
-				'#555555',
-				'#0f69d7',
-				'#0f69d7',
-				'',
-				'#000000',
-				'#000000',
-				'#0f69d7',
-				'#0f69d7',
-				'#555555',
-				'#f5f5f5',
-				'#cccccc',
-				'#000000',
-				'#000000',
-				'#0f69d7',
-				'#0f69d7',
-				'#555555',
+				'#000000', // Navigation Bar - Background Color
+				'#ffffff', // Navigation Bar - Main Nav Color
+				'#aaaaaa', // Navigation Bar - Main Nav Hover Color
+				'#aaaaaa', // Navigation Bar - Utility Nav Color (sideNav only)
+				'#ffffff', // Navigation Bar - Utility Nav Hover Color (sideNav only)
+				'#333333', // Navigation Bar - Border Color (sideNav only)
+				'#000000', // Content Area - Heading Color
+				'#555555', // Content Area - Text Color
+				'#0f69d7', // Content Area - Link Color
+				'#0f69d7', // Content Area - Link Hover Color
+				'#ffffff', // Sidebar - Background Color
+				'#000000', // Sidebar - Heading Color
+				'#000000', // Sidebar - Heading Border Color
+				'#555555', // Sidebar - Text Color
+				'#0f69d7', // Sidebar - Link Color
+				'#0f69d7', // Sidebar - Link Hover Color
+				'#f5f5f5', // Footbar - Background Color
+				'#cccccc', // Footbar - Top Border Color
+				'#000000', // Footbar - Heading Color
+				'#000000', // Footbar - Heading Border Color
+				'#555555', // Footbar - Text Color
+				'#0f69d7', // Footbar - Link Color
+				'#0f69d7', // Footbar - Link Hover Color
 			),
 		),
 		'slacker' => array(
 			'label'  => 'Slacker',
 			'colors' => array(
-				'#24243a',
-				'#3c3c50',
-				'#ffffff',
-				'#7c7c9d',
-				'#9f9fec',
-				'#24243a',
-				'#24243a',
-				'#dd982b',
-				'#000000',
-				'#52527e',
-				'#ffffff',
-				'#6a6a9d',
-				'#ecb438',
-				'#ffffff',
-				'#ffffff',
-				'#1a1a22',
-				'#1a1a22',
-				'#ffffff',
-				'#323242',
-				'#ecb438',
-				'#ffffff',
-				'#8080a2',
+				'#24243a', // Navigation Bar - Background Color
+				'#ffffff', // Navigation Bar - Main Nav Color
+				'#9f9fec', // Navigation Bar - Main Nav Hover Color
+				'#7c7c9d', // Navigation Bar - Utility Nav Color (sideNav only)
+				'#9f9fec', // Navigation Bar - Utility Nav Hover Color (sideNav only)
+				'#3c3c50', // Navigation Bar - Border Color (sideNav only)
+				'#24243a', // Content Area - Heading Color
+				'#24243a', // Content Area - Text Color
+				'#dd982b', // Content Area - Link Color
+				'#000000', // Content Area - Link Hover Color
+				'#52527e', // Sidebar - Background Color
+				'#ffffff', // Sidebar - Heading Color
+				'#6a6a9d', // Sidebar - Heading Border Color
+				'#ffffff', // Sidebar - Text Color
+				'#ecb438', // Sidebar - Link Color
+				'#ffffff', // Sidebar - Link Hover Color
+				'#1a1a22', // Footbar - Background Color
+				'#1a1a22', // Footbar - Top Border Color
+				'#ffffff', // Footbar - Heading Color
+				'#323242', // Footbar - Heading Border Color
+				'#8080a2', // Footbar - Text Color
+				'#ecb438', // Footbar - Link Color
+				'#ffffff', // Footbar - Link Hover Color
 			),
 		),
 	);
@@ -411,57 +408,65 @@ function responsive_get_color_scheme_css() {
  */
 function responsive_framework_get_color_regions_css( $colors ) {
 
+	// Optional sidebar background
 	$sidebar_widget_styles = '';
 	if ( $colors['sidebar-bg'] ) {
 		$sidebar_widget_styles =<<<CSS
-/* sidebar widget background color
------------------------------------------------------------------ */
-
+/* Background Color */
 .sidebar .widget {
 	background: {$colors['sidebar-bg']};
-	padding:24px;
+	padding: 24px;
 }
 CSS;
 
 	}
 
 	return <<<CSS
-/* navigation bar and links
+/* Navigation Bar
 ----------------------------------------------------------------- */
 
-/* navbar bg color */
+/* Background Color */
 .l-sideNav .wrapper,
 .primaryNav,
 .primaryNav-menu ul {
-	background: {$colors['primaryNav-bg']};
+	background: {$colors['navbar-bg']};
 }
 
-/* main nav and nav border color */
+/* Main Nav Color */
 .primaryNav-menu a,
 .l-sideNav .primaryNav-menu a {
-	color: {$colors['primaryNav-link']};
-	border-color: {$colors['primaryNav-border']};
+	color: {$colors['navbar-primary-link']};
 }
 
-/* utility nav color */
-.l-sideNav .utilityNav a {
-	color: {$colors['utilityNav-link']};
-}
-
-/* main nav and utility nav hover color */
+/* Main Nav Hover Color */
 .primaryNav-menu a:hover,
-.l-sideNav .utilityNav a:hover,
 .primaryNav-menu li a.active,
 .primaryNav-menu li a.active_section,
 .primaryNav-menu li li a:hover,
 .primaryNav-menu li li a:focus {
-	color: {$colors['primaryNav-hover']};
+	color: {$colors['navbar-primary-hover']};
 }
 
-/* content area
+/* Utility Nav Color */
+.l-sideNav .utilityNav a {
+	color: {$colors['navbar-utility-link']};
+}
+
+/* Utility Nav Hover Color */
+.l-sideNav .utilityNav a:hover {
+	color: {$colors['navbar-utility-link-hover']};
+}
+
+/* Border Color */
+.primaryNav-menu a,
+.l-sideNav .primaryNav-menu a {
+	border-color: {$colors['navbar-primary-border']};
+}
+
+/* Content Area
 ----------------------------------------------------------------- */
 
-/* heading color */
+/* Heading Color */
 .wrapper h1,
 .wrapper h2,
 .wrapper h3,
@@ -477,12 +482,12 @@ CSS;
 	color: {$colors['content-heading']};
 }
 
-/* text color */
+/* Text Color */
 body {
-	color: {$colors['content-base']};
+	color: {$colors['content-text']};
 }
 
-/* link color */
+/* Link Color */
 .wrapper a,
 .wrapper a:visited,
 .widget a,
@@ -502,7 +507,7 @@ body {
 	color: {$colors['content-link']};
 }
 
-/* link hover color */
+/* Link Hover Color */
 .wrapper a:hover,
 .widget a:hover,
 .event-list .event-link a:hover,
@@ -510,89 +515,90 @@ body {
 	color: {$colors['content-link-hover']};
 }
 
-{$sidebar_widget_styles}
-
-/* sidebar area
+/* Sidebar Area
 ----------------------------------------------------------------- */
 
-/* widget border color */
+{$sidebar_widget_styles}
+
+/* Header Color */
+.sidebar .widgetTitle {
+	color: {$colors['sidebar-heading']};
+}
+
+/* Header Border Color */
 .sidebar .widgetTitle,
 .sidebar #contentnav ul,
 .sidebar .widget_nav_menu ul,
 .sidebar #contentnav li,
 .sidebar .widget_nav_menu li {
-	border-color: {$colors['sidebar-widgetTitle-border']};
+	border-color: {$colors['sidebar-heading-border']};
 }
 
-.sidebar .widgetTitle {
-	color: {$colors['sidebar-widgetTitle']};
-}
-
-/* text color */
+/* Text Color */
 .sidebar .widget {
-	color: {$colors['sidebar-base']};
+	color: {$colors['sidebar-text']};
 }
 
-/* link color */
+/* Link Color */
 .sidebar .widget a,
 .sidebar #contentnav li a,
 .sidebar .widget_nav_menu li a {
 	color: {$colors['sidebar-link']};
 }
 
-/* link hover color */
+/* Link Hover Color */
 .sidebar .widget a:hover,
 .sidebar #contentnav li a:hover,
 .sidebar .widget_nav_menu li a:hover {
 	color: {$colors['sidebar-link-hover']};
 }
 
-/* footbar area
+/* Footbar Area
 ----------------------------------------------------------------- */
 
-/* background color */
+/* Background Color */
 .footbar,
 .footbar .footbar-container,
 .bannerContainer-windowWidth {
 	background: {$colors['footbar-bg']};
 }
 
-/* top border color */
+/* Top Border Color */
 .footbar {
 	border-color: {$colors['footbar-topBorder']};
 }
 
-/* widget title color */
+/* Heading Color */
 .footbar .widgetTitle {
-	color: {$colors['footbar-widgetTitle']};
+	color: {$colors['footbar-heading']};
 }
 
-/* border color */
+/* Heading Border Color */
 .footbar .widgetTitle,
 .footbar #contentnav ul,
 .footbar .widget_nav_menu ul,
 .footbar #contentnav li,
 .footbar .widget_nav_menu li {
-	border-color: {$colors['footbar-widgetTitle-border']};
+	border-color: {$colors['footbar-heading-border']};
 }
 
-/* link color */
+/* Text Color */
+.footbar .widget {
+	color: {$colors['footbar-text']};
+}
+
+/* Link Color */
 .footbar .widget a,
 .footbar #contentnav li a,
 .footbar .widget_nav_menu li a {
 	color: {$colors['footbar-link']};
 }
 
-/* link hover color */
+/* Link Hover Color */
 .footbar .widget a:hover,
 .footbar #contentnav li a:hover,
 .footbar .widget_nav_menu li a:hover {
 	color: {$colors['footbar-link-hover']};
-}
-
-/* text color */
-.footbar .widget {
-	color: {$colors['footbar-base']};
 }
 
 /* non-configurable styles
