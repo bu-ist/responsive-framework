@@ -90,22 +90,42 @@ function responsive_customize_register( $wp_customize ) {
 			'priority' => 1,
 		) );
 
-		// Add color picker for each customizable colo region
-		foreach ( responsive_customizer_color_regions() as $option => $colors ) {
+		$groups = responsive_customizer_color_groups();
+		$regions = responsive_customizer_color_regions();
+		$scheme = responsive_get_color_scheme();
 
-			// Add custom header and sidebar text color setting and control.
-			$wp_customize->add_setting( "burf_custom_colors[$option]", array(
-				'default'           => $colors['default'],
-				'sanitize_callback' => 'sanitize_hex_color',
-				'transport'         => 'postMessage',
+		// Add section for each region group
+		foreach ( $groups as $slug => $label ) {
+			$regions_in_group = wp_filter_object_list( $regions, array( 'group' => $slug ) );
+
+			$wp_customize->add_setting( "burf_custom_colors_heading_$slug", array(
 				'type'              => 'option'
 			) );
-
-			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, "burf_custom_colors[$option]", array(
-				'label'       => $colors['label'],
-				'description' => $colors['description'],
-				'section'     => 'colors',
+			$wp_customize->add_control( new BURF_Section_Heading( $wp_customize, "burf_custom_colors_heading_$slug", array(
+				'label' => $label,
+				'section' => 'colors',
 			) ) );
+
+			// Add color picker for each customizable color region
+			$i = 0;
+			foreach ( $regions_in_group as $option => $colors ) {
+
+				// Add custom header and sidebar text color setting and control.
+				$wp_customize->add_setting( "burf_custom_colors[$option]", array(
+					'default'           => $scheme['colors'][$i],
+					'sanitize_callback' => 'sanitize_hex_color',
+					'transport'         => 'postMessage',
+					'type'              => 'option'
+				) );
+
+				$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, "burf_custom_colors[$option]", array(
+					'label'       => $colors['label'],
+					'description' => $colors['description'],
+					'section'     => 'colors',
+				) ) );
+
+				$i++;
+			}
 		}
 	}
 

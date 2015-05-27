@@ -6,6 +6,20 @@
 if ( class_exists( 'WP_Customize_Control' ) ) :
 
 /**
+ * Section heading control.
+ */
+class BURF_Section_Heading extends WP_Customize_Control {
+	public $type = 'heading';
+	public $label = '';
+
+	public function render_content() {
+		?>
+		<h4 class="customize-control-title"><?php echo esc_html( $this->label ); ?></h4>
+		<?php
+	}
+}
+
+/**
  * Radio button control.
  */
 class BURF_Customize_Radio extends WP_Customize_Control {
