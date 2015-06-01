@@ -66,3 +66,7 @@
 #burf_section_fonts li:nth-of-type(5) label:after {
 	background-position: 0 -1150px;
 }
+
+#customize-control-burf_color_scheme .customize-control-title {
+	display: none;
+}
