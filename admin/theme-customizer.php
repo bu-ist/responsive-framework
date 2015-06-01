@@ -11,7 +11,7 @@ require_once __DIR__ . '/customizer-controls.php';
 function responsive_customizer_scripts() {
 	wp_enqueue_style( 'responsi-admin', get_template_directory_uri() . "/admin/admin.css", array(), RESPONSIVE_FRAMEWORK_VERSION );
 	wp_enqueue_script( 'responsi-customizer', get_template_directory_uri() . "/admin/theme-customizer.js", array( 'jquery', 'customize-controls', 'iris', 'underscore', 'wp-util' ), RESPONSIVE_FRAMEWORK_VERSION, true );
-	wp_localize_script( 'responsi-customizer', 'responsiveColor', array( 'schemes' => responsive_get_color_schemes(), 'regions' => responsive_customizer_color_regions() ) );
+	wp_localize_script( 'responsi-customizer', 'responsiveColor', array( 'schemes' => responsive_get_color_schemes(), 'regions' => responsive_customizer_color_regions(), 'optional' => responsive_get_optional_color_regions() ) );
 }
 
 add_action( 'customize_controls_enqueue_scripts', 'responsive_customizer_scripts' );
@@ -75,6 +75,19 @@ function responsive_customize_register( $wp_customize ) {
 		) ) );
 
 		// Colors
+		$wp_customize->remove_section( 'colors' );
+
+		$wp_customize->add_panel( 'burf_colors', array(
+			'title'    => 'Colors',
+			'priority' => 33,
+		) );
+
+		$wp_customize->add_section( 'burf_color_scheme', array(
+			'title'    => __( 'Color Scheme', 'burf' ),
+			// 'priority' => 1,
+			'panel'    => 'burf_colors',
+		) );
+
 		$wp_customize->add_setting( 'burf_color_scheme', array(
 			'default'           => 'default',
 			'sanitize_callback' => 'responsive_sanitize_color_scheme',
@@ -84,47 +97,64 @@ function responsive_customize_register( $wp_customize ) {
 
 		$wp_customize->add_control( 'burf_color_scheme', array(
 			'label'    => 'Base Color Scheme',
-			'section'  => 'colors',
+			'section'  => 'burf_color_scheme',
 			'type'     => 'select',
 			'choices'  => responsive_get_color_scheme_choices(),
-			'priority' => 1,
 		) );
 
-		$groups = responsive_customizer_color_groups();
+		// Add color picker for each customizable colo region
+		$color_groups = responsive_customizer_color_region_groups();
 		$regions = responsive_customizer_color_regions();
 		$scheme = responsive_get_color_scheme();
+		$active_settings = isset( $scheme['active'] ) ? $scheme['active'] : array();
 
-		// Add section for each region group
-		foreach ( $groups as $slug => $label ) {
-			$regions_in_group = wp_filter_object_list( $regions, array( 'group' => $slug ) );
+		foreach ( $color_groups as $slug => $group ) {
 
-			$wp_customize->add_setting( "burf_custom_colors_heading_$slug", array(
-				'type'              => 'option'
+			$wp_customize->add_section( "burf_custom_colors[$slug]", array(
+				'title'           => $group['label'],
+				'panel'           => 'burf_colors',
+				'active_callback' => function ( $control ) use ( $group ) {
+					$excluded_layouts = isset( $group['layout_excludes'] ) ? $group['layout_excludes'] : array();
+					if ( in_array( $control->manager->get_setting( 'burf_setting_layout' )->value(), $excluded_layouts ) ) {
+						return false;
+					} else {
+						return true;
+					}
+				}
 			) );
-			$wp_customize->add_control( new BURF_Section_Heading( $wp_customize, "burf_custom_colors_heading_$slug", array(
-				'label' => $label,
-				'section' => 'colors',
-			) ) );
 
-			// Add color picker for each customizable color region
-			$i = 0;
-			foreach ( $regions_in_group as $option => $colors ) {
+			$group_regions = wp_filter_object_list( $regions, array( 'group' => $slug ) );
 
-				// Add custom header and sidebar text color setting and control.
+			foreach ( $group_regions as $option => $colors ) {
+
+				// Color picker
 				$wp_customize->add_setting( "burf_custom_colors[$option]", array(
-					'default'           => $scheme['colors'][$i],
+					'default'           => $colors['default'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
-					'type'              => 'option'
+					'type'              => 'option',
 				) );
 
 				$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, "burf_custom_colors[$option]", array(
 					'label'       => $colors['label'],
 					'description' => $colors['description'],
-					'section'     => 'colors',
+					'section'     => "burf_custom_colors[$slug]",
 				) ) );
 
-				$i++;
+				// Disable toggle (for optional color regions)
+				if ( $colors['optional'] && array_key_exists( $option, $active_settings ) ) {
+					$wp_customize->add_setting( "burf_custom_colors_active[$option]", array(
+						'default'           => $active_settings[ $option ],
+						'transport'         => 'postMessage',
+						'type'              => 'option',
+					) );
+
+					$wp_customize->add_control( "burf_custom_colors_active[$option]", array(
+						'label'       => 'Use ' . $colors['label'] . '?',
+						'section'     => "burf_custom_colors[$slug]",
+						'type'        => 'checkbox',
+					) );
+				}
 			}
 		}
 	}
@@ -234,7 +264,7 @@ function responsive_framework_color_scheme_template() {
 	}
 	?>
 	<script type="text/html" id="tmpl-responsive-framework-color-scheme">
-		<?php echo responsive_framework_get_color_regions_css( $colors ); ?>
+		<?php echo responsive_framework_get_color_regions_css( $colors, 'template' ); ?>
 	</script>
 	<?php
 }
