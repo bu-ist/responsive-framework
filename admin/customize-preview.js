@@ -3,12 +3,12 @@
  */
 
 ( function( $ ) {
-	var $style = $( '#responsive-framework-color-scheme-css' ),
+	var $style = $( '#responsi-customizer-styles' ),
 		api = wp.customize;
 
 	if ( ! $style.length ) {
-		$style = $( 'head' ).append( '<style type="text/css" id="responsive-framework-color-scheme-css" />' )
-		                    .find( '#responsive-framework-color-scheme-css' );
+		$style = $( 'head' ).append( '<style type="text/css" id="responsi-customizer-styles" />' )
+		                    .find( '#responsi-customizer-styles' );
 	}
 
 	// Site title.
