@@ -33,7 +33,7 @@ function responsive_customize_register( $wp_customize ) {
 	// Layout
 	if ( ! defined( 'BU_RESPONSIVE_LAYOUT' ) ) {
 		$wp_customize->add_section( 'burf_section_layout', array(
-			'title'    => __( 'Layout Options', 'burf' ),
+			'title'    => __( 'Layout', 'burf' ),
 			'priority' => 30,
 		) );
 
@@ -44,10 +44,10 @@ function responsive_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_section_layout', array(
-			'section'        => 'burf_section_layout',
-			'settings'       => 'burf_setting_layout',
-			'type'           => 'radio',
-			'choices'        => responsive_layout_options(),
+			'section'  => 'burf_section_layout',
+			'settings' => 'burf_setting_layout',
+			'type'     => 'radio',
+			'choices'  => responsive_layout_options(),
 		) ) );
 	}
 
@@ -56,7 +56,7 @@ function responsive_customize_register( $wp_customize ) {
 
 		// Fonts
 		$wp_customize->add_section( 'burf_section_fonts', array(
-			'title'    => __( 'Font Options', 'burf' ),
+			'title'    => __( 'Fonts', 'burf' ),
 			'priority' => 31,
 		) );
 
@@ -67,7 +67,6 @@ function responsive_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_section_fonts', array(
-			'label'    => 'Font Picker Setting',
 			'section'  => 'burf_section_fonts',
 			'settings' => 'burf_setting_fonts',
 			'type'     => 'radio',
