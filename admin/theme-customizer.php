@@ -285,13 +285,13 @@ function responsive_customizer_styles() {
 
 	$styles = '';
 
-	// $font_palette = responsive_get_font_palette();
-	// if ( $font_palette ) {
-	// 	$fonts_css = file_get_contents( get_template_directory() . "/css/$font_palette.css" );
-	// 	if ( $fonts_css ) {
-	// 		$styles .= $fonts_css . PHP_EOL;
-	// 	}
-	// }
+	$font_palette = responsive_get_font_palette();
+	if ( $font_palette ) {
+		$fonts_css = file_get_contents( get_template_directory() . "/css/$font_palette.css" );
+		if ( $fonts_css ) {
+			$styles .= $fonts_css . PHP_EOL;
+		}
+	}
 
 	$colors_css = responsive_get_color_scheme_css();
 	if ( $colors_css ) {
