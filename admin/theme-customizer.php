@@ -282,24 +282,19 @@ function responsive_customizer_styles() {
 		return;
 	}
 
-	$styles = '';
-
 	$font_palette = responsive_get_font_palette();
 	if ( $font_palette ) {
 		$fonts_css = file_get_contents( get_template_directory() . "/css/$font_palette.css" );
 		if ( $fonts_css ) {
-			$styles .= $fonts_css . PHP_EOL;
+			printf( '<style type="text/css" id="responsive-customizer-fonts">%s</style>', $fonts_css );
 		}
 	}
 
 	$colors_css = responsive_get_color_scheme_css();
 	if ( $colors_css ) {
-		$styles .= $colors_css . PHP_EOL;
+		printf( '<style type="text/css" id="responsive-customizer-colors">%s</style>', $colors_css );
 	}
 
-	if ( ! empty( $styles ) ) {
-		printf( '<style type="text/css" id="responsi-customizer-styles">%s</style>', $styles );
-	}
 }
 
 if ( ! defined( 'RESPONSIVE_CUSTOMIZER_DISABLE' ) ) {
