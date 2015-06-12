@@ -142,116 +142,144 @@ function responsive_customizer_color_region_groups() {
 function responsive_customizer_color_regions() {
 	$scheme = responsive_get_color_scheme();
 	return array(
+		
+		// navigation bar
 		'primaryNav-bg' => array(
-				'label'          => 'Background Color',
-				'group'          => 'navbar',
-				'default'        => $scheme['colors'][0],
+				'label'       => 'Background Color',
+				'group'       => 'navbar',
+				'default'     => $scheme['colors'][0],
 			),
 		'primaryNav-border' => array(
-				'label'           => 'Border Color',
-				'group'           => 'navbar',
-				'default'        => $scheme['colors'][1],
+				'label'       => 'Border Color',
+				'group'       => 'navbar',
+				'default'     => $scheme['colors'][1],
 			),
 		'primaryNav-link' => array(
-				'label'          => 'Primary Nav Links',
-				'group'          => 'navbar',
-				'default'        => $scheme['colors'][2],
+				'label'       => 'Primary Nav Links',
+				'group'       => 'navbar',
+				'default'     => $scheme['colors'][2],
 			),
 		'utilityNav-link' => array(
-				'label'           => 'Utility Nav Links',
-				'group'           => 'navbar',
-				'default'         => $scheme['colors'][3],
+				'label'       => 'Utility Nav Links',
+				'group'       => 'navbar',
+				'default'     => $scheme['colors'][3],
 			),
 		'primaryNav-hover' => array(
-				'label'          => 'Primary Nav Links Hover',
-				'group'          => 'navbar',
-				'default'        => $scheme['colors'][4],
+				'label'       => 'Primary Nav Links Hover',
+				'group'       => 'navbar',
+				'default'     => $scheme['colors'][4],
 			),
+		
+		// content area
 		'content-heading' => array(
 				'label'       => 'Headings',
 				'group'       => 'content-area',
 				'default'     => $scheme['colors'][5],
 			),
 		'content-base' => array(
-				'label'       => 'Base',
+				'label'       => 'Text Color',
 				'group'       => 'content-area',
 				'default'     => $scheme['colors'][6],
 			),
 		'content-link' => array(
-				'label'       => 'Links',
+				'label'       => 'Link Color',
 				'group'       => 'content-area',
 				'default'     => $scheme['colors'][7],
 			),
 		'content-link-hover' => array(
-				'label'       => 'Links Hover',
+				'label'       => 'Link Hover',
 				'group'       => 'content-area',
 				'default'     => $scheme['colors'][8],
 			),
+		'button-color' => array(
+				'label'       => 'Button Background',
+				'group'       => 'content-area',
+				'default'     => $scheme['colors'][9],
+			),
+		'button-text-color' => array(
+				'label'       => 'Button Text Color',
+				'group'       => 'content-area',
+				'default'     => $scheme['colors'][10],
+			),
+		
+		// sidebar
 		'sidebar-bg' => array(
 				'label'       => 'Widget Background',
 				'group'       => 'sidebar',
 				'optional'    => true,
-				'default'     => $scheme['colors'][9],
+				'default'     => $scheme['colors'][11],
 			),
 		'sidebar-widgetTitle' => array(
 				'label'       => 'Widget Title',
 				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][10],
+				'default'     => $scheme['colors'][12],
 			),
 		'sidebar-widgetTitle-border' => array(
 				'label'       => 'Widget Title Border',
 				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][11],
+				'default'     => $scheme['colors'][13],
 			),
 		'sidebar-link' => array(
-				'label'       => 'Link',
+				'label'       => 'Link Color',
 				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][12],
+				'default'     => $scheme['colors'][14],
 			),
 		'sidebar-link-hover' => array(
 				'label'       => 'Link Hover',
 				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][13],
+				'default'     => $scheme['colors'][15],
 			),
 		'sidebar-base' => array(
-				'label'       => 'Base',
+				'label'       => 'Text Color',
 				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][14],
+				'default'     => $scheme['colors'][16],
 			),
+		'sidebar-calendar-borders' => array(
+				'label'       => 'Calendar Borders',
+				'group'       => 'sidebar',
+				'default'     => $scheme['colors'][17],
+			),
+		'sidebar-calendar-day-background' => array(
+				'label'       => 'Calendar Date Background',
+				'group'       => 'sidebar',
+				'default'     => $scheme['colors'][18],
+			),
+		
+		// footbar
 		'footbar-bg' => array(
 				'label'       => 'Background',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][15],
+				'default'     => $scheme['colors'][19],
 			),
 		'footbar-topBorder' => array(
 				'label'       => 'Top Border',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][16],
+				'default'     => $scheme['colors'][20],
 			),
 		'footbar-widgetTitle' => array(
 				'label'       => 'Widget Title',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][17],
+				'default'     => $scheme['colors'][21],
 			),
 		'footbar-widgetTitle-border' => array(
 				'label'       => 'Widget Title Border',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][18],
+				'default'     => $scheme['colors'][22],
 			),
 		'footbar-link' => array(
-				'label'       => 'Link',
+				'label'       => 'Link Color',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][19],
+				'default'     => $scheme['colors'][23],
 			),
 		'footbar-link-hover' => array(
 				'label'       => 'Link Hover',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][20],
+				'default'     => $scheme['colors'][24],
 			),
 		'footbar-base' => array(
-				'label'       => 'Base',
+				'label'       => 'Text Color',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][21],
+				'default'     => $scheme['colors'][25],
 			),
 	);
 }
@@ -266,28 +294,40 @@ function responsive_get_color_schemes() {
 		'default' => array(
 			'label'  => 'Default',
 			'colors' => array(
-				'#000000',
-				'#333333',
-				'#ffffff',
-				'#aaaaaa',
-				'#aaaaaa',
-				'#000000',
-				'#555555',
-				'#0f69d7',
-				'#0f69d7',
-				'#ffffff', // sidebar-bg
-				'#000000',
-				'#000000',
-				'#0f69d7',
-				'#0f69d7',
-				'#555555',
-				'#f5f5f5',
-				'#cccccc',
-				'#000000',
-				'#000000',
-				'#0f69d7',
-				'#0f69d7',
-				'#555555',
+				// navigation
+				'#000000', // background
+				'#333333', // border color
+				'#ffffff', // primary nav links
+				'#aaaaaa', // utility nav links
+				'#aaaaaa', // primary links hover
+				
+				// content area
+				'#000000', // headings
+				'#555555', // text color
+				'#0f69d7', // link color
+				'#0f69d7', // link hovers
+				'#0f69d7', // button color
+				'#ffffff', // button text color
+				
+				// sidebar
+				'#ffffff', // widget bg
+				'#000000', // widget title
+				'#000000', // widget title border
+				'#0f69d7', // links
+				'#0f69d7', // link hovers
+				'#555555', // text color
+				'#ffcc00', // calendar borders
+				'rgba(0,0,0,0.3)', // sidebar-calendar-day-background
+				
+				
+				// footbar
+				'#f5f5f5', // background
+				'#cccccc', // top border
+				'#000000', // widget title
+				'#000000', // widget title border
+				'#0f69d7', // link colors
+				'#0f69d7', // link hover colors
+				'#555555', // text color
 			),
 			'active' => array(
 				'sidebar-bg' => false
@@ -296,28 +336,39 @@ function responsive_get_color_schemes() {
 		'slacker' => array(
 			'label'  => 'Slacker',
 			'colors' => array(
-				'#24243a',
-				'#3c3c50',
-				'#ffffff',
-				'#7c7c9d',
-				'#9f9fec',
-				'#24243a',
-				'#24243a',
-				'#dd982b',
-				'#000000',
-				'#52527e',
-				'#ffffff',
-				'#6a6a9d',
-				'#ecb438',
-				'#ffffff',
-				'#ffffff',
-				'#1a1a22',
-				'#1a1a22',
-				'#ffffff',
-				'#323242',
-				'#ecb438',
-				'#ffffff',
-				'#8080a2',
+				// navigation
+				'#24243a', // background
+				'#3c3c50', // border color
+				'#ffffff', // primary nav links
+				'#7c7c9d', // utility nav links
+				'#9f9fec', // primary links hover
+				
+				// content area
+				'#24243a', // headings
+				'#24243a', // text color
+				'#dd982b', // link color
+				'#000000', // link hovers
+				'#4fc3a0', // button color
+				'#ffffff', // button text color
+				
+				// sidebar
+				'#52527e', // widget bg
+				'#ffffff', // widget title
+				'#6a6a9d', // widget title border
+				'#ecb438', // links
+				'#ffffff', // link hovers
+				'#ffffff', // text color
+				'#000000', // calendar borders
+				'rgba(0,0,0,0.3)', // sidebar-calendar-day-background
+				
+				// footbar
+				'#1a1a22', // background
+				'#1a1a22', // top border
+				'#ffffff', // widget title
+				'#323242', // widget title border
+				'#ecb438', // link colors
+				'#ffffff', // link hover colors
+				'#8080a2', // text color
 			),
 			'active' => array(
 				'sidebar-bg' => true
@@ -568,105 +619,7 @@ body {
 	color: {$colors['content-link-hover']};
 }
 
-{$sidebar_widget_styles}
-
-/* sidebar area
------------------------------------------------------------------ */
-
-/* widget border color */
-.sidebar .widgetTitle,
-.sidebar #contentnav ul,
-.sidebar .widget_nav_menu ul,
-.sidebar #contentnav li,
-.sidebar .widget_nav_menu li {
-	border-color: {$colors['sidebar-widgetTitle-border']};
-}
-
-.sidebar .widgetTitle {
-	color: {$colors['sidebar-widgetTitle']};
-}
-
-/* text color */
-.sidebar .widget {
-	color: {$colors['sidebar-base']};
-}
-
-/* link color */
-.sidebar .widget a,
-.sidebar #contentnav li a,
-.sidebar .widget_nav_menu li a {
-	color: {$colors['sidebar-link']};
-}
-
-/* link hover color */
-.sidebar .widget a:hover,
-.sidebar #contentnav li a:hover,
-.sidebar .widget_nav_menu li a:hover {
-	color: {$colors['sidebar-link-hover']};
-}
-
-/* footbar area
------------------------------------------------------------------ */
-
-/* background color */
-.footbar,
-.footbar .footbar-container,
-.bannerContainer-windowWidth {
-	background: {$colors['footbar-bg']};
-}
-
-/* top border color */
-.footbar {
-	border-color: {$colors['footbar-topBorder']};
-}
-
-/* widget title color */
-.footbar .widgetTitle {
-	color: {$colors['footbar-widgetTitle']};
-}
-
-/* border color */
-.footbar .widgetTitle,
-.footbar #contentnav ul,
-.footbar .widget_nav_menu ul,
-.footbar #contentnav li,
-.footbar .widget_nav_menu li {
-	border-color: {$colors['footbar-widgetTitle-border']};
-}
-
-/* link color */
-.footbar .widget a,
-.footbar #contentnav li a,
-.footbar .widget_nav_menu li a {
-	color: {$colors['footbar-link']};
-}
-
-/* link hover color */
-.footbar .widget a:hover,
-.footbar #contentnav li a:hover,
-.footbar .widget_nav_menu li a:hover {
-	color: {$colors['footbar-link-hover']};
-}
-
-/* text color */
-.footbar .widget {
-	color: {$colors['footbar-base']};
-}
-
-/* non-configurable styles
------------------------------------------------------------------ */
-
-.comment-respond,
-#quicksearch,
-.l-sideNav #quicksearch,
-.message,
-.single article[role=main] .meta,
-.singleEvent .dateSummary,
-.single-profile .profile-info {
-	background: #f5f8ff;
-	border-color: #dfdfea;
-}
-
+/* buttons */
 .button, button,
 html input[type="button"],
 input[type="reset"],
@@ -709,9 +662,131 @@ html #quicksearch input[type="button"],
 .single a.archiveLink,
 .single-calendar a.archiveLink,
 a.button-selected {
-	background: #4fc3a0;
-	color: #fff;
+	background: {$colors['button-color']};
+	color: {$colors['button-text-color']};
 }
+
+
+{$sidebar_widget_styles}
+
+/* sidebar area
+----------------------------------------------------------------- */
+
+/* widget border color */
+.sidebar .widgetTitle,
+.sidebar #contentnav ul,
+.sidebar .widget_nav_menu ul,
+.sidebar #contentnav li,
+.sidebar .widget_nav_menu li {
+	border-color: {$colors['sidebar-widgetTitle-border']};
+}
+
+.sidebar .widgetTitle {
+	color: {$colors['sidebar-widgetTitle']};
+}
+
+/* text color */
+.sidebar .widget,
+.monthCalendar th,
+.monthCalendar caption {
+	color: {$colors['sidebar-base']};
+}
+
+/* link color */
+.sidebar .widget a,
+.sidebar #contentnav li a,
+.sidebar .widget_nav_menu li a {
+	color: {$colors['sidebar-link']};
+}
+
+/* link hover color */
+.sidebar .widget a:hover,
+.sidebar #contentnav li a:hover,
+.sidebar .widget_nav_menu li a:hover {
+	color: {$colors['sidebar-link-hover']};
+}
+
+/* calendar table */
+.monthCalendar,
+.monthCalendar th,
+.monthCalendar td {
+	border-color: {$colors['sidebar-calendar-borders']};
+}
+
+.monthCalendar thead,
+.monthCalendar th,
+.monthCalendar .out,
+.monthCalendar .today {
+	background: {$colors['sidebar-calendar-day-background']};
+}
+
+/* footbar area
+----------------------------------------------------------------- */
+
+/* background color */
+.footbar,
+.footbar .footbar-container,
+.bannerContainer-windowWidth {
+	background: {$colors['footbar-bg']};
+}
+
+/* top border color */
+.footbar {
+	border-color: {$colors['footbar-topBorder']};
+}
+
+/* widget title color */
+.footbar .widgetTitle,
+.footbar h3.widgetTitle a,
+.widget-bu-calendar .default a .date,
+.widget-bu-calendar .graphic .day {
+	color: {$colors['footbar-widgetTitle']};
+}
+
+/* border color */
+.footbar .widgetTitle,
+.footbar #contentnav ul,
+.footbar .widget_nav_menu ul,
+.footbar #contentnav li,
+.footbar .widget_nav_menu li {
+	border-color: {$colors['footbar-widgetTitle-border']};
+}
+
+/* link color */
+.footbar .widget a,
+.footbar #contentnav li a,
+.footbar .widget_nav_menu li a,
+.widget-bu-calendar .graphic .month {
+	color: {$colors['footbar-link']};
+}
+
+/* link hover color */
+.footbar .widget a:hover,
+.footbar #contentnav li a:hover,
+.footbar .widget_nav_menu li a:hover {
+	color: {$colors['footbar-link-hover']};
+}
+
+/* text color */
+.footbar .widget {
+	color: {$colors['footbar-base']};
+}
+
+/* non-configurable styles
+----------------------------------------------------------------- */
+
+.comment-respond,
+#quicksearch,
+.l-sideNav #quicksearch,
+.message,
+.single article[role=main] .meta,
+.singleEvent .dateSummary,
+.single-profile .profile-info {
+	background: #f5f8ff;
+	border-color: #dfdfea;
+}
+
+
 
 CSS;
 
