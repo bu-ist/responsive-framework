@@ -234,52 +234,42 @@ function responsive_customizer_color_regions() {
 				'group'       => 'sidebar',
 				'default'     => $scheme['colors'][16],
 			),
-		'sidebar-calendar-borders' => array(
-				'label'       => 'Calendar Borders',
-				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][17],
-			),
-		'sidebar-calendar-day-background' => array(
-				'label'       => 'Calendar Date Background',
-				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][18],
-			),
 		
 		// footbar
 		'footbar-bg' => array(
 				'label'       => 'Background',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][19],
+				'default'     => $scheme['colors'][17],
 			),
 		'footbar-topBorder' => array(
 				'label'       => 'Top Border',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][20],
+				'default'     => $scheme['colors'][18],
 			),
 		'footbar-widgetTitle' => array(
 				'label'       => 'Widget Title',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][21],
+				'default'     => $scheme['colors'][19],
 			),
 		'footbar-widgetTitle-border' => array(
 				'label'       => 'Widget Title Border',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][22],
+				'default'     => $scheme['colors'][20],
 			),
 		'footbar-link' => array(
 				'label'       => 'Link Color',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][23],
+				'default'     => $scheme['colors'][21],
 			),
 		'footbar-link-hover' => array(
 				'label'       => 'Link Hover',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][24],
+				'default'     => $scheme['colors'][22],
 			),
 		'footbar-base' => array(
 				'label'       => 'Text Color',
 				'group'       => 'footbar',
-				'default'     => $scheme['colors'][25],
+				'default'     => $scheme['colors'][23],
 			),
 	);
 }
@@ -316,9 +306,6 @@ function responsive_get_color_schemes() {
 				'#0f69d7', // links
 				'#0f69d7', // link hovers
 				'#555555', // text color
-				'#ffcc00', // calendar borders
-				'rgba(0,0,0,0.3)', // sidebar-calendar-day-background
-				
 				
 				// footbar
 				'#f5f5f5', // background
@@ -358,8 +345,6 @@ function responsive_get_color_schemes() {
 				'#ecb438', // links
 				'#ffffff', // link hovers
 				'#ffffff', // text color
-				'#000000', // calendar borders
-				'rgba(0,0,0,0.3)', // sidebar-calendar-day-background
 				
 				// footbar
 				'#1a1a22', // background
@@ -677,7 +662,10 @@ a.button-selected {
 .sidebar #contentnav ul,
 .sidebar .widget_nav_menu ul,
 .sidebar #contentnav li,
-.sidebar .widget_nav_menu li {
+.sidebar .widget_nav_menu li,
+.monthCalendar,
+.monthCalendar th,
+.monthCalendar td {
 	border-color: {$colors['sidebar-widgetTitle-border']};
 }
 
@@ -704,20 +692,6 @@ a.button-selected {
 .sidebar #contentnav li a:hover,
 .sidebar .widget_nav_menu li a:hover {
 	color: {$colors['sidebar-link-hover']};
-}
-
-/* calendar table */
-.monthCalendar,
-.monthCalendar th,
-.monthCalendar td {
-	border-color: {$colors['sidebar-calendar-borders']};
-}
-
-.monthCalendar thead,
-.monthCalendar th,
-.monthCalendar .out,
-.monthCalendar .today {
-	background: {$colors['sidebar-calendar-day-background']};
 }
 
 /* footbar area
@@ -786,7 +760,13 @@ a.button-selected {
 	border-color: #dfdfea;
 }
 
-
+/* calendar table */
+.monthCalendar thead,
+.monthCalendar th,
+.monthCalendar .out,
+.monthCalendar .today {
+	background: rgba(0,0,0,0.15);
+}
 
 CSS;
 
