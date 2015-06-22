@@ -129,6 +129,16 @@ endif;
 add_action( 'after_setup_theme', 'responsive_setup' );
 
 /**
+ * Theme-specific initialization logic
+ */
+function responsive_init() {
+	// Add support for dynamic footbars (e.g. alternate footbar)
+	add_post_type_support( 'page', 'bu-dynamic-footbars' );
+}
+
+add_action( 'init', 'responsive_init' );
+
+/**
  * Register widget areas.
  */
 function responsive_sidebars() {
@@ -165,7 +175,7 @@ function responsive_sidebars() {
 	}
 
 	register_sidebar( array(
-			'name'          => 'Footer Content Area',
+			'name'          => 'Footbar',
 			'id'            => 'footbar',
 			'description'   => 'Add widgets here to appear in your footer.',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -173,6 +183,19 @@ function responsive_sidebars() {
 			'before_title'  => '<h3 class="widgetTitle">',
 			'after_title'   => '</h3>',
 		) );
+
+	// Alternate footbar registration
+	if ( responsive_theme_supports_dynamic_footbars() || is_customize_preview() ) {
+		register_sidebar( array(
+				'name'          => 'Alternate Footbar',
+				'id'            => 'alternate-footbar',
+				'description'   => 'Add widgets here to appear in your footer.',
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h3 class="widgetTitle">',
+				'after_title'   => '</h3>',
+			) );
+	}
 
 }
 
@@ -236,6 +259,13 @@ function responsive_maybe_migrate_theme( $old_name, $old_theme ) {
 }
 
 add_action( 'after_switch_theme', 'responsive_maybe_migrate_theme', 1, 2 );
+
+/**
+ * Admin
+ */
+if ( is_admin() ) {
+	require __DIR__ . '/admin/admin.php';
+}
 
 /**
  * Theme Customizer.

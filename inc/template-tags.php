@@ -778,3 +778,48 @@ function responsive_archive_type( WP_Query $query = null ) {
 function responsive_is_archive_type( $type, WP_Query $query = null ) {
 	return ( strtolower( $type ) == responsive_archive_type( $query ) );
 }
+
+/**
+ * Whether or not the current theme supports alternate footbar registration.
+ *
+ * TODO: Migration logic for Flexi option (bu_flexi_framework_dynamic_footbars)
+ */
+function responsive_theme_supports_dynamic_footbars() {
+
+	// Check for theme constant
+	if ( defined( 'BU_SUPPORTS_DYNAMIC_FOOTBARS' ) ) {
+		return BU_SUPPORTS_DYNAMIC_FOOTBARS;
+	// Check for site option
+	} else {
+		return ( 1 == get_option( 'bu_supports_dynamic_footbars' ) );
+	}
+}
+
+/**
+ * Return a list of available dynamic footbars.
+ */
+function responsive_get_dynamic_footbars() {
+	return array(
+		'footbar'           => 'Footbar',
+		'alternate-footbar' => 'Alternate Footbar'
+		);
+}
+
+/**
+ * Get the footbar selected for the given post.
+ *
+ * @param  mixed  $post A post ID or WP_Post instance. Optional. Default current post.
+ */
+function responsive_get_footbar_id( $post = null ) {
+	$post = get_post( $post );
+	$footbar = 'footbar';
+
+	if ( $post && responsive_theme_supports_dynamic_footbars() && post_type_supports( $post->post_type, 'bu-dynamic-footbars' ) ) {
+		$selected_footbar = get_post_meta( $post->ID, '_bu_footbar_id', true );
+		if ( $selected_footbar ) {
+			$footbar = $selected_footbar;
+		}
+	}
+
+	return $footbar;
+}
