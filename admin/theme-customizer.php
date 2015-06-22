@@ -206,6 +206,22 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'    => 'burf_display_options[author]',
 		'type'        => 'checkbox',
 	) );
+
+	// Alternate Footbars
+	$wp_customize->add_setting( 'bu_supports_dynamic_footbars', array(
+		'default'           => 0,
+		'capability'        => 'edit_theme_options',
+		'type'              => 'option',
+		'sanitize_callback' => 'responsive_customizer_sanitize_checkbox',
+	) );
+
+	$wp_customize->add_control( 'bu_supports_dynamic_footbars', array(
+		'label'       => 'Enable alternate footbar?',
+		'section'     => 'burf_display_options',
+		'settings'    => 'bu_supports_dynamic_footbars',
+		'type'        => 'checkbox',
+	) );
+
 	// Footer
 	$menu_url = admin_url( 'nav-menus.php?action=locations' );
 	$wp_customize->add_section( 'burf_section_footer', array(
@@ -249,6 +265,13 @@ function responsive_customize_register( $wp_customize ) {
 }
 
 add_action( 'customize_register', 'responsive_customize_register' );
+
+/**
+ * Convert checkbox values to integers for option storage
+ */
+function responsive_customizer_sanitize_checkbox( $input ) {
+	return ( 1 == $input ) ? 1 : 0;
+}
 
 /**
  * Output an Underscore template for generating CSS for the color scheme.
