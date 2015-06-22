@@ -70,54 +70,21 @@ function responsive_font_options() {
 }
 
 /**
- * Returns any content entered into the Footer > Additional Info textarea.
+ * Return font palette CSS styles.
  */
-function responsive_get_customizer_footer_info() {
-	$defaults = array(
-		'text'  => '',
-		'autop' => false,
-		);
-	$footer = get_option( 'burf_setting_footer', $defaults );
-
-	if ( $footer['autop'] ) {
-		return wpautop( $footer['text'] );
-	} else {
-		return $footer['text'];
+function responsive_get_fonts_css() {
+	$css = '';
+	$palette = responsive_get_font_palette();
+	if ( $palette ) {
+		$css = file_get_contents( get_template_directory() . "/css/$palette.css" );
 	}
+
+	return $css;
 }
 
 /**
- * Prints out additional footer info content.
+ * Customizer color region sections.
  */
-function responsive_customizer_footer_info( $args = array() ) {
-	$defaults = array(
-		'before' => '<div class="siteFooter-info">',
-		'after'  => '</div>',
-		'echo'   => true,
-		);
-	$args = wp_parse_args( $args, $defaults );
-	$output = '';
-
-	$footer_info = responsive_get_customizer_footer_info();
-	if ( $footer_info ) {
-		$output = $args['before'] . $footer_info . $args['after'];
-	}
-
-	if ( $args['echo'] ) {
-		echo $output;
-	} else {
-		return $output;
-	}
-}
-
-/**
- * Returns whether or not the additional info textarea has any content.
- */
-function responsive_customizer_has_footer_info() {
-	$footer_info = responsive_get_customizer_footer_info();
-	return ! empty( $footer_info );
-}
-
 function responsive_customizer_color_region_groups() {
 	return array(
 		'navbar'       => array(
@@ -893,4 +860,53 @@ a.button-selected {
 
 CSS;
 
+}
+
+/**
+ * Returns any content entered into the Footer > Additional Info textarea.
+ */
+function responsive_get_customizer_footer_info() {
+	$defaults = array(
+		'text'  => '',
+		'autop' => false,
+		);
+	$footer = get_option( 'burf_setting_footer', $defaults );
+
+	if ( $footer['autop'] ) {
+		return wpautop( $footer['text'] );
+	} else {
+		return $footer['text'];
+	}
+}
+
+/**
+ * Prints out additional footer info content.
+ */
+function responsive_customizer_footer_info( $args = array() ) {
+	$defaults = array(
+		'before' => '<div class="siteFooter-info">',
+		'after'  => '</div>',
+		'echo'   => true,
+		);
+	$args = wp_parse_args( $args, $defaults );
+	$output = '';
+
+	$footer_info = responsive_get_customizer_footer_info();
+	if ( $footer_info ) {
+		$output = $args['before'] . $footer_info . $args['after'];
+	}
+
+	if ( $args['echo'] ) {
+		echo $output;
+	} else {
+		return $output;
+	}
+}
+
+/**
+ * Returns whether or not the additional info textarea has any content.
+ */
+function responsive_customizer_has_footer_info() {
+	$footer_info = responsive_get_customizer_footer_info();
+	return ! empty( $footer_info );
 }
