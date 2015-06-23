@@ -123,7 +123,7 @@ $lineHeight-profile-mini-email:            $lineHeight-medium !default;
 $fontFamily-base:                          "Benton", sans-serif !default;
 $fontFamily-serif:                         "TiemposText", Georgia, serif !default;
 $fontFamily-sansSerif:                     "Benton", sans-serif !default;
-$fontFamily-brand:                         "Whitney SSm A", "Whitney SSm B" !default;
+$fontFamily-brand:                         "Whitney SSm A", "Whitney SSm B", $fontFamily-sansSerif !default;
 $fontFamily-brand-sponsored:               $fontFamily-brand !default;
 $fontFamily-brand-unbranded:               $fontFamily-sansSerif !default;
 $fontFamily-navigation:                    $fontFamily-sansSerif !default;
