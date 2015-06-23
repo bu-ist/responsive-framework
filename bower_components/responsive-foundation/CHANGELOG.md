@@ -1,3 +1,7 @@
+# 1.0.5
+
+* Add fallback for branding (#34). Props ashleykolodziej.
+
 # 1.0.4
 
 * Add alternate social icons from [BU Icon Font](https://github.com/bu-ist/bu-icon-font)
