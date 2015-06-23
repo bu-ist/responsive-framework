@@ -359,6 +359,123 @@ function responsive_get_color_schemes() {
 				'sidebar-bg' => true
 			),
 		),
+		'extra-spectral' => array(
+			'label'  => 'Extra Spectral',
+			'colors' => array(
+				// navigation
+				'#c2185b', // background
+				'#cd4279', // border color
+				'#ffffff', // primary nav links
+				'#ff9fc5', // utility nav links
+				'#000000', // primary links hover
+				
+				// content area
+				'#000000', // headings
+				'#000000', // text color
+				'#e82a75', // link color
+				'#000000', // link hovers
+				'#e82a75', // button color
+				'#ffffff', // button text color
+				
+				// sidebar
+				'#7f2247', // widget bg
+				'#ffffff', // widget title
+				'#924362', // widget title border
+				'#ffffff', // links
+				'#ffffff', // link hovers
+				'#e4abc1', // text color
+				
+				// footbar
+				'#222222', // background
+				'#222222', // top border
+				'#ffffff', // widget title
+				'#3d3d3d', // widget title border
+				'#e82a75', // link colors
+				'#ffffff', // link hover colors
+				'#bdbdbd', // text color
+			),
+			'active' => array(
+				'sidebar-bg' => true
+			),
+		),
+		'rayleigh-scattering' => array(
+			'label'  => 'Rayleigh Scattering',
+			'colors' => array(
+				// navigation
+				'#04a9f4', // background
+				'#31b9f6', // border color
+				'#ffffff', // primary nav links
+				'#b4ddfa', // utility nav links
+				'#000000', // primary links hover
+				
+				// content area
+				'#222222', // headings
+				'#000000', // text color
+				'#fa5707', // link color
+				'#000000', // link hovers
+				'#fa5707', // button color
+				'#ffffff', // button text color
+				
+				// sidebar
+				'#e1f0f5', // widget bg
+				'#000000', // widget title
+				'#cad7db', // widget title border
+				'#000000', // links
+				'#000000', // link hovers
+				'#6f7b7f', // text color
+				
+				// footbar
+				'#222222', // background
+				'#222222', // top border
+				'#ffffff', // widget title
+				'#3d3d3d', // widget title border
+				'#fa5707', // link colors
+				'#dcdcdc', // link hover colors
+				'#dcdcdc', // text color
+			),
+			'active' => array(
+				'sidebar-bg' => true
+			),
+		),
+		'vinca-minor' => array(
+			'label'  => 'Vinca Minor',
+			'colors' => array(
+				// navigation
+				'#3f51b5', // background
+				'#6270c2', // border color
+				'#ffffff', // primary nav links
+				'#bec8ff', // utility nav links
+				'#000000', // primary links hover
+				
+				// content area
+				'#000000', // headings
+				'#000000', // text color
+				'#fb8007', // link color
+				'#000000', // link hovers
+				'#6c7dff', // button color
+				'#ffffff', // button text color
+				
+				// sidebar
+				'#ffffff', // widget bg
+				'#000000', // widget title
+				'#e8eaf6', // widget title border
+				'#fb8007', // links
+				'#989bad', // link hovers
+				'#989bad', // text color
+				
+				// footbar
+				'#1a1d2b', // background
+				'#1a1a22', // top border
+				'#ffffff', // widget title
+				'#363845', // widget title border
+				'#fb8007', // link colors
+				'#ffffff', // link hover colors
+				'#dcdcdc', // text color
+			),
+			'active' => array(
+				'sidebar-bg' => false
+			),
+		),
 	);
 }
 
@@ -669,12 +786,14 @@ a.button-selected {
 	border-color: {$colors['sidebar-widgetTitle-border']};
 }
 
-.sidebar .widgetTitle {
+.sidebar .widgetTitle,
+.sidebar .widgetTitle a:after {
 	color: {$colors['sidebar-widgetTitle']};
 }
 
 /* text color */
 .sidebar .widget,
+.sidebar .widget .widgetTitle a,
 .monthCalendar th,
 .monthCalendar caption {
 	color: {$colors['sidebar-base']};
@@ -711,6 +830,7 @@ a.button-selected {
 
 /* widget title color */
 .footbar .widgetTitle,
+.footbar .widgetTitle a:after,
 .footbar h3.widgetTitle a,
 .widget-bu-calendar .default a .date,
 .widget-bu-calendar .graphic .day {
@@ -722,15 +842,16 @@ a.button-selected {
 .footbar #contentnav ul,
 .footbar .widget_nav_menu ul,
 .footbar #contentnav li,
-.footbar .widget_nav_menu li {
+.footbar .widget_nav_menu li,
+.footbar .widget-bu-calendar .full-date li,
+.footbar .widget-bu-calendar .default li {
 	border-color: {$colors['footbar-widgetTitle-border']};
 }
 
 /* link color */
 .footbar .widget a,
 .footbar #contentnav li a,
-.footbar .widget_nav_menu li a,
-.widget-bu-calendar .graphic .month {
+.footbar .widget_nav_menu li a {
 	color: {$colors['footbar-link']};
 }
 
@@ -742,7 +863,9 @@ a.button-selected {
 }
 
 /* text color */
-.footbar .widget {
+.footbar .widget,
+.widget-bu-calendar .graphic .month,
+.widget-bu-posts .meta {
 	color: {$colors['footbar-base']};
 }
 
