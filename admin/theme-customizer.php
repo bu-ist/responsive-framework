@@ -33,7 +33,7 @@ function responsive_customize_register( $wp_customize ) {
 	// Layout
 	if ( ! defined( 'BU_RESPONSIVE_LAYOUT' ) ) {
 		$wp_customize->add_section( 'burf_section_layout', array(
-			'title'    => __( 'Layout', 'burf' ),
+			'title'    => 'Layout',
 			'priority' => 30,
 		) );
 
@@ -43,7 +43,7 @@ function responsive_customize_register( $wp_customize ) {
 			'type'       => 'option',
 		) );
 
-		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_section_layout', array(
+		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_setting_layout', array(
 			'section'  => 'burf_section_layout',
 			'settings' => 'burf_setting_layout',
 			'type'     => 'radio',
@@ -56,7 +56,7 @@ function responsive_customize_register( $wp_customize ) {
 
 		// Fonts
 		$wp_customize->add_section( 'burf_section_fonts', array(
-			'title'    => __( 'Fonts', 'burf' ),
+			'title'    => 'Fonts',
 			'priority' => 31,
 		) );
 
@@ -66,7 +66,7 @@ function responsive_customize_register( $wp_customize ) {
 			'type'           => 'option',
 		) );
 
-		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_section_fonts', array(
+		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_setting_fonts', array(
 			'section'  => 'burf_section_fonts',
 			'settings' => 'burf_setting_fonts',
 			'type'     => 'radio',
@@ -76,27 +76,26 @@ function responsive_customize_register( $wp_customize ) {
 		// Colors
 		$wp_customize->remove_section( 'colors' );
 
-		$wp_customize->add_panel( 'burf_colors', array(
+		$wp_customize->add_panel( 'burf_panel_colors', array(
 			'title'    => 'Colors',
 			'priority' => 33,
 		) );
 
-		$wp_customize->add_section( 'burf_color_scheme', array(
-			'title'    => __( 'Color Scheme', 'burf' ),
-			// 'priority' => 1,
-			'panel'    => 'burf_colors',
+		$wp_customize->add_section( 'burf_section_color_scheme', array(
+			'title'    => 'Color Scheme',
+			'panel'    => 'burf_panel_colors',
 		) );
 
-		$wp_customize->add_setting( 'burf_color_scheme', array(
+		$wp_customize->add_setting( 'burf_setting_color_scheme', array(
 			'default'           => 'default',
 			'sanitize_callback' => 'responsive_sanitize_color_scheme',
 			'transport'         => 'postMessage',
 			'type'              => 'option'
 		) );
 
-		$wp_customize->add_control( 'burf_color_scheme', array(
+		$wp_customize->add_control( 'burf_setting_color_scheme', array(
 			'label'    => 'Base Color Scheme',
-			'section'  => 'burf_color_scheme',
+			'section'  => 'burf_section_color_scheme',
 			'type'     => 'select',
 			'choices'  => responsive_get_color_scheme_choices(),
 		) );
@@ -109,9 +108,9 @@ function responsive_customize_register( $wp_customize ) {
 
 		foreach ( $color_groups as $slug => $group ) {
 
-			$wp_customize->add_section( "burf_custom_colors[$slug]", array(
+			$wp_customize->add_section( "burf_section_custom_colors[$slug]", array(
 				'title'           => $group['label'],
-				'panel'           => 'burf_colors',
+				'panel'           => 'burf_panel_colors',
 				'active_callback' => function ( $control ) use ( $group ) {
 					$excluded_layouts = isset( $group['layout_excludes'] ) ? $group['layout_excludes'] : array();
 					if ( in_array( $control->manager->get_setting( 'burf_setting_layout' )->value(), $excluded_layouts ) ) {
@@ -127,30 +126,30 @@ function responsive_customize_register( $wp_customize ) {
 			foreach ( $group_regions as $option => $colors ) {
 
 				// Color picker
-				$wp_customize->add_setting( "burf_custom_colors[$option]", array(
+				$wp_customize->add_setting( "burf_setting_custom_colors[$option]", array(
 					'default'           => $colors['default'],
 					'sanitize_callback' => 'sanitize_hex_color',
 					'transport'         => 'postMessage',
 					'type'              => 'option',
 				) );
 
-				$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, "burf_custom_colors[$option]", array(
+				$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, "burf_setting_custom_colors[$option]", array(
 					'label'       => $colors['label'],
 					'description' => $colors['description'],
-					'section'     => "burf_custom_colors[$slug]",
+					'section'     => "burf_section_custom_colors[$slug]",
 				) ) );
 
 				// Disable toggle (for optional color regions)
 				if ( $colors['optional'] && array_key_exists( $option, $active_settings ) ) {
-					$wp_customize->add_setting( "burf_custom_colors_active[$option]", array(
+					$wp_customize->add_setting( "burf_setting_active_color_regions[$option]", array(
 						'default'           => $active_settings[ $option ],
 						'transport'         => 'postMessage',
 						'type'              => 'option',
 					) );
 
-					$wp_customize->add_control( "burf_custom_colors_active[$option]", array(
+					$wp_customize->add_control( "burf_setting_active_color_regions[$option]", array(
 						'label'       => 'Use ' . $colors['label'] . '?',
-						'section'     => "burf_custom_colors[$slug]",
+						'section'     => "burf_section_custom_colors[$slug]",
 						'type'        => 'checkbox',
 					) );
 				}
@@ -158,14 +157,14 @@ function responsive_customize_register( $wp_customize ) {
 		}
 	}
 
-	// Theme Options
-	$wp_customize->add_section( 'burf_display_options', array(
-		'title'       => __( 'Display Options', 'burf' ),
+	// Display Options
+	$wp_customize->add_section( 'burf_section_display_options', array(
+		'title'       => 'Display Options',
 		'description' => 'Change visibility of post meta fields. Note that the "News" page template has its own display options.',
 		'priority'    => 39,
 	) );
 
-	$wp_customize->add_setting( 'burf_display_options[categories]', array(
+	$wp_customize->add_setting( 'burf_setting_display_options[categories]', array(
 		'default'    => true,
 		'capability' => 'edit_theme_options',
 		'type'       => 'option',
@@ -173,13 +172,12 @@ function responsive_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'burf_display_options_categories', array(
 		'label'       => 'Display post categories?',
-		// 'description' => 'Whether or not post categories should be featured on post listings.',
-		'section'     => 'burf_display_options',
-		'settings'    => 'burf_display_options[categories]',
+		'section'     => 'burf_section_display_options',
+		'settings'    => 'burf_setting_display_options[categories]',
 		'type'        => 'checkbox',
 	) );
 
-	$wp_customize->add_setting( 'burf_display_options[tags]', array(
+	$wp_customize->add_setting( 'burf_setting_display_options[tags]', array(
 		'default'    => true,
 		'capability' => 'edit_theme_options',
 		'type'       => 'option',
@@ -187,13 +185,12 @@ function responsive_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'burf_display_options_tags', array(
 		'label'       => 'Display post tags?',
-		// 'description' => 'Whether or not post tags should be featured on post listings.',
-		'section'     => 'burf_display_options',
-		'settings'    => 'burf_display_options[tags]',
+		'section'     => 'burf_section_display_options',
+		'settings'    => 'burf_setting_display_options[tags]',
 		'type'        => 'checkbox',
 	) );
 
-	$wp_customize->add_setting( 'burf_display_options[author]', array(
+	$wp_customize->add_setting( 'burf_setting_display_options[author]', array(
 		'default'    => false,
 		'capability' => 'edit_theme_options',
 		'type'       => 'option',
@@ -201,9 +198,8 @@ function responsive_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'burf_display_options_author', array(
 		'label'       => 'Display post authors?',
-		// 'description' => 'Whether or not post authors should be featured on post listings.',
-		'section'     => 'burf_display_options',
-		'settings'    => 'burf_display_options[author]',
+		'section'     => 'burf_section_display_options',
+		'settings'    => 'burf_setting_display_options[author]',
 		'type'        => 'checkbox',
 	) );
 
@@ -217,7 +213,7 @@ function responsive_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'bu_supports_dynamic_footbars', array(
 		'label'       => 'Enable alternate footbar?',
-		'section'     => 'burf_display_options',
+		'section'     => 'burf_section_display_options',
 		'settings'    => 'bu_supports_dynamic_footbars',
 		'type'        => 'checkbox',
 	) );
@@ -225,7 +221,7 @@ function responsive_customize_register( $wp_customize ) {
 	// Footer
 	$menu_url = admin_url( 'nav-menus.php?action=locations' );
 	$wp_customize->add_section( 'burf_section_footer', array(
-		'title'       => __( 'Footer', 'burf' ),
+		'title'       => 'Footer',
 		'description' => "Footer links can be managed using the <a href=\"$menu_url\">Footer and Social Links Custom Menu locations</a>.",
 		'priority'    => 34,
 	) );
