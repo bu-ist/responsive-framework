@@ -510,7 +510,7 @@ function responsive_display_options( $option = null ) {
 		);
 
 	// Merge defaults with option values
-	$display_options = array_merge( $defaults, get_option( 'burf_display_options', array() ) );
+	$display_options = array_merge( $defaults, get_option( 'burf_setting_display_options', array() ) );
 
 	if ( is_scalar( $option ) ) {
 		if ( array_key_exists( $option, $display_options ) ) {
