@@ -1,3 +1,7 @@
+# 1.2.2
+
+* Add fallback for branding
+
 # 1.2.1
 
 * Change empty value for calendar event time from '&nbsp;' to ''
