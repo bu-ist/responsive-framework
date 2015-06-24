@@ -493,7 +493,7 @@ function responsive_get_color_scheme_choices() {
 function responsive_get_color_scheme( $scheme = null ) {
 	// Load the current color scheme if none was passed
 	if ( ! is_scalar( $scheme ) ) {
-		$scheme = get_option( 'burf_color_scheme', 'default' );
+		$scheme = get_option( 'burf_setting_color_scheme', 'default' );
 	}
 
 	// Return requested theme if found
@@ -529,7 +529,7 @@ function responsive_get_color_scheme_colors( $scheme = null ) {
  * @return array Custom colors, indexed by region name.
  */
 function responsive_get_custom_colors() {
-	return get_option( 'burf_custom_colors', array() );
+	return get_option( 'burf_setting_custom_colors', array() );
 }
 
 /**
@@ -537,12 +537,12 @@ function responsive_get_custom_colors() {
  *
  * @return array A list of color region keys with current state.
  */
-function responsive_get_active_custom_colors() {
+function responsive_get_active_color_regions() {
 	// Get defaults from currently active scheme
 	$scheme = responsive_get_color_scheme();
 
 	// Merge with current values
-	$active_regions = get_option( 'burf_custom_colors_active', array() );
+	$active_regions = get_option( 'burf_setting_active_color_regions', array() );
 	return array_merge( $scheme['active'], $active_regions );
 }
 
@@ -597,7 +597,7 @@ CSS;
 CSS;
 	} else {
 		// Check currently active colors
-		$active_regions = responsive_get_active_custom_colors();
+		$active_regions = responsive_get_active_color_regions();
 		if ( ! $active_regions['sidebar-bg'] ) {
 			$sidebar_widget_styles = '';
 		}
