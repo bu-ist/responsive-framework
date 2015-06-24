@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 			styles: {
 				files: [
 				'bower_components/responsive-foundation/css-dev/**/*.scss',
-				'!css-dev/customizer-fonts/**/*.scss',
+				'!bower_components/responsive-foundation/css-dev/customizer/**/*.scss',
 				'css-dev/*.scss'
 				],
 				tasks: ['sass:dev', 'sass:prod'],
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 			},
 			fonts: {
 				files: [
-				'css-dev/customizer-fonts/*.scss',
+				'bower_components/responsive-foundation/css-dev/customizer/font-palettes/*.scss',
 				],
 				tasks: ['sass:fonts'],
 				options: {
@@ -94,12 +94,12 @@ module.exports = function(grunt) {
 			},
 			fonts: {
 				options: {
-					style: 'expanded',
+					style: 'compressed',
 					sourcemap: 'none'
 				},
 				files: [{
 					expand: true,
-					cwd: 'css-dev/customizer-fonts',
+					cwd: 'bower_components/responsive-foundation/css-dev/customizer/font-palettes',
 					src: ['*.scss'],
 					dest: 'css',
 					ext: '.css'
