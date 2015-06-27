@@ -3,13 +3,13 @@
 Theme Name: Responsive Framework
 Author: Boston University Interactive Design
 Website: http://www.bu.edu/interactive-design/
-Version: 1.2.1
+Version: 1.2.2
 Description: A responsive WordPress theme framework built with the Responsive Foundation.
 Theme Groups: Responsive Framework
 */
 /* mixins
 ----------------------------------------------------------------- */
-.brand-masterPlate, .navToggle {
+.brand-masterPlate, .brand-bumcLogo, .navToggle {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -2237,8 +2237,62 @@ article[role=main] {
 }
 
 @media (min-width: 768px) {
-  .has-branding .siteFooter-content {
+  .siteFooter-brand + .siteFooter-content {
     margin: 0 0 0 112px;
+  }
+}
+
+/* Add BUMC logo if specified by theme */
+.has-branding .siteFooter-bumc {
+  width: 96px;
+}
+@media (min-width: 768px) {
+  .has-branding .siteFooter-bumc {
+    position: absolute;
+    top: 48px;
+    left: 162px;
+  }
+}
+
+@media (min-width: 768px) {
+  .siteFooter-bumc + .siteFooter-content {
+    margin: 0 0 0 112px;
+  }
+}
+
+@media (min-width: 768px) {
+  .siteFooter-brand + .siteFooter-bumc + .siteFooter-content {
+    margin: 0 0 0 234px;
+  }
+}
+
+/* Add disclaimer if specified by theme */
+.has-branding .siteFooter-disclaimer {
+  width: 96px;
+}
+@media (min-width: 768px) {
+  .has-branding .siteFooter-disclaimer {
+    position: absolute;
+    top: 48px;
+    left: 162px;
+  }
+}
+
+@media (min-width: 768px) {
+  .siteFooter-disclaimer + .siteFooter-content {
+    margin: 0 0 0 112px;
+  }
+}
+
+@media (min-width: 768px) {
+  .siteFooter-brand + .siteFooter-bumc + .siteFooter-content {
+    margin: 0 0 0 234px;
+  }
+}
+
+@media (min-width: 768px) {
+  .siteFooter-brand + .siteFooter-bumc + .siteFooter-disclaimer + .siteFooter-content {
+    margin: 0 0 0 234px;
   }
 }
 
@@ -2365,6 +2419,20 @@ article[role=main] {
   .brand-masterPlate {
     background-image: url("http://www.bu.edu/cdn/images/logos/masterplate112x50-retina.png");
     background-size: 112px 50px;
+  }
+}
+
+/* BUMC logo in footer */
+.brand-bumcLogo {
+  display: block;
+  background: url("http://www.bu.edu/cdn/images/logos/bumclogo96x40.png") no-repeat 0 0;
+  width: 96px;
+  height: 40px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .brand-bumcLogo {
+    background-image: url("http://www.bu.edu/cdn/images/logos/bumclogo96x40-retina.png");
+    background-size: 96px 40px;
   }
 }
 
