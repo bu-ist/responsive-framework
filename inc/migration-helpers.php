@@ -5,7 +5,6 @@
  * This logic is run on the first load post-theme switch.
  *
  * Punchlist:
- * [ ] Additional page templates (blank, no title)
  * [ ] Contact form migration
  */
 function responsive_flexi_migration() {
@@ -44,9 +43,18 @@ function responsive_flexi_migration() {
 
 	// Rename page templates
 	$template_map = apply_filters( __FUNCTION__ . '_page_template_map', array(
-		'calendar.php'        => 'page-templates/calendar.php',
-		'news.php'            => 'page-templates/news.php',
-		'profiles.php'        => 'page-templates/profiles.php',
+		'calendar.php'           => 'page-templates/calendar.php',
+		'news.php'               => 'page-templates/news.php',
+		'profiles.php'           => 'page-templates/profiles.php',
+
+		// Okay mappings ... Flexi hid title for these templates as well
+		'blank.php'              => 'page-templates/no-sidebars.php',
+		'window-width-blank.php' => 'page-templates/no-sidebars.php',
+
+		// No good mapping...
+		'page-no-title.php'      => 'default',
+		'contact-us.php'         => 'default',
+		'glossary.php'           => 'default',
 		) );
 	$result = bu_migrate_page_templates( $template_map );
 	if ( is_wp_error( $result ) ) {
