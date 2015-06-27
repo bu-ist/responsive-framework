@@ -16,7 +16,7 @@
 
 	<?php the_excerpt(); ?>
 
-	<?php if ( responsive_display_options( 'tags' ) ) {
+	<?php if ( responsive_posts_should_display( 'tags' ) ) {
 		the_tags( '<div class="tags">Tags: ', ', ', '</div>' );
 	} ?>
 

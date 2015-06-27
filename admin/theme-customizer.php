@@ -157,66 +157,55 @@ function responsive_customize_register( $wp_customize ) {
 		}
 	}
 
-	// Display Options
-	$wp_customize->add_section( 'burf_section_display_options', array(
-		'title'       => 'Display Options',
-		'description' => 'Change visibility of post meta fields. Note that the "News" page template has its own display options.',
+	// Content Options
+	$wp_customize->add_section( 'burf_section_content_options', array(
+		'title'       => 'Content Options',
 		'priority'    => 39,
 	) );
 
-	$wp_customize->add_setting( 'burf_setting_display_options[categories]', array(
-		'default'    => true,
+	$wp_customize->add_setting( 'burf_setting_post_display_options', array(
+		'default'    => array( 'categories', 'tags' ),
 		'capability' => 'edit_theme_options',
 		'type'       => 'option',
-	) );
+		) );
 
-	$wp_customize->add_control( 'burf_display_options_categories', array(
-		'label'       => 'Display post categories?',
-		'section'     => 'burf_section_display_options',
-		'settings'    => 'burf_setting_display_options[categories]',
-		'type'        => 'checkbox',
-	) );
-
-	$wp_customize->add_setting( 'burf_setting_display_options[tags]', array(
-		'default'    => true,
-		'capability' => 'edit_theme_options',
-		'type'       => 'option',
-	) );
-
-	$wp_customize->add_control( 'burf_display_options_tags', array(
-		'label'       => 'Display post tags?',
-		'section'     => 'burf_section_display_options',
-		'settings'    => 'burf_setting_display_options[tags]',
-		'type'        => 'checkbox',
-	) );
-
-	$wp_customize->add_setting( 'burf_setting_display_options[author]', array(
-		'default'    => false,
-		'capability' => 'edit_theme_options',
-		'type'       => 'option',
-	) );
-
-	$wp_customize->add_control( 'burf_display_options_author', array(
-		'label'       => 'Display post authors?',
-		'section'     => 'burf_section_display_options',
-		'settings'    => 'burf_setting_display_options[author]',
-		'type'        => 'checkbox',
-	) );
+	$wp_customize->add_control(
+		new BURF_Customize_Checkbox_Group(
+			$wp_customize,
+			'burf_setting_post_display_options',
+			array(
+				'label'       => 'Post Display Options',
+				'section'     => 'burf_section_content_options',
+				'description' => 'Change visibility of post meta fields. Note that the "News" page template has its own display options.',
+				'choices'     => array(
+					'categories' => 'Categories',
+					'tags'       => 'Tags',
+					'author'     => 'Author',
+					)
+			)
+		)
+	);
 
 	// Alternate Footbars
-	$wp_customize->add_setting( 'bu_supports_dynamic_footbars', array(
-		'default'           => 0,
+	$wp_customize->add_setting( 'burf_setting_sidebar_options', array(
+		'default'           => '',
 		'capability'        => 'edit_theme_options',
-		'type'              => 'option',
-		'sanitize_callback' => 'responsive_customizer_sanitize_checkbox',
+		'type'              => 'option'
 	) );
 
-	$wp_customize->add_control( 'bu_supports_dynamic_footbars', array(
-		'label'       => 'Enable alternate footbar?',
-		'section'     => 'burf_section_display_options',
-		'settings'    => 'bu_supports_dynamic_footbars',
-		'type'        => 'checkbox',
-	) );
+	$wp_customize->add_control(
+		new BURF_Customize_Checkbox_Group(
+			$wp_customize,
+			'burf_setting_sidebar_options',
+			array(
+				'label'       => 'Sidebar Options',
+				'section'     => 'burf_section_content_options',
+				'choices'     => array(
+					'dynamic_footbars' => 'Enable alternate footbar?',
+					)
+			)
+		)
+	);
 
 	// Footer
 	$menu_url = admin_url( 'nav-menus.php?action=locations' );
@@ -261,13 +250,6 @@ function responsive_customize_register( $wp_customize ) {
 }
 
 add_action( 'customize_register', 'responsive_customize_register' );
-
-/**
- * Convert checkbox values to integers for option storage
- */
-function responsive_customizer_sanitize_checkbox( $input ) {
-	return ( 1 == $input ) ? 1 : 0;
-}
 
 /**
  * Output an Underscore template for generating CSS for the color scheme.
