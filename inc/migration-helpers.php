@@ -6,7 +6,6 @@
  *
  * Punchlist:
  * [ ] Additional page templates (blank, no title)
- * [ ] Alternate footbar map (once it's created)
  * [ ] Contact form migration
  */
 function responsive_flexi_migration() {
@@ -26,6 +25,12 @@ function responsive_flexi_migration() {
 
 	$time_start = microtime( true );
 	$num_queries_start = $wpdb->num_queries;
+
+	// Temporarily register Flexi alternate footbar for migration purposes
+	register_sidebar( array(
+		'name' => 'Alternate Footbar',
+		'id'   => 'alternate-footbar',
+	) );
 
 	// Rename sidebars
 	$sidebar_map = apply_filters( __FUNCTION__ . '_sidebar_map', array(
@@ -71,6 +76,18 @@ function responsive_flexi_migration() {
 		$errors[] = $result;
 	}
 
+	// Display options
+	$result = responsive_migrate_post_display_options();
+	if ( is_wp_error( $result ) ) {
+		$errors[] = $result;
+	}
+
+	// Migrate dynamic footbar settings
+	$result = responsive_migrate_flexi_footbars();
+	if ( is_wp_error( $result ) ) {
+		$errors[] = $result;
+	}
+
 	$time_end = microtime( true );
 	$num_queries_end = $wpdb->num_queries;
 	$time_elapsed = $time_end - $time_start;
@@ -80,4 +97,76 @@ function responsive_flexi_migration() {
 	if ( $errors ) {
 		error_log( sprintf( '[%s] %d errors encountered during migration: %s', __FUNCTION__, count( $errors ), var_export( $errors, true ) ) );
 	}
+}
+
+/**
+ * Migrate Flexi post meta display options
+ *
+ * @return bool|WP_Error        true on success, or a WP_Error instance describing failures.
+ */
+function responsive_migrate_post_display_options() {
+	$flexi_display_options = get_option( 'flexi_display' );
+	if ( $flexi_display_options ) {
+		$responsi_display = array();
+		$option_map = array(
+			'cat'    => 'categories',
+			'tag'    => 'tags',
+			'author' => 'author'
+			);
+		foreach ( $option_map as $from => $to ) {
+			if ( $flexi_display_options[ $from ] ) {
+				$responsi_display_options[] = $to;
+			}
+		}
+		$responsi_display_options = implode( ',', $responsi_display_options );
+		error_log( sprintf( '[%s] Migrating display options: %s', __FUNCTION__, $responsi_display_options ) );
+
+		$result = update_option( 'burf_setting_post_display_options', $responsi_display_options );
+		if ( ! $result ) {
+			return new WP_Error( 'flexi_display_options_updates_failed', 'Could not migrate post display options' );
+		}
+	}
+
+	return true;
+}
+
+/**
+ * Attempt to migrate dynamic footbar settings from Flexi.
+ *
+ * @return bool|WP_Error        true on success, or a WP_Error instance describing failures.
+ */
+function responsive_migrate_flexi_footbars() {
+	global $wpdb;
+
+	$errors = array();
+
+	// Whether or not the current site has alternate / dynamic footbars enabled
+	$flexi_supports_dynamic_footbars = get_option( 'bu_flexi_framework_dynamic_footbars' );
+	if ( 1 == $flexi_supports_dynamic_footbars ) {
+		update_option( 'burf_setting_sidebar_options', 'dynamic_footbars' );
+	}
+
+	// Migrate post-specific dynamic footbar selections
+	$footbar_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_flexi_framework_footbar" AND meta_value != ""',
+		$wpdb->postmeta );
+	$results = $wpdb->get_results( $footbar_query );
+
+	if ( empty( $results ) ) {
+		return;
+	}
+
+	error_log( sprintf( '[%s] Migrating %d Flexi footbars...', __FUNCTION__, count( $results ) ) );
+
+	foreach ( $results as $result ) {
+		$success = update_post_meta( $result->post_id, '_bu_footbar_id', $result->meta_value );
+		if ( ! $success ) {
+			$errors[] = $result;
+		}
+	}
+
+	if ( ! empty( $errors ) ) {
+		return new WP_Error( 'flexi_footbar_updates_failed', 'Could not migrate all Flexi footbar post settings.', $errors );
+	}
+
+	return true;
 }
