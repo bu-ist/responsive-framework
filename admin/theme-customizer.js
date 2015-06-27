@@ -5,7 +5,7 @@
  * Also trigger an update of the Color Scheme CSS when a color is changed.
  */
 
-( function( api ) {
+( function( api, $ ) {
 	var cssTemplate = wp.template( 'responsive-framework-color-scheme' ),
 		colorSchemes = responsiveColor.schemes,
 		colorRegions = _.keys( responsiveColor.regions ),
@@ -69,4 +69,20 @@
 		} );
 	} );
 
-} ) ( wp.customize );
+	// Sync checkbox group values to hidden setting checkbox
+	$( document ).ready( function () {
+		$( '.customize-control-burf-checkbox-group input[type="checkbox"]' ).on( 'change', function() {
+			// Convert selected checkboxes into comma-separated list of display options
+			var checkbox_values = $( this ).parents( '.customize-control' ).find( 'input[type="checkbox"]:checked' ).map(
+				function() {
+					return this.value;
+				}
+			).get().join( ',' );
+
+			// Set hidden setting field and notify customizer of change
+			$( this ).parents( '.customize-control' ).find( 'input[type="hidden"]' ).val( checkbox_values ).trigger( 'change' );
+		} );
+	} );
+
+
+} ) ( wp.customize, jQuery );

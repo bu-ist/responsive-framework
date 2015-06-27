@@ -20,17 +20,17 @@
 
 	<footer class="meta">
 		<h4 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-		<?php if ( responsive_display_options( 'author' ) ) : ?>
+		<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
 		<h5 class="byline"><em>By </em><?php the_author(); ?></h5>
 		<?php endif; ?>
 		<p class="postedDateCategory">
 			<em class="posted">Posted </em><span class="date-offset"><?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago'; ?></span>
 			<em class="on"> on </em><span class="date"><time datetime="<?php the_time( 'l, F jS, Y' ) ?>" pubdate><?php the_time( 'l, F jS, Y' ) ?></time></span>
-			<?php if ( responsive_display_options( 'categories' ) ) : ?>
+			<?php if ( responsive_posts_should_display( 'categories' ) ) : ?>
 			<?php responsive_category_links( array( 'before' => '<span class="categories"><em> in </em>' ) ); ?>
 			<?php endif; ?>
 		</p>
-		<?php if ( responsive_display_options( 'tags' ) ) : ?>
+		<?php if ( responsive_posts_should_display( 'tags' ) ) : ?>
 		<?php the_tags( '<p class="tagged"><em>Tagged: </em>', ', ', '</p>' ); ?>
 		<?php endif; ?>
 	</footer>
