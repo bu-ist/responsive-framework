@@ -291,8 +291,6 @@ add_action( 'customize_controls_print_footer_scripts', 'responsive_framework_col
 
 /**
  * Appends inline styles based on Customizer configuration.
- *
- * @todo  performance testing
  */
 function responsive_customizer_styles() {
 
@@ -301,20 +299,15 @@ function responsive_customizer_styles() {
 		return;
 	}
 
-	// TODO:
-	// - Transient, cleared whenever fonts or color schemes change
-	// - Minification with CSS Tidy
+	// Inline styles are cached in a site option for production
+	$use_cache = true;
 
-	$fonts_css = responsive_get_fonts_css();
-	if ( $fonts_css ) {
-		printf( '<style type="text/css" id="responsive-customizer-fonts">%s</style>', $fonts_css );
+	// Bypass cached styles during Customizer previews
+	if ( is_customize_preview() ) {
+		$use_cache = false;
 	}
 
-	$colors_css = responsive_get_color_scheme_css();
-	if ( $colors_css ) {
-		printf( '<style type="text/css" id="responsive-customizer-colors">%s</style>', $colors_css );
-	}
-
+	echo responsive_get_customizer_styles( $use_cache );
 }
 
 if ( ! defined( 'RESPONSIVE_CUSTOMIZER_DISABLE' ) ) {
