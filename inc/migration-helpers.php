@@ -107,7 +107,7 @@ function responsive_flexi_migration() {
 function responsive_migrate_post_display_options() {
 	$flexi_display_options = get_option( 'flexi_display' );
 	if ( $flexi_display_options ) {
-		$responsi_display = array();
+		$responsi_display_options = array();
 		$option_map = array(
 			'cat'    => 'categories',
 			'tag'    => 'tags',
