@@ -70,6 +70,108 @@ function responsive_font_options() {
 }
 
 /**
+ * Generate inline customizer style block.
+ */
+function responsive_get_customizer_styles( $use_cache = true ) {
+	$styles = array();
+	$is_script_debugging = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
+
+	// Check cache first if requested and SCRIPT_DEBUG is off
+	if ( $use_cache && ! $is_script_debugging ) {
+		$styles = get_option( 'burf_customizer_styles' );
+		if ( $styles ) {
+			return $styles;
+		}
+	}
+
+	// Fonts
+	$fonts_css = responsive_get_fonts_css();
+	if ( $fonts_css ) {
+
+		// Minify font styles if SCRIPT_DEBUG is off
+		if ( ! $is_script_debugging ) {
+			$csstidy = responsive_css_tidy();
+			$csstidy->parse( $fonts_css );
+			$fonts_css = $csstidy->print->plain();
+			unset( $csstidy );
+		}
+
+		$styles[] = sprintf( '<style type="text/css" id="responsive-customizer-fonts">%s</style>', $fonts_css );
+	}
+
+	// Colors
+	$colors_css = responsive_get_color_scheme_css();
+	if ( $colors_css ) {
+
+		// Minify color styles if SCRIPT_DEBUG is off
+		if ( ! $is_script_debugging ) {
+			$csstidy = responsive_css_tidy();
+			$csstidy->parse( $colors_css );
+			$colors_css = $csstidy->print->plain();
+			unset( $csstidy );
+		}
+
+		$styles[] = sprintf( '<style type="text/css" id="responsive-customizer-colors">%s</style>', $colors_css );
+	}
+
+	// Concatenate font and color styles
+	$styles = implode( PHP_EOL, $styles );
+
+	// Only cache minified styles when script debugging is disabled
+	if ( $styles && $use_cache && ! $is_script_debugging ) {
+		update_option( 'burf_customizer_styles', $styles );
+	}
+
+	return $styles;
+}
+
+/**
+ * Purge customizer styles cache
+ *
+ * Customizer styles are purged whenever the customizer is saved, or when any relevant color or font options
+ * are updated.
+ */
+function responsive_flush_customizer_styles_cache() {
+	delete_option( 'burf_customizer_styles' );
+}
+
+add_action( 'customize_save_after',                            'responsive_flush_customizer_styles_cache' );
+add_action( 'update_option_burf_setting_color_scheme',         'responsive_flush_customizer_styles_cache' );
+add_action( 'update_option_burf_setting_custom_colors',        'responsive_flush_customizer_styles_cache' );
+add_action( 'update_option_burf_setting_active_color_regions', 'responsive_flush_customizer_styles_cache' );
+add_action( 'update_option_burf_setting_fonts',                'responsive_flush_customizer_styles_cache' );
+
+/**
+ * Returns a configured csstidy instance for CSS minification.
+ *
+ * Configuration values are consistent with those found in the BU Custom CSS
+ * plugin.
+ *
+ * @see https://github.com/bu-ist/bu-custom-css/blob/5c874ce87ab674301398a4945b5e789fdebb1890/bu-custom-css.php
+ * @see http://manpages.ubuntu.com/manpages/raring/man1/csstidy.1.html
+ */
+function responsive_css_tidy() {
+
+	// Load CSSTidy class using Composer autoloader
+	require_once get_template_directory() . '/vendor/autoload.php';
+
+	$csstidy = new csstidy();
+
+	$csstidy->set_cfg( 'remove_bslash',              false );
+	$csstidy->set_cfg( 'compress_colors',            false );
+	$csstidy->set_cfg( 'compress_font-weight',       false );
+	$csstidy->set_cfg( 'optimise_shorthands',        0 );
+	$csstidy->set_cfg( 'remove_last_;',              false );
+	$csstidy->set_cfg( 'case_properties',            false );
+	$csstidy->set_cfg( 'discard_invalid_properties', true );
+	$csstidy->set_cfg( 'css_level',                  'CSS3.0' );
+	$csstidy->set_cfg( 'preserve_css',               true );
+	$csstidy->set_cfg( 'template',                   'highest' );
+
+	return $csstidy;
+}
+
+/**
  * Return font palette CSS styles.
  */
 function responsive_get_fonts_css() {
