@@ -1,214 +1,72 @@
 
 /* Customizer: Layout */
-#burf_section_layout input {
+#burf_setting_layout input {
 	display: none;
 }
-#burf_section_layout label {
+#burf_setting_layout label {
 	font-size: 0;
 }
-#burf_section_layout li label:after { 
+#burf_setting_layout li label:after {
 	background: url("admin_sprite.png") no-repeat 0 0 transparent;
-	content: "";  
+	content: "";
 	height: 129px;
 	width: 227px;
 	display: block;
 	margin: 4px;
 	padding: 4px;
 }
-#burf_section_layout li input:checked + label:after {
+#burf_setting_layout li input:checked + label:after {
 	margin: 0;
 	border: 4px solid #288DBB;
 }
-#burf_section_layout li:nth-of-type(1) label:after {
+#burf_setting_layout li:nth-of-type(1) label:after {
 	background-position: 0 0px;
 }
-#burf_section_layout li:nth-of-type(2) label:after {
+#burf_setting_layout li:nth-of-type(2) label:after {
 	background-position: 0 -150px;
 }
-#burf_section_layout li:nth-of-type(3) label:after {
+#burf_setting_layout li:nth-of-type(3) label:after {
 	background-position: 0 -300px;
 }
-#burf_section_layout li:nth-of-type(4) label:after {
+#burf_setting_layout li:nth-of-type(4) label:after {
 	background-position: -300px 0;
 }
 
 /* Customizer: Fonts */
-#burf_section_fonts input {
+#burf_setting_fonts input {
 	display: none;
 }
-#burf_section_fonts label {
+#burf_setting_fonts label {
 	font-size: 0;
 }
-#burf_section_fonts li label:after { 
+#burf_setting_fonts li label:after {
 	background: url("admin_sprite.png") no-repeat 0 0 transparent;
-	content: "";  
+	content: "";
 	height: 82px;
 	width: 245px;
 	display: block;
 	margin: 4px;
 }
-#burf_section_fonts li input:checked + label:after {
+#burf_setting_fonts li input:checked + label:after {
 	margin: 0;
 	border: 4px solid #288DBB;
 }
-#burf_section_fonts li:nth-of-type(1) label:after {
+#burf_setting_fonts li:nth-of-type(1) label:after {
 	background-position: 0 -750px;
 }
-#burf_section_fonts li:nth-of-type(2) label:after {
+#burf_setting_fonts li:nth-of-type(2) label:after {
 	background-position: 0 -850px;
 }
-#burf_section_fonts li:nth-of-type(3) label:after {
+#burf_setting_fonts li:nth-of-type(3) label:after {
 	background-position: 0 -950px;
 }
-#burf_section_fonts li:nth-of-type(4) label:after {
+#burf_setting_fonts li:nth-of-type(4) label:after {
 	background-position: 0 -1050px;
 }
-#burf_section_fonts li:nth-of-type(5) label:after {
+#burf_setting_fonts li:nth-of-type(5) label:after {
 	background-position: 0 -1150px;
 }
 
-
-/* Customizer: Colors */
-#accordion-section-burf_section_colors .accordion-section-content {
-	padding: 0 15px;
-}
-#burf_section_colors input {
+#customize-control-burf_setting_color_scheme .customize-control-title {
 	display: none;
 }
-#burf_section_colors label {
-	font-size: 0;
-}
-#burf_section_colors li {
-	display: inline-block;
-	*display: inline;
-	zoom: 1;
-	width: 130px;
-}
-#burf_section_colors li label:after { 
-	background: url("admin_sprite.png") no-repeat 0 -450px transparent;
-	content: "";  
-	height: 25px;
-	width: 118px;
-	display: inline-block;
-	margin: 4px;
-	padding: 4px;
-}
-#burf_section_colors li input:checked + label:after {
-	margin: 0;
-	border: 4px solid #288DBB;
-}
-#burf_section_colors li:nth-of-type(1) label:after {
-	background-position: 0 -450px;
-}
-#burf_section_colors li:nth-of-type(2) label:after {
-	background-position: 0 -500px;
-}
-#burf_section_colors li:nth-of-type(3) label:after {
-	background-position: 0 -550px;
-}
-#burf_section_colors li:nth-of-type(4) label:after {
-	background-position: 0 -600px;
-}
-#burf_section_colors li:nth-of-type(5) label:after {
-	background-position: 0 -650px;
-}
-#burf_section_colors li:nth-of-type(6) label:after {
-	background-position: 0 -700px;
-}
-#burf_section_custom .color-picker {
-	width: auto;
-	height: 25px;
-    vertical-align: top;
-    display: none;
-}
-#burf_section_custom .wp-color-close {
-	display: none;
-	cursor: pointer;
-}
-#customize-control-burf_section_colors #basic-color,
-#customize-control-burf_section_colors #advanced-color {
-	text-align: center;
-	display: block;
-}
-
-/* Styles taken from WP */
-.wp-color-result {
-    -moz-user-select: none;
-    background-color: #F9F9F9;
-    border: 1px solid #BBBBBB;
-    border-radius: 2px;
-    cursor: pointer;
-    display: inline-block;
-    height: 22px;
-    margin: 0 6px 6px 0;
-    padding-left: 30px;
-    position: relative;
-    top: 1px;
-    vertical-align: bottom;
-}
-.wp-color-result:after {
-    background: linear-gradient(to bottom, #FEFEFE, #F4F4F4) repeat scroll 0 0 #F3F3F3;
-    border-left: 1px solid #BBBBBB;
-    border-radius: 0 1px 1px 0;
-    color: #333333;
-    content: attr(title);
-    display: block;
-    font-size: 11px;
-    line-height: 22px;
-    padding: 0 6px;
-    position: relative;
-    right: 0;
-    text-align: center;
-    text-shadow: 0 1px 0 #FFFFFF;
-    top: 0;
-}
-.wp-color-result:hover {
-    border-color: #AAAAAA;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-.wp-color-result:hover:after {
-    border-color: #AAAAAA #AAAAAA #AAAAAA #999999;
-    border-left: 1px solid #999999;
-    color: #222222;
-}
-.wp-color-result:focus {
-    border-color: #888888;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-.wp-color-result:focus:after {
-    border-color: #888888;
-}
-/* END: Styles taken from WP */
-
-
-#bg-toggle {
-	overflow: auto;
-	margin-bottom: 10px;
-}
-#bg-toggle div {
-	width: 49%;
-	float: left;
-	text-align: center;
-	border: 1px solid #555555;
-	padding: 5px 0;
-	cursor: pointer;
-}
-
-#bg-toggle .active {
-	background-color: #555555;
-	color: #FFFFFF;
-}
-
-#customize-control-burf_section_background_colors .color-picker-open {
-	width: auto;
-	vertical-align: top;
-	height: 26px;
-}
-#accordion-section-burf_section_background li {
-	display: none;
-}
-#accordion-section-burf_section_background 
-#customize-control-burf_section_background_colors {
-	display: block;
-}
-
