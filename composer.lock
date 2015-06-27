@@ -1,0 +1,51 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "a4ff5296fef9445ed3505db32443f513",
+    "packages": [
+        {
+            "name": "cerdic/css-tidy",
+            "version": "v1.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Cerdic/CSSTidy.git",
+                "reference": "f8635ca50e479ddbb5d1d922d8f38ba67e781e15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Cerdic/CSSTidy/zipball/f8635ca50e479ddbb5d1d922d8f38ba67e781e15",
+                "reference": "f8635ca50e479ddbb5d1d922d8f38ba67e781e15",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "."
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Cédric MORIN",
+                    "email": "changeme@mailinator.com"
+                }
+            ],
+            "description": "CSSTidy is a CSS minifier",
+            "time": "2014-10-26 15:28:55"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

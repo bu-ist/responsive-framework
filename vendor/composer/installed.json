@@ -1,0 +1,37 @@
+[
+    {
+        "name": "cerdic/css-tidy",
+        "version": "v1.5.3",
+        "version_normalized": "1.5.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Cerdic/CSSTidy.git",
+            "reference": "f8635ca50e479ddbb5d1d922d8f38ba67e781e15"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Cerdic/CSSTidy/zipball/f8635ca50e479ddbb5d1d922d8f38ba67e781e15",
+            "reference": "f8635ca50e479ddbb5d1d922d8f38ba67e781e15",
+            "shasum": ""
+        },
+        "time": "2014-10-26 15:28:55",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "."
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.1"
+        ],
+        "authors": [
+            {
+                "name": "Cédric MORIN",
+                "email": "changeme@mailinator.com"
+            }
+        ],
+        "description": "CSSTidy is a CSS minifier"
+    }
+]
