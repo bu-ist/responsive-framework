@@ -96,6 +96,18 @@ function responsive_flexi_migration() {
 		$errors[] = $result;
 	}
 
+	// Swap out Sharedaddy for BU Sharing
+	$active_plugins = get_option( 'active_plugins' );
+	$sharing_plugin_index = array_search( 'sharedaddy/sharedaddy.php', $active_plugins );
+	if ( $sharing_plugin_index > 0 ) {
+		error_log( sprintf( '[%] Sharedaddy detected! Swapping Sharedaddy for BU Sharing...', __FUNCTION__ ) );
+		$active_plugins[ $sharing_plugin_index ] = 'bu-sharing/bu-sharing.php';
+		$result = update_option( 'active_plugins', $active_plugins );
+		if ( ! $result ) {
+			error_log( sprintf( '[%] Error activating BU Sharing!', __FUNCTION__ ) );
+		}
+	}
+
 	$time_end = microtime( true );
 	$num_queries_end = $wpdb->num_queries;
 	$time_elapsed = $time_end - $time_start;
