@@ -6,6 +6,14 @@
  */
 function responsive_flexi_migration() {
 
+	// Check for existing migration lock
+	if ( get_transient( 'responsive_flexi_migration_locked' ) ) {
+		return;
+	}
+
+	// Set lock to prevent multiple migrations
+	set_transient( 'responsive_flexi_migration_locked', 1, 10 * MINUTE_IN_SECONDS );
+
 	// Ensure larger sites have enough resources to finish this operation
 	ini_set( 'memory_limit', WP_MAX_MEMORY_LIMIT );
 	ignore_user_abort( true );
@@ -120,6 +128,9 @@ function responsive_flexi_migration() {
 	if ( $errors ) {
 		error_log( sprintf( '[%s] %d errors encountered during migration: %s', __FUNCTION__, count( $errors ), var_export( $errors, true ) ) );
 	}
+
+	// Release migration lock
+	delete_transient( 'responsive_flexi_migration_locked' );
 }
 
 /**
