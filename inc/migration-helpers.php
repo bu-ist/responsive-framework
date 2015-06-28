@@ -5,6 +5,13 @@
  * This logic is run on the first load post-theme switch.
  */
 function responsive_flexi_migration() {
+	global $wpdb;
+
+	// Bail early if Site Manager migration helpers are unavailable
+	if ( ! function_exists( 'bu_migrate_sidebars' ) ) {
+		error_log( sprintf( '[%s] Could not migrate templates - Site Manager helper functions are not defined.', __FUNCTION__ ) );
+		return;
+	}
 
 	// Check for existing migration lock
 	if ( get_transient( 'responsive_flexi_migration_locked' ) ) {
@@ -19,13 +26,7 @@ function responsive_flexi_migration() {
 	ignore_user_abort( true );
 	set_time_limit( 300 );
 
-	global $wpdb;
 	$errors = array();
-
-	if ( ! function_exists( 'bu_migrate_sidebars' ) ) {
-		error_log( sprintf( '[%s] Could not migrate templates - Site Manager helper functions are not defined.', __FUNCTION__ ) );
-		return;
-	}
 
 	$time_start = microtime( true );
 	$num_queries_start = $wpdb->num_queries;
@@ -133,7 +134,10 @@ function responsive_flexi_migration() {
 
 	error_log( sprintf( '[%s] Completed in %s seconds. Queries made: %d', __FUNCTION__, $time_elapsed, $num_queries ) );
 	if ( $errors ) {
-		error_log( sprintf( '[%s] %d errors encountered during migration: %s', __FUNCTION__, count( $errors ), var_export( $errors, true ) ) );
+		error_log( sprintf( '[%s] %d errors encountered during migration:', __FUNCTION__, count( $errors ) ) );
+		foreach ( $errors as $error ) {
+			error_log( $error->get_error_message() );
+		}
 	}
 
 	// Release migration lock
