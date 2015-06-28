@@ -119,6 +119,13 @@ function responsive_flexi_migration() {
 		}
 	}
 
+	// Add theme groups
+	$theme_groups = get_option( 'theme_groups', array() );
+	if ( ! in_array( 'Responsive Framework', $theme_groups ) ) {
+		$theme_groups[] = 'Responsive Framework';
+		update_option( 'theme_groups', $theme_groups );
+	}
+
 	$time_end = microtime( true );
 	$num_queries_end = $wpdb->num_queries;
 	$time_elapsed = $time_end - $time_start;
