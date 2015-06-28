@@ -3,9 +3,6 @@
  * Migration procedure for Flexi -> Responsive Framework.
  *
  * This logic is run on the first load post-theme switch.
- *
- * Punchlist:
- * [ ] Contact form migration
  */
 function responsive_flexi_migration() {
 
@@ -24,6 +21,12 @@ function responsive_flexi_migration() {
 
 	$time_start = microtime( true );
 	$num_queries_start = $wpdb->num_queries;
+
+	// Contact Forms
+	$result = responsive_migrate_contact_form();
+	if ( is_wp_error( $result ) ) {
+		$errors[] = $result;
+	}
 
 	// Temporarily register Flexi alternate footbar for migration purposes
 	register_sidebar( array(
@@ -189,4 +192,73 @@ function responsive_migrate_flexi_footbars() {
 	}
 
 	return true;
+}
+
+/**
+ * Migrate contact form.
+ *
+ * - Create a new Gravity Form using the default template.
+ * - If a Contact page exists, update it to use the [gravityform] shortcode.
+ * - If `_preferred_contact_users` are set, update the form notifications to use those e-mail addresses.
+ *
+ * @return bool|WP_Error        true on success, or a WP_Error instance describing failures.
+ */
+function responsive_migrate_contact_form() {
+	global $wpdb;
+
+	$errors = array();
+
+	if ( class_exists( 'GFForms' ) && class_exists( 'GFAPI' ) ) {
+		error_log( sprintf( '[%s] Creating contact form...', __FUNCTION__ ) );
+
+		// Install GF tables if they don't already exist
+		GFForms::setup();
+
+		// Import template form
+		$contact_form = json_decode( file_get_contents( get_template_directory() . '/inc/contact-form.json' ), true );
+		$form_id = GFAPI::add_form( $contact_form );
+		if ( is_wp_error( $form_id ) ) {
+			return $form_id;
+		}
+
+		// Migrate contact form page
+		$contact_query = sprintf( 'SELECT post_id FROM %s WHERE meta_key = "_wp_page_template" AND meta_value = "contact-us.php"', $wpdb->postmeta );
+		$results = $wpdb->get_col( $contact_query );
+		if ( $results ) {
+			$contact_id = reset( $results );
+			$contact_page = get_post( $contact_id );
+			if ( $contact_page ) {
+				error_log( sprintf( '[%s] Updating contact page: %d', __FUNCTION__, $contact_id ) );
+
+				$contact_page_updates = array(
+					'ID'            => $contact_id,
+					'post_content'  => sprintf( '[gravityform id="%d" title="false" description="false"]', $form_id ),
+					'page_template' => 'default',
+					);
+				$result = wp_update_post( $contact_page_updates, true );
+				if ( is_wp_error( $result ) ) {
+					return $result;
+				}
+			}
+		}
+
+		// Attempt to migrate contact e-mails from previous form
+		$contact_emails = get_option( '_preferred_contact_users' );
+		if ( ! empty( $contact_emails ) ) {
+			$contact_emails = implode( ',', $contact_emails );
+
+			error_log( sprintf( '[%s] Migrating contact form notification emails: %s', __FUNCTION__, $contact_emails ) );
+
+			$form = GFAPI::get_form( $form_id );
+			$key = key( $form['notifications'] );
+			$form['notifications'][$key]['to'] = $contact_emails;
+
+			$result = GFAPI::update_form( $form );
+			if ( is_wp_error( $result ) ) {
+				return $result;
+			}
+		}
+
+		return true;
+	}
 }

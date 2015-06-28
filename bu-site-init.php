@@ -151,19 +151,18 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 	}
 
 	// Create Gravity Form
-	if ( class_exists( 'GFAPI' ) ) {
+	if ( class_exists( 'GFForms' ) && class_exists( 'GFAPI' ) ) {
 		error_log( sprintf( '[%s] Creating contact form...', __FUNCTION__ ) );
 
-		// Install tables
-		// TODO: This is fragile. Check on Gravity Form JSON import procedure.
+		// Install GF tables if they don't already exist
 		GFForms::setup();
 
-		// Read template form from JSON
-		$contact_form = json_decode( file_get_contents( __DIR__ . '/inc/contact-form.json' ), true );
+		// Import template form
+		$contact_form = json_decode( file_get_contents( get_template_directory() . '/inc/contact-form.json' ), true );
 		$form_id = GFAPI::add_form( $contact_form );
-
-		// TODO: Default notification settings (using admin e-mail)
-		// TODO: Default confirmation settings?
+		if ( is_wp_error( $form_id ) ) {
+			error_log( sprintf( '[%s] Error creating contact form: %s', __FUNCTION__, $form_id->get_error_message() ) );
+		}
 	}
 
 	// Activate default plugins
