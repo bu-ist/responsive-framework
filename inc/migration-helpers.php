@@ -103,7 +103,7 @@ function responsive_flexi_migration() {
 	$active_plugins = get_option( 'active_plugins' );
 	$sharing_plugin_index = array_search( 'sharedaddy/sharedaddy.php', $active_plugins );
 	if ( $sharing_plugin_index > 0 ) {
-		error_log( sprintf( '[%] Sharedaddy detected! Swapping Sharedaddy for BU Sharing...', __FUNCTION__ ) );
+		error_log( sprintf( '[%s] Sharedaddy detected! Swapping Sharedaddy for BU Sharing...', __FUNCTION__ ) );
 		$active_plugins[ $sharing_plugin_index ] = 'bu-sharing/bu-sharing.php';
 		$result = update_option( 'active_plugins', $active_plugins );
 		if ( ! $result ) {
