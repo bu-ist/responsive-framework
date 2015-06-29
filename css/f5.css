@@ -59,61 +59,62 @@ p {
 h1 {
   font-family: 'Pressura';
   font-weight: 700;
-  font-size: 40px;
+  font-size: 48px;
+  line-height: 51px;
   text-transform: uppercase;
-  line-height: 43px;
   margin-bottom: 22px;
 }
 
 h2 {
   font-family: 'Pressura';
   font-weight: 700;
-  font-size: 35px;
+  font-size: 40px;
+  line-height: 43px;
   text-transform: uppercase;
-  line-height: 38px;
   margin-bottom: 22px;
 }
 
 h3 {
   font-family: 'Pressura';
   font-weight: 700;
-  font-size: 30px;
+  font-size: 33px;
+  line-height: 36px;
   text-transform: uppercase;
-  line-height: 33px;
   margin-bottom: 22px;
 }
 
 .widget h3 {
   font-family: 'Pressura';
   font-weight: 700;
-  font-size: 20px;
-  line-height: 23px;
+  font-size: 28px;
+  line-height: 316px;
+  text-transform: uppercase;
 }
 
 h4 {
   font-family: 'Pressura';
   font-weight: 700;
-  font-size: 24px;
+  font-size: 22px;
+  line-height: 25px;
   text-transform: uppercase;
-  line-height: 27px;
   margin-bottom: 22px;
 }
 
 h5 {
   font-family: 'Pressura';
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 21px;
   text-transform: uppercase;
-  line-height: 23px;
   margin-bottom: 22px;
 }
 
 h6 {
-  font-family: 'Pressura';
+  font-family: 'Pressuran';
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 19px;
   text-transform: uppercase;
-  line-height: 21px;
   margin-bottom: 22px;
 }
 
