@@ -1930,7 +1930,10 @@ article[role=main] {
 }
 
 .siteFooter-info {
+  padding-bottom: 35px;
+  text-align: center;
   padding: 0 0 10px 30px;
+  text-align: left;
 }
 
 .siteFooter-links,
@@ -1974,8 +1977,16 @@ article[role=main] {
 }
 
 /* Add BUMC logo if specified by theme */
-.has-branding .siteFooter-bumc {
+.siteFooter-bumc {
   width: 96px;
+  margin: 6px auto 35px;
+  margin: 0;
+  position: absolute;
+  top: 40px;
+  left: 20px;
+}
+
+.siteFooter-brand + .siteFooter-bumc {
   position: absolute;
   top: 48px;
   left: 162px;
@@ -1990,8 +2001,15 @@ article[role=main] {
 }
 
 /* Add disclaimer if specified by theme */
-.has-branding .siteFooter-disclaimer {
-  width: 96px;
+.siteFooter-disclaimer {
+  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 0;
+  position: absolute;
+}
+
+.has-branding .siteFooter-disclaimer,
+.siteFooter-bumc + .siteFooter-disclaimer {
   position: absolute;
   top: 48px;
   left: 162px;
@@ -2001,12 +2019,21 @@ article[role=main] {
   margin: 0 0 0 112px;
 }
 
+.siteFooter-brand + .siteFooter-disclaimer + .siteFooter-content,
+.siteFooter-bumc + .siteFooter-disclaimer + .siteFooter-content {
+  margin: 0 0 0 234px;
+}
+
 .siteFooter-brand + .siteFooter-bumc + .siteFooter-content {
   margin: 0 0 0 234px;
 }
 
+.siteFooter-brand + .siteFooter-bumc + .siteFooter-disclaimer {
+  left: 282px;
+}
+
 .siteFooter-brand + .siteFooter-bumc + .siteFooter-disclaimer + .siteFooter-content {
-  margin: 0 0 0 234px;
+  margin: 0 0 0 344px;
 }
 
 /* Has only HTML info */
