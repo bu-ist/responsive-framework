@@ -94,7 +94,7 @@ module.exports = function(grunt) {
 			},
 			fonts: {
 				options: {
-					style: 'compressed',
+					style: 'expanded',
 					sourcemap: 'none'
 				},
 				files: [{
