@@ -1,4 +1,18 @@
 @font-face {
+  font-family: "Capita";
+  src: url("http://www.bu.edu/cdn/fonts/Capita-Regular/Capita-Regular.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Capita-Regular/Capita-Regular.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Capita-Regular/Capita-Regular.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Capita-Regular/Capita-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Capita";
+  src: url("http://www.bu.edu/cdn/fonts/Capita-Italic/Capita-Italic.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Capita-Italic/Capita-Italic.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Capita-Italic/Capita-Italic.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Capita-Italic/Capita-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
   font-family: "Benton";
   src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot");
   src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-1.ttf") format("truetype");
@@ -26,21 +40,6 @@
   font-style: italic;
   font-weight: 700;
 }
-@font-face {
-  font-family: "Capita";
-  src: url("http://www.bu.edu/cdn/fonts/Capita-Regular/Capita-Regular.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Capita-Regular/Capita-Regular.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Capita-Regular/Capita-Regular.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Capita-Regular/Capita-Regular.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Capita";
-  src: url("http://www.bu.edu/cdn/fonts/Capita-Italic/Capita-Italic.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Capita-Italic/Capita-Italic.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Capita-Italic/Capita-Italic.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Capita-Italic/Capita-Italic.ttf") format("truetype");
-  font-style: italic;
-  font-weight: 400;
-}
-
 body {
   font-family: 'Capita';
   font-weight: 400;
@@ -84,7 +83,7 @@ h3 {
   font-family: 'Benton';
   font-weight: 400;
   font-size: 28px;
-  line-height: 316px;
+  line-height: 31px;
 }
 
 h4 {

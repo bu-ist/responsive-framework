@@ -1,36 +1,59 @@
 @font-face {
+  font-family: "Benton";
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Benton";
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-1.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Benton";
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Benton";
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot");
+  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-1.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 700;
+}
+@font-face {
   font-family: "TiemposHeadline";
   src: url("http://www.bu.edu/cdn/fonts/TiemposHeadline/TiemposHeadline-Bold.eot");
-  src: url("http://www.bu.edu/cdn/fonts/TiemposHeadline/TiemposHeadline-Bold.eot?#iefix") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/TiemposHeadline/TiemposHeadline-Bold.woff") format("woff");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposHeadline/TiemposHeadline-Bold.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposHeadline/TiemposHeadline-Bold.woff") format("woff");
   font-style: normal;
   font-weight: 700;
 }
 @font-face {
   font-family: "TiemposHeadline";
   src: url("http://www.bu.edu/cdn/fonts/TiemposHeadline/TiemposHeadline-Bold-Italic.eot");
-  src: url("http://www.bu.edu/cdn/fonts/TiemposHeadline/TiemposHeadline-Bold-Italic.eot?#iefix") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/TiemposHeadline/TiemposHeadline-Bold-Italic.woff") format("woff");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposHeadline/TiemposHeadline-Bold-Italic.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposHeadline/TiemposHeadline-Bold-Italic.woff") format("woff");
   font-style: italic;
   font-weight: 700;
 }
 @font-face {
   font-family: "TiemposText";
   src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot");
-  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot?#iefix") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.woff") format("woff");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.woff") format("woff");
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
   font-family: "TiemposText";
   src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot");
-  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot?#iefix") format("embedded-opentype"),
-       url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.woff") format("woff");
+  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.woff") format("woff");
   font-style: italic;
   font-weight: 400;
 }
-
 body {
   font-family: 'Benton';
   font-weight: 400;
@@ -74,7 +97,7 @@ h3 {
   font-family: 'TiemposHeadline';
   font-weight: 700;
   font-size: 28px;
-  line-height: 316px;
+  line-height: 31px;
 }
 
 h4 {

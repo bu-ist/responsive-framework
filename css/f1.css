@@ -26,7 +26,6 @@
   font-style: italic;
   font-weight: 700;
 }
-
 body {
   font-family: 'Benton';
   font-weight: 400;
@@ -70,7 +69,7 @@ h3 {
   font-family: 'Benton';
   font-weight: 700;
   font-size: 28px;
-  line-height: 316px;
+  line-height: 31px;
 }
 
 h4 {
