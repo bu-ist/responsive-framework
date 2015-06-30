@@ -464,6 +464,63 @@ function responsive_post_navigation( $args = array() ) {
 
 endif;
 
+if ( ! function_exists( 'responsive_post_meta' ) ) :
+
+/**
+ * Render post meta entry HTML.
+ */
+function responsive_post_meta() {
+?>
+	<div class="entry-meta">
+		<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
+		<span class="author"><em>By</em> <?php the_author_posts_link(); ?></span>
+		<?php endif; ?>
+		<?php if ( responsive_posts_should_display( 'date' ) ) : ?>
+		<span class="date"><time datetime="<?php esc_attr_e( get_the_date( 'c' ) ) ?>" pubdate><?php echo get_the_date( 'F jS Y' ) ?></time></span>
+		<?php endif; ?>
+		<?php if ( responsive_posts_should_display( 'categories' ) && $category_list = get_the_category_list( ', ' ) ) : ?>
+		<span class="category"><em>in</em> <?php echo $category_list; ?></span>
+		<?php endif; ?>
+		<?php if ( bu_supports_comments() ) : ?>
+		<span class="comment-counter"><a href="<?php comments_link(); ?>" rel="nofollow"><?php comments_number( '<strong>0</strong> comments', '<strong>1</strong> comment', '<strong>%</strong> comments' ); ?></a></span>
+		<?php endif; ?>
+	</div>
+<?php
+}
+
+endif;
+
+/**
+ * Returns one or more Customizer display option value.
+ *
+ * Site admin can configure display of the following post meta for single and archive post templates:
+ * 	- Categories
+ * 	- Tags
+ * 	- Author
+ *
+ * @param  string $option Specific option value to return ('categories', 'tags', or 'author'). Optional.
+ * @return mixed          Post display options array, or the specified option.
+ */
+function responsive_get_post_display_options() {
+	$display_options = get_option( 'burf_setting_post_display_options' );
+
+	// First time load -- default to "Categories" and "Tags"
+	if ( false === $display_options ) {
+		$display_options = array( 'categories', 'tags' );
+	} else {
+		$display_options = explode( ',', $display_options );
+	}
+
+	return $display_options;
+}
+
+/**
+ * Whether or not the given post field should be displayed.
+ */
+function responsive_posts_should_display( $field ) {
+	return in_array( $field, responsive_get_post_display_options() );
+}
+
 /**
  * Attempts to find a suitable post archive link for this site.
  *
@@ -718,4 +775,51 @@ function responsive_archive_type( WP_Query $query = null ) {
  */
 function responsive_is_archive_type( $type, WP_Query $query = null ) {
 	return ( strtolower( $type ) == responsive_archive_type( $query ) );
+}
+
+/**
+ * Whether or not the current theme supports alternate footbar registration.
+ */
+function responsive_theme_supports_dynamic_footbars() {
+
+	// Check for theme constant
+	if ( defined( 'BU_SUPPORTS_DYNAMIC_FOOTBARS' ) ) {
+		return BU_SUPPORTS_DYNAMIC_FOOTBARS;
+	// Check for site option
+	} else {
+		$sidebar_options = get_option( 'burf_setting_sidebar_options', array() );
+		if ( ! is_array( $sidebar_options ) ) {
+			$sidebar_options = explode( ',', $sidebar_options );
+		}
+		return ( in_array( 'dynamic_footbars', $sidebar_options ) );
+	}
+}
+
+/**
+ * Return a list of available dynamic footbars.
+ */
+function responsive_get_dynamic_footbars() {
+	return array(
+		'footbar'           => 'Footbar',
+		'alternate-footbar' => 'Alternate Footbar'
+		);
+}
+
+/**
+ * Get the footbar selected for the given post.
+ *
+ * @param  mixed  $post A post ID or WP_Post instance. Optional. Default current post.
+ */
+function responsive_get_footbar_id( $post = null ) {
+	$post = get_post( $post );
+	$footbar = 'footbar';
+
+	if ( $post && responsive_theme_supports_dynamic_footbars() && post_type_supports( $post->post_type, 'bu-dynamic-footbars' ) ) {
+		$selected_footbar = get_post_meta( $post->ID, '_bu_footbar_id', true );
+		if ( $selected_footbar ) {
+			$footbar = $selected_footbar;
+		}
+	}
+
+	return $footbar;
 }

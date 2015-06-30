@@ -1,3 +1,13 @@
+# 1.3.0-beta
+
+* Responsi-as-a-Service beta release
+* Enable Customizer font palettes for non-child themes
+* Enable Customizer color palettes for non-child themes
+* Add Customizer display options for toggling visibility of post meta fields
+* Add Customizer sidebar options for toggling usage of alternate footbars
+* Update footer branding styles to support BUMC logo, disclaimer link
+* Update site initialization / automated Flexi migration logic
+
 # 1.2.2
 
 * Add fallback for branding
