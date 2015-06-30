@@ -141,6 +141,9 @@ add_action( 'update_option_burf_setting_custom_colors',        'responsive_flush
 add_action( 'update_option_burf_setting_active_color_regions', 'responsive_flush_customizer_styles_cache' );
 add_action( 'update_option_burf_setting_fonts',                'responsive_flush_customizer_styles_cache' );
 
+// Flush cached Customizer styles whenever framework has been updated
+add_action( 'update_option__responsive_framework_version',     'responsive_flush_customizer_styles_cache' );
+
 /**
  * Returns a configured csstidy instance for CSS minification.
  *
