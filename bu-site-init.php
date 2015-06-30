@@ -3,10 +3,6 @@
  * Logic in this file is triggered when a new site is created with this theme.
  *
  * @see  mu-plugins/site-manager
- *
- * Punchlist:
- * [ ] Decide how to handle news page option
- * [ ] Contact Form Notification / Confirmation creation
  */
 
 function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path, $network_id, $meta ) {
@@ -56,10 +52,6 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 
 	if ( $news_id ) {
 		update_post_meta( $news_id, '_wp_page_template', 'page-templates/news.php' );
-		update_option( 'bu_news_page', $news_id );
-
-		// Flexi option
-		// update_option( '_bu_news_uri', get_permalink( $news_id ) );
 	}
 
 	// Populate initial widgets
@@ -151,19 +143,18 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 	}
 
 	// Create Gravity Form
-	if ( class_exists( 'GFAPI' ) ) {
+	if ( class_exists( 'GFForms' ) && class_exists( 'GFAPI' ) ) {
 		error_log( sprintf( '[%s] Creating contact form...', __FUNCTION__ ) );
 
-		// Install tables
-		// TODO: This is fragile. Check on Gravity Form JSON import procedure.
+		// Install GF tables if they don't already exist
 		GFForms::setup();
 
-		// Read template form from JSON
-		$contact_form = json_decode( file_get_contents( __DIR__ . '/inc/contact-form.json' ), true );
+		// Import template form
+		$contact_form = json_decode( file_get_contents( get_template_directory() . '/inc/contact-form.json' ), true );
 		$form_id = GFAPI::add_form( $contact_form );
-
-		// TODO: Default notification settings (using admin e-mail)
-		// TODO: Default confirmation settings?
+		if ( is_wp_error( $form_id ) ) {
+			error_log( sprintf( '[%s] Error creating contact form: %s', __FUNCTION__, $form_id->get_error_message() ) );
+		}
 	}
 
 	// Activate default plugins
@@ -179,7 +170,9 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 	// Default comment depth
 	update_option( 'thread_comments_depth', 2 );
 
-	// TODO: Do we need to set similar default image sizes with Flexi?
+	// Default image sizes (consistent with Flexi)
+	update_option( 'medium_size_w', 636 );
+	update_option( 'medium_size_h', 636 );
 
 	// Theme Groups
 	update_option( 'theme_groups', array( 'Responsive Framework' ) );
