@@ -1,3 +1,7 @@
+# 1.3.1-beta
+
+* Add `no-access.php` and no-access-bumc.php` template files to framework for Audience plugin on bumc.bu.edu
+
 # 1.3.0-beta
 
 * Responsi-as-a-Service beta release
