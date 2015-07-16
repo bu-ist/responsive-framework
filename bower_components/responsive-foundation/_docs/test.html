@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="initial-scale=1" />
+	<meta http-equiv="ClearType" content="true" />
+	<title>Responsive Foundation Style Guide | Sass | Base</title>
+	<link type="text/css" rel="stylesheet" href="css/docs.css" >
+	<script type="application/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<!-- for pretty code -->
+	<script type="application/javascript" src="vendor/rainbow.js"></script>
+	<link type="text/css" rel="stylesheet" href="vendor/rainbow.css" >
+	<style>
+		/*for the demo*/
+		body {background: #fff;}
+		.container {max-width: 800px;}
+		.sectionTitle {font-size: 16px; font-weight: normal; margin: 60px 0 30px; padding:10px; color: #fff; background: #000;}
+	</style>
+</head>
+<body>
+	<div class="container">
+
+		
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="sectionTitle">Typography</h2>
+
+				<h1>This Is Heading Number One</h1>
+				<p>Here be a paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illo repellat assumenda est fugit consectetur pariatur quaerat expedita quos ut architecto maiores praesentium, et? Tempora deserunt in iusto dolorum.</p>
+				<h2>This Is Heading Number Two</h2>
+				<p>Here be a paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illo repellat assumenda est fugit consectetur pariatur quaerat expedita quos ut architecto maiores praesentium, et? Tempora deserunt in iusto dolorum.</p>
+				<h3>This Is Heading Number Three</h3>
+				<p>Here be a paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illo repellat assumenda est fugit consectetur pariatur quaerat expedita quos ut architecto maiores praesentium, et? Tempora deserunt in iusto dolorum.</p>
+				<h4>This Is Heading Number Four</h4>
+				<p>Here be a paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illo repellat assumenda est fugit consectetur pariatur quaerat expedita quos ut architecto maiores praesentium, et? Tempora deserunt in iusto dolorum.</p>
+				<h5>This Is Heading Number Five</h5>
+				<p>Here be a paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illo repellat assumenda est fugit consectetur pariatur quaerat expedita quos ut architecto maiores praesentium, et? Tempora deserunt in iusto dolorum.</p>
+				<h6>This Is Heading Number Six</h6>
+				<p>Here be a paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illo repellat assumenda est fugit consectetur pariatur quaerat expedita quos ut architecto maiores praesentium, et? Tempora deserunt in iusto dolorum.</p>
+				<p>And a second paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, voluptate ea totam ullam fuga ut aliquam eum labore, corrupti cum tempore libero, ad doloremque culpa consequuntur deserunt, officiis voluptas odio.</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="sectionTitle">Typographic Scale</h2>
+			</div>
+			<div class="col-md-5">
+				<h1>Heading 1</h1>
+				<h2>Heading 2</h2>
+				<h3>Heading 3</h3>
+				<h4>Heading 4</h4>
+				<h5>Heading 5</h5>
+				<h6>Heading 6</h6>
+			</div>
+			<div class="col-md-7">
+				<h1>Long headings ipsum dolor sit amet <small>H1</small></h1>
+				<h2>Long headings ipsum dolor sit amet consectetur <small>H2</small></h2>
+				<h3>Long headings ipsum dolor sit amet consectetur adipisicing elit quod consequuntur  <small>H3</small></h3>
+				<h4>Long headings ipsum dolor sit amet consectetur adipisicing elit quod consequuntur  <small>H4</small></h4>
+				<h5>Long headings ipsum dolor sit amet consectetur adipisicing elit <small>H5</small></h5>
+				<h6>Long headings ipsum dolor sit amet, consectetur adipisicing elit quod consequuntur <small>H6</small></h6>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="sectionTitle">Heading Groups</h2>
+			</div>
+			<div class="col-md-12">
+				<hgroup>
+					<h2>This Be a Heading Group</h2>
+					<h4>It removes margins from the default headings</h4>
+				</hgroup>
+				<p>To group headings, use the <code>&lt;hgroup&gt;</code> tag. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illo repellat assumenda est fugit consectetur pariatur quaerat expedita quos ut architecto maiores praesentium, et? Tempora deserunt in iusto dolorum.</p>
+				<p>And a second paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, voluptate ea totam ullam fuga ut aliquam eum labore, corrupti cum tempore libero, ad doloremque culpa consequuntur deserunt, officiis voluptas odio.</p>
+				<p>Here be a paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illo repellat assumenda est fugit consectetur pariatur quaerat expedita quos ut architecto maiores praesentium, et? Tempora deserunt in iusto dolorum.</p>
+				<p>And a second paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, voluptate ea totam ullam fuga ut aliquam eum labore, corrupti cum tempore libero, ad doloremque culpa consequuntur deserunt, officiis voluptas odio.</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+
+				<h2 class="sectionTitle">Inline Text Elements</h2>
+
+				<table class="table-horizontal" width="100%">
+					<tr>
+						<td><code>&lt;a&gt;</code></td>
+						<td>This is a <a href="#">link</a>.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;mark&gt;</code></td>
+						<td>You can use the mark tag to <mark>highlight</mark> text.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;del&gt;</code></td>
+						<td><del>This line of text is meant to be treated as deleted text.</del></td>
+					</tr>
+					<tr>
+						<td><code>&lt;s&gt;</code></td>
+						<td><s>This line of text is meant to be treated as no longer accurate.</s></td>
+					</tr>
+					<tr>
+						<td><code>&lt;ins&gt;</code></td>
+						<td><ins>This line of text is meant to be treated as an addition to the document.</ins></td>
+					</tr>
+					<tr>
+						<td><code>&lt;u&gt;</code></td>
+						<td><u>This line of text will render as underlined</u></td>
+					</tr>
+					<tr>
+						<td><code>&lt;small&gt;</code></td>
+						<td><small>This line of text is meant to be treated as fine print.</small></td>
+					</tr>
+					<tr>
+						<td><code>&lt;strong&gt;</code></td>
+						<td><strong>rendered as bold text</strong></td>
+					</tr>
+					<tr>
+						<td><code>&lt;em&gt;</code></td>
+						<td><em>rendered as italicized text</em></td>
+					</tr>
+					<tr>
+						<td><code>&lt;sup&gt;</code></td>
+						<td>This is superscript: 502<sup>3</sup></td>
+					</tr>
+					<tr>
+						<td><code>&lt;sub&gt;</code></td>
+						<td>This is subscript: H<sub>2</sub>O</td>
+					</tr>
+					<tr>
+						<td><code>&lt;abbr&gt;</code></td>
+						<td>An abbreviation like <abbr title="Hyper Text Markup Language">HTML</abbr> and <abbr title="Cascading Style Sheets">CSS</abbr>.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;&gt;</code></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><code>&lt;&gt;</code></td>
+						<td></td>
+					</tr>
+				</table>
+
+				<p><strong>Alternate elements:</strong> Feel free to use <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> in HTML5. <code>&lt;b&gt;</code> is meant to highlight words or phrases without conveying additional importance while <code>&lt;i&gt;</code> is mostly for voice, technical terms, etc.</p>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+
+				<h2 class="sectionTitle">Lists</h2>
+
+				<h3>Definition List</h3>
+				<dl>
+					<dt>Definition List Title</dt>
+					<dd>This is a definition list division.</dd>
+					<dt>Definition</dt>
+					<dd>An exact statement or description of the nature, scope, or meaning of something: <em>our definition of what constitutes poetry.</em></dd>
+				</dl>
+				<h3>Ordered List</h3>
+				<ol>
+					<li>List Item 1</li>
+					<li>List Item 2
+						<ol>
+							<li>Nested list item A</li>
+							<li>Nested list item B</li>
+						</ol>
+					</li>
+					<li>List Item 3</li>
+				</ol>
+				<h3>Unordered List</h3>
+				<ul>
+					<li>List Item 1</li>
+					<li>List Item 2
+						<ul>
+							<li>Nested list item A</li>
+							<li>Nested list item B</li>
+						</ul>
+					</li>
+					<li>List Item 3</li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+
+				<h2 class="sectionTitle">Tables</h2>
+
+				<hgroup>
+					<h3>Default table</h3>
+					<p>A basic HTML table with no classname added.</p>
+				</hgroup>
+
+				<table>
+				<caption>This is a table caption.</caption>
+				    <thead>
+				        <tr>
+				            <th>#</th>
+				            <th>Make</th>
+				            <th>Model</th>
+				            <th>Year</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr>
+				            <td>1</td>
+				            <td>Honda</td>
+				            <td>Accord</td>
+				            <td>2009</td>
+				        </tr>
+				        <tr>
+				            <td>2</td>
+				            <td>Toyota</td>
+				            <td>Camry</td>
+				            <td>2012</td>
+				        </tr>
+				        <tr>
+				            <td>3</td>
+				            <td>Hyundai</td>
+				            <td>Elantra</td>
+				            <td>2010</td>
+				        </tr>
+				    </tbody>
+				</table>
+
+				<hgroup>
+					<h3>Striped table</h3>
+					<p>To add stripes to odd rows, add the <code>.table-striped</code> classname to the <code>&lt;table&gt;</code> element.</p>
+				</hgroup>
+
+				<table class="table-striped">
+				    <thead>
+				        <tr>
+				            <th>#</th>
+				            <th>Make</th>
+				            <th>Model</th>
+				            <th>Year</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr>
+				            <td>1</td>
+				            <td>Honda</td>
+				            <td>Accord</td>
+				            <td>2009</td>
+				        </tr>
+				        <tr>
+				            <td>2</td>
+				            <td>Toyota</td>
+				            <td>Camry</td>
+				            <td>2012</td>
+				        </tr>
+				        <tr>
+				            <td>3</td>
+				            <td>Hyundai</td>
+				            <td>Elantra</td>
+				            <td>2010</td>
+				        </tr>
+				    </tbody>
+				</table>
+
+				<hgroup>
+					<h3>Bordered table</h3>
+					<p>To add horizontal <em>and</em> vertical borders to all cells, add the <code>.table-bordered</code> classname to the <code>&lt;table&gt;</code> element.</p>
+				</hgroup>
+				
+				<table class="table-bordered">
+				    <thead>
+				        <tr>
+				            <th>#</th>
+				            <th>Make</th>
+				            <th>Model</th>
+				            <th>Year</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr>
+				            <td>1</td>
+				            <td>Honda</td>
+				            <td>Accord</td>
+				            <td>2009</td>
+				        </tr>
+				        <tr>
+				            <td>2</td>
+				            <td>Toyota</td>
+				            <td>Camry</td>
+				            <td>2012</td>
+				        </tr>
+				        <tr>
+				            <td>3</td>
+				            <td>Hyundai</td>
+				            <td>Elantra</td>
+				            <td>2010</td>
+				        </tr>
+				    </tbody>
+				</table>
+
+				<hgroup>
+				<h3>Horizontal table</h3>
+					<p>To add <em>only</em> horizontal borders, add the <code>.table-horizontal</code> classname to the <code>&lt;table&gt;</code> element.</p>
+					<table class="table-horizontal">
+				</hgroup>
+
+				    <thead>
+				        <tr>
+				            <th>#</th>
+				            <th>Make</th>
+				            <th>Model</th>
+				            <th>Year</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr>
+				            <td>1</td>
+				            <td>Honda</td>
+				            <td>Accord</td>
+				            <td>2009</td>
+				        </tr>
+				        <tr>
+				            <td>2</td>
+				            <td>Toyota</td>
+				            <td>Camry</td>
+				            <td>2012</td>
+				        </tr>
+				        <tr>
+				            <td>3</td>
+				            <td>Hyundai</td>
+				            <td>Elantra</td>
+				            <td>2010</td>
+				        </tr>
+				    </tbody>
+				</table>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error minima culpa quo iure aliquam, blanditiis vero dolorum voluptatem quibusdam ipsam optio quia iste porro beatae adipisci, earum necessitatibus, ratione quis.</p>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+
+				<h2 class="sectionTitle">Code &amp; Pre</h2>
+
+				<hgroup>
+					<h3>Preformatted text</h3>
+					<p>Preformatted text in a <code>&lt;pre&gt;</code> tag has no background color:</p>
+				</hgroup>
+
+<pre>“Beware the Jabberwock, my son!
+The jaws that bite, the claws that catch!
+Beware the Jubjub bird, and shun
+The frumious Bandersnatch!”</pre>
+
+				<hgroup>
+				<h3>Code</h3>
+					<p>Code can be presented inline, like <code>&lt;?php bloginfo('stylesheet_url'); ?&gt;</code>, or within a <code>&lt;pre&gt;</code> block with a class of <code>.code</code>:</p>
+				</hgroup>
+
+<pre class="code"><code data-language="css">#container {
+	float: left;
+	margin: 0 -240px 0 0;
+	width: 100%;
+}</code></pre>
+
+<pre class="code"><code data-language="html">&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;meta charset="utf-8"&gt;
+	&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+	&lt;title&gt;Your page title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;!-- Your HTML goes here. --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+				<p>This page uses extra syntax highlighting with <a href="http://www.rainbowco.de">rainbowco.de</a>.</p>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="sectionTitle">Blockquotes</div>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error minima culpa quo iure aliquam, blanditiis vero dolorum voluptatem quibusdam ipsam optio quia iste porro beatae adipisci, earum necessitatibus, ratione quis.</p>
+				<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, ullam explicabo quae incidunt veniam ea unde officia dolorum voluptas id, consequuntur nihil ex fugiat magnam ut consequatur quidem assumenda voluptatem!</p>
+					<p><cite>— <a href="http://en.wikipedia.org/wiki/HAL_9000">HAL 9000</a></cite></p>
+				</blockquote>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, tenetur, reprehenderit ad quos blanditiis beatae fuga temporibus. Cumque iure, aliquam suscipit minima odit, exercitationem nisi possimus repudiandae laudantium ipsam ipsum.</p>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="sectionTitle">Forms</div>
+
+				<hgroup>
+					<h2>Inline Forms</h2>
+					<p>To create a default inline form, add the <code>form-inline</code> classname to any <code>&lt;form&gt;</code> element.</p>
+				</hgroup>
+
+				<form class="form-inline">
+				    <fieldset>
+				        <legend>A compact inline form</legend>
+
+				        <input type="email" placeholder="Email">
+				        <input type="password" placeholder="Password">
+
+				        <label for="remember"><input id="remember" type="checkbox"> Remember me</label>
+
+				        <button type="submit" class="button button-primary">Sign in</button>
+				    </fieldset>
+				</form>
+
+<pre class="code"><code data-language="html">&lt;form class=&quot;form-inline&quot;&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;A compact inline form&lt;/legend&gt;
+
+        &lt;input type=&quot;email&quot; placeholder=&quot;Email&quot;&gt;
+        &lt;input type=&quot;password&quot; placeholder=&quot;Password&quot;&gt;
+
+        &lt;label for=&quot;remember&quot;&gt;&lt;input id=&quot;remember&quot; type=&quot;checkbox&quot;&gt; Remember me&lt;/label&gt;
+
+        &lt;button type=&quot;submit&quot; class=&quot;button button-primary&quot;&gt;Sign in&lt;/button&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+<hgroup>
+	<h2>Stacked Forms</h2>
+	<p>To create a stacked form with input elements below the labels, add the <code>form-stacked</code> classname to a <code>&lt;form&gt;</code> element.</p>
+</hgroup>
+
+<form class="form-stacked">
+    <fieldset>
+        <legend>A Stacked Form</legend>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Email">
+
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Password">
+
+        <label for="state">State</label>
+        <select id="state">
+            <option>AL</option>
+            <option>CA</option>
+            <option>IL</option>
+        </select>
+
+        <label for="remember" class="checkbox">
+            <input id="remember" type="checkbox"> Remember me
+        </label>
+
+        <button type="submit" class="button button-primary">Sign in</button>
+    </fieldset>
+</form>
+
+<pre class="code"><code data-language="html">&lt;form class=&quot;form-stacked&quot;&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;A Stacked Form&lt;/legend&gt;
+
+        &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+        &lt;input id=&quot;email&quot; type=&quot;email&quot; placeholder=&quot;Email&quot;&gt;
+
+        &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+        &lt;input id=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;Password&quot;&gt;
+
+        &lt;label for=&quot;state&quot;&gt;State&lt;/label&gt;
+        &lt;select id=&quot;state&quot;&gt;
+            &lt;option&gt;AL&lt;/option&gt;
+            &lt;option&gt;CA&lt;/option&gt;
+            &lt;option&gt;IL&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;label for=&quot;remember&quot; class=&quot;checkbox&quot;&gt;
+            &lt;input id=&quot;remember&quot; type=&quot;checkbox&quot;&gt; Remember me
+        &lt;/label&gt;
+
+        &lt;button type=&quot;submit&quot; class=&quot;button button-primary&quot;&gt;Sign in&lt;/button&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+<hgroup>
+	<h2>Aligned Forms</h2>
+	<p>To create an aligned form, add the <code>form-aligned</code> classname to a <code>&lt;form&gt;</code> element alongside <code>form</code>. In an aligned form, the labels are right-aligned against the form input controls, but on smaller screens revert to a <code>stacked form</code>.</p>
+</hgroup>
+
+<form class="form-aligned">
+    <fieldset>
+        <div class="form-row">
+            <label for="name">Username</label><input id="name" type="text" placeholder="Username">
+        </div>
+
+        <div class="form-row">
+            <label for="password">Password</label><input id="password" type="password" placeholder="Password">
+        </div>
+
+        <div class="form-row">
+            <label for="email">Email Address</label><input id="email" type="email" placeholder="Email Address">
+        </div>
+
+        <div class="form-row">
+            <label for="foo">Supercalifragilistic Label</label><input id="foo" type="text" placeholder="Enter something here...">
+        </div>
+
+        <div class="form-row-checkbox">
+            <label for="cb" class="form-checkbox"><input id="cb" type="checkbox"> I've read the terms and conditions</label>
+        </div>
+
+        <div class="form-controls">
+            <button type="submit" class="button button-primary">Submit</button>
+        </div>
+    </fieldset>
+</form>
+
+<pre class="code"><code data-language="html">&lt;form class=&quot;form-aligned&quot;&gt;
+    &lt;fieldset&gt;
+        &lt;div class=&quot;form-row&quot;&gt;
+            &lt;label for=&quot;name&quot;&gt;Username&lt;/label&gt;&lt;input id=&quot;name&quot; type=&quot;text&quot; placeholder=&quot;Username&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;form-row&quot;&gt;
+            &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;&lt;input id=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;Password&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;form-row&quot;&gt;
+            &lt;label for=&quot;email&quot;&gt;Email Address&lt;/label&gt;&lt;input id=&quot;email&quot; type=&quot;email&quot; placeholder=&quot;Email Address&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;form-row&quot;&gt;
+            &lt;label for=&quot;foo&quot;&gt;Supercalifragilistic Label&lt;/label&gt;&lt;input id=&quot;foo&quot; type=&quot;text&quot; placeholder=&quot;Enter something here...&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;form-row-checkbox&quot;&gt;
+            &lt;label for=&quot;cb&quot; class=&quot;form-checkbox&quot;&gt;&lt;input id=&quot;cb&quot; type=&quot;checkbox&quot;&gt; I've read the terms and conditions&lt;/label&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;form-controls&quot;&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;button button-primary&quot;&gt;Submit&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+<h2>Form Elements</h2>
+
+<hgroup>
+	<h3>Required</h3>
+	<p>To mark a form control as required, add the <code>required</code> attribute.</p>
+</hgroup>
+
+<form>
+    <input type="email" placeholder="Requires an email" required>
+</form>
+
+<pre class="code"><code data-language="html">&lt;form&gt;
+    &lt;input type=&quot;email&quot; placeholder=&quot;Requires an email&quot; required&gt;
+&lt;/form&gt;</code></pre>
+
+<hgroup>
+	<h3>Disabled Inputs</h3>
+	<p>To disable a form control, add the <code>disabled</code> attribute.</p>
+</hgroup>
+
+<form>
+    <input type="text" placeholder="Disabled input here..." disabled>
+</form>
+
+<pre class="code"><code data-language="html">&lt;form&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;Disabled input here...&quot; disabled&gt;
+&lt;/form&gt;</code></pre>
+
+<hgroup>
+	<h3>Read-Only Inputs</h3>
+	<p>To make a form input read-only, add the <code>readonly</code> attribute. The difference between <code>disabled</code> and <code>readonly</code> is read-only inputs are still focusable. This allows people to interact with the input and select its text, whereas disabled controls are not interactive.</p>
+</hgroup>
+
+<form>
+    <input type="text" value="Readonly input here..." readonly>
+</form>
+
+<pre class="code"><code data-language="html">&lt;form&gt;
+    &lt;input type=&quot;text&quot; value=&quot;Readonly input here...&quot; readonly&gt;
+&lt;/form&gt;</code></pre>
+
+<hgroup>
+	<h3>Checkboxes and Radios</h3>
+	<p>To normalize and align checkboxes and radio inputs, add the <code>checkbox</code> or <code>radio</code> classname.</p>
+</hgroup>
+
+<form>
+    <label for="option-one" class="checkbox">
+        <input id="option-one" type="checkbox" value="">
+        Here's a checkbox
+    </label>
+
+    <label for="option-two" class="radio">
+        <input id="option-two" type="radio" name="optionsRadios" value="option1" checked>
+        Here's a radio button
+    </label>
+
+    <label for="option-three" class="radio">
+        <input id="option-three" type="radio" name="optionsRadios" value="option2">
+        And another radio button
+    </label>
+</form>
+
+<pre class="code"><code data-language="html">&lt;form&gt;
+    &lt;label for=&quot;option-one&quot; class=&quot;checkbox&quot;&gt;
+        &lt;input id=&quot;option-one&quot; type=&quot;checkbox&quot; value=&quot;&quot;&gt;
+        Here's a checkbox
+    &lt;/label&gt;
+
+    &lt;label for=&quot;option-two&quot; class=&quot;radio&quot;&gt;
+        &lt;input id=&quot;option-two&quot; type=&quot;radio&quot; name=&quot;optionsRadios&quot; value=&quot;option1&quot; checked&gt;
+        Here's a radio button
+    &lt;/label&gt;
+
+    &lt;label for=&quot;option-three&quot; class=&quot;radio&quot;&gt;
+        &lt;input id=&quot;option-three&quot; type=&quot;radio&quot; name=&quot;optionsRadios&quot; value=&quot;option2&quot;&gt;
+        And another radio button
+    &lt;/label&gt;
+&lt;/form&gt;</code></pre>
+
+
+
+
+			</div>
+		</div>
+
+	</div>
+	<!-- for pretty code -->
+	<!-- <script src="js/vendor/rainbow/rainbow.min.js"></script> -->
+</body>
+</html>
