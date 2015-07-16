@@ -1,0 +1,86 @@
+/* Tables
+----------------------------------------------------------------- */
+
+/* 1. From normalize.css: removes most spacing between table cells. */
+table {
+    border-collapse: collapse; /* 1 */
+    border-spacing: 0; /* 1 */
+    empty-cells: show;
+    border: $table-border;
+    margin: $table-margin;
+}
+table caption {
+    padding: $table-caption-padding;
+    color: $color-table-caption;
+    font-size: $fontSize-table-caption;
+    font-style: italic;
+    text-align: center;
+}
+table td,
+table th {
+    border-left: 1px solid $color-table-border;
+    border-width: 0 0 0 1px;
+    margin: 0;
+    padding: $table-padding;
+    font-size: inherit;
+    overflow: visible; /*to make ths where the title is really long work*/
+}
+table th {
+    border-bottom: 1px solid $color-table-border;
+}
+table td {
+    background-color: transparent;
+    vertical-align: top;
+}
+table td:first-child,
+table th:first-child {
+    border-left-width: 0;
+}
+table thead {
+    background: $color-table-head-bg;
+    color: $color-table-head;
+    text-align: left;
+    vertical-align: bottom;
+}
+/* tables that use grid width classes */
+table col[class*="col-"] {
+    display: table-column;
+    float: none;
+}
+table td[class*="col-"],
+table th[class*="col-"] {
+    display: table-cell;
+    float: none;
+}
+
+/* Striped tables
+----------------------------------------------------------------- */
+
+/* nth-child selector for modern browsers, otherwise apply .u-odd class to markup */
+.table-striped tr:nth-child(2n-1) td,
+.u-odd td {
+    background-color: $color-table-stripes;
+}
+
+/* Bordered tables
+----------------------------------------------------------------- */
+
+.table-bordered td {
+    border-bottom: 1px solid $color-table-border;
+}
+.table-bordered tbody > tr:last-child td,
+.table-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
+
+/* Horizontal tables
+----------------------------------------------------------------- */
+
+.table-horizontal td,
+.table-horizontal th {
+    border-width: 0 0 1px 0;
+    border-bottom: 1px solid $color-table-border;
+}
+.table-horizontal tbody > tr:last-child td {
+    border-bottom-width: 0;
+}
