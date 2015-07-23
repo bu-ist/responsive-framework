@@ -222,8 +222,14 @@ function responsive_content_banner( $position ) {
 		'position' => $position,
 		'echo'     => false,
 		);
+	
+	//allows themes to hook into and add manipulate output as necessary
+	do_action( 'responsive_content_banner_output', $post_id, $banner_args );
 
-	echo bu_content_banner( $post_id, $banner_args );
+	//leave the echo up to the hook actions
+	if ( !has_action( 'responsive_content_banner_output' ) ) {
+		echo bu_content_banner( $post_id, $banner_args );
+	}
 }
 
 /**
