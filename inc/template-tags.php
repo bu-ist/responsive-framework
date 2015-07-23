@@ -223,13 +223,9 @@ function responsive_content_banner( $position ) {
 		'echo'     => false,
 		);
 	
-	//allows themes to hook into and add manipulate output as necessary
-	do_action( 'responsive_content_banner_output', $post_id, $banner_args );
-
-	//leave the echo up to the hook actions
-	if ( !has_action( 'responsive_content_banner_output' ) ) {
-		echo bu_content_banner( $post_id, $banner_args );
-	}
+	//allows themes to add to the bu_content_banner output
+	echo apply_filters('responsive_content_banner_output', bu_content_banner( $post_id, $banner_args ), $post_id );
+	
 }
 
 /**
