@@ -1,3 +1,7 @@
+# 1.3.2-beta
+
+* Add filter to responsive_content_banner to manipulate output on theme level
+
 # 1.3.1-beta
 
 * Add `no-access.php` and no-access-bumc.php` template files to framework for Audience plugin on bumc.bu.edu
