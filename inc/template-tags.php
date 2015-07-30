@@ -222,8 +222,10 @@ function responsive_content_banner( $position ) {
 		'position' => $position,
 		'echo'     => false,
 		);
-
-	echo bu_content_banner( $post_id, $banner_args );
+	
+	//allows themes to add to the bu_content_banner output
+	echo apply_filters('responsive_content_banner_output', bu_content_banner( $post_id, $banner_args ), $post_id, $position );
+	
 }
 
 /**
