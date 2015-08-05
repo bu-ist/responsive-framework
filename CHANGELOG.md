@@ -1,3 +1,7 @@
+# 1.3.3-beta
+
+* Updating to Responsive Foundation 1.2.0 (Bunnies)
+
 # 1.3.2-beta
 
 * Add filter to responsive_content_banner to manipulate output on theme level
