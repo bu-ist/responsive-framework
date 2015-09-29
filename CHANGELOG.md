@@ -1,3 +1,9 @@
+# 1.3.4-beta
+
+* Create new gravity forms contact forms only when necessary.
+  * They should be generated only when current site has contact forms using the Contact Us plugin.
+  * Previous bug: gravity forms were generated for sites without contact forms. And if the theme got activated multiple times, more gravity forms were generated each time.
+
 # 1.3.3-beta
 
 * Updating to Responsive Foundation 1.2.0 (Bunnies)
