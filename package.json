@@ -1,6 +1,6 @@
 {
 	"name": "bu-responsive-framework",
-	"version": "1.3.3-beta",
+	"version": "1.3.4-beta",
 	"description": "A responsive WordPress theme framework. Uses the Responsive Foundation.",
 	"repository": "https://github.com/bu-ist/responsive-framework/",
 	"contributors": [
@@ -11,7 +11,8 @@
 		"Matthew Fredenburg <malakhi@bu.edu>",
 		"Mike Burns <mgburns@bu.edu>",
 		"Scott Dasse <sdasse@bu.edu>",
-		"Steve Rudolfi <srudolfi@bu.edu>"
+		"Steve Rudolfi <srudolfi@bu.edu>",
+		"Inderpreet Singh <isingh@bu.edu>"
 	],
 	"devDependencies": {
 		"grunt": "~0.4.5",

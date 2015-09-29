@@ -231,6 +231,18 @@ function responsive_migrate_contact_form() {
 	$errors = array();
 
 	if ( class_exists( 'GFForms' ) && class_exists( 'GFAPI' ) ) {
+
+		$contact_query = sprintf( 'SELECT post_id FROM %s WHERE meta_key = "_wp_page_template" AND meta_value = "contact-us.php"', $wpdb->postmeta );
+		$results = $wpdb->get_col( $contact_query );
+
+		if ( empty( $results ) ) {
+			return;
+		} else if ( count($results) > 1 ) {
+			error_log( sprintf( '[%s] There are multiple contact forms on this site... Migrating post ID %s.', __FUNCTION__, reset( $results ) ) );
+		}
+
+		$contact_id = reset( $results );
+
 		error_log( sprintf( '[%s] Creating contact form...', __FUNCTION__ ) );
 
 		// Install GF tables if they don't already exist
@@ -244,23 +256,18 @@ function responsive_migrate_contact_form() {
 		}
 
 		// Migrate contact form page
-		$contact_query = sprintf( 'SELECT post_id FROM %s WHERE meta_key = "_wp_page_template" AND meta_value = "contact-us.php"', $wpdb->postmeta );
-		$results = $wpdb->get_col( $contact_query );
-		if ( $results ) {
-			$contact_id = reset( $results );
-			$contact_page = get_post( $contact_id );
-			if ( $contact_page ) {
-				error_log( sprintf( '[%s] Updating contact page: %d', __FUNCTION__, $contact_id ) );
+		$contact_page = get_post( $contact_id );
+		if ( $contact_page ) {
+			error_log( sprintf( '[%s] Updating contact page: %d', __FUNCTION__, $contact_id ) );
 
-				$contact_page_updates = array(
-					'ID'            => $contact_id,
-					'post_content'  => sprintf( '[gravityform id="%d" title="false" description="false"]', $form_id ),
-					'page_template' => 'default',
-					);
-				$result = wp_update_post( $contact_page_updates, true );
-				if ( is_wp_error( $result ) ) {
-					return $result;
-				}
+			$contact_page_updates = array(
+				'ID'            => $contact_id,
+				'post_content'  => sprintf( '[gravityform id="%d" title="false" description="false"]', $form_id ),
+				'page_template' => 'default',
+				);
+			$result = wp_update_post( $contact_page_updates, true );
+			if ( is_wp_error( $result ) ) {
+				return $result;
 			}
 		}
 
