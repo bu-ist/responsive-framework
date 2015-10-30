@@ -161,6 +161,7 @@ Theme Groups: Responsive Framework
 .has-links .siteFooter-links,
 .has-social .siteFooter-social, .col-sm-12, .col-md-1, .col-md-2, .col-md-quarter, .col-md-3, .col-md-third,
 .profile-listing .advanced li, .col-md-4, .sidebar, .col-md-5, .col-md-half, .col-md-6, .profile-listing .mini li, .col-md-7, .col-md-two-third, .col-md-8, article[role=main], .col-md-three-quarter, .col-md-9, .col-md-10, .col-md-11, .col-md-full,
+.home.blog article[role=main],
 .archive article[role=main],
 .page-template-news article[role=main],
 .single-post article[role=main],
@@ -392,6 +393,7 @@ Theme Groups: Responsive Framework
   }
 
   .col-md-full,
+  .home.blog article[role=main],
   .archive article[role=main],
   .page-template-news article[role=main],
   .single-post article[role=main],
@@ -1778,12 +1780,12 @@ article[role=main] {
 }
 
 /* Sub-brand signature */
-.brand-signature {
+.brand-signature, .brand-sponsored {
   padding: 6px 30px 6px 56px;
   background: url("http://www.bu.edu/cdn/images/logos/subbrand49x35.png") no-repeat 0 49%;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .brand-signature {
+  .brand-signature, .brand-sponsored {
     background-image: url("http://www.bu.edu/cdn/images/logos/subbrand49x35-retina.png");
     background-size: 49px 35px;
   }
@@ -1794,13 +1796,12 @@ article[role=main] {
 }
 
 /* Sponsored branding */
-.brand-sponsored {
-  font-size: 14px;
+.brand-sponsored, .brand-sponsored .siteName {
+  font-size: 16px;
+  display: block;
 }
 
-.brand-sponsored .siteName,
 .brand-unbranded .siteName {
-  display: block;
   font-family: "Whitney SSm A", "Whitney SSm B", "Benton", Helvetica, sans-serif;
   font-weight: 600;
   font-size: 20px;
@@ -2025,6 +2026,7 @@ nav a {
 .brand .siteDescription {
   float: left;
   width: auto;
+  margin-left: 50px;
 }
 
 /* quicksearch (use WordPress plugin class name)
@@ -2356,7 +2358,7 @@ nav a {
 @media screen and (min-width: 768px) {
   .l-default .utilityNav {
     position: absolute;
-    top: 49px;
+    top: 47px;
     right: 20px;
   }
 }
@@ -3135,6 +3137,7 @@ h6.bu_collapsible {
 ----------------------------------------------------------------- */
 /* Narrow Content Column
 ----------------------------------------------------------------- */
+.home.blog,
 .archive,
 .page-template-news,
 .single-post,
@@ -3144,6 +3147,7 @@ h6.bu_collapsible {
 .post-type-archive-profile {
   /* These classes are using %templateNarrow. */
 }
+.home.blog .content-container,
 .archive .content-container,
 .page-template-news .content-container,
 .single-post .content-container,
@@ -3236,6 +3240,12 @@ h6.bu_collapsible {
 
 .paging-navigation .nav-next {
   float: right;
+}
+
+/* Homepage set to show Posts
+----------------------------------------------------------------- */
+.home.blog .paging-navigation {
+  margin-bottom: 30px;
 }
 
 /* Single Post
