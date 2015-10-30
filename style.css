@@ -3248,6 +3248,21 @@ h6.bu_collapsible {
   margin-bottom: 30px;
 }
 
+.home.blog .tags {
+  margin-bottom: 24px;
+}
+
+.home.blog .content-container article {
+  position: relative;
+  padding-top: 30px;
+  margin-top: 30px;
+  border: 1px solid #dddddd;
+  border-width: 1px 0 0 0;
+}
+.home.blog .content-container article:first-child {
+  border: none;
+}
+
 /* Single Post
 ----------------------------------------------------------------- */
 .single article[role=main] .meta {
