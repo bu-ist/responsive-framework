@@ -222,10 +222,10 @@ function responsive_content_banner( $position ) {
 		'position' => $position,
 		'echo'     => false,
 		);
-	
+
 	//allows themes to add to the bu_content_banner output
 	echo apply_filters('responsive_content_banner_output', bu_content_banner( $post_id, $banner_args ), $post_id, $position );
-	
+
 }
 
 /**
@@ -503,6 +503,7 @@ endif;
  * @param  string $option Specific option value to return ('categories', 'tags', or 'author'). Optional.
  * @return mixed          Post display options array, or the specified option.
  */
+
 function responsive_get_post_display_options() {
 	$display_options = get_option( 'burf_setting_post_display_options' );
 
@@ -510,7 +511,9 @@ function responsive_get_post_display_options() {
 	if ( false === $display_options ) {
 		$display_options = array( 'categories', 'tags' );
 	} else {
-		$display_options = explode( ',', $display_options );
+		if( ! is_array( $display_options ) ){
+			$display_options = explode( ',', $display_options );
+		}
 	}
 
 	return $display_options;
