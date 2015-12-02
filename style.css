@@ -142,7 +142,7 @@ Theme Groups: Responsive Framework
   float: left;
 }
 
-.col-1, .col-2, .col-quarter, .col-3, .col-third, .col-4, .col-5, .col-half, .col-6, .col-7, .col-two-third, .col-8, .col-three-quarter, .col-9, .col-10, .col-11, .col-full, .col-12, .col-sm-1, .col-sm-2, .col-sm-quarter,
+.col-1, .col-2, .col-quarter, .col-3, .col-third, .col-4, .col-5, .col-half, .col-6, .col-7, .col-two-third, .col-8, .col-three-quarter, .col-9, .col-10, .col-11, .col-full, .col-12, .col-xs-1, .col-xs-2, .col-xs-quarter, .col-xs-3, .col-xs-third, .col-xs-4, .col-xs-5, .col-xs-half, .col-xs-6, .col-xs-7, .col-xs-two-third, .col-xs-8, .col-xs-three-quarter, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-full, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-quarter,
 .siteFooter-links,
 .siteFooter-social,
 .has-info-links .siteFooter-links,
@@ -161,6 +161,7 @@ Theme Groups: Responsive Framework
 .has-links .siteFooter-links,
 .has-social .siteFooter-social, .col-sm-12, .col-md-1, .col-md-2, .col-md-quarter, .col-md-3, .col-md-third,
 .profile-listing .advanced li, .col-md-4, .sidebar, .col-md-5, .col-md-half, .col-md-6, .profile-listing .mini li, .col-md-7, .col-md-two-third, .col-md-8, article[role=main], .col-md-three-quarter, .col-md-9, .col-md-10, .col-md-11, .col-md-full,
+.home.blog article[role=main],
 .archive article[role=main],
 .page-template-news article[role=main],
 .single-post article[role=main],
@@ -171,6 +172,17 @@ Theme Groups: Responsive Framework
   /* These classes are using %col-base. */
   position: relative;
   min-height: 1px;
+}
+
+.col-xs-margin-1, .col-xs-margin-2, .col-xs-margin-quarter, .col-xs-margin-3, .col-xs-margin-third, .col-xs-margin-4, .col-xs-margin-5, .col-xs-margin-half, .col-xs-margin-6, .col-xs-margin-7, .col-xs-margin-two-third, .col-xs-margin-8, .col-xs-margin-three-quarter, .col-xs-margin-9, .col-xs-margin-10, .col-xs-margin-11, .col-xs-margin-full, .col-xs-margin-12, .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12 {
+  /* These classes are using %col-margin-base. */
+  margin-bottom: 2.6%;
+  margin-top: 0;
+  padding: 20px;
+}
+
+.col-xs-margin-1:first-child, .col-xs-margin-1:nth-child(1n), .col-xs-margin-2:first-child, .col-xs-margin-2:nth-child(2n), .col-xs-margin-quarter:first-child, .col-xs-margin-3:first-child, .col-xs-margin-quarter:nth-child(3n), .col-xs-margin-3:nth-child(3n), .col-xs-margin-third:first-child, .col-xs-margin-4:first-child, .col-xs-margin-third:nth-child(4n), .col-xs-margin-4:nth-child(4n), .col-xs-margin-5:first-child, .col-xs-margin-5:nth-child(5n), .col-xs-margin-half:first-child, .col-xs-margin-6:first-child, .col-xs-margin-half:nth-child(6n), .col-xs-margin-6:nth-child(6n), .col-xs-margin-7:first-child, .col-xs-margin-7:nth-child(7n), .col-xs-margin-two-third:first-child, .col-xs-margin-8:first-child, .col-xs-margin-two-third:nth-child(8n), .col-xs-margin-8:nth-child(8n), .col-xs-margin-three-quarter:first-child, .col-xs-margin-9:first-child, .col-xs-margin-three-quarter:nth-child(9n), .col-xs-margin-9:nth-child(9n), .col-xs-margin-10:first-child, .col-xs-margin-10:nth-child(10n), .col-xs-margin-11:first-child, .col-xs-margin-11:nth-child(11n), .col-xs-margin-full:first-child, .col-xs-margin-12:first-child, .col-xs-margin-full:nth-child(12n), .col-xs-margin-12:nth-child(12n), .col-sm-margin-1:first-child, .col-sm-margin-1:nth-child(1n), .col-sm-margin-2:first-child, .col-sm-margin-2:nth-child(2n), .col-sm-margin-quarter:first-child, .col-sm-margin-3:first-child, .col-sm-margin-quarter:nth-child(3n), .col-sm-margin-3:nth-child(3n), .col-sm-margin-third:first-child, .col-sm-margin-4:first-child, .col-sm-margin-third:nth-child(4n), .col-sm-margin-4:nth-child(4n), .col-sm-margin-5:first-child, .col-sm-margin-5:nth-child(5n), .col-sm-margin-half:first-child, .col-sm-margin-6:first-child, .col-sm-margin-half:nth-child(6n), .col-sm-margin-6:nth-child(6n), .col-sm-margin-7:first-child, .col-sm-margin-7:nth-child(7n), .col-sm-margin-two-third:first-child, .col-sm-margin-8:first-child, .col-sm-margin-two-third:nth-child(8n), .col-sm-margin-8:nth-child(8n), .col-sm-margin-three-quarter:first-child, .col-sm-margin-9:first-child, .col-sm-margin-three-quarter:nth-child(9n), .col-sm-margin-9:nth-child(9n), .col-sm-margin-10:first-child, .col-sm-margin-10:nth-child(10n), .col-sm-margin-11:first-child, .col-sm-margin-11:nth-child(11n), .col-sm-margin-full:first-child, .col-sm-margin-12:first-child, .col-sm-margin-full:nth-child(12n), .col-sm-margin-12:nth-child(12n), .col-md-margin-1:first-child, .col-md-margin-1:nth-child(1n), .col-md-margin-2:first-child, .col-md-margin-2:nth-child(2n), .col-md-margin-quarter:first-child, .col-md-margin-3:first-child, .col-md-margin-quarter:nth-child(3n), .col-md-margin-3:nth-child(3n), .col-md-margin-third:first-child, .col-md-margin-4:first-child, .col-md-margin-third:nth-child(4n), .col-md-margin-4:nth-child(4n), .col-md-margin-5:first-child, .col-md-margin-5:nth-child(5n), .col-md-margin-half:first-child, .col-md-margin-6:first-child, .col-md-margin-half:nth-child(6n), .col-md-margin-6:nth-child(6n), .col-md-margin-7:first-child, .col-md-margin-7:nth-child(7n), .col-md-margin-two-third:first-child, .col-md-margin-8:first-child, .col-md-margin-two-third:nth-child(8n), .col-md-margin-8:nth-child(8n), .col-md-margin-three-quarter:first-child, .col-md-margin-9:first-child, .col-md-margin-three-quarter:nth-child(9n), .col-md-margin-9:nth-child(9n), .col-md-margin-10:first-child, .col-md-margin-10:nth-child(10n), .col-md-margin-11:first-child, .col-md-margin-11:nth-child(11n), .col-md-margin-full:first-child, .col-md-margin-12:first-child, .col-md-margin-full:nth-child(12n), .col-md-margin-12:nth-child(12n) {
+  margin-left: 0;
 }
 
 .col-1 {
@@ -233,16 +245,339 @@ Theme Groups: Responsive Framework
   width: 100%;
 }
 
+@media screen and (min-width: 500px) {
+  .col-xs-margin-1, .col-xs-margin-2, .col-xs-margin-quarter, .col-xs-margin-3, .col-xs-margin-third, .col-xs-margin-4, .col-xs-margin-5, .col-xs-margin-half, .col-xs-margin-6, .col-xs-margin-7, .col-xs-margin-two-third, .col-xs-margin-8, .col-xs-margin-three-quarter, .col-xs-margin-9, .col-xs-margin-10, .col-xs-margin-11, .col-xs-margin-full, .col-xs-margin-12 {
+    margin-left: 2.6%;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .col-xs-1 {
+    /* These classes are using %col-xs-1. */
+    width: 8.33333%;
+    float: left;
+  }
+  .col-xs-push-1 {
+    /* These classes are using %col-xs-push-1. */
+    left: 8.33333%;
+  }
+  .col-xs-pull-1 {
+    /* These classes are using %col-xs-pull-1. */
+    right: 8.33333%;
+  }
+  .col-xs-offset-1 {
+    /* These classes are using %col-xs-offset-1. */
+    margin-left: 8.33333%;
+  }
+  .col-xs-margin-1 {
+    /* These classes are using %col-xs-margin-1. */
+    width: 5.73333%;
+    float: left;
+  }
+
+  .col-xs-2 {
+    /* These classes are using %col-xs-2. */
+    width: 16.66667%;
+    float: left;
+  }
+  .col-xs-push-2 {
+    /* These classes are using %col-xs-push-2. */
+    left: 16.66667%;
+  }
+  .col-xs-pull-2 {
+    /* These classes are using %col-xs-pull-2. */
+    right: 16.66667%;
+  }
+  .col-xs-offset-2 {
+    /* These classes are using %col-xs-offset-2. */
+    margin-left: 16.66667%;
+  }
+  .col-xs-margin-2 {
+    /* These classes are using %col-xs-margin-2. */
+    width: 14.06667%;
+    float: left;
+  }
+
+  .col-xs-quarter, .col-xs-3 {
+    /* These classes are using %col-xs-3. */
+    width: 25%;
+    float: left;
+  }
+  .col-xs-push-quarter, .col-xs-push-3 {
+    /* These classes are using %col-xs-push-3. */
+    left: 25%;
+  }
+  .col-xs-pull-quarter, .col-xs-pull-3 {
+    /* These classes are using %col-xs-pull-3. */
+    right: 25%;
+  }
+  .col-xs-offset-quarter, .col-xs-offset-3 {
+    /* These classes are using %col-xs-offset-3. */
+    margin-left: 25%;
+  }
+  .col-xs-margin-quarter, .col-xs-margin-3 {
+    /* These classes are using %col-xs-margin-3. */
+    width: 22.4%;
+    float: left;
+  }
+
+  .col-xs-third, .col-xs-4 {
+    /* These classes are using %col-xs-4. */
+    width: 33.33333%;
+    float: left;
+  }
+  .col-xs-push-third, .col-xs-push-4 {
+    /* These classes are using %col-xs-push-4. */
+    left: 33.33333%;
+  }
+  .col-xs-pull-third, .col-xs-pull-4 {
+    /* These classes are using %col-xs-pull-4. */
+    right: 33.33333%;
+  }
+  .col-xs-offset-third, .col-xs-offset-4 {
+    /* These classes are using %col-xs-offset-4. */
+    margin-left: 33.33333%;
+  }
+  .col-xs-margin-third, .col-xs-margin-4 {
+    /* These classes are using %col-xs-margin-4. */
+    width: 30.73333%;
+    float: left;
+  }
+
+  .col-xs-5 {
+    /* These classes are using %col-xs-5. */
+    width: 41.66667%;
+    float: left;
+  }
+  .col-xs-push-5 {
+    /* These classes are using %col-xs-push-5. */
+    left: 41.66667%;
+  }
+  .col-xs-pull-5 {
+    /* These classes are using %col-xs-pull-5. */
+    right: 41.66667%;
+  }
+  .col-xs-offset-5 {
+    /* These classes are using %col-xs-offset-5. */
+    margin-left: 41.66667%;
+  }
+  .col-xs-margin-5 {
+    /* These classes are using %col-xs-margin-5. */
+    width: 39.06667%;
+    float: left;
+  }
+
+  .col-xs-half, .col-xs-6 {
+    /* These classes are using %col-xs-6. */
+    width: 50%;
+    float: left;
+  }
+  .col-xs-push-half, .col-xs-push-6 {
+    /* These classes are using %col-xs-push-6. */
+    left: 50%;
+  }
+  .col-xs-pull-half, .col-xs-pull-6 {
+    /* These classes are using %col-xs-pull-6. */
+    right: 50%;
+  }
+  .col-xs-offset-half, .col-xs-offset-6 {
+    /* These classes are using %col-xs-offset-6. */
+    margin-left: 50%;
+  }
+  .col-xs-margin-half, .col-xs-margin-6 {
+    /* These classes are using %col-xs-margin-6. */
+    width: 47.4%;
+    float: left;
+  }
+
+  .col-xs-7 {
+    /* These classes are using %col-xs-7. */
+    width: 58.33333%;
+    float: left;
+  }
+  .col-xs-push-7 {
+    /* These classes are using %col-xs-push-7. */
+    left: 58.33333%;
+  }
+  .col-xs-pull-7 {
+    /* These classes are using %col-xs-pull-7. */
+    right: 58.33333%;
+  }
+  .col-xs-offset-7 {
+    /* These classes are using %col-xs-offset-7. */
+    margin-left: 58.33333%;
+  }
+  .col-xs-margin-7 {
+    /* These classes are using %col-xs-margin-7. */
+    width: 55.73333%;
+    float: left;
+  }
+
+  .col-xs-two-third, .col-xs-8 {
+    /* These classes are using %col-xs-8. */
+    width: 66.66667%;
+    float: left;
+  }
+  .col-xs-push-two-third, .col-xs-push-8 {
+    /* These classes are using %col-xs-push-8. */
+    left: 66.66667%;
+  }
+  .col-xs-pull-two-third, .col-xs-pull-8 {
+    /* These classes are using %col-xs-pull-8. */
+    right: 66.66667%;
+  }
+  .col-xs-offset-two-third, .col-xs-offset-8 {
+    /* These classes are using %col-xs-offset-8. */
+    margin-left: 66.66667%;
+  }
+  .col-xs-margin-two-third, .col-xs-margin-8 {
+    /* These classes are using %col-xs-margin-8. */
+    width: 64.06667%;
+    float: left;
+  }
+
+  .col-xs-three-quarter, .col-xs-9 {
+    /* These classes are using %col-xs-9. */
+    width: 75%;
+    float: left;
+  }
+  .col-xs-push-three-quarter, .col-xs-push-9 {
+    /* These classes are using %col-xs-push-9. */
+    left: 75%;
+  }
+  .col-xs-pull-three-quarter, .col-xs-pull-9 {
+    /* These classes are using %col-xs-pull-9. */
+    right: 75%;
+  }
+  .col-xs-offset-three-quarter, .col-xs-offset-9 {
+    /* These classes are using %col-xs-offset-9. */
+    margin-left: 75%;
+  }
+  .col-xs-margin-three-quarter, .col-xs-margin-9 {
+    /* These classes are using %col-xs-margin-9. */
+    width: 72.4%;
+    float: left;
+  }
+
+  .col-xs-10 {
+    /* These classes are using %col-xs-10. */
+    width: 83.33333%;
+    float: left;
+  }
+  .col-xs-push-10 {
+    /* These classes are using %col-xs-push-10. */
+    left: 83.33333%;
+  }
+  .col-xs-pull-10 {
+    /* These classes are using %col-xs-pull-10. */
+    right: 83.33333%;
+  }
+  .col-xs-offset-10 {
+    /* These classes are using %col-xs-offset-10. */
+    margin-left: 83.33333%;
+  }
+  .col-xs-margin-10 {
+    /* These classes are using %col-xs-margin-10. */
+    width: 80.73333%;
+    float: left;
+  }
+
+  .col-xs-11 {
+    /* These classes are using %col-xs-11. */
+    width: 91.66667%;
+    float: left;
+  }
+  .col-xs-push-11 {
+    /* These classes are using %col-xs-push-11. */
+    left: 91.66667%;
+  }
+  .col-xs-pull-11 {
+    /* These classes are using %col-xs-pull-11. */
+    right: 91.66667%;
+  }
+  .col-xs-offset-11 {
+    /* These classes are using %col-xs-offset-11. */
+    margin-left: 91.66667%;
+  }
+  .col-xs-margin-11 {
+    /* These classes are using %col-xs-margin-11. */
+    width: 89.06667%;
+    float: left;
+  }
+
+  .col-xs-full, .col-xs-12 {
+    /* These classes are using %col-xs-12. */
+    width: 100%;
+    float: left;
+  }
+  .col-xs-push-full, .col-xs-push-12 {
+    /* These classes are using %col-xs-push-12. */
+    left: 100%;
+  }
+  .col-xs-pull-full, .col-xs-pull-12 {
+    /* These classes are using %col-xs-pull-12. */
+    right: 100%;
+  }
+  .col-xs-offset-full, .col-xs-offset-12 {
+    /* These classes are using %col-xs-offset-12. */
+    margin-left: 100%;
+  }
+  .col-xs-margin-full, .col-xs-margin-12 {
+    /* These classes are using %col-xs-margin-12. */
+    width: 97.4%;
+    float: left;
+  }
+}
+@media screen and (min-width: 768px) {
+  .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12 {
+    margin-left: 2.6%;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .col-sm-1 {
     /* These classes are using %col-sm-1. */
     width: 8.33333%;
     float: left;
   }
+  .col-sm-push-1 {
+    /* These classes are using %col-sm-push-1. */
+    left: 8.33333%;
+  }
+  .col-sm-pull-1 {
+    /* These classes are using %col-sm-pull-1. */
+    right: 8.33333%;
+  }
+  .col-sm-offset-1 {
+    /* These classes are using %col-sm-offset-1. */
+    margin-left: 8.33333%;
+  }
+  .col-sm-margin-1 {
+    /* These classes are using %col-sm-margin-1. */
+    width: 5.73333%;
+    float: left;
+  }
 
   .col-sm-2 {
     /* These classes are using %col-sm-2. */
     width: 16.66667%;
+    float: left;
+  }
+  .col-sm-push-2 {
+    /* These classes are using %col-sm-push-2. */
+    left: 16.66667%;
+  }
+  .col-sm-pull-2 {
+    /* These classes are using %col-sm-pull-2. */
+    right: 16.66667%;
+  }
+  .col-sm-offset-2 {
+    /* These classes are using %col-sm-offset-2. */
+    margin-left: 16.66667%;
+  }
+  .col-sm-margin-2 {
+    /* These classes are using %col-sm-margin-2. */
+    width: 14.06667%;
     float: left;
   }
 
@@ -257,16 +592,67 @@ Theme Groups: Responsive Framework
     width: 25%;
     float: left;
   }
+  .col-sm-push-quarter, .col-sm-push-3 {
+    /* These classes are using %col-sm-push-3. */
+    left: 25%;
+  }
+  .col-sm-pull-quarter, .col-sm-pull-3 {
+    /* These classes are using %col-sm-pull-3. */
+    right: 25%;
+  }
+  .col-sm-offset-quarter, .col-sm-offset-3 {
+    /* These classes are using %col-sm-offset-3. */
+    margin-left: 25%;
+  }
+  .col-sm-margin-quarter, .col-sm-margin-3 {
+    /* These classes are using %col-sm-margin-3. */
+    width: 22.4%;
+    float: left;
+  }
 
   .col-sm-third, .col-sm-4 {
     /* These classes are using %col-sm-4. */
     width: 33.33333%;
     float: left;
   }
+  .col-sm-push-third, .col-sm-push-4 {
+    /* These classes are using %col-sm-push-4. */
+    left: 33.33333%;
+  }
+  .col-sm-pull-third, .col-sm-pull-4 {
+    /* These classes are using %col-sm-pull-4. */
+    right: 33.33333%;
+  }
+  .col-sm-offset-third, .col-sm-offset-4 {
+    /* These classes are using %col-sm-offset-4. */
+    margin-left: 33.33333%;
+  }
+  .col-sm-margin-third, .col-sm-margin-4 {
+    /* These classes are using %col-sm-margin-4. */
+    width: 30.73333%;
+    float: left;
+  }
 
   .col-sm-5 {
     /* These classes are using %col-sm-5. */
     width: 41.66667%;
+    float: left;
+  }
+  .col-sm-push-5 {
+    /* These classes are using %col-sm-push-5. */
+    left: 41.66667%;
+  }
+  .col-sm-pull-5 {
+    /* These classes are using %col-sm-pull-5. */
+    right: 41.66667%;
+  }
+  .col-sm-offset-5 {
+    /* These classes are using %col-sm-offset-5. */
+    margin-left: 41.66667%;
+  }
+  .col-sm-margin-5 {
+    /* These classes are using %col-sm-margin-5. */
+    width: 39.06667%;
     float: left;
   }
 
@@ -281,16 +667,67 @@ Theme Groups: Responsive Framework
     width: 50%;
     float: left;
   }
+  .col-sm-push-half, .col-sm-push-6 {
+    /* These classes are using %col-sm-push-6. */
+    left: 50%;
+  }
+  .col-sm-pull-half, .col-sm-pull-6 {
+    /* These classes are using %col-sm-pull-6. */
+    right: 50%;
+  }
+  .col-sm-offset-half, .col-sm-offset-6 {
+    /* These classes are using %col-sm-offset-6. */
+    margin-left: 50%;
+  }
+  .col-sm-margin-half, .col-sm-margin-6 {
+    /* These classes are using %col-sm-margin-6. */
+    width: 47.4%;
+    float: left;
+  }
 
   .col-sm-7 {
     /* These classes are using %col-sm-7. */
     width: 58.33333%;
     float: left;
   }
+  .col-sm-push-7 {
+    /* These classes are using %col-sm-push-7. */
+    left: 58.33333%;
+  }
+  .col-sm-pull-7 {
+    /* These classes are using %col-sm-pull-7. */
+    right: 58.33333%;
+  }
+  .col-sm-offset-7 {
+    /* These classes are using %col-sm-offset-7. */
+    margin-left: 58.33333%;
+  }
+  .col-sm-margin-7 {
+    /* These classes are using %col-sm-margin-7. */
+    width: 55.73333%;
+    float: left;
+  }
 
   .col-sm-two-third, .col-sm-8 {
     /* These classes are using %col-sm-8. */
     width: 66.66667%;
+    float: left;
+  }
+  .col-sm-push-two-third, .col-sm-push-8 {
+    /* These classes are using %col-sm-push-8. */
+    left: 66.66667%;
+  }
+  .col-sm-pull-two-third, .col-sm-pull-8 {
+    /* These classes are using %col-sm-pull-8. */
+    right: 66.66667%;
+  }
+  .col-sm-offset-two-third, .col-sm-offset-8 {
+    /* These classes are using %col-sm-offset-8. */
+    margin-left: 66.66667%;
+  }
+  .col-sm-margin-two-third, .col-sm-margin-8 {
+    /* These classes are using %col-sm-margin-8. */
+    width: 64.06667%;
     float: left;
   }
 
@@ -301,16 +738,67 @@ Theme Groups: Responsive Framework
     width: 75%;
     float: left;
   }
+  .col-sm-push-three-quarter, .col-sm-push-9 {
+    /* These classes are using %col-sm-push-9. */
+    left: 75%;
+  }
+  .col-sm-pull-three-quarter, .col-sm-pull-9 {
+    /* These classes are using %col-sm-pull-9. */
+    right: 75%;
+  }
+  .col-sm-offset-three-quarter, .col-sm-offset-9 {
+    /* These classes are using %col-sm-offset-9. */
+    margin-left: 75%;
+  }
+  .col-sm-margin-three-quarter, .col-sm-margin-9 {
+    /* These classes are using %col-sm-margin-9. */
+    width: 72.4%;
+    float: left;
+  }
 
   .col-sm-10 {
     /* These classes are using %col-sm-10. */
     width: 83.33333%;
     float: left;
   }
+  .col-sm-push-10 {
+    /* These classes are using %col-sm-push-10. */
+    left: 83.33333%;
+  }
+  .col-sm-pull-10 {
+    /* These classes are using %col-sm-pull-10. */
+    right: 83.33333%;
+  }
+  .col-sm-offset-10 {
+    /* These classes are using %col-sm-offset-10. */
+    margin-left: 83.33333%;
+  }
+  .col-sm-margin-10 {
+    /* These classes are using %col-sm-margin-10. */
+    width: 80.73333%;
+    float: left;
+  }
 
   .col-sm-11 {
     /* These classes are using %col-sm-11. */
     width: 91.66667%;
+    float: left;
+  }
+  .col-sm-push-11 {
+    /* These classes are using %col-sm-push-11. */
+    left: 91.66667%;
+  }
+  .col-sm-pull-11 {
+    /* These classes are using %col-sm-pull-11. */
+    right: 91.66667%;
+  }
+  .col-sm-offset-11 {
+    /* These classes are using %col-sm-offset-11. */
+    margin-left: 91.66667%;
+  }
+  .col-sm-margin-11 {
+    /* These classes are using %col-sm-margin-11. */
+    width: 89.06667%;
     float: left;
   }
 
@@ -322,11 +810,51 @@ Theme Groups: Responsive Framework
     width: 100%;
     float: left;
   }
+  .col-sm-push-full, .col-sm-push-12 {
+    /* These classes are using %col-sm-push-12. */
+    left: 100%;
+  }
+  .col-sm-pull-full, .col-sm-pull-12 {
+    /* These classes are using %col-sm-pull-12. */
+    right: 100%;
+  }
+  .col-sm-offset-full, .col-sm-offset-12 {
+    /* These classes are using %col-sm-offset-12. */
+    margin-left: 100%;
+  }
+  .col-sm-margin-full, .col-sm-margin-12 {
+    /* These classes are using %col-sm-margin-12. */
+    width: 97.4%;
+    float: left;
+  }
 }
+@media screen and (min-width: 992px) {
+  .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12 {
+    margin-left: 2.6%;
+  }
+}
+
 @media screen and (min-width: 992px) {
   .col-md-1 {
     /* These classes are using %col-md-1. */
     width: 8.33333%;
+    float: left;
+  }
+  .col-md-push-1 {
+    /* These classes are using %col-md-push-1. */
+    left: 8.33333%;
+  }
+  .col-md-pull-1 {
+    /* These classes are using %col-md-pull-1. */
+    right: 8.33333%;
+  }
+  .col-md-offset-1 {
+    /* These classes are using %col-md-offset-1. */
+    margin-left: 8.33333%;
+  }
+  .col-md-margin-1 {
+    /* These classes are using %col-md-margin-1. */
+    width: 5.73333%;
     float: left;
   }
 
@@ -335,10 +863,44 @@ Theme Groups: Responsive Framework
     width: 16.66667%;
     float: left;
   }
+  .col-md-push-2 {
+    /* These classes are using %col-md-push-2. */
+    left: 16.66667%;
+  }
+  .col-md-pull-2 {
+    /* These classes are using %col-md-pull-2. */
+    right: 16.66667%;
+  }
+  .col-md-offset-2 {
+    /* These classes are using %col-md-offset-2. */
+    margin-left: 16.66667%;
+  }
+  .col-md-margin-2 {
+    /* These classes are using %col-md-margin-2. */
+    width: 14.06667%;
+    float: left;
+  }
 
   .col-md-quarter, .col-md-3 {
     /* These classes are using %col-md-3. */
     width: 25%;
+    float: left;
+  }
+  .col-md-push-quarter, .col-md-push-3 {
+    /* These classes are using %col-md-push-3. */
+    left: 25%;
+  }
+  .col-md-pull-quarter, .col-md-pull-3 {
+    /* These classes are using %col-md-pull-3. */
+    right: 25%;
+  }
+  .col-md-offset-quarter, .col-md-offset-3 {
+    /* These classes are using %col-md-offset-3. */
+    margin-left: 25%;
+  }
+  .col-md-margin-quarter, .col-md-margin-3 {
+    /* These classes are using %col-md-margin-3. */
+    width: 22.4%;
     float: left;
   }
 
@@ -348,10 +910,44 @@ Theme Groups: Responsive Framework
     width: 33.33333%;
     float: left;
   }
+  .col-md-push-third, .col-md-push-4 {
+    /* These classes are using %col-md-push-4. */
+    left: 33.33333%;
+  }
+  .col-md-pull-third, .col-md-pull-4 {
+    /* These classes are using %col-md-pull-4. */
+    right: 33.33333%;
+  }
+  .col-md-offset-third, .col-md-offset-4 {
+    /* These classes are using %col-md-offset-4. */
+    margin-left: 33.33333%;
+  }
+  .col-md-margin-third, .col-md-margin-4 {
+    /* These classes are using %col-md-margin-4. */
+    width: 30.73333%;
+    float: left;
+  }
 
   .col-md-5 {
     /* These classes are using %col-md-5. */
     width: 41.66667%;
+    float: left;
+  }
+  .col-md-push-5 {
+    /* These classes are using %col-md-push-5. */
+    left: 41.66667%;
+  }
+  .col-md-pull-5 {
+    /* These classes are using %col-md-pull-5. */
+    right: 41.66667%;
+  }
+  .col-md-offset-5 {
+    /* These classes are using %col-md-offset-5. */
+    margin-left: 41.66667%;
+  }
+  .col-md-margin-5 {
+    /* These classes are using %col-md-margin-5. */
+    width: 39.06667%;
     float: left;
   }
 
@@ -360,10 +956,44 @@ Theme Groups: Responsive Framework
     width: 50%;
     float: left;
   }
+  .col-md-push-half, .col-md-push-6 {
+    /* These classes are using %col-md-push-6. */
+    left: 50%;
+  }
+  .col-md-pull-half, .col-md-pull-6 {
+    /* These classes are using %col-md-pull-6. */
+    right: 50%;
+  }
+  .col-md-offset-half, .col-md-offset-6 {
+    /* These classes are using %col-md-offset-6. */
+    margin-left: 50%;
+  }
+  .col-md-margin-half, .col-md-margin-6 {
+    /* These classes are using %col-md-margin-6. */
+    width: 47.4%;
+    float: left;
+  }
 
   .col-md-7 {
     /* These classes are using %col-md-7. */
     width: 58.33333%;
+    float: left;
+  }
+  .col-md-push-7 {
+    /* These classes are using %col-md-push-7. */
+    left: 58.33333%;
+  }
+  .col-md-pull-7 {
+    /* These classes are using %col-md-pull-7. */
+    right: 58.33333%;
+  }
+  .col-md-offset-7 {
+    /* These classes are using %col-md-offset-7. */
+    margin-left: 58.33333%;
+  }
+  .col-md-margin-7 {
+    /* These classes are using %col-md-margin-7. */
+    width: 55.73333%;
     float: left;
   }
 
@@ -372,10 +1002,44 @@ Theme Groups: Responsive Framework
     width: 66.66667%;
     float: left;
   }
+  .col-md-push-two-third, .col-md-push-8 {
+    /* These classes are using %col-md-push-8. */
+    left: 66.66667%;
+  }
+  .col-md-pull-two-third, .col-md-pull-8 {
+    /* These classes are using %col-md-pull-8. */
+    right: 66.66667%;
+  }
+  .col-md-offset-two-third, .col-md-offset-8 {
+    /* These classes are using %col-md-offset-8. */
+    margin-left: 66.66667%;
+  }
+  .col-md-margin-two-third, .col-md-margin-8 {
+    /* These classes are using %col-md-margin-8. */
+    width: 64.06667%;
+    float: left;
+  }
 
   .col-md-three-quarter, .col-md-9 {
     /* These classes are using %col-md-9. */
     width: 75%;
+    float: left;
+  }
+  .col-md-push-three-quarter, .col-md-push-9 {
+    /* These classes are using %col-md-push-9. */
+    left: 75%;
+  }
+  .col-md-pull-three-quarter, .col-md-pull-9 {
+    /* These classes are using %col-md-pull-9. */
+    right: 75%;
+  }
+  .col-md-offset-three-quarter, .col-md-offset-9 {
+    /* These classes are using %col-md-offset-9. */
+    margin-left: 75%;
+  }
+  .col-md-margin-three-quarter, .col-md-margin-9 {
+    /* These classes are using %col-md-margin-9. */
+    width: 72.4%;
     float: left;
   }
 
@@ -384,14 +1048,49 @@ Theme Groups: Responsive Framework
     width: 83.33333%;
     float: left;
   }
+  .col-md-push-10 {
+    /* These classes are using %col-md-push-10. */
+    left: 83.33333%;
+  }
+  .col-md-pull-10 {
+    /* These classes are using %col-md-pull-10. */
+    right: 83.33333%;
+  }
+  .col-md-offset-10 {
+    /* These classes are using %col-md-offset-10. */
+    margin-left: 83.33333%;
+  }
+  .col-md-margin-10 {
+    /* These classes are using %col-md-margin-10. */
+    width: 80.73333%;
+    float: left;
+  }
 
   .col-md-11 {
     /* These classes are using %col-md-11. */
     width: 91.66667%;
     float: left;
   }
+  .col-md-push-11 {
+    /* These classes are using %col-md-push-11. */
+    left: 91.66667%;
+  }
+  .col-md-pull-11 {
+    /* These classes are using %col-md-pull-11. */
+    right: 91.66667%;
+  }
+  .col-md-offset-11 {
+    /* These classes are using %col-md-offset-11. */
+    margin-left: 91.66667%;
+  }
+  .col-md-margin-11 {
+    /* These classes are using %col-md-margin-11. */
+    width: 89.06667%;
+    float: left;
+  }
 
   .col-md-full,
+  .home.blog article[role=main],
   .archive article[role=main],
   .page-template-news article[role=main],
   .single-post article[role=main],
@@ -401,6 +1100,23 @@ Theme Groups: Responsive Framework
   .post-type-archive-profile article[role=main], .col-md-12 {
     /* These classes are using %col-md-12. */
     width: 100%;
+    float: left;
+  }
+  .col-md-push-full, .col-md-push-12 {
+    /* These classes are using %col-md-push-12. */
+    left: 100%;
+  }
+  .col-md-pull-full, .col-md-pull-12 {
+    /* These classes are using %col-md-pull-12. */
+    right: 100%;
+  }
+  .col-md-offset-full, .col-md-offset-12 {
+    /* These classes are using %col-md-offset-12. */
+    margin-left: 100%;
+  }
+  .col-md-margin-full, .col-md-margin-12 {
+    /* These classes are using %col-md-margin-12. */
+    width: 97.4%;
     float: left;
   }
 }
@@ -1778,12 +2494,12 @@ article[role=main] {
 }
 
 /* Sub-brand signature */
-.brand-signature {
+.brand-signature, .brand-sponsored {
   padding: 6px 30px 6px 56px;
   background: url("http://www.bu.edu/cdn/images/logos/subbrand49x35.png") no-repeat 0 49%;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .brand-signature {
+  .brand-signature, .brand-sponsored {
     background-image: url("http://www.bu.edu/cdn/images/logos/subbrand49x35-retina.png");
     background-size: 49px 35px;
   }
@@ -1794,13 +2510,12 @@ article[role=main] {
 }
 
 /* Sponsored branding */
-.brand-sponsored {
-  font-size: 14px;
+.brand-sponsored, .brand-sponsored .siteName {
+  font-size: 16px;
+  display: block;
 }
 
-.brand-sponsored .siteName,
 .brand-unbranded .siteName {
-  display: block;
   font-family: "Whitney SSm A", "Whitney SSm B", "Benton", Helvetica, sans-serif;
   font-weight: 600;
   font-size: 20px;
@@ -2025,6 +2740,7 @@ nav a {
 .brand .siteDescription {
   float: left;
   width: auto;
+  margin-left: 50px;
 }
 
 /* quicksearch (use WordPress plugin class name)
@@ -2356,7 +3072,7 @@ nav a {
 @media screen and (min-width: 768px) {
   .l-default .utilityNav {
     position: absolute;
-    top: 49px;
+    top: 47px;
     right: 20px;
   }
 }
@@ -3135,6 +3851,7 @@ h6.bu_collapsible {
 ----------------------------------------------------------------- */
 /* Narrow Content Column
 ----------------------------------------------------------------- */
+.home.blog,
 .archive,
 .page-template-news,
 .single-post,
@@ -3144,6 +3861,7 @@ h6.bu_collapsible {
 .post-type-archive-profile {
   /* These classes are using %templateNarrow. */
 }
+.home.blog .content-container,
 .archive .content-container,
 .page-template-news .content-container,
 .single-post .content-container,
@@ -3236,6 +3954,27 @@ h6.bu_collapsible {
 
 .paging-navigation .nav-next {
   float: right;
+}
+
+/* Homepage set to show Posts
+----------------------------------------------------------------- */
+.home.blog .paging-navigation {
+  margin-bottom: 30px;
+}
+
+.home.blog .tags {
+  margin-bottom: 24px;
+}
+
+.home.blog .content-container article {
+  position: relative;
+  padding-top: 30px;
+  margin-top: 30px;
+  border: 1px solid #dddddd;
+  border-width: 1px 0 0 0;
+}
+.home.blog .content-container article:first-child {
+  border: none;
 }
 
 /* Single Post
