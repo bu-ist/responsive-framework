@@ -1,3 +1,8 @@
+# 1.3.5
+
+* Fixing post display options array (https://github.com/bu-ist/responsive-framework/commit/dd72447ea1e54b5ee7ba572a00b82d4c1691321e)
+* Update to [Responsive Foundation 1.2.1](https://github.com/bu-ist/responsive-foundation/releases/tag/1.2.1)
+
 # 1.3.4-beta
 
 * Create new gravity forms contact forms only when necessary.
