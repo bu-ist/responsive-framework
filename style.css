@@ -2495,7 +2495,7 @@ article[role=main] {
 
 /* Sub-brand signature */
 .brand-signature, .brand-sponsored {
-  padding: 6px 30px 6px 56px;
+  padding: 10px 30px 10px 56px;
   background: url("http://www.bu.edu/cdn/images/logos/subbrand49x35.png") no-repeat 0 49%;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
@@ -2524,6 +2524,15 @@ article[role=main] {
 
 .brand-unbranded .siteName {
   font-family: "Benton", Helvetica, sans-serif;
+}
+
+.brand .brand-sponsored.has-title strong {
+  font-weight: 400 !important;
+}
+
+.brand .brand-sponsored.has-title.has-parent strong,
+.brand .brand-sponsored.has-title.has-parent.has-subparent strong {
+  font-weight: 600 !important;
 }
 
 /* Master logo in footer */
