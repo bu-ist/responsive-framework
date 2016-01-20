@@ -2511,7 +2511,6 @@ article[role=main] {
 
 /* Sponsored branding */
 .brand-sponsored, .brand-sponsored .siteName {
-  font-size: 16px;
   display: block;
 }
 
@@ -2533,6 +2532,15 @@ article[role=main] {
 .brand .brand-sponsored.has-title.has-parent strong,
 .brand .brand-sponsored.has-title.has-parent.has-subparent strong {
   font-weight: 600 !important;
+}
+
+.brand .brand-sponsored.has-title {
+  font-size: 18px;
+}
+
+.brand .brand-sponsored.has-title.has-parent,
+.brand .brand-sponsored.has-title.has-parent.has-subparent {
+  font-size: 16px;
 }
 
 /* Master logo in footer */
