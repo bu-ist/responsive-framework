@@ -3,6 +3,12 @@
 #burf_setting_layout input {
 	display: none;
 }
+#burf_setting_fonts label,
+#burf_setting_layout label{
+	width: auto;
+	height: auto;
+	display: inline-block;
+}
 #burf_setting_layout label {
 	font-size: 0;
 }
