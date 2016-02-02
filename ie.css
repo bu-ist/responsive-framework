@@ -2388,7 +2388,7 @@ article[role=main] {
 
 /* Sub-brand signature */
 .brand-signature, .brand-sponsored {
-  padding: 10px 30px 10px 56px;
+  padding: 10px 30px 9px 56px;
   background: url("http://www.bu.edu/cdn/images/logos/subbrand49x35.png") no-repeat 0 49%;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
