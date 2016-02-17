@@ -259,6 +259,16 @@ function responsive_maybe_migrate_theme( $old_name, $old_theme ) {
 }
 
 add_action( 'after_switch_theme', 'responsive_maybe_migrate_theme', 1, 2 );
+/**
+ * Reset title tag for navigation
+ */
+ 
+function responsive_change_title_tag($attr, $page) {
+	unset($attr['title']);
+	$attr['title'] .=  'Navigate to: ' . $page->navigation_label;
+	return $attr;
+}
+add_filter('bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 10, 2);
 
 /**
  * Admin
