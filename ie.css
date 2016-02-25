@@ -2670,11 +2670,6 @@ nav a {
   margin: 0 auto;
 }
 
-#quicksearch legend,
-#quicksearch select {
-  display: none;
-}
-
 #quicksearch .button {
   -webkit-border-radius: 0 20px 20px 0;
   -moz-border-radius: 0 20px 20px 0;
@@ -3152,6 +3147,21 @@ h4.bu_collapsible,
 h5.bu_collapsible,
 h6.bu_collapsible {
   margin-bottom: 0;
+}
+
+/* WordPress accessibility classes */
+/* Hide visually but not from screen readers */
+.screen-reader-text,
+.screen-reader-text span,
+.ui-helper-hidden-accessible {
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
 }
 
 /* WordPress inline align classes (use WP standard class names) */
