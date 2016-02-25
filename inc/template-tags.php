@@ -111,21 +111,12 @@ function responsive_search_form() {
 
 	// Display search form based on whether or not site wide restriction is in place
 	if ( $bu_search && ! $site_restricted ) {
-		bu_search_form();
+		bu_search_form( '', '', array( 'responsive' => true ) );
 	} else {
 		// If bu_search_form doesn't exist or the site is restricted, use default WP Search
 		get_search_form();
 	}
 }
-
-/**
- * Add a placeholder attribute to the search form added by BU CMS.
- */
-function responsive_bu_search_form_query_attributes( $attrs ) {
-	return 'placeholder="Search site..."';
-}
-
-add_filter( 'bu_search_form_query_attributes', 'responsive_bu_search_form_query_attributes' );
 
 /**
  * Generates a list of category links.
