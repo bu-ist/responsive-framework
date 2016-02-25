@@ -2670,7 +2670,7 @@ nav a {
   margin: 0 auto;
 }
 
-#quicksearch label,
+#quicksearch legend,
 #quicksearch select {
   display: none;
 }
