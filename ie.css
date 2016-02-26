@@ -2676,8 +2676,8 @@ nav a {
   -ms-border-radius: 0 20px 20px 0;
   border-radius: 0 20px 20px 0;
   width: 25%;
-  padding-right: 0;
-  padding-left: 0;
+  padding: 11px 0 12px 0;
+  float: right;
   width: 15%;
 }
 
