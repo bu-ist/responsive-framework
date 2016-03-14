@@ -20,6 +20,7 @@ function responsive_calendar_sidebar( $args = array() ) {
 		'calendar_uri'  => get_permalink( $post ),
 		'page_template' => 'page-templates/calendar.php',
 		'topic_heading' => 'Topics',
+		'monthly_dropdown' => false,
 	);
 
 	$args = wp_parse_args( $args, $defaults );
@@ -36,7 +37,7 @@ function responsive_calendar_sidebar( $args = array() ) {
 
 		<div class="widget">
 			<h2 class="widgetTitle">Event Calendar</h2>
-			<?php echo $buCalendar->buildMonthCalendar( $yyyymmdd ); ?>
+			<?php echo $buCalendar->buildMonthCalendar( $yyyymmdd, NULL, $args['monthly_dropdown'] ); ?>
 		</div>
 		<?php if ( $args['show_topics'] ): ?>
 		<div id="calendar-topics" class="widget">
