@@ -19,6 +19,7 @@ function responsive_calendar_sidebar( $args = array() ) {
 		'show_topics'   => true,
 		'calendar_uri'  => get_permalink( $post ),
 		'page_template' => 'page-templates/calendar.php',
+		'topic_heading' => 'Topics',
 	);
 
 	$args = wp_parse_args( $args, $defaults );
@@ -39,8 +40,8 @@ function responsive_calendar_sidebar( $args = array() ) {
 		</div>
 		<?php if ( $args['show_topics'] ): ?>
 		<div id="calendar-topics" class="widget">
-			<h2 class="widgetTitle">Event Topics</h2>
-			<p><a class="content_nav_header" href="<?php echo $all_topics_url; ?>">All Topics</a></p>
+			<h2 class="widgetTitle">Event <?php echo $args['topic_heading']; ?></h2>
+			<p><a class="content_nav_header" href="<?php echo $all_topics_url; ?>">All <?php echo $args['topic_heading']; ?></a></p>
 		<?php  echo $buCalendar->buildTopicTree( $topics ); ?>
 		</div>
 		<?php endif; ?>
