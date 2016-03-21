@@ -12,6 +12,13 @@
 	$( '.searchToggle' ).on( 'click', function ( e ) {
 		e.preventDefault();
 		$( 'nav, .navToggle' ).removeClass( 'is-open' );
+
+		if( ! $( this ).hasClass( 'is-open' ) ){
+			setTimeout(function(){
+				$( '#q' ).focus();
+			}, 100 );
+		}
+
 		$( '.searchToggle, #quicksearch' ).toggleClass( 'is-open' );
 		$( 'body' ).toggleClass( 'search-open' ).removeClass('nav-open');
 	});
