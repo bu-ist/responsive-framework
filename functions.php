@@ -6,7 +6,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.3.5' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.4.0' );
 
 /**
  * Theme version.
@@ -259,6 +259,16 @@ function responsive_maybe_migrate_theme( $old_name, $old_theme ) {
 }
 
 add_action( 'after_switch_theme', 'responsive_maybe_migrate_theme', 1, 2 );
+/**
+ * Reset title tag for navigation
+ */
+
+function responsive_change_title_tag($attr, $page) {
+	unset($attr['title']);
+	$attr['title'] .=  'Navigate to: ' . $page->navigation_label;
+	return $attr;
+}
+add_filter('bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 10, 2);
 
 /**
  * Admin
@@ -319,6 +329,13 @@ require __DIR__ . '/inc/post-lists.php';
  * @link http://github.com/bu-ist/bu-sharing
  */
 require __DIR__ . '/inc/sharing.php';
+
+/**
+ * Plugin support - BU CMS/Search Form
+ *
+ * @link http://github.com/bu-ist/bu-cms
+ */
+require __DIR__ . '/inc/search-form.php';
 
 /**
  * Reusable template tags to keep templates logic-free.

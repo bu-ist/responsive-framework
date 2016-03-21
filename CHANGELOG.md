@@ -1,3 +1,10 @@
+# 1.4.0
+
+* Calendar api update: enabling monthly dropdown menu & topic heading text
+* Search form & search form accessibility improvements
+* Branding updates
+* Customizer Layout & Fonts bug fix (#43)
+
 # 1.3.5
 
 * Fixing post display options array (https://github.com/bu-ist/responsive-framework/commit/dd72447ea1e54b5ee7ba572a00b82d4c1691321e)
