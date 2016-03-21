@@ -881,7 +881,9 @@ a.button-selected {
 /* link hover color */
 .sidebar .widget a:hover,
 .sidebar #contentnav li a:hover,
-.sidebar .widget_nav_menu li a:hover {
+.sidebar .widget_nav_menu li a:hover,
+.sidebar #contentnav li.current_page_item > a,
+.sidebar .widget_nav_menu li.current_page_item > a {
 	color: {$colors['sidebar-link-hover']};
 }
 

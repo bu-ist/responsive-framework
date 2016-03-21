@@ -3,7 +3,7 @@
 Theme Name: Responsive Framework
 Author: Boston University Interactive Design
 Website: http://www.bu.edu/interactive-design/
-Version: 1.3.4-beta
+Version: 1.4.0
 Description: A responsive WordPress theme framework built with the Responsive Foundation.
 Theme Groups: Responsive Framework
 */
@@ -27,58 +27,58 @@ Theme Groups: Responsive Framework
 /* Benton */
 @font-face {
   font-family: "Benton";
-  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-1.ttf") format("truetype");
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot");
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot?") format("embedded-opentype"), url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-3.woff") format("woff"), url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-1.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
   font-family: "Benton";
-  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-1.ttf") format("truetype");
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot");
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot?") format("embedded-opentype"), url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-3.woff") format("woff"), url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-1.ttf") format("truetype");
   font-style: italic;
   font-weight: 400;
 }
 @font-face {
   font-family: "Benton";
-  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-1.ttf") format("truetype");
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot");
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot?") format("embedded-opentype"), url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-3.woff") format("woff"), url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-1.ttf") format("truetype");
   font-style: normal;
   font-weight: 700;
 }
 @font-face {
   font-family: "Benton";
-  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot");
-  src: url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot?") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-3.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-1.ttf") format("truetype");
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot");
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot?") format("embedded-opentype"), url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-3.woff") format("woff"), url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-1.ttf") format("truetype");
   font-style: italic;
   font-weight: 700;
 }
 /* Tiempos Text */
 @font-face {
   font-family: "TiemposText";
-  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot");
-  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.woff") format("woff");
+  src: url("https://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot");
+  src: url("https://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.eot?#iefix") format("embedded-opentype"), url("https://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular.woff") format("woff");
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
   font-family: "TiemposText";
-  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot");
-  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.woff") format("woff");
+  src: url("https://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot");
+  src: url("https://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.eot?#iefix") format("embedded-opentype"), url("https://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Regular-Italic.woff") format("woff");
   font-style: italic;
   font-weight: 400;
 }
 @font-face {
   font-family: "TiemposText";
-  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.eot");
-  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.woff") format("woff");
+  src: url("https://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.eot");
+  src: url("https://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.eot?#iefix") format("embedded-opentype"), url("https://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold.woff") format("woff");
   font-style: normal;
   font-weight: 700;
 }
 @font-face {
   font-family: "TiemposText";
-  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.eot");
-  src: url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.eot?#iefix") format("embedded-opentype"), url("http://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.woff") format("woff");
+  src: url("https://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.eot");
+  src: url("https://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.eot?#iefix") format("embedded-opentype"), url("https://www.bu.edu/cdn/fonts/TiemposText/TiemposText-Semibold-Italic.woff") format("woff");
   font-style: italic;
   font-weight: 700;
 }
@@ -151,20 +151,20 @@ Theme Groups: Responsive Framework
 .single-calendar article[role=main],
 .page-template-profiles article[role=main],
 .single-profile article[role=main],
-.post-type-archive-profile article[role=main], .col-md-12, .footbar-container .widget {
+.post-type-archive-profile article[role=main], .col-md-12, .col-lg-1, .col-lg-2, .col-lg-quarter, .col-lg-3, .col-lg-third, .col-lg-4, .col-lg-5, .col-lg-half, .col-lg-6, .col-lg-7, .col-lg-two-third, .col-lg-8, .col-lg-three-quarter, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-full, .col-lg-12, .footbar-container .widget {
   /* These classes are using %col-base. */
   position: relative;
   min-height: 1px;
 }
 
-.col-xs-margin-1, .col-xs-margin-2, .col-xs-margin-quarter, .col-xs-margin-3, .col-xs-margin-third, .col-xs-margin-4, .col-xs-margin-5, .col-xs-margin-half, .col-xs-margin-6, .col-xs-margin-7, .col-xs-margin-two-third, .col-xs-margin-8, .col-xs-margin-three-quarter, .col-xs-margin-9, .col-xs-margin-10, .col-xs-margin-11, .col-xs-margin-full, .col-xs-margin-12, .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12 {
+.col-xs-margin-1, .col-xs-margin-2, .col-xs-margin-quarter, .col-xs-margin-3, .col-xs-margin-third, .col-xs-margin-4, .col-xs-margin-5, .col-xs-margin-half, .col-xs-margin-6, .col-xs-margin-7, .col-xs-margin-two-third, .col-xs-margin-8, .col-xs-margin-three-quarter, .col-xs-margin-9, .col-xs-margin-10, .col-xs-margin-11, .col-xs-margin-full, .col-xs-margin-12, .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12, .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
   /* These classes are using %col-margin-base. */
   margin-bottom: 2.6%;
   margin-top: 0;
   padding: 20px;
 }
 
-.col-xs-margin-1:first-child, .col-xs-margin-1:nth-child(1n), .col-xs-margin-2:first-child, .col-xs-margin-2:nth-child(2n), .col-xs-margin-quarter:first-child, .col-xs-margin-3:first-child, .col-xs-margin-quarter:nth-child(3n), .col-xs-margin-3:nth-child(3n), .col-xs-margin-third:first-child, .col-xs-margin-4:first-child, .col-xs-margin-third:nth-child(4n), .col-xs-margin-4:nth-child(4n), .col-xs-margin-5:first-child, .col-xs-margin-5:nth-child(5n), .col-xs-margin-half:first-child, .col-xs-margin-6:first-child, .col-xs-margin-half:nth-child(6n), .col-xs-margin-6:nth-child(6n), .col-xs-margin-7:first-child, .col-xs-margin-7:nth-child(7n), .col-xs-margin-two-third:first-child, .col-xs-margin-8:first-child, .col-xs-margin-two-third:nth-child(8n), .col-xs-margin-8:nth-child(8n), .col-xs-margin-three-quarter:first-child, .col-xs-margin-9:first-child, .col-xs-margin-three-quarter:nth-child(9n), .col-xs-margin-9:nth-child(9n), .col-xs-margin-10:first-child, .col-xs-margin-10:nth-child(10n), .col-xs-margin-11:first-child, .col-xs-margin-11:nth-child(11n), .col-xs-margin-full:first-child, .col-xs-margin-12:first-child, .col-xs-margin-full:nth-child(12n), .col-xs-margin-12:nth-child(12n), .col-sm-margin-1:first-child, .col-sm-margin-1:nth-child(1n), .col-sm-margin-2:first-child, .col-sm-margin-2:nth-child(2n), .col-sm-margin-quarter:first-child, .col-sm-margin-3:first-child, .col-sm-margin-quarter:nth-child(3n), .col-sm-margin-3:nth-child(3n), .col-sm-margin-third:first-child, .col-sm-margin-4:first-child, .col-sm-margin-third:nth-child(4n), .col-sm-margin-4:nth-child(4n), .col-sm-margin-5:first-child, .col-sm-margin-5:nth-child(5n), .col-sm-margin-half:first-child, .col-sm-margin-6:first-child, .col-sm-margin-half:nth-child(6n), .col-sm-margin-6:nth-child(6n), .col-sm-margin-7:first-child, .col-sm-margin-7:nth-child(7n), .col-sm-margin-two-third:first-child, .col-sm-margin-8:first-child, .col-sm-margin-two-third:nth-child(8n), .col-sm-margin-8:nth-child(8n), .col-sm-margin-three-quarter:first-child, .col-sm-margin-9:first-child, .col-sm-margin-three-quarter:nth-child(9n), .col-sm-margin-9:nth-child(9n), .col-sm-margin-10:first-child, .col-sm-margin-10:nth-child(10n), .col-sm-margin-11:first-child, .col-sm-margin-11:nth-child(11n), .col-sm-margin-full:first-child, .col-sm-margin-12:first-child, .col-sm-margin-full:nth-child(12n), .col-sm-margin-12:nth-child(12n), .col-md-margin-1:first-child, .col-md-margin-1:nth-child(1n), .col-md-margin-2:first-child, .col-md-margin-2:nth-child(2n), .col-md-margin-quarter:first-child, .col-md-margin-3:first-child, .col-md-margin-quarter:nth-child(3n), .col-md-margin-3:nth-child(3n), .col-md-margin-third:first-child, .col-md-margin-4:first-child, .col-md-margin-third:nth-child(4n), .col-md-margin-4:nth-child(4n), .col-md-margin-5:first-child, .col-md-margin-5:nth-child(5n), .col-md-margin-half:first-child, .col-md-margin-6:first-child, .col-md-margin-half:nth-child(6n), .col-md-margin-6:nth-child(6n), .col-md-margin-7:first-child, .col-md-margin-7:nth-child(7n), .col-md-margin-two-third:first-child, .col-md-margin-8:first-child, .col-md-margin-two-third:nth-child(8n), .col-md-margin-8:nth-child(8n), .col-md-margin-three-quarter:first-child, .col-md-margin-9:first-child, .col-md-margin-three-quarter:nth-child(9n), .col-md-margin-9:nth-child(9n), .col-md-margin-10:first-child, .col-md-margin-10:nth-child(10n), .col-md-margin-11:first-child, .col-md-margin-11:nth-child(11n), .col-md-margin-full:first-child, .col-md-margin-12:first-child, .col-md-margin-full:nth-child(12n), .col-md-margin-12:nth-child(12n) {
+.col-xs-margin-1:first-child, .col-xs-margin-1:nth-child(1n), .col-xs-margin-2:first-child, .col-xs-margin-2:nth-child(2n), .col-xs-margin-quarter:first-child, .col-xs-margin-3:first-child, .col-xs-margin-quarter:nth-child(3n), .col-xs-margin-3:nth-child(3n), .col-xs-margin-third:first-child, .col-xs-margin-4:first-child, .col-xs-margin-third:nth-child(4n), .col-xs-margin-4:nth-child(4n), .col-xs-margin-5:first-child, .col-xs-margin-5:nth-child(5n), .col-xs-margin-half:first-child, .col-xs-margin-6:first-child, .col-xs-margin-half:nth-child(6n), .col-xs-margin-6:nth-child(6n), .col-xs-margin-7:first-child, .col-xs-margin-7:nth-child(7n), .col-xs-margin-two-third:first-child, .col-xs-margin-8:first-child, .col-xs-margin-two-third:nth-child(8n), .col-xs-margin-8:nth-child(8n), .col-xs-margin-three-quarter:first-child, .col-xs-margin-9:first-child, .col-xs-margin-three-quarter:nth-child(9n), .col-xs-margin-9:nth-child(9n), .col-xs-margin-10:first-child, .col-xs-margin-10:nth-child(10n), .col-xs-margin-11:first-child, .col-xs-margin-11:nth-child(11n), .col-xs-margin-full:first-child, .col-xs-margin-12:first-child, .col-xs-margin-full:nth-child(12n), .col-xs-margin-12:nth-child(12n), .col-sm-margin-1:first-child, .col-sm-margin-1:nth-child(1n), .col-sm-margin-2:first-child, .col-sm-margin-2:nth-child(2n), .col-sm-margin-quarter:first-child, .col-sm-margin-3:first-child, .col-sm-margin-quarter:nth-child(3n), .col-sm-margin-3:nth-child(3n), .col-sm-margin-third:first-child, .col-sm-margin-4:first-child, .col-sm-margin-third:nth-child(4n), .col-sm-margin-4:nth-child(4n), .col-sm-margin-5:first-child, .col-sm-margin-5:nth-child(5n), .col-sm-margin-half:first-child, .col-sm-margin-6:first-child, .col-sm-margin-half:nth-child(6n), .col-sm-margin-6:nth-child(6n), .col-sm-margin-7:first-child, .col-sm-margin-7:nth-child(7n), .col-sm-margin-two-third:first-child, .col-sm-margin-8:first-child, .col-sm-margin-two-third:nth-child(8n), .col-sm-margin-8:nth-child(8n), .col-sm-margin-three-quarter:first-child, .col-sm-margin-9:first-child, .col-sm-margin-three-quarter:nth-child(9n), .col-sm-margin-9:nth-child(9n), .col-sm-margin-10:first-child, .col-sm-margin-10:nth-child(10n), .col-sm-margin-11:first-child, .col-sm-margin-11:nth-child(11n), .col-sm-margin-full:first-child, .col-sm-margin-12:first-child, .col-sm-margin-full:nth-child(12n), .col-sm-margin-12:nth-child(12n), .col-md-margin-1:first-child, .col-md-margin-1:nth-child(1n), .col-md-margin-2:first-child, .col-md-margin-2:nth-child(2n), .col-md-margin-quarter:first-child, .col-md-margin-3:first-child, .col-md-margin-quarter:nth-child(3n), .col-md-margin-3:nth-child(3n), .col-md-margin-third:first-child, .col-md-margin-4:first-child, .col-md-margin-third:nth-child(4n), .col-md-margin-4:nth-child(4n), .col-md-margin-5:first-child, .col-md-margin-5:nth-child(5n), .col-md-margin-half:first-child, .col-md-margin-6:first-child, .col-md-margin-half:nth-child(6n), .col-md-margin-6:nth-child(6n), .col-md-margin-7:first-child, .col-md-margin-7:nth-child(7n), .col-md-margin-two-third:first-child, .col-md-margin-8:first-child, .col-md-margin-two-third:nth-child(8n), .col-md-margin-8:nth-child(8n), .col-md-margin-three-quarter:first-child, .col-md-margin-9:first-child, .col-md-margin-three-quarter:nth-child(9n), .col-md-margin-9:nth-child(9n), .col-md-margin-10:first-child, .col-md-margin-10:nth-child(10n), .col-md-margin-11:first-child, .col-md-margin-11:nth-child(11n), .col-md-margin-full:first-child, .col-md-margin-12:first-child, .col-md-margin-full:nth-child(12n), .col-md-margin-12:nth-child(12n), .col-lg-margin-1:first-child, .col-lg-margin-1:nth-child(1n), .col-lg-margin-2:first-child, .col-lg-margin-2:nth-child(2n), .col-lg-margin-quarter:first-child, .col-lg-margin-3:first-child, .col-lg-margin-quarter:nth-child(3n), .col-lg-margin-3:nth-child(3n), .col-lg-margin-third:first-child, .col-lg-margin-4:first-child, .col-lg-margin-third:nth-child(4n), .col-lg-margin-4:nth-child(4n), .col-lg-margin-5:first-child, .col-lg-margin-5:nth-child(5n), .col-lg-margin-half:first-child, .col-lg-margin-6:first-child, .col-lg-margin-half:nth-child(6n), .col-lg-margin-6:nth-child(6n), .col-lg-margin-7:first-child, .col-lg-margin-7:nth-child(7n), .col-lg-margin-two-third:first-child, .col-lg-margin-8:first-child, .col-lg-margin-two-third:nth-child(8n), .col-lg-margin-8:nth-child(8n), .col-lg-margin-three-quarter:first-child, .col-lg-margin-9:first-child, .col-lg-margin-three-quarter:nth-child(9n), .col-lg-margin-9:nth-child(9n), .col-lg-margin-10:first-child, .col-lg-margin-10:nth-child(10n), .col-lg-margin-11:first-child, .col-lg-margin-11:nth-child(11n), .col-lg-margin-full:first-child, .col-lg-margin-12:first-child, .col-lg-margin-full:nth-child(12n), .col-lg-margin-12:nth-child(12n) {
   margin-left: 0;
 }
 
@@ -1090,6 +1090,286 @@ Theme Groups: Responsive Framework
 }
 .col-md-margin-full, .col-md-margin-12 {
   /* These classes are using %col-md-margin-12. */
+  width: 97.4%;
+  float: left;
+}
+
+.col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
+  margin-left: 2.6%;
+}
+
+.col-lg-1 {
+  /* These classes are using %col-lg-1. */
+  width: 8.33333%;
+  float: left;
+}
+.col-lg-push-1 {
+  /* These classes are using %col-lg-push-1. */
+  left: 8.33333%;
+}
+.col-lg-pull-1 {
+  /* These classes are using %col-lg-pull-1. */
+  right: 8.33333%;
+}
+.col-lg-offset-1 {
+  /* These classes are using %col-lg-offset-1. */
+  margin-left: 8.33333%;
+}
+.col-lg-margin-1 {
+  /* These classes are using %col-lg-margin-1. */
+  width: 5.73333%;
+  float: left;
+}
+
+.col-lg-2 {
+  /* These classes are using %col-lg-2. */
+  width: 16.66667%;
+  float: left;
+}
+.col-lg-push-2 {
+  /* These classes are using %col-lg-push-2. */
+  left: 16.66667%;
+}
+.col-lg-pull-2 {
+  /* These classes are using %col-lg-pull-2. */
+  right: 16.66667%;
+}
+.col-lg-offset-2 {
+  /* These classes are using %col-lg-offset-2. */
+  margin-left: 16.66667%;
+}
+.col-lg-margin-2 {
+  /* These classes are using %col-lg-margin-2. */
+  width: 14.06667%;
+  float: left;
+}
+
+.col-lg-quarter, .col-lg-3 {
+  /* These classes are using %col-lg-3. */
+  width: 25%;
+  float: left;
+}
+.col-lg-push-quarter, .col-lg-push-3 {
+  /* These classes are using %col-lg-push-3. */
+  left: 25%;
+}
+.col-lg-pull-quarter, .col-lg-pull-3 {
+  /* These classes are using %col-lg-pull-3. */
+  right: 25%;
+}
+.col-lg-offset-quarter, .col-lg-offset-3 {
+  /* These classes are using %col-lg-offset-3. */
+  margin-left: 25%;
+}
+.col-lg-margin-quarter, .col-lg-margin-3 {
+  /* These classes are using %col-lg-margin-3. */
+  width: 22.4%;
+  float: left;
+}
+
+.col-lg-third, .col-lg-4 {
+  /* These classes are using %col-lg-4. */
+  width: 33.33333%;
+  float: left;
+}
+.col-lg-push-third, .col-lg-push-4 {
+  /* These classes are using %col-lg-push-4. */
+  left: 33.33333%;
+}
+.col-lg-pull-third, .col-lg-pull-4 {
+  /* These classes are using %col-lg-pull-4. */
+  right: 33.33333%;
+}
+.col-lg-offset-third, .col-lg-offset-4 {
+  /* These classes are using %col-lg-offset-4. */
+  margin-left: 33.33333%;
+}
+.col-lg-margin-third, .col-lg-margin-4 {
+  /* These classes are using %col-lg-margin-4. */
+  width: 30.73333%;
+  float: left;
+}
+
+.col-lg-5 {
+  /* These classes are using %col-lg-5. */
+  width: 41.66667%;
+  float: left;
+}
+.col-lg-push-5 {
+  /* These classes are using %col-lg-push-5. */
+  left: 41.66667%;
+}
+.col-lg-pull-5 {
+  /* These classes are using %col-lg-pull-5. */
+  right: 41.66667%;
+}
+.col-lg-offset-5 {
+  /* These classes are using %col-lg-offset-5. */
+  margin-left: 41.66667%;
+}
+.col-lg-margin-5 {
+  /* These classes are using %col-lg-margin-5. */
+  width: 39.06667%;
+  float: left;
+}
+
+.col-lg-half, .col-lg-6 {
+  /* These classes are using %col-lg-6. */
+  width: 50%;
+  float: left;
+}
+.col-lg-push-half, .col-lg-push-6 {
+  /* These classes are using %col-lg-push-6. */
+  left: 50%;
+}
+.col-lg-pull-half, .col-lg-pull-6 {
+  /* These classes are using %col-lg-pull-6. */
+  right: 50%;
+}
+.col-lg-offset-half, .col-lg-offset-6 {
+  /* These classes are using %col-lg-offset-6. */
+  margin-left: 50%;
+}
+.col-lg-margin-half, .col-lg-margin-6 {
+  /* These classes are using %col-lg-margin-6. */
+  width: 47.4%;
+  float: left;
+}
+
+.col-lg-7 {
+  /* These classes are using %col-lg-7. */
+  width: 58.33333%;
+  float: left;
+}
+.col-lg-push-7 {
+  /* These classes are using %col-lg-push-7. */
+  left: 58.33333%;
+}
+.col-lg-pull-7 {
+  /* These classes are using %col-lg-pull-7. */
+  right: 58.33333%;
+}
+.col-lg-offset-7 {
+  /* These classes are using %col-lg-offset-7. */
+  margin-left: 58.33333%;
+}
+.col-lg-margin-7 {
+  /* These classes are using %col-lg-margin-7. */
+  width: 55.73333%;
+  float: left;
+}
+
+.col-lg-two-third, .col-lg-8 {
+  /* These classes are using %col-lg-8. */
+  width: 66.66667%;
+  float: left;
+}
+.col-lg-push-two-third, .col-lg-push-8 {
+  /* These classes are using %col-lg-push-8. */
+  left: 66.66667%;
+}
+.col-lg-pull-two-third, .col-lg-pull-8 {
+  /* These classes are using %col-lg-pull-8. */
+  right: 66.66667%;
+}
+.col-lg-offset-two-third, .col-lg-offset-8 {
+  /* These classes are using %col-lg-offset-8. */
+  margin-left: 66.66667%;
+}
+.col-lg-margin-two-third, .col-lg-margin-8 {
+  /* These classes are using %col-lg-margin-8. */
+  width: 64.06667%;
+  float: left;
+}
+
+.col-lg-three-quarter, .col-lg-9 {
+  /* These classes are using %col-lg-9. */
+  width: 75%;
+  float: left;
+}
+.col-lg-push-three-quarter, .col-lg-push-9 {
+  /* These classes are using %col-lg-push-9. */
+  left: 75%;
+}
+.col-lg-pull-three-quarter, .col-lg-pull-9 {
+  /* These classes are using %col-lg-pull-9. */
+  right: 75%;
+}
+.col-lg-offset-three-quarter, .col-lg-offset-9 {
+  /* These classes are using %col-lg-offset-9. */
+  margin-left: 75%;
+}
+.col-lg-margin-three-quarter, .col-lg-margin-9 {
+  /* These classes are using %col-lg-margin-9. */
+  width: 72.4%;
+  float: left;
+}
+
+.col-lg-10 {
+  /* These classes are using %col-lg-10. */
+  width: 83.33333%;
+  float: left;
+}
+.col-lg-push-10 {
+  /* These classes are using %col-lg-push-10. */
+  left: 83.33333%;
+}
+.col-lg-pull-10 {
+  /* These classes are using %col-lg-pull-10. */
+  right: 83.33333%;
+}
+.col-lg-offset-10 {
+  /* These classes are using %col-lg-offset-10. */
+  margin-left: 83.33333%;
+}
+.col-lg-margin-10 {
+  /* These classes are using %col-lg-margin-10. */
+  width: 80.73333%;
+  float: left;
+}
+
+.col-lg-11 {
+  /* These classes are using %col-lg-11. */
+  width: 91.66667%;
+  float: left;
+}
+.col-lg-push-11 {
+  /* These classes are using %col-lg-push-11. */
+  left: 91.66667%;
+}
+.col-lg-pull-11 {
+  /* These classes are using %col-lg-pull-11. */
+  right: 91.66667%;
+}
+.col-lg-offset-11 {
+  /* These classes are using %col-lg-offset-11. */
+  margin-left: 91.66667%;
+}
+.col-lg-margin-11 {
+  /* These classes are using %col-lg-margin-11. */
+  width: 89.06667%;
+  float: left;
+}
+
+.col-lg-full, .col-lg-12 {
+  /* These classes are using %col-lg-12. */
+  width: 100%;
+  float: left;
+}
+.col-lg-push-full, .col-lg-push-12 {
+  /* These classes are using %col-lg-push-12. */
+  left: 100%;
+}
+.col-lg-pull-full, .col-lg-pull-12 {
+  /* These classes are using %col-lg-pull-12. */
+  right: 100%;
+}
+.col-lg-offset-full, .col-lg-offset-12 {
+  /* These classes are using %col-lg-offset-12. */
+  margin-left: 100%;
+}
+.col-lg-margin-full, .col-lg-margin-12 {
+  /* These classes are using %col-lg-margin-12. */
   width: 97.4%;
   float: left;
 }
@@ -2388,12 +2668,12 @@ article[role=main] {
 
 /* Sub-brand signature */
 .brand-signature, .brand-sponsored {
-  padding: 6px 30px 6px 56px;
-  background: url("http://www.bu.edu/cdn/images/logos/subbrand49x35.png") no-repeat 0 49%;
+  padding: 10px 30px 9px 56px;
+  background: url("https://www.bu.edu/cdn/images/logos/subbrand49x35.png") no-repeat 0 49%;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-signature, .brand-sponsored {
-    background-image: url("http://www.bu.edu/cdn/images/logos/subbrand49x35-retina.png");
+    background-image: url("https://www.bu.edu/cdn/images/logos/subbrand49x35-retina.png");
     background-size: 49px 35px;
   }
 }
@@ -2404,7 +2684,6 @@ article[role=main] {
 
 /* Sponsored branding */
 .brand-sponsored, .brand-sponsored .siteName {
-  font-size: 16px;
   display: block;
 }
 
@@ -2419,16 +2698,34 @@ article[role=main] {
   font-family: "Benton", Helvetica, sans-serif;
 }
 
+.brand .brand-sponsored.has-title strong {
+  font-weight: 400 !important;
+}
+
+.brand .brand-sponsored.has-title.has-parent strong,
+.brand .brand-sponsored.has-title.has-parent.has-subparent strong {
+  font-weight: 600 !important;
+}
+
+.brand .brand-sponsored.has-title {
+  font-size: 18px;
+}
+
+.brand .brand-sponsored.has-title.has-parent,
+.brand .brand-sponsored.has-title.has-parent.has-subparent {
+  font-size: 16px;
+}
+
 /* Master logo in footer */
 .brand-masterPlate {
   display: block;
   width: 112px;
   height: 50px;
-  background: url("http://www.bu.edu/cdn/images/logos/masterplate112x50.png") no-repeat 0 0;
+  background: url("https://www.bu.edu/cdn/images/logos/masterplate112x50.png") no-repeat 0 0;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-masterPlate {
-    background-image: url("http://www.bu.edu/cdn/images/logos/masterplate112x50-retina.png");
+    background-image: url("https://www.bu.edu/cdn/images/logos/masterplate112x50-retina.png");
     background-size: 112px 50px;
   }
 }
@@ -2436,21 +2733,21 @@ article[role=main] {
 /* BUMC logo in footer */
 .brand-bumcLogo {
   display: block;
-  background: url("http://www.bu.edu/cdn/images/logos/bumclogo96x40.png") no-repeat 0 0;
+  background: url("https://www.bu.edu/cdn/images/logos/bumclogo96x40.png") no-repeat 0 0;
   width: 96px;
   height: 40px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-bumcLogo {
-    background-image: url("http://www.bu.edu/cdn/images/logos/bumclogo96x40-retina.png");
+    background-image: url("https://www.bu.edu/cdn/images/logos/bumclogo96x40-retina.png");
     background-size: 96px 40px;
   }
 }
 
 @font-face {
   font-family: "bu-default-icons";
-  src: url("http://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.eot?") format("embedded-opentype");
-  src: url("http://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.woff") format("woff"), url("http://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.ttf") format("truetype"), url("http://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.svg#bu-default-icons") format("svg");
+  src: url("https://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.eot?") format("embedded-opentype");
+  src: url("https://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.woff") format("woff"), url("https://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.ttf") format("truetype"), url("https://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.svg#bu-default-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -2653,19 +2950,14 @@ nav a {
   margin: 0 auto;
 }
 
-#quicksearch label,
-#quicksearch select {
-  display: none;
-}
-
 #quicksearch .button {
   -webkit-border-radius: 0 20px 20px 0;
   -moz-border-radius: 0 20px 20px 0;
   -ms-border-radius: 0 20px 20px 0;
   border-radius: 0 20px 20px 0;
   width: 25%;
-  padding-right: 0;
-  padding-left: 0;
+  padding: 11px 0 12px 0;
+  float: right;
   width: 15%;
 }
 
@@ -3135,6 +3427,21 @@ h4.bu_collapsible,
 h5.bu_collapsible,
 h6.bu_collapsible {
   margin-bottom: 0;
+}
+
+/* WordPress accessibility classes */
+/* Hide visually but not from screen readers */
+.screen-reader-text,
+.screen-reader-text span,
+.ui-helper-hidden-accessible {
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
 }
 
 /* WordPress inline align classes (use WP standard class names) */
