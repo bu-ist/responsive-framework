@@ -3,7 +3,7 @@
 Theme Name: Responsive Framework
 Author: Boston University Interactive Design
 Website: http://www.bu.edu/interactive-design/
-Version: 1.4.1
+Version: 1.4.2
 Description: A responsive WordPress theme framework built with the Responsive Foundation.
 Theme Groups: Responsive Framework
 */
@@ -181,8 +181,8 @@ Theme Groups: Responsive Framework
   padding: 20px;
 }
 
-.col-xs-margin-1:first-child, .col-xs-margin-1:nth-child(1n), .col-xs-margin-2:first-child, .col-xs-margin-2:nth-child(2n), .col-xs-margin-quarter:first-child, .col-xs-margin-3:first-child, .col-xs-margin-quarter:nth-child(3n), .col-xs-margin-3:nth-child(3n), .col-xs-margin-third:first-child, .col-xs-margin-4:first-child, .col-xs-margin-third:nth-child(4n), .col-xs-margin-4:nth-child(4n), .col-xs-margin-5:first-child, .col-xs-margin-5:nth-child(5n), .col-xs-margin-half:first-child, .col-xs-margin-6:first-child, .col-xs-margin-half:nth-child(6n), .col-xs-margin-6:nth-child(6n), .col-xs-margin-7:first-child, .col-xs-margin-7:nth-child(7n), .col-xs-margin-two-third:first-child, .col-xs-margin-8:first-child, .col-xs-margin-two-third:nth-child(8n), .col-xs-margin-8:nth-child(8n), .col-xs-margin-three-quarter:first-child, .col-xs-margin-9:first-child, .col-xs-margin-three-quarter:nth-child(9n), .col-xs-margin-9:nth-child(9n), .col-xs-margin-10:first-child, .col-xs-margin-10:nth-child(10n), .col-xs-margin-11:first-child, .col-xs-margin-11:nth-child(11n), .col-xs-margin-full:first-child, .col-xs-margin-12:first-child, .col-xs-margin-full:nth-child(12n), .col-xs-margin-12:nth-child(12n), .col-sm-margin-1:first-child, .col-sm-margin-1:nth-child(1n), .col-sm-margin-2:first-child, .col-sm-margin-2:nth-child(2n), .col-sm-margin-quarter:first-child, .col-sm-margin-3:first-child, .col-sm-margin-quarter:nth-child(3n), .col-sm-margin-3:nth-child(3n), .col-sm-margin-third:first-child, .col-sm-margin-4:first-child, .col-sm-margin-third:nth-child(4n), .col-sm-margin-4:nth-child(4n), .col-sm-margin-5:first-child, .col-sm-margin-5:nth-child(5n), .col-sm-margin-half:first-child, .col-sm-margin-6:first-child, .col-sm-margin-half:nth-child(6n), .col-sm-margin-6:nth-child(6n), .col-sm-margin-7:first-child, .col-sm-margin-7:nth-child(7n), .col-sm-margin-two-third:first-child, .col-sm-margin-8:first-child, .col-sm-margin-two-third:nth-child(8n), .col-sm-margin-8:nth-child(8n), .col-sm-margin-three-quarter:first-child, .col-sm-margin-9:first-child, .col-sm-margin-three-quarter:nth-child(9n), .col-sm-margin-9:nth-child(9n), .col-sm-margin-10:first-child, .col-sm-margin-10:nth-child(10n), .col-sm-margin-11:first-child, .col-sm-margin-11:nth-child(11n), .col-sm-margin-full:first-child, .col-sm-margin-12:first-child, .col-sm-margin-full:nth-child(12n), .col-sm-margin-12:nth-child(12n), .col-md-margin-1:first-child, .col-md-margin-1:nth-child(1n), .col-md-margin-2:first-child, .col-md-margin-2:nth-child(2n), .col-md-margin-quarter:first-child, .col-md-margin-3:first-child, .col-md-margin-quarter:nth-child(3n), .col-md-margin-3:nth-child(3n), .col-md-margin-third:first-child, .col-md-margin-4:first-child, .col-md-margin-third:nth-child(4n), .col-md-margin-4:nth-child(4n), .col-md-margin-5:first-child, .col-md-margin-5:nth-child(5n), .col-md-margin-half:first-child, .col-md-margin-6:first-child, .col-md-margin-half:nth-child(6n), .col-md-margin-6:nth-child(6n), .col-md-margin-7:first-child, .col-md-margin-7:nth-child(7n), .col-md-margin-two-third:first-child, .col-md-margin-8:first-child, .col-md-margin-two-third:nth-child(8n), .col-md-margin-8:nth-child(8n), .col-md-margin-three-quarter:first-child, .col-md-margin-9:first-child, .col-md-margin-three-quarter:nth-child(9n), .col-md-margin-9:nth-child(9n), .col-md-margin-10:first-child, .col-md-margin-10:nth-child(10n), .col-md-margin-11:first-child, .col-md-margin-11:nth-child(11n), .col-md-margin-full:first-child, .col-md-margin-12:first-child, .col-md-margin-full:nth-child(12n), .col-md-margin-12:nth-child(12n), .col-lg-margin-1:first-child, .col-lg-margin-1:nth-child(1n), .col-lg-margin-2:first-child, .col-lg-margin-2:nth-child(2n), .col-lg-margin-quarter:first-child, .col-lg-margin-3:first-child, .col-lg-margin-quarter:nth-child(3n), .col-lg-margin-3:nth-child(3n), .col-lg-margin-third:first-child, .col-lg-margin-4:first-child, .col-lg-margin-third:nth-child(4n), .col-lg-margin-4:nth-child(4n), .col-lg-margin-5:first-child, .col-lg-margin-5:nth-child(5n), .col-lg-margin-half:first-child, .col-lg-margin-6:first-child, .col-lg-margin-half:nth-child(6n), .col-lg-margin-6:nth-child(6n), .col-lg-margin-7:first-child, .col-lg-margin-7:nth-child(7n), .col-lg-margin-two-third:first-child, .col-lg-margin-8:first-child, .col-lg-margin-two-third:nth-child(8n), .col-lg-margin-8:nth-child(8n), .col-lg-margin-three-quarter:first-child, .col-lg-margin-9:first-child, .col-lg-margin-three-quarter:nth-child(9n), .col-lg-margin-9:nth-child(9n), .col-lg-margin-10:first-child, .col-lg-margin-10:nth-child(10n), .col-lg-margin-11:first-child, .col-lg-margin-11:nth-child(11n), .col-lg-margin-full:first-child, .col-lg-margin-12:first-child, .col-lg-margin-full:nth-child(12n), .col-lg-margin-12:nth-child(12n) {
-  margin-left: 0;
+.col-margin-parent {
+  margin-left: -2.6%;
 }
 
 .col-1 {
@@ -248,6 +248,12 @@ Theme Groups: Responsive Framework
 @media screen and (min-width: 500px) {
   .col-xs-margin-1, .col-xs-margin-2, .col-xs-margin-quarter, .col-xs-margin-3, .col-xs-margin-third, .col-xs-margin-4, .col-xs-margin-5, .col-xs-margin-half, .col-xs-margin-6, .col-xs-margin-7, .col-xs-margin-two-third, .col-xs-margin-8, .col-xs-margin-three-quarter, .col-xs-margin-9, .col-xs-margin-10, .col-xs-margin-11, .col-xs-margin-full, .col-xs-margin-12 {
     margin-left: 2.6%;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .col-xs-margin-parent {
+    margin-left: -2.6%;
   }
 }
 
@@ -531,6 +537,12 @@ Theme Groups: Responsive Framework
 @media screen and (min-width: 768px) {
   .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12 {
     margin-left: 2.6%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .col-sm-margin-parent {
+    margin-left: -2.6%;
   }
 }
 
@@ -835,6 +847,12 @@ Theme Groups: Responsive Framework
 }
 
 @media screen and (min-width: 992px) {
+  .col-md-margin-parent {
+    margin-left: -2.6%;
+  }
+}
+
+@media screen and (min-width: 992px) {
   .col-md-1 {
     /* These classes are using %col-md-1. */
     width: 8.33333%;
@@ -1123,6 +1141,12 @@ Theme Groups: Responsive Framework
 @media screen and (min-width: 1200px) {
   .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
     margin-left: 2.6%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .col-lg-margin-parent {
+    margin-left: -2.6%;
   }
 }
 
