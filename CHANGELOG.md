@@ -1,3 +1,7 @@
+# 1.4.2
+
+* Updating to newest tag (1.3.2) of Responsive Foundation
+
 # 1.4.1
 
 * Updating to newest tag (1.3.0) of Responsive Foundation
