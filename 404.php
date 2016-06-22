@@ -5,21 +5,18 @@
 
 get_header(); ?>
 
-		<section class="error-404 not-found">
+<section class="error-404 not-found">
 
-			<header class="page-header">
-				<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.' ); ?></h1>
-			</header><!-- .page-header -->
+	<header class="page-header">
+		<h1 class="page-title"><?php _e( 'Yikes! We couldn\'t find that.' ); ?></h1>
+	</header><!-- .page-header -->
 
-			<div class="page-content">
-				<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?' ); ?></p>
+	<div class="page-content">
+		<p><?php _e( 'Looks like that page might not be here anymore. Want to give search a try?' ); ?></p>
 
-				<?php
-				// TODO: Use search form once markup / styles support more than one.
-				// responsive_search_form();
-				?>
+		<?php responsive_search_form(); ?>
 
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
+	</div><!-- .page-content -->
+</section><!-- .error-404 -->
 
 <?php get_footer(); ?>
