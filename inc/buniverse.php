@@ -43,7 +43,7 @@ function buniverse_shortcode( $atts, $content ) {
 
 	// Build <iframe> attributes
 	$iframe = $iframe_atts = array();
-	$iframe['src'] = esc_url( sprintf( apply_filters( 'buniverse_shortcode_src', 'http://www.bu.edu/buniverse/interface/embed/embed.html?v=%s' ), $atts['vid'] ) );
+	$iframe['src'] = esc_url( sprintf( apply_filters( 'buniverse_shortcode_src', 'https://www.bu.edu/buniverse/interface/embed/embed.html?v=%s' ), $atts['vid'] ) );
 	$iframe['width'] = (int) $atts['width'];
 	$iframe['height'] = (int) $atts['height'];
 	$iframe['frameborder'] = 0;
@@ -79,7 +79,7 @@ EMBED;
 add_shortcode( 'buniverse', 'buniverse_shortcode' );
 
 /**
- * Automatically converts BUniverse URLs (e.g. http://www.bu.edu/buniverse/view/?v=yVVrH1ZO) into embeds
+ * Automatically converts BUniverse URLs (e.g. https://www.bu.edu/buniverse/view/?v=yVVrH1ZO) into embeds
  *
  * Note that the URL must be isolated on a single line (with no surrounding markup) to be converted.
  *
@@ -100,4 +100,4 @@ function buniverse_embed_handler( $matches, $attr, $url, $rawattr ) {
 	return buniverse_shortcode( $atts, '' );
 }
 
-wp_embed_register_handler( 'buniverse', '#http://(?:www-syst\.|www-devl\.|www-test\.|www\.)?bu\.edu/buniverse/view/\?v=(.+?)(?:$|&)#i', 'buniverse_embed_handler' );
+wp_embed_register_handler( 'buniverse', '#https?://(?:www-syst\.|www-devl\.|www-test\.|www\.)?bu\.edu/buniverse/view/\?v=(.+?)(?:$|&)#i', 'buniverse_embed_handler' );
