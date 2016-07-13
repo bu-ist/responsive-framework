@@ -246,9 +246,13 @@ function responsive_styles() {
 /**
  * Maybe trigger theme migration procedure.
  */
-function responsive_maybe_migrate_theme( $old_name, $old_theme ) {
+function responsive_maybe_migrate_theme( $old_name, $old_theme = false ) {
 	// Theme migrations require Site Manager > 4.0
 	if ( ! defined( 'BU_SITE_MANAGER_VERSION' ) || version_compare( BU_SITE_MANAGER_VERSION, '4.0', '<' ) ) {
+		return;
+	}
+
+	if ( ! $old_theme ) {
 		return;
 	}
 
