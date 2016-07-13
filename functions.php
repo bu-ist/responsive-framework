@@ -134,6 +134,9 @@ add_action( 'after_setup_theme', 'responsive_setup' );
 function responsive_init() {
 	// Add support for dynamic footbars (e.g. alternate footbar)
 	add_post_type_support( 'page', 'bu-dynamic-footbars' );
+
+	// Make sure images are set to 'no link' by default
+	update_option( 'image_default_link_type', 'none' );
 }
 
 add_action( 'init', 'responsive_init' );
