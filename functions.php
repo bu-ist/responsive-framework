@@ -274,6 +274,20 @@ function responsive_change_title_tag($attr, $page) {
 add_filter('bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 10, 2);
 
 /**
+ * Hides the H1 for homepage if option is set
+ */
+function responsive_maybe_hide_homepage_h1( $title ) {
+
+	$hide_front_h1 = get_option( 'burf_setting_hide_front_h1' );
+	if( $hide_front_h1 == true && is_front_page() ){
+		return;
+	}
+
+	return $title;
+}
+add_filter( 'the_title', 'responsive_maybe_hide_homepage_h1', 10, 2 );
+
+/**
  * Admin
  */
 if ( is_admin() ) {

@@ -247,6 +247,31 @@ function responsive_customize_register( $wp_customize ) {
 		'settings' => 'burf_setting_footer[autop]',
 		'type'     => 'checkbox',
 	) );
+
+
+	/* Front Page H1 Display */
+	$wp_customize->add_setting( 'burf_setting_hide_front_h1', array(
+		'default'           => '',
+		'capability'        => 'edit_theme_options',
+		'type'              => 'option'
+	) );
+
+	$wp_customize->add_control(
+		new BURF_Customize_Checkbox_Group(
+			$wp_customize,
+			'burf_setting_hide_front_h1',
+			array(
+				'label'       => 'Additional options',
+				'section'     => 'static_front_page',
+				'choices'     => array(
+					'true' => 'Hide the homepage title',
+				)
+			)
+		)
+	);
+
+
+
 }
 
 add_action( 'customize_register', 'responsive_customize_register' );
