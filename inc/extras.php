@@ -202,3 +202,33 @@ function responsive_maybe_hide_homepage_h1( $title ) {
 	return $title;
 }
 add_filter( 'the_title', 'responsive_maybe_hide_homepage_h1', 10, 2 );
+
+
+/**
+ * Customizes oEmbed output
+ * -- Adds a wrapper div around youtube/vimeo videos
+ */
+function responsive_oembed_output( $html, $url ) {
+	$providers = array(
+		array( 'youtube', 'Youtube',
+			array( '#http://((m|www)\.)?youtube\.com/watch.*#i', '#https://((m|www)\.)?youtube\.com/watch.*#i', '#http://((m|www)\.)?youtube\.com/playlist.*#i', '#https://((m|www)\.)?youtube\.com/playlist.*#i', '#http://youtu\.be/.*#i', '#https://youtu\.be/.*#i')
+		),
+		array( 'vimeo', 'Vimeo',
+			array( '#https?://(.+\.)?vimeo\.com/.*#i' )
+		)
+	);
+
+	foreach ( $providers as $provider ) {
+		$slug = $provider[0];
+		$name = $provider[1];
+		$patterns = $provider[2];
+
+		foreach ( $patterns as $pattern ) {
+			if ( preg_match( $pattern, $url ) ) {
+				return( sprintf( '<div class="responsiveVideo responsive-%s">%s</div>', $slug, $html ) );
+			}
+		}
+	}
+	return $html;
+}
+add_filter( 'embed_oembed_html', 'responsive_oembed_output', 10, 2 );
