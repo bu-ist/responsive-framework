@@ -214,7 +214,7 @@ function responsive_customizer_color_region_groups() {
 function responsive_customizer_color_regions() {
 	$scheme = responsive_get_color_scheme();
 	return array(
-		
+
 		// navigation bar
 		'primaryNav-bg' => array(
 				'label'       => 'Background Color',
@@ -241,7 +241,7 @@ function responsive_customizer_color_regions() {
 				'group'       => 'navbar',
 				'default'     => $scheme['colors'][4],
 			),
-		
+
 		// content area
 		'content-heading' => array(
 				'label'       => 'Headings',
@@ -273,7 +273,7 @@ function responsive_customizer_color_regions() {
 				'group'       => 'content-area',
 				'default'     => $scheme['colors'][10],
 			),
-		
+
 		// sidebar
 		'sidebar-bg' => array(
 				'label'       => 'Widget Background',
@@ -306,7 +306,7 @@ function responsive_customizer_color_regions() {
 				'group'       => 'sidebar',
 				'default'     => $scheme['colors'][16],
 			),
-		
+
 		// footbar
 		'footbar-bg' => array(
 				'label'       => 'Background',
@@ -362,7 +362,7 @@ function responsive_get_color_schemes() {
 				'#ffffff', // primary nav links
 				'#aaaaaa', // utility nav links
 				'#aaaaaa', // primary links hover
-				
+
 				// content area
 				'#000000', // headings
 				'#555555', // text color
@@ -370,7 +370,7 @@ function responsive_get_color_schemes() {
 				'#0f69d7', // link hovers
 				'#0f69d7', // button color
 				'#ffffff', // button text color
-				
+
 				// sidebar
 				'#ffffff', // widget bg
 				'#000000', // widget title
@@ -378,7 +378,7 @@ function responsive_get_color_schemes() {
 				'#0f69d7', // links
 				'#0f69d7', // link hovers
 				'#555555', // text color
-				
+
 				// footbar
 				'#f5f5f5', // background
 				'#cccccc', // top border
@@ -401,7 +401,7 @@ function responsive_get_color_schemes() {
 				'#ffffff', // primary nav links
 				'#7c7c9d', // utility nav links
 				'#9f9fec', // primary links hover
-				
+
 				// content area
 				'#24243a', // headings
 				'#24243a', // text color
@@ -409,7 +409,7 @@ function responsive_get_color_schemes() {
 				'#000000', // link hovers
 				'#4fc3a0', // button color
 				'#ffffff', // button text color
-				
+
 				// sidebar
 				'#52527e', // widget bg
 				'#ffffff', // widget title
@@ -417,7 +417,7 @@ function responsive_get_color_schemes() {
 				'#ecb438', // links
 				'#ffffff', // link hovers
 				'#ffffff', // text color
-				
+
 				// footbar
 				'#1a1a22', // background
 				'#1a1a22', // top border
@@ -440,7 +440,7 @@ function responsive_get_color_schemes() {
 				'#ffffff', // primary nav links
 				'#ff9fc5', // utility nav links
 				'#000000', // primary links hover
-				
+
 				// content area
 				'#000000', // headings
 				'#000000', // text color
@@ -448,7 +448,7 @@ function responsive_get_color_schemes() {
 				'#000000', // link hovers
 				'#e82a75', // button color
 				'#ffffff', // button text color
-				
+
 				// sidebar
 				'#7f2247', // widget bg
 				'#ffffff', // widget title
@@ -456,7 +456,7 @@ function responsive_get_color_schemes() {
 				'#ffffff', // links
 				'#ffffff', // link hovers
 				'#e4abc1', // text color
-				
+
 				// footbar
 				'#222222', // background
 				'#222222', // top border
@@ -479,7 +479,7 @@ function responsive_get_color_schemes() {
 				'#ffffff', // primary nav links
 				'#b4ddfa', // utility nav links
 				'#000000', // primary links hover
-				
+
 				// content area
 				'#222222', // headings
 				'#000000', // text color
@@ -487,7 +487,7 @@ function responsive_get_color_schemes() {
 				'#000000', // link hovers
 				'#fa5707', // button color
 				'#ffffff', // button text color
-				
+
 				// sidebar
 				'#e1f0f5', // widget bg
 				'#000000', // widget title
@@ -495,7 +495,7 @@ function responsive_get_color_schemes() {
 				'#000000', // links
 				'#000000', // link hovers
 				'#6f7b7f', // text color
-				
+
 				// footbar
 				'#222222', // background
 				'#222222', // top border
@@ -518,7 +518,7 @@ function responsive_get_color_schemes() {
 				'#ffffff', // primary nav links
 				'#bec8ff', // utility nav links
 				'#000000', // primary links hover
-				
+
 				// content area
 				'#000000', // headings
 				'#000000', // text color
@@ -526,7 +526,7 @@ function responsive_get_color_schemes() {
 				'#000000', // link hovers
 				'#6c7dff', // button color
 				'#ffffff', // button text color
-				
+
 				// sidebar
 				'#ffffff', // widget bg
 				'#000000', // widget title
@@ -534,7 +534,7 @@ function responsive_get_color_schemes() {
 				'#fb8007', // links
 				'#989bad', // link hovers
 				'#989bad', // text color
-				
+
 				// footbar
 				'#1a1d2b', // background
 				'#1a1a22', // top border
@@ -976,8 +976,8 @@ function responsive_get_customizer_footer_info() {
 	$defaults = array(
 		'text'  => '',
 		'autop' => false,
-		);
-	$footer = get_option( 'burf_setting_footer', $defaults );
+	);
+	$footer = wp_parse_args( get_option( 'burf_setting_footer', array() ), $defaults );
 
 	if ( $footer['autop'] ) {
 		return wpautop( $footer['text'] );
