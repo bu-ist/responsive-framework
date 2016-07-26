@@ -15,4 +15,4 @@
 
 <?php responsive_utility_nav(); ?>
 
-<?php responsive_search_form(); ?>
+<?php responsive_search_form();
