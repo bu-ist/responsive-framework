@@ -28,4 +28,4 @@
 
 </div>
 
-<?php responsive_utility_nav(); ?>
+<?php responsive_utility_nav();
