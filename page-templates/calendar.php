@@ -303,4 +303,4 @@ if ( $timestamp > $boundary_future ) {
 	get_sidebar( 'calendar' );
 } ?>
 
-<?php get_footer(); ?>
+<?php get_footer();

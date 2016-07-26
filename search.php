@@ -25,4 +25,4 @@ get_header(); ?>
 
 	</article>
 
-<?php get_footer(); ?>
+<?php get_footer();

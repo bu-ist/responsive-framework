@@ -19,4 +19,4 @@ get_header(); ?>
 	</div><!-- .page-content -->
 </section><!-- .error-404 -->
 
-<?php get_footer(); ?>
+<?php get_footer();

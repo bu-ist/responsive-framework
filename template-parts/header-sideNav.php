@@ -24,4 +24,4 @@
 	<?php responsive_utility_nav(); ?>
 </nav>
 
-<?php responsive_search_form(); ?>
+<?php responsive_search_form();

@@ -6,4 +6,4 @@ if ( is_active_sidebar( $footbar ) ) : ?>
 		<?php dynamic_sidebar( $footbar ); ?>
 	</div>
 </aside>
-<?php endif; ?>
+<?php endif;
