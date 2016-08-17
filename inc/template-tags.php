@@ -224,7 +224,7 @@ function responsive_content_banner( $position ) {
  *
  * If the current site has a site-wide ACL applied nothing will be displayed.
  *
- * @uses  BU Naviagation plugin
+ * @uses  BU Navigation plugin
  */
 function responsive_primary_nav() {
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
