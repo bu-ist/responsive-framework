@@ -11,6 +11,7 @@ function responsive_body_class( $classes = '' ) {
 
 	$font_palette = get_option( 'burf_setting_fonts' );
 	$layout_setting = responsive_layout();
+	$sidebar_location = get_option( 'burf_setting_sidebar_location' );
 
 	if ( $font_palette ) {
 		$classes[] = $font_palette;
@@ -18,6 +19,10 @@ function responsive_body_class( $classes = '' ) {
 
 	if ( $layout_setting ) {
 		$classes[] = "l-$layout_setting";
+	}
+
+	if ( $sidebar_location ) {
+		$classes[] = "sidebarLocation-$sidebar_location";
 	}
 
 	// Cleans up page template releated body classes
