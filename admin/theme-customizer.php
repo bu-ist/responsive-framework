@@ -270,7 +270,22 @@ function responsive_customize_register( $wp_customize ) {
 		)
 	);
 
+	/* Main Sidebar Location */
+	$wp_customize->add_setting( 'burf_setting_sidebar_location', array(
+		'default'	=> '',
+		'type'		=> 'option'
+	) );
 
+	$wp_customize->add_control( 'burf_setting_sidebar_location', array(
+		'label'		=> 'Main Sidebar Location',
+		'section'	=> 'burf_section_content_options',
+		'type'		=> 'radio',
+		'choices'	=> array(
+			''			=>		'Bottom',
+			'left'		=>		'Left',
+			'right'		=>		'Right'
+		),
+	) );
 
 }
 
