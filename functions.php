@@ -63,6 +63,9 @@ function responsive_setup() {
 	// Disable BU Links Footer editor under Appearance menu
 	define( 'BU_DISABLE_FOOTER_EDITOR', true );
 
+	// Only support one level of dropdowns by default
+	define('BU_NAVIGATION_SUPPORTED_DEPTH', 1);
+
 	// Custom menu locations.
 	register_nav_menus( array(
 			'footer'  => 'Footer Links',
