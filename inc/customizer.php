@@ -687,7 +687,8 @@ function responsive_framework_get_color_regions_css( $colors, $context = 'defaul
 /* sidebar widget background color
 ----------------------------------------------------------------- */
 
-.sidebar .widget {
+.sidebar .widget,
+.sidebarPosts .widget {
 	background: {$colors['sidebar-bg']};
 	padding:24px;
 }
@@ -852,6 +853,11 @@ a.button-selected {
 .sidebar .widget_nav_menu ul,
 .sidebar #contentnav li,
 .sidebar .widget_nav_menu li,
+.sidebarPosts .widgetTitle,
+.sidebarPosts #contentnav ul,
+.sidebarPosts .widget_nav_menu ul,
+.sidebarPosts #contentnav li,
+.sidebarPosts .widget_nav_menu li,
 .monthCalendar,
 .monthCalendar th,
 .monthCalendar td {
@@ -859,13 +865,17 @@ a.button-selected {
 }
 
 .sidebar .widgetTitle,
-.sidebar .widgetTitle a:after {
+.sidebar .widgetTitle a:after,
+.sidebarPosts .widgetTitle,
+.sidebarPosts .widgetTitle a:after {
 	color: {$colors['sidebar-widgetTitle']};
 }
 
 /* text color */
 .sidebar .widget,
 .sidebar .widget .widgetTitle a,
+.sidebarPosts .widget,
+.sidebarPosts .widget .widgetTitle a,
 .monthCalendar th,
 .monthCalendar caption {
 	color: {$colors['sidebar-base']};
@@ -874,7 +884,10 @@ a.button-selected {
 /* link color */
 .sidebar .widget a,
 .sidebar #contentnav li a,
-.sidebar .widget_nav_menu li a {
+.sidebar .widget_nav_menu li a,
+.sidebarPosts .widget a,
+.sidebarPosts #contentnav li a,
+.sidebarPosts .widget_nav_menu li a {
 	color: {$colors['sidebar-link']};
 }
 
@@ -883,7 +896,12 @@ a.button-selected {
 .sidebar #contentnav li a:hover,
 .sidebar .widget_nav_menu li a:hover,
 .sidebar #contentnav li.current_page_item > a,
-.sidebar .widget_nav_menu li.current_page_item > a {
+.sidebar .widget_nav_menu li.current_page_item > a,
+.sidebarPosts .widget a:hover,
+.sidebarPosts #contentnav li a:hover,
+.sidebarPosts .widget_nav_menu li a:hover,
+.sidebarPosts #contentnav li.current_page_item > a,
+.sidebarPosts .widget_nav_menu li.current_page_item > a {
 	color: {$colors['sidebar-link-hover']};
 }
 
