@@ -281,7 +281,7 @@ function responsive_customize_register( $wp_customize ) {
 		'section'	=> 'burf_section_content_options',
 		'type'		=> 'radio',
 		'choices'	=> array(
-			''			=>		'Bottom',
+			'bottom'		=>		'Bottom',
 			'left'		=>		'Left',
 			'right'		=>		'Right'
 		),
