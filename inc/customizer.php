@@ -688,7 +688,8 @@ function responsive_framework_get_color_regions_css( $colors, $context = 'defaul
 ----------------------------------------------------------------- */
 
 .sidebar .widget,
-.sidebarPosts .widget {
+.sidebarPosts .widget,
+.sidebarProfiles .widget {
 	background: {$colors['sidebar-bg']};
 	padding:24px;
 }
@@ -853,11 +854,19 @@ a.button-selected {
 .sidebar .widget_nav_menu ul,
 .sidebar #contentnav li,
 .sidebar .widget_nav_menu li,
+.sidebar .widget-bu-calendar li,
 .sidebarPosts .widgetTitle,
 .sidebarPosts #contentnav ul,
 .sidebarPosts .widget_nav_menu ul,
 .sidebarPosts #contentnav li,
 .sidebarPosts .widget_nav_menu li,
+.sidebarPosts .widget-bu-calendar li,
+.sidebarProfiles .widgetTitle,
+.sidebarProfiles #contentnav ul,
+.sidebarProfiles .widget_nav_menu ul,
+.sidebarProfiles #contentnav li,
+.sidebarProfiles .widget_nav_menu li,
+.sidebarProfiles .widget-bu-calendar li,
 .monthCalendar,
 .monthCalendar th,
 .monthCalendar td {
@@ -865,17 +874,21 @@ a.button-selected {
 }
 
 .sidebar .widgetTitle,
+.sidebar .widget .widgetTitle a,
+.sidebarPosts .widget .widgetTitle a,
+.sidebarProfiles .widget .widgetTitle a,
 .sidebar .widgetTitle a:after,
 .sidebarPosts .widgetTitle,
-.sidebarPosts .widgetTitle a:after {
+.sidebarPosts .widgetTitle a:after,
+.sidebarProfiles .widgetTitle,
+.sidebarProfiles .widgetTitle a:after {
 	color: {$colors['sidebar-widgetTitle']};
 }
 
 /* text color */
 .sidebar .widget,
-.sidebar .widget .widgetTitle a,
 .sidebarPosts .widget,
-.sidebarPosts .widget .widgetTitle a,
+.sidebarProfiles .widget,
 .monthCalendar th,
 .monthCalendar caption {
 	color: {$colors['sidebar-base']};
@@ -887,7 +900,10 @@ a.button-selected {
 .sidebar .widget_nav_menu li a,
 .sidebarPosts .widget a,
 .sidebarPosts #contentnav li a,
-.sidebarPosts .widget_nav_menu li a {
+.sidebarPosts .widget_nav_menu li a,
+.sidebarProfiles .widget a,
+.sidebarProfiles #contentnav li a,
+.sidebarProfiles .widget_nav_menu li a {
 	color: {$colors['sidebar-link']};
 }
 
@@ -901,7 +917,12 @@ a.button-selected {
 .sidebarPosts #contentnav li a:hover,
 .sidebarPosts .widget_nav_menu li a:hover,
 .sidebarPosts #contentnav li.current_page_item > a,
-.sidebarPosts .widget_nav_menu li.current_page_item > a {
+.sidebarPosts .widget_nav_menu li.current_page_item > a,
+.sidebarProfiles .widget a:hover,
+.sidebarProfiles #contentnav li a:hover,
+.sidebarProfiles .widget_nav_menu li a:hover,
+.sidebarProfiles #contentnav li.current_page_item > a,
+.sidebarProfiles .widget_nav_menu li.current_page_item > a {
 	color: {$colors['sidebar-link-hover']};
 }
 
@@ -924,9 +945,9 @@ a.button-selected {
 .footbar .widgetTitle,
 .footbar .widgetTitle a:after,
 .footbar h3.widgetTitle a,
-.widget-bu-calendar .default a .date,
-.widget-bu-calendar .graphic .day,
-.widget-bu-calendar .date {
+.footbar .widget-bu-calendar .default a .date,
+.footbar .widget-bu-calendar .graphic .day,
+.footbar .widget-bu-calendar .date {
 	color: {$colors['footbar-widgetTitle']};
 }
 
