@@ -935,8 +935,7 @@ a.button-selected {
 .footbar .widget_nav_menu ul,
 .footbar #contentnav li,
 .footbar .widget_nav_menu li,
-.footbar .widget-bu-calendar .full-date li,
-.footbar .widget-bu-calendar .default li {
+.footbar .widget-bu-calendar li {
 	border-color: {$colors['footbar-widgetTitle-border']};
 }
 
