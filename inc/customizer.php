@@ -768,8 +768,8 @@ body {
 }
 
 /* link color */
-.wrapper a,
-.wrapper a:visited,
+article a,
+article a:visited,
 .widget a,
 .widget a:hover,
 .widget a:focus,
@@ -788,7 +788,7 @@ body {
 }
 
 /* link hover color */
-.wrapper a:hover,
+article a:hover,
 .widget a:hover,
 .event-list .event-link a:hover,
 .monthCalendar td a:hover, {
