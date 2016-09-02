@@ -925,7 +925,8 @@ a.button-selected {
 .footbar .widgetTitle a:after,
 .footbar h3.widgetTitle a,
 .widget-bu-calendar .default a .date,
-.widget-bu-calendar .graphic .day {
+.widget-bu-calendar .graphic .day,
+.widget-bu-calendar .date {
 	color: {$colors['footbar-widgetTitle']};
 }
 
