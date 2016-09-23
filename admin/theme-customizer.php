@@ -272,19 +272,34 @@ function responsive_customize_register( $wp_customize ) {
 
 	/* Main Sidebar Location */
 	$wp_customize->add_setting( 'burf_setting_sidebar_location', array(
-		'default'	=> '',
+		'default'	=> 'right',
 		'type'		=> 'option'
 	) );
 
 	$wp_customize->add_control( 'burf_setting_sidebar_location', array(
-		'label'		=> 'Main Sidebar Location',
+		'label'		=> 'Main Sidebar Position',
 		'section'	=> 'burf_section_content_options',
 		'type'		=> 'radio',
 		'choices'	=> array(
-			'bottom'		=>		'Bottom',
-			'left'		=>		'Left',
-			'right'		=>		'Right'
-		),
+			'bottom'=>	'Bottom',
+			'left'	=>	'Left',
+			'right'	=>	'Right'
+		)
+	) );
+
+	/* Posts Sidebar Location */
+	$wp_customize->add_setting( 'burf_setting_posts_sidebar_bottom', array(
+		'default'	=> 'default',
+		'type'		=> 'option'
+	) );
+
+	$wp_customize->add_control( 'burf_setting_posts_sidebar_bottom', array(
+		'label'		=> 'Keep the posts sidebar on bottom',
+		'section'	=> 'burf_section_content_options',
+		'type'		=> 'checkbox',
+		'choices'	=> array(
+			'default'	=>	'Keep the posts sidebar on bottom',
+		)
 	) );
 
 }
