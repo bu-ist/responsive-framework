@@ -1,3 +1,6 @@
+# 1.4.3
+* Fix for BUniverse embeds/shortcode to support HTTPS.
+
 # 1.4.2
 
 * Updating to newest tag (1.3.2) of Responsive Foundation
