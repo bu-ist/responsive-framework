@@ -9,8 +9,10 @@ Theme Groups: Responsive Framework
 */
 /* mixins
 ----------------------------------------------------------------- */
-.container:after, .content-container:after, .footbar-container:after, .row:after, .masthead:after, .footbar:after, .siteFooter:after, .primaryNav:after, .widget-bu-posts .post:after, .sidebarPosts:after,
-.sidebarProfiles:after, .paging-navigation:after, .profile-listing:after, .profile-listing .advanced:after, .profile-listing .mini:after {
+.container:after, .content-container:after, .footbar-container:after, .sidebarLocation-left .sidebarPosts:after, .sidebarLocation-right .sidebarPosts:after, .sidebarLocation-left
+.sidebarProfiles:after, .sidebarLocation-right
+.sidebarProfiles:after, .row:after, .masthead:after, .footbar:after, .siteFooter:after, .primaryNav:after, .widget-bu-posts .post:after, .sidebarPosts:after,
+.sidebarProfiles:after, .paging-navigation:after, .profile-listing:after, .profile-listing .advanced:after, .profile-listing .mini:after, .gallery:after {
   /* These classes are using %clearfix. */
   display: table;
   clear: both;
@@ -89,7 +91,9 @@ Theme Groups: Responsive Framework
   overflow: hidden;
 }
 
-.container, .content-container, .footbar-container {
+.container, .content-container, .footbar-container, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebarProfiles, .sidebarLocation-right
+.sidebarProfiles {
   /* These classes are using %container-styles. */
   width: 100%;
   padding: 35px 20px 0;
@@ -135,29 +139,43 @@ Theme Groups: Responsive Framework
 .siteFooter-info,
 .has-links-social .siteFooter-links,
 .has-links-social .siteFooter-social,
-.has-info-links-social .siteFooter-info,
-.sidebarPosts .widget,
-.sidebarProfiles .widget, .col-sm-6, .col-sm-7, .col-sm-two-third, .col-sm-8, .col-sm-three-quarter,
+.has-info-links-social .siteFooter-info, .col-sm-6, .col-sm-7, .col-sm-two-third, .col-sm-8, .col-sm-three-quarter,
 .has-info-links .siteFooter-info,
 .has-info-social .siteFooter-info, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-full,
 .has-info .siteFooter-info,
 .has-links .siteFooter-links,
 .has-social .siteFooter-social, .col-sm-12, .col-md-1, .col-md-2, .col-md-quarter, .col-md-3, .col-md-third,
-.profile-listing .advanced li, .col-md-4, .sidebar, .col-md-5, .col-md-half, .col-md-6, .profile-listing .mini li, .col-md-7, .col-md-two-third, .col-md-8, article[role=main], .col-md-three-quarter, .col-md-9, .col-md-10, .col-md-11, .col-md-full,
+.profile-listing .advanced li, .col-md-4, .sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebarProfiles, .sidebarLocation-right
+.sidebarProfiles, .col-md-5, .col-md-half, .col-md-6, .profile-listing .mini li, .col-md-7, .col-md-two-third, .col-md-8, article[role=main],
+.content-area, .col-md-three-quarter, .col-md-9, .col-md-10, .col-md-11, .col-md-full,
+.sidebarLocation-bottom article[role=main],
+.single-calendar article[role=main],
 .home.blog article[role=main],
 .archive article[role=main],
 .page-template-news article[role=main],
 .single-post article[role=main],
-.single-calendar article[role=main],
 .page-template-profiles article[role=main],
 .single-profile article[role=main],
-.post-type-archive-profile article[role=main], .col-md-12, .col-lg-1, .col-lg-2, .col-lg-quarter, .col-lg-3, .col-lg-third, .col-lg-4, .col-lg-5, .col-lg-half, .col-lg-6, .col-lg-7, .col-lg-two-third, .col-lg-8, .col-lg-three-quarter, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-full, .col-lg-12, .footbar-container .widget {
+.post-type-archive-profile article[role=main],
+.sidebarLocation-bottom .content-area,
+.single-calendar .content-area,
+.home.blog .content-area,
+.archive .content-area,
+.page-template-news .content-area,
+.single-post .content-area,
+.page-template-profiles .content-area,
+.single-profile .content-area,
+.post-type-archive-profile .content-area, .col-md-12, .col-lg-1, .col-lg-2, .col-lg-quarter, .col-lg-3, .col-lg-third, .col-lg-4, .col-lg-5, .col-lg-half, .col-lg-6, .col-lg-7, .col-lg-two-third, .col-lg-8, .col-lg-three-quarter, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-full, .col-lg-12, .footbar-container .widget {
   /* These classes are using %col-base. */
   position: relative;
   min-height: 1px;
 }
 
-.col-xs-margin-1, .col-xs-margin-2, .col-xs-margin-quarter, .col-xs-margin-3, .col-xs-margin-third, .col-xs-margin-4, .col-xs-margin-5, .col-xs-margin-half, .col-xs-margin-6, .col-xs-margin-7, .col-xs-margin-two-third, .col-xs-margin-8, .col-xs-margin-three-quarter, .col-xs-margin-9, .col-xs-margin-10, .col-xs-margin-11, .col-xs-margin-full, .col-xs-margin-12, .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12, .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
+.col-xs-margin-1, .col-xs-margin-2, .col-xs-margin-quarter, .col-xs-margin-3, .col-xs-margin-third, .col-xs-margin-4, .col-xs-margin-5, .col-xs-margin-half, .col-xs-margin-6, .col-xs-margin-7, .col-xs-margin-two-third, .col-xs-margin-8, .col-xs-margin-three-quarter, .col-xs-margin-9, .col-xs-margin-10, .col-xs-margin-11, .col-xs-margin-full, .col-xs-margin-12, .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half,
+.sidebarLocation-bottom .sidebar .widget,
+.sidebarPosts .widget,
+.sidebarProfiles .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12, .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
   /* These classes are using %col-margin-base. */
   margin-bottom: 2.6%;
   margin-top: 0;
@@ -512,11 +530,17 @@ Theme Groups: Responsive Framework
   float: left;
 }
 
-.col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12 {
+.col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half,
+.sidebarLocation-bottom .sidebar .widget,
+.sidebarPosts .widget,
+.sidebarProfiles .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12 {
   margin-left: 2.6%;
 }
 
-.col-sm-margin-parent {
+.col-sm-margin-parent,
+.sidebarLocation-bottom .sidebar,
+.sidebarPosts,
+.sidebarProfiles {
   margin-left: -2.6%;
 }
 
@@ -645,9 +669,7 @@ Theme Groups: Responsive Framework
 .siteFooter-info,
 .has-links-social .siteFooter-links,
 .has-links-social .siteFooter-social,
-.has-info-links-social .siteFooter-info,
-.sidebarPosts .widget,
-.sidebarProfiles .widget, .col-sm-6 {
+.has-info-links-social .siteFooter-info, .col-sm-6 {
   /* These classes are using %col-sm-6. */
   width: 50%;
   float: left;
@@ -664,7 +686,10 @@ Theme Groups: Responsive Framework
   /* These classes are using %col-sm-offset-6. */
   margin-left: 50%;
 }
-.col-sm-margin-half, .col-sm-margin-6 {
+.col-sm-margin-half,
+.sidebarLocation-bottom .sidebar .widget,
+.sidebarPosts .widget,
+.sidebarProfiles .widget, .col-sm-margin-6 {
   /* These classes are using %col-sm-margin-6. */
   width: 47.4%;
   float: left;
@@ -891,12 +916,15 @@ Theme Groups: Responsive Framework
 }
 
 .col-md-third,
-.profile-listing .advanced li, .col-md-4, .sidebar {
+.profile-listing .advanced li, .col-md-4, .sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebarProfiles, .sidebarLocation-right
+.sidebarProfiles {
   /* These classes are using %col-md-4. */
   width: 33.33333%;
   float: left;
 }
-.col-md-push-third, .col-md-push-4 {
+.col-md-push-third, .col-md-push-4, .sidebarLocation-left article[role=main], .sidebarLocation-left
+.content-area {
   /* These classes are using %col-md-push-4. */
   left: 33.33333%;
 }
@@ -983,7 +1011,8 @@ Theme Groups: Responsive Framework
   float: left;
 }
 
-.col-md-two-third, .col-md-8, article[role=main] {
+.col-md-two-third, .col-md-8, article[role=main],
+.content-area {
   /* These classes are using %col-md-8. */
   width: 66.66667%;
   float: left;
@@ -992,7 +1021,7 @@ Theme Groups: Responsive Framework
   /* These classes are using %col-md-push-8. */
   left: 66.66667%;
 }
-.col-md-pull-two-third, .col-md-pull-8 {
+.col-md-pull-two-third, .col-md-pull-8, .sidebarLocation-left .sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-left .sidebarProfiles {
   /* These classes are using %col-md-pull-8. */
   right: 66.66667%;
 }
@@ -1076,14 +1105,24 @@ Theme Groups: Responsive Framework
 }
 
 .col-md-full,
+.sidebarLocation-bottom article[role=main],
+.single-calendar article[role=main],
 .home.blog article[role=main],
 .archive article[role=main],
 .page-template-news article[role=main],
 .single-post article[role=main],
-.single-calendar article[role=main],
 .page-template-profiles article[role=main],
 .single-profile article[role=main],
-.post-type-archive-profile article[role=main], .col-md-12 {
+.post-type-archive-profile article[role=main],
+.sidebarLocation-bottom .content-area,
+.single-calendar .content-area,
+.home.blog .content-area,
+.archive .content-area,
+.page-template-news .content-area,
+.single-post .content-area,
+.page-template-profiles .content-area,
+.single-profile .content-area,
+.post-type-archive-profile .content-area, .col-md-12 {
   /* These classes are using %col-md-12. */
   width: 100%;
   float: left;
@@ -1689,7 +1728,7 @@ sub,
 sup {
   position: relative;
   vertical-align: baseline;
-  font-size: 12px;
+  font-size: .75em;
   line-height: 0;
 }
 
@@ -2419,9 +2458,19 @@ body {
 
 /* content
 ----------------------------------------------------------------- */
-article[role=main] {
+article[role=main],
+.content-area {
   padding-bottom: 10px;
   padding-bottom: 35px;
+}
+
+.sidebarLocation-bottom .sidebar {
+  clear: both;
+  overflow: hidden;
+  width: auto;
+  float: none;
+  padding-left: 0;
+  margin-bottom: 40px;
 }
 
 .page-template-no-sidebars article[role=main] {
@@ -2430,9 +2479,23 @@ article[role=main] {
 
 /* sidebar
 ----------------------------------------------------------------- */
-.sidebar {
+.sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebarProfiles, .sidebarLocation-right
+.sidebarProfiles {
   font-size: 16px;
-  padding: 0 0 0 3.46667%;
+  clear: none;
+  padding-left: 3.46667%;
+}
+.sidebarLocation-left .sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-left .sidebarProfiles {
+  padding: 0;
+  padding-right: 3.46667%;
+}
+
+/* layouts
+----------------------------------------------------------------- */
+.sidebarLocation-left .sidebar {
+  padding: 0;
+  padding-right: 3.46667%;
 }
 
 /* .footbar
@@ -2638,7 +2701,7 @@ article[role=main] {
   transform: translateY(-50%);
 }
 
-.brand [class*="brand-"], .brand .siteDescription {
+.brand-container, .brand-siteDescription {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -2646,7 +2709,7 @@ article[role=main] {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.lt-ie9 .brand [class*="brand-"], .brand .lt-ie9 [class*="brand-"], .lt-ie9 .brand .siteDescription, .brand .lt-ie9 .siteDescription {
+.lt-ie9 .brand-container, .lt-ie9 .brand-siteDescription {
   top: auto;
 }
 
@@ -2658,23 +2721,26 @@ article[role=main] {
   font-size: 18px;
   line-height: 1.3;
 }
+.brand > .has-parent {
+  font-size: 16px;
+}
 
-.brand [class*="brand-"] {
+.brand-container {
   display: block;
   float: left;
   font-weight: 400;
   color: #000000;
   text-decoration: none;
 }
-.brand [class*="brand-"]:visited {
+.brand-container:visited {
   color: #000000;
 }
 
-.brand strong {
+.brandPart-logotype, .brand-unbranded, .brandPart-parent {
   font-weight: 600;
 }
 
-.brand .siteDescription {
+.brand-siteDescription {
   display: none;
   display: block;
   font-family: "TiemposText", Georgia, serif;
@@ -2683,53 +2749,46 @@ article[role=main] {
 }
 
 /* Sub-brand signature */
-.brand-signature, .brand-sponsored {
+.brand-sponsored {
   padding: 10px 30px 9px 56px;
+  min-height: 35px;
   background: url("https://www.bu.edu/cdn/images/logos/subbrand49x35.png") no-repeat 0 49%;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .brand-signature, .brand-sponsored {
+  .brand-sponsored {
     background-image: url("https://www.bu.edu/cdn/images/logos/subbrand49x35-retina.png");
     background-size: 49px 35px;
   }
 }
-
-.brand-signature strong {
-  display: none;
+.brand-sponsored.has-parent {
+  padding-top: 0;
+  padding-bottom: 0;
+  background-position: 0 3px;
 }
 
 /* Sponsored branding */
-.brand-sponsored, .brand-sponsored .siteName {
+.brandPart-siteName {
   display: block;
 }
+.brandPart-logotype + .brandPart-siteName {
+  display: inline;
+}
 
-.brand-unbranded .siteName {
-  font-family: "Whitney SSm A", "Whitney SSm B", "Benton", Helvetica, sans-serif;
-  font-weight: 600;
+.brand-unbranded {
+  font-family: "Benton", Helvetica, sans-serif;
   font-size: 20px;
   color: #cc0000;
 }
-
-.brand-unbranded .siteName {
-  font-family: "Benton", Helvetica, sans-serif;
+.brand-unbranded:visited {
+  color: #cc0000;
 }
 
-.brand .brand-sponsored.has-title strong {
-  font-weight: 400 !important;
+.brandPart-logotype + .brandPart-parent {
+  font-weight: 400;
 }
 
-.brand .brand-sponsored.has-title.has-parent strong,
-.brand .brand-sponsored.has-title.has-parent.has-subparent strong {
-  font-weight: 600 !important;
-}
-
-.brand .brand-sponsored.has-title {
-  font-size: 18px;
-}
-
-.brand .brand-sponsored.has-title.has-parent,
-.brand .brand-sponsored.has-title.has-parent.has-subparent {
-  font-size: 16px;
+.brandPart-subParent {
+  display: block;
 }
 
 /* Master logo in footer */
@@ -2777,6 +2836,7 @@ article[role=main] {
   font-weight: normal !important;
   font-style: normal !important;
   font-variant: normal !important;
+  color: unset;
   line-height: 1;
   text-decoration: none !important;
   text-transform: none !important;
@@ -3228,8 +3288,9 @@ nav a {
 ----------------------------------------------------------------- */
 .l-default .utilityNav {
   position: absolute;
-  top: 47px;
+  top: 53px;
   right: 20px;
+  line-height: 1;
 }
 
 /* sideNav
@@ -3343,8 +3404,9 @@ nav a {
 ----------------------------------------------------------------- */
 .l-topNav .utilityNav {
   position: absolute;
-  top: 109px;
+  top: 113px;
   right: 20px;
+  line-height: 1;
 }
 
 .l-topNav.search-open .utilityNav {
@@ -3368,7 +3430,7 @@ nav a {
 .l-noNav .masthead-container .utilityNav {
   display: none;
   position: absolute;
-  top: 49px;
+  top: 48px;
   right: 80px;
   display: block;
 }
@@ -3710,6 +3772,20 @@ h6.bu_collapsible {
   line-height: 1.6;
 }
 
+.widget a {
+  color: #0f69d7;
+}
+.widget a:hover, .widget a:focus {
+  color: #0f69d7;
+}
+
+.footbar a {
+  color: #0f69d7;
+}
+.footbar a:hover, .footbar a:focus {
+  color: #0f69d7;
+}
+
 .widgetTitle {
   padding: 0 0 4px 0;
   border: 4px solid #000000;
@@ -3731,20 +3807,6 @@ h6.bu_collapsible {
 
 .widgetTitle a:hover:after {
   color: #000000;
-}
-
-.widget a {
-  color: #0f69d7;
-}
-.widget a:hover, .widget a:focus {
-  color: #0f69d7;
-}
-
-.footbar .widget a {
-  color: #0f69d7;
-}
-.footbar .widget a:hover, .footbar .widget a:focus {
-  color: #0f69d7;
 }
 
 .widget ul {
@@ -3919,29 +3981,93 @@ h6.bu_collapsible {
 	4. Single Post
 	5. Calendar Template
 	6. Calendar Single Event
+	7. 404 page
 
 ----------------------------------------------------------------- */
 /* Narrow Content Column
 ----------------------------------------------------------------- */
-.home.blog,
+.sidebarLocation-bottom, .single-calendar, .home.blog,
 .archive,
 .page-template-news,
 .single-post,
-.single-calendar,
 .page-template-profiles,
 .single-profile,
 .post-type-archive-profile {
   /* These classes are using %templateNarrow. */
 }
-.home.blog .content-container,
+.sidebarLocation-bottom .content-container, .single-calendar .content-container, .home.blog .content-container,
 .archive .content-container,
 .page-template-news .content-container,
 .single-post .content-container,
-.single-calendar .content-container,
 .page-template-profiles .content-container,
 .single-profile .content-container,
 .post-type-archive-profile .content-container {
   max-width: 750px;
+}
+
+.home.blog.sidebarLocation-left, .home.blog.sidebarLocation-right,
+.archive.sidebarLocation-left,
+.archive.sidebarLocation-right,
+.page-template-news.sidebarLocation-left,
+.page-template-news.sidebarLocation-right,
+.single-post.sidebarLocation-left,
+.single-post.sidebarLocation-right,
+.page-template-profiles.sidebarLocation-left,
+.page-template-profiles.sidebarLocation-right,
+.single-profile.sidebarLocation-left,
+.single-profile.sidebarLocation-right,
+.post-type-archive-profile.sidebarLocation-left,
+.post-type-archive-profile.sidebarLocation-right {
+  /* These classes are using %removeTemplateNarrow. */
+}
+.home.blog.sidebarLocation-left .content-container, .home.blog.sidebarLocation-right .content-container,
+.archive.sidebarLocation-left .content-container,
+.archive.sidebarLocation-right .content-container,
+.page-template-news.sidebarLocation-left .content-container,
+.page-template-news.sidebarLocation-right .content-container,
+.single-post.sidebarLocation-left .content-container,
+.single-post.sidebarLocation-right .content-container,
+.page-template-profiles.sidebarLocation-left .content-container,
+.page-template-profiles.sidebarLocation-right .content-container,
+.single-profile.sidebarLocation-left .content-container,
+.single-profile.sidebarLocation-right .content-container,
+.post-type-archive-profile.sidebarLocation-left .content-container,
+.post-type-archive-profile.sidebarLocation-right .content-container {
+  max-width: 1170px;
+}
+.home.blog.sidebarLocation-left article[role=main], .home.blog.sidebarLocation-right article[role=main],
+.archive.sidebarLocation-left article[role=main],
+.archive.sidebarLocation-right article[role=main],
+.page-template-news.sidebarLocation-left article[role=main],
+.page-template-news.sidebarLocation-right article[role=main],
+.single-post.sidebarLocation-left article[role=main],
+.single-post.sidebarLocation-right article[role=main],
+.page-template-profiles.sidebarLocation-left article[role=main],
+.page-template-profiles.sidebarLocation-right article[role=main],
+.single-profile.sidebarLocation-left article[role=main],
+.single-profile.sidebarLocation-right article[role=main],
+.post-type-archive-profile.sidebarLocation-left article[role=main],
+.post-type-archive-profile.sidebarLocation-right article[role=main],
+.home.blog.sidebarLocation-left .content-area,
+.home.blog.sidebarLocation-right .content-area,
+.archive.sidebarLocation-left .content-area,
+.archive.sidebarLocation-right .content-area,
+.page-template-news.sidebarLocation-left .content-area,
+.page-template-news.sidebarLocation-right .content-area,
+.single-post.sidebarLocation-left .content-area,
+.single-post.sidebarLocation-right .content-area,
+.page-template-profiles.sidebarLocation-left .content-area,
+.page-template-profiles.sidebarLocation-right .content-area,
+.single-profile.sidebarLocation-left .content-area,
+.single-profile.sidebarLocation-right .content-area,
+.post-type-archive-profile.sidebarLocation-left .content-area,
+.post-type-archive-profile.sidebarLocation-right .content-area {
+  width: 66.66667%;
+  float: left;
+}
+
+.single-calendar article[role="main"] {
+  left: 0;
 }
 
 /* Narrow Sidebar
@@ -3949,16 +4075,29 @@ h6.bu_collapsible {
 .sidebarPosts,
 .sidebarProfiles {
   /* These classes are using %templateNarrowSidebar. */
+  width: auto;
   float: none;
-  margin: 0 auto;
+  clear: both;
+  margin-bottom: 40px;
 }
 .sidebarPosts .widget,
 .sidebarProfiles .widget {
-  padding: 0 0 0 60px;
-}
-.sidebarPosts .widget:first-child,
-.sidebarProfiles .widget:first-child {
   padding: 0;
+}
+
+.sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebarProfiles, .sidebarLocation-right
+.sidebarProfiles {
+  /* These classes are using %removeTemplateNarrowSidebar. */
+  float: left;
+  clear: none;
+}
+.sidebarLocation-left .sidebarPosts .widget, .sidebarLocation-right .sidebarPosts .widget, .sidebarLocation-left
+.sidebarProfiles .widget, .sidebarLocation-right
+.sidebarProfiles .widget {
+  width: 100%;
+  margin-left: 0;
+  margin-bottom: 40px;
 }
 
 /* News & Archive Template
@@ -4226,6 +4365,23 @@ h6.bu_collapsible {
   margin: 0 0 20px 0;
 }
 
+.error-404 #quicksearch {
+  position: static;
+  display: block;
+  background: transparent !important;
+  border: none;
+  padding: 0;
+  margin: 50px 0;
+  max-width: 500px;
+  font-size: 16.5px;
+}
+.error-404 #quicksearch fieldset {
+  padding: 0;
+}
+.error-404 #quicksearch select {
+  display: none;
+}
+
 /* Plugins contents:
 
 	1. Collapsible divs
@@ -4269,6 +4425,11 @@ h6.bu_collapsible {
   border-bottom-color: #0f69d7;
 }
 
+@media print {
+  .bu_collapsible_section {
+    display: block !important;
+  }
+}
 /* Profiles
 ----------------------------------------------------------------- */
 .profile-listing ul {
@@ -4461,6 +4622,98 @@ h6.bu_collapsible {
 ----------------------------------------------------------------- */
 .cf-course table {
   width: 100%;
+}
+
+.gallery {
+  margin-right: -10px;
+}
+.gallery a {
+  display: block;
+  margin-right: 10px;
+}
+.gallery img {
+  width: 100%;
+}
+
+.gallery-columns-1 .gallery-item {
+  float: left;
+  width: 33.33%;
+  width: 100%;
+}
+.gallery-columns-1 .gallery-item:nth-child(2) {
+  clear: left;
+}
+
+.gallery-columns-2 .gallery-item {
+  float: left;
+  width: 33.33%;
+  width: 50%;
+}
+.gallery-columns-2 .gallery-item:nth-child(3) {
+  clear: left;
+}
+
+.gallery-columns-3 .gallery-item {
+  float: left;
+  width: 33.33%;
+  width: 33.33333%;
+}
+.gallery-columns-3 .gallery-item:nth-child(4) {
+  clear: left;
+}
+
+.gallery-columns-4 .gallery-item {
+  float: left;
+  width: 33.33%;
+  width: 25%;
+}
+.gallery-columns-4 .gallery-item:nth-child(5) {
+  clear: left;
+}
+
+.gallery-columns-5 .gallery-item {
+  float: left;
+  width: 33.33%;
+  width: 20%;
+}
+.gallery-columns-5 .gallery-item:nth-child(6) {
+  clear: left;
+}
+
+.gallery-columns-6 .gallery-item {
+  float: left;
+  width: 33.33%;
+  width: 16.66667%;
+}
+.gallery-columns-6 .gallery-item:nth-child(7) {
+  clear: left;
+}
+
+.gallery-columns-7 .gallery-item {
+  float: left;
+  width: 33.33%;
+  width: 14.28571%;
+}
+.gallery-columns-7 .gallery-item:nth-child(8) {
+  clear: left;
+}
+
+.gallery-columns-8 .gallery-item {
+  float: left;
+  width: 33.33%;
+  width: 12.5%;
+}
+.gallery-columns-8 .gallery-item:nth-child(9) {
+  clear: left;
+}
+
+.gallery-columns-9 .gallery-item {
+  float: left;
+  width: 33.33%;
+  width: 11.11111%;
+}
+.gallery-columns-9 .gallery-item:nth-child(10) {
+  clear: left;
 }
 
 /*# sourceMappingURL=ie.css.map */
