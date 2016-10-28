@@ -199,17 +199,19 @@ function responsive_image_default_link_type() {
 add_filter( 'admin_init', 'responsive_image_default_link_type' );
 
 
-
-
-
 /**
- * Hides the H1 for homepage if option is set
+ * Hides the H1 for homepage if option is set.
+ *
+ * @param string $title Post title.
+ * @param int $post_id Post ID to filter title for.
+ *
+ * @return string New title to use.
  */
-function responsive_maybe_hide_homepage_h1( $title ) {
-
+function responsive_maybe_hide_homepage_h1( $title, $post_id ) {
 	$hide_front_h1 = get_option( 'burf_setting_hide_front_h1' );
-	if( $hide_front_h1 == true && is_front_page() ){
-		return;
+
+	if ( true === (boolean) $hide_front_h1 && is_front_page() && (int) get_option( 'page_on_front' ) === $post_id ) {
+		return '';
 	}
 
 	return $title;
