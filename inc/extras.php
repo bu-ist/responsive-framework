@@ -207,10 +207,10 @@ add_filter( 'admin_init', 'responsive_image_default_link_type' );
  *
  * @return string New title to use.
  */
-function responsive_maybe_hide_homepage_h1( $title, $post_id ) {
+function responsive_maybe_hide_homepage_h1( $title ) {
 	$hide_front_h1 = get_option( 'burf_setting_hide_front_h1' );
 
-	if ( true === (boolean) $hide_front_h1 && is_front_page() && (int) get_option( 'page_on_front' ) === $post_id ) {
+	if ( true === (boolean) $hide_front_h1 && is_front_page() && (int) get_option( 'page_on_front' ) === get_the_id() ) {
 		return '';
 	}
 
