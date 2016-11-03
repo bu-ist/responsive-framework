@@ -76,3 +76,12 @@
 #customize-control-burf_setting_color_scheme .customize-control-title {
 	display: none;
 }
+
+#accordion-section-bu_branding .customize-control-description {
+	display: none;
+	color: #999;
+	margin-left: 24px;
+}
+#accordion-section-bu_branding input[disabled] + .customize-control-description {
+	display: block;
+}
