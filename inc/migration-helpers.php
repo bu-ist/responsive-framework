@@ -128,7 +128,7 @@ function responsive_flexi_migration() {
 	}
 
 	// Set BU Nav Dropdown Defaults (Only want max 1)
-	if( get_option( 'bu_navigation_primarynav_depth' > BU_NAVIGATION_SUPPORTED_DEPTH ) ) {
+	if( get_option( 'bu_navigation_primarynav_depth' ) > BU_NAVIGATION_SUPPORTED_DEPTH ) {
 		update_option( 'bu_navigation_primarynav_depth', BU_NAVIGATION_SUPPORTED_DEPTH );
 	}
 
