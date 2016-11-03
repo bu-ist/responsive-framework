@@ -85,3 +85,7 @@
 #accordion-section-bu_branding input[disabled] + .customize-control-description {
 	display: block;
 }
+
+#customize-control-burf_setting_sidebar_options .description {
+	font-style: normal;
+}
