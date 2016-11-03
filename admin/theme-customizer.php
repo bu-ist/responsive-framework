@@ -301,7 +301,7 @@ function responsive_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'burf_setting_sidebar_location', array(
 			'label'		=> 'Main Sidebar Position',
 			'section'	=> 'burf_section_content_options',
-			'description' => 'mermermermer',
+			'description' => 'Changes the position of the main sidebar.',
 			'type'		=> 'radio',
 			'choices'	=> array(
 				'bottom'=>	'Bottom',
