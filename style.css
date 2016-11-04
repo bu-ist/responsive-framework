@@ -19,7 +19,7 @@ Theme Groups: Responsive Framework
   content: "";
 }
 
-.brand-masterPlate, .brand-bumcLogo, .navToggle {
+.brand-masterplate, .brand-bumclogo, .navToggle {
   /* These classes are using %hide-text. */
   overflow: hidden;
   text-indent: 100%;
@@ -2529,6 +2529,11 @@ article[role=main],
     padding-bottom: 35px;
   }
 }
+.page-template-no-sidebars article[role=main], .page-template-no-sidebars
+.content-area {
+  left: 0;
+  width: 100%;
+}
 
 .sidebarLocation-bottom .sidebar {
   clear: both;
@@ -2537,10 +2542,6 @@ article[role=main],
   float: none;
   padding-left: 0;
   margin-bottom: 40px;
-}
-
-.page-template-no-sidebars article[role=main] {
-  width: 100%;
 }
 
 /* sidebar
@@ -2828,7 +2829,7 @@ article[role=main],
   transform: translateY(-50%);
 }
 
-.brand-container, .brand-siteDescription {
+.brand-container, .brand-site-description {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -2836,7 +2837,7 @@ article[role=main],
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.lt-ie9 .brand-container, .lt-ie9 .brand-siteDescription {
+.lt-ie9 .brand-container, .lt-ie9 .brand-site-description {
   top: auto;
 }
 
@@ -2866,15 +2867,15 @@ article[role=main],
   color: #000000;
 }
 
-.brandPart-logotype, .brand-unbranded, .brandPart-parent {
+.brand-part-logotype, .brand-unbranded, .brand-part-parent {
   font-weight: 600;
 }
 
-.brand-siteDescription {
+.brand-site-description {
   display: none;
 }
 @media screen and (min-width: 992px) {
-  .brand-siteDescription {
+  .brand-site-description {
     display: block;
     font-family: "TiemposText", Georgia, serif;
     font-size: 16px;
@@ -2901,10 +2902,10 @@ article[role=main],
 }
 
 /* Sponsored branding */
-.brandPart-siteName {
+.brand-part-sitename {
   display: block;
 }
-.brandPart-logotype + .brandPart-siteName {
+.brand-part-logotype + .brand-part-sitename {
   display: inline;
 }
 
@@ -2917,37 +2918,37 @@ article[role=main],
   color: #cc0000;
 }
 
-.brandPart-logotype + .brandPart-parent {
+.brand-part-logotype + .brand-part-parent {
   font-weight: 400;
 }
 
-.brandPart-subParent {
+.brand-part-subparent {
   display: block;
 }
 
 /* Master logo in footer */
-.brand-masterPlate {
+.brand-masterplate {
   display: block;
   width: 112px;
   height: 50px;
   background: url("https://www.bu.edu/cdn/images/logos/masterplate112x50.png") no-repeat 0 0;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .brand-masterPlate {
+  .brand-masterplate {
     background-image: url("https://www.bu.edu/cdn/images/logos/masterplate112x50-retina.png");
     background-size: 112px 50px;
   }
 }
 
 /* BUMC logo in footer */
-.brand-bumcLogo {
+.brand-bumclogo {
   display: block;
   background: url("https://www.bu.edu/cdn/images/logos/bumclogo96x40.png") no-repeat 0 0;
   width: 96px;
   height: 40px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .brand-bumcLogo {
+  .brand-bumclogo {
     background-image: url("https://www.bu.edu/cdn/images/logos/bumclogo96x40-retina.png");
     background-size: 96px 40px;
   }
@@ -3137,7 +3138,7 @@ nav a {
   display: none;
 }
 
-.brand .siteDescription {
+.brand .site-description {
   float: left;
   width: auto;
   margin-left: 50px;
@@ -4283,21 +4284,6 @@ h6.bu_collapsible {
   max-width: 750px;
 }
 
-.home.blog.sidebarLocation-left, .home.blog.sidebarLocation-right,
-.archive.sidebarLocation-left,
-.archive.sidebarLocation-right,
-.page-template-news.sidebarLocation-left,
-.page-template-news.sidebarLocation-right,
-.single-post.sidebarLocation-left,
-.single-post.sidebarLocation-right,
-.page-template-profiles.sidebarLocation-left,
-.page-template-profiles.sidebarLocation-right,
-.single-profile.sidebarLocation-left,
-.single-profile.sidebarLocation-right,
-.post-type-archive-profile.sidebarLocation-left,
-.post-type-archive-profile.sidebarLocation-right {
-  /* These classes are using %removeTemplateNarrow. */
-}
 .home.blog.sidebarLocation-left .content-container, .home.blog.sidebarLocation-right .content-container,
 .archive.sidebarLocation-left .content-container,
 .archive.sidebarLocation-right .content-container,
@@ -4367,11 +4353,6 @@ h6.bu_collapsible {
   }
 }
 
-.sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
-.sidebarProfiles, .sidebarLocation-right
-.sidebarProfiles {
-  /* These classes are using %removeTemplateNarrowSidebar. */
-}
 @media screen and (min-width: 992px) {
   .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
   .sidebarProfiles, .sidebarLocation-right
