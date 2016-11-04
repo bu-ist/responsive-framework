@@ -20,7 +20,7 @@
 <div class="brand">
 	<?php responsive_branding(); ?>
 
-	<p class="siteDescription brand-siteDescription"><?php bloginfo( 'description' ); ?></p>
+	<p class="site-description brand-site-description"><?php bloginfo( 'description' ); ?></p>
 
 	<?php if ( responsive_search_is_enabled() ) : ?>
 	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
