@@ -32,7 +32,7 @@ function responsive_branding() {
  */
 function responsive_branding_masterplate( $args = array() ) {
 	$defaults = array(
-		'before' => '<div class="siteFooter-brand">',
+		'before' => '<div class="site-footer-brand">',
 		'after'  => '</div>',
 		);
 	$args = wp_parse_args( $args, $defaults );
