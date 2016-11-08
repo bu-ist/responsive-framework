@@ -40,7 +40,7 @@ class BURF_Customize_Checkbox_Group extends WP_Customize_Control {
 			<?php foreach ( $this->choices as $value => $label ) : ?>
 				<li>
 					<label>
-						<input type="checkbox" value="<?php echo esc_attr( $value ); ?>" <?php checked( in_array( $value, $multi_values ) ); ?> /> 
+						<input type="checkbox" value="<?php echo esc_attr( $value ); ?>" <?php checked( in_array( $value, $multi_values ) ); ?> />
 						<?php echo esc_html( $label ); ?>
 					</label>
 				</li>

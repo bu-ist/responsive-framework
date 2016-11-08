@@ -6,7 +6,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.4.3' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.5.0' );
 
 /**
  * Theme version.
@@ -62,6 +62,9 @@ function responsive_setup() {
 
 	// Disable BU Links Footer editor under Appearance menu
 	define( 'BU_DISABLE_FOOTER_EDITOR', true );
+
+	// Only support one level of dropdowns by default
+	define('BU_NAVIGATION_SUPPORTED_DEPTH', 1);
 
 	// Custom menu locations.
 	register_nav_menus( array(
@@ -134,6 +137,9 @@ add_action( 'after_setup_theme', 'responsive_setup' );
 function responsive_init() {
 	// Add support for dynamic footbars (e.g. alternate footbar)
 	add_post_type_support( 'page', 'bu-dynamic-footbars' );
+
+	// Make sure images are set to 'no link' by default
+	update_option( 'image_default_link_type', 'none' );
 }
 
 add_action( 'init', 'responsive_init' );
@@ -243,9 +249,13 @@ function responsive_styles() {
 /**
  * Maybe trigger theme migration procedure.
  */
-function responsive_maybe_migrate_theme( $old_name, $old_theme ) {
+function responsive_maybe_migrate_theme( $old_name, $old_theme = false ) {
 	// Theme migrations require Site Manager > 4.0
 	if ( ! defined( 'BU_SITE_MANAGER_VERSION' ) || version_compare( BU_SITE_MANAGER_VERSION, '4.0', '<' ) ) {
+		return;
+	}
+
+	if ( ! $old_theme ) {
 		return;
 	}
 
@@ -259,16 +269,17 @@ function responsive_maybe_migrate_theme( $old_name, $old_theme ) {
 }
 
 add_action( 'after_switch_theme', 'responsive_maybe_migrate_theme', 1, 2 );
+
 /**
  * Reset title tag for navigation
  */
-
 function responsive_change_title_tag($attr, $page) {
-	unset($attr['title']);
-	$attr['title'] .=  'Navigate to: ' . $page->navigation_label;
+	unset( $attr['title'] );
+	$attr['title'] = 'Navigate to: ' . $page->navigation_label;
 	return $attr;
 }
-add_filter('bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 10, 2);
+add_filter( 'bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 10, 2 );
+
 
 /**
  * Admin

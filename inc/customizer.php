@@ -214,7 +214,7 @@ function responsive_customizer_color_region_groups() {
 function responsive_customizer_color_regions() {
 	$scheme = responsive_get_color_scheme();
 	return array(
-		
+
 		// navigation bar
 		'primaryNav-bg' => array(
 				'label'       => 'Background Color',
@@ -241,7 +241,7 @@ function responsive_customizer_color_regions() {
 				'group'       => 'navbar',
 				'default'     => $scheme['colors'][4],
 			),
-		
+
 		// content area
 		'content-heading' => array(
 				'label'       => 'Headings',
@@ -273,7 +273,7 @@ function responsive_customizer_color_regions() {
 				'group'       => 'content-area',
 				'default'     => $scheme['colors'][10],
 			),
-		
+
 		// sidebar
 		'sidebar-bg' => array(
 				'label'       => 'Widget Background',
@@ -306,7 +306,7 @@ function responsive_customizer_color_regions() {
 				'group'       => 'sidebar',
 				'default'     => $scheme['colors'][16],
 			),
-		
+
 		// footbar
 		'footbar-bg' => array(
 				'label'       => 'Background',
@@ -362,7 +362,7 @@ function responsive_get_color_schemes() {
 				'#ffffff', // primary nav links
 				'#aaaaaa', // utility nav links
 				'#aaaaaa', // primary links hover
-				
+
 				// content area
 				'#000000', // headings
 				'#555555', // text color
@@ -370,7 +370,7 @@ function responsive_get_color_schemes() {
 				'#0f69d7', // link hovers
 				'#0f69d7', // button color
 				'#ffffff', // button text color
-				
+
 				// sidebar
 				'#ffffff', // widget bg
 				'#000000', // widget title
@@ -378,7 +378,7 @@ function responsive_get_color_schemes() {
 				'#0f69d7', // links
 				'#0f69d7', // link hovers
 				'#555555', // text color
-				
+
 				// footbar
 				'#f5f5f5', // background
 				'#cccccc', // top border
@@ -401,7 +401,7 @@ function responsive_get_color_schemes() {
 				'#ffffff', // primary nav links
 				'#7c7c9d', // utility nav links
 				'#9f9fec', // primary links hover
-				
+
 				// content area
 				'#24243a', // headings
 				'#24243a', // text color
@@ -409,7 +409,7 @@ function responsive_get_color_schemes() {
 				'#000000', // link hovers
 				'#4fc3a0', // button color
 				'#ffffff', // button text color
-				
+
 				// sidebar
 				'#52527e', // widget bg
 				'#ffffff', // widget title
@@ -417,7 +417,7 @@ function responsive_get_color_schemes() {
 				'#ecb438', // links
 				'#ffffff', // link hovers
 				'#ffffff', // text color
-				
+
 				// footbar
 				'#1a1a22', // background
 				'#1a1a22', // top border
@@ -440,7 +440,7 @@ function responsive_get_color_schemes() {
 				'#ffffff', // primary nav links
 				'#ff9fc5', // utility nav links
 				'#000000', // primary links hover
-				
+
 				// content area
 				'#000000', // headings
 				'#000000', // text color
@@ -448,7 +448,7 @@ function responsive_get_color_schemes() {
 				'#000000', // link hovers
 				'#e82a75', // button color
 				'#ffffff', // button text color
-				
+
 				// sidebar
 				'#7f2247', // widget bg
 				'#ffffff', // widget title
@@ -456,7 +456,7 @@ function responsive_get_color_schemes() {
 				'#ffffff', // links
 				'#ffffff', // link hovers
 				'#e4abc1', // text color
-				
+
 				// footbar
 				'#222222', // background
 				'#222222', // top border
@@ -479,7 +479,7 @@ function responsive_get_color_schemes() {
 				'#ffffff', // primary nav links
 				'#b4ddfa', // utility nav links
 				'#000000', // primary links hover
-				
+
 				// content area
 				'#222222', // headings
 				'#000000', // text color
@@ -487,7 +487,7 @@ function responsive_get_color_schemes() {
 				'#000000', // link hovers
 				'#fa5707', // button color
 				'#ffffff', // button text color
-				
+
 				// sidebar
 				'#e1f0f5', // widget bg
 				'#000000', // widget title
@@ -495,7 +495,7 @@ function responsive_get_color_schemes() {
 				'#000000', // links
 				'#000000', // link hovers
 				'#6f7b7f', // text color
-				
+
 				// footbar
 				'#222222', // background
 				'#222222', // top border
@@ -518,7 +518,7 @@ function responsive_get_color_schemes() {
 				'#ffffff', // primary nav links
 				'#bec8ff', // utility nav links
 				'#000000', // primary links hover
-				
+
 				// content area
 				'#000000', // headings
 				'#000000', // text color
@@ -526,7 +526,7 @@ function responsive_get_color_schemes() {
 				'#000000', // link hovers
 				'#6c7dff', // button color
 				'#ffffff', // button text color
-				
+
 				// sidebar
 				'#ffffff', // widget bg
 				'#000000', // widget title
@@ -534,7 +534,7 @@ function responsive_get_color_schemes() {
 				'#fb8007', // links
 				'#989bad', // link hovers
 				'#989bad', // text color
-				
+
 				// footbar
 				'#1a1d2b', // background
 				'#1a1a22', // top border
@@ -687,7 +687,9 @@ function responsive_framework_get_color_regions_css( $colors, $context = 'defaul
 /* sidebar widget background color
 ----------------------------------------------------------------- */
 
-.sidebar .widget {
+.sidebar .widget,
+.sidebarPosts .widget,
+.sidebarProfiles .widget {
 	background: {$colors['sidebar-bg']};
 	padding:24px;
 }
@@ -766,8 +768,8 @@ body {
 }
 
 /* link color */
-.wrapper a,
-.wrapper a:visited,
+article a,
+article a:visited,
 .widget a,
 .widget a:hover,
 .widget a:focus,
@@ -786,7 +788,7 @@ body {
 }
 
 /* link hover color */
-.wrapper a:hover,
+article a:hover,
 .widget a:hover,
 .event-list .event-link a:hover,
 .monthCalendar td a:hover, {
@@ -794,48 +796,13 @@ body {
 }
 
 /* buttons */
-.button, button,
-html input[type="button"],
-input[type="reset"],
 input[type="submit"],
-.news-posts .paging-navigation a,
-.archive .paging-navigation a,
-.single .archiveLink,
-.single-calendar .archiveLink,
+.button,
 .button-primary,
+.button-selected,
 #quicksearch .button,
-#quicksearch button,
-#quicksearch html input[type="button"],
-html #quicksearch input[type="button"],
-#quicksearch input[type="reset"],
-#quicksearch input[type="submit"],
-#quicksearch .news-posts .paging-navigation a,
-.news-posts .paging-navigation #quicksearch a,
-#quicksearch .archive .paging-navigation a,
-.archive .paging-navigation #quicksearch a,
-#quicksearch .single .archiveLink,
-.single #quicksearch .archiveLink,
-#quicksearch .single-calendar .archiveLink,
-.single-calendar #quicksearch .archiveLink,
-.news-posts .paging-navigation a,
-.archive .paging-navigation a,
-.single .archiveLink,
-.single-calendar .archiveLink,
-.button-selected, a.button-primary,
-#quicksearch a.button,
-#quicksearch .news-posts .paging-navigation a,
-.news-posts .paging-navigation #quicksearch a,
-#quicksearch .archive .paging-navigation a,
-.archive .paging-navigation #quicksearch a,
-#quicksearch .single a.archiveLink,
-.single #quicksearch a.archiveLink,
-#quicksearch .single-calendar a.archiveLink,
-.single-calendar #quicksearch a.archiveLink,
-.news-posts .paging-navigation a,
-.archive .paging-navigation a,
-.single a.archiveLink,
-.single-calendar a.archiveLink,
-a.button-selected {
+.paging-navigation a,
+.archiveLink {
 	background: {$colors['button-color']};
 	color: {$colors['button-text-color']};
 }
@@ -852,6 +819,19 @@ a.button-selected {
 .sidebar .widget_nav_menu ul,
 .sidebar #contentnav li,
 .sidebar .widget_nav_menu li,
+.sidebar .widget-bu-calendar li,
+.sidebarPosts .widgetTitle,
+.sidebarPosts #contentnav ul,
+.sidebarPosts .widget_nav_menu ul,
+.sidebarPosts #contentnav li,
+.sidebarPosts .widget_nav_menu li,
+.sidebarPosts .widget-bu-calendar li,
+.sidebarProfiles .widgetTitle,
+.sidebarProfiles #contentnav ul,
+.sidebarProfiles .widget_nav_menu ul,
+.sidebarProfiles #contentnav li,
+.sidebarProfiles .widget_nav_menu li,
+.sidebarProfiles .widget-bu-calendar li,
 .monthCalendar,
 .monthCalendar th,
 .monthCalendar td {
@@ -859,13 +839,21 @@ a.button-selected {
 }
 
 .sidebar .widgetTitle,
-.sidebar .widgetTitle a:after {
+.sidebar .widget .widgetTitle a,
+.sidebarPosts .widget .widgetTitle a,
+.sidebarProfiles .widget .widgetTitle a,
+.sidebar .widgetTitle a:after,
+.sidebarPosts .widgetTitle,
+.sidebarPosts .widgetTitle a:after,
+.sidebarProfiles .widgetTitle,
+.sidebarProfiles .widgetTitle a:after {
 	color: {$colors['sidebar-widgetTitle']};
 }
 
 /* text color */
 .sidebar .widget,
-.sidebar .widget .widgetTitle a,
+.sidebarPosts .widget,
+.sidebarProfiles .widget,
 .monthCalendar th,
 .monthCalendar caption {
 	color: {$colors['sidebar-base']};
@@ -874,7 +862,13 @@ a.button-selected {
 /* link color */
 .sidebar .widget a,
 .sidebar #contentnav li a,
-.sidebar .widget_nav_menu li a {
+.sidebar .widget_nav_menu li a,
+.sidebarPosts .widget a,
+.sidebarPosts #contentnav li a,
+.sidebarPosts .widget_nav_menu li a,
+.sidebarProfiles .widget a,
+.sidebarProfiles #contentnav li a,
+.sidebarProfiles .widget_nav_menu li a {
 	color: {$colors['sidebar-link']};
 }
 
@@ -883,7 +877,17 @@ a.button-selected {
 .sidebar #contentnav li a:hover,
 .sidebar .widget_nav_menu li a:hover,
 .sidebar #contentnav li.current_page_item > a,
-.sidebar .widget_nav_menu li.current_page_item > a {
+.sidebar .widget_nav_menu li.current_page_item > a,
+.sidebarPosts .widget a:hover,
+.sidebarPosts #contentnav li a:hover,
+.sidebarPosts .widget_nav_menu li a:hover,
+.sidebarPosts #contentnav li.current_page_item > a,
+.sidebarPosts .widget_nav_menu li.current_page_item > a,
+.sidebarProfiles .widget a:hover,
+.sidebarProfiles #contentnav li a:hover,
+.sidebarProfiles .widget_nav_menu li a:hover,
+.sidebarProfiles #contentnav li.current_page_item > a,
+.sidebarProfiles .widget_nav_menu li.current_page_item > a {
 	color: {$colors['sidebar-link-hover']};
 }
 
@@ -906,8 +910,9 @@ a.button-selected {
 .footbar .widgetTitle,
 .footbar .widgetTitle a:after,
 .footbar h3.widgetTitle a,
-.widget-bu-calendar .default a .date,
-.widget-bu-calendar .graphic .day {
+.footbar .widget-bu-calendar .default a .date,
+.footbar .widget-bu-calendar .graphic .day,
+.footbar .widget-bu-calendar .date {
 	color: {$colors['footbar-widgetTitle']};
 }
 
@@ -917,8 +922,7 @@ a.button-selected {
 .footbar .widget_nav_menu ul,
 .footbar #contentnav li,
 .footbar .widget_nav_menu li,
-.footbar .widget-bu-calendar .full-date li,
-.footbar .widget-bu-calendar .default li {
+.footbar .widget-bu-calendar li {
 	border-color: {$colors['footbar-widgetTitle-border']};
 }
 
@@ -976,8 +980,8 @@ function responsive_get_customizer_footer_info() {
 	$defaults = array(
 		'text'  => '',
 		'autop' => false,
-		);
-	$footer = get_option( 'burf_setting_footer', $defaults );
+	);
+	$footer = wp_parse_args( get_option( 'burf_setting_footer', array() ), $defaults );
 
 	if ( $footer['autop'] ) {
 		return wpautop( $footer['text'] );
