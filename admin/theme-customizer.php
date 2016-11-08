@@ -157,6 +157,8 @@ function responsive_customize_register( $wp_customize ) {
 		}
 	}
 
+
+
 	// Content Options
 	$wp_customize->add_section( 'burf_section_content_options', array(
 		'title'       => 'Content Options',
@@ -186,12 +188,30 @@ function responsive_customize_register( $wp_customize ) {
 		)
 	);
 
-	// Alternate Footbars
+
+
+
+
+
+	// Sidebar Options
 	$wp_customize->add_setting( 'burf_setting_sidebar_options', array(
 		'default'           => '',
 		'capability'        => 'edit_theme_options',
 		'type'              => 'option'
 	) );
+
+	$sidebar_description = '';
+
+	if ( defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) || defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
+		$sidebar_description .= '<h3>Options set by the theme:</h3>';
+	}
+
+	if ( defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ) {
+		$sidebar_description .= '<p><strong>Main sidebar position</strong>: ' . BU_RESPONSIVE_SIDEBAR_POSITION . '</p>';
+	}
+	if ( defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
+		$sidebar_description .= '<p><strong>Keep posts and profiles sidebar on the bottom?</strong>: ' . BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM . '</p>';
+	}
 
 	$wp_customize->add_control(
 		new BURF_Customize_Checkbox_Group(
@@ -200,9 +220,10 @@ function responsive_customize_register( $wp_customize ) {
 			array(
 				'label'       => 'Sidebar Options',
 				'section'     => 'burf_section_content_options',
+				'description' => $sidebar_description,
 				'choices'     => array(
 					'dynamic_footbars' => 'Enable alternate footbar?',
-					)
+				)
 			)
 		)
 	);
@@ -215,7 +236,7 @@ function responsive_customize_register( $wp_customize ) {
 		'priority'    => 34,
 	) );
 
-	// Additiona Info (free-form textarea)
+	// Additional Info (free-form textarea)
 	$wp_customize->add_setting( 'burf_setting_footer[text]', array(
 		'default'    => '',
 		'capability' => 'edit_theme_options',
@@ -247,6 +268,61 @@ function responsive_customize_register( $wp_customize ) {
 		'settings' => 'burf_setting_footer[autop]',
 		'type'     => 'checkbox',
 	) );
+
+
+	/* Front Page H1 Display */
+	$wp_customize->add_setting( 'burf_setting_hide_front_h1', array(
+		'default'           => '',
+		'capability'        => 'edit_theme_options',
+		'type'              => 'option'
+	) );
+
+	$wp_customize->add_control(
+		new BURF_Customize_Checkbox_Group(
+			$wp_customize,
+			'burf_setting_hide_front_h1',
+			array(
+				'label'       => 'Additional options',
+				'section'     => 'static_front_page',
+				'choices'     => array(
+					'true' => 'Hide the homepage title',
+				)
+			)
+		)
+	);
+
+	/* Main Sidebar Location */
+	if ( ! defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ) {
+		$wp_customize->add_setting( 'burf_setting_sidebar_location', array(
+			'default'	=> 'right',
+			'type'		=> 'option'
+		) );
+
+		$wp_customize->add_control( 'burf_setting_sidebar_location', array(
+			'label'		=> 'Main Sidebar Position',
+			'section'	=> 'burf_section_content_options',
+			'description' => 'Changes the position of the main sidebar.',
+			'type'		=> 'radio',
+			'choices'	=> array(
+				'bottom'=>	'Bottom',
+				'left'	=>	'Left',
+				'right'	=>	'Right'
+			)
+		) );
+	}
+
+	/* Posts Sidebar Location */
+	if ( ! defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
+		$wp_customize->add_setting( 'burf_setting_posts_sidebar_bottom', array(
+			'type'		=> 'option'
+		) );
+
+		$wp_customize->add_control( 'burf_setting_posts_sidebar_bottom', array(
+			'label'		=> 'Keep the posts sidebar on bottom',
+			'section'	=> 'burf_section_content_options',
+			'type'		=> 'checkbox'
+		) );
+	}
 }
 
 add_action( 'customize_register', 'responsive_customize_register' );

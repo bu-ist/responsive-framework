@@ -8,6 +8,8 @@ get_header();
 $archive_type = responsive_archive_type();
 ?>
 
+<div class="content-area">
+
 	<?php if ( have_posts() ) : ?>
 
 		<?php
@@ -41,6 +43,8 @@ $archive_type = responsive_archive_type();
 
 	<?php endif; ?>
 
+</div>
+
 <?php get_sidebar( $archive_type ); ?>
 
-<?php get_footer(); ?>
+<?php get_footer();

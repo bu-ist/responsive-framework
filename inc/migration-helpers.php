@@ -127,6 +127,11 @@ function responsive_flexi_migration() {
 		update_option( 'theme_groups', $theme_groups );
 	}
 
+	// Set BU Nav Dropdown Defaults (Only want max 1)
+	if( get_option( 'bu_navigation_primarynav_depth' ) > BU_NAVIGATION_SUPPORTED_DEPTH ) {
+		update_option( 'bu_navigation_primarynav_depth', BU_NAVIGATION_SUPPORTED_DEPTH );
+	}
+
 	$time_end = microtime( true );
 	$num_queries_end = $wpdb->num_queries;
 	$time_elapsed = $time_end - $time_start;

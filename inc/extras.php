@@ -11,6 +11,8 @@ function responsive_body_class( $classes = '' ) {
 
 	$font_palette = get_option( 'burf_setting_fonts' );
 	$layout_setting = responsive_layout();
+	$sidebar_location = defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ? BU_RESPONSIVE_SIDEBAR_POSITION : get_option( 'burf_setting_sidebar_location' );
+	$posts_sidebar_bottom = defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ? BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM : get_option( 'burf_setting_posts_sidebar_bottom' );
 
 	if ( $font_palette ) {
 		$classes[] = $font_palette;
@@ -18,6 +20,17 @@ function responsive_body_class( $classes = '' ) {
 
 	if ( $layout_setting ) {
 		$classes[] = "l-$layout_setting";
+	}
+
+	/* If "Keep posts sidebar on bottom" is on, don't add classes to those pages */
+	if ( $sidebar_location ) {
+		if( true == $posts_sidebar_bottom ){
+			if( is_page() && ! is_page_template( 'page-templates/news.php' ) && ! is_page_template( 'page-templates/profiles.php' ) ){
+				$classes[] = "sidebarLocation-$sidebar_location";
+			}
+		}else {
+			$classes[] = "sidebarLocation-$sidebar_location";
+		}
 	}
 
 	// Cleans up page template releated body classes
@@ -184,3 +197,53 @@ function responsive_image_default_link_type() {
 }
 
 add_filter( 'admin_init', 'responsive_image_default_link_type' );
+
+
+/**
+ * Hides the H1 for homepage if option is set.
+ *
+ * @param string $title Post title.
+ * @param int $post_id Post ID to filter title for.
+ *
+ * @return string New title to use.
+ */
+function responsive_maybe_hide_homepage_h1( $title ) {
+	$hide_front_h1 = get_option( 'burf_setting_hide_front_h1' );
+
+	if ( true === (boolean) $hide_front_h1 && is_front_page() && (int) get_option( 'page_on_front' ) === get_the_id() ) {
+		return '';
+	}
+
+	return $title;
+}
+add_filter( 'the_title', 'responsive_maybe_hide_homepage_h1', 10, 2 );
+
+
+/**
+ * Customizes oEmbed output
+ * -- Adds a wrapper div around youtube/vimeo videos
+ */
+function responsive_oembed_output( $html, $url ) {
+	$providers = array(
+		array( 'youtube', 'Youtube',
+			array( '#http://((m|www)\.)?youtube\.com/watch.*#i', '#https://((m|www)\.)?youtube\.com/watch.*#i', '#http://((m|www)\.)?youtube\.com/playlist.*#i', '#https://((m|www)\.)?youtube\.com/playlist.*#i', '#http://youtu\.be/.*#i', '#https://youtu\.be/.*#i')
+		),
+		array( 'vimeo', 'Vimeo',
+			array( '#https?://(.+\.)?vimeo\.com/.*#i' )
+		)
+	);
+
+	foreach ( $providers as $provider ) {
+		$slug = $provider[0];
+		$name = $provider[1];
+		$patterns = $provider[2];
+
+		foreach ( $patterns as $pattern ) {
+			if ( preg_match( $pattern, $url ) ) {
+				return( sprintf( '<div class="responsiveVideo responsive-%s">%s</div>', $slug, $html ) );
+			}
+		}
+	}
+	return $html;
+}
+add_filter( 'embed_oembed_html', 'responsive_oembed_output', 10, 2 );

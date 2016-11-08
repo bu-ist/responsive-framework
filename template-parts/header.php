@@ -5,7 +5,7 @@
 ?>
 <div class="brand">
 	<?php responsive_branding(); ?>
-	<p class="siteDescription"><?php bloginfo( 'description' ); ?></p>
+	<p class="site-description brand-site-description"><?php bloginfo( 'description' ); ?></p>
 </div>
 
 <?php responsive_utility_nav(); ?>
@@ -21,4 +21,4 @@
 	<?php responsive_utility_nav(); ?>
 </nav>
 
-<?php responsive_search_form(); ?>
+<?php responsive_search_form();
