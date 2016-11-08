@@ -3,8 +3,9 @@ exclude_paths:
 - "tests/"
 - "node_modules/"
 - "languages/"
-- "vendor"
-- "bower_components"
+- "vendor/"
+- "bower_components/"
+- "js/vendor/"
 engines:
   duplication:
     enabled: true
