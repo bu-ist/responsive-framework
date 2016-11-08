@@ -5,6 +5,8 @@
 
 get_header(); ?>
 
+<div class="content-area">
+
 	<?php if ( have_posts() ) : ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
@@ -21,5 +23,7 @@ get_header(); ?>
 
 	<?php endif; ?>
 
+</div>
+
 <?php get_sidebar( 'posts' ); ?>
-<?php get_footer(); ?>
+<?php get_footer();

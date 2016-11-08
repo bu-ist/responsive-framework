@@ -19,4 +19,4 @@ get_header();
 	</div><!-- .page-content -->
 </section><!-- .no-access -->
 
-<?php get_footer(); ?>
+<?php get_footer();

@@ -13,7 +13,7 @@ get_header(); ?>
 
 			<?php responsive_content_banner( 'contentWidth' ); ?>
 
-			<h1><?php the_title(); ?></h1>
+			<?php the_title( '<h1>', '</h1>' ); ?>
 
 			<?php the_content( '<p class="serif">Read the rest of this page &raquo;</p>' ); ?>
 
@@ -30,4 +30,4 @@ get_header(); ?>
 	<?php endwhile; ?>
 
 <?php get_sidebar( 'profiles' ); ?>
-<?php get_footer(); ?>
+<?php get_footer();

@@ -12,4 +12,4 @@
 			<?php endwhile; ?>
 		</ul>
 	</div><!--/.profile-listing-->
-<?php endif; ?>
+<?php endif;

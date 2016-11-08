@@ -14,7 +14,7 @@ $bu_news_display_options = BU_News_Page_Template::$display_content;
 
 	<?php responsive_content_banner( 'contentWidth' ); ?>
 
-	<h1><?php the_title(); ?></h1>
+	<?php the_title( '<h1>', '</h1>' ); ?>
 
 	<?php the_content(); ?>
 
