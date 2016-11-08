@@ -1,0 +1,33 @@
+---
+exclude_paths:
+- "tests/"
+- "node_modules/"
+- "languages/"
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+      - python
+      - php
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  phpcodesniffer:
+    enabled: true
+    config:
+      file_extensions: "php"
+      standard: "WordPress,WordPress-Core,WordPress-Docs,WordPress-Extra,WordPress-VIP"
+      ignore_warnings: false
+      encoding: utf-8
+  phpmd:
+    enabled: false
+ratings:
+  paths:
+  - "**.inc"
+  - "**.js"
+  - "**.php"
+  - "**.css"
