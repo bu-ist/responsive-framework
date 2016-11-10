@@ -1,12 +1,17 @@
 ---
 exclude_paths:
-- "tests/"
-- "node_modules/"
-- "languages/"
-- "vendor/"
-- "bower_components/"
-- "js/vendor/"
+- tests/
+- node_modules/
+- languages/
+- vendor/
+- bower_components/
+- js/vendor/
+- ".sass-cache/"
+- "*.min.css"
+- "*.min.js"
 engines:
+  csslint:
+    enabled: false
   duplication:
     enabled: true
     config:
@@ -15,20 +20,29 @@ engines:
       - php
   eslint:
     enabled: true
+    channel: eslint-3
   fixme:
+    enabled: true
+  markdownlint:
     enabled: true
   phpcodesniffer:
     enabled: true
     config:
-      file_extensions: "php,js"
-      standard: "WordPress,WordPress-Core,WordPress-Docs,WordPress-Extra,WordPress-VIP"
+      file_extensions: php
+      standard: WordPress
       ignore_warnings: false
       encoding: utf-8
   phpmd:
-    enabled: false
+    enabled: true
+    config:
+      file_extensions: php
+      rulesets: codesize,naming,unusedcode
+  scss-lint:
+    enabled: true
 ratings:
   paths:
   - "**.inc"
   - "**.js"
   - "**.php"
   - "**.css"
+  - "**.scss"
