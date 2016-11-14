@@ -9,6 +9,7 @@ exclude_paths:
 - ".sass-cache/"
 - "*.min.css"
 - "*.min.js"
+- "**.css"
 engines:
   csslint:
     enabled: false
