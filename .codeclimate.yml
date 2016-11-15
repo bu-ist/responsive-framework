@@ -10,6 +10,13 @@ exclude_paths:
 - "*.min.css"
 - "*.min.js"
 - "**.css"
+
+prepare:
+  fetch:
+  - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.sass-lint.yml"
+  - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintrc"
+  - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintignore"
+
 engines:
   csslint:
     enabled: false
