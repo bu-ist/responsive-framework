@@ -37,6 +37,7 @@ function responsive_setup() {
 			'gallery',
 			'caption',
 		) );
+	add_theme_support( 'post-thumbnails' );
 
 	// Add support for branding plugin
 	add_theme_support( 'bu-branding' );
