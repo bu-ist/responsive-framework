@@ -215,7 +215,7 @@ function responsive_enqueue_scripts() {
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	// Main script file (script.js) will load from child theme directory.
-	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", apply_filters( 'r_script_dependencies', array( 'jquery' ) ), RESPONSIVE_THEME_VERSION, true );
 
 	// Vendor scripts will load from parent theme directory.
 	wp_enqueue_script( 'responsive-modernizer', get_template_directory_uri() . "/js/vendor/modernizer$postfix.js", array(), '2.8.3' );
