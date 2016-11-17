@@ -1,52 +1,55 @@
-# 1.5.1
+# Changelog
+
+## 1.5.1
 
 * Fix `responsive_maybe_hide_homepage_h1()` to accept the second parameter for
 `the_title` filter.
 * Introduce the `r_script_dependencies` filter. Used to filter script
 dependencies for child theme script files.
 
-# 1.4.3
+## 1.4.3
+
 * Fix for BUniverse embeds/shortcode to support HTTPS.
 
-# 1.4.2
+## 1.4.2
 
 * Updating to newest tag (1.3.2) of Responsive Foundation
 
-# 1.4.1
+## 1.4.1
 
 * Updating to newest tag (1.3.0) of Responsive Foundation
 
-# 1.4.0
+## 1.4.0
 
 * Calendar api update: enabling monthly dropdown menu & topic heading text
 * Search form & search form accessibility improvements
 * Branding updates
 * Customizer Layout & Fonts bug fix (#43)
 
-# 1.3.5
+## 1.3.5
 
-* Fixing post display options array (https://github.com/bu-ist/responsive-framework/commit/dd72447ea1e54b5ee7ba572a00b82d4c1691321e)
+* Fixing post display options array [Commit](https://github.com/bu-ist/responsive-framework/commit/dd72447ea1e54b5ee7ba572a00b82d4c1691321e)
 * Update to [Responsive Foundation 1.2.1](https://github.com/bu-ist/responsive-foundation/releases/tag/1.2.1)
 
-# 1.3.4-beta
+## 1.3.4-beta
 
 * Create new gravity forms contact forms only when necessary.
   * They should be generated only when current site has contact forms using the Contact Us plugin.
   * Previous bug: gravity forms were generated for sites without contact forms. And if the theme got activated multiple times, more gravity forms were generated each time.
 
-# 1.3.3-beta
+## 1.3.3-beta
 
 * Updating to Responsive Foundation 1.2.0 (Bunnies)
 
-# 1.3.2-beta
+## 1.3.2-beta
 
 * Add filter to responsive_content_banner to manipulate output on theme level
 
-# 1.3.1-beta
+## 1.3.1-beta
 
 * Add `no-access.php` and no-access-bumc.php` template files to framework for Audience plugin on bumc.bu.edu
 
-# 1.3.0-beta
+## 1.3.0-beta
 
 * Responsi-as-a-Service beta release
 * Enable Customizer font palettes for non-child themes
@@ -56,11 +59,11 @@ dependencies for child theme script files.
 * Update footer branding styles to support BUMC logo, disclaimer link
 * Update site initialization / automated Flexi migration logic
 
-# 1.2.2
+## 1.2.2
 
 * Add fallback for branding
 
-# 1.2.1
+## 1.2.1
 
 * Change empty value for calendar event time from '&nbsp;' to ''
 * Add site initialization and Flexi migration logic (dormant pending release of Site Manager 4.0.0)
@@ -69,7 +72,7 @@ dependencies for child theme script files.
 * Fix #19: Update social media icons to add alternate icons, fix issues with Flickr / Vine and Google+. See https://github.com/bu-ist/responsive-foundation/commit/a30470947bc5bf05533e183e31f2060dd89d99c2.
 * Fix typo with archive button.
 
-# 1.2.0
+## 1.2.0
 
 * Add support for BU Branding plugin
 * Add template tags for display of BUMC logo and disclaimer
@@ -79,7 +82,7 @@ dependencies for child theme script files.
 * Remove shims for BU Profiles / Content Banner template tags that have been integrated into plugins
 * Add hooks to upgrade function to support pending migration of Research theme
 
-# 1.1.0
+## 1.1.0
 
 * Add basic BUniverse embed provider
 * Archive template now utilizes profile template parts for profile-specific taxonomy archives (#22)
@@ -93,25 +96,25 @@ dependencies for child theme script files.
 * Deprecate `responsive_paging_nav()` in favor of `responsive_posts_navigation()`
 * Deprecate `responsive_post_nav()` in favor of `responsive_post_navigation()`
 
- # 1.0.3
+## 1.0.3
 
 * Update to [Responsive Foundation 1.0.3](https://github.com/bu-ist/responsive-foundation/releases/tag/1.0.3)
 
-# 1.0.2
+## 1.0.2
 
 * Add href to BU masterplate
 
-# 1.0.1
+## 1.0.1
 
 * Add shortcode parsing for core text widgets
 * Fix footbar position in sideNav layout
 * Refactored header markup
 
-# 1.0.0
+## 1.0.0
 
 * Deemed stable for child theme development
 
-# 0.9.1
+## 0.9.1
 
 * Pre-release version of Responsi.
 * Child themes based on 0.9.1 include: r-cfa, r-hr, r-pardeeschool, r-research, and r-school.
