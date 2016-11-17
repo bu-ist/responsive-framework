@@ -2,6 +2,8 @@
 
 * Fix `responsive_maybe_hide_homepage_h1()` to accept the second parameter for
 `the_title` filter.
+* Introduce the `r_script_dependencies` filter. Used to filter script
+dependencies for child theme script files.
 
 # 1.4.3
 * Fix for BUniverse embeds/shortcode to support HTTPS.
