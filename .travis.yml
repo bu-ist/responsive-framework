@@ -25,10 +25,17 @@ before_script:
     else
       composer global require "phpunit/phpunit=4.8.*"
     fi
-  - |
-    composer global require wp-coding-standards/wpcs
-    phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+
+  - git config --global user.email "travis-ci@codeclimate.com"
+  - git config --global user.name "Travis CI"
+  - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
 
 script:
-  - phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
   - phpunit
+
+after_script:
+  - ./bin/codeclimate.sh
+
+addons:
+  codeclimate:
+    repo_token: CODECLIMATE_REPO_TOKEN
