@@ -6,7 +6,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.5.1' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.5.2' );
 
 /**
  * Theme version.

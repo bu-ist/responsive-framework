@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.5.1
+## 1.5.2
 
 * Fix `responsive_maybe_hide_homepage_h1()` to accept the second parameter for
 `the_title` filter.
