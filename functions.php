@@ -6,7 +6,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.5.1' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.5.2' );
 
 /**
  * Theme version.
@@ -37,6 +37,7 @@ function responsive_setup() {
 			'gallery',
 			'caption',
 		) );
+	add_theme_support( 'post-thumbnails' );
 
 	// Add support for branding plugin
 	add_theme_support( 'bu-branding' );
