@@ -38,6 +38,13 @@ Example: `master` is set to version `1.5.1`. All changes for new versions must
 
 ## Rules & Guidelines
 
+### Deleting Branches
+
+After successfully merging a branch into the `develop` or `master`, the pulled
+ branch should be deleted. Only branches with active development, or unmerged
+ code should remain in the repository. The person merging the branch and
+ closing out the pull request is responsible for doing this.
+
 ### Branch Names
 
 Branches can be named anything you want. However, it is very helpful to include
