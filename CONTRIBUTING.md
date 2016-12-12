@@ -38,6 +38,17 @@ Example: `master` is set to version `1.5.1`. All changes for new versions must
 
 ## Rules & Guidelines
 
+### Creating Pull Requests
+
+Pull requests should have a meaningful titles and descriptions of the changes
+ being merged in. This could mean one sentence, or 4 paragraphs. Someone
+ reviewing your pull request should be able to easily understand what was added
+ or changed, why, and how you fixed it. Use your best judgement.
+
+If one exists, the pull request should link to the GitHub issue (typing # will
+ bring up an autocomplete dialogue to search through issues). Also, consider
+ including links to Trello cards, or other useful resources.
+
 ### Deleting Branches
 
 After successfully merging a branch into the `develop` or `master`, the pulled
