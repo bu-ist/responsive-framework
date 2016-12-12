@@ -47,7 +47,7 @@ Pull requests should have a meaningful titles and descriptions of the changes
 
 If one exists, the pull request should link to the GitHub issue (typing # will
  bring up an autocomplete dialogue to search through issues). Also, consider
- including links to Trello cards, or other useful resources.
+ linking the pull request to a Trello card with the GitHub Power-Up.
 
 ### Deleting Branches
 
