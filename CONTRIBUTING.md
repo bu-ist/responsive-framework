@@ -5,11 +5,17 @@ All code contributions are welcome! These contribution guidelines will help you
 
 ## Submitting Code
 
-This repository follows a pull request workflow. All code submitted into
-`develop` and `master` must be done through a pull request.
+This repository follows a pull request/peer review workflow. All code submitted
+ into `develop` and `master` must be done through a pull request.
 
-All ongoing development takes place in `develop`. `master` always contains the
- most recently released and versioned code.
+The `master` branch can be considered stable and a list of stable releases is
+ maintained as we go and can be used by anyone concerned by ongoing
+ development.
+
+Every effort should be made to make a pull request as stable as possible before
+ merging it in.
+
+All ongoing development takes place in the primary branch, `develop`.
 
 Example: `master` is set to version `1.5.1`. All changes for new versions must
  me made through pull requests against `develop`. When `1.5.2` (or `1.6`) is
@@ -18,13 +24,23 @@ Example: `master` is set to version `1.5.1`. All changes for new versions must
 
 ### `develop` Pull Request Process
 
+When the code in your feature branch is done and ready to be merged, a pull
+ request to `develp` should be created.
+
 1. Ensure your local checkout of the repository is up to date.
 1. Check out the `develop` branch.
 1. Create a new branch for your work.
 1. Make as many changes and commits as necessary within your branch.
-1. Submit a pull request to merge your branch into `develop`.
+1. When your code is finished and ready, submit a pull request to merge your
+ branch into `develop`.
+1. After your pull request receives approval from at least one other team
+ member, merge your code into `develop` and ensure the merge went smoothly.
+1. After verifying your merge, delete your feature branch.
 
 ### `master` Pull Request Process
+
+When the code in `develop` is ready to be released into the wild, a pull
+ request to `master` should be created.
 
 1. Ensure your local checkout of the repository is up to date.
 1. Check out the `develop` branch.
@@ -35,6 +51,11 @@ Example: `master` is set to version `1.5.1`. All changes for new versions must
  explanation, link out to a blog post documenting them in more detail.
 1. Perform any necessary build tasks through Grunt.
 1. Submit a pull request to merge your branch into `master`.
+1. After your pull request receives approval from at least one other team
+ member, merge your code into `master` and ensure the merge went smoothly.
+1. After verifying your merge, tag the master branch with the version number
+ released. Ex. `1.5.1`, or `1.6`.
+1. Delete your feature branch.
 
 ## Rules & Guidelines
 
