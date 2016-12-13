@@ -176,12 +176,18 @@ function responsive_css_tidy() {
 
 /**
  * Return font palette CSS styles.
+ *
+ * @return string $css Contents of the CSS font palette file.
  */
 function responsive_get_fonts_css() {
 	$css = '';
 	$palette = responsive_get_font_palette();
-	if ( $palette ) {
-		$css = file_get_contents( get_template_directory() . "/css/$palette.css" );
+	if ( ! empty( $palette ) ) {
+		$request = wp_remote_get( get_template_directory_uri() . "/css/$palette.css" );
+
+		if ( ! is_wp_error( $request ) && 400 == wp_remote_retrieve_response_code( $request ) ) {
+			$css = wp_remote_retrieve_body( $request );
+		}
 	}
 
 	return $css;
