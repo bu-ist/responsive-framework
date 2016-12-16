@@ -15,9 +15,9 @@
 	<?php if ( function_exists( 'bu_meta' ) ) : bu_meta(); else : ?><meta name="description" content="Boston University is a leading private research institution with two primary campuses in the heart of Boston and programs around the world." /><?php endif; ?>
 
 	<?php if ( responsive_is_bu_domain() ) : ?>
-	<meta name="copyright" content="&copy; <?php echo date( 'Y' ); ?> Boston University" />
+		<meta name="copyright" content="&copy; <?php echo esc_attr( date( 'Y' ) ); ?> Boston University" />
 	<?php else : ?>
-	<link rel="shortcut icon" href="<?php bloginfo( 'template_directory' ); ?>/icons/favicon-g.ico" />
+		<link rel="shortcut icon" href="<?php bloginfo( 'template_directory' ); ?>/icons/favicon-g.ico" />
 	<?php endif; ?>
 
 	<link rel="profile" href="http://gmpg.org/xfn/11" />

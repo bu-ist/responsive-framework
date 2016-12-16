@@ -19,7 +19,7 @@ if ( function_exists( 'bu_thumbnail' ) ) {
 	<h2 class="title"><?php bu_profile_detail( 'title' ); ?></h2>
 
 	<?php if ( $profile_thumb ) : ?>
-	<div class="profile-thumb"><figure><?php echo $profile_thumb; ?></figure></div>
+		<div class="profile-thumb"><figure><?php echo wp_kses_post( $profile_thumb ); ?></figure></div>
 	<?php endif; ?>
 
 	<?php if ( $has_details ) : ?>
