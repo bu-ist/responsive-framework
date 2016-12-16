@@ -74,6 +74,14 @@ Pull requests should have a meaningful titles and descriptions of the changes
  reviewing your pull request should be able to easily understand what was added
  or changed, why, and how you fixed it. Use your best judgement.
 
+When submitting your pull request to `develop`, add a line to `CHANGELOG.md`
+ explaining your change. This should be placed under the "Unreleased" heading.
+ There should be at least one changelog entry per pull request.
+
+Any necessary changes to any `README.md` files should also be made before
+ making a pull request. For anything that need more explanation or context,
+ link out to a blog post documenting them in more detail.
+
 If one exists, the pull request should link to the GitHub issue (typing # will
  bring up an autocomplete dialogue to search through issues). Also, consider
  linking the pull request to a Trello card with the GitHub Power-Up.
@@ -96,9 +104,8 @@ When the code in `develop` is ready to be released into the wild, a pull
 1. Check out the `develop` branch.
 1. Create a new branch for your work.
 1. Increment version number strings.
-1. Update `CHANGELOG.md`, `README.md`, and other files to accurately explain
- changes, new features, and bug fixes being merged in. For items that need more
- explanation, link out to a blog post documenting them in more detail.
+1. Update the "Unreleased heading in the `CHANGELOG.md` to reflect the version
+ being released.
 1. Perform any necessary build tasks through Grunt.
 1. Submit a pull request to merge your branch into `master`.
 1. After your pull request receives approval from at least one other team
