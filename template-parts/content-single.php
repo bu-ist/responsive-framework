@@ -22,7 +22,7 @@
 		<h5 class="byline"><em>By </em><?php the_author(); ?></h5>
 		<?php endif; ?>
 		<p class="postedDateCategory">
-			<em class="posted">Posted </em><span class="date-offset"><?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago'; ?></span>
+			<em class="posted">Posted </em><span class="date-offset"><?php echo esc_attr( human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago' ); ?></span>
 			<em class="on"> on </em><span class="date"><time datetime="<?php the_time( 'l, F jS, Y' ) ?>" pubdate><?php the_time( 'l, F jS, Y' ) ?></time></span>
 			<?php if ( responsive_posts_should_display( 'categories' ) ) : ?>
 			<?php responsive_category_links( array( 'before' => '<span class="categories"><em> in </em>' ) ); ?>

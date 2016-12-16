@@ -31,7 +31,7 @@ class BURF_Customize_Checkbox_Group extends WP_Customize_Control {
 		<?php endif; ?>
 
 		<?php if ( !empty( $this->description ) ) : ?>
-			<span class="description customize-control-description"><?php echo $this->description; ?></span>
+			<span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
 		<?php endif; ?>
 
 		<?php $multi_values = ! is_array( $this->value() ) ? explode( ',', $this->value() ) : $this->value(); ?>
@@ -47,7 +47,7 @@ class BURF_Customize_Checkbox_Group extends WP_Customize_Control {
 			<?php endforeach; ?>
 		</ul>
 
-		<input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr( implode( ',', $multi_values ) ); ?>" />
+		<input type="hidden" <?php esc_attr( $this->link() ); ?> value="<?php echo esc_attr( implode( ',', $multi_values ) ); ?>" />
 	<?php }
 }
 
@@ -57,11 +57,11 @@ class BURF_Customize_Checkbox_Group extends WP_Customize_Control {
 class BURF_Customize_Radio extends WP_Customize_Control {
 	public function render_content() {
 		?>
-		<ul id="<?php echo $this->id; ?>">
+		<ul id="<?php echo esc_attr( $this->id ); ?>">
 		<?php foreach ( $this->choices as $key => $choice ) { ?>
 			<li>
-				<input <?php $this->link(); ?> id="<?php echo $this->id . '_' . $key; ?>" type="radio" name="<?php echo $this->id; ?>" value="<?php echo $key; ?>">
-				<label for="<?php echo $this->id . '_' . $key; ?>"> <?php echo $choice; ?></label>
+				<input <?php esc_attr( $this->link() ); ?> id="<?php echo esc_attr( $this->id . '_' . $key ); ?>" type="radio" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $key ); ?>">
+				<label for="<?php echo esc_attr( $this->id . '_' . $key ); ?>"> <?php echo esc_html( $choice ); ?></label>
 			</li>
 		<?php } ?>
 		</ul>

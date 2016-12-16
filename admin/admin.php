@@ -30,8 +30,8 @@ function responsive_footbar_display_metabox_form( $post) {
 ?>
 <fieldset>
 	<?php foreach ( $footbars as $id => $label ): ?>
-		<p><input type="radio" id="bu_footbar_<?php echo $id; ?>" name="bu_footbar_id" value="<?php echo $id; ?>" <?php checked( $id, $selected ); ?>/>
-		<label for="bu_footbar_<?php echo $id; ?>"><?php echo $label; ?></label></p>
+		<p><input type="radio" id="bu_footbar_<?php echo esc_attr( $id ); ?>" name="bu_footbar_id" value="<?php echo esc_attr( $id ); ?>" <?php checked( $id, $selected ); ?>/>
+		<label for="bu_footbar_<?php echo esc_attr( $id ); ?>"><?php echo esc_html( $label ); ?></label></p>
 	<?php endforeach; ?>
 	<p><input type="radio" id="bu_footbar_none" name="bu_footbar_id" value="none" <?php checked( 'none', $selected ); ?>/>
 	<label for="bu_footbar_none">None</label></p>

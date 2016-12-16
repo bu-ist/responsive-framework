@@ -13,10 +13,10 @@ function responsive_get_title() {
 
 	$site_description = get_bloginfo( 'description', 'display' );
 	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		echo " | $site_description";
+		echo esc_html( " | $site_description" );
 	}
 	if ( $paged >= 2 || $page >= 2 ) {
-		echo ' | ' . sprintf( __( 'Page %s' ), max( $paged, $page ) );
+		echo esc_html( ' | ' . sprintf( __( 'Page %s' ), max( $paged, $page ) ) );
 	}
 }
 
@@ -212,7 +212,7 @@ function responsive_content_banner( $position ) {
 		'class'    => 'banner',
 		'position' => $position,
 		'echo'     => false,
-		);
+	);
 
 	//allows themes to add to the bu_content_banner output
 	echo apply_filters('responsive_content_banner_output', bu_content_banner( $post_id, $banner_args ), $post_id, $position );
@@ -406,7 +406,7 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 		$args = wp_parse_args( $args, $defaults );
 	?>
 	<nav class="navigation posts-navigation paging-navigation" role="navigation">
-		<h3 class="screen-reader-text"><?php echo $args['screen_reader_text'] ?></h3>
+		<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
 		<div class="nav-links">
 			<?php if ( get_previous_posts_link() ) : ?>
 			<div class="nav-previous"><?php previous_posts_link( $args['prev_text'] ); ?></div>
@@ -446,7 +446,7 @@ function responsive_post_navigation( $args = array() ) {
 	if ( $previous || $next ) :
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h3 class="screen-reader-text"><?php echo $args['screen_reader_text']; ?></h3>
+		<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
 		<div class="nav-links">
 			<?php echo $previous . $next; ?>
 		</div><!-- .nav-links -->
@@ -664,7 +664,7 @@ function responsive_sidebar_classes( $sidebar_id ) {
 	$widget_count = responsive_get_widget_counts( $sidebar_id );
 	$count = ( $widget_count > 0 ) ? $widget_count : 'none';
 
-	echo "widgetCount-$count";
+	echo esc_attr( "widgetCount-$count" );
 }
 
 /**
@@ -699,7 +699,7 @@ function responsive_extra_footer_classes() {
 	$classes = apply_filters( 'responsive_extra_footer_classes', $classes );
 	$classes = array_unique( array_map( 'esc_attr', $classes ) );
 
-	echo implode( ' ', $classes );
+	echo esc_attr( implode( ' ', $classes ) );
 }
 
 /**

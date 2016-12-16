@@ -8,11 +8,11 @@ get_header(); ?>
 <section class="error-404 not-found">
 
 	<header class="page-header">
-		<h1 class="page-title"><?php _e( 'Yikes! We couldn\'t find that.' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e( "Yikes! We couldn't find that." ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
-		<p><?php _e( 'Looks like that page might not be here anymore. Want to give search a try?' ); ?></p>
+		<p><?php esc_html_e( 'Looks like that page might not be here anymore. Want to give search a try?' ); ?></p>
 
 		<?php responsive_search_form(); ?>
 
