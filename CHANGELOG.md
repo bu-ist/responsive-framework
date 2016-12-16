@@ -1,11 +1,15 @@
 # Changelog
 
+## Unreleased
+
+* Added CONTRIBUTING.md file for contribution rules.
+
 ## 1.5.2
 
 * Fix `responsive_maybe_hide_homepage_h1()` to accept the second parameter for
 `the_title` filter.
 * Introduce the `r_script_dependencies` filter. Used to filter script
-dependencies for child theme script files.
+ dependencies for child theme script files.
 
 ## 1.4.3
 
