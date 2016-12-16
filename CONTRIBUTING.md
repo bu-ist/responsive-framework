@@ -102,7 +102,7 @@ When the code in `develop` is ready to be released into the wild, a pull
 
 1. Ensure your local checkout of the repository is up to date.
 1. Check out the `develop` branch.
-1. Create a new branch for your work.
+1. Create a new branch for preparing your release.
 1. Increment version number strings.
 1. Update the "Unreleased heading in the `CHANGELOG.md` to reflect the version
  being released.
