@@ -1,6 +1,8 @@
 <?php
 /**
  * Template partial used to display content for single profiles.
+ *
+ * @package Responsive_Framework\BU_Profiles
  */
 
 $has_details = bu_profile_has_details();

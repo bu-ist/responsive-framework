@@ -1,7 +1,9 @@
 <?php
-/*
-Template Name: Calendar
-*/
+/**
+ * Template Name: Calendar
+ *
+ * @package Responsive_Framework
+ */
 
 $calendarID = array_key_exists( 'cid', $_GET ) ? intval( $_GET['cid'] ) : get_option( 'bu_calendar_id' );
 

@@ -1,3 +1,11 @@
+<?php
+/**
+ * Site header template.
+ *
+ * @package Responsive_Framework
+ */
+
+?>
 <!--[if IE ]><![endif]-->
 <!DOCTYPE html>
 <!--[if lt IE 7]>     <html class="no-js ie lt-ie9 lt-ie8 lt-ie7"  lang="en"> <![endif]-->

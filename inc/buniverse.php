@@ -1,6 +1,8 @@
 <?php
 /**
  * BUniverse integrations.
+ *
+ * @package Responsive_Framework\buniverse
  */
 
 if ( ! function_exists( 'buniverse_shortcode' ) ) {

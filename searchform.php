@@ -1,4 +1,11 @@
-<form id="quicksearch" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+<?php
+/**
+ * Search form template used by get_searchform().
+ *
+ * @package Responsive_Framework
+ */
+
+?><form id="quicksearch" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
 	<fieldset>
 		<legend>Search</legend>
 		<label for="q">Search in <?php echo esc_url( home_url( '/' ) ); ?></label>

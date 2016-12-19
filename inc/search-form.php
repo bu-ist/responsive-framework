@@ -1,4 +1,7 @@
 <?php
+/**
+ * @package Responsive_Framework
+ */
 
 /**
  * Responsive Framework sites do not want to support form contexts/scopes.

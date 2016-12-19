@@ -1,6 +1,8 @@
 <?php
 /**
  * Template partial used to display content for BU Posts List "News" template.
+ *
+ * @package Responsive_Framework
  */
 
 // Setup for secondary query that lists posts based on the page's metadata.

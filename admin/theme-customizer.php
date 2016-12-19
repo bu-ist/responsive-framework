@@ -1,6 +1,8 @@
 <?php
 /**
  * This hides the Font / Color / Background Customizer panels and associated styles.
+ *
+ * @package Responsive_Framework\Customizer
  */
 
 require_once __DIR__ . '/customizer-controls.php';

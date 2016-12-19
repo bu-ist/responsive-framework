@@ -1,7 +1,10 @@
 <?php
 /**
  * Default header layout.
+ *
+ * @package Responsive_Framework
  */
+
 ?>
 <div class="brand">
 	<?php responsive_branding(); ?>

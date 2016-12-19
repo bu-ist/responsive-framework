@@ -3,7 +3,10 @@
  * Basic profile format.
  *
  * Used to render individual profiles for basic profile listings.
+ *
+ * @package Responsive_Framework\BU_Profiles
  */
+
 ?>
 
 <li<?php if ( bu_profile_detail( 'title', array( 'echo' => false ) ) ): ?> class="has-title"<?php endif; ?>>

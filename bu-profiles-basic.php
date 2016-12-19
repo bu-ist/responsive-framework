@@ -1,6 +1,10 @@
 <?php
-/* Used by the BU Profile [bu_list_profiles] shortcode
- * Lists profiles as an all-text list, displaying name and title
+/**
+ * Used by the BU Profile [bu_list_profiles] shortcode.
+ *
+ * Lists profiles as an all-text list, displaying name and title.
+ *
+ * @package Responsive_Framework\BU_Profiles
  */
 ?>
 

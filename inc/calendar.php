@@ -1,6 +1,8 @@
 <?php
 /**
  * BU Calendar plugin support functions & templates.
+ *
+ * @package Responsive_Framework\bu-calendar
  */
 
 /**
