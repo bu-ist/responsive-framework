@@ -35,8 +35,10 @@ add_action( 'wp_head', 'responsive_dequeue_sharing_fonts', 2 );
  *
  * If the BU Sharing plugin is not activated this function will do nothing.
  *
- * @param  string $text  Content to display before share tools. Will precede user-provided sharing label.
- * @param  boolean       Whether or not to immediately echo or return the output. Default true.
+ * @param  string  $text  Content to display before share tools. Will precede user-provided sharing label.
+ * @param  boolean $echo Whether or not to immediately echo or return the output. Default true.
+ *
+ * @return string Sharing tools markup if $echo is false.
  */
 function responsive_share_tools( $text = '', $echo = true ) {
 	if ( function_exists( 'sharing_display' ) ) {

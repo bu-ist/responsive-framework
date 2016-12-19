@@ -31,6 +31,15 @@ function responsive_branding() {
  * Wrapper around `bu_branding_masterplate`.
  *
  * @see  mu-plugins/bu-branding
+ *
+ * @param array $args {
+ *     Optional. Shortcode attributes.
+ *
+ *     @type string $before Markup or text to go before the branding masterplate.
+ *     @type string $after  Markup or text to go after the branding masterplate.
+ * }
+ *
+ * @return string|bool HTML Markup for the BU Branding Masterplate, or false on failure.
  */
 function responsive_branding_masterplate( $args = array() ) {
 	$defaults = array(
@@ -51,6 +60,15 @@ function responsive_branding_masterplate( $args = array() ) {
  * Wrapper around `bu_branding_bumc_logo`.
  *
  * @see  mu-plugins/bu-branding
+ *
+ * @param array $args {
+ *     Optional. Shortcode attributes.
+ *
+ *     @type string $before Markup or text to go before the branding masterplate.
+ *     @type string $after  Markup or text to go after the branding masterplate.
+ * }
+ *
+ * @return string|bool HTML Markup for the BUMC Branding Masterplate, or false on failure.
  */
 function responsive_branding_bumc_logo( $args = array() ) {
 	$defaults = array(
@@ -71,6 +89,15 @@ function responsive_branding_bumc_logo( $args = array() ) {
  * Wrapper around `bu_branding_disclaimer`.
  *
  * @see  mu-plugins/bu-branding
+ *
+ * @param array $args {
+ *     Optional. Shortcode attributes.
+ *
+ *     @type string $before Markup or text to go before the branding disclaimer.
+ *     @type string $after  Markup or text to go after the branding disclaimber.
+ * }
+ *
+ * @return string|bool HTML Markup for the BUMC Branding disclaimer, or false on failure.
  */
 function responsive_branding_disclaimer( $args = array() ) {
 	$defaults = array(
@@ -90,6 +117,10 @@ function responsive_branding_disclaimer( $args = array() ) {
  * Adds branding classes to the footer container.
  *
  * Used to determine layout of footer columns.
+ *
+ * @param array $classes Array of classes.
+ *
+ * @return array Filtered array of classes.
  */
 function responsive_branding_footer_classes( $classes ) {
 	if ( function_exists( 'bu_branding_has_masterplate' ) && bu_branding_has_masterplate() ) {

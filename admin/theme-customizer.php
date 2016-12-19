@@ -29,6 +29,8 @@ add_action( 'customize_preview_init', 'responsive_framework_customizer_preview_s
 
 /**
  * Register customizer sections & controls.
+ *
+ * @param WP_Customize_Manager $wp_customize Current WP_Customize_Manager instance.
  */
 function responsive_customize_register( $wp_customize ) {
 

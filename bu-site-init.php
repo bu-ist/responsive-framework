@@ -10,13 +10,21 @@
 /**
  * Tasks to run for setting up a responsive site.
  *
- * @param $site
- * @param $site_id
- * @param $admin_id
- * @param $domain
- * @param $path
- * @param $network_id
- * @param $meta
+ * @param array  $site {
+ *     New site configuration options.
+ *
+ *     @type array        $users      List of users to add, keyed by role.
+ *     @type array        $branding   List of BU branding options.
+ *     @type string       $theme      Theme to activate. ("stylesheet" value, or theme directory name).
+ * }
+ * @param int    $site_id     New site ID.
+ * @param int    $admin_id    New site administrator user ID.
+ * @param string $domain      New site domain.
+ * @param string $path        New site path.
+ * @param int    $network_id  New site network ID.
+ * @param array  $meta        New site options.
+ *
+ * @see bu_initialize_site().
  */
 function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path, $network_id, $meta ) {
 	error_log( sprintf( '[%s] Running for: %s', __FUNCTION__, var_export( compact( 'site', 'site_id', 'admin_id', 'domain', 'path', 'network_id', 'meta' ), true ) ) );
