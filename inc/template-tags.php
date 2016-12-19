@@ -423,7 +423,7 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 			);
 
 		// Post archive labels are more specific.
-		if ( 'posts' == $archive_type ) {
+		if ( 'posts' === $archive_type ) {
 			$defaults['prev_text'] = '<span class="meta-nav">&larr;</span> Newer posts';
 			$defaults['next_text'] = 'Older posts <span class="meta-nav">&rarr;</span>';
 		}
@@ -578,7 +578,7 @@ function responsive_get_posts_archive_link() {
 	// Find the first news page set to display "All Categories".
 	foreach ( $news_pages as $page ) {
 		$categories = get_post_meta( $page->ID, '_bu_list_news_category', true );
-		if ( 0 == $categories ) {
+		if ( empty( $categories ) ) {
 			$archive_link = get_permalink( $page );
 			break;
 		}
@@ -586,7 +586,7 @@ function responsive_get_posts_archive_link() {
 
 	if ( ! $archive_link ) {
 		// If current site has Settings > Reading set to display Posts on a page use that.
-		if ( 'page' == get_option( 'show_on_front' ) ) {
+		if ( 'page' === get_option( 'show_on_front' ) ) {
 			$posts_page = get_option( 'page_for_posts' );
 			if ( $posts_page ) {
 				$archive_link = get_permalink( $posts_page );
@@ -790,7 +790,7 @@ function responsive_archive_type( WP_Query $query = null ) {
 	$archive_type = 'posts';
 
 	// Use plural label.
-	if ( is_array( $post_types ) && 1 == count( $post_types ) ) {
+	if ( is_array( $post_types ) && 1 === count( $post_types ) ) {
 		$pto = get_post_type_object( reset( $post_types ) );
 		if ( $pto ) {
 			$archive_type = strtolower( $pto->label );
@@ -808,7 +808,7 @@ function responsive_archive_type( WP_Query $query = null ) {
  * @return bool
  */
 function responsive_is_archive_type( $type, WP_Query $query = null ) {
-	return ( strtolower( $type ) == responsive_archive_type( $query ) );
+	return ( strtolower( $type ) === responsive_archive_type( $query ) );
 }
 
 /**
