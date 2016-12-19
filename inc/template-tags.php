@@ -153,6 +153,10 @@ function responsive_category_links( $args = array() ) {
 
 /**
  * Generates a list of term links (excluding categories and tags) for the given post.
+ *
+ * @param int|WP_Post|null $post Optional. Post ID or post object. Defaults to global $post.
+ *
+ * @return string A list of term links.
  */
 function responsive_term_links( $post = null ) {
 	$post = get_post( $post );
@@ -361,6 +365,18 @@ function responsive_social_menu( $args = array() ) {
 
 /**
  * Sets <a> tags title attribute to the item title if none is set.
+ *
+ * @param array   $atts {
+ *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
+ *
+ *     @type string $title  Title attribute.
+ *     @type string $target Target attribute.
+ *     @type string $rel    The rel attribute.
+ *     @type string $href   The href attribute.
+ * }
+ * @param WP_Post $item  The current menu item.
+ *
+ * @return array $atts
  */
 function responsive_social_nav_menu_link_attributes( $atts, $item ) {
 	if ( empty( $atts['title'] ) ) {
@@ -375,7 +391,14 @@ if ( ! function_exists( 'responsive_posts_navigation' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
- * @param  WP_Query $query [description]
+ * @param array         $args {
+ *     The attributes used for formatting and displaying post navigation links.
+ *
+ *     @type string $prev_text  The previous link text.
+ *     @type string $next_text The next link text.
+ *     @type string $screen_reader_text The text to display for screen readers.
+ * }
+ * @param WP_Query|null $query WP_Query object to display post navigation for. Default is the global page query.
  */
 function responsive_posts_navigation( $args = array(), WP_Query $query = null ) {
 	global $wp_query;
@@ -434,6 +457,14 @@ if ( ! function_exists( 'responsive_post_navigation' ) ) :
 
 /**
  * Display navigation to next/previous post when applicable.
+ *
+ * @param array $args {
+ *     The attributes used for formatting and displaying post navigation links.
+ *
+ *     @type string $prev_text  The previous link text.
+ *     @type string $next_text The next link text.
+ *     @type string $screen_reader_text The text to display for screen readers.
+ * }
  */
 function responsive_post_navigation( $args = array() ) {
 	$args = wp_parse_args( $args, array(
@@ -493,10 +524,8 @@ endif;
  * 	- Tags
  * 	- Author
  *
- * @param  string $option Specific option value to return ('categories', 'tags', or 'author'). Optional.
- * @return mixed          Post display options array, or the specified option.
+ * @return array $display_options Post display options array, or the specified option.
  */
-
 function responsive_get_post_display_options() {
 	$display_options = get_option( 'burf_setting_post_display_options' );
 
@@ -514,6 +543,10 @@ function responsive_get_post_display_options() {
 
 /**
  * Whether or not the given post field should be displayed.
+ *
+ * @param string $field Field to check should display.
+ *
+ * @return boolean Whether to display the field.
  */
 function responsive_posts_should_display( $field ) {
 	return in_array( $field, responsive_get_post_display_options() );
@@ -645,7 +678,8 @@ function responsive_profiles_archive_link( $args = array() ) {
 /**
  * Returns the number of widgets contained in the given sidebar.
  *
- * @param  string $sidebar_id  The sidebar to check
+ * @param  string $sidebar_id  The sidebar to check.
+ *
  * @return int|bool            Number of widgets, or false if the sidebar is not registered.
  */
 function responsive_get_widget_counts( $sidebar_id ) {
@@ -661,6 +695,8 @@ function responsive_get_widget_counts( $sidebar_id ) {
  * Prints out contextual classes for sidebar containers.
  *
  * Used to included widget counts.
+ *
+ * @param string $sidebar_id Sidebar ID to retrieve class for.
  */
 function responsive_sidebar_classes( $sidebar_id ) {
 	$widget_count = responsive_get_widget_counts( $sidebar_id );
@@ -767,7 +803,7 @@ function responsive_archive_type( WP_Query $query = null ) {
 /**
  * Is the archive query for the given post type?
  *
- * @param  string $type Plural post type name for comparison.
+ * @param  string   $type  Plural post type name for comparison.
  * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
  * @return bool
  */
@@ -804,9 +840,11 @@ function responsive_get_dynamic_footbars() {
 }
 
 /**
- * Get the footbar selected for the given post.
+ * Retrieve the footbar selected for the given post.
  *
- * @param  mixed  $post A post ID or WP_Post instance. Optional. Default current post.
+ * @param null|WP_Post|int $post Null to use the global post object, WP_Post or post ID to use a specific post.
+ *
+ * @return string $footbar Selected footbar ID for the post.
  */
 function responsive_get_footbar_id( $post = null ) {
 	$post = get_post( $post );

@@ -12,7 +12,8 @@
  * @deprecated  1.1.0
  * @deprecated  responsive_posts_navigation()
  *
- * @param  WP_Query $query [description]
+ * @param WP_Query $query Query object to display navigation for.
+ * @param array    $args Array of arguments.
  */
 function responsive_paging_nav( WP_Query $query = null, $args = array() ) {
 	_deprecated_function( __FUNCTION__, '1.1.0', 'responsive_posts_navigation()' );

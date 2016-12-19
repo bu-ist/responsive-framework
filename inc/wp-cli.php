@@ -11,7 +11,7 @@
 class Responsive_Framework_Command extends WP_CLI_Command {
 
     /**
-     * Run theme migration procedures
+     * Run theme migration procedures.
      *
      * ## OPTIONS
      *

@@ -73,6 +73,10 @@ function responsive_font_options() {
 
 /**
  * Generate inline customizer style block.
+ *
+ * @param boolean $use_cache Whether to use styles cached in an option. Default is true.
+ *
+ * @return string $styles CSS Styles for use in the Customizer.
  */
 function responsive_get_customizer_styles( $use_cache = true ) {
 	$styles = array();
@@ -595,7 +599,9 @@ function responsive_get_color_scheme_choices() {
 /**
  * Get the current color scheme.
  *
- * @return array An associative array of either the current or default color scheme values.
+ * @param null|string $scheme Color scheme to retrieve.
+ *
+ * @return array An associative array representing a color scheme.
  */
 function responsive_get_color_scheme( $scheme = null ) {
 	// Load the current color scheme if none was passed.
@@ -618,8 +624,9 @@ function responsive_get_color_scheme( $scheme = null ) {
  *
  * If no $scheme is passed, the currently active scheme is used.
  *
- * @param  string $scheme A color scheme to retrieve colors for. Optional.
- * @return array          Color scheme colors, indexed by region name.
+ * @param string $scheme A color scheme to retrieve colors for. Optional.
+ *
+ * @return array $colors Color scheme colors, indexed by region name.
  */
 function responsive_get_color_scheme_colors( $scheme = null ) {
 	$scheme = responsive_get_color_scheme( $scheme );
@@ -680,7 +687,9 @@ function responsive_get_color_scheme_css() {
 /**
  * Generates CSS snippet for customizer color scheme.
  *
- * @param  array $colors Hex color values, keyed on region slugs.
+ * @param array  $colors  Hex color values, keyed on region slugs.
+ * @param string $context Context for the styles.
+ *
  * @return string        Color scheme CSS rules.
  */
 function responsive_framework_get_color_regions_css( $colors, $context = 'default' ) {
@@ -994,6 +1003,16 @@ function responsive_get_customizer_footer_info() {
 
 /**
  * Prints out additional footer info content.
+ *
+ * @param array $args {
+ *     An array of widget display arguments.
+ *
+ *     @type string $before Text or markup to go before the widget.
+ *     @type string $after  Text or markup to go after the widget.
+ *     @type string $echo   Whether to echo or return the HTML output.
+ * }
+ *
+ * @return string $output HTML output for footer info.
  */
 function responsive_customizer_footer_info( $args = array() ) {
 	$defaults = array(

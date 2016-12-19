@@ -9,18 +9,18 @@ if ( ! function_exists( 'buniverse_shortcode' ) ) {
 	/**
 	 * Renders BUniverse video player.
 	 *
-	 * @param array   $atts {
+	 * @param array  $atts {
 	 *     Optional. Shortcode attributes.
 	 *
-	 * @type  string  $vid BUniverse video ID.
-	 * @type  string  $id HTML ID attribute for video wrapper <div>.
-	 * @type  string  $class HTML class attribute for video wrapper <div>.
-	 * @type  int     $width Width attribute for <iframe>. Default 550.
-	 * @type  int     $height Height attribute for <iframe>. Default 310.
-	 * @type  string  $caption Caption content.
+	 *     @type string $vid BUniverse video ID.
+	 *     @type string $id HTML ID attribute for video wrapper <div>.
+	 *     @type string $class HTML class attribute for video wrapper <div>.
+	 *     @type int    $width Width attribute for <iframe>. Default 550.
+	 *     @type int    $height Height attribute for <iframe>. Default 310.
+	 *     @type string $caption Caption content.
 	 * }
 	 *
-	 * @param  string $content Shortcode content. Currently unused.
+	 * @param string $content Shortcode content. Currently unused.
 	 *
 	 * @return mixed|void
 	 */
@@ -93,12 +93,13 @@ if ( ! function_exists( 'buniverse_embed_handler' ) ) {
 	 *
 	 * @uses  buniverse_shortcode
 	 *
-	 * @param $matches
-	 * @param $attr
-	 * @param $url
-	 * @param $rawattr
+	 * @param array  $matches The RegEx matches from the provided regex when calling
+	 *                        wp_embed_register_handler().
+	 * @param array  $attr    Embed attributes.
+	 * @param string $url     The original URL that was matched by the regex.
+	 * @param array  $rawattr The original unmodified attributes.
 	 *
-	 * @return mixed|void
+	 * @return string The embed HTML.
 	 */
 	function buniverse_embed_handler( $matches, $attr, $url, $rawattr ) {
 		$atts = array(

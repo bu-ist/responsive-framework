@@ -255,6 +255,9 @@ function responsive_styles() {
 
 /**
  * Maybe trigger theme migration procedure.
+ *
+ * @param string        $old_name The old theme name.
+ * @param bool|WP_Theme $old_theme false if the old theme does not exist, WP_Theme instance of the old theme if it does.
  */
 function responsive_maybe_migrate_theme( $old_name, $old_theme = false ) {
 	// Theme migrations require Site Manager > 4.0.
@@ -278,7 +281,12 @@ function responsive_maybe_migrate_theme( $old_name, $old_theme = false ) {
 add_action( 'after_switch_theme', 'responsive_maybe_migrate_theme', 1, 2 );
 
 /**
- * Reset title tag for navigation
+ * Reset title tag for navigation.
+ *
+ * @param array   $attr BU Navigation item arguments. See bu_navigation_format_page().
+ * @param WP_Post $page Post object currently being filtered.
+ *
+ * @return array Adjusted bu_navigation_filter_anchor_attrs filter attributes.
  */
 function responsive_change_title_tag($attr, $page) {
 	unset( $attr['title'] );
@@ -289,7 +297,7 @@ add_filter( 'bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 
 
 
 /**
- * Admin
+ * Admin.
  */
 if ( is_admin() ) {
 	require __DIR__ . '/admin/admin.php';
