@@ -34,7 +34,7 @@ if ( ! function_exists( 'buniverse_shortcode' ) ) {
 			'caption' => '',
 		), $atts, 'buniverse' );
 
-		// Sanitize and build wrapper attributes
+		// Sanitize and build wrapper attributes.
 		$atts['id'] = trim( $atts['id'] );
 		$id_attr = '';
 		if ( $atts['id'] ) {
@@ -47,7 +47,7 @@ if ( ! function_exists( 'buniverse_shortcode' ) ) {
 			$classes = implode( ' ', array_map( 'esc_attr', explode( ' ', $atts['class'] ) ) );
 		}
 
-		// Build <iframe> attributes
+		// Build <iframe> attributes.
 		$iframe = $iframe_atts = array();
 		$iframe['src'] = esc_url( sprintf( apply_filters( 'buniverse_shortcode_src', 'https://www.bu.edu/buniverse/interface/embed/embed.html?v=%s' ), $atts['vid'] ) );
 		$iframe['width'] = (int) $atts['width'];
@@ -55,7 +55,7 @@ if ( ! function_exists( 'buniverse_shortcode' ) ) {
 		$iframe['frameborder'] = 0;
 
 		foreach ( $iframe as $key => $val ) {
-			// Boolean attributes
+			// Boolean attributes.
 			if ( is_bool( $val ) && $val ) {
 				$iframe_atts[] = $key;
 			} else {
@@ -64,7 +64,7 @@ if ( ! function_exists( 'buniverse_shortcode' ) ) {
 		}
 		$iframe_atts = implode( ' ', $iframe_atts );
 
-		// Build caption markup
+		// Build caption markup.
 		$caption = '';
 		if ( $atts['caption'] ) {
 			$caption = '<p class="caption">' . wp_kses_post( $atts['caption'] ) . '</p>';

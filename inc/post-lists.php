@@ -75,7 +75,7 @@ function responsive_posts_widget_format_display( $post, $args ) {
 
 	$output = '<article class="post">';
 
-	// Thumbnail
+	// Thumbnail.
 	if ( $args['show_thumbnail'] && function_exists( 'bu_get_thumbnail_src' ) ) {
 
 		// Thumbnail dimensions change for formats with less content.
@@ -96,10 +96,10 @@ function responsive_posts_widget_format_display( $post, $args ) {
 		);
 	}
 
-	// Title
+	// Title.
 	$output .= sprintf( '<h1 class="headline"><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title() );
 
-	// Meta
+	// Meta.
 	switch ( $args['current_format'] ) {
 		case 'title_date':
 		case 'title_date_excerpt':
@@ -117,7 +117,7 @@ function responsive_posts_widget_format_display( $post, $args ) {
 			break;
 	}
 
-	// Excerpt
+	// Excerpt.
 	$show_excerpt = ( false !== strpos( $args['current_format'], 'excerpt' ) );
 	if ( $show_excerpt && BU_PostList::get_post_excerpt( 12 ) ) {
 		$output .= sprintf( '<p class="excerpt">%s</p>', BU_PostList::get_post_excerpt( 12 ) );

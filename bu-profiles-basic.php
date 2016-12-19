@@ -6,6 +6,7 @@
  *
  * @package Responsive_Framework\BU_Profiles
  */
+
 ?>
 
 <?php if ( $query->have_posts() ): ?>
