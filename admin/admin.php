@@ -62,7 +62,7 @@ function responsive_save_post_footbar( $post_id, $post ) {
 		$footbar_id = $_POST['bu_footbar_id'];
 		$available_footbars = responsive_get_dynamic_footbars();
 
-		if ( $footbar_id === 'none' || array_key_exists( $footbar_id, $available_footbars ) ) {
+		if ( 'none' === $footbar_id || array_key_exists( $footbar_id, $available_footbars ) ) {
 			update_post_meta( $post_id, '_bu_footbar_id', $footbar_id );
 		}
 	}

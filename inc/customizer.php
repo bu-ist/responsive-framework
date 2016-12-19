@@ -677,7 +677,7 @@ function responsive_get_color_scheme_css() {
 	$colors = array_merge( $scheme_colors, $custom_colors );
 
 	// Default color scheme without custom colors. Bail.
-	if ( $colors === responsive_get_color_scheme_colors( 'default' ) ) {
+	if ( responsive_get_color_scheme_colors( 'default' ) === $colors ) {
 		return '';
 	}
 
