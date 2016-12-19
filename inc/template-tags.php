@@ -422,8 +422,8 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 				'screen_reader_text' => ucfirst( $archive_type ) . ' navigation',
 			);
 
-		// Post archive labels are more specific.
-		if ( 'posts' === $archive_type ) {
+				// Post archive labels are more specific.
+				if ( 'posts' === $archive_type ) {
 			$defaults['prev_text'] = '<span class="meta-nav">&larr;</span> Newer posts';
 			$defaults['next_text'] = 'Older posts <span class="meta-nav">&rarr;</span>';
 		}
@@ -591,7 +591,7 @@ function responsive_get_posts_archive_link() {
 			if ( $posts_page ) {
 				$archive_link = get_permalink( $posts_page );
 			}
-		// Use home page link if Settings > Reading is set to display latest posts.
+			// Use home page link if Settings > Reading is set to display latest posts.
 		} else {
 			$archive_link = home_url();
 		}
@@ -819,7 +819,7 @@ function responsive_theme_supports_dynamic_footbars() {
 	// Check for theme constant.
 	if ( defined( 'BU_SUPPORTS_DYNAMIC_FOOTBARS' ) ) {
 		return BU_SUPPORTS_DYNAMIC_FOOTBARS;
-	// Check for site option.
+		// Check for site option.
 	} else {
 		$sidebar_options = get_option( 'burf_setting_sidebar_options', array() );
 		if ( ! is_array( $sidebar_options ) ) {
