@@ -18,7 +18,7 @@ function responsive_body_class( $classes ) {
 	$font_palette = get_option( 'burf_setting_fonts' );
 	$layout_setting = responsive_layout();
 	$sidebar_location = defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ? BU_RESPONSIVE_SIDEBAR_POSITION : get_option( 'burf_setting_sidebar_location' );
-	$posts_sidebar_bottom = defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ? BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM : get_option( 'burf_setting_posts_sidebar_bottom' );
+	$posts_sidebar_bottom = (bool) defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ? BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM : get_option( 'burf_setting_posts_sidebar_bottom' );
 
 	if ( $font_palette ) {
 		$classes[] = $font_palette;
@@ -30,7 +30,7 @@ function responsive_body_class( $classes ) {
 
 	// If "Keep posts sidebar on bottom" is on, don't add classes to those pages.
 	if ( $sidebar_location ) {
-		if( true == $posts_sidebar_bottom ){
+		if( true === $posts_sidebar_bottom ){
 			if( is_page() && ! is_page_template( 'page-templates/news.php' ) && ! is_page_template( 'page-templates/profiles.php' ) ){
 				$classes[] = "sidebarLocation-$sidebar_location";
 			}

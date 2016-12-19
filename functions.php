@@ -271,7 +271,7 @@ function responsive_maybe_migrate_theme( $old_name, $old_theme = false ) {
 
 	$new_theme = wp_get_theme();
 
-	if ( 'flexi-framework' == $old_theme->get_template() ) {
+	if ( 'flexi-framework' === $old_theme->get_template() ) {
 		require __DIR__ . '/inc/migration-helpers.php';
 		error_log( sprintf( '[%s] Migrating from %s to %s...', __FUNCTION__, $old_theme->get_template(), $new_theme->get_template() ) );
 		responsive_flexi_migration();
