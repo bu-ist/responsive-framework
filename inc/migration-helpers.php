@@ -197,8 +197,8 @@ function responsive_migrate_flexi_footbars() {
 	$errors = array();
 
 	// Whether or not the current site has alternate / dynamic footbars enabled.
-	$flexi_supports_dynamic_footbars = get_option( 'bu_flexi_framework_dynamic_footbars' );
-	if ( 1 == $flexi_supports_dynamic_footbars ) {
+	$flexi_supports_dynamic_footbars = (bool) get_option( 'bu_flexi_framework_dynamic_footbars' );
+	if ( true === $flexi_supports_dynamic_footbars ) {
 		update_option( 'burf_setting_sidebar_options', 'dynamic_footbars' );
 	}
 
