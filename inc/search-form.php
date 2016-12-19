@@ -1,5 +1,7 @@
 <?php
 /**
+ * BU CMS search form related functionality.
+ *
  * @package Responsive_Framework
  */
 
