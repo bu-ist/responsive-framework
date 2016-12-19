@@ -1,6 +1,8 @@
 <?php
 /**
  * Responsive Framework admin logic.
+ *
+ * @package Responsive_Framework
  */
 
 /**

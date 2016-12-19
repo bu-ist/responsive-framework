@@ -1,6 +1,8 @@
 <?php
 /**
- * Template file used to render a Server 404 error page
+ * Template file used to render a Server 404 error page.
+ *
+ * @package Responsive_Framework
  */
 
 get_header(); ?>

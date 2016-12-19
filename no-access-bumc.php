@@ -1,7 +1,10 @@
 <?php
 /**
- * Template file used to render a No Access error page
+ * Template file used to render a No Access error page.
+ *
+ * @package Responsive_Framework
  */
+
 get_header();
 ?>
 

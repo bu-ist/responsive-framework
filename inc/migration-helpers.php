@@ -3,6 +3,12 @@
  * Migration procedure for Flexi -> Responsive Framework.
  *
  * This logic is run on the first load post-theme switch.
+ *
+ * @package Responsive_Framework
+ */
+
+/**
+ * Migrate a Flexi site to Responsive Foundation.
  */
 function responsive_flexi_migration() {
 	global $wpdb;

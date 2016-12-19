@@ -1,6 +1,8 @@
 <?php
 /**
  * BU Course Feeds plugin support functions & templates.
+ *
+ * @package Responsive_Framework\course-feeds
  */
 
 /**

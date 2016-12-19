@@ -1,6 +1,8 @@
 <?php
 /**
  * BU Post List plugin support functions & templates.
+ *
+ * @package Responsive_Framework\BU_Post_List
  */
 
 if ( ! function_exists( 'responsive_posts_widget_formats' ) ) :

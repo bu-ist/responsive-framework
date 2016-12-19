@@ -1,6 +1,8 @@
 <?php
 /**
- * Branding
+ * Branding.
+ *
+ * @package Responsive_Framework\branding
  */
 
 /**

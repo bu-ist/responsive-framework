@@ -1,6 +1,8 @@
 <?php
 /**
  * Custom template tags for this framework
+ *
+ * @package Responsive_Framework
  */
 
 /**

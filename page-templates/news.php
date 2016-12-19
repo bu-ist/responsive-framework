@@ -1,7 +1,9 @@
 <?php
-/*
-Template Name: News
-*/
+/**
+ * Template Name: News
+ *
+ * @package Responsive_Framework
+ */
 
 get_header(); ?>
 

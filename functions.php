@@ -1,6 +1,8 @@
 <?php
 /**
- * Responsive Framework functions and theme setup
+ * Responsive Framework functions and theme setup.
+ *
+ * @package Responsive_Framework
  */
 
 /**

@@ -1,6 +1,8 @@
 <?php
 /**
  * Custom classes for use with the Theme Customizer.
+ *
+ * @package Responsive_Framework\Customizer
  */
 
 if ( class_exists( 'WP_Customize_Control' ) ) :

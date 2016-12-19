@@ -1,7 +1,9 @@
 <?php
-/*
-Template Name: No Sidebars
-*/
+/**
+ * Template Name: No Sidebars
+ *
+ * @package Responsive_Framework
+ */
 
 get_header(); ?>
 

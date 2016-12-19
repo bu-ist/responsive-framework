@@ -1,6 +1,8 @@
 <?php
 /**
  * Template file used to render a single profile.
+ *
+ * @package Responsive_Framework\BU_Profiles
  */
 
 get_header(); ?>

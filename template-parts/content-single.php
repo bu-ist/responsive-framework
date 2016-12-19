@@ -1,7 +1,10 @@
 <?php
 /**
  * Template partial used to display content for single posts.
+ *
+ * @package Responsive_Framework
  */
+
 ?>
 
 <article role="main" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
