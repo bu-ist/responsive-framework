@@ -91,7 +91,7 @@ function responsive_search_is_enabled() {
 function responsive_search_form() {
 	$bu_search = false;
 
-	// Check that search form is enabled
+	// Check that search form is enabled.
 	if ( function_exists( 'bu_search_form' ) ) {
 		if ( responsive_search_is_enabled() ) {
 			$bu_search = true;
@@ -100,7 +100,7 @@ function responsive_search_form() {
 		}
 	}
 
-	// Check for site restrictions through the ACL plugin
+	// Check for site restrictions through the ACL plugin.
 	if ( function_exists( 'bu_acl_get_site_acl' ) ) {
 		$site_acl = bu_acl_get_site_acl();
 
@@ -111,11 +111,11 @@ function responsive_search_form() {
 		}
 	}
 
-	// Display search form based on whether or not site wide restriction is in place
+	// Display search form based on whether or not site wide restriction is in place.
 	if ( $bu_search && ! $site_restricted ) {
 		bu_search_form( '', '', array( 'responsive' => true ) );
 	} else {
-		// If bu_search_form doesn't exist or the site is restricted, use default WP Search
+		// If bu_search_form doesn't exist or the site is restricted, use default WP Search.
 		get_search_form();
 	}
 }
@@ -161,7 +161,7 @@ function responsive_term_links( $post = null ) {
 		return '';
 	}
 
-	// Get taxonomies registered for the current post type
+	// Get taxonomies registered for the current post type.
 	$taxonomies = get_object_taxonomies( $post->post_type, 'objects' );
 
 	$out = array();
@@ -204,7 +204,7 @@ function responsive_content_banner( $position ) {
 	 */
 	$post_id = false;
 	if ( is_singular() ) {
-		// Returns the current post ID
+		// Returns the current post ID.
 		$post_id = get_post()->ID;
 	}
 
@@ -216,7 +216,7 @@ function responsive_content_banner( $position ) {
 		'echo'     => false,
 	);
 
-	//allows themes to add to the bu_content_banner output
+	// allows themes to add to the bu_content_banner output.
 	echo apply_filters('responsive_content_banner_output', bu_content_banner( $post_id, $banner_args ), $post_id, $position );
 
 }
@@ -399,7 +399,7 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 				'screen_reader_text' => ucfirst( $archive_type ) . ' navigation',
 			);
 
-		// Post archive labels are more specifc
+		// Post archive labels are more specific.
 		if ( 'posts' == $archive_type ) {
 			$defaults['prev_text'] = '<span class="meta-nav">&larr;</span> Newer posts';
 			$defaults['next_text'] = 'Older posts <span class="meta-nav">&rarr;</span>';
@@ -500,7 +500,7 @@ endif;
 function responsive_get_post_display_options() {
 	$display_options = get_option( 'burf_setting_post_display_options' );
 
-	// First time load -- default to "Categories" and "Tags"
+	// First time load -- default to "Categories" and "Tags".
 	if ( false === $display_options ) {
 		$display_options = array( 'categories', 'tags' );
 	} else {
@@ -536,13 +536,13 @@ function responsive_posts_should_display( $field ) {
 function responsive_get_posts_archive_link() {
 	$archive_link = false;
 
-	// Look first for pages with the News template applied
+	// Look first for pages with the News template applied.
 	$news_pages = get_pages( array(
 		'meta_key'   => '_wp_page_template',
 		'meta_value' => 'page-templates/news.php',
 		) );
 
-	// Find the first news page set to display "All Categories"
+	// Find the first news page set to display "All Categories".
 	foreach ( $news_pages as $page ) {
 		$categories = get_post_meta( $page->ID, '_bu_list_news_category', true );
 		if ( 0 == $categories ) {
@@ -552,13 +552,13 @@ function responsive_get_posts_archive_link() {
 	}
 
 	if ( ! $archive_link ) {
-		// If current site has Settings > Reading set to display Posts on a page use that
+		// If current site has Settings > Reading set to display Posts on a page use that.
 		if ( 'page' == get_option( 'show_on_front' ) ) {
 			$posts_page = get_option( 'page_for_posts' );
 			if ( $posts_page ) {
 				$archive_link = get_permalink( $posts_page );
 			}
-		// Use home page link if Settings > Reading is set to display latest posts
+		// Use home page link if Settings > Reading is set to display latest posts.
 		} else {
 			$archive_link = home_url();
 		}
@@ -677,7 +677,7 @@ function responsive_sidebar_classes( $sidebar_id ) {
 function responsive_extra_footer_classes() {
 	$classes = array();
 
-	// Build an array to capture current footer content permutation
+	// Build an array to capture current footer content permutation.
 	$footer_components = array();
 
 	// Is the Customizer-provided footer info in use?
@@ -693,7 +693,7 @@ function responsive_extra_footer_classes() {
 		$footer_components[] = 'social';
 	}
 
-	// Combine all components in to one stateful class
+	// Combine all components in to one stateful class.
 	if ( ! empty( $footer_components ) ) {
 		$classes[] = 'has-' . implode( '-', $footer_components );
 	}
@@ -717,23 +717,23 @@ function responsive_queried_post_types( WP_Query $query = null ) {
 
 	$queried_object = $query->get_queried_object();
 
-	// Post = post object
+	// Post = post object.
 	if ( $query->is_single() || $query->is_page() ) {
 		$post_types = array( $queried_object->post_type );
 	}
 
-	// Post type archive = post type object
+	// Post type archive = post type object.
 	else if ( $query->is_post_type_archive() ) {
 		$post_types = array( $queried_object->name );
 	}
 
-	// Taxonomy archive = taxonomy object
+	// Taxonomy archive = taxonomy object.
 	else if ( $query->is_tax() || $query->is_category() || $query->is_tag() ) {
 		$tax = get_taxonomy( $queried_object->taxonomy );
 		$post_types = $tax->object_type;
 	}
 
-	// All other requests default to posts (author archives, date archives, etc.)
+	// All other requests default to posts (author archives, date archives, etc.).
 	else {
 		$post_types = array( 'post' );
 	}
@@ -750,10 +750,10 @@ function responsive_queried_post_types( WP_Query $query = null ) {
 function responsive_archive_type( WP_Query $query = null ) {
 	$post_types = responsive_queried_post_types( $query );
 
-	// Default type
+	// Default type.
 	$archive_type = 'posts';
 
-	// Use plural label
+	// Use plural label.
 	if ( is_array( $post_types ) && 1 == count( $post_types ) ) {
 		$pto = get_post_type_object( reset( $post_types ) );
 		if ( $pto ) {
@@ -780,10 +780,10 @@ function responsive_is_archive_type( $type, WP_Query $query = null ) {
  */
 function responsive_theme_supports_dynamic_footbars() {
 
-	// Check for theme constant
+	// Check for theme constant.
 	if ( defined( 'BU_SUPPORTS_DYNAMIC_FOOTBARS' ) ) {
 		return BU_SUPPORTS_DYNAMIC_FOOTBARS;
-	// Check for site option
+	// Check for site option.
 	} else {
 		$sidebar_options = get_option( 'burf_setting_sidebar_options', array() );
 		if ( ! is_array( $sidebar_options ) ) {

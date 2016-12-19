@@ -1,6 +1,6 @@
 <?php
 /**
- * Search form template used by get_searchform().
+ * Search form template used by `get_searchform()`.
  *
  * @package Responsive_Framework
  */

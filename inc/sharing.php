@@ -9,11 +9,11 @@
  * Modify default share tools configuration.
  */
 function responsive_sharing_setup() {
-	// Disable default display location
+	// Disable default display location.
 	remove_filter( 'the_content', 'sharing_display', 19 );
 	remove_filter( 'the_excerpt', 'sharing_display', 19 );
 
-	// Disable share counts by default
+	// Disable share counts by default.
 	add_filter( 'bu_sharing_counts', '__return_false' );
 }
 

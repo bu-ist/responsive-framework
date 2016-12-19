@@ -24,7 +24,7 @@ function responsive_body_class( $classes = '' ) {
 		$classes[] = "l-$layout_setting";
 	}
 
-	/* If "Keep posts sidebar on bottom" is on, don't add classes to those pages */
+	// If "Keep posts sidebar on bottom" is on, don't add classes to those pages.
 	if ( $sidebar_location ) {
 		if( true == $posts_sidebar_bottom ){
 			if( is_page() && ! is_page_template( 'page-templates/news.php' ) && ! is_page_template( 'page-templates/profiles.php' ) ){
@@ -35,11 +35,11 @@ function responsive_body_class( $classes = '' ) {
 		}
 	}
 
-	// Cleans up page template releated body classes
+	// Cleans up page template releated body classes.
 	if ( is_page() ) {
 		$page_id = $wp_query->get_queried_object_id();
 
-		// Find classes added by core and remove
+		// Find classes added by core and remove.
 		$core_classes = preg_grep( '/page-template-.*?/', $classes );
 		$classes = array_diff( $classes, $core_classes );
 
@@ -116,22 +116,22 @@ function responsive_widget_counts( $params ) {
 	$current_sidebar = $params[0]['id'];
 	$sidebars = wp_get_sidebars_widgets();
 
-	// Bail if current sidebar doesn't exist or has no widgets
+	// Bail if current sidebar doesn't exist or has no widgets.
 	if ( ! array_key_exists( $current_sidebar, $sidebars ) || empty( $sidebars[ $current_sidebar ] ) ) {
 		return $params;
 	}
 
-	// Initialize or increment our static widget counter by one for this widget
+	// Initialize or increment our static widget counter by one for this widget.
 	if ( array_key_exists( $current_sidebar, $widget_counter ) ) {
 		$widget_counter[ $current_sidebar ] ++;
 	} else {
 		$widget_counter[ $current_sidebar ] = 1;
 	}
 
-	// Build the class attribute for this widget
+	// Build the class attribute for this widget.
 	$class = 'widget-' . $widget_counter[ $current_sidebar ];
 
-	// Supplement the class defined in the sidebar's before_widget argument
+	// Supplement the class defined in the sidebar's before_widget argument.
 	$params[0]['before_widget'] = preg_replace( '/(class="widget.*?)(")/', '$1 '. $class . '$2', $params[0]['before_widget'] );
 
 	return $params;
@@ -155,22 +155,22 @@ function responsive_limit_sidebars_widgets( $sidebars_widgets ) {
 
 		foreach ( $sidebars_to_limit as $sidebar => $max_widget_count ) {
 
-			// Ignore unreasonable values
+			// Ignore unreasonable values.
 			if ( $max_widget_count < 1 || $max_widget_count > 10 ) {
 				continue;
 			}
 
-			// Make sure the sidebar we're being asked to limit is registered
+			// Make sure the sidebar we're being asked to limit is registered.
 			if ( ! array_key_exists( $sidebar, $sidebars_widgets ) ) {
 				continue;
 			}
 
-			// Make sure the sidebar currently exceeds our limit
+			// Make sure the sidebar currently exceeds our limit.
 			if ( count( $sidebars_widgets[ $sidebar ] ) < $max_widget_count ) {
 				continue;
 			}
 
-			// Truncate extra widgets for the given sidebar
+			// Truncate extra widgets for the given sidebar.
 			$sidebars_widgets[ $sidebar ] = array_slice( $sidebars_widgets[ $sidebar ], 0, $max_widget_count );
 		}
 	}
@@ -180,7 +180,7 @@ function responsive_limit_sidebars_widgets( $sidebars_widgets ) {
 
 add_filter( 'sidebars_widgets', 'responsive_limit_sidebars_widgets', 10, 1 );
 
-// Adds support for shortcodes to core text widget
+// Adds support for shortcodes to core text widget.
 add_filter( 'widget_text', 'do_shortcode' );
 
 /**
