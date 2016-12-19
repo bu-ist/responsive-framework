@@ -40,11 +40,11 @@ function responsive_calendar_sidebar( $args = array() ) {
 			<?php echo $buCalendar->buildMonthCalendar( $yyyymmdd, NULL, $args['monthly_dropdown'] ); ?>
 		</div>
 		<?php if ( $args['show_topics'] ): ?>
-		<div id="calendar-topics" class="widget">
-			<h2 class="widgetTitle">Event <?php echo $args['topic_heading']; ?></h2>
-			<p><a class="content_nav_header" href="<?php echo $all_topics_url; ?>">All <?php echo $args['topic_heading']; ?></a></p>
-		<?php  echo $buCalendar->buildTopicTree( $topics ); ?>
-		</div>
+			<div id="calendar-topics" class="widget">
+				<h2 class="widgetTitle">Event <?php echo $args['topic_heading']; ?></h2>
+				<p><a class="content_nav_header" href="<?php echo esc_url( $all_topics_url ); ?>">All <?php echo esc_html( $args['topic_heading'] ); ?></a></p>
+				<?php echo $buCalendar->buildTopicTree( $topics ); ?>
+			</div>
 		<?php endif; ?>
 		<?php
 	}
