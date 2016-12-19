@@ -153,10 +153,10 @@ function responsive_posts_widget_format_display( $post, $args ) {
  * @return boolean Whether to show news meta.
  */
 function responsive_post_lists_show_news_meta( $settings ) {
-	return ( $settings['disp_date'] === 'yes' ||
-		$settings['disp_comments'] === 'yes' ||
-		$settings['disp_author'] === 'yes' ||
-		$settings['disp_cat'] === 'yes' ||
-		$settings['disp_author'] === 'yes' ||
-		$settings['disp_tags'] === 'yes' );
+	return ( 'yes' === $settings['disp_date'] ||
+			'yes' === $settings['disp_comments'] ||
+			'yes' === $settings['disp_author'] ||
+			'yes' === $settings['disp_cat'] ||
+			'yes' === $settings['disp_author'] ||
+			'yes' === $settings['disp_tags'] );
 }
