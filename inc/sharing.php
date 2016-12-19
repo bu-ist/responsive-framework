@@ -1,6 +1,8 @@
 <?php
 /**
- * BU Sharing integration
+ * BU Sharing integration.
+ *
+ * @package Responsive_Framework\bu-sharing
  */
 
 /**

@@ -3,8 +3,21 @@
  * Logic in this file is triggered when a new site is created with this theme.
  *
  * @see  mu-plugins/site-manager
+ *
+ * @package Responsive_Framework
  */
 
+/**
+ * Tasks to run for setting up a responsive site.
+ *
+ * @param $site
+ * @param $site_id
+ * @param $admin_id
+ * @param $domain
+ * @param $path
+ * @param $network_id
+ * @param $meta
+ */
 function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path, $network_id, $meta ) {
 	error_log( sprintf( '[%s] Running for: %s', __FUNCTION__, var_export( compact( 'site', 'site_id', 'admin_id', 'domain', 'path', 'network_id', 'meta' ), true ) ) );
 

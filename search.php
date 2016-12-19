@@ -1,6 +1,8 @@
 <?php
 /**
  * Template file used to render a Search Results Index page.
+ *
+ * @package Responsive_Framework
  */
 
 get_header(); ?>

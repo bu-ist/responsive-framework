@@ -1,6 +1,8 @@
 <?php
 /**
  * Template file used to render a static page.
+ *
+ * @package Responsive_Framework
  */
 
 get_header(); ?>

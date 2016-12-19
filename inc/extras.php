@@ -1,6 +1,8 @@
 <?php
 /**
  * Core filters
+ *
+ * @package Responsive_Framework
  */
 
 /**

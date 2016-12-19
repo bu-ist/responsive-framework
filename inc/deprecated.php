@@ -2,6 +2,8 @@
 /**
  * Deprecated functions from past framework versions. You shouldn't use these
  * functions and look for the alternatives instead.
+ *
+ * @package Responsive_Framework\deprecated
  */
 
 /**

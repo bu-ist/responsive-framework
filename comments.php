@@ -1,4 +1,11 @@
-<?php if ( post_password_required() ) {
+<?php
+/**
+ * Default comments template.
+ *
+ * @package Responsive_Framework
+ */
+
+if ( post_password_required() ) {
 	return;
 }
 ?>

@@ -1,7 +1,10 @@
 <?php
 /**
  * Template partial used when no posts were found.
+ *
+ * @package Responsive_Framework
  */
+
 ?>
 
 <article role="main">

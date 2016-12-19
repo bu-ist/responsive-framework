@@ -1,6 +1,8 @@
 <?php
 /**
  * Theme Settings API
+ *
+ * @package Responsive_Framework\Customizer
  */
 
 /**

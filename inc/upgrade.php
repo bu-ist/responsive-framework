@@ -6,6 +6,8 @@
  *       is set so that these routines run for existing Responsi sites.
  *
  * @since  0.9.1
+ *
+ * @package Responsive_Framework\Upgrade
  */
 
 /**

@@ -1,6 +1,8 @@
 <?php
 /**
  * Template used to display Profile archive.
+ *
+ * @package Responsive_Framework\BU_Profiles
  */
 
 get_header(); ?>
