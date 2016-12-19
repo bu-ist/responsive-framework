@@ -14,6 +14,10 @@ add_filter( 'bu_search_form_contexts', 'responsive_bu_search_form_contexts' );
 
 /**
  * Add a placeholder attribute to the search form added by BU CMS.
+ *
+ * @param string $attrs Search field input tag attributes.
+ *
+ * @return string Modified search field input tag attributes.
  */
 function responsive_bu_search_form_query_attributes( $attrs ) {
 	return 'placeholder="Search site&hellip;"';

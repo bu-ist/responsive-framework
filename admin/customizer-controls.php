@@ -57,6 +57,9 @@ class BURF_Customize_Checkbox_Group extends WP_Customize_Control {
  * Radio button control.
  */
 class BURF_Customize_Radio extends WP_Customize_Control {
+	/**
+	 * Render a radio button control for the Customizer.
+	 */
 	public function render_content() {
 		?>
 		<ul id="<?php echo esc_attr( $this->id ); ?>">

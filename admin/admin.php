@@ -7,6 +7,9 @@
 
 /**
  * Register footbar selection metabox.
+ *
+ * @param string  $post_type Post type.
+ * @param WP_Post $post      Post object.
  */
 function responsive_footbar_display_metabox( $post_type, $post ) {
 	if ( responsive_theme_supports_dynamic_footbars() && post_type_supports( $post_type, 'bu-dynamic-footbars') ) {
@@ -25,8 +28,10 @@ add_action( 'add_meta_boxes', 'responsive_footbar_display_metabox', 10, 2 );
 
 /**
  * Display registered footbar areas.
+ *
+ * @param WP_Post $post Post object.
  */
-function responsive_footbar_display_metabox_form( $post) {
+function responsive_footbar_display_metabox_form( $post ) {
 	$footbars = responsive_get_dynamic_footbars();
 	$selected = responsive_get_footbar_id( $post->ID );
 ?>
@@ -44,6 +49,9 @@ function responsive_footbar_display_metabox_form( $post) {
 
 /**
  * Save footbar selection for the given post.
+ *
+ * @param int     $post_id Post ID.
+ * @param WP_Post $post    Post object.
  */
 function responsive_save_post_footbar( $post_id, $post ) {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {

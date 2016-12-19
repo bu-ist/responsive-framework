@@ -7,6 +7,13 @@
 
 if ( ! function_exists( 'responsive_posts_widget_formats' ) ) :
 
+/**
+ * Remove/add display formats for the BU Posts widget.
+ *
+ * @param array $formats Default formats for the widget.
+ *
+ * @return array $formats Adjusted formats for the widget.
+ */
 function responsive_posts_widget_formats( $formats ) {
 
 	unset( $formats['date_title_excerpt'] );
@@ -69,6 +76,16 @@ add_filter( 'bu_posts_widget_formats', 'responsive_posts_widget_formats', 1, 1 )
 
 /**
  * One BU Post Lists widget format callback to rule them all.
+ *
+ * @param string $post Post being displayed.
+ * @param array  $args {
+ *     Arguments to configure how a post displays in a BU Posts widget.
+ *
+ *     @type  boolean $show_thumbnail Show or hide post thumbnails.
+ *     @type  string  $current_format Selected format for current widget.
+ * }
+ *
+ * @return string $output HTML output for the current post.
  */
 function responsive_posts_widget_format_display( $post, $args ) {
 	global $post;
@@ -129,8 +146,11 @@ function responsive_posts_widget_format_display( $post, $args ) {
 }
 
 /**
- * Checks all of the News template display options to determine
- * whether or not we have meta to display.
+ * Checks all of the News template display options to determine whether or not we have meta to display.
+ *
+ * @param array $settings BU_News_Page_Template settings array.
+ *
+ * @return boolean Whether to show news meta.
  */
 function responsive_post_lists_show_news_meta( $settings ) {
 	return ( $settings['disp_date'] === 'yes' ||
