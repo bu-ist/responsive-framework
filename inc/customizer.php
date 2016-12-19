@@ -78,7 +78,7 @@ function responsive_get_customizer_styles( $use_cache = true ) {
 	$styles = array();
 	$is_script_debugging = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 
-	// Check cache first if requested and SCRIPT_DEBUG is off
+	// Check cache first if requested and SCRIPT_DEBUG is off.
 	if ( $use_cache && ! $is_script_debugging ) {
 		$styles = get_option( 'burf_customizer_styles' );
 		if ( $styles ) {
@@ -86,11 +86,11 @@ function responsive_get_customizer_styles( $use_cache = true ) {
 		}
 	}
 
-	// Fonts
+	// Fonts.
 	$fonts_css = responsive_get_fonts_css();
 	if ( $fonts_css ) {
 
-		// Minify font styles if SCRIPT_DEBUG is off
+		// Minify font styles if SCRIPT_DEBUG is off.
 		if ( ! $is_script_debugging ) {
 			$csstidy = responsive_css_tidy();
 			$csstidy->parse( $fonts_css );
@@ -101,11 +101,11 @@ function responsive_get_customizer_styles( $use_cache = true ) {
 		$styles[] = sprintf( '<style type="text/css" id="responsive-customizer-fonts">%s</style>', $fonts_css );
 	}
 
-	// Colors
+	// Colors.
 	$colors_css = responsive_get_color_scheme_css();
 	if ( $colors_css ) {
 
-		// Minify color styles if SCRIPT_DEBUG is off
+		// Minify color styles if SCRIPT_DEBUG is off.
 		if ( ! $is_script_debugging ) {
 			$csstidy = responsive_css_tidy();
 			$csstidy->parse( $colors_css );
@@ -116,10 +116,10 @@ function responsive_get_customizer_styles( $use_cache = true ) {
 		$styles[] = sprintf( '<style type="text/css" id="responsive-customizer-colors">%s</style>', $colors_css );
 	}
 
-	// Concatenate font and color styles
+	// Concatenate font and color styles.
 	$styles = implode( PHP_EOL, $styles );
 
-	// Only cache minified styles when script debugging is disabled
+	// Only cache minified styles when script debugging is disabled.
 	if ( $styles && $use_cache && ! $is_script_debugging ) {
 		update_option( 'burf_customizer_styles', $styles );
 	}
@@ -143,7 +143,7 @@ add_action( 'update_option_burf_setting_custom_colors',        'responsive_flush
 add_action( 'update_option_burf_setting_active_color_regions', 'responsive_flush_customizer_styles_cache' );
 add_action( 'update_option_burf_setting_fonts',                'responsive_flush_customizer_styles_cache' );
 
-// Flush cached Customizer styles whenever framework has been updated
+// Flush cached Customizer styles whenever framework has been updated.
 add_action( 'update_option__responsive_framework_version',     'responsive_flush_customizer_styles_cache' );
 
 /**
@@ -157,7 +157,7 @@ add_action( 'update_option__responsive_framework_version',     'responsive_flush
  */
 function responsive_css_tidy() {
 
-	// Load CSSTidy class using Composer autoloader
+	// Load CSSTidy class using Composer autoloader.
 	require_once get_template_directory() . '/vendor/autoload.php';
 
 	$csstidy = new csstidy();
@@ -217,7 +217,7 @@ function responsive_customizer_color_regions() {
 	$scheme = responsive_get_color_scheme();
 	return array(
 
-		// navigation bar
+		// navigation bar.
 		'primaryNav-bg' => array(
 				'label'       => 'Background Color',
 				'group'       => 'navbar',
@@ -244,7 +244,7 @@ function responsive_customizer_color_regions() {
 				'default'     => $scheme['colors'][4],
 			),
 
-		// content area
+		// content area.
 		'content-heading' => array(
 				'label'       => 'Headings',
 				'group'       => 'content-area',
@@ -276,7 +276,7 @@ function responsive_customizer_color_regions() {
 				'default'     => $scheme['colors'][10],
 			),
 
-		// sidebar
+		// sidebar.
 		'sidebar-bg' => array(
 				'label'       => 'Widget Background',
 				'group'       => 'sidebar',
@@ -309,7 +309,7 @@ function responsive_customizer_color_regions() {
 				'default'     => $scheme['colors'][16],
 			),
 
-		// footbar
+		// footbar.
 		'footbar-bg' => array(
 				'label'       => 'Background',
 				'group'       => 'footbar',
@@ -358,37 +358,37 @@ function responsive_get_color_schemes() {
 		'default' => array(
 			'label'  => 'Default',
 			'colors' => array(
-				// navigation
-				'#000000', // background
-				'#333333', // border color
-				'#ffffff', // primary nav links
-				'#aaaaaa', // utility nav links
-				'#aaaaaa', // primary links hover
+				// navigation.
+				'#000000', // background.
+				'#333333', // border color.
+				'#ffffff', // primary nav links.
+				'#aaaaaa', // utility nav links.
+				'#aaaaaa', // primary links hover.
 
-				// content area
-				'#000000', // headings
-				'#555555', // text color
-				'#0f69d7', // link color
-				'#0f69d7', // link hovers
-				'#0f69d7', // button color
-				'#ffffff', // button text color
+				// content area.
+				'#000000', // headings.
+				'#555555', // text color.
+				'#0f69d7', // link color.
+				'#0f69d7', // link hovers.
+				'#0f69d7', // button color.
+				'#ffffff', // button text color.
 
-				// sidebar
-				'#ffffff', // widget bg
-				'#000000', // widget title
-				'#000000', // widget title border
-				'#0f69d7', // links
-				'#0f69d7', // link hovers
-				'#555555', // text color
+				// sidebar.
+				'#ffffff', // widget bg.
+				'#000000', // widget title.
+				'#000000', // widget title border.
+				'#0f69d7', // links.
+				'#0f69d7', // link hovers.
+				'#555555', // text color.
 
-				// footbar
-				'#f5f5f5', // background
-				'#cccccc', // top border
-				'#000000', // widget title
-				'#000000', // widget title border
-				'#0f69d7', // link colors
-				'#0f69d7', // link hover colors
-				'#555555', // text color
+				// footbar.
+				'#f5f5f5', // background.
+				'#cccccc', // top border.
+				'#000000', // widget title.
+				'#000000', // widget title border.
+				'#0f69d7', // link colors.
+				'#0f69d7', // link hover colors.
+				'#555555', // text color.
 			),
 			'active' => array(
 				'sidebar-bg' => false
@@ -397,37 +397,37 @@ function responsive_get_color_schemes() {
 		'slacker' => array(
 			'label'  => 'Slacker',
 			'colors' => array(
-				// navigation
-				'#24243a', // background
-				'#3c3c50', // border color
-				'#ffffff', // primary nav links
-				'#7c7c9d', // utility nav links
-				'#9f9fec', // primary links hover
+				// navigation.
+				'#24243a', // background.
+				'#3c3c50', // border color.
+				'#ffffff', // primary nav links.
+				'#7c7c9d', // utility nav links.
+				'#9f9fec', // primary links hover.
 
-				// content area
-				'#24243a', // headings
-				'#24243a', // text color
-				'#dd982b', // link color
-				'#000000', // link hovers
-				'#4fc3a0', // button color
-				'#ffffff', // button text color
+				// content area.
+				'#24243a', // headings.
+				'#24243a', // text color.
+				'#dd982b', // link color.
+				'#000000', // link hovers.
+				'#4fc3a0', // button color.
+				'#ffffff', // button text color.
 
-				// sidebar
-				'#52527e', // widget bg
-				'#ffffff', // widget title
-				'#6a6a9d', // widget title border
-				'#ecb438', // links
-				'#ffffff', // link hovers
-				'#ffffff', // text color
+				// sidebar.
+				'#52527e', // widget bg.
+				'#ffffff', // widget title.
+				'#6a6a9d', // widget title border.
+				'#ecb438', // links.
+				'#ffffff', // link hovers.
+				'#ffffff', // text color.
 
-				// footbar
-				'#1a1a22', // background
-				'#1a1a22', // top border
-				'#ffffff', // widget title
-				'#323242', // widget title border
-				'#ecb438', // link colors
-				'#ffffff', // link hover colors
-				'#8080a2', // text color
+				// footbar.
+				'#1a1a22', // background.
+				'#1a1a22', // top border.
+				'#ffffff', // widget title.
+				'#323242', // widget title border.
+				'#ecb438', // link colors.
+				'#ffffff', // link hover colors.
+				'#8080a2', // text color.
 			),
 			'active' => array(
 				'sidebar-bg' => true
@@ -436,37 +436,37 @@ function responsive_get_color_schemes() {
 		'extra-spectral' => array(
 			'label'  => 'Extra Spectral',
 			'colors' => array(
-				// navigation
-				'#c2185b', // background
-				'#cd4279', // border color
-				'#ffffff', // primary nav links
-				'#ff9fc5', // utility nav links
-				'#000000', // primary links hover
+				// navigation.
+				'#c2185b', // background.
+				'#cd4279', // border color.
+				'#ffffff', // primary nav links.
+				'#ff9fc5', // utility nav links.
+				'#000000', // primary links hover.
 
-				// content area
-				'#000000', // headings
-				'#000000', // text color
-				'#e82a75', // link color
-				'#000000', // link hovers
-				'#e82a75', // button color
-				'#ffffff', // button text color
+				// content area.
+				'#000000', // headings.
+				'#000000', // text color.
+				'#e82a75', // link color.
+				'#000000', // link hovers.
+				'#e82a75', // button color.
+				'#ffffff', // button text color.
 
-				// sidebar
-				'#7f2247', // widget bg
-				'#ffffff', // widget title
-				'#924362', // widget title border
-				'#ffffff', // links
-				'#ffffff', // link hovers
-				'#e4abc1', // text color
+				// sidebar.
+				'#7f2247', // widget bg.
+				'#ffffff', // widget title.
+				'#924362', // widget title border.
+				'#ffffff', // links.
+				'#ffffff', // link hovers.
+				'#e4abc1', // text color.
 
-				// footbar
-				'#222222', // background
-				'#222222', // top border
-				'#ffffff', // widget title
-				'#3d3d3d', // widget title border
-				'#e82a75', // link colors
-				'#ffffff', // link hover colors
-				'#bdbdbd', // text color
+				// footbar.
+				'#222222', // background.
+				'#222222', // top border.
+				'#ffffff', // widget title.
+				'#3d3d3d', // widget title border.
+				'#e82a75', // link colors.
+				'#ffffff', // link hover colors.
+				'#bdbdbd', // text color.
 			),
 			'active' => array(
 				'sidebar-bg' => true
@@ -475,37 +475,37 @@ function responsive_get_color_schemes() {
 		'rayleigh-scattering' => array(
 			'label'  => 'Rayleigh Scattering',
 			'colors' => array(
-				// navigation
-				'#04a9f4', // background
-				'#31b9f6', // border color
-				'#ffffff', // primary nav links
-				'#b4ddfa', // utility nav links
-				'#000000', // primary links hover
+				// navigation.
+				'#04a9f4', // background.
+				'#31b9f6', // border color.
+				'#ffffff', // primary nav links.
+				'#b4ddfa', // utility nav links.
+				'#000000', // primary links hover.
 
-				// content area
-				'#222222', // headings
-				'#000000', // text color
-				'#fa5707', // link color
-				'#000000', // link hovers
-				'#fa5707', // button color
-				'#ffffff', // button text color
+				// content area.
+				'#222222', // headings.
+				'#000000', // text color.
+				'#fa5707', // link color.
+				'#000000', // link hovers.
+				'#fa5707', // button color.
+				'#ffffff', // button text color.
 
-				// sidebar
-				'#e1f0f5', // widget bg
-				'#000000', // widget title
-				'#cad7db', // widget title border
-				'#000000', // links
-				'#000000', // link hovers
-				'#6f7b7f', // text color
+				// sidebar.
+				'#e1f0f5', // widget bg.
+				'#000000', // widget title.
+				'#cad7db', // widget title border.
+				'#000000', // links.
+				'#000000', // link hovers.
+				'#6f7b7f', // text color.
 
-				// footbar
-				'#222222', // background
-				'#222222', // top border
-				'#ffffff', // widget title
-				'#3d3d3d', // widget title border
-				'#fa5707', // link colors
-				'#dcdcdc', // link hover colors
-				'#dcdcdc', // text color
+				// footbar.
+				'#222222', // background.
+				'#222222', // top border.
+				'#ffffff', // widget title.
+				'#3d3d3d', // widget title border.
+				'#fa5707', // link colors.
+				'#dcdcdc', // link hover colors.
+				'#dcdcdc', // text color.
 			),
 			'active' => array(
 				'sidebar-bg' => true
@@ -514,37 +514,37 @@ function responsive_get_color_schemes() {
 		'vinca-minor' => array(
 			'label'  => 'Vinca Minor',
 			'colors' => array(
-				// navigation
-				'#3f51b5', // background
-				'#6270c2', // border color
-				'#ffffff', // primary nav links
-				'#bec8ff', // utility nav links
-				'#000000', // primary links hover
+				// navigation.
+				'#3f51b5', // background.
+				'#6270c2', // border color.
+				'#ffffff', // primary nav links.
+				'#bec8ff', // utility nav links.
+				'#000000', // primary links hover.
 
-				// content area
-				'#000000', // headings
-				'#000000', // text color
-				'#fb8007', // link color
-				'#000000', // link hovers
-				'#6c7dff', // button color
-				'#ffffff', // button text color
+				// content area.
+				'#000000', // headings.
+				'#000000', // text color.
+				'#fb8007', // link color.
+				'#000000', // link hovers.
+				'#6c7dff', // button color.
+				'#ffffff', // button text color.
 
-				// sidebar
-				'#ffffff', // widget bg
-				'#000000', // widget title
-				'#e8eaf6', // widget title border
-				'#fb8007', // links
-				'#989bad', // link hovers
-				'#989bad', // text color
+				// sidebar.
+				'#ffffff', // widget bg.
+				'#000000', // widget title.
+				'#e8eaf6', // widget title border.
+				'#fb8007', // links.
+				'#989bad', // link hovers.
+				'#989bad', // text color.
 
-				// footbar
-				'#1a1d2b', // background
-				'#1a1a22', // top border
-				'#ffffff', // widget title
-				'#363845', // widget title border
-				'#fb8007', // link colors
-				'#ffffff', // link hover colors
-				'#dcdcdc', // text color
+				// footbar.
+				'#1a1d2b', // background.
+				'#1a1a22', // top border.
+				'#ffffff', // widget title.
+				'#363845', // widget title border.
+				'#fb8007', // link colors.
+				'#ffffff', // link hover colors.
+				'#dcdcdc', // text color.
 			),
 			'active' => array(
 				'sidebar-bg' => false
@@ -598,18 +598,18 @@ function responsive_get_color_scheme_choices() {
  * @return array An associative array of either the current or default color scheme values.
  */
 function responsive_get_color_scheme( $scheme = null ) {
-	// Load the current color scheme if none was passed
+	// Load the current color scheme if none was passed.
 	if ( ! is_scalar( $scheme ) ) {
 		$scheme = get_option( 'burf_setting_color_scheme', 'default' );
 	}
 
-	// Return requested theme if found
+	// Return requested theme if found.
 	$schemes = responsive_get_color_schemes();
 	if ( array_key_exists( $scheme, $schemes ) ) {
 		return $schemes[ $scheme ];
 	}
 
-	// Return default otherwise
+	// Return default otherwise.
 	return $schemes['default'];
 }
 
@@ -624,7 +624,7 @@ function responsive_get_color_scheme( $scheme = null ) {
 function responsive_get_color_scheme_colors( $scheme = null ) {
 	$scheme = responsive_get_color_scheme( $scheme );
 
-	// Combine region names and color values into associative array
+	// Combine region names and color values into associative array.
 	$region_names = array_keys( responsive_customizer_color_regions() );
 	$colors = array_combine( $region_names, $scheme['colors'] );
 	return $colors;
@@ -645,10 +645,10 @@ function responsive_get_custom_colors() {
  * @return array A list of color region keys with current state.
  */
 function responsive_get_active_color_regions() {
-	// Get defaults from currently active scheme
+	// Get defaults from currently active scheme.
 	$scheme = responsive_get_color_scheme();
 
-	// Merge with current values
+	// Merge with current values.
 	$active_regions = get_option( 'burf_setting_active_color_regions', array() );
 	return array_merge( $scheme['active'], $active_regions );
 }
@@ -660,13 +660,13 @@ function responsive_get_active_color_regions() {
  */
 function responsive_get_color_scheme_css() {
 
-	// Get colors from current scheme
+	// Get colors from current scheme.
 	$scheme_colors = responsive_get_color_scheme_colors();
 
-	// Get custom selected colors
+	// Get custom selected colors.
 	$custom_colors = responsive_get_custom_colors();
 
-	// Merge, giving preference to custom colors
+	// Merge, giving preference to custom colors.
 	$colors = array_merge( $scheme_colors, $custom_colors );
 
 	// Default color scheme without custom colors. Bail.
@@ -697,7 +697,7 @@ function responsive_framework_get_color_regions_css( $colors, $context = 'defaul
 }
 CSS;
 
-	// Underscore template gets special logic
+	// Underscore template gets special logic.
 	if ( 'template' === $context ) {
 		$sidebar_widget_styles =<<<CSS
 <# if ( data.active['sidebar-bg'] ) { #>
@@ -705,7 +705,7 @@ CSS;
 <# } #>
 CSS;
 	} else {
-		// Check currently active colors
+		// Check currently active colors.
 		$active_regions = responsive_get_active_color_regions();
 		if ( ! $active_regions['sidebar-bg'] ) {
 			$sidebar_widget_styles = '';

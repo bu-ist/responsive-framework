@@ -28,14 +28,14 @@ if ( post_password_required() ) {
 			?>
 		</ol>
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
 		<nav class="comments-nav" role="navigation">
 			<div class="comments-nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', '_s' ) ); ?></div>
 			<div class="comments-nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', '_s' ) ); ?></div>
 		</nav>
-		<?php endif; // check for comment navigation ?>
+		<?php endif; // check for comment navigation. ?>
 
-	<?php endif; // have_comments() ?>
+	<?php endif; // have_comments(). ?>
 
 	<?php
 		// If comments are closed and there are comments, let's leave a little note, shall we?
@@ -44,7 +44,7 @@ if ( post_password_required() ) {
 		<p class="comments-closed"><?php esc_html_e( 'Comments are closed.', '_s' ); ?></p>
 	<?php endif; ?>
 
-	<?php if ( comments_open() ) : // this is displayed if there are no comments so far ?>
+	<?php if ( comments_open() ) : // this is displayed if there are no comments so far. ?>
 	<div id="respond" class="comment-respond">
 
 		<h3 class="comment-respond-title"><?php comment_form_title( 'Post Your Comment', 'Reply to %s' ); ?></h3>
@@ -71,7 +71,7 @@ if ( post_password_required() ) {
 					<?php do_action( 'comment_form' ); ?>
 				</fieldset>
 			</form>
-		<?php endif; // if registration required and not logged in ?>
+		<?php endif; // if registration required and not logged in. ?>
 	</div>
 
 <?php endif; ?>

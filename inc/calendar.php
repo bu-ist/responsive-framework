@@ -147,7 +147,7 @@ function responsive_calendar_body_classes( $classes ) {
 		) );
 	$is_calendar_template = array_filter( $calendar_templates, 'is_page_template' );
 
-	// The current request is for one of our calendar templates
+	// The current request is for one of our calendar templates.
 	if ( $is_calendar_template ) {
 		if ( isset( $_GET['eid'] ) ) {
 			$classes[] = 'single-calendar';
