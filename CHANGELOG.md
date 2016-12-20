@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.3
+
+* Move the body `id` declaration in front of `class`.
+
 ## 1.5.2
 
 * Fix `responsive_maybe_hide_homepage_h1()` to accept the second parameter for
