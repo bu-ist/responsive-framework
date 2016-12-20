@@ -1,6 +1,8 @@
 <?php
-/*
+/**
  * Template Name: Profiles
+ *
+ * @package Responsive_Framework\BU_Profiles
  */
 
 get_header(); ?>
