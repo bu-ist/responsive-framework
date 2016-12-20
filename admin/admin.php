@@ -12,7 +12,7 @@
  * @param WP_Post $post      Post object.
  */
 function responsive_footbar_display_metabox( $post_type, $post ) {
-	if ( responsive_theme_supports_dynamic_footbars() && post_type_supports( $post_type, 'bu-dynamic-footbars') ) {
+	if ( responsive_theme_supports_dynamic_footbars() && post_type_supports( $post_type, 'bu-dynamic-footbars' ) ) {
 		add_meta_box(
 			'bu-footbar',
 			'Footbar Display',
@@ -20,7 +20,7 @@ function responsive_footbar_display_metabox( $post_type, $post ) {
 			$post_type,
 			'side',
 			'core'
-			);
+		);
 	}
 }
 
@@ -36,7 +36,7 @@ function responsive_footbar_display_metabox_form( $post ) {
 	$selected = responsive_get_footbar_id( $post->ID );
 ?>
 <fieldset>
-	<?php foreach ( $footbars as $id => $label ): ?>
+	<?php foreach ( $footbars as $id => $label ) : ?>
 		<p><input type="radio" id="bu_footbar_<?php echo esc_attr( $id ); ?>" name="bu_footbar_id" value="<?php echo esc_attr( $id ); ?>" <?php checked( $id, $selected ); ?>/>
 		<label for="bu_footbar_<?php echo esc_attr( $id ); ?>"><?php echo esc_html( $label ); ?></label></p>
 	<?php endforeach; ?>

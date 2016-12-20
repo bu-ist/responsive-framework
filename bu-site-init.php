@@ -54,7 +54,7 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 		'post_author'  => $admin_id,
 		'post_title'   => get_bloginfo( 'name' ),
 		'post_content' => $post_content,
-		) );
+	) );
 
 	// Set front page.
 	error_log( sprintf( '[%s] Setting front page..' , __FUNCTION__ ) );
@@ -69,7 +69,7 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 		'post_status'  => 'publish',
 		'post_author'  => $admin_id,
 		'post_title'   => 'News',
-		) );
+	) );
 
 	if ( $news_id ) {
 		update_post_meta( $news_id, '_wp_page_template', 'page-templates/news.php' );
@@ -94,7 +94,7 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 			'navigation_title_text' => '',
 			'navigation_title_url'  => '',
 			'navigation_style'      => 'section',
-		)
+		),
 	) );
 
 	// BU Posts widget settings.
@@ -108,7 +108,7 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 			'title_link'     => get_permalink( $news_id ),
 			'format'         => 'title_date_excerpt',
 			'show_thumbnail' => 0,
-		)
+		),
 	) );
 
 	// BU Links widget settings.
@@ -117,7 +117,7 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 		1 => array(
 			'title'      => 'Related Links',
 			'post_types' => 'page',
-		)
+		),
 	) );
 
 	// Create initial menu.
@@ -125,7 +125,7 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 	$menu_exists = wp_get_nav_menu_object( 'Footer Menu' );
 
 	// If it doesn't exist, let's create it.
-	if ( ! $menu_exists ){
+	if ( ! $menu_exists ) {
 		$menu_id = wp_create_nav_menu( 'Footer Menu' );
 
 		// Set up default menu items.
@@ -186,7 +186,7 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 		'content-banner/content-banner.php',
 		'link-lists/link-lists.php',
 		'bu-sharing/bu-sharing.php',
-		) );
+	) );
 
 	// Default comment depth.
 	update_option( 'thread_comments_depth', 2 );

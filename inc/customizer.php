@@ -44,7 +44,7 @@ function responsive_layout_options() {
 		'topNav'  => 'Top Navigation Bar',
 		'sideNav' => 'Side Navigation Bar',
 		'noNav'   => 'No Navigation Bar',
-		) );
+	) );
 }
 
 /**
@@ -395,7 +395,7 @@ function responsive_get_color_schemes() {
 				'#555555', // text color.
 			),
 			'active' => array(
-				'sidebar-bg' => false
+				'sidebar-bg' => false,
 			),
 		),
 		'slacker' => array(
@@ -434,7 +434,7 @@ function responsive_get_color_schemes() {
 				'#8080a2', // text color.
 			),
 			'active' => array(
-				'sidebar-bg' => true
+				'sidebar-bg' => true,
 			),
 		),
 		'extra-spectral' => array(
@@ -473,7 +473,7 @@ function responsive_get_color_schemes() {
 				'#bdbdbd', // text color.
 			),
 			'active' => array(
-				'sidebar-bg' => true
+				'sidebar-bg' => true,
 			),
 		),
 		'rayleigh-scattering' => array(
@@ -512,7 +512,7 @@ function responsive_get_color_schemes() {
 				'#dcdcdc', // text color.
 			),
 			'active' => array(
-				'sidebar-bg' => true
+				'sidebar-bg' => true,
 			),
 		),
 		'vinca-minor' => array(
@@ -551,7 +551,7 @@ function responsive_get_color_schemes() {
 				'#dcdcdc', // text color.
 			),
 			'active' => array(
-				'sidebar-bg' => false
+				'sidebar-bg' => false,
 			),
 		),
 	);
@@ -694,7 +694,7 @@ function responsive_get_color_scheme_css() {
  */
 function responsive_framework_get_color_regions_css( $colors, $context = 'default' ) {
 
-		$sidebar_widget_styles =<<<CSS
+		$sidebar_widget_styles = <<<CSS
 /* sidebar widget background color
 ----------------------------------------------------------------- */
 
@@ -708,7 +708,7 @@ CSS;
 
 	// Underscore template gets special logic.
 	if ( 'template' === $context ) {
-		$sidebar_widget_styles =<<<CSS
+		$sidebar_widget_styles = <<<CSS
 <# if ( data.active['sidebar-bg'] ) { #>
 {$sidebar_widget_styles}
 <# } #>
