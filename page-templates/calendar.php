@@ -43,7 +43,7 @@ if ( $yyyymmdd ) {
 $timestamp = strtotime( '00:00', $timestamp );
 
 /*
- check that date falls between:
+ * Check that date falls between:
  * The year 2000 (http://www.nbc.com/nbc/Late_Night_with_Conan_OBrien/intheyear2000/)
  * Ten years in the future from the current date
  */
