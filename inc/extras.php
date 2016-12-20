@@ -31,10 +31,10 @@ function responsive_body_class( $classes ) {
 	// If "Keep posts sidebar on bottom" is on, don't add classes to those pages.
 	if ( $sidebar_location ) {
 		if ( true === $posts_sidebar_bottom ) {
-			if( is_page() && ! is_page_template( 'page-templates/news.php' ) && ! is_page_template( 'page-templates/profiles.php' ) ){
+			if ( is_page() && ! is_page_template( 'page-templates/news.php' ) && ! is_page_template( 'page-templates/profiles.php' ) ) {
 				$classes[] = "sidebarLocation-$sidebar_location";
 			}
-		}else {
+		} else {
 			$classes[] = "sidebarLocation-$sidebar_location";
 		}
 	}
@@ -92,7 +92,7 @@ function responsive_filter_category_lists( $thelist, $separator = '' ) {
 		$cat = preg_quote( $cat, '!' );
 	}
 
-	$exclude_pattern = sprintf(  '!<\s*a[^>]*>%s<\s*/a[^>]*>!im', implode( '|', $categories_to_exclude ) );
+	$exclude_pattern = sprintf( '!<\s*a[^>]*>%s<\s*/a[^>]*>!im', implode( '|', $categories_to_exclude ) );
 	$category_links = preg_grep( $exclude_pattern, $category_links, PREG_GREP_INVERT );
 
 	$thelist = implode( $separator, $category_links );
@@ -176,7 +176,7 @@ function responsive_widget_counts( $params ) {
 	$class = 'widget-' . $widget_counter[ $current_sidebar ];
 
 	// Supplement the class defined in the sidebar's before_widget argument.
-	$params[0]['before_widget'] = preg_replace( '/(class="widget.*?)(")/', '$1 '. $class . '$2', $params[0]['before_widget'] );
+	$params[0]['before_widget'] = preg_replace( '/(class="widget.*?)(")/', '$1 ' . $class . '$2', $params[0]['before_widget'] );
 
 	return $params;
 }
@@ -199,7 +199,7 @@ function responsive_limit_sidebars_widgets( $sidebars_widgets ) {
 		$sidebars_to_limit = apply_filters( 'responsive_limit_sidebars_widgets', array(
 			'posts'    => 2,
 			'profiles' => 2,
-			) );
+		) );
 
 		foreach ( $sidebars_to_limit as $sidebar => $max_widget_count ) {
 
@@ -240,6 +240,7 @@ add_filter( 'widget_text', 'do_shortcode' );
  * to the image while scrolling.
  *
  * There is core consensus that "None" should be the default.
+ *
  * @see  https://core.trac.wordpress.org/ticket/31467
  */
 function responsive_image_default_link_type() {
@@ -280,12 +281,16 @@ add_filter( 'the_title', 'responsive_maybe_hide_homepage_h1', 10, 2 );
  */
 function responsive_oembed_output( $html, $url ) {
 	$providers = array(
-		array( 'youtube', 'Youtube',
-			array( '#http://((m|www)\.)?youtube\.com/watch.*#i', '#https://((m|www)\.)?youtube\.com/watch.*#i', '#http://((m|www)\.)?youtube\.com/playlist.*#i', '#https://((m|www)\.)?youtube\.com/playlist.*#i', '#http://youtu\.be/.*#i', '#https://youtu\.be/.*#i')
+		array(
+	'youtube',
+	'Youtube',
+			array( '#http://((m|www)\.)?youtube\.com/watch.*#i', '#https://((m|www)\.)?youtube\.com/watch.*#i', '#http://((m|www)\.)?youtube\.com/playlist.*#i', '#https://((m|www)\.)?youtube\.com/playlist.*#i', '#http://youtu\.be/.*#i', '#https://youtu\.be/.*#i' ),
 		),
-		array( 'vimeo', 'Vimeo',
-			array( '#https?://(.+\.)?vimeo\.com/.*#i' )
-		)
+		array(
+	'vimeo',
+	'Vimeo',
+			array( '#https?://(.+\.)?vimeo\.com/.*#i' ),
+		),
 	);
 
 	foreach ( $providers as $provider ) {
