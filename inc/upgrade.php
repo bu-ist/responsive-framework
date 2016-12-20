@@ -6,6 +6,8 @@
  *       is set so that these routines run for existing Responsi sites.
  *
  * @since  0.9.1
+ *
+ * @package Responsive_Framework\Upgrade
  */
 
 /**
@@ -16,12 +18,12 @@
 function responsive_framework_upgrade() {
 	$db_version = get_option( '_responsive_framework_version', false );
 
-	// Old theme version detected
+	// Old theme version detected.
 	if ( $db_version ) {
 		if ( version_compare( $db_version, RESPONSIVE_FRAMEWORK_VERSION, '<' ) ) {
 			error_log( __FUNCTION__ . ' - Version mismatch detected. Starting upgrade...' );
 
-			// Run version-specific upgrade routine(s)
+			// Run version-specific upgrade routine(s).
 			if ( version_compare( $db_version, '0.9.1', '<' ) ) {
 				responsive_upgrade_091();
 			}
@@ -50,18 +52,18 @@ add_action( 'init', 'responsive_framework_upgrade' );
 function responsive_upgrade_091() {
 	global $wpdb;
 
-	// Rename page templates
+	// Rename page templates.
 	error_log( __FUNCTION__ . ' - Migrating page templates...' );
 	$template_map = apply_filters( __FUNCTION__ . '_template_map', array(
 		'calendar.php'        => 'page-templates/calendar.php',
 		'news.php'            => 'page-templates/news.php',
 		'page-nosidebars.php' => 'page-templates/no-sidebars.php',
 		'profiles.php'        => 'page-templates/profiles.php',
-		) );
+	) );
 
 	$template_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
 		$wpdb->postmeta, implode( '","', array_keys( $template_map ) )
-		);
+	);
 	$results = $wpdb->get_results( $template_query );
 	error_log( __FUNCTION__ . ' - Posts to migrate: ' . count( $results ) );
 
@@ -69,16 +71,16 @@ function responsive_upgrade_091() {
 		update_post_meta( $result->post_id, '_wp_page_template', $template_map[ $result->meta_value ] );
 	}
 
-	// Rename banner positions
+	// Rename banner positions.
 	error_log( __FUNCTION__ . ' - Migrating content banners...' );
 	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
 		'content-width' => 'contentWidth',
 		'page-width'    => 'pageWidth',
 		'window-width'  => 'windowWidth',
-		) );
+	) );
 	$banner_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
 		$wpdb->postmeta
-		);
+	);
 	$results = $wpdb->get_results( $banner_query );
 
 	foreach ( $results as $result ) {
@@ -87,21 +89,21 @@ function responsive_upgrade_091() {
 			if ( array_key_exists( 'position', $banner ) && in_array( $banner['position'], array_keys( $banner_map ) ) ) {
 				$banner['position'] = $banner_map[ $banner['position'] ];
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
-			} else if ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
+			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
 				error_log( __FUNCTION__ . ' - Resetting empty banner position to default (contentWidth)' );
-				// Reset to default
+				// Reset to default.
 				$banner['position'] = 'contentWidth';
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			}
 		}
 	}
 
-	// Rename sidebars
+	// Rename sidebars.
 	error_log( __FUNCTION__ . ' - Migrating sidebars...' );
 	$sidebars_map = apply_filters( __FUNCTION__ . '_sidebars_map', array(
 		'right-content-area'  => 'sidebar',
 		'bottom-content-area' => 'footbar',
-		) );
+	) );
 	$sidebars_widgets = wp_get_sidebars_widgets();
 	foreach ( $sidebars_map as $from => $to ) {
 		if ( array_key_exists( $from, $sidebars_widgets ) ) {
