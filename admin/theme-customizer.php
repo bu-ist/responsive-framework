@@ -11,8 +11,8 @@ require_once __DIR__ . '/customizer-controls.php';
  * Enqueue scripts and styles for customizer preview.
  */
 function responsive_customizer_scripts() {
-	wp_enqueue_style( 'responsi-admin', get_template_directory_uri() . "/admin/admin.css", array(), RESPONSIVE_FRAMEWORK_VERSION );
-	wp_enqueue_script( 'responsi-customizer', get_template_directory_uri() . "/admin/theme-customizer.js", array( 'jquery', 'customize-controls', 'iris', 'underscore', 'wp-util' ), RESPONSIVE_FRAMEWORK_VERSION, true );
+	wp_enqueue_style( 'responsi-admin', get_template_directory_uri() . '/admin/admin.css', array(), RESPONSIVE_FRAMEWORK_VERSION );
+	wp_enqueue_script( 'responsi-customizer', get_template_directory_uri() . '/admin/theme-customizer.js', array( 'jquery', 'customize-controls', 'iris', 'underscore', 'wp-util' ), RESPONSIVE_FRAMEWORK_VERSION, true );
 	wp_localize_script( 'responsi-customizer', 'responsiveColor', array( 'schemes' => responsive_get_color_schemes(), 'regions' => responsive_customizer_color_regions(), 'optional' => responsive_get_optional_color_regions() ) );
 }
 
@@ -22,7 +22,7 @@ add_action( 'customize_controls_enqueue_scripts', 'responsive_customizer_scripts
  * Binds JS handlers to make the Customizer preview reload changes asynchronously.
  */
 function responsive_framework_customizer_preview_scripts() {
-	wp_enqueue_script( 'responsi-customize-preview', get_template_directory_uri() . "/admin/customize-preview.js", array( 'customize-preview' ), RESPONSIVE_FRAMEWORK_VERSION, true );
+	wp_enqueue_script( 'responsi-customize-preview', get_template_directory_uri() . '/admin/customize-preview.js', array( 'customize-preview' ), RESPONSIVE_FRAMEWORK_VERSION, true );
 }
 
 add_action( 'customize_preview_init', 'responsive_framework_customizer_preview_scripts' );
@@ -94,7 +94,7 @@ function responsive_customize_register( $wp_customize ) {
 			'default'           => 'default',
 			'sanitize_callback' => 'responsive_sanitize_color_scheme',
 			'transport'         => 'postMessage',
-			'type'              => 'option'
+			'type'              => 'option',
 		) );
 
 		$wp_customize->add_control( 'burf_setting_color_scheme', array(
@@ -122,7 +122,7 @@ function responsive_customize_register( $wp_customize ) {
 					} else {
 						return true;
 					}
-				}
+				},
 			) );
 
 			$group_regions = wp_filter_object_list( $regions, array( 'group' => $slug ) );
@@ -161,8 +161,6 @@ function responsive_customize_register( $wp_customize ) {
 		}
 	}
 
-
-
 	// Content Options.
 	$wp_customize->add_section( 'burf_section_content_options', array(
 		'title'       => 'Content Options',
@@ -173,7 +171,7 @@ function responsive_customize_register( $wp_customize ) {
 		'default'    => array( 'categories', 'tags' ),
 		'capability' => 'edit_theme_options',
 		'type'       => 'option',
-		) );
+	) );
 
 	$wp_customize->add_control(
 		new BURF_Customize_Checkbox_Group(
@@ -187,21 +185,16 @@ function responsive_customize_register( $wp_customize ) {
 					'categories' => 'Categories',
 					'tags'       => 'Tags',
 					'author'     => 'Author',
-					)
+					),
 			)
 		)
 	);
-
-
-
-
-
 
 	// Sidebar Options.
 	$wp_customize->add_setting( 'burf_setting_sidebar_options', array(
 		'default'           => '',
 		'capability'        => 'edit_theme_options',
-		'type'              => 'option'
+		'type'              => 'option',
 	) );
 
 	$sidebar_description = '';
@@ -227,7 +220,7 @@ function responsive_customize_register( $wp_customize ) {
 				'description' => $sidebar_description,
 				'choices'     => array(
 					'dynamic_footbars' => 'Enable alternate footbar?',
-				)
+				),
 			)
 		)
 	);
@@ -273,12 +266,11 @@ function responsive_customize_register( $wp_customize ) {
 		'type'     => 'checkbox',
 	) );
 
-
 	// Front Page H1 Display.
 	$wp_customize->add_setting( 'burf_setting_hide_front_h1', array(
 		'default'           => '',
 		'capability'        => 'edit_theme_options',
-		'type'              => 'option'
+		'type'              => 'option',
 	) );
 
 	$wp_customize->add_control(
@@ -290,7 +282,7 @@ function responsive_customize_register( $wp_customize ) {
 				'section'     => 'static_front_page',
 				'choices'     => array(
 					'true' => 'Hide the homepage title',
-				)
+				),
 			)
 		)
 	);
@@ -299,7 +291,7 @@ function responsive_customize_register( $wp_customize ) {
 	if ( ! defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ) {
 		$wp_customize->add_setting( 'burf_setting_sidebar_location', array(
 			'default'	=> 'right',
-			'type'		=> 'option'
+			'type'		=> 'option',
 		) );
 
 		$wp_customize->add_control( 'burf_setting_sidebar_location', array(
@@ -308,23 +300,23 @@ function responsive_customize_register( $wp_customize ) {
 			'description' => 'Changes the position of the main sidebar.',
 			'type'		=> 'radio',
 			'choices'	=> array(
-				'bottom'=>	'Bottom',
-				'left'	=>	'Left',
-				'right'	=>	'Right'
-			)
+				'bottom' => 'Bottom',
+				'left'	=> 'Left',
+				'right'	=> 'Right',
+			),
 		) );
 	}
 
 	// Posts Sidebar Location.
 	if ( ! defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
 		$wp_customize->add_setting( 'burf_setting_posts_sidebar_bottom', array(
-			'type'		=> 'option'
+			'type'		=> 'option',
 		) );
 
 		$wp_customize->add_control( 'burf_setting_posts_sidebar_bottom', array(
 			'label'		=> 'Keep the posts sidebar on bottom',
 			'section'	=> 'burf_section_content_options',
-			'type'		=> 'checkbox'
+			'type'		=> 'checkbox',
 		) );
 	}
 }

@@ -49,7 +49,7 @@ if ( function_exists( 'bu_thumbnail' ) ) {
 
 	<?php edit_post_link( 'Edit', '<p class="edit-link">', '</p>' ); ?>
 
-	<?php responsive_profiles_archive_link() ; ?>
+	<?php responsive_profiles_archive_link(); ?>
 
 	<?php responsive_comments(); ?>
 
