@@ -1,6 +1,8 @@
 <?php
 /**
  * Template partial used to display content for single profiles.
+ *
+ * @package Responsive_Framework\BU_Profiles
  */
 
 $has_details = bu_profile_has_details();
@@ -19,7 +21,7 @@ if ( function_exists( 'bu_thumbnail' ) ) {
 	<h2 class="title"><?php bu_profile_detail( 'title' ); ?></h2>
 
 	<?php if ( $profile_thumb ) : ?>
-	<div class="profile-thumb"><figure><?php echo $profile_thumb; ?></figure></div>
+		<div class="profile-thumb"><figure><?php echo wp_kses_post( $profile_thumb ); ?></figure></div>
 	<?php endif; ?>
 
 	<?php if ( $has_details ) : ?>
@@ -47,7 +49,7 @@ if ( function_exists( 'bu_thumbnail' ) ) {
 
 	<?php edit_post_link( 'Edit', '<p class="edit-link">', '</p>' ); ?>
 
-	<?php responsive_profiles_archive_link() ; ?>
+	<?php responsive_profiles_archive_link(); ?>
 
 	<?php responsive_comments(); ?>
 
