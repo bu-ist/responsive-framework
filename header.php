@@ -36,7 +36,7 @@
 
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?> id="top">
+<body id="top" <?php body_class(); ?> >
 
 	<header class="masthead" role="banner">
 		<div class="masthead-container">
