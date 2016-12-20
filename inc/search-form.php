@@ -7,6 +7,7 @@
 
 /**
  * Responsive Framework sites do not want to support form contexts/scopes.
+ *
  * @return array Option to only search current site
  */
 function responsive_bu_search_form_contexts() {

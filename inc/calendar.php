@@ -47,9 +47,9 @@ function responsive_calendar_sidebar( $args = array() ) {
 
 		<div class="widget">
 			<h2 class="widgetTitle">Event Calendar</h2>
-			<?php echo $buCalendar->buildMonthCalendar( $yyyymmdd, NULL, $args['monthly_dropdown'] ); ?>
+			<?php echo $buCalendar->buildMonthCalendar( $yyyymmdd, null, $args['monthly_dropdown'] ); ?>
 		</div>
-		<?php if ( $args['show_topics'] ): ?>
+		<?php if ( $args['show_topics'] ) : ?>
 			<div id="calendar-topics" class="widget">
 				<h2 class="widgetTitle">Event <?php echo $args['topic_heading']; ?></h2>
 				<p><a class="content_nav_header" href="<?php echo esc_url( $all_topics_url ); ?>">All <?php echo esc_html( $args['topic_heading'] ); ?></a></p>
@@ -165,7 +165,7 @@ function onYearDay( $ts ) {
 function responsive_calendar_body_classes( $classes ) {
 	$calendar_templates = apply_filters( 'responsive_calendar_templates', array(
 		'page-templates/calendar.php',
-		) );
+	) );
 	$is_calendar_template = array_filter( $calendar_templates, 'is_page_template' );
 
 	// The current request is for one of our calendar templates.
