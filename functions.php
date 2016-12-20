@@ -1,6 +1,8 @@
 <?php
 /**
- * Responsive Framework functions and theme setup
+ * Responsive Framework functions and theme setup.
+ *
+ * @package Responsive_Framework
  */
 
 /**
@@ -39,19 +41,23 @@ function responsive_setup() {
 		) );
 	add_theme_support( 'post-thumbnails' );
 
-	// Add support for branding plugin
+	// Add support for branding plugin.
 	add_theme_support( 'bu-branding' );
 
 	// Add support for the custom post type version of profile plugin.
 	add_theme_support( 'bu-profiles-post_type' );
 
-	// Default flexi multi-line style doesn't need the extra <p> tags
+	// Default flexi multi-line style doesn't need the extra <p> tags.
 	remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
 	add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
 
-	// By default, comments are disabled for BU sites.
-	// Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
-	// @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
+	/*
+	 * By default, comments are disabled for BU sites.
+	 *
+	 * Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
+	 *
+	 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
+	 */
 	if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
 		define( 'BU_SUPPORTS_COMMENTS', true );
 	}
@@ -61,10 +67,10 @@ function responsive_setup() {
 		define( 'BU_SUPPORTS_SEO', true );
 	}
 
-	// Disable BU Links Footer editor under Appearance menu
+	// Disable BU Links Footer editor under Appearance menu.
 	define( 'BU_DISABLE_FOOTER_EDITOR', true );
 
-	// Only support one level of dropdowns by default
+	// Only support one level of dropdowns by default.
 	define('BU_NAVIGATION_SUPPORTED_DEPTH', 1);
 
 	// Custom menu locations.
@@ -92,7 +98,7 @@ function responsive_setup() {
 	}
 
 	// Register supported templates for Content Banner and BU Profile plugins.
-	// TODO: Need to require from BU_INCLUDES
+	// @TODO: Need to require from BU_INCLUDES.
 	if ( class_exists( 'AllowedTemplates' ) ) {
 		global $banner_templates, $profile_templates, $news_templates;
 
@@ -136,10 +142,10 @@ add_action( 'after_setup_theme', 'responsive_setup' );
  * Theme-specific initialization logic
  */
 function responsive_init() {
-	// Add support for dynamic footbars (e.g. alternate footbar)
+	// Add support for dynamic footbars (e.g. alternate footbar).
 	add_post_type_support( 'page', 'bu-dynamic-footbars' );
 
-	// Make sure images are set to 'no link' by default
+	// Make sure images are set to 'no link' by default.
 	update_option( 'image_default_link_type', 'none' );
 }
 
@@ -191,7 +197,7 @@ function responsive_sidebars() {
 			'after_title'   => '</h3>',
 		) );
 
-	// Alternate footbar registration
+	// Alternate footbar registration.
 	if ( responsive_theme_supports_dynamic_footbars() || is_customize_preview() ) {
 		register_sidebar( array(
 				'name'          => 'Alternate Footbar',
@@ -249,9 +255,12 @@ function responsive_styles() {
 
 /**
  * Maybe trigger theme migration procedure.
+ *
+ * @param string        $old_name The old theme name.
+ * @param bool|WP_Theme $old_theme false if the old theme does not exist, WP_Theme instance of the old theme if it does.
  */
 function responsive_maybe_migrate_theme( $old_name, $old_theme = false ) {
-	// Theme migrations require Site Manager > 4.0
+	// Theme migrations require Site Manager > 4.0.
 	if ( ! defined( 'BU_SITE_MANAGER_VERSION' ) || version_compare( BU_SITE_MANAGER_VERSION, '4.0', '<' ) ) {
 		return;
 	}
@@ -262,7 +271,7 @@ function responsive_maybe_migrate_theme( $old_name, $old_theme = false ) {
 
 	$new_theme = wp_get_theme();
 
-	if ( 'flexi-framework' == $old_theme->get_template() ) {
+	if ( 'flexi-framework' === $old_theme->get_template() ) {
 		require __DIR__ . '/inc/migration-helpers.php';
 		error_log( sprintf( '[%s] Migrating from %s to %s...', __FUNCTION__, $old_theme->get_template(), $new_theme->get_template() ) );
 		responsive_flexi_migration();
@@ -272,7 +281,12 @@ function responsive_maybe_migrate_theme( $old_name, $old_theme = false ) {
 add_action( 'after_switch_theme', 'responsive_maybe_migrate_theme', 1, 2 );
 
 /**
- * Reset title tag for navigation
+ * Reset title tag for navigation.
+ *
+ * @param array   $attr BU Navigation item arguments. See bu_navigation_format_page().
+ * @param WP_Post $page Post object currently being filtered.
+ *
+ * @return array Adjusted bu_navigation_filter_anchor_attrs filter attributes.
  */
 function responsive_change_title_tag($attr, $page) {
 	unset( $attr['title'] );
@@ -283,7 +297,7 @@ add_filter( 'bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 
 
 
 /**
- * Admin
+ * Admin.
  */
 if ( is_admin() ) {
 	require __DIR__ . '/admin/admin.php';

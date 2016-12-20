@@ -3,7 +3,10 @@
  * Default content template partial.
  *
  * Used to render individual profiles for mini profile listings.
+ *
+ * @package Responsive_Framework\BU_Profiles
  */
+
 ?>
 
 <li>

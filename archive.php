@@ -1,6 +1,8 @@
 <?php
 /**
  * Generic post archive template.
+
+ * @package Responsive_Framework
  */
 
 get_header();

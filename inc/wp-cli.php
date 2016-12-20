@@ -1,11 +1,17 @@
 <?php
 /**
  * Implements custom commands for Responsive Framework.
+ *
+ * @package Responsive_Framework\WPCLI
+ */
+
+/**
+ * Class Responsive_Framework_Command
  */
 class Responsive_Framework_Command extends WP_CLI_Command {
 
     /**
-     * Run theme migration procedures
+     * Run theme migration procedures.
      *
      * ## OPTIONS
      *
