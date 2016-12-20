@@ -3,6 +3,7 @@
 ## Unreleased
 
 * Added CONTRIBUTING.md file for contribution rules.
+* Removed use of `file_get_contents()` in the Customizer.
 
 ## 1.5.2
 
