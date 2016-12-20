@@ -26,7 +26,7 @@ $archive_type = responsive_archive_type();
 			<ul class="basic">
 		<?php endif; ?>
 
-		<?php while ( have_posts() ): the_post();
+		<?php while ( have_posts() ) : the_post();
 
 			get_template_part( 'template-parts/content', $archive_type );
 

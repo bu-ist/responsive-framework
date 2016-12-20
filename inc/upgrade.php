@@ -59,11 +59,11 @@ function responsive_upgrade_091() {
 		'news.php'            => 'page-templates/news.php',
 		'page-nosidebars.php' => 'page-templates/no-sidebars.php',
 		'profiles.php'        => 'page-templates/profiles.php',
-		) );
+	) );
 
 	$template_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
 		$wpdb->postmeta, implode( '","', array_keys( $template_map ) )
-		);
+	);
 	$results = $wpdb->get_results( $template_query );
 	error_log( __FUNCTION__ . ' - Posts to migrate: ' . count( $results ) );
 
@@ -77,10 +77,10 @@ function responsive_upgrade_091() {
 		'content-width' => 'contentWidth',
 		'page-width'    => 'pageWidth',
 		'window-width'  => 'windowWidth',
-		) );
+	) );
 	$banner_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
 		$wpdb->postmeta
-		);
+	);
 	$results = $wpdb->get_results( $banner_query );
 
 	foreach ( $results as $result ) {
@@ -89,7 +89,7 @@ function responsive_upgrade_091() {
 			if ( array_key_exists( 'position', $banner ) && in_array( $banner['position'], array_keys( $banner_map ) ) ) {
 				$banner['position'] = $banner_map[ $banner['position'] ];
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
-			} else if ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
+			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
 				error_log( __FUNCTION__ . ' - Resetting empty banner position to default (contentWidth)' );
 				// Reset to default.
 				$banner['position'] = 'contentWidth';
@@ -103,7 +103,7 @@ function responsive_upgrade_091() {
 	$sidebars_map = apply_filters( __FUNCTION__ . '_sidebars_map', array(
 		'right-content-area'  => 'sidebar',
 		'bottom-content-area' => 'footbar',
-		) );
+	) );
 	$sidebars_widgets = wp_get_sidebars_widgets();
 	foreach ( $sidebars_map as $from => $to ) {
 		if ( array_key_exists( $from, $sidebars_widgets ) ) {

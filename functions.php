@@ -22,117 +22,117 @@ if ( ! defined( 'RESPONSIVE_THEME_VERSION' ) ) {
 
 if ( ! function_exists( 'responsive_setup' ) ) :
 
-/**
- * Sets up theme defaults and registers various core and plugin features.
- *
- * Child themes can re-define this function to customize setup configuration.
- */
-function responsive_setup() {
+	/**
+	 * Sets up theme defaults and registers various core and plugin features.
+	 *
+	 * Child themes can re-define this function to customize setup configuration.
+	 */
+	function responsive_setup() {
 
-	// Expose navigation menu UI.
-	add_theme_support( 'menus' );
+		// Expose navigation menu UI.
+		add_theme_support( 'menus' );
 
-	// Use HTML5 markup for WP provided components where supported.
-	add_theme_support( 'html5', array(
+		// Use HTML5 markup for WP provided components where supported.
+		add_theme_support( 'html5', array(
 			'comment-form',
 			'comment-list',
 			'gallery',
 			'caption',
 		) );
-	add_theme_support( 'post-thumbnails' );
+			add_theme_support( 'post-thumbnails' );
 
-	// Add support for branding plugin.
-	add_theme_support( 'bu-branding' );
+			// Add support for branding plugin.
+			add_theme_support( 'bu-branding' );
 
-	// Add support for the custom post type version of profile plugin.
-	add_theme_support( 'bu-profiles-post_type' );
+			// Add support for the custom post type version of profile plugin.
+			add_theme_support( 'bu-profiles-post_type' );
 
-	// Default flexi multi-line style doesn't need the extra <p> tags.
-	remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
-	add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
+			// Default flexi multi-line style doesn't need the extra <p> tags.
+			remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
+			add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
 
-	/*
-	 * By default, comments are disabled for BU sites.
-	 *
-	 * Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
-	 *
-	 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
-	 */
-	if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
-		define( 'BU_SUPPORTS_COMMENTS', true );
-	}
+			/*
+			 * By default, comments are disabled for BU sites.
+			 *
+			 * Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
+			 *
+			 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
+			 */
+		if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
+			define( 'BU_SUPPORTS_COMMENTS', true );
+		}
 
-	// BU Post Details SEO support.
-	if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
-		define( 'BU_SUPPORTS_SEO', true );
-	}
+			// BU Post Details SEO support.
+		if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
+			define( 'BU_SUPPORTS_SEO', true );
+		}
 
-	// Disable BU Links Footer editor under Appearance menu.
-	define( 'BU_DISABLE_FOOTER_EDITOR', true );
+			// Disable BU Links Footer editor under Appearance menu.
+			define( 'BU_DISABLE_FOOTER_EDITOR', true );
 
-	// Only support one level of dropdowns by default.
-	define('BU_NAVIGATION_SUPPORTED_DEPTH', 1);
+			// Only support one level of dropdowns by default.
+			define( 'BU_NAVIGATION_SUPPORTED_DEPTH', 1 );
 
-	// Custom menu locations.
-	register_nav_menus( array(
-			'footer'  => 'Footer Links',
-			'social'  => 'Social Links',
-			'utility' => 'Utility Navigation',
-		) );
+			// Custom menu locations.
+			register_nav_menus( array(
+				'footer'  => 'Footer Links',
+				'social'  => 'Social Links',
+				'utility' => 'Utility Navigation',
+			) );
 
-	// Content banner locations.
-	if ( function_exists( 'bu_register_banner_position' ) ) {
-		bu_register_banner_position( 'windowWidth', array(
+			// Content banner locations.
+		if ( function_exists( 'bu_register_banner_position' ) ) {
+			bu_register_banner_position( 'windowWidth', array(
 				'label' => 'Full browser window width',
 				'hint'  => 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.',
 			) );
-		bu_register_banner_position( 'pageWidth', array(
-				'label' => 'Page width',
-				'hint'  => 'Banner will appear above the content and sidebars and should be 1130 pixels wide.',
-			) );
-		bu_register_banner_position( 'contentWidth', array(
-				'label'   => 'Content width',
-				'hint'    => 'Banner will appear above the title in the content area and should be 760 pixels wide.',
-				'default' => true,
-			) );
+				bu_register_banner_position( 'pageWidth', array(
+					'label' => 'Page width',
+					'hint'  => 'Banner will appear above the content and sidebars and should be 1130 pixels wide.',
+				) );
+				bu_register_banner_position( 'contentWidth', array(
+					'label'   => 'Content width',
+					'hint'    => 'Banner will appear above the title in the content area and should be 760 pixels wide.',
+					'default' => true,
+				) );
+		}
+
+			// Register supported templates for Content Banner and BU Profile plugins.
+			// @TODO: Need to require from BU_INCLUDES.
+		if ( class_exists( 'AllowedTemplates' ) ) {
+			global $banner_templates, $profile_templates, $news_templates;
+
+			if ( ! isset( $banner_templates ) ) {
+				$banner_templates = new AllowedTemplates();
+			}
+
+			$banner_templates->register( apply_filters( 'responsive_banner_templates', array(
+				'default',
+				'page-templates/calendar.php',
+				'page-templates/news.php',
+				'page-templates/no-sidebars.php',
+				'page-templates/profiles.php',
+				'single.php',
+			) ) );
+
+			if ( ! isset( $profile_templates ) ) {
+					$profile_templates = new AllowedTemplates();
+			}
+
+				$profile_templates->register( apply_filters( 'responsive_profile_templates', array(
+					'page-templates/profiles.php'
+				) ) );
+
+			if ( ! isset( $news_templates ) ) {
+					$news_templates = new AllowedTemplates();
+			}
+
+				$news_templates->register( apply_filters( 'responsive_news_templates', array(
+					'page-templates/news.php'
+				) ) );
+		}
+
 	}
-
-	// Register supported templates for Content Banner and BU Profile plugins.
-	// @TODO: Need to require from BU_INCLUDES.
-	if ( class_exists( 'AllowedTemplates' ) ) {
-		global $banner_templates, $profile_templates, $news_templates;
-
-		if ( ! isset( $banner_templates ) ) {
-			$banner_templates = new AllowedTemplates();
-		}
-
-		$banner_templates->register( apply_filters( 'responsive_banner_templates', array(
-			'default',
-			'page-templates/calendar.php',
-			'page-templates/news.php',
-			'page-templates/no-sidebars.php',
-			'page-templates/profiles.php',
-			'single.php',
-			) ) );
-
-		if ( ! isset( $profile_templates ) ) {
-			$profile_templates = new AllowedTemplates();
-		}
-
-		$profile_templates->register( apply_filters( 'responsive_profile_templates', array(
-			'page-templates/profiles.php'
-			) ) );
-
-		if ( ! isset( $news_templates ) ) {
-			$news_templates = new AllowedTemplates();
-		}
-
-		$news_templates->register( apply_filters( 'responsive_news_templates', array(
-			'page-templates/news.php'
-			) ) );
-	}
-
-}
 
 endif;
 
@@ -163,7 +163,7 @@ function responsive_sidebars() {
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widgetTitle">',
 			'after_title'   => '</h3>',
-		) );
+	) );
 
 	register_sidebar( array(
 			'name'          => 'Posts Content Area',
@@ -173,7 +173,7 @@ function responsive_sidebars() {
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widgetTitle">',
 			'after_title'   => '</h3>',
-		) );
+	) );
 
 	if ( defined( 'BU_PROFILES_PLUGIN_ACTIVE' ) ) {
 		register_sidebar( array(
@@ -184,7 +184,7 @@ function responsive_sidebars() {
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widgetTitle">',
 				'after_title'   => '</h3>',
-			) );
+		) );
 	}
 
 	register_sidebar( array(
@@ -195,7 +195,7 @@ function responsive_sidebars() {
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widgetTitle">',
 			'after_title'   => '</h3>',
-		) );
+	) );
 
 	// Alternate footbar registration.
 	if ( responsive_theme_supports_dynamic_footbars() || is_customize_preview() ) {
@@ -207,7 +207,7 @@ function responsive_sidebars() {
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widgetTitle">',
 				'after_title'   => '</h3>',
-			) );
+		) );
 	}
 
 }
@@ -288,7 +288,7 @@ add_action( 'after_switch_theme', 'responsive_maybe_migrate_theme', 1, 2 );
  *
  * @return array Adjusted bu_navigation_filter_anchor_attrs filter attributes.
  */
-function responsive_change_title_tag($attr, $page) {
+function responsive_change_title_tag( $attr, $page ) {
 	unset( $attr['title'] );
 	$attr['title'] = 'Navigate to: ' . $page->navigation_label;
 	return $attr;

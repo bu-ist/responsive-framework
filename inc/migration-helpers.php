@@ -53,7 +53,7 @@ function responsive_flexi_migration() {
 	$sidebar_map = apply_filters( __FUNCTION__ . '_sidebar_map', array(
 		'sidebar-2'       => 'sidebar',
 		'sidebar-profile' => 'profiles',
-		) );
+	) );
 	$result = bu_migrate_sidebars( $sidebar_map );
 	if ( is_wp_error( $result ) ) {
 		$errors[] = $result;
@@ -73,7 +73,7 @@ function responsive_flexi_migration() {
 		'page-no-title.php'      => 'default',
 		'contact-us.php'         => 'default',
 		'glossary.php'           => 'default',
-		) );
+	) );
 	$result = bu_migrate_page_templates( $template_map );
 	if ( is_wp_error( $result ) ) {
 		$errors[] = $result;
@@ -84,7 +84,7 @@ function responsive_flexi_migration() {
 		'content-width' => 'contentWidth',
 		'page-width'    => 'pageWidth',
 		'window-width'  => 'windowWidth',
-		) );
+	) );
 	$result = bu_migrate_banner_positions( $banner_position_map );
 	if ( is_wp_error( $result ) ) {
 		$errors[] = $result;
@@ -134,7 +134,7 @@ function responsive_flexi_migration() {
 	}
 
 	// Set BU Nav Dropdown Defaults (Only want max 1).
-	if( get_option( 'bu_navigation_primarynav_depth' ) > BU_NAVIGATION_SUPPORTED_DEPTH ) {
+	if ( get_option( 'bu_navigation_primarynav_depth' ) > BU_NAVIGATION_SUPPORTED_DEPTH ) {
 		update_option( 'bu_navigation_primarynav_depth', BU_NAVIGATION_SUPPORTED_DEPTH );
 	}
 
@@ -167,7 +167,7 @@ function responsive_migrate_post_display_options() {
 		$option_map = array(
 			'cat'    => 'categories',
 			'tag'    => 'tags',
-			'author' => 'author'
+			'author' => 'author',
 			);
 		foreach ( $option_map as $from => $to ) {
 			if ( $flexi_display_options[ $from ] ) {
@@ -204,7 +204,7 @@ function responsive_migrate_flexi_footbars() {
 
 	// Migrate post-specific dynamic footbar selections.
 	$footbar_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_flexi_framework_footbar" AND meta_value != ""',
-		$wpdb->postmeta );
+	$wpdb->postmeta );
 	$results = $wpdb->get_results( $footbar_query );
 
 	if ( empty( $results ) ) {
@@ -248,7 +248,7 @@ function responsive_migrate_contact_form() {
 
 		if ( empty( $results ) ) {
 			return;
-		} else if ( count($results) > 1 ) {
+		} elseif ( count( $results ) > 1 ) {
 			error_log( sprintf( '[%s] There are multiple contact forms on this site... Migrating post ID %s.', __FUNCTION__, reset( $results ) ) );
 		}
 
@@ -291,7 +291,7 @@ function responsive_migrate_contact_form() {
 
 			$form = GFAPI::get_form( $form_id );
 			$key = key( $form['notifications'] );
-			$form['notifications'][$key]['to'] = $contact_emails;
+			$form['notifications'][ $key ]['to'] = $contact_emails;
 
 			$result = GFAPI::update_form( $form );
 			if ( is_wp_error( $result ) ) {

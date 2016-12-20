@@ -7,68 +7,68 @@
 
 if ( ! function_exists( 'responsive_posts_widget_formats' ) ) :
 
-/**
- * Remove/add display formats for the BU Posts widget.
- *
- * @param array $formats Default formats for the widget.
- *
- * @return array $formats Adjusted formats for the widget.
- */
-function responsive_posts_widget_formats( $formats ) {
+	/**
+	 * Remove/add display formats for the BU Posts widget.
+	 *
+	 * @param array $formats Default formats for the widget.
+	 *
+	 * @return array $formats Adjusted formats for the widget.
+	 */
+	function responsive_posts_widget_formats( $formats ) {
 
-	unset( $formats['date_title_excerpt'] );
+		unset( $formats['date_title_excerpt'] );
 
-	$formats['title_only'] = array(
+		$formats['title_only'] = array(
 		'label'               => 'title only (no thumbnail)',
 		'callback'            => 'responsive_posts_widget_format_display',
 		'requires_commenting' => false,
 		'supports_thumbnail'  => false,
-	);
+			);
 
-	$formats['title_date'] = array(
-		'label'               => 'title, date',
-		'callback'            => 'responsive_posts_widget_format_display',
-		'supports_thumbnail'  => true,
-		'requires_commenting' => false,
-	);
+			$formats['title_date'] = array(
+			'label'               => 'title, date',
+			'callback'            => 'responsive_posts_widget_format_display',
+			'supports_thumbnail'  => true,
+			'requires_commenting' => false,
+			);
 
-	$formats['title_excerpt'] = array(
-		'label'               => 'title, excerpt',
-		'callback'            => 'responsive_posts_widget_format_display',
-		'supports_thumbnail'  => true,
-		'requires_commenting' => false,
-	);
+			$formats['title_excerpt'] = array(
+			'label'               => 'title, excerpt',
+			'callback'            => 'responsive_posts_widget_format_display',
+			'supports_thumbnail'  => true,
+			'requires_commenting' => false,
+			);
 
-	$formats['title_date_excerpt'] = array(
-		'label'               => 'title, date, excerpt',
-		'callback'            => 'responsive_posts_widget_format_display',
-		'supports_thumbnail'  => true,
-		'requires_commenting' => false,
-	);
+			$formats['title_date_excerpt'] = array(
+			'label'               => 'title, date, excerpt',
+			'callback'            => 'responsive_posts_widget_format_display',
+			'supports_thumbnail'  => true,
+			'requires_commenting' => false,
+			);
 
-	$formats['title_author_excerpt'] = array(
-		'label'               => 'title, author, excerpt',
-		'callback'            => 'responsive_posts_widget_format_display',
-		'supports_thumbnail'  => true,
-		'requires_commenting' => false,
-	);
+			$formats['title_author_excerpt'] = array(
+			'label'               => 'title, author, excerpt',
+			'callback'            => 'responsive_posts_widget_format_display',
+			'supports_thumbnail'  => true,
+			'requires_commenting' => false,
+			);
 
-	$formats['title_date_comments_excerpt'] = array(
-		'label'               => 'title, date, comments, excerpt',
-		'callback'            => 'responsive_posts_widget_format_display',
-		'supports_thumbnail'  => true,
-		'requires_commenting' => true,
-	);
+			$formats['title_date_comments_excerpt'] = array(
+			'label'               => 'title, date, comments, excerpt',
+			'callback'            => 'responsive_posts_widget_format_display',
+			'supports_thumbnail'  => true,
+			'requires_commenting' => true,
+			);
 
-	$formats['title_author_comments_excerpt'] = array(
-		'label'               => 'title, author, comments, excerpt',
-		'callback'            => 'responsive_posts_widget_format_display',
-		'supports_thumbnail'  => true,
-		'requires_commenting' => true,
-	);
+			$formats['title_author_comments_excerpt'] = array(
+			'label'               => 'title, author, comments, excerpt',
+			'callback'            => 'responsive_posts_widget_format_display',
+			'supports_thumbnail'  => true,
+			'requires_commenting' => true,
+			);
 
-	return $formats;
-}
+			return $formats;
+	}
 
 endif;
 

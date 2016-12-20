@@ -42,7 +42,8 @@ if ( $yyyymmdd ) {
 
 $timestamp = strtotime( '00:00', $timestamp );
 
-/* check that date falls between:
+/*
+ * Check that date falls between:
  * The year 2000 (http://www.nbc.com/nbc/Late_Night_with_Conan_OBrien/intheyear2000/)
  * Ten years in the future from the current date
  */
@@ -75,14 +76,15 @@ if ( $timestamp > $boundary_future ) {
 				<?php the_content( '<p class="serif">Read the rest of this page &raquo;</p>' ); ?>
 
 				<?php wp_link_pages( array( 'before' => '<p><strong>Pages:</strong> ', 'after' => '</p>', 'next_or_number' => 'number' ) ); ?>
-		<?php endwhile; endif; ?>
+		<?php endwhile;
+endif; ?>
 
 		<?php if ( ! $calendarID ) { ?>
 			<p>This site does not have any calendar associated with it.</p>
 		<?php } else {
-		if ( array_key_exists( 'date', $_GET ) ) {
-			$timestamp = strtotime( $_GET['date'], 0 );
-		}
+	if ( array_key_exists( 'date', $_GET ) ) {
+		$timestamp = strtotime( $_GET['date'], 0 );
+	}
 
 		$start_date = strtotime( '00:00', $timestamp );
 		$start_date = date( 'Y-m-d', $start_date );
@@ -92,9 +94,9 @@ if ( $timestamp > $boundary_future ) {
 		$days = ( intval( date( 't', $timestamp ) ) - intval( date( 'j', $timestamp ) ) ); // days left in current month.
 
 		$cur_mo = intval( date( 'n', $timestamp ) );
-		for ( $mo = 1; $mo <= $months_to_show; $mo++ ) {
-			$days = $days + intval( date( 't', mktime( 0, 0, 0, date( 'n', $timestamp ) + $mo, 1 ) ) ); // let the month overflow for month&year.
-		}
+	for ( $mo = 1; $mo <= $months_to_show; $mo++ ) {
+		$days = $days + intval( date( 't', mktime( 0, 0, 0, date( 'n', $timestamp ) + $mo, 1 ) ) ); // let the month overflow for month&year.
+	}
 
 		$params = array( 'maxevents' => 25 );
 		$events = $buCalendar->getEvents( $calendarID, $start_date, $days, $topic, $params );
@@ -103,14 +105,14 @@ if ( $timestamp > $boundary_future ) {
 
 		$range_end = strtotime( '+' . $days . ' day', $timestamp );
 
-		if ( count( $events ) < 25 ) {
-			$query_end = $range_end;
-		} else {
-			$query_end = $last_event;
-		}
+	if ( count( $events ) < 25 ) {
+		$query_end = $range_end;
+	} else {
+		$query_end = $last_event;
+	}
 
 		/* Content: Calendar Topic */
-		if ( is_array( $topicDetail ) ) { ?>
+	if ( is_array( $topicDetail ) ) { ?>
 				<h2 class="calendar-topic">
 					<?php echo esc_html( $topicDetail['name'] ); ?><span class="calendar-range">
 						(<?php echo esc_html( date( 'F j', $timestamp ) ); ?> through <?php echo esc_html( date( 'F j', $query_end ) ); ?>)
@@ -120,65 +122,65 @@ if ( $timestamp > $boundary_future ) {
 				<div class="event-list">
 					<div id="events">
 						<?php
-		$day = null;
-		$time = null;
-		$allday = false;
-		$nDisplayed = 0;
+						$day = null;
+						$time = null;
+						$allday = false;
+						$nDisplayed = 0;
 
-		if ( ( is_array( $events ) ) && ( count( $events ) > 0 ) ) {
-			foreach ( $events as $e ) {
+						if ( ( is_array( $events ) ) && ( count( $events ) > 0 ) ) {
+							foreach ( $events as $e ) {
 
-				$_day = date( 'l, F j', $e['starts'] );
-				$_time = date( 'g:i A', $e['starts'] );
-				$_allday = $e['allday'];
-				$event_time = '';
-				if ( $_day != $day ) {
-					if ( 0 != $nDisplayed ) {
-						echo '</ul>' . PHP_EOL;
-					}
-					printf( '<h3 class="event-date">%s</h3>', esc_html( $_day ) );
-					echo PHP_EOL . '<ul>' . PHP_EOL;
-					$day = $_day;
-					$time = null;
-				}
+								$_day = date( 'l, F j', $e['starts'] );
+								$_time = date( 'g:i A', $e['starts'] );
+								$_allday = $e['allday'];
+								$event_time = '';
+								if ( $_day != $day ) {
+									if ( 0 != $nDisplayed ) {
+										echo '</ul>' . PHP_EOL;
+									}
+									printf( '<h3 class="event-date">%s</h3>', esc_html( $_day ) );
+									echo PHP_EOL . '<ul>' . PHP_EOL;
+									$day = $_day;
+									$time = null;
+								}
 
-				if ( $_allday ) {
-					if ( $_allday != $allday ) {
-						$event_time = 'All Day';
-					}
-				} else {
-					if ( $_time != $time ) {
-						$event_time = $_time;
-						$time = $_time;
-					}
-				}
+								if ( $_allday ) {
+									if ( $_allday != $allday ) {
+										$event_time = 'All Day';
+									}
+								} else {
+									if ( $_time != $time ) {
+										$event_time = $_time;
+										$time = $_time;
+									}
+								}
 
-				$event_url = $calendarURI;
-				$event_url = add_query_arg( 'eid', $e['id'], $event_url );
-				if ( ! empty( $e['oid'] ) ) {
-					$event_url = add_query_arg( 'oid', $e['oid'], $event_url );
-				}
-				if ( ! empty( $_GET['cid'] ) ) {
-					$event_url = add_query_arg( 'cid', intval( $_GET['cid'] ), $event_url );
-				}
-				echo "\t";
-				printf( '<li><span class="event-time">%s</span> ', esc_html( $event_time ) );
+								$event_url = $calendarURI;
+								$event_url = add_query_arg( 'eid', $e['id'], $event_url );
+								if ( ! empty( $e['oid'] ) ) {
+									$event_url = add_query_arg( 'oid', $e['oid'], $event_url );
+								}
+								if ( ! empty( $_GET['cid'] ) ) {
+									$event_url = add_query_arg( 'cid', intval( $_GET['cid'] ), $event_url );
+								}
+								echo "\t";
+								printf( '<li><span class="event-time">%s</span> ', esc_html( $event_time ) );
 
-				printf( '<span class="event-link"><a href="%s">%s</a></span></li>',  esc_url( $event_url ), wp_kses_post( $e['summary'] ) );
-				echo PHP_EOL;
+								printf( '<span class="event-link"><a href="%s">%s</a></span></li>',  esc_url( $event_url ), wp_kses_post( $e['summary'] ) );
+								echo PHP_EOL;
 
-				$nDisplayed++;
-				/* not sure how to close a day with multiple events...  */
+								$nDisplayed++;
+								/* not sure how to close a day with multiple events...  */
 
-				if ( count( $events ) === $nDisplayed ) {
-					echo '</ul>' . PHP_EOL;
-				}
-			}
-		}
+								if ( count( $events ) === $nDisplayed ) {
+									echo '</ul>' . PHP_EOL;
+								}
+							}
+						}
 
-		if ( 0 === $nDisplayed ) {
-			printf( '<div id="noevents"><p>There are no events in <strong>%s</strong> during the specified time period.</p></div>', esc_html( $topicDetail['name'] ) );
-		}
+						if ( 0 === $nDisplayed ) {
+							printf( '<div id="noevents"><p>There are no events in <strong>%s</strong> during the specified time period.</p></div>', esc_html( $topicDetail['name'] ) );
+						}
 ?>
 					</div>
 				</div>
@@ -197,9 +199,9 @@ if ( $timestamp > $boundary_future ) {
 								<?php if ( $event['ends'] > 0 ) { ?>
 									<li><span class="label">Ends: </span><?php printf( '<span class="time">%s</span><em> on </em><span class="date">%s</span>', esc_html( date( 'g:i a', $event['ends'] ) ), esc_html( date( 'l, F j, Y', $event['ends'] ) ) ); ?></dd>
 								<?php }
-								} else {
-									printf( '<li class="allday"><span class="label">All Day</span><em> on </em><span class="date">%s</span></li>', esc_html( date( 'l, F j, Y', $event['starts'] - intval( date( 'Z' ) ) ) ) );
-								}
+} else {
+	printf( '<li class="allday"><span class="label">All Day</span><em> on </em><span class="date">%s</span></li>', esc_html( date( 'l, F j, Y', $event['starts'] - intval( date( 'Z' ) ) ) ) );
+}
 							?>
 						</ul>
 					</div> <!-- /.dateSummary -->
