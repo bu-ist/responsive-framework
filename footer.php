@@ -1,3 +1,11 @@
+<?php
+/**
+ * Site footer template.
+ *
+ * @package Responsive_Framework
+ */
+
+?>
 			</div><!-- .content-container -->
 
 		<?php get_sidebar( 'bottom' ); ?>
