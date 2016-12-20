@@ -140,7 +140,7 @@ Sometimes, a fix needs to be deployed to production ASAP. When this happens,
 1. After verifying your merge, tag the master branch with the version number
  released.
 1. Because this pull request went directly into `master`, we need to open a
- second pull request into `develop`. Follow the [instructions above for
- `develop` pull requests](#develop-pull-requests-process). Unless there are
- merge conflicts, you don't need to get this pull request peer reviewed because
- it was already reviewed when being merged into `master`.
+ second pull request into `develop`. Follow the [instructions above for develop
+ pull requests](#develop-pull-request-process). Unless there are merge
+ conflicts, you don't need to get this pull request peer reviewed because it
+ was already reviewed when being merged into `master`.
