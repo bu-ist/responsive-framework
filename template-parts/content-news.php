@@ -40,21 +40,21 @@ $bu_news_display_options = BU_News_Page_Template::$display_content;
 
 			<?php
 				$show_meta = responsive_post_lists_show_news_meta( $bu_news_display_options );
-				if ( $show_meta ) {
+			if ( $show_meta ) {
 
-					echo '<div class="meta">';
-					BU_News_Page_Template::show_author( '<span class="author"><em>By</em> ', '</span>' );
-					BU_News_Page_Template::show_date( '<span class="date">', '</span>' );
-					BU_News_Page_Template::show_categories( '<span class="category"><em>in</em> ', '</span>' );
-					BU_News_Page_Template::show_comments( '<span class="comment-counter">', '</span>' );
-					echo '</div>';
-				}
+				echo '<div class="meta">';
+				BU_News_Page_Template::show_author( '<span class="author"><em>By</em> ', '</span>' );
+				BU_News_Page_Template::show_date( '<span class="date">', '</span>' );
+				BU_News_Page_Template::show_categories( '<span class="category"><em>in</em> ', '</span>' );
+				BU_News_Page_Template::show_comments( '<span class="comment-counter">', '</span>' );
+				echo '</div>';
+			}
 
 				BU_News_Page_Template::show_content( '', '', 'More' );
 
-				if ( $show_meta ) {
-					BU_News_Page_Template::show_tags( '<p class="meta tag-list"><span class="tags"><em>Tagged:</em> ', '</span></p>' );
-				}
+			if ( $show_meta ) {
+				BU_News_Page_Template::show_tags( '<p class="meta tag-list"><span class="tags"><em>Tagged:</em> ', '</span></p>' );
+			}
 			?>
 		</article>
 

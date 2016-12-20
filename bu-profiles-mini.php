@@ -9,7 +9,7 @@
 
 ?>
 
-<?php if ( $query->have_posts() ): ?>
+<?php if ( $query->have_posts() ) : ?>
 	<div class="profile-listing">
 		<ul class="mini">
 			<?php while ( $query->have_posts() ) : $query->the_post(); ?>
