@@ -1,6 +1,8 @@
 <?php
 /**
  * Template file used to render a Search Results Index page.
+ *
+ * @package Responsive_Framework
  */
 
 get_header(); ?>
@@ -9,7 +11,7 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<h1><?php printf( __( 'Search Results for: %s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			<h1><?php printf( 'Search Results for: %s', '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 

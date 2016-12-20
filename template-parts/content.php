@@ -3,7 +3,10 @@
  * Default content template partial.
  *
  * Used to render post content for archives.
+ *
+ * @package Responsive_Framework
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>">
