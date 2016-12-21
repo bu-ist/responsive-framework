@@ -113,3 +113,34 @@ When the code in `develop` is ready to be released into the wild, a pull
 1. After verifying your merge, tag the master branch with the version number
  released. Ex. `1.5.1`, or `1.6`.
 1. Delete your release branch.
+
+## Creating A Hot Fix
+
+Sometimes, a fix needs to be deployed to production ASAP. When this happens,
+ there is a third flow that should be followed. Because `develop` will have
+ code that has not yet been released into the wild (and may not be ready), hot
+ fixes should be performed in a branch off of `master`.
+
+### Creating Hot Fix Pull Requests
+
+1. Ensure your local checkout of the repository is up to date.
+1. Check out the `master` branch.
+1. Create a new branch for your work.
+1. Make necessary code changes and commit.
+1. Because a hot fix is deployed to production, version numbers should also be
+ incremented.
+1. Update the `CHANGELOG.md` to reflect the new version being released, and
+ list the changes being made.
+1. Perform any necessary build tasks through Grunt.
+1. Submit a pull request to merge your branch into `master`.
+1. Because this code will bypass `develop`, it is important to get at least one
+ code review from another team member.
+1. After your pull request receives approval, merge your code into `master` and
+ ensure the merge went smoothly.
+1. After verifying your merge, tag the master branch with the version number
+ released.
+1. Because this pull request went directly into `master`, we need to open a
+ second pull request into `develop`. Follow the [instructions above for develop
+ pull requests](#develop-pull-request-process). Unless there are merge
+ conflicts, you don't need to get this pull request peer reviewed because it
+ was already reviewed when being merged into `master`.
