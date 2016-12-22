@@ -216,7 +216,7 @@ function responsive_customizer_color_regions() {
 	return array(
 
 		// navigation bar
-		'primaryNav-bReag' => array(
+		'primaryNav-bg' => array(
 				'label'       => 'Background Color',
 				'group'       => 'navbar',
 				'default'     => $scheme['colors'][0],
