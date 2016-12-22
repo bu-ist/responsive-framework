@@ -69,8 +69,8 @@ if ( ! function_exists( 'buniverse_shortcode' ) ) {
 		}
 
 		$embed = <<<EMBED
-	<div $id_attr class="responsive-video-wrapper $classes">
-		<div class="responsive-video">
+	<div $id_attr class="responsiveVideo-wrapper $classes">
+		<div class="responsiveVideo">
 			<iframe $iframe_atts></iframe>
 		</div>
 		$caption

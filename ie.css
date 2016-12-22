@@ -9,17 +9,17 @@ Theme Groups: Responsive Framework
 */
 /* mixins
 ----------------------------------------------------------------- */
-.container:after, .content-container:after, .footbar-container:after, .sidebarLocation-left .sidebar-posts:after, .sidebarLocation-left .sidebarPosts:after, .sidebarLocation-right .sidebarPosts:after, .sidebarLocation-left
-.sidebar-profiles:after, .sidebarLocation-right
-.sidebar-profiles:after, .row:after, .masthead:after, .footbar:after, .site-footer:after, .primary-nav:after, .widget-bu-posts .post:after, .sidebarPosts:after,
-.sidebar-profiles:after, .paging-navigation:after, .profile-listing:after, .profile-listing .advanced:after, .profile-listing .mini:after, .gallery:after {
+.container:after, .content-container:after, .footbar-container:after, .sidebarLocation-left .sidebarPosts:after, .sidebarLocation-right .sidebarPosts:after, .sidebarLocation-left
+.sidebarProfiles:after, .sidebarLocation-right
+.sidebarProfiles:after, .row:after, .masthead:after, .footbar:after, .siteFooter:after, .primaryNav:after, .widget-bu-posts .post:after, .sidebarPosts:after,
+.sidebarProfiles:after, .paging-navigation:after, .profile-listing:after, .profile-listing .advanced:after, .profile-listing .mini:after, .gallery:after {
   /* These classes are using %clearfix. */
   display: table;
   clear: both;
   content: "";
 }
 
-.brand-masterplate, .brand-bumclogo, .navToggle {
+.brand-masterplate, .brand-bumclogo, .nav-toggle {
   /* These classes are using %hide-text. */
   overflow: hidden;
   text-indent: 100%;
@@ -91,9 +91,9 @@ Theme Groups: Responsive Framework
   overflow: hidden;
 }
 
-.container, .content-container, .footbar-container, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
-.sidebar-profiles, .sidebarLocation-right
-.sidebar-profiles {
+.container, .content-container, .footbar-container, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebarProfiles, .sidebarLocation-right
+.sidebarProfiles {
   /* These classes are using %container-styles. */
   width: 100%;
   padding: 35px 20px 0;
@@ -145,9 +145,9 @@ Theme Groups: Responsive Framework
 .has-info .siteFooter-info,
 .has-links .siteFooter-links,
 .has-social .siteFooter-social, .col-sm-12, .col-md-1, .col-md-2, .col-md-quarter, .col-md-3, .col-md-third,
-.profile-listing .advanced li, .col-md-4, .sidebar, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
-.sidebar-profiles, .sidebarLocation-right
-.sidebar-profiles, .col-md-5, .col-md-half, .col-md-6, .profile-listing .mini li, .col-md-7, .col-md-two-third, .col-md-8, article[role=main],
+.profile-listing .advanced li, .col-md-4, .sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebarProfiles, .sidebarLocation-right
+.sidebarProfiles, .col-md-5, .col-md-half, .col-md-6, .profile-listing .mini li, .col-md-7, .col-md-two-third, .col-md-8, article[role=main],
 .content-area, .col-md-three-quarter, .col-md-9, .col-md-10, .col-md-11, .col-md-full,
 .sidebarLocation-bottom article[role=main],
 .single-calendar article[role=main],
@@ -175,7 +175,7 @@ Theme Groups: Responsive Framework
 .col-xs-margin-1, .col-xs-margin-2, .col-xs-margin-quarter, .col-xs-margin-3, .col-xs-margin-third, .col-xs-margin-4, .col-xs-margin-5, .col-xs-margin-half, .col-xs-margin-6, .col-xs-margin-7, .col-xs-margin-two-third, .col-xs-margin-8, .col-xs-margin-three-quarter, .col-xs-margin-9, .col-xs-margin-10, .col-xs-margin-11, .col-xs-margin-full, .col-xs-margin-12, .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half,
 .sidebarLocation-bottom .sidebar .widget,
 .sidebarPosts .widget,
-.sidebar-profiles .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12, .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
+.sidebarProfiles .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12, .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
   /* These classes are using %col-margin-base. */
   margin-bottom: 2.6%;
   margin-top: 0;
@@ -533,14 +533,14 @@ Theme Groups: Responsive Framework
 .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half,
 .sidebarLocation-bottom .sidebar .widget,
 .sidebarPosts .widget,
-.sidebar-profiles .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12 {
+.sidebarProfiles .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12 {
   margin-left: 2.6%;
 }
 
 .col-sm-margin-parent,
 .sidebarLocation-bottom .sidebar,
 .sidebarPosts,
-.sidebar-profiles {
+.sidebarProfiles {
   margin-left: -2.6%;
 }
 
@@ -689,7 +689,7 @@ Theme Groups: Responsive Framework
 .col-sm-margin-half,
 .sidebarLocation-bottom .sidebar .widget,
 .sidebarPosts .widget,
-.sidebar-profiles .widget, .col-sm-margin-6 {
+.sidebarProfiles .widget, .col-sm-margin-6 {
   /* These classes are using %col-sm-margin-6. */
   width: 47.4%;
   float: left;
@@ -916,9 +916,9 @@ Theme Groups: Responsive Framework
 }
 
 .col-md-third,
-.profile-listing .advanced li, .col-md-4, .sidebar, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
-.sidebar-profiles, .sidebarLocation-right
-.sidebar-profiles {
+.profile-listing .advanced li, .col-md-4, .sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebarProfiles, .sidebarLocation-right
+.sidebarProfiles {
   /* These classes are using %col-md-4. */
   width: 33.33333%;
   float: left;
@@ -1021,7 +1021,7 @@ Theme Groups: Responsive Framework
   /* These classes are using %col-md-push-8. */
   left: 66.66667%;
 }
-.col-md-pull-two-third, .col-md-pull-8, .sidebarLocation-left .sidebar, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-left .sidebar-profiles {
+.col-md-pull-two-third, .col-md-pull-8, .sidebarLocation-left .sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-left .sidebarProfiles {
   /* These classes are using %col-md-pull-8. */
   right: 66.66667%;
 }
@@ -1919,7 +1919,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"], .button, .button-primary,
-.button-selected, .paging-navigation a, .archive-link {
+.button-selected, .paging-navigation a, .archiveLink {
   /* These classes are using %button-styles. */
   display: inline-block;
   padding: 0.5em 1em;
@@ -1944,7 +1944,7 @@ input[type="submit"]:focus, button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover, .button:hover, .button-primary:hover,
-.button-selected:hover, .paging-navigation a:hover, .archive-link:hover {
+.button-selected:hover, .paging-navigation a:hover, .archiveLink:hover {
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
   /* Saf4+, Chrome */
   background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));
@@ -1962,7 +1962,7 @@ button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active, .button:active, .button-primary:active,
-.button-selected:active, .paging-navigation a:active, .archive-link:active {
+.button-selected:active, .paging-navigation a:active, .archiveLink:active {
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
   -ms-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
@@ -2021,15 +2021,15 @@ input[disabled][type="submit"] {
   filter: alpha(opacity=40);
 }
 .button-primary,
-.button-selected, #quicksearch .button, .paging-navigation a, .archive-link {
+.button-selected, #quicksearch .button, .paging-navigation a, .archiveLink {
   /* These classes are using %button-styles-primary. */
   background-color: #0078e7;
   color: #ffffff;
 }
 .button-primary:hover,
-.button-selected:hover, #quicksearch .button:hover, .paging-navigation a:hover, .archive-link:hover, .button-primary:active,
-.button-selected:active, #quicksearch .button:active, .paging-navigation a:active, .archive-link:active, .button-primary:visited,
-.button-selected:visited, #quicksearch .button:visited, .paging-navigation a:visited, .archive-link:visited {
+.button-selected:hover, #quicksearch .button:hover, .paging-navigation a:hover, .archiveLink:hover, .button-primary:active,
+.button-selected:active, #quicksearch .button:active, .paging-navigation a:active, .archiveLink:active, .button-primary:visited,
+.button-selected:visited, #quicksearch .button:visited, .paging-navigation a:visited, .archiveLink:visited {
   color: #ffffff;
 }
 
@@ -2480,14 +2480,14 @@ article[role=main],
 
 /* sidebar
 ----------------------------------------------------------------- */
-.sidebar, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
-.sidebar-profiles, .sidebarLocation-right
-.sidebar-profiles {
+.sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebarProfiles, .sidebarLocation-right
+.sidebarProfiles {
   font-size: 16px;
   clear: none;
   padding-left: 3.46667%;
 }
-.sidebarLocation-left .sidebar, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-left .sidebar-profiles {
+.sidebarLocation-left .sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-left .sidebarProfiles {
   padding: 0;
   padding-right: 3.46667%;
 }
@@ -2529,7 +2529,7 @@ article[role=main],
 
 /* footer
 ----------------------------------------------------------------- */
-.site-footer {
+.siteFooter {
   position: relative;
   display: block;
   clear: both;
@@ -2542,12 +2542,12 @@ article[role=main],
   color: #888888;
 }
 
-.site-footer h1,
-.site-footer h2,
-.site-footer h3,
-.site-footer h4,
-.site-footer h5,
-.site-footer h6 {
+.siteFooter h1,
+.siteFooter h2,
+.siteFooter h3,
+.siteFooter h4,
+.siteFooter h5,
+.siteFooter h6 {
   margin: 0 0 3px;
   font-family: "Benton", Helvetica, sans-serif;
   font-size: 16px;
@@ -2555,18 +2555,18 @@ article[role=main],
   color: #ffffff;
 }
 
-.site-footer a {
+.siteFooter a {
   color: #888888;
 }
-.site-footer a:hover {
+.siteFooter a:hover {
   color: #ffffff;
 }
 
-.site-footer li {
+.siteFooter li {
   margin: 0 0 5px;
   line-height: 1.4;
 }
-.site-footer li:last-child {
+.siteFooter li:last-child {
   margin: 0;
 }
 
@@ -2612,7 +2612,7 @@ article[role=main],
   left: 20px;
 }
 
-.site-footer-brand + .site-footer-content {
+.site-footer-brand + .siteFooter-content {
   margin: 0 0 0 112px;
 }
 
@@ -2632,11 +2632,11 @@ article[role=main],
   left: 162px;
 }
 
-.site-footer-bumc + .site-footer-content {
+.site-footer-bumc + .siteFooter-content {
   margin: 0 0 0 112px;
 }
 
-.site-footer-brand + .site-footer-bumc + .site-footer-content {
+.site-footer-brand + .site-footer-bumc + .siteFooter-content {
   margin: 0 0 0 234px;
 }
 
@@ -2655,16 +2655,16 @@ article[role=main],
   left: 162px;
 }
 
-.site-footer-disclaimer + .site-footer-content {
+.site-footer-disclaimer + .siteFooter-content {
   margin: 0 0 0 112px;
 }
 
-.site-footer-brand + .site-footer-disclaimer + .site-footer-content,
-.site-footer-bumc + .site-footer-disclaimer + .site-footer-content {
+.site-footer-brand + .site-footer-disclaimer + .siteFooter-content,
+.site-footer-bumc + .site-footer-disclaimer + .siteFooter-content {
   margin: 0 0 0 234px;
 }
 
-.site-footer-brand + .site-footer-bumc + .site-footer-content {
+.site-footer-brand + .site-footer-bumc + .siteFooter-content {
   margin: 0 0 0 234px;
 }
 
@@ -2672,7 +2672,7 @@ article[role=main],
   left: 282px;
 }
 
-.site-footer-brand + .site-footer-bumc + .site-footer-disclaimer + .site-footer-content {
+.site-footer-brand + .site-footer-bumc + .site-footer-disclaimer + .siteFooter-content {
   margin: 0 0 0 344px;
 }
 
@@ -3058,7 +3058,7 @@ nav a {
   width: 85%;
 }
 
-/* search-toggle
+/* searchToggle
 ----------------------------------------------------------------- */
 .searchToggle {
   -webkit-transition: color 200ms ease-in-out 0s;
@@ -3087,7 +3087,7 @@ nav a {
 }
 
 /* when nav or search are opened */
-.is-open .primary-nav-menu,
+.is-open .primaryNav-menu,
 .is-open .utilityNav {
   display: block;
   clear: left;
@@ -3095,7 +3095,7 @@ nav a {
 
 /* navToggle
 ----------------------------------------------------------------- */
-.navToggle {
+.nav-toggle {
   position: relative;
   float: left;
   width: 60px;
@@ -3104,9 +3104,9 @@ nav a {
   display: none;
 }
 
-.navToggle span,
-.navToggle span:before,
-.navToggle span:after {
+.nav-toggle span,
+.nav-toggle span:before,
+.nav-toggle span:after {
   position: absolute;
   top: 28px;
   left: 15px;
@@ -3118,19 +3118,19 @@ nav a {
   cursor: pointer;
 }
 
-.navToggle span:before {
+.nav-toggle span:before {
   top: -10px;
   left: 0;
 }
 
-.navToggle span:after {
+.nav-toggle span:after {
   top: 10px;
   left: 0;
 }
 
-.navToggle span,
-.navToggle span:before,
-.navToggle span:after {
+.nav-toggle span,
+.nav-toggle span:before,
+.nav-toggle span:after {
   -webkit-transition: all 250ms ease-in-out 0s;
   -moz-transition: all 250ms ease-in-out 0s;
   -ms-transition: all 250ms ease-in-out 0s;
@@ -3138,16 +3138,16 @@ nav a {
   transition: all 250ms ease-in-out 0s;
 }
 
-.navToggle.is-open span {
+.nav-toggle.is-open span {
   background-color: transparent;
 }
 
-.navToggle.is-open span:before,
-.navToggle.is-open span:after {
+.nav-toggle.is-open span:before,
+.nav-toggle.is-open span:after {
   top: 0;
 }
 
-.navToggle.is-open span:before {
+.nav-toggle.is-open span:before {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -3155,7 +3155,7 @@ nav a {
   transform: rotate(45deg);
 }
 
-.navToggle.is-open span:after {
+.nav-toggle.is-open span:after {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
@@ -3165,23 +3165,23 @@ nav a {
 
 /* primaryNav and menu
 ----------------------------------------------------------------- */
-.primary-nav {
+.primaryNav {
   display: block;
   padding: 0 10px;
   background: #000000;
 }
 
-.masthead-container .primary-nav .utilityNav {
+.masthead-container .primaryNav .utilityNav {
   display: none;
 }
 
-.primary-nav.is-open {
+.primaryNav.is-open {
   height: auto;
   padding-bottom: 20px;
   padding-bottom: 0;
 }
 
-.primary-nav-menu {
+.primaryNav-menu {
   display: none;
   margin: 40px 10px 0 10px;
   display: inline;
@@ -3189,7 +3189,7 @@ nav a {
   border: none;
 }
 
-.primary-nav-menu li {
+.primaryNav-menu li {
   display: block;
   zoom: 1;
   display: inline-block;
@@ -3197,7 +3197,7 @@ nav a {
   *display: inline;
 }
 
-.primary-nav-menu a {
+.primaryNav-menu a {
   display: block;
   padding: 10px 0;
   border: 1px solid #333333;
@@ -3208,16 +3208,16 @@ nav a {
   border: none;
   line-height: 60px;
 }
-.primary-nav-menu a:hover, .primary-nav-menu a:focus {
+.primaryNav-menu a:hover, .primaryNav-menu a:focus {
   color: #aaaaaa;
 }
 
-.primary-nav-menu li a.active,
-.primary-nav-menu li a.active_section {
+.primaryNav-menu li a.active,
+.primaryNav-menu li a.active_section {
   color: #9f9f9f;
 }
 
-.primary-nav-menu ul {
+.primaryNav-menu ul {
   display: none;
   position: absolute;
   left: -9999px;
@@ -3227,22 +3227,22 @@ nav a {
   background: #000000;
 }
 
-.primary-nav-menu li:hover ul,
-.primary-nav-menu li:focus ul {
+.primaryNav-menu li:hover ul,
+.primaryNav-menu li:focus ul {
   left: auto;
 }
 
-.primary-nav-menu li li {
+.primaryNav-menu li li {
   display: block;
   padding: 0 10px;
 }
 
-.primary-nav-menu li li a {
+.primaryNav-menu li li a {
   padding: 10px 0;
   line-height: 1.6;
   color: #ffffff;
 }
-.primary-nav-menu li li a:hover, .primary-nav-menu li li a:focus {
+.primaryNav-menu li li a:hover, .primaryNav-menu li li a:focus {
   color: #aaaaaa;
 }
 
@@ -3281,10 +3281,10 @@ nav a {
   color: #000000;
 }
 
-.primary-nav .utilityNav a {
+.primaryNav .utilityNav a {
   color: #aaaaaa;
 }
-.primary-nav .utilityNav a:hover {
+.primaryNav .utilityNav a:hover {
   color: #ffffff;
 }
 
@@ -3307,40 +3307,40 @@ nav a {
   margin-left: 60px;
 }
 
-.l-sideNav .primary-nav {
+.l-sideNav .primaryNav {
   position: absolute;
   top: 120px;
   width: 240px;
   background: none;
 }
 
-.search-open.l-sideNav .primary-nav {
+.search-open.l-sideNav .primaryNav {
   top: 218px;
   /* adds the height of the open search form */
 }
 
-.l-sideNav .navToggle {
+.l-sideNav .nav-toggle {
   margin-left: -10px;
 }
 
-.l-sideNav .primary-nav-menu {
+.l-sideNav .primaryNav-menu {
   display: none;
   margin: 0 10px;
 }
 
-.l-sideNav .primary-nav-menu li {
+.l-sideNav .primaryNav-menu li {
   display: block;
   padding: 0;
 }
 
-.l-sideNav .primary-nav-menu a {
+.l-sideNav .primaryNav-menu a {
   padding: 10px 0;
   border: 1px solid #333333;
   border-width: 1px 0 0 0;
   line-height: 1.6;
 }
 
-.l-sideNav .primary-nav-menu ul {
+.l-sideNav .primaryNav-menu ul {
   display: none;
 }
 
@@ -3375,12 +3375,12 @@ nav a {
   color: #000000;
 }
 
-.l-sideNav .primary-nav .searchToggle {
+.l-sideNav .primaryNav .searchToggle {
   display: none;
 }
 
 /* sideNav: navToggle */
-.l-sideNav .navToggle {
+.l-sideNav .nav-toggle {
   display: block;
 }
 
@@ -3398,7 +3398,7 @@ nav a {
   margin-left: 0;
 }
 
-.l-sideNav.nav-open .primary-nav-menu,
+.l-sideNav.nav-open .primaryNav-menu,
 .l-sideNav.nav-open .utilityNav {
   display: block;
   float: none;
@@ -3423,7 +3423,7 @@ nav a {
 
 /* noNav
 ----------------------------------------------------------------- */
-.l-noNav .primary-nav {
+.l-noNav .primaryNav {
   display: none;
 }
 
@@ -3459,16 +3459,16 @@ nav a {
 }
 
 /* back link */
-.backLink, .archive-link {
+.backLink, .archiveLink {
   /* These classes are using %backlink-styles. */
 }
-.backLink:before, .archive-link:before {
+.backLink:before, .archiveLink:before {
   content: "← ";
   color: #ffffff;
 }
 
 /* message */
-.message, .single article[role=main] .meta, .date-summary, .profile-info {
+.message, .single article[role=main] .meta, .dateSummary, .profile-info {
   /* These classes are using %message-styles. */
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -3482,18 +3482,18 @@ nav a {
   font-size: 16px;
 }
 
-/* .responsive-video */
-.responsive-video {
+/* .responsiveVideo */
+.responsiveVideo {
   /* These classes are using %responsiveVideo-styles. */
   position: relative;
   padding-top: 45px;
   padding-bottom: 56.25%;
   margin-bottom: 14px;
 }
-.responsive-video div,
-.responsive-video embed,
-.responsive-video object,
-.responsive-video iframe {
+.responsiveVideo div,
+.responsiveVideo embed,
+.responsiveVideo object,
+.responsiveVideo iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -4062,7 +4062,7 @@ h6.bu_collapsible {
 /* Narrow Sidebar
 ----------------------------------------------------------------- */
 .sidebarPosts,
-.sidebar-profiles {
+.sidebarProfiles {
   /* These classes are using %templateNarrowSidebar. */
   width: auto;
   float: none;
@@ -4070,19 +4070,19 @@ h6.bu_collapsible {
   margin-bottom: 40px;
 }
 .sidebarPosts .widget,
-.sidebar-profiles .widget {
+.sidebarProfiles .widget {
   padding: 0;
 }
 
-.sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
-.sidebar-profiles, .sidebarLocation-right
-.sidebar-profiles {
+.sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebarProfiles, .sidebarLocation-right
+.sidebarProfiles {
   float: left;
   clear: none;
 }
-.sidebarLocation-left .sidebar-posts .widget, .sidebarLocation-left .sidebarPosts .widget, .sidebarLocation-right .sidebarPosts .widget, .sidebarLocation-left
-.sidebar-profiles .widget, .sidebarLocation-right
-.sidebar-profiles .widget {
+.sidebarLocation-left .sidebarPosts .widget, .sidebarLocation-right .sidebarPosts .widget, .sidebarLocation-left
+.sidebarProfiles .widget, .sidebarLocation-right
+.sidebarProfiles .widget {
   width: 100%;
   margin-left: 0;
   margin-bottom: 40px;
@@ -4213,7 +4213,7 @@ h6.bu_collapsible {
   color: #7a7a7a;
 }
 
-.archive-link {
+.archiveLink {
   width: 100%;
 }
 
@@ -4302,7 +4302,7 @@ h6.bu_collapsible {
 
 /* Calendar Single Event
 ----------------------------------------------------------------- */
-.single-event .label {
+.singleEvent .label {
   font-family: "Benton", Helvetica, sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -4310,46 +4310,46 @@ h6.bu_collapsible {
   text-transform: uppercase;
 }
 
-.date-summary {
+.dateSummary {
   margin: 0 0 20px 0;
   float: right;
   width: 33.33333333333333%;
   margin: 0 0 20px 20px;
 }
 
-.date-summary ul {
+.dateSummary ul {
   padding: 0;
   margin: 0;
 }
 
-.date-summary li {
+.dateSummary li {
   margin-top: 10px;
   list-style: none;
 }
-.date-summary li:first-child {
+.dateSummary li:first-child {
   margin-top: 0;
 }
 
-.date-summary .label {
+.dateSummary .label {
   display: block;
 }
 
-.date-summary li em {
+.dateSummary li em {
   display: none;
 }
 
-.date-summary .time {
+.dateSummary .time {
   display: block;
   font-weight: bold;
   font-size: 18px;
   color: #000000;
 }
 
-.single-event .description {
+.singleEvent .description {
   margin: 0 0 25px 0;
 }
 
-.single-event .additional-details dd {
+.singleEvent .additionalDetails dd {
   margin: 0 0 20px 0;
 }
 
