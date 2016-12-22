@@ -13,8 +13,8 @@
 	<?php endif; ?>
 </div>
 
-<nav class="primaryNav" role="navigation">
-	<a href="#primaryNav-menu" class="navToggle"><span>Menu</span></a>
+<nav class="primary-nav" role="navigation">
+	<a href="#primary-nav-menu" class="navToggle"><span>Menu</span></a>
 
 	<?php if ( responsive_search_is_enabled() ) : ?>
 	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
