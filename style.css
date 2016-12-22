@@ -2718,12 +2718,12 @@ article[role=main],
 }
 
 /* Add BUMC logo if specified by theme */
-.site-footer-bumc {
+.siteFooter-bumc {
   width: 96px;
   margin: 6px auto 35px;
 }
 @media screen and (min-width: 768px) {
-  .site-footer-bumc {
+  .siteFooter-bumc {
     margin: 0;
     position: absolute;
     top: 40px;
@@ -2732,7 +2732,7 @@ article[role=main],
 }
 
 @media screen and (min-width: 768px) {
-  .site-footer-brand + .site-footer-bumc {
+  .site-footer-brand + .siteFooter-bumc {
     position: absolute;
     top: 48px;
     left: 162px;
@@ -2740,32 +2740,32 @@ article[role=main],
 }
 
 @media screen and (min-width: 768px) {
-  .site-footer-bumc + .siteFooter-content {
+  .siteFooter-bumc + .siteFooter-content {
     margin: 0 0 0 112px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .site-footer-brand + .site-footer-bumc + .siteFooter-content {
+  .site-footer-brand + .siteFooter-bumc + .siteFooter-content {
     margin: 0 0 0 234px;
   }
 }
 
 /* Add disclaimer if specified by theme */
-.site-footer-disclaimer {
+.siteFooter-disclaimer {
   margin-bottom: 20px;
   text-align: center;
 }
 @media screen and (min-width: 768px) {
-  .site-footer-disclaimer {
+  .siteFooter-disclaimer {
     margin-bottom: 0;
     position: absolute;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .has-branding .site-footer-disclaimer,
-  .site-footer-bumc + .site-footer-disclaimer {
+  .has-branding .siteFooter-disclaimer,
+  .siteFooter-bumc + .siteFooter-disclaimer {
     position: absolute;
     top: 48px;
     left: 162px;
@@ -2773,32 +2773,32 @@ article[role=main],
 }
 
 @media screen and (min-width: 768px) {
-  .site-footer-disclaimer + .siteFooter-content {
+  .siteFooter-disclaimer + .siteFooter-content {
     margin: 0 0 0 112px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .site-footer-brand + .site-footer-disclaimer + .siteFooter-content,
-  .site-footer-bumc + .site-footer-disclaimer + .siteFooter-content {
+  .site-footer-brand + .siteFooter-disclaimer + .siteFooter-content,
+  .siteFooter-bumc + .siteFooter-disclaimer + .siteFooter-content {
     margin: 0 0 0 234px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .site-footer-brand + .site-footer-bumc + .siteFooter-content {
+  .site-footer-brand + .siteFooter-bumc + .siteFooter-content {
     margin: 0 0 0 234px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .site-footer-brand + .site-footer-bumc + .site-footer-disclaimer {
+  .site-footer-brand + .siteFooter-bumc + .siteFooter-disclaimer {
     left: 282px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .site-footer-brand + .site-footer-bumc + .site-footer-disclaimer + .siteFooter-content {
+  .site-footer-brand + .siteFooter-bumc + .siteFooter-disclaimer + .siteFooter-content {
     margin: 0 0 0 344px;
   }
 }
@@ -3354,7 +3354,7 @@ nav a {
   .primaryNav-menu li {
     display: inline-block;
     border: none;
-    *display: inline;
+    display: inline;
   }
 }
 
