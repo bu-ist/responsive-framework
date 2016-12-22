@@ -216,17 +216,17 @@ function responsive_customizer_color_regions() {
 	return array(
 
 		// navigation bar
-		'primaryNav-bg' => array(
+		'primarynav-bg' => array(
 				'label'       => 'Background Color',
 				'group'       => 'navbar',
 				'default'     => $scheme['colors'][0],
 			),
-		'primaryNav-border' => array(
+		'primarynav-border' => array(
 				'label'       => 'Border Color',
 				'group'       => 'navbar',
 				'default'     => $scheme['colors'][1],
 			),
-		'primaryNav-link' => array(
+		'primarynav-link' => array(
 				'label'       => 'Primary Nav Links',
 				'group'       => 'navbar',
 				'default'     => $scheme['colors'][2],
@@ -236,7 +236,7 @@ function responsive_customizer_color_regions() {
 				'group'       => 'navbar',
 				'default'     => $scheme['colors'][3],
 			),
-		'primaryNav-hover' => array(
+		'primarynav-hover' => array(
 				'label'       => 'Primary Nav Links Hover',
 				'group'       => 'navbar',
 				'default'     => $scheme['colors'][4],
@@ -716,16 +716,16 @@ CSS;
 
 /* navbar bg color */
 .l-sideNav .wrapper,
-.primaryNav,
-.primaryNav-menu ul {
-	background: {$colors['primaryNav-bg']};
+.primary-nav,
+.primary-nav-menu ul {
+	background: {$colors['primarynav-bg']};
 }
 
 /* main nav and nav border color */
-.primaryNav-menu a,
-.l-sideNav .primaryNav-menu a {
-	color: {$colors['primaryNav-link']};
-	border-color: {$colors['primaryNav-border']};
+.primary-nav-menu a,
+.l-sideNav .primary-nav-menu a {
+	color: {$colors['primarynav-link']};
+	border-color: {$colors['primarynav-border']};
 }
 
 /* utility nav color */
@@ -734,13 +734,13 @@ CSS;
 }
 
 /* main nav and utility nav hover color */
-.primaryNav-menu a:hover,
+.primary-nav-menu a:hover,
 .l-sideNav .utilityNav a:hover,
-.primaryNav-menu li a.active,
-.primaryNav-menu li a.active_section,
-.primaryNav-menu li li a:hover,
-.primaryNav-menu li li a:focus {
-	color: {$colors['primaryNav-hover']};
+.primary-nav-menu li a.active,
+.primary-nav-menu li a.active_section,
+.primary-nav-menu li li a:hover,
+.primary-nav-menu li li a:focus {
+	color: {$colors['primarynav-hover']};
 }
 
 /* content area
@@ -955,7 +955,7 @@ input[type="submit"],
 .l-sideNav #quicksearch,
 .message,
 .single article[role=main] .meta,
-.singleEvent .dateSummary,
+.single-event .date-summary,
 .single-profile .profile-info {
 	background: #f5f8ff;
 	border-color: #dfdfea;

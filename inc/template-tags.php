@@ -230,8 +230,8 @@ function responsive_primary_nav() {
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
 		false == BuAccessControlPlugin::is_site_403() ) {
 		bu_navigation_display_primary( array(
-					'container_id'    => 'primaryNav-menu',
-					'container_class' => 'primaryNav-menu',
+					'container_id'    => 'primary-nav-menu',
+					'container_class' => 'primary-nav-menu',
 					) );
 	}
 }
