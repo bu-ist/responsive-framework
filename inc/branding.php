@@ -18,7 +18,7 @@ function responsive_branding() {
 	$name = get_bloginfo( 'name' );
 ?>
 	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( $name ); ?>" rel="home">
-		<span class="site-name"><?php echo $name; ?></span>
+		<span class="siteName"><?php echo $name; ?></span>
 	</a>
 <?php
 }
@@ -52,7 +52,7 @@ function responsive_branding_masterplate( $args = array() ) {
  */
 function responsive_branding_bumc_logo( $args = array() ) {
 	$defaults = array(
-		'before' => '<div class="site-footer-bumc">',
+		'before' => '<div class="siteFooter-bumc">',
 		'after'  => '</div>',
 		);
 	$args = wp_parse_args( $args, $defaults );
@@ -72,7 +72,7 @@ function responsive_branding_bumc_logo( $args = array() ) {
  */
 function responsive_branding_disclaimer( $args = array() ) {
 	$defaults = array(
-		'before' => '<div class="site-footer-disclaimer">',
+		'before' => '<div class="siteFooter-disclaimer">',
 		'after'  => '</div>',
 		);
 	$args = wp_parse_args( $args, $defaults );
