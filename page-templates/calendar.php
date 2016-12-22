@@ -182,11 +182,11 @@ if ( $timestamp > $boundary_future ) {
 				</div>
 			<?php } ?>
 		<?php } else { ?>
-			<div class="singleEvent">
-				<div class="eventSummary">
+			<div class="single-event">
+				<div class="event-summary">
 
 					<h1><?php echo $event['summary'];?></h1>
-					<div class="dateSummary">
+					<div class="date-summary">
 						<ul>
 							<?php if ( $event['start_time'] != '' ) { ?>
 							<li><span class="label">Starts: </span><?php printf( '<span class="time">%s</span><em> on </em><span class="date">%s</span>', date( 'g:i a', $event['starts'] ), date( 'l, F j, Y', $event['starts'] ) ); ?></li>
@@ -198,11 +198,11 @@ if ( $timestamp > $boundary_future ) {
 								}
 							?>
 						</ul>
-					</div> <!-- /.dateSummary -->
+					</div> <!-- /.date-summary -->
 					<div class="description"><?php echo html_entity_decode( $event['description'] ); ?></div>
 				</div> <!-- /.eventSummary -->
 
-				<div class="additionalDetails">
+				<div class="additional-details">
 					<dl class="tabular">
 						<?php if ( $event['speakers'] ) { ?>
 							<dt class="label">Speakers:</dt>
@@ -291,11 +291,11 @@ if ( $timestamp > $boundary_future ) {
 						<?php } ?>
 
 					</dl>
-				</div> <!-- /.additionalDetails -->
+				</div> <!-- /.additional-details -->
 
-				<p><a href="<?php the_permalink(); ?>" class="archiveLink calendarArchiveLink">Back to Calendar</a></p>
+				<p><a href="<?php the_permalink(); ?>" class="archive-link calendar-archive-link">Back to Calendar</a></p>
 
-			</div><!-- /.singleEvent -->
+			</div><!-- /.single-event -->
 		<?php } ?>
 </article>
 

@@ -9,10 +9,10 @@ Theme Groups: Responsive Framework
 */
 /* mixins
 ----------------------------------------------------------------- */
-.container:after, .content-container:after, .footbar-container:after, .sidebarLocation-left .sidebarPosts:after, .sidebarLocation-right .sidebarPosts:after, .sidebarLocation-left
-.sidebarProfiles:after, .sidebarLocation-right
-.sidebarProfiles:after, .row:after, .masthead:after, .footbar:after, .siteFooter:after, .primaryNav:after, .widget-bu-posts .post:after, .sidebarPosts:after,
-.sidebarProfiles:after, .paging-navigation:after, .profile-listing:after, .profile-listing .advanced:after, .profile-listing .mini:after, .gallery:after {
+.container:after, .content-container:after, .footbar-container:after, .sidebarLocation-left .sidebar-posts:after, .sidebarLocation-left .sidebarPosts:after, .sidebarLocation-right .sidebarPosts:after, .sidebarLocation-left
+.sidebar-profiles:after, .sidebarLocation-right
+.sidebar-profiles:after, .row:after, .masthead:after, .footbar:after, .site-footer:after, .primary-nav:after, .widget-bu-posts .post:after, .sidebarPosts:after,
+.sidebar-profiles:after, .paging-navigation:after, .profile-listing:after, .profile-listing .advanced:after, .profile-listing .mini:after, .gallery:after {
   /* These classes are using %clearfix. */
   display: table;
   clear: both;
@@ -91,9 +91,9 @@ Theme Groups: Responsive Framework
   overflow: hidden;
 }
 
-.container, .content-container, .footbar-container, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
-.sidebarProfiles, .sidebarLocation-right
-.sidebarProfiles {
+.container, .content-container, .footbar-container, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebar-profiles, .sidebarLocation-right
+.sidebar-profiles {
   /* These classes are using %container-styles. */
   width: 100%;
   padding: 35px 20px 0;
@@ -145,9 +145,9 @@ Theme Groups: Responsive Framework
 .has-info .siteFooter-info,
 .has-links .siteFooter-links,
 .has-social .siteFooter-social, .col-sm-12, .col-md-1, .col-md-2, .col-md-quarter, .col-md-3, .col-md-third,
-.profile-listing .advanced li, .col-md-4, .sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
-.sidebarProfiles, .sidebarLocation-right
-.sidebarProfiles, .col-md-5, .col-md-half, .col-md-6, .profile-listing .mini li, .col-md-7, .col-md-two-third, .col-md-8, article[role=main],
+.profile-listing .advanced li, .col-md-4, .sidebar, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebar-profiles, .sidebarLocation-right
+.sidebar-profiles, .col-md-5, .col-md-half, .col-md-6, .profile-listing .mini li, .col-md-7, .col-md-two-third, .col-md-8, article[role=main],
 .content-area, .col-md-three-quarter, .col-md-9, .col-md-10, .col-md-11, .col-md-full,
 .sidebarLocation-bottom article[role=main],
 .single-calendar article[role=main],
@@ -175,7 +175,7 @@ Theme Groups: Responsive Framework
 .col-xs-margin-1, .col-xs-margin-2, .col-xs-margin-quarter, .col-xs-margin-3, .col-xs-margin-third, .col-xs-margin-4, .col-xs-margin-5, .col-xs-margin-half, .col-xs-margin-6, .col-xs-margin-7, .col-xs-margin-two-third, .col-xs-margin-8, .col-xs-margin-three-quarter, .col-xs-margin-9, .col-xs-margin-10, .col-xs-margin-11, .col-xs-margin-full, .col-xs-margin-12, .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half,
 .sidebarLocation-bottom .sidebar .widget,
 .sidebarPosts .widget,
-.sidebarProfiles .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12, .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
+.sidebar-profiles .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12, .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
   /* These classes are using %col-margin-base. */
   margin-bottom: 2.6%;
   margin-top: 0;
@@ -533,14 +533,14 @@ Theme Groups: Responsive Framework
 .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half,
 .sidebarLocation-bottom .sidebar .widget,
 .sidebarPosts .widget,
-.sidebarProfiles .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12 {
+.sidebar-profiles .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12 {
   margin-left: 2.6%;
 }
 
 .col-sm-margin-parent,
 .sidebarLocation-bottom .sidebar,
 .sidebarPosts,
-.sidebarProfiles {
+.sidebar-profiles {
   margin-left: -2.6%;
 }
 
@@ -689,7 +689,7 @@ Theme Groups: Responsive Framework
 .col-sm-margin-half,
 .sidebarLocation-bottom .sidebar .widget,
 .sidebarPosts .widget,
-.sidebarProfiles .widget, .col-sm-margin-6 {
+.sidebar-profiles .widget, .col-sm-margin-6 {
   /* These classes are using %col-sm-margin-6. */
   width: 47.4%;
   float: left;
@@ -916,9 +916,9 @@ Theme Groups: Responsive Framework
 }
 
 .col-md-third,
-.profile-listing .advanced li, .col-md-4, .sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
-.sidebarProfiles, .sidebarLocation-right
-.sidebarProfiles {
+.profile-listing .advanced li, .col-md-4, .sidebar, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebar-profiles, .sidebarLocation-right
+.sidebar-profiles {
   /* These classes are using %col-md-4. */
   width: 33.33333%;
   float: left;
@@ -1021,7 +1021,7 @@ Theme Groups: Responsive Framework
   /* These classes are using %col-md-push-8. */
   left: 66.66667%;
 }
-.col-md-pull-two-third, .col-md-pull-8, .sidebarLocation-left .sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-left .sidebarProfiles {
+.col-md-pull-two-third, .col-md-pull-8, .sidebarLocation-left .sidebar, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-left .sidebar-profiles {
   /* These classes are using %col-md-pull-8. */
   right: 66.66667%;
 }
@@ -1919,7 +1919,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"], .button, .button-primary,
-.button-selected, .paging-navigation a, .archiveLink {
+.button-selected, .paging-navigation a, .archive-link {
   /* These classes are using %button-styles. */
   display: inline-block;
   padding: 0.5em 1em;
@@ -1944,7 +1944,7 @@ input[type="submit"]:focus, button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover, .button:hover, .button-primary:hover,
-.button-selected:hover, .paging-navigation a:hover, .archiveLink:hover {
+.button-selected:hover, .paging-navigation a:hover, .archive-link:hover {
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
   /* Saf4+, Chrome */
   background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));
@@ -1962,7 +1962,7 @@ button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active, .button:active, .button-primary:active,
-.button-selected:active, .paging-navigation a:active, .archiveLink:active {
+.button-selected:active, .paging-navigation a:active, .archive-link:active {
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
   -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
   -ms-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
@@ -2021,15 +2021,15 @@ input[disabled][type="submit"] {
   filter: alpha(opacity=40);
 }
 .button-primary,
-.button-selected, #quicksearch .button, .paging-navigation a, .archiveLink {
+.button-selected, #quicksearch .button, .paging-navigation a, .archive-link {
   /* These classes are using %button-styles-primary. */
   background-color: #0078e7;
   color: #ffffff;
 }
 .button-primary:hover,
-.button-selected:hover, #quicksearch .button:hover, .paging-navigation a:hover, .archiveLink:hover, .button-primary:active,
-.button-selected:active, #quicksearch .button:active, .paging-navigation a:active, .archiveLink:active, .button-primary:visited,
-.button-selected:visited, #quicksearch .button:visited, .paging-navigation a:visited, .archiveLink:visited {
+.button-selected:hover, #quicksearch .button:hover, .paging-navigation a:hover, .archive-link:hover, .button-primary:active,
+.button-selected:active, #quicksearch .button:active, .paging-navigation a:active, .archive-link:active, .button-primary:visited,
+.button-selected:visited, #quicksearch .button:visited, .paging-navigation a:visited, .archive-link:visited {
   color: #ffffff;
 }
 
@@ -2480,14 +2480,14 @@ article[role=main],
 
 /* sidebar
 ----------------------------------------------------------------- */
-.sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
-.sidebarProfiles, .sidebarLocation-right
-.sidebarProfiles {
+.sidebar, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebar-profiles, .sidebarLocation-right
+.sidebar-profiles {
   font-size: 16px;
   clear: none;
   padding-left: 3.46667%;
 }
-.sidebarLocation-left .sidebar, .sidebarLocation-left .sidebarPosts, .sidebarLocation-left .sidebarProfiles {
+.sidebarLocation-left .sidebar, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-left .sidebar-profiles {
   padding: 0;
   padding-right: 3.46667%;
 }
@@ -2529,7 +2529,7 @@ article[role=main],
 
 /* footer
 ----------------------------------------------------------------- */
-.siteFooter {
+.site-footer {
   position: relative;
   display: block;
   clear: both;
@@ -2542,12 +2542,12 @@ article[role=main],
   color: #888888;
 }
 
-.siteFooter h1,
-.siteFooter h2,
-.siteFooter h3,
-.siteFooter h4,
-.siteFooter h5,
-.siteFooter h6 {
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer h6 {
   margin: 0 0 3px;
   font-family: "Benton", Helvetica, sans-serif;
   font-size: 16px;
@@ -2555,18 +2555,18 @@ article[role=main],
   color: #ffffff;
 }
 
-.siteFooter a {
+.site-footer a {
   color: #888888;
 }
-.siteFooter a:hover {
+.site-footer a:hover {
   color: #ffffff;
 }
 
-.siteFooter li {
+.site-footer li {
   margin: 0 0 5px;
   line-height: 1.4;
 }
-.siteFooter li:last-child {
+.site-footer li:last-child {
   margin: 0;
 }
 
@@ -2612,7 +2612,7 @@ article[role=main],
   left: 20px;
 }
 
-.site-footer-brand + .siteFooter-content {
+.site-footer-brand + .site-footer-content {
   margin: 0 0 0 112px;
 }
 
@@ -2632,11 +2632,11 @@ article[role=main],
   left: 162px;
 }
 
-.site-footer-bumc + .siteFooter-content {
+.site-footer-bumc + .site-footer-content {
   margin: 0 0 0 112px;
 }
 
-.site-footer-brand + .site-footer-bumc + .siteFooter-content {
+.site-footer-brand + .site-footer-bumc + .site-footer-content {
   margin: 0 0 0 234px;
 }
 
@@ -2655,16 +2655,16 @@ article[role=main],
   left: 162px;
 }
 
-.site-footer-disclaimer + .siteFooter-content {
+.site-footer-disclaimer + .site-footer-content {
   margin: 0 0 0 112px;
 }
 
-.site-footer-brand + .site-footer-disclaimer + .siteFooter-content,
-.site-footer-bumc + .site-footer-disclaimer + .siteFooter-content {
+.site-footer-brand + .site-footer-disclaimer + .site-footer-content,
+.site-footer-bumc + .site-footer-disclaimer + .site-footer-content {
   margin: 0 0 0 234px;
 }
 
-.site-footer-brand + .site-footer-bumc + .siteFooter-content {
+.site-footer-brand + .site-footer-bumc + .site-footer-content {
   margin: 0 0 0 234px;
 }
 
@@ -2672,7 +2672,7 @@ article[role=main],
   left: 282px;
 }
 
-.site-footer-brand + .site-footer-bumc + .site-footer-disclaimer + .siteFooter-content {
+.site-footer-brand + .site-footer-bumc + .site-footer-disclaimer + .site-footer-content {
   margin: 0 0 0 344px;
 }
 
@@ -3058,7 +3058,7 @@ nav a {
   width: 85%;
 }
 
-/* searchToggle
+/* search-toggle
 ----------------------------------------------------------------- */
 .searchToggle {
   -webkit-transition: color 200ms ease-in-out 0s;
@@ -3087,7 +3087,7 @@ nav a {
 }
 
 /* when nav or search are opened */
-.is-open .primaryNav-menu,
+.is-open .primary-nav-menu,
 .is-open .utilityNav {
   display: block;
   clear: left;
@@ -3165,23 +3165,23 @@ nav a {
 
 /* primaryNav and menu
 ----------------------------------------------------------------- */
-.primaryNav {
+.primary-nav {
   display: block;
   padding: 0 10px;
   background: #000000;
 }
 
-.masthead-container .primaryNav .utilityNav {
+.masthead-container .primary-nav .utilityNav {
   display: none;
 }
 
-.primaryNav.is-open {
+.primary-nav.is-open {
   height: auto;
   padding-bottom: 20px;
   padding-bottom: 0;
 }
 
-.primaryNav-menu {
+.primary-nav-menu {
   display: none;
   margin: 40px 10px 0 10px;
   display: inline;
@@ -3189,7 +3189,7 @@ nav a {
   border: none;
 }
 
-.primaryNav-menu li {
+.primary-nav-menu li {
   display: block;
   zoom: 1;
   display: inline-block;
@@ -3197,7 +3197,7 @@ nav a {
   *display: inline;
 }
 
-.primaryNav-menu a {
+.primary-nav-menu a {
   display: block;
   padding: 10px 0;
   border: 1px solid #333333;
@@ -3208,16 +3208,16 @@ nav a {
   border: none;
   line-height: 60px;
 }
-.primaryNav-menu a:hover, .primaryNav-menu a:focus {
+.primary-nav-menu a:hover, .primary-nav-menu a:focus {
   color: #aaaaaa;
 }
 
-.primaryNav-menu li a.active,
-.primaryNav-menu li a.active_section {
+.primary-nav-menu li a.active,
+.primary-nav-menu li a.active_section {
   color: #9f9f9f;
 }
 
-.primaryNav-menu ul {
+.primary-nav-menu ul {
   display: none;
   position: absolute;
   left: -9999px;
@@ -3227,22 +3227,22 @@ nav a {
   background: #000000;
 }
 
-.primaryNav-menu li:hover ul,
-.primaryNav-menu li:focus ul {
+.primary-nav-menu li:hover ul,
+.primary-nav-menu li:focus ul {
   left: auto;
 }
 
-.primaryNav-menu li li {
+.primary-nav-menu li li {
   display: block;
   padding: 0 10px;
 }
 
-.primaryNav-menu li li a {
+.primary-nav-menu li li a {
   padding: 10px 0;
   line-height: 1.6;
   color: #ffffff;
 }
-.primaryNav-menu li li a:hover, .primaryNav-menu li li a:focus {
+.primary-nav-menu li li a:hover, .primary-nav-menu li li a:focus {
   color: #aaaaaa;
 }
 
@@ -3281,10 +3281,10 @@ nav a {
   color: #000000;
 }
 
-.primaryNav .utilityNav a {
+.primary-nav .utilityNav a {
   color: #aaaaaa;
 }
-.primaryNav .utilityNav a:hover {
+.primary-nav .utilityNav a:hover {
   color: #ffffff;
 }
 
@@ -3307,14 +3307,14 @@ nav a {
   margin-left: 60px;
 }
 
-.l-sideNav .primaryNav {
+.l-sideNav .primary-nav {
   position: absolute;
   top: 120px;
   width: 240px;
   background: none;
 }
 
-.search-open.l-sideNav .primaryNav {
+.search-open.l-sideNav .primary-nav {
   top: 218px;
   /* adds the height of the open search form */
 }
@@ -3323,24 +3323,24 @@ nav a {
   margin-left: -10px;
 }
 
-.l-sideNav .primaryNav-menu {
+.l-sideNav .primary-nav-menu {
   display: none;
   margin: 0 10px;
 }
 
-.l-sideNav .primaryNav-menu li {
+.l-sideNav .primary-nav-menu li {
   display: block;
   padding: 0;
 }
 
-.l-sideNav .primaryNav-menu a {
+.l-sideNav .primary-nav-menu a {
   padding: 10px 0;
   border: 1px solid #333333;
   border-width: 1px 0 0 0;
   line-height: 1.6;
 }
 
-.l-sideNav .primaryNav-menu ul {
+.l-sideNav .primary-nav-menu ul {
   display: none;
 }
 
@@ -3375,7 +3375,7 @@ nav a {
   color: #000000;
 }
 
-.l-sideNav .primaryNav .searchToggle {
+.l-sideNav .primary-nav .searchToggle {
   display: none;
 }
 
@@ -3398,7 +3398,7 @@ nav a {
   margin-left: 0;
 }
 
-.l-sideNav.nav-open .primaryNav-menu,
+.l-sideNav.nav-open .primary-nav-menu,
 .l-sideNav.nav-open .utilityNav {
   display: block;
   float: none;
@@ -3423,7 +3423,7 @@ nav a {
 
 /* noNav
 ----------------------------------------------------------------- */
-.l-noNav .primaryNav {
+.l-noNav .primary-nav {
   display: none;
 }
 
@@ -3459,16 +3459,16 @@ nav a {
 }
 
 /* back link */
-.backLink, .archiveLink {
+.backLink, .archive-link {
   /* These classes are using %backlink-styles. */
 }
-.backLink:before, .archiveLink:before {
+.backLink:before, .archive-link:before {
   content: "← ";
   color: #ffffff;
 }
 
 /* message */
-.message, .single article[role=main] .meta, .dateSummary, .profile-info {
+.message, .single article[role=main] .meta, .date-summary, .profile-info {
   /* These classes are using %message-styles. */
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -3482,18 +3482,18 @@ nav a {
   font-size: 16px;
 }
 
-/* .responsiveVideo */
-.responsiveVideo {
+/* .responsive-video */
+.responsive-video {
   /* These classes are using %responsiveVideo-styles. */
   position: relative;
   padding-top: 45px;
   padding-bottom: 56.25%;
   margin-bottom: 14px;
 }
-.responsiveVideo div,
-.responsiveVideo embed,
-.responsiveVideo object,
-.responsiveVideo iframe {
+.responsive-video div,
+.responsive-video embed,
+.responsive-video object,
+.responsive-video iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -4062,7 +4062,7 @@ h6.bu_collapsible {
 /* Narrow Sidebar
 ----------------------------------------------------------------- */
 .sidebarPosts,
-.sidebarProfiles {
+.sidebar-profiles {
   /* These classes are using %templateNarrowSidebar. */
   width: auto;
   float: none;
@@ -4070,19 +4070,19 @@ h6.bu_collapsible {
   margin-bottom: 40px;
 }
 .sidebarPosts .widget,
-.sidebarProfiles .widget {
+.sidebar-profiles .widget {
   padding: 0;
 }
 
-.sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
-.sidebarProfiles, .sidebarLocation-right
-.sidebarProfiles {
+.sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
+.sidebar-profiles, .sidebarLocation-right
+.sidebar-profiles {
   float: left;
   clear: none;
 }
-.sidebarLocation-left .sidebarPosts .widget, .sidebarLocation-right .sidebarPosts .widget, .sidebarLocation-left
-.sidebarProfiles .widget, .sidebarLocation-right
-.sidebarProfiles .widget {
+.sidebarLocation-left .sidebar-posts .widget, .sidebarLocation-left .sidebarPosts .widget, .sidebarLocation-right .sidebarPosts .widget, .sidebarLocation-left
+.sidebar-profiles .widget, .sidebarLocation-right
+.sidebar-profiles .widget {
   width: 100%;
   margin-left: 0;
   margin-bottom: 40px;
@@ -4213,7 +4213,7 @@ h6.bu_collapsible {
   color: #7a7a7a;
 }
 
-.archiveLink {
+.archive-link {
   width: 100%;
 }
 
@@ -4302,7 +4302,7 @@ h6.bu_collapsible {
 
 /* Calendar Single Event
 ----------------------------------------------------------------- */
-.singleEvent .label {
+.single-event .label {
   font-family: "Benton", Helvetica, sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -4310,46 +4310,46 @@ h6.bu_collapsible {
   text-transform: uppercase;
 }
 
-.dateSummary {
+.date-summary {
   margin: 0 0 20px 0;
   float: right;
   width: 33.33333333333333%;
   margin: 0 0 20px 20px;
 }
 
-.dateSummary ul {
+.date-summary ul {
   padding: 0;
   margin: 0;
 }
 
-.dateSummary li {
+.date-summary li {
   margin-top: 10px;
   list-style: none;
 }
-.dateSummary li:first-child {
+.date-summary li:first-child {
   margin-top: 0;
 }
 
-.dateSummary .label {
+.date-summary .label {
   display: block;
 }
 
-.dateSummary li em {
+.date-summary li em {
   display: none;
 }
 
-.dateSummary .time {
+.date-summary .time {
   display: block;
   font-weight: bold;
   font-size: 18px;
   color: #000000;
 }
 
-.singleEvent .description {
+.single-event .description {
   margin: 0 0 25px 0;
 }
 
-.singleEvent .additionalDetails dd {
+.single-event .additional-details dd {
   margin: 0 0 20px 0;
 }
 
