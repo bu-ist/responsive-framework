@@ -716,14 +716,14 @@ CSS;
 
 /* navbar bg color */
 .l-sideNav .wrapper,
-.primaryNav,
-.primaryNav-menu ul {
+.primary-nav,
+.primary-nav-menu ul {
 	background: {$colors['primaryNav-bg']};
 }
 
 /* main nav and nav border color */
-.primaryNav-menu a,
-.l-sideNav .primaryNav-menu a {
+.primary-nav-menu a,
+.l-sideNav .primary-nav-menu a {
 	color: {$colors['primaryNav-link']};
 	border-color: {$colors['primaryNav-border']};
 }
@@ -734,12 +734,12 @@ CSS;
 }
 
 /* main nav and utility nav hover color */
-.primaryNav-menu a:hover,
+.primary-nav-menu a:hover,
 .l-sideNav .utilityNav a:hover,
-.primaryNav-menu li a.active,
-.primaryNav-menu li a.active_section,
-.primaryNav-menu li li a:hover,
-.primaryNav-menu li li a:focus {
+.primary-nav-menu li a.active,
+.primary-nav-menu li a.active_section,
+.primary-nav-menu li li a:hover,
+.primary-nav-menu li li a:focus {
 	color: {$colors['primaryNav-hover']};
 }
 
