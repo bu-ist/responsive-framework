@@ -14,7 +14,7 @@
 	<a href="#primaryNav-menu" class="nav-toggle"><span>Menu</span></a>
 
 	<?php if ( responsive_search_is_enabled() ) : ?>
-	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
+	<a href="#quicksearch" class="search-toggle"><span>Search</span></a>
 	<?php endif; ?>
 
 	<?php responsive_primary_nav(); ?>
