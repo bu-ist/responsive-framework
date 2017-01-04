@@ -11,7 +11,7 @@ Theme Groups: Responsive Framework
 ----------------------------------------------------------------- */
 .container:after, .content-container:after, .footbar-container:after, .sidebarLocation-left .sidebar-posts:after, .sidebarLocation-left .sidebarPosts:after, .sidebarLocation-right .sidebarPosts:after, .sidebarLocation-left
 .sidebar-profiles:after, .sidebarLocation-right
-.sidebar-profiles:after, .row:after, .masthead:after, .footbar:after, .site-footer:after, .primaryNav:after, .widget-bu-posts .post:after, .sidebarPosts:after,
+.sidebar-profiles:after, .row:after, .masthead:after, .footbar:after, .site-footer:after, .primary-nav:after, .widget-bu-posts .post:after, .sidebarPosts:after,
 .sidebar-profiles:after, .paging-navigation:after, .profile-listing:after, .profile-listing .advanced:after, .profile-listing .mini:after, .gallery:after {
   /* These classes are using %clearfix. */
   display: table;
@@ -3165,17 +3165,17 @@ nav a {
 
 /* primaryNav and menu
 ----------------------------------------------------------------- */
-.primaryNav {
+.primary-nav {
   display: block;
   padding: 0 10px;
   background: #000000;
 }
 
-.masthead-container .primaryNav .utilityNav {
+.masthead-container .primary-nav .utilityNav {
   display: none;
 }
 
-.primaryNav.is-open {
+.primary-nav.is-open {
   height: auto;
   padding-bottom: 20px;
   padding-bottom: 0;
@@ -3194,7 +3194,7 @@ nav a {
   zoom: 1;
   display: inline-block;
   border: none;
-  *display: inline;
+  display: inline;
 }
 
 .primaryNav-menu a {
@@ -3281,10 +3281,10 @@ nav a {
   color: #000000;
 }
 
-.primaryNav .utilityNav a {
+.primary-nav .utilityNav a {
   color: #aaaaaa;
 }
-.primaryNav .utilityNav a:hover {
+.primary-nav .utilityNav a:hover {
   color: #ffffff;
 }
 
@@ -3307,14 +3307,14 @@ nav a {
   margin-left: 60px;
 }
 
-.l-sideNav .primaryNav {
+.l-sideNav .primary-nav {
   position: absolute;
   top: 120px;
   width: 240px;
   background: none;
 }
 
-.search-open.l-sideNav .primaryNav {
+.search-open.l-sideNav .primary-nav {
   top: 218px;
   /* adds the height of the open search form */
 }
@@ -3375,7 +3375,7 @@ nav a {
   color: #000000;
 }
 
-.l-sideNav .primaryNav .searchToggle {
+.l-sideNav .primary-nav .searchToggle {
   display: none;
 }
 
@@ -3423,7 +3423,7 @@ nav a {
 
 /* noNav
 ----------------------------------------------------------------- */
-.l-noNav .primaryNav {
+.l-noNav .primary-nav {
   display: none;
 }
 

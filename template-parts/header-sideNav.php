@@ -13,7 +13,7 @@
 	<?php endif; ?>
 </div>
 
-<nav class="primaryNav" role="navigation">
+<nav class="primary-nav" role="navigation">
 	<a href="#primaryNav-menu" class="nav-toggle"><span>Menu</span></a>
 
 	<?php if ( responsive_search_is_enabled() ) : ?>
