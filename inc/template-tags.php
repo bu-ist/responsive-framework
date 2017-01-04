@@ -231,7 +231,7 @@ function responsive_primary_nav() {
 		false == BuAccessControlPlugin::is_site_403() ) {
 		bu_navigation_display_primary( array(
 					'container_id'    => 'primaryNav-menu',
-					'container_class' => 'primaryNav-menu',
+					'container_class' => 'primary-nav-menu',
 					) );
 	}
 }
@@ -255,7 +255,7 @@ function responsive_utility_nav( $args = array() ) {
 	}
 
 	$defaults = array(
-		'before' => '<nav class="utilityNav" role="navigation">',
+		'before' => '<nav class="utility-nav" role="navigation">',
 		'after'  => '</nav>',
 		);
 	$args = wp_parse_args( $args, $defaults );
