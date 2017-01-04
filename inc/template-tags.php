@@ -207,7 +207,7 @@ function responsive_content_banner( $position ) {
 	}
 
 	$banner_args = array(
-		'before'   => sprintf( '<div class="bannerContainer bannerContainer-%s">', $position ),
+		'before'   => sprintf( '<div class="banner-container bannerContainer-%s">', $position ),
 		'after'    => '</div>',
 		'class'    => 'banner',
 		'position' => $position,
@@ -266,7 +266,7 @@ function responsive_utility_nav( $args = array() ) {
 		$menu = wp_nav_menu( array(
 			'theme_location' => 'utility',
 			'menu_id'        => 'utilityNav-menu',
-			'menu_class'     => 'utilityNav-menu',
+			'menu_class'     => 'utility-nav-menu',
 			'container'      => false,
 			'echo'           => false,
 		) );

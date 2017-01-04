@@ -729,13 +729,13 @@ CSS;
 }
 
 /* utility nav color */
-.l-sideNav .utilityNav a {
+.l-sideNav .utility-nav a {
 	color: {$colors['utilityNav-link']};
 }
 
 /* main nav and utility nav hover color */
 .primary-nav-menu a:hover,
-.l-sideNav .utilityNav a:hover,
+.l-sideNav .utility-nav a:hover,
 .primary-nav-menu li a.active,
 .primary-nav-menu li a.active_section,
 .primary-nav-menu li li a:hover,
@@ -814,19 +814,19 @@ input[type="submit"],
 ----------------------------------------------------------------- */
 
 /* widget border color */
-.sidebar .widgetTitle,
+.sidebar .widget-title,
 .sidebar #contentnav ul,
 .sidebar .widget_nav_menu ul,
 .sidebar #contentnav li,
 .sidebar .widget_nav_menu li,
 .sidebar .widget-bu-calendar li,
-.sidebarPosts .widgetTitle,
+.sidebarPosts .widget-title,
 .sidebarPosts #contentnav ul,
 .sidebarPosts .widget_nav_menu ul,
 .sidebarPosts #contentnav li,
 .sidebarPosts .widget_nav_menu li,
 .sidebarPosts .widget-bu-calendar li,
-.sidebarProfiles .widgetTitle,
+.sidebarProfiles .widget-title,
 .sidebarProfiles #contentnav ul,
 .sidebarProfiles .widget_nav_menu ul,
 .sidebarProfiles #contentnav li,
@@ -838,15 +838,15 @@ input[type="submit"],
 	border-color: {$colors['sidebar-widgetTitle-border']};
 }
 
-.sidebar .widgetTitle,
-.sidebar .widget .widgetTitle a,
-.sidebarPosts .widget .widgetTitle a,
-.sidebarProfiles .widget .widgetTitle a,
-.sidebar .widgetTitle a:after,
-.sidebarPosts .widgetTitle,
-.sidebarPosts .widgetTitle a:after,
-.sidebarProfiles .widgetTitle,
-.sidebarProfiles .widgetTitle a:after {
+.sidebar .widget-title,
+.sidebar .widget .widget-title a,
+.sidebarPosts .widget .widget-title a,
+.sidebarProfiles .widget .widget-title a,
+.sidebar .widget-title a:after,
+.sidebarPosts .widget-title,
+.sidebarPosts .widget-title a:after,
+.sidebarProfiles .widget-title,
+.sidebarProfiles .widget-title a:after {
 	color: {$colors['sidebar-widgetTitle']};
 }
 
@@ -897,7 +897,7 @@ input[type="submit"],
 /* background color */
 .footbar,
 .footbar .footbar-container,
-.bannerContainer-windowWidth {
+.banner-container-window-width {
 	background: {$colors['footbar-bg']};
 }
 
@@ -907,9 +907,9 @@ input[type="submit"],
 }
 
 /* widget title color */
-.footbar .widgetTitle,
-.footbar .widgetTitle a:after,
-.footbar h3.widgetTitle a,
+.footbar .widget-title,
+.footbar .widget-title a:after,
+.footbar h3.widget-title a,
 .footbar .widget-bu-calendar .default a .date,
 .footbar .widget-bu-calendar .graphic .day,
 .footbar .widget-bu-calendar .date {
@@ -917,7 +917,7 @@ input[type="submit"],
 }
 
 /* border color */
-.footbar .widgetTitle,
+.footbar .widget-title,
 .footbar #contentnav ul,
 .footbar .widget_nav_menu ul,
 .footbar #contentnav li,

@@ -36,12 +36,12 @@ function responsive_calendar_sidebar( $args = array() ) {
 	if ( is_page_template( $args['page_template'] ) && ! empty( $args['calendar_uri'] ) ) { ?>
 
 		<div class="widget">
-			<h2 class="widgetTitle">Event Calendar</h2>
+			<h2 class="widget-title">Event Calendar</h2>
 			<?php echo $buCalendar->buildMonthCalendar( $yyyymmdd, NULL, $args['monthly_dropdown'] ); ?>
 		</div>
 		<?php if ( $args['show_topics'] ): ?>
 		<div id="calendar-topics" class="widget">
-			<h2 class="widgetTitle">Event <?php echo $args['topic_heading']; ?></h2>
+			<h2 class="widget-title">Event <?php echo $args['topic_heading']; ?></h2>
 			<p><a class="content_nav_header" href="<?php echo $all_topics_url; ?>">All <?php echo $args['topic_heading']; ?></a></p>
 		<?php  echo $buCalendar->buildTopicTree( $topics ); ?>
 		</div>
