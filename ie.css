@@ -2429,12 +2429,12 @@ body {
 
 /* .bannerContainer
 ----------------------------------------------------------------- */
-.bannerContainer {
+.banner-container {
   padding: 0;
   text-align: center;
 }
 
-.bannerContainer img {
+.banner-container img {
   display: block;
   margin: 0 auto;
 }
@@ -3790,7 +3790,7 @@ h6.bu_collapsible {
   color: #0f69d7;
 }
 
-.widgetTitle {
+.widget-title {
   padding: 0 0 4px 0;
   border: 4px solid #000000;
   border-width: 0 0 4px 0;
@@ -3800,16 +3800,16 @@ h6.bu_collapsible {
   color: #000000;
 }
 
-.widgetTitle a {
+.widget-title a {
   color: #000000;
   text-decoration: none;
 }
-.widgetTitle a:after {
+.widget-title a:after {
   content: " →";
   color: #aaaaaa;
 }
 
-.widgetTitle a:hover:after {
+.widget-title a:hover:after {
   color: #000000;
 }
 
