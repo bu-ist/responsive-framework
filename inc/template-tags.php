@@ -230,7 +230,7 @@ function responsive_primary_nav() {
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
 		false == BuAccessControlPlugin::is_site_403() ) {
 		bu_navigation_display_primary( array(
-					'container_id'    => 'primaryNav-menu',
+					'container_id'    => 'primary-nav-menu',
 					'container_class' => 'primary-nav-menu',
 					) );
 	}
@@ -265,7 +265,7 @@ function responsive_utility_nav( $args = array() ) {
 		false == BuAccessControlPlugin::is_site_403() ) {
 		$menu = wp_nav_menu( array(
 			'theme_location' => 'utility',
-			'menu_id'        => 'utilityNav-menu',
+			'menu_id'        => 'utility-nav-menu',
 			'menu_class'     => 'utility-nav-menu',
 			'container'      => false,
 			'echo'           => false,
@@ -331,7 +331,7 @@ function responsive_social_menu( $args = array() ) {
 	}
 
 	$defaults = array(
-		'before' => '<nav class="siteFooter-social" role="navigation">',
+		'before' => '<nav class="site-footer-social" role="navigation">',
 		'after'  => '</nav>',
 		);
 	$args = wp_parse_args( $args, $defaults );
@@ -344,8 +344,8 @@ function responsive_social_menu( $args = array() ) {
 		'depth'          => 1,
 		'link_before'    => '<i aria-hidden="true"></i><span>',
 		'link_after'     => '</span>',
-		'menu_id'        => 'siteFooter-social-menu',
-		'menu_class'     => 'siteFooter-social-menu',
+		'menu_id'        => 'site-footer-social-menu',
+		'menu_class'     => 'site-footer-social-menu',
 		'container'      => false,
 		'echo'           => false,
 	) );

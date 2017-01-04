@@ -131,20 +131,20 @@ Theme Groups: Responsive Framework
 
 .col-1, .col-2, .col-quarter, .col-3, .col-third, .col-4, .col-5, .col-half, .col-6, .col-7, .col-two-third, .col-8, .col-three-quarter, .col-9, .col-10, .col-11, .col-full, .col-12, .col-xs-1, .col-xs-2, .col-xs-quarter, .col-xs-3, .col-xs-third, .col-xs-4, .col-xs-5, .col-xs-half, .col-xs-6, .col-xs-7, .col-xs-two-third, .col-xs-8, .col-xs-three-quarter, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-full, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-quarter,
 .siteFooter-links,
-.siteFooter-social,
+.site-footer-social,
 .has-info-links .siteFooter-links,
-.has-info-social .siteFooter-social,
+.has-info-social .site-footer-social,
 .has-info-links-social .siteFooter-links,
-.has-info-links-social .siteFooter-social, .col-sm-3, .col-sm-third, .col-sm-4, .col-sm-5, .col-sm-half,
-.siteFooter-info,
+.has-info-links-social .site-footer-social, .col-sm-3, .col-sm-third, .col-sm-4, .col-sm-5, .col-sm-half,
+.site-footer-info,
 .has-links-social .siteFooter-links,
-.has-links-social .siteFooter-social,
-.has-info-links-social .siteFooter-info, .col-sm-6, .col-sm-7, .col-sm-two-third, .col-sm-8, .col-sm-three-quarter,
-.has-info-links .siteFooter-info,
-.has-info-social .siteFooter-info, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-full,
-.has-info .siteFooter-info,
+.has-links-social .site-footer-social,
+.has-info-links-social .site-footer-info, .col-sm-6, .col-sm-7, .col-sm-two-third, .col-sm-8, .col-sm-three-quarter,
+.has-info-links .site-footer-info,
+.has-info-social .site-footer-info, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-full,
+.has-info .site-footer-info,
 .has-links .siteFooter-links,
-.has-social .siteFooter-social, .col-sm-12, .col-md-1, .col-md-2, .col-md-quarter, .col-md-3, .col-md-third,
+.has-social .site-footer-social, .col-sm-12, .col-md-1, .col-md-2, .col-md-quarter, .col-md-3, .col-md-third,
 .profile-listing .advanced li, .col-md-4, .sidebar, .sidebarLocation-left .sidebar-posts, .sidebarLocation-left .sidebarPosts, .sidebarLocation-right .sidebarPosts, .sidebarLocation-left
 .sidebar-profiles, .sidebarLocation-right
 .sidebar-profiles, .col-md-5, .col-md-half, .col-md-6, .profile-listing .mini li, .col-md-7, .col-md-two-third, .col-md-8, article[role=main],
@@ -592,11 +592,11 @@ Theme Groups: Responsive Framework
 
 .col-sm-quarter,
 .siteFooter-links,
-.siteFooter-social,
+.site-footer-social,
 .has-info-links .siteFooter-links,
-.has-info-social .siteFooter-social,
+.has-info-social .site-footer-social,
 .has-info-links-social .siteFooter-links,
-.has-info-links-social .siteFooter-social, .col-sm-3 {
+.has-info-links-social .site-footer-social, .col-sm-3 {
   /* These classes are using %col-sm-3. */
   width: 25%;
   float: left;
@@ -666,10 +666,10 @@ Theme Groups: Responsive Framework
 }
 
 .col-sm-half,
-.siteFooter-info,
+.site-footer-info,
 .has-links-social .siteFooter-links,
-.has-links-social .siteFooter-social,
-.has-info-links-social .siteFooter-info, .col-sm-6 {
+.has-links-social .site-footer-social,
+.has-info-links-social .site-footer-info, .col-sm-6 {
   /* These classes are using %col-sm-6. */
   width: 50%;
   float: left;
@@ -742,8 +742,8 @@ Theme Groups: Responsive Framework
 }
 
 .col-sm-three-quarter,
-.has-info-links .siteFooter-info,
-.has-info-social .siteFooter-info, .col-sm-9 {
+.has-info-links .site-footer-info,
+.has-info-social .site-footer-info, .col-sm-9 {
   /* These classes are using %col-sm-9. */
   width: 75%;
   float: left;
@@ -813,9 +813,9 @@ Theme Groups: Responsive Framework
 }
 
 .col-sm-full,
-.has-info .siteFooter-info,
+.has-info .site-footer-info,
 .has-links .siteFooter-links,
-.has-social .siteFooter-social, .col-sm-12 {
+.has-social .site-footer-social, .col-sm-12 {
   /* These classes are using %col-sm-12. */
   width: 100%;
   float: left;
@@ -2570,32 +2570,32 @@ article[role=main],
   margin: 0;
 }
 
-.siteFooter-info {
+.site-footer-info {
   padding: 0 0 10px 30px;
   text-align: left;
 }
 
 .siteFooter-links,
-.siteFooter-social {
+.site-footer-social {
   padding: 0 0 30px;
   padding-left: 30px;
 }
 
-.siteFooter-social {
+.site-footer-social {
   text-align: center;
   text-align: left;
 }
 
 /* utility class for displaying lists of links inline. Use @extend */
-.has-links .siteFooter-links li, .has-social .siteFooter-social li, .has-links-social .siteFooter-links li,
-.has-links-social .siteFooter-social li, .has-info-links .siteFooter-links li, .has-info-social .siteFooter-social li, .has-info-links-social .siteFooter-social li {
+.has-links .siteFooter-links li, .has-social .site-footer-social li, .has-links-social .siteFooter-links li,
+.has-links-social .site-footer-social li, .has-info-links .siteFooter-links li, .has-info-social .site-footer-social li, .has-info-links-social .site-footer-social li {
   /* These classes are using %u-list-inlineLinks. */
   display: inline-block;
   padding: 0;
   margin-right: 20px;
 }
-.has-links .siteFooter-links li:last-child, .has-social .siteFooter-social li:last-child, .has-links-social .siteFooter-links li:last-child,
-.has-links-social .siteFooter-social li:last-child, .has-info-links .siteFooter-links li:last-child, .has-info-social .siteFooter-social li:last-child, .has-info-links-social .siteFooter-social li:last-child {
+.has-links .siteFooter-links li:last-child, .has-social .site-footer-social li:last-child, .has-links-social .siteFooter-links li:last-child,
+.has-links-social .site-footer-social li:last-child, .has-info-links .siteFooter-links li:last-child, .has-info-social .site-footer-social li:last-child, .has-info-links-social .site-footer-social li:last-child {
   margin-right: 0;
 }
 
