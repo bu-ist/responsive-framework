@@ -154,7 +154,7 @@ function responsive_sidebars() {
 			'description'   => 'Add widgets here to appear in your sidebar.',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h3 class="widgetTitle">',
+			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 		) );
 
@@ -164,7 +164,7 @@ function responsive_sidebars() {
 			'description'   => 'Add widgets here for display on posts and archives. Only the first 2 widgets will appear.',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h3 class="widgetTitle">',
+			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 		) );
 
@@ -175,7 +175,7 @@ function responsive_sidebars() {
 				'description'   => 'Add widgets here for display on profile pages and archives. Only the first 2 widgets will appear.',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h3 class="widgetTitle">',
+				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>',
 			) );
 	}
@@ -186,7 +186,7 @@ function responsive_sidebars() {
 			'description'   => 'Add widgets here to appear in your footer.',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h3 class="widgetTitle">',
+			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 		) );
 
@@ -198,7 +198,7 @@ function responsive_sidebars() {
 				'description'   => 'Add widgets here to appear in your footer.',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h3 class="widgetTitle">',
+				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>',
 			) );
 	}
