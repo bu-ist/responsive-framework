@@ -995,7 +995,7 @@ function responsive_get_customizer_footer_info() {
  */
 function responsive_customizer_footer_info( $args = array() ) {
 	$defaults = array(
-		'before' => '<div class="siteFooter-info">',
+		'before' => '<div class="site-footer-info">',
 		'after'  => '</div>',
 		'echo'   => true,
 		);
