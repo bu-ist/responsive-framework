@@ -3230,8 +3230,8 @@ nav a {
 }
 
 /* when nav or search are opened */
-.is-open .primaryNav-menu,
-.is-open .utilityNav {
+.is-open .primary-nav-menu,
+.is-open .utility-nav {
   display: block;
   clear: left;
 }
@@ -3319,7 +3319,7 @@ nav a {
 }
 
 @media screen and (min-width: 768px) {
-  .masthead-container .primary-nav .utilityNav {
+  .masthead-container .primary-nav .utility-nav {
     display: none;
   }
 }
@@ -3334,31 +3334,31 @@ nav a {
   }
 }
 
-.primaryNav-menu {
+.primary-nav-menu {
   display: none;
   margin: 40px 10px 0 10px;
 }
 @media screen and (min-width: 768px) {
-  .primaryNav-menu {
+  .primary-nav-menu {
     display: inline;
     margin: 0;
     border: none;
   }
 }
 
-.primaryNav-menu li {
+.primary-nav-menu li {
   display: block;
   zoom: 1;
 }
 @media screen and (min-width: 768px) {
-  .primaryNav-menu li {
+  .primary-nav-menu li {
     display: inline-block;
     border: none;
     display: inline;
   }
 }
 
-.primaryNav-menu a {
+.primary-nav-menu a {
   display: block;
   padding: 10px 0;
   border: 1px solid #333333;
@@ -3367,26 +3367,26 @@ nav a {
   text-decoration: none;
 }
 @media screen and (min-width: 768px) {
-  .primaryNav-menu a {
+  .primary-nav-menu a {
     padding: 0 10px;
     border: none;
     line-height: 60px;
   }
 }
-.primaryNav-menu a:hover, .primaryNav-menu a:focus {
+.primary-nav-menu a:hover, .primary-nav-menu a:focus {
   color: #aaaaaa;
 }
 
-.primaryNav-menu li a.active,
-.primaryNav-menu li a.active_section {
+.primary-nav-menu li a.active,
+.primary-nav-menu li a.active_section {
   color: #9f9f9f;
 }
 
-.primaryNav-menu ul {
+.primary-nav-menu ul {
   display: none;
 }
 @media screen and (min-width: 768px) {
-  .primaryNav-menu ul {
+  .primary-nav-menu ul {
     position: absolute;
     left: -9999px;
     z-index: 2;
@@ -3396,28 +3396,28 @@ nav a {
   }
 }
 
-.primaryNav-menu li:hover ul,
-.primaryNav-menu li:focus ul {
+.primary-nav-menu li:hover ul,
+.primary-nav-menu li:focus ul {
   left: auto;
 }
 
-.primaryNav-menu li li {
+.primary-nav-menu li li {
   display: block;
   padding: 0 10px;
 }
 
-.primaryNav-menu li li a {
+.primary-nav-menu li li a {
   padding: 10px 0;
   line-height: 1.6;
   color: #ffffff;
 }
-.primaryNav-menu li li a:hover, .primaryNav-menu li li a:focus {
+.primary-nav-menu li li a:hover, .primary-nav-menu li li a:focus {
   color: #aaaaaa;
 }
 
 /* utilityNav
 ----------------------------------------------------------------- */
-.utilityNav {
+.utility-nav {
   display: none;
   padding: 20px 0 0;
   margin: 0 10px;
@@ -3427,7 +3427,7 @@ nav a {
 }
 
 @media screen and (min-width: 768px) {
-  .masthead-container .utilityNav {
+  .masthead-container .utility-nav {
     display: block;
     padding: 0;
     margin: 0;
@@ -3435,12 +3435,12 @@ nav a {
   }
 }
 
-.utilityNav li {
+.utility-nav li {
   padding: 0;
   border: none;
 }
 @media screen and (min-width: 768px) {
-  .utilityNav li {
+  .utility-nav li {
     display: inline-block;
     padding-left: 10px;
     border: none;
@@ -3448,25 +3448,25 @@ nav a {
   }
 }
 
-.utilityNav a {
+.utility-nav a {
   color: #7a7a7a;
   text-decoration: none;
 }
-.utilityNav a:hover {
+.utility-nav a:hover {
   color: #000000;
 }
 
-.primary-nav .utilityNav a {
+.primary-nav .utility-nav a {
   color: #aaaaaa;
 }
-.primary-nav .utilityNav a:hover {
+.primary-nav .utility-nav a:hover {
   color: #ffffff;
 }
 
 /* default
 ----------------------------------------------------------------- */
 @media screen and (min-width: 768px) {
-  .l-default .utilityNav {
+  .l-default .utility-nav {
     position: absolute;
     top: 53px;
     right: 20px;
@@ -3520,23 +3520,23 @@ nav a {
 }
 
 @media screen and (min-width: 768px) {
-  .l-sideNav .primaryNav-menu {
+  .l-sideNav .primary-nav-menu {
     display: none;
     margin: 0 10px;
   }
 }
 @media screen and (min-width: 1200px) {
-  .l-sideNav .primaryNav-menu {
+  .l-sideNav .primary-nav-menu {
     display: block;
   }
 }
 
-.l-sideNav .primaryNav-menu li {
+.l-sideNav .primary-nav-menu li {
   display: block;
   padding: 0;
 }
 
-.l-sideNav .primaryNav-menu a {
+.l-sideNav .primary-nav-menu a {
   padding: 10px 0;
   border: 1px solid #333333;
   border-width: 1px 0 0 0;
@@ -3544,12 +3544,12 @@ nav a {
 }
 
 @media screen and (min-width: 1200px) {
-  .l-sideNav .primaryNav-menu li:first-child a {
+  .l-sideNav .primary-nav-menu li:first-child a {
     border: 0;
   }
 }
 
-.l-sideNav .primaryNav-menu ul {
+.l-sideNav .primary-nav-menu ul {
   display: none;
 }
 
@@ -3607,11 +3607,11 @@ nav a {
   }
 }
 
-.l-sideNav .masthead-container .utilityNav {
+.l-sideNav .masthead-container .utility-nav {
   margin: 0 10px;
 }
 @media screen and (min-width: 1200px) {
-  .l-sideNav .masthead-container .utilityNav {
+  .l-sideNav .masthead-container .utility-nav {
     position: relative;
     top: auto;
     right: auto;
@@ -3619,7 +3619,7 @@ nav a {
   }
 }
 
-.l-sideNav .utilityNav li {
+.l-sideNav .utility-nav li {
   display: block;
   padding-left: 0;
 }
@@ -3637,8 +3637,8 @@ nav a {
   }
 }
 
-.l-sideNav.nav-open .primaryNav-menu,
-.l-sideNav.nav-open .utilityNav {
+.l-sideNav.nav-open .primary-nav-menu,
+.l-sideNav.nav-open .utility-nav {
   display: block;
   float: none;
 }
@@ -3646,7 +3646,7 @@ nav a {
 /* top nav
 ----------------------------------------------------------------- */
 @media screen and (min-width: 768px) {
-  .l-topNav .utilityNav {
+  .l-topNav .utility-nav {
     position: absolute;
     top: 113px;
     right: 20px;
@@ -3655,7 +3655,7 @@ nav a {
 }
 
 @media screen and (min-width: 768px) {
-  .l-topNav.search-open .utilityNav {
+  .l-topNav.search-open .utility-nav {
     top: 209px;
   }
 }
@@ -3676,11 +3676,11 @@ nav a {
   padding-right: 60px;
 }
 
-.l-noNav .masthead-container .utilityNav {
+.l-noNav .masthead-container .utility-nav {
   display: none;
 }
 @media screen and (min-width: 768px) {
-  .l-noNav .masthead-container .utilityNav {
+  .l-noNav .masthead-container .utility-nav {
     position: absolute;
     top: 48px;
     right: 80px;
