@@ -2961,7 +2961,7 @@ article[role=main],
   font-weight: normal;
   font-style: normal;
 }
-.siteFooter-social a[href*="dropbox.com"] i:before, .siteFooter-social a[href*="facebook.com"] i:before, .siteFooter-social a[href*="flickr.com"] i:before, .siteFooter-social a[href*="foursquare.com"] i:before, .siteFooter-social a[href*="github.com"] i:before, .siteFooter-social a[href*="plus.google.com"] i:before, .siteFooter-social a[href*="instagram.com"] i:before, .siteFooter-social a[href*="kickstarter.com"] i:before, .siteFooter-social a[href*="linkedin.com"] i:before, .siteFooter-social a[href*="pinterest.com"] i:before, .siteFooter-social a[href*="getpocket.com"] i:before, .siteFooter-social a[href*="reddit.com"] i:before, .siteFooter-social a[href*="twitter.com"] i:before, .siteFooter-social a[href*="tumblr.com"] i:before, .siteFooter-social a[href*="vimeo.com"] i:before, .siteFooter-social a[href*="vine.co"] i:before, .siteFooter-social a[href*="youtube.com"] i:before, .searchToggle.is-open:before, .searchToggle:before, .siteFooter-social i {
+.siteFooter-social a[href*="dropbox.com"] i:before, .siteFooter-social a[href*="facebook.com"] i:before, .siteFooter-social a[href*="flickr.com"] i:before, .siteFooter-social a[href*="foursquare.com"] i:before, .siteFooter-social a[href*="github.com"] i:before, .siteFooter-social a[href*="plus.google.com"] i:before, .siteFooter-social a[href*="instagram.com"] i:before, .siteFooter-social a[href*="kickstarter.com"] i:before, .siteFooter-social a[href*="linkedin.com"] i:before, .siteFooter-social a[href*="pinterest.com"] i:before, .siteFooter-social a[href*="getpocket.com"] i:before, .siteFooter-social a[href*="reddit.com"] i:before, .siteFooter-social a[href*="twitter.com"] i:before, .siteFooter-social a[href*="tumblr.com"] i:before, .siteFooter-social a[href*="vimeo.com"] i:before, .siteFooter-social a[href*="vine.co"] i:before, .siteFooter-social a[href*="youtube.com"] i:before, .search-toggle.is-open:before, .search-toggle:before, .siteFooter-social i {
   /* These classes are using %icon. */
   display: inline-block;
   padding-bottom: 0.2em;
@@ -2982,11 +2982,11 @@ article[role=main],
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
-.siteFooter-social a[href*="dropbox.com"] i:before span, .siteFooter-social a[href*="facebook.com"] i:before span, .siteFooter-social a[href*="flickr.com"] i:before span, .siteFooter-social a[href*="foursquare.com"] i:before span, .siteFooter-social a[href*="github.com"] i:before span, .siteFooter-social a[href*="plus.google.com"] i:before span, .siteFooter-social a[href*="instagram.com"] i:before span, .siteFooter-social a[href*="kickstarter.com"] i:before span, .siteFooter-social a[href*="linkedin.com"] i:before span, .siteFooter-social a[href*="pinterest.com"] i:before span, .siteFooter-social a[href*="getpocket.com"] i:before span, .siteFooter-social a[href*="reddit.com"] i:before span, .siteFooter-social a[href*="twitter.com"] i:before span, .siteFooter-social a[href*="tumblr.com"] i:before span, .siteFooter-social a[href*="vimeo.com"] i:before span, .siteFooter-social a[href*="vine.co"] i:before span, .siteFooter-social a[href*="youtube.com"] i:before span, .searchToggle.is-open:before span, .searchToggle:before span, .siteFooter-social i span {
+.siteFooter-social a[href*="dropbox.com"] i:before span, .siteFooter-social a[href*="facebook.com"] i:before span, .siteFooter-social a[href*="flickr.com"] i:before span, .siteFooter-social a[href*="foursquare.com"] i:before span, .siteFooter-social a[href*="github.com"] i:before span, .siteFooter-social a[href*="plus.google.com"] i:before span, .siteFooter-social a[href*="instagram.com"] i:before span, .siteFooter-social a[href*="kickstarter.com"] i:before span, .siteFooter-social a[href*="linkedin.com"] i:before span, .siteFooter-social a[href*="pinterest.com"] i:before span, .siteFooter-social a[href*="getpocket.com"] i:before span, .siteFooter-social a[href*="reddit.com"] i:before span, .siteFooter-social a[href*="twitter.com"] i:before span, .siteFooter-social a[href*="tumblr.com"] i:before span, .siteFooter-social a[href*="vimeo.com"] i:before span, .siteFooter-social a[href*="vine.co"] i:before span, .siteFooter-social a[href*="youtube.com"] i:before span, .search-toggle.is-open:before span, .search-toggle:before span, .siteFooter-social i span {
   display: none;
 }
 
-.lt-ie9:hover .siteFooter-social a[href*="dropbox.com"] i, .siteFooter-social a[href*="dropbox.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="facebook.com"] i, .siteFooter-social a[href*="facebook.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="flickr.com"] i, .siteFooter-social a[href*="flickr.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="foursquare.com"] i, .siteFooter-social a[href*="foursquare.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="github.com"] i, .siteFooter-social a[href*="github.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="plus.google.com"] i, .siteFooter-social a[href*="plus.google.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="instagram.com"] i, .siteFooter-social a[href*="instagram.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="kickstarter.com"] i, .siteFooter-social a[href*="kickstarter.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="linkedin.com"] i, .siteFooter-social a[href*="linkedin.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="pinterest.com"] i, .siteFooter-social a[href*="pinterest.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="getpocket.com"] i, .siteFooter-social a[href*="getpocket.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="reddit.com"] i, .siteFooter-social a[href*="reddit.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="twitter.com"] i, .siteFooter-social a[href*="twitter.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="tumblr.com"] i, .siteFooter-social a[href*="tumblr.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="vimeo.com"] i, .siteFooter-social a[href*="vimeo.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="vine.co"] i, .siteFooter-social a[href*="vine.co"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="youtube.com"] i, .siteFooter-social a[href*="youtube.com"] .lt-ie9:hover i, .lt-ie9:hover .searchToggle.is-open, .lt-ie9:hover .searchToggle {
+.lt-ie9:hover .siteFooter-social a[href*="dropbox.com"] i, .siteFooter-social a[href*="dropbox.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="facebook.com"] i, .siteFooter-social a[href*="facebook.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="flickr.com"] i, .siteFooter-social a[href*="flickr.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="foursquare.com"] i, .siteFooter-social a[href*="foursquare.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="github.com"] i, .siteFooter-social a[href*="github.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="plus.google.com"] i, .siteFooter-social a[href*="plus.google.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="instagram.com"] i, .siteFooter-social a[href*="instagram.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="kickstarter.com"] i, .siteFooter-social a[href*="kickstarter.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="linkedin.com"] i, .siteFooter-social a[href*="linkedin.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="pinterest.com"] i, .siteFooter-social a[href*="pinterest.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="getpocket.com"] i, .siteFooter-social a[href*="getpocket.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="reddit.com"] i, .siteFooter-social a[href*="reddit.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="twitter.com"] i, .siteFooter-social a[href*="twitter.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="tumblr.com"] i, .siteFooter-social a[href*="tumblr.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="vimeo.com"] i, .siteFooter-social a[href*="vimeo.com"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="vine.co"] i, .siteFooter-social a[href*="vine.co"] .lt-ie9:hover i, .lt-ie9:hover .siteFooter-social a[href*="youtube.com"] i, .siteFooter-social a[href*="youtube.com"] .lt-ie9:hover i, .lt-ie9:hover .search-toggle.is-open, .lt-ie9:hover .search-toggle {
   /* These classes are using %icon-iefix. */
   -ms-zoom: 1;
 }
@@ -3078,12 +3078,12 @@ article[role=main],
 }
 
 /* general icons */
-.searchToggle.is-open:before {
+.search-toggle.is-open:before {
   /* These classes are using %icon-close. */
   content: "\E421";
 }
 
-.searchToggle:before {
+.search-toggle:before {
   /* These classes are using %icon-search. */
   content: "\1F50E";
 }
@@ -3133,8 +3133,8 @@ nav a {
   text-decoration: none;
 }
 
-/* .searchToggle appears only when header is small and above, otherwise it's hidden */
-.brand .searchToggle {
+/* .search-toggle appears only when header is small and above, otherwise it's hidden */
+.brand .search-toggle {
   display: none;
 }
 
@@ -3203,7 +3203,7 @@ nav a {
 
 /* search-toggle
 ----------------------------------------------------------------- */
-.searchToggle {
+.search-toggle {
   -webkit-transition: color 200ms ease-in-out 0s;
   -moz-transition: color 200ms ease-in-out 0s;
   -ms-transition: color 200ms ease-in-out 0s;
@@ -3218,14 +3218,14 @@ nav a {
   color: #ffffff;
   text-align: center;
 }
-.searchToggle:visited {
+.search-toggle:visited {
   color: #ffffff;
 }
-.searchToggle:hover {
+.search-toggle:hover {
   color: #aaaaaa;
 }
 
-.searchToggle span {
+.search-toggle span {
   display: none;
 }
 
@@ -3561,13 +3561,13 @@ nav a {
   }
 }
 
-.l-sideNav .brand .searchToggle,
-.l-noNav .brand .searchToggle {
+.l-sideNav .brand .search-toggle,
+.l-noNav .brand .search-toggle {
   color: #9f9f9f;
 }
 @media screen and (min-width: 768px) {
-  .l-sideNav .brand .searchToggle,
-  .l-noNav .brand .searchToggle {
+  .l-sideNav .brand .search-toggle,
+  .l-noNav .brand .search-toggle {
     right: 10px;
     display: block;
     position: relative;
@@ -3577,22 +3577,22 @@ nav a {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
-  .lt-ie9 .l-sideNav .brand .searchToggle, .lt-ie9
-  .l-noNav .brand .searchToggle {
+  .lt-ie9 .l-sideNav .brand .search-toggle, .lt-ie9
+  .l-noNav .brand .search-toggle {
     top: auto;
   }
 }
-.l-sideNav .brand .searchToggle:visited,
-.l-noNav .brand .searchToggle:visited {
+.l-sideNav .brand .search-toggle:visited,
+.l-noNav .brand .search-toggle:visited {
   color: #9f9f9f;
 }
-.l-sideNav .brand .searchToggle:hover,
-.l-noNav .brand .searchToggle:hover {
+.l-sideNav .brand .search-toggle:hover,
+.l-noNav .brand .search-toggle:hover {
   color: #000000;
 }
 
 @media screen and (min-width: 768px) {
-  .l-sideNav .primary-nav .searchToggle {
+  .l-sideNav .primary-nav .search-toggle {
     display: none;
   }
 }
@@ -3688,7 +3688,7 @@ nav a {
   }
 }
 
-.l-noNav .brand .searchToggle {
+.l-noNav .brand .search-toggle {
   display: block;
   margin: 0 -60px 0 0;
   font-size: 24px;

@@ -5,11 +5,11 @@
 	$( '.nav-toggle' ).on( 'click', function ( e ) {
 		e.preventDefault();
 		$( 'nav, .nav-toggle' ).toggleClass( 'is-open' );
-		$( '.searchToggle, #quicksearch' ).removeClass( 'is-open' );
+		$( '.search-toggle, #quicksearch' ).removeClass( 'is-open' );
 		$( 'body' ).toggleClass( 'nav-open' ).removeClass( 'search-open' );
 	});
 
-	$( '.searchToggle' ).on( 'click', function ( e ) {
+	$( '.search-toggle' ).on( 'click', function ( e ) {
 		e.preventDefault();
 		$( 'nav, .nav-toggle' ).removeClass( 'is-open' );
 
@@ -19,7 +19,7 @@
 			}, 100 );
 		}
 
-		$( '.searchToggle, #quicksearch' ).toggleClass( 'is-open' );
+		$( '.search-toggle, #quicksearch' ).toggleClass( 'is-open' );
 		$( 'body' ).toggleClass( 'search-open' ).removeClass('nav-open');
 	});
 } ( jQuery ) );
