@@ -52,7 +52,7 @@ function responsive_branding_masterplate( $args = array() ) {
  */
 function responsive_branding_bumc_logo( $args = array() ) {
 	$defaults = array(
-		'before' => '<div class="siteFooter-bumc">',
+		'before' => '<div class="site-footer-bumc">',
 		'after'  => '</div>',
 		);
 	$args = wp_parse_args( $args, $defaults );
