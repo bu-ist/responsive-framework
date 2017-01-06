@@ -7,7 +7,7 @@
 
 ?>
 
-<article role="main" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article role="main" id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
 
 	<?php responsive_content_banner( 'contentWidth' ); ?>
 
