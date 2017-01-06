@@ -42,6 +42,15 @@ module.exports = function(grunt) {
 				options: {
 					spawn: false,
 				}
+			},
+			fonts: {
+				files: [
+				'css-dev/admin.scss',
+				],
+				tasks: ['sass:admin'],
+				options: {
+					spawn: false,
+				}
 			}
 		},
 		concat: {
@@ -103,6 +112,15 @@ module.exports = function(grunt) {
 					src: ['*.scss'],
 					dest: 'css',
 					ext: '.css'
+				}]
+			},
+			admin: {
+				options: {
+					style: 'compressed',
+					bundleExec: true
+				},
+				files: [{
+					'admin/admin.css': 'css-dev/admin.scss',
 				}]
 			}
 		},

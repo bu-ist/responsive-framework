@@ -1,0 +1,91 @@
+
+/* Customizer: Layout */
+#burf_setting_layout input {
+	display: none;
+}
+#burf_setting_fonts label,
+#burf_setting_layout label{
+	width: auto;
+	height: auto;
+	display: inline-block;
+}
+#burf_setting_layout label {
+	font-size: 0;
+}
+#burf_setting_layout li label:after {
+	background: url("admin_sprite.png") no-repeat 0 0 transparent;
+	content: "";
+	height: 129px;
+	width: 227px;
+	display: block;
+	margin: 4px;
+	padding: 4px;
+}
+#burf_setting_layout li input:checked + label:after {
+	margin: 0;
+	border: 4px solid #288DBB;
+}
+#burf_setting_layout li:nth-of-type(1) label:after {
+	background-position: 0 0px;
+}
+#burf_setting_layout li:nth-of-type(2) label:after {
+	background-position: 0 -150px;
+}
+#burf_setting_layout li:nth-of-type(3) label:after {
+	background-position: 0 -300px;
+}
+#burf_setting_layout li:nth-of-type(4) label:after {
+	background-position: -300px 0;
+}
+
+/* Customizer: Fonts */
+#burf_setting_fonts input {
+	display: none;
+}
+#burf_setting_fonts label {
+	font-size: 0;
+}
+#burf_setting_fonts li label:after {
+	background: url("admin_sprite.png") no-repeat 0 0 transparent;
+	content: "";
+	height: 82px;
+	width: 245px;
+	display: block;
+	margin: 4px;
+}
+#burf_setting_fonts li input:checked + label:after {
+	margin: 0;
+	border: 4px solid #288DBB;
+}
+#burf_setting_fonts li:nth-of-type(1) label:after {
+	background-position: 0 -750px;
+}
+#burf_setting_fonts li:nth-of-type(2) label:after {
+	background-position: 0 -850px;
+}
+#burf_setting_fonts li:nth-of-type(3) label:after {
+	background-position: 0 -950px;
+}
+#burf_setting_fonts li:nth-of-type(4) label:after {
+	background-position: 0 -1050px;
+}
+#burf_setting_fonts li:nth-of-type(5) label:after {
+	background-position: 0 -1150px;
+}
+
+#customize-control-burf_setting_color_scheme .customize-control-title {
+	display: none;
+}
+
+#accordion-section-bu_branding .customize-control-description {
+	display: none;
+	color: #999;
+	margin-left: 24px;
+}
+#accordion-section-bu_branding input[disabled] + .customize-control-description {
+	display: block;
+}
+
+#customize-control-burf_setting_sidebar_options .description {
+	font-style: normal;
+}
