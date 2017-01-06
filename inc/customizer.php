@@ -971,7 +971,7 @@ input[type="submit"],
 #quicksearch,
 .l-sideNav #quicksearch,
 .message,
-.single article[role=main] .meta,
+.single .content-area .meta,
 .singleEvent .dateSummary,
 .single-profile .profile-info {
 	background: #f5f8ff;
