@@ -226,7 +226,7 @@ function responsive_customize_register( $wp_customize ) {
 	);
 
 	// Footer.
-	$menu_url = admin_url( 'nav-menus.php?action=locations' );
+	$menu_url = admin_url( 'customize.php?autofocus[section]=menu_locations' );
 	$wp_customize->add_section( 'burf_section_footer', array(
 		'title'       => 'Footer',
 		'description' => "Footer links can be managed using the <a href=\"$menu_url\">Footer and Social Links Custom Menu locations</a>.",
