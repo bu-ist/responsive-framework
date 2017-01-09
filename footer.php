@@ -28,5 +28,14 @@
 	</footer>
 
 	<?php wp_footer(); ?>
+
+	<?php
+		/**
+		 * Fires immediately before the closing body tag.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_before_closing_body_tag' );
+	?>
 </body>
 </html>
