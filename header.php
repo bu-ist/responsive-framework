@@ -36,7 +36,15 @@
 
 	<?php wp_head(); ?>
 </head>
-<body id="top" <?php body_class(); ?> >
+<body id="top" <?php body_class(); ?>>
+	<?php
+		/**
+		 * Fires immediately after the opening body tag.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_after_opening_body_tag' );
+	?>
 
 	<header class="masthead" role="banner">
 		<div class="masthead-container">
