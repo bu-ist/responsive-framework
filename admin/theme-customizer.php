@@ -248,10 +248,11 @@ function responsive_customize_register( $wp_customize ) {
 
 	// Core <textarea> type added in WP 4.0.
 	$footer_info_args = array(
-		'label'    => 'Additional Information',
+		'label'    => 'Custom HTML',
 		'section'  => 'burf_section_footer',
 		'settings' => 'burf_setting_footer[text]',
 		'type'     => 'textarea',
+		'description' => "May be used to enter an address or contact information.",
 	);
 	if ( version_compare( $GLOBALS['wp_version'], '4.0', '<' ) ) {
 		$wp_customize->add_control( new BURF_Customize_Textarea( $wp_customize, 'burf_section_footer_info', $footer_info_args ) );
