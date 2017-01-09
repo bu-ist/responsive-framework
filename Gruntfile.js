@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 					spawn: false,
 				}
 			},
-			fonts: {
+			admin: {
 				files: [
 				'css-dev/admin.scss',
 				],
