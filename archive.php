@@ -14,7 +14,7 @@ $archive_type = responsive_archive_type();
 
 		<?php
 			the_archive_title( '<h1>', '</h1>' );
-			the_archive_description( '<div class="taxonomyDescription">', '</div>' );
+			the_archive_description( '<div class="taxonomy-description">', '</div>' );
 		?>
 
 		<?php
