@@ -7,11 +7,11 @@
 
 get_header(); ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+	<?php if ( have_posts() ) : the_post(); ?>
 
-		<?php get_template_part( 'template-parts/content', 'profile' ); ?>
+		<?php get_template_part( 'template-parts/profile', 'single' ); ?>
 
-	<?php endwhile; ?>
+	<?php endif; ?>
 
 <?php get_sidebar( 'profiles' ); ?>
 <?php get_footer();

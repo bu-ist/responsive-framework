@@ -13,7 +13,7 @@
 	<div class="profile-listing">
 		<ul class="basic">
 			<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-				<?php get_template_part( 'template-parts/content', 'profiles' ); ?>
+				<?php get_template_part( 'template-parts/profile', 'basic' ); ?>
 			<?php endwhile; ?>
 		</ul>
 	</div><!--/.profile-listing-->
