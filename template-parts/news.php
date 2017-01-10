@@ -5,7 +5,6 @@
  * @package Responsive_Framework
  */
 
-
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -31,8 +30,10 @@
 	<?php BU_News_Page_Template::show_content( '', '', 'More' ); ?>
 
 	<?php
-		if ( $show_meta ) {
-			BU_News_Page_Template::show_tags( '<p class="meta tag-list"><span class="tags"><em>Tagged:</em> ', '</span></p>' );
-		}
+
+	if ( $show_meta ) {
+		BU_News_Page_Template::show_tags( '<p class="meta tag-list"><span class="tags"><em>Tagged:</em> ', '</span></p>' );
+	}
+
 	?>
 </article>
