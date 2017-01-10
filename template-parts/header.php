@@ -10,7 +10,7 @@
 
 <?php responsive_utility_nav(); ?>
 
-<nav class="primary-.av" role="navigation">
+<nav class="primary-nav" role="navigation">
 	<a href="#primaryNav-menu" class="nav-toggle"><span>Menu</span></a>
 
 	<?php if ( responsive_search_is_enabled() ) : ?>
