@@ -240,7 +240,7 @@ function responsive_oembed_output( $html, $url ) {
 
 		foreach ( $patterns as $pattern ) {
 			if ( preg_match( $pattern, $url ) ) {
-				return( sprintf( '<div class="responsiveVideo responsive-%s">%s</div>', $slug, $html ) );
+				return( sprintf( '<div class="responsive-video responsive-%s">%s</div>', $slug, $html ) );
 			}
 		}
 	}

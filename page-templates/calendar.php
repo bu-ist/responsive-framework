@@ -293,7 +293,7 @@ if ( $timestamp > $boundary_future ) {
 					</dl>
 				</div> <!-- /.additionalDetails -->
 
-				<p><a href="<?php the_permalink(); ?>" class="archiveLink calendarArchiveLink">Back to Calendar</a></p>
+				<p><a href="<?php the_permalink(); ?>" class="archive-link calendar-archive-link">Back to Calendar</a></p>
 
 			</div><!-- /.singleEvent -->
 		<?php } ?>

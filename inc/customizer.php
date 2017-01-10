@@ -688,7 +688,7 @@ function responsive_framework_get_color_regions_css( $colors, $context = 'defaul
 ----------------------------------------------------------------- */
 
 .sidebar .widget,
-.sidebarPosts .widget,
+.sidebar-posts .widget,
 .sidebarProfiles .widget {
 	background: {$colors['sidebar-bg']};
 	padding:24px;
@@ -802,7 +802,7 @@ input[type="submit"],
 .button-selected,
 #quicksearch .button,
 .paging-navigation a,
-.archiveLink {
+.archive-link {
 	background: {$colors['button-color']};
 	color: {$colors['button-text-color']};
 }
@@ -820,12 +820,12 @@ input[type="submit"],
 .sidebar #contentnav li,
 .sidebar .widget_nav_menu li,
 .sidebar .widget-bu-calendar li,
-.sidebarPosts .widget-title,
-.sidebarPosts #contentnav ul,
-.sidebarPosts .widget_nav_menu ul,
-.sidebarPosts #contentnav li,
-.sidebarPosts .widget_nav_menu li,
-.sidebarPosts .widget-bu-calendar li,
+.sidebar-posts .widget-title,
+.sidebar-posts #contentnav ul,
+.sidebar-posts .widget_nav_menu ul,
+.sidebar-posts #contentnav li,
+.sidebar-posts .widget_nav_menu li,
+.sidebar-posts .widget-bu-calendar li,
 .sidebarProfiles .widget-title,
 .sidebarProfiles #contentnav ul,
 .sidebarProfiles .widget_nav_menu ul,
@@ -840,11 +840,11 @@ input[type="submit"],
 
 .sidebar .widget-title,
 .sidebar .widget .widget-title a,
-.sidebarPosts .widget .widget-title a,
+.sidebar-posts .widget .widget-title a,
 .sidebarProfiles .widget .widget-title a,
 .sidebar .widget-title a:after,
-.sidebarPosts .widget-title,
-.sidebarPosts .widget-title a:after,
+.sidebar-posts .widget-title,
+.sidebar-posts .widget-title a:after,
 .sidebarProfiles .widget-title,
 .sidebarProfiles .widget-title a:after {
 	color: {$colors['sidebar-widgetTitle']};
@@ -852,7 +852,7 @@ input[type="submit"],
 
 /* text color */
 .sidebar .widget,
-.sidebarPosts .widget,
+.sidebar-posts .widget,
 .sidebarProfiles .widget,
 .monthCalendar th,
 .monthCalendar caption {
@@ -863,9 +863,9 @@ input[type="submit"],
 .sidebar .widget a,
 .sidebar #contentnav li a,
 .sidebar .widget_nav_menu li a,
-.sidebarPosts .widget a,
-.sidebarPosts #contentnav li a,
-.sidebarPosts .widget_nav_menu li a,
+.sidebar-posts .widget a,
+.sidebar-posts #contentnav li a,
+.sidebar-posts .widget_nav_menu li a,
 .sidebarProfiles .widget a,
 .sidebarProfiles #contentnav li a,
 .sidebarProfiles .widget_nav_menu li a {
@@ -878,11 +878,11 @@ input[type="submit"],
 .sidebar .widget_nav_menu li a:hover,
 .sidebar #contentnav li.current_page_item > a,
 .sidebar .widget_nav_menu li.current_page_item > a,
-.sidebarPosts .widget a:hover,
-.sidebarPosts #contentnav li a:hover,
-.sidebarPosts .widget_nav_menu li a:hover,
-.sidebarPosts #contentnav li.current_page_item > a,
-.sidebarPosts .widget_nav_menu li.current_page_item > a,
+.sidebar-posts .widget a:hover,
+.sidebar-posts #contentnav li a:hover,
+.sidebar-posts .widget_nav_menu li a:hover,
+.sidebar-posts #contentnav li.current_page_item > a,
+.sidebar-posts .widget_nav_menu li.current_page_item > a,
 .sidebarProfiles .widget a:hover,
 .sidebarProfiles #contentnav li a:hover,
 .sidebarProfiles .widget_nav_menu li a:hover,
