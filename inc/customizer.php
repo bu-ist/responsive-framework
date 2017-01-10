@@ -24,7 +24,7 @@ add_action( 'init', 'responsive_enable_customizer', 12 );
  * Returns layout slug for currently active theme layout.
  *
  * Child themes can force a specific layout option by defining the BU_RESPONSIVE_LAYOUT
- * constant using one of the layout slugs (e.g. topNav, sideNav, etc.).
+ * constant using one of the layout slugs (e.g. top-nav, side-nav, etc.).
  *
  * @see  responsive_layout_options()
  */
@@ -41,9 +41,9 @@ function responsive_layout() {
 function responsive_layout_options() {
 	return apply_filters( 'responsive_layout_options', array(
 		'default' => 'Default',
-		'topNav'  => 'Top Navigation Bar',
-		'sideNav' => 'Side Navigation Bar',
-		'noNav'   => 'No Navigation Bar',
+		'top-nav'  => 'Top Navigation Bar',
+		'side-nav' => 'Side Navigation Bar',
+		'no-nav'   => 'No Navigation Bar',
 	) );
 }
 
@@ -206,7 +206,7 @@ function responsive_customizer_color_region_groups() {
 	return array(
 		'navbar'       => array(
 			'label' => 'Navigation Bar',
-			'layout_excludes' => array( 'noNav' ),
+			'layout_excludes' => array( 'no_nav' ),
 			),
 		'content-area' => array(
 			'label' => 'Content Area',
@@ -732,7 +732,7 @@ CSS;
 ----------------------------------------------------------------- */
 
 /* navbar bg color */
-.l-sideNav .wrapper,
+.l-side_nav .wrapper,
 .primaryNav,
 .primaryNav-menu ul {
 	background: {$colors['primaryNav-bg']};
@@ -740,19 +740,19 @@ CSS;
 
 /* main nav and nav border color */
 .primaryNav-menu a,
-.l-sideNav .primaryNav-menu a {
+.l-side_nav .primaryNav-menu a {
 	color: {$colors['primaryNav-link']};
 	border-color: {$colors['primaryNav-border']};
 }
 
 /* utility nav color */
-.l-sideNav .utilityNav a {
+.l-side_nav .utilityNav a {
 	color: {$colors['utilityNav-link']};
 }
 
 /* main nav and utility nav hover color */
 .primaryNav-menu a:hover,
-.l-sideNav .utilityNav a:hover,
+.l-side_nav .utilityNav a:hover,
 .primaryNav-menu li a.active,
 .primaryNav-menu li a.active_section,
 .primaryNav-menu li li a:hover,
@@ -969,7 +969,7 @@ input[type="submit"],
 
 .comment-respond,
 #quicksearch,
-.l-sideNav #quicksearch,
+.l-side_nav #quicksearch,
 .message,
 .single article[role=main] .meta,
 .singleEvent .dateSummary,
