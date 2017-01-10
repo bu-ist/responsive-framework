@@ -214,6 +214,28 @@ function responsive_content_banner( $position ) {
 		$post_id = get_post()->ID;
 	}
 
+	/**
+	 * Fires immediately before a content banner is displayed.
+	 *
+	 * The dynamic portion of the hook name, `$position`, refers to
+	 * the registered content banner position.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param int $post_id Post ID.
+	 */
+	do_action( "r_before_content_banner_{$position}", $post_id );
+
+	/**
+	 * Fires immediately before a content banner.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param string $position Registered content banner position.
+	 * @param int    $post_id  Post ID.
+	 */
+	do_action( 'r_before_content_banner', $position, $post_id );
+
 	$banner_args = array(
 		'before'   => sprintf( '<div class="bannerContainer bannerContainer-%s">', $position ),
 		'after'    => '</div>',
@@ -225,6 +247,27 @@ function responsive_content_banner( $position ) {
 	// allows themes to add to the bu_content_banner output.
 	echo apply_filters( 'responsive_content_banner_output', bu_content_banner( $post_id, $banner_args ), $post_id, $position );
 
+	/**
+	 * Fires immediately after a content banner is displayed.
+	 *
+	 * The dynamic portion of the hook name, `$position`, refers to
+	 * the registered content banner position.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param int $post_id Post ID.
+	 */
+	do_action( "r_after_content_banner_{$position}", $post_id );
+
+	/**
+	 * Fires immediately after a content banner.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param string $position Registered content banner position.
+	 * @param int    $post_id  Post ID.
+	 */
+	do_action( 'r_after_content_banner', $position, $post_id );
 }
 
 /**
