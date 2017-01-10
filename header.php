@@ -46,11 +46,27 @@
 		do_action( 'r_after_opening_body_tag' );
 	?>
 
+	<?php
+		/**
+		 * Fires immediately before the masthead.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_before_masthead' );
+	?>
 	<header class="masthead" role="banner">
 		<div class="masthead-container">
 			<?php get_template_part( 'template-parts/header', responsive_layout() ); ?>
 		</div>
 	</header>
+	<?php
+		/**
+		 * Fires immediately after the masthead.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_after_masthead' );
+	?>
 
 	<div class="wrapper">
 		<div class="content">
