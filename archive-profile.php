@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-	<article role="main" class="profiles-archive">
+	<article role="main" class="content-area profiles-archive">
 		<?php if ( have_posts() ) : ?>
 
 			<h1>Profile Directory</h1>
