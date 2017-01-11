@@ -57,7 +57,7 @@ function responsive_branding_masterplate( $args = array() ) {
 		bu_branding_masterplate( $args );
 
 		/**
-		 * Fires immediately before the BU branding masterplate.
+		 * Fires immediately after the BU branding masterplate.
 		 *
 		 * @since 2.0.0
 		 */
@@ -78,8 +78,6 @@ function responsive_branding_masterplate( $args = array() ) {
  *     @type string $before Markup or text to go before the branding masterplate.
  *     @type string $after  Markup or text to go after the branding masterplate.
  * }
- *
- * @return string|bool HTML Markup for the BUMC Branding Masterplate, or false on failure.
  */
 function responsive_branding_bumc_logo( $args = array() ) {
 	$defaults = array(
@@ -89,9 +87,22 @@ function responsive_branding_bumc_logo( $args = array() ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	if ( function_exists( 'bu_branding_bumc_logo' ) ) {
-		return bu_branding_bumc_logo( $args );
+		/**
+		 * Fires immediately before the BUMC branding logo.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_before_bumc_branding_logo' );
+
+		bu_branding_bumc_logo( $args );
+
+		/**
+		 * Fires immediately after the BUMC branding logo.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_after_bumc_branding_logo' );
 	}
-	return false;
 }
 
 /**
@@ -107,8 +118,6 @@ function responsive_branding_bumc_logo( $args = array() ) {
  *     @type string $before Markup or text to go before the branding disclaimer.
  *     @type string $after  Markup or text to go after the branding disclaimber.
  * }
- *
- * @return string|bool HTML Markup for the BUMC Branding disclaimer, or false on failure.
  */
 function responsive_branding_disclaimer( $args = array() ) {
 	$defaults = array(
@@ -118,9 +127,22 @@ function responsive_branding_disclaimer( $args = array() ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	if ( function_exists( 'bu_branding_disclaimer' ) ) {
-		return bu_branding_disclaimer( $args );
+		/**
+		 * Fires immediately before the BU branding disclaimer.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_before_branding_disclaimer' );
+
+		bu_branding_disclaimer( $args );
+
+		/**
+		 * Fires immediately after the BU branding disclaimer.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_after_branding_disclaimer' );
 	}
-	return false;
 }
 
 
