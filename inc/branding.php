@@ -19,7 +19,7 @@ function responsive_branding() {
 
 	$name = get_bloginfo( 'name' );
 ?>
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( $name ); ?>" rel="home">
+	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( $name ); ?>" rel="home">
 		<span class="siteName"><?php echo esc_html( $name ); ?></span>
 	</a>
 <?php
