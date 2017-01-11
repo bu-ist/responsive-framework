@@ -10,6 +10,9 @@
 * Page templates have been updated to be more simple. A template part should be
  a repeatable chunk that can be used within the loop. All logic determining
  what should show, how, or where, should be contained in the page template.
+* For most post types, single templates only display content in one way. For
+ that reason, single templates should not use `get_template_part()` unless more
+ than one display variations actually exist. 
 * Updated profile, news, and page templates to use the above thought process.
 * `responsive_post_lists_show_news_meta()` no longer requires a settings array 
  to be passed when called. By default, it will utilize the settings selected on
