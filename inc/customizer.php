@@ -206,7 +206,7 @@ function responsive_customizer_color_region_groups() {
 	return array(
 		'navbar'       => array(
 			'label' => 'Navigation Bar',
-			'layout_excludes' => array( 'no_nav' ),
+			'layout_excludes' => array( 'no-nav' ),
 			),
 		'content-area' => array(
 			'label' => 'Content Area',
