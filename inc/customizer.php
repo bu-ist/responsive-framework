@@ -732,7 +732,7 @@ CSS;
 ----------------------------------------------------------------- */
 
 /* navbar bg color */
-.l-side_nav .wrapper,
+.l-side-nav .wrapper,
 .primaryNav,
 .primaryNav-menu ul {
 	background: {$colors['primaryNav-bg']};
@@ -740,19 +740,19 @@ CSS;
 
 /* main nav and nav border color */
 .primaryNav-menu a,
-.l-side_nav .primaryNav-menu a {
+.l-side-nav .primaryNav-menu a {
 	color: {$colors['primaryNav-link']};
 	border-color: {$colors['primaryNav-border']};
 }
 
 /* utility nav color */
-.l-side_nav .utilityNav a {
+.l-side-nav .utilityNav a {
 	color: {$colors['utilityNav-link']};
 }
 
 /* main nav and utility nav hover color */
 .primaryNav-menu a:hover,
-.l-side_nav .utilityNav a:hover,
+.l-side-nav .utilityNav a:hover,
 .primaryNav-menu li a.active,
 .primaryNav-menu li a.active_section,
 .primaryNav-menu li li a:hover,
@@ -969,7 +969,7 @@ input[type="submit"],
 
 .comment-respond,
 #quicksearch,
-.l-side_nav #quicksearch,
+.l-side-nav #quicksearch,
 .message,
 .single .content-area .meta,
 .singleEvent .dateSummary,
