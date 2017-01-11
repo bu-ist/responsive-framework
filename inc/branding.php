@@ -38,8 +38,6 @@ function responsive_branding() {
  *     @type string $before Markup or text to go before the branding masterplate.
  *     @type string $after  Markup or text to go after the branding masterplate.
  * }
- *
- * @return string|bool HTML Markup for the BU Branding Masterplate, or false on failure.
  */
 function responsive_branding_masterplate( $args = array() ) {
 	$defaults = array(
@@ -49,9 +47,22 @@ function responsive_branding_masterplate( $args = array() ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	if ( function_exists( 'bu_branding_masterplate' ) ) {
-		return bu_branding_masterplate( $args );
+		/**
+		 * Fires immediately before the BU branding masterplate.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_before_branding_masterplate' );
+
+		bu_branding_masterplate( $args );
+
+		/**
+		 * Fires immediately before the BU branding masterplate.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_after_branding_masterplate' );
 	}
-	return false;
 }
 
 /**
