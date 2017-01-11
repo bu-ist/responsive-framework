@@ -69,8 +69,40 @@
 	?>
 
 	<div class="wrapper">
+
+		<?php
+			/**
+			 * Fires immediately before the opening content div.
+			 *
+			 * @since 2.0.0
+			 */
+			do_action( 'r_before_opening_content' );
+		?>
 		<div class="content">
+			<?php
+				/**
+				 * Fires immediately after the opening content div.
+				 *
+				 * @since 2.0.0
+				 */
+				do_action( 'r_after_opening_content' );
+			?>
 
 			<?php responsive_content_banner( 'windowWidth' ); ?>
 
+			<?php
+				/**
+				 * Fires immediately before the opening content container div.
+				 *
+				 * @since 2.0.0
+				 */
+				do_action( 'r_before_opening_content_container' );
+			?>
 			<div class="content-container">
+				<?php
+					/**
+					 * Fires immediately after the opening content container div.
+					 *
+					 * @since 2.0.0
+					 */
+					do_action( 'r_after_opening_content_container' );
