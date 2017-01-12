@@ -40,7 +40,7 @@
 
 	<header class="masthead" role="banner">
 		<div class="masthead-container">
-			<?php get_template_part( 'template-parts/header', responsive_layout() ); ?>
+			<?php get_template_part( 'template-parts/masthead', responsive_layout() ); ?>
 		</div>
 	</header>
 
