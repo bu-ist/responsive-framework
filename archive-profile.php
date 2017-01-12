@@ -8,29 +8,25 @@
 get_header(); ?>
 
 	<article role="main" class="content-area profiles-archive">
-	<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
 
-		<h1>Profile Directory</h1>
+			<h1>Profile Directory</h1>
 
-		<div class="profile-listing">
-			<ul class="basic">
+			<div class="profile-listing">
+				<ul class="basic">
+					<?php while ( have_posts() ) : the_post(); ?>
+						<?php get_template_part( 'template-parts/profile' ); ?>
+					<?php endwhile; ?>
+				</ul>
+			</div>
 
-		<?php while ( have_posts() ) : the_post();
+			<?php responsive_posts_navigation(); ?>
 
-			get_template_part( 'template-parts/content', 'profiles' );
+		<?php else : ?>
 
-		endwhile; ?>
+			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-			</ul>
-		</div>
-
-		<?php responsive_posts_navigation(); ?>
-
-	<?php else : ?>
-
-		<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-	<?php endif; ?>
+		<?php endif; ?>
 	</article>
 
 <?php get_sidebar( 'profiles' ); ?>
