@@ -1,6 +1,6 @@
 <?php
 /**
- * Default header layout.
+ * Default masthead layout.
  *
  * @package Responsive_Framework
  */
