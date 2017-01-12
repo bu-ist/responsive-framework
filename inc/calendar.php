@@ -41,8 +41,8 @@ function responsive_calendar_sidebar( $args = array() ) {
 		</div>
 		<?php if ( $args['show_topics'] ): ?>
 		<div id="calendar-topics" class="widget">
-			<h2 class="widget-title">Event <?php echo $args['topic_heading']; ?></h2>
-			<p><a class="content-nav-header" href="<?php echo $all_topics_url; ?>">All <?php echo $args['topic_heading']; ?></a></p>
+			<h2 class="widget-title">Event <?php echo esc_html( $args['topic_heading'] ); ?></h2>
+			<p><a class="content-nav-header" href="<?php echo esc_url( $all_topics_url ); ?>">All <?php echo esc_html( $args['topic_heading'] ); ?></a></p>
 		<?php  echo $buCalendar->buildTopicTree( $topics ); ?>
 		</div>
 		<?php endif; ?>
