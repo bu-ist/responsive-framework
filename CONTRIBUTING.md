@@ -106,7 +106,8 @@ When the code in `develop` is ready to be released into the wild, a pull
 1. Increment version number strings.
 1. Update the "Unreleased heading in the `CHANGELOG.md` to reflect the version
  being released.
-1. Perform any necessary build tasks through Grunt.
+1. Perform any necessary build tasks through Grunt. Remember to verify the
+ proper version of Responsive Foundation is being loaded through Bower.
 1. Submit a pull request to merge your branch into `master`.
 1. After your pull request receives approval from at least one other team
  member, merge your code into `master` and ensure the merge went smoothly.
