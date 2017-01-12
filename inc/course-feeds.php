@@ -1,10 +1,16 @@
 <?php
 /**
  * BU Course Feeds plugin support functions & templates.
+ *
+ * @package Responsive_Framework\course-feeds
  */
 
 /**
  * Default display callback for the [bu-course-feed] shortcode.
+ *
+ * @param string $template Default HTML template to filter.
+ *
+ * @return string $template HTML template to use for displaying a course.
  */
 function responsive_course_template( $template ) {
 	$template = <<<TPL
@@ -24,6 +30,10 @@ add_filter( 'bu_course_feeds_default_course_template', 'responsive_course_templa
 
 /**
  * Default display callback for the [bu-course-feed_section] shortcode.
+ *
+ * @param string $template Default HTML template to filter.
+ *
+ * @return string $template HTML template to use for displaying a section.
  */
 function responsive_section_template( $template ) {
 	$template = <<<TPL
@@ -49,6 +59,10 @@ add_filter( 'bu_course_feeds_default_section_template', 'responsive_section_temp
 
 /**
  * Default display callback for the [bu-course-feed_schedule] shortcode.
+ *
+ * @param string $template Default HTML template to filter.
+ *
+ * @return string $template HTML template to use for displaying a schedule.
  */
 function responsive_schedule_template( $template ) {
 	$template = <<<TPL

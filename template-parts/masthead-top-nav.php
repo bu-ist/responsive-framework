@@ -1,7 +1,10 @@
 <?php
 /**
- * Header layout with navigation bar over branding.
+ * Masthead layout with navigation bar over branding.
+ *
+ * @package Responsive_Framework
  */
+
 ?>
 <nav class="primary-nav" role="navigation">
 	<a href="#primaryNav-menu" class="nav-toggle"><span>Menu</span></a>

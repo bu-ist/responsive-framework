@@ -1,6 +1,8 @@
 <?php
 /**
  * Template file used to render the Blog Posts Index, whether on the site front page or on a static page.
+ *
+ * @package Responsive_Framework
  */
 
 get_header(); ?>
