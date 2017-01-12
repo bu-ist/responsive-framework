@@ -1,7 +1,10 @@
 <?php
 /**
- * Header layout with left side navigation bar.
+ * Masthead layout with left side navigation bar.
+ *
+ * @package Responsive_Framework
  */
+
 ?>
 <div class="brand">
 	<?php responsive_branding(); ?>

@@ -1,24 +1,26 @@
 <?php
 /**
  * BUniverse integrations.
+ *
+ * @package Responsive_Framework\buniverse
  */
 
 if ( ! function_exists( 'buniverse_shortcode' ) ) {
 	/**
 	 * Renders BUniverse video player.
 	 *
-	 * @param array   $atts {
+	 * @param array  $atts {
 	 *     Optional. Shortcode attributes.
 	 *
-	 * @type  string  $vid BUniverse video ID.
-	 * @type  string  $id HTML ID attribute for video wrapper <div>.
-	 * @type  string  $class HTML class attribute for video wrapper <div>.
-	 * @type  int     $width Width attribute for <iframe>. Default 550.
-	 * @type  int     $height Height attribute for <iframe>. Default 310.
-	 * @type  string  $caption Caption content.
+	 *     @type string $vid BUniverse video ID.
+	 *     @type string $id HTML ID attribute for video wrapper <div>.
+	 *     @type string $class HTML class attribute for video wrapper <div>.
+	 *     @type int    $width Width attribute for <iframe>. Default 550.
+	 *     @type int    $height Height attribute for <iframe>. Default 310.
+	 *     @type string $caption Caption content.
 	 * }
 	 *
-	 * @param  string $content Shortcode content. Currently unused.
+	 * @param string $content Shortcode content. Currently unused.
 	 *
 	 * @return mixed|void
 	 */
@@ -32,7 +34,7 @@ if ( ! function_exists( 'buniverse_shortcode' ) ) {
 			'caption' => '',
 		), $atts, 'buniverse' );
 
-		// Sanitize and build wrapper attributes
+		// Sanitize and build wrapper attributes.
 		$atts['id'] = trim( $atts['id'] );
 		$id_attr = '';
 		if ( $atts['id'] ) {
@@ -45,7 +47,7 @@ if ( ! function_exists( 'buniverse_shortcode' ) ) {
 			$classes = implode( ' ', array_map( 'esc_attr', explode( ' ', $atts['class'] ) ) );
 		}
 
-		// Build <iframe> attributes
+		// Build <iframe> attributes.
 		$iframe = $iframe_atts = array();
 		$iframe['src'] = esc_url( sprintf( apply_filters( 'buniverse_shortcode_src', 'https://www.bu.edu/buniverse/interface/embed/embed.html?v=%s' ), $atts['vid'] ) );
 		$iframe['width'] = (int) $atts['width'];
@@ -53,7 +55,7 @@ if ( ! function_exists( 'buniverse_shortcode' ) ) {
 		$iframe['frameborder'] = 0;
 
 		foreach ( $iframe as $key => $val ) {
-			// Boolean attributes
+			// Boolean attributes.
 			if ( is_bool( $val ) && $val ) {
 				$iframe_atts[] = $key;
 			} else {
@@ -62,7 +64,7 @@ if ( ! function_exists( 'buniverse_shortcode' ) ) {
 		}
 		$iframe_atts = implode( ' ', $iframe_atts );
 
-		// Build caption markup
+		// Build caption markup.
 		$caption = '';
 		if ( $atts['caption'] ) {
 			$caption = '<p class="caption">' . wp_kses_post( $atts['caption'] ) . '</p>';
@@ -91,12 +93,13 @@ if ( ! function_exists( 'buniverse_embed_handler' ) ) {
 	 *
 	 * @uses  buniverse_shortcode
 	 *
-	 * @param $matches
-	 * @param $attr
-	 * @param $url
-	 * @param $rawattr
+	 * @param array  $matches The RegEx matches from the provided regex when calling
+	 *                        wp_embed_register_handler().
+	 * @param array  $attr    Embed attributes.
+	 * @param string $url     The original URL that was matched by the regex.
+	 * @param array  $rawattr The original unmodified attributes.
 	 *
-	 * @return mixed|void
+	 * @return string The embed HTML.
 	 */
 	function buniverse_embed_handler( $matches, $attr, $url, $rawattr ) {
 		$atts = array(
