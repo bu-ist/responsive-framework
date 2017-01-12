@@ -1,6 +1,8 @@
 <?php
 /**
  * The main template file.
+ *
+ * @package Responsive_Framework
  */
 
 get_header(); ?>

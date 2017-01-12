@@ -1,11 +1,62 @@
 # Changelog
 
+## Unreleased
+
+* Added CONTRIBUTING.md file for contribution rules.
+* Removed use of `file_get_contents()` in the Customizer.
+* Responsive Framework "header" templates are now renamed to "masthead"
+ templates to avoid confusion with WordPress core's header template
+ functionality.
+* Page templates have been updated to be more simple. A template part should be
+ a repeatable chunk that can be used within the loop. All logic determining
+ what should show, how, or where, should be contained in the page template.
+* For most post types, single templates only display content in one way. For
+ that reason, single templates should not use `get_template_part()` unless more
+ than one display variations actually exist. 
+* Updated profile, news, and page templates to use the above thought process.
+* `responsive_post_lists_show_news_meta()` no longer requires a settings array 
+ to be passed when called. By default, it will utilize the settings selected on
+ the news page. An array of settings different form those selected can still be
+ passed.
+* Introduce several action hooks to make it easier for child themes to inject
+ markup without having to copy the entire template file. Hooks introduced:
+  * `r_before_closing_content_container`
+  * `r_after_closing_content_container`
+  * `r_before_closing_content`
+  * `r_after_closing_content`
+  * `r_after_closing_content`
+  * `r_after_opening_body_tag`
+  * `r_before_masthead`
+  * `r_after_masthead`
+  * `r_before_opening_content`
+  * `r_after_opening_content`
+  * `r_before_opening_content_container`
+  * `r_after_opening_content_container`
+  * `r_before_branding_masterplate`
+  * `r_after_branding_masterplate`
+  * `r_before_bumc_branding_logo`
+  * `r_after_bumc_branding_logo`
+  * `r_before_branding_disclaimer`
+  * `r_after_branding_disclaimer`
+  * `r_before_content_banner_{position}`
+  * `r_before_content_banner`
+  * `r_after_content_banner_{position}`
+  * `r_after_content_banner`
+* Added `r_content_banner_args` filter for modifying generated content banner
+ arguments.
+* Added `r_content_banner_output` filter for modifying content banner output.
+ This was previously `responsive_content_banner_output`.
+
+## 1.5.3
+
+* Move the body `id` declaration in front of `class`.
+
 ## 1.5.2
 
 * Fix `responsive_maybe_hide_homepage_h1()` to accept the second parameter for
 `the_title` filter.
 * Introduce the `r_script_dependencies` filter. Used to filter script
-dependencies for child theme script files.
+ dependencies for child theme script files.
 
 ## 1.4.3
 

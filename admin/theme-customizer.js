@@ -87,7 +87,7 @@
 	// Manage the sidebar & layout controls. If left layout, then left sidebar is disabled and switched to right
 	$( document ).ready( function () {
 		$( '#burf_setting_layout input[type="radio"]' ).on( 'change', function() {
-			if( $( '#burf_setting_layout_sideNav').is( ':checked' ) ){
+			if( $( '#burf_setting_layout_side-nav').is( ':checked' ) ){
 				if( $( '#customize-control-burf_setting_sidebar_location input[value="left"]' ).is( ':checked' ) ){
 					$( '#customize-control-burf_setting_sidebar_location input[value="left"]' ).attr( 'checked', false ).attr( 'disabled', 'disabled' );
 					$( '#customize-control-burf_setting_sidebar_location input[value="right"]' ).attr( 'checked', true ).change();

@@ -1,15 +1,25 @@
 <?php
 /**
  * BU Calendar plugin support functions & templates.
+ *
+ * @package Responsive_Framework\bu-calendar
  */
 
 /**
  * Display the calendar widget markup.
  *
- * @global  $buCalendar Calendar plugin instance.
+ * @global $buCalendar Calendar plugin instance.
  *
- * @param  array  $args [description]
- * @return [type]       [description]
+ * @param array $args {
+ *     Optional. Arguments to configure link markup.
+ *
+ *     @type string $calendar_id      BU Calendar ID. Default is the current site's BU Calendar ID defined in settings.
+ *     @type bool   $show_topics      Whether to show a list of linked topics. Default is true.
+ *     @type string $calendar_uri     URL of the calendar. Default is current post's URL.
+ *     @type string $page_template    Page template to use for displaying the calendar. Default is "page-templates/calendar.php".
+ *     @type string $topic_heading    Heading text to use for topics. Default "Topics".
+ *     @type bool   $monthly_dropdown
+ * }
  */
 function responsive_calendar_sidebar( $args = array() ) {
 	global $post, $buCalendar, $topics, $timestamp, $yyyymmdd;
@@ -37,21 +47,26 @@ function responsive_calendar_sidebar( $args = array() ) {
 
 		<div class="widget">
 			<h2 class="widget-title">Event Calendar</h2>
-			<?php echo $buCalendar->buildMonthCalendar( $yyyymmdd, NULL, $args['monthly_dropdown'] ); ?>
+			<?php echo $buCalendar->buildMonthCalendar( $yyyymmdd, null, $args['monthly_dropdown'] ); ?>
 		</div>
-		<?php if ( $args['show_topics'] ): ?>
-		<div id="calendar-topics" class="widget">
-			<h2 class="widget-title">Event <?php echo esc_html( $args['topic_heading'] ); ?></h2>
-			<p><a class="content-nav-header" href="<?php echo esc_url( $all_topics_url ); ?>">All <?php echo esc_html( $args['topic_heading'] ); ?></a></p>
-		<?php  echo $buCalendar->buildTopicTree( $topics ); ?>
-		</div>
+
+		<?php if ( $args['show_topics'] ) : ?>
+			<div id="calendar-topics" class="widget">
+				<h2 class="widget-title">Event <?php echo esc_html( $args['topic_heading'] ); ?></h2>
+				<p><a class="content-nav-header" href="<?php echo esc_url( $all_topics_url ); ?>">All <?php echo esc_html( $args['topic_heading'] ); ?></a></p>
+				<?php echo $buCalendar->buildTopicTree( $topics ); ?>
+			</div>
 		<?php endif; ?>
 		<?php
 	}
 }
 
 /**
- * Register custom calendar widget formats
+ * Register custom calendar widget formats.
+ *
+ * @param array $formats List of calendar widget formats.
+ *
+ * @return array $formats Filtered array of formats.
  */
 function responsive_calendar_widget_formats( $formats ) {
 
@@ -72,12 +87,13 @@ function responsive_calendar_widget_formats( $formats ) {
 }
 
 /**
- * Calendar widget format display callbacks
+ * Calendar widget format display callbacks.
  *
- * @param  array  $events      Event list
- * @param  string $base_url    Calendar URL
- * @param  int    $calendar_id Calendar ID
- * @return string              Calendar widget markup
+ * @param  array  $events      Event list.
+ * @param  string $base_url    Calendar URL.
+ * @param  int    $calendar_id Calendar ID.
+ *
+ * @return string              Calendar widget markup.
  */
 function responsive_calendar_format_callback( $events, $base_url, $calendar_id = null ) {
 	$output = '';
@@ -120,6 +136,10 @@ add_filter( 'bu_calendar_widget_formats', 'responsive_calendar_widget_formats', 
  * Yes, this is insane, and should be fixed when there's time.
  *
  * @todo  Move to calendar plugin.
+ *
+ * @param int $ts Timestamp.
+ *
+ * @return null|string $contents Null if no events exist for the day, a space if there are.
  */
 function onYearDay( $ts ) {
 	global $buCalendar, $events;
@@ -138,14 +158,18 @@ function onYearDay( $ts ) {
  * Appends calendar template body classes.
  *
  * @todo  Move to calendar plugin.
+ *
+ * @param array $classes A list of body classes.
+ *
+ * @return array Filtered list of body classes.
  */
 function responsive_calendar_body_classes( $classes ) {
 	$calendar_templates = apply_filters( 'responsive_calendar_templates', array(
 		'page-templates/calendar.php',
-		) );
+	) );
 	$is_calendar_template = array_filter( $calendar_templates, 'is_page_template' );
 
-	// The current request is for one of our calendar templates
+	// The current request is for one of our calendar templates.
 	if ( $is_calendar_template ) {
 		if ( isset( $_GET['eid'] ) ) {
 			$classes[] = 'single-calendar';
