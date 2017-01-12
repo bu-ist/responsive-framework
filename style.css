@@ -3450,25 +3450,25 @@ nav a {
   }
 }
 
-/* sideNav
+/* side-nav
 ----------------------------------------------------------------- */
-.l-sideNav .wrapper {
+.l-side-nav .wrapper {
   background: #000000;
 }
 
 @media screen and (min-width: 768px) {
-  .l-sideNav .content {
+  .l-side-nav .content {
     margin-left: 60px;
   }
 }
 @media screen and (min-width: 1200px) {
-  .l-sideNav .content {
+  .l-side-nav .content {
     margin-left: 240px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .l-sideNav .primary-nav {
+  .l-side-nav .primary-nav {
     position: absolute;
     top: 120px;
     width: 240px;
@@ -3476,43 +3476,43 @@ nav a {
   }
 }
 @media screen and (min-width: 1200px) {
-  .l-sideNav .primary-nav {
+  .l-side-nav .primary-nav {
     display: block;
     padding: 20px 10px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .search-open.l-sideNav .primary-nav {
+  .search-open.l-side-nav .primary-nav {
     top: 218px;
     /* adds the height of the open search form */
   }
 }
 
 @media screen and (min-width: 768px) {
-  .l-sideNav .nav-toggle {
+  .l-side-nav .nav-toggle {
     margin-left: -10px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .l-sideNav .primary-nav-menu {
+  .l-side-nav .primary-nav-menu {
     display: none;
     margin: 0 10px;
   }
 }
 @media screen and (min-width: 1200px) {
-  .l-sideNav .primary-nav-menu {
+  .l-side-nav .primary-nav-menu {
     display: block;
   }
 }
 
-.l-sideNav .primary-nav-menu li {
+.l-side-nav .primary-nav-menu li {
   display: block;
   padding: 0;
 }
 
-.l-sideNav .primary-nav-menu a {
+.l-side-nav .primary-nav-menu a {
   padding: 10px 0;
   border: 1px solid #333333;
   border-width: 1px 0 0 0;
@@ -3520,30 +3520,30 @@ nav a {
 }
 
 @media screen and (min-width: 1200px) {
-  .l-sideNav .primary-nav-menu li:first-child a {
+  .l-side-nav .primary-nav-menu li:first-child a {
     border: 0;
   }
 }
 
-.l-sideNav .primary-nav-menu ul {
+.l-side-nav .primary-nav-menu ul {
   display: none;
 }
 
-/* sideNav and noNav: quicksearch */
+/* side-nav and no-nav: quicksearch */
 @media screen and (min-width: 768px) {
-  .l-sideNav #quicksearch {
+  .l-side-nav #quicksearch {
     border: 1px solid #dddddd;
     border-width: 1px 0 0 0;
   }
 }
 
-.l-sideNav .brand .search-toggle,
-.l-noNav .brand .search-toggle {
+.l-side-nav .brand .search-toggle,
+.l-no-nav .brand .search-toggle {
   color: #9f9f9f;
 }
 @media screen and (min-width: 768px) {
-  .l-sideNav .brand .search-toggle,
-  .l-noNav .brand .search-toggle {
+  .l-side-nav .brand .search-toggle,
+  .l-no-nav .brand .search-toggle {
     right: 10px;
     display: block;
     position: relative;
@@ -3553,41 +3553,41 @@ nav a {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
-  .lt-ie9 .l-sideNav .brand .search-toggle, .lt-ie9
-  .l-noNav .brand .search-toggle {
+  .lt-ie9 .l-side-nav .brand .search-toggle, .lt-ie9
+  .l-no-nav .brand .search-toggle {
     top: auto;
   }
 }
-.l-sideNav .brand .search-toggle:visited,
-.l-noNav .brand .search-toggle:visited {
+.l-side-nav .brand .search-toggle:visited,
+.l-no-nav .brand .search-toggle:visited {
   color: #9f9f9f;
 }
-.l-sideNav .brand .search-toggle:hover,
-.l-noNav .brand .search-toggle:hover {
+.l-side-nav .brand .search-toggle:hover,
+.l-no-nav .brand .search-toggle:hover {
   color: #000000;
 }
 
 @media screen and (min-width: 768px) {
-  .l-sideNav .primary-nav .search-toggle {
+  .l-side-nav .primary-nav .search-toggle {
     display: none;
   }
 }
 
-/* sideNav: navToggle */
-.l-sideNav .nav-toggle {
+/* side-nav: navToggle */
+.l-side-nav .nav-toggle {
   display: block;
 }
 @media screen and (min-width: 1200px) {
-  .l-sideNav .nav-toggle {
+  .l-side-nav .nav-toggle {
     display: none;
   }
 }
 
-.l-sideNav .masthead-container .utility-nav {
+.l-side-nav .masthead-container .utility-nav {
   margin: 0 10px;
 }
 @media screen and (min-width: 1200px) {
-  .l-sideNav .masthead-container .utility-nav {
+  .l-side-nav .masthead-container .utility-nav {
     position: relative;
     top: auto;
     right: auto;
@@ -3595,26 +3595,26 @@ nav a {
   }
 }
 
-.l-sideNav .utility-nav li {
+.l-side-nav .utility-nav li {
   display: block;
   padding-left: 0;
 }
 
 @media screen and (min-width: 768px) {
-  .l-sideNav.nav-open .content {
+  .l-side-nav.nav-open .content {
     left: 240px;
     margin-left: 0;
   }
 }
 @media screen and (min-width: 1200px) {
-  .l-sideNav.nav-open .content {
+  .l-side-nav.nav-open .content {
     left: 0;
     margin-left: 240px;
   }
 }
 
-.l-sideNav.nav-open .primary-nav-menu,
-.l-sideNav.nav-open .utility-nav {
+.l-side-nav.nav-open .primary-nav-menu,
+.l-side-nav.nav-open .utility-nav {
   display: block;
   float: none;
 }
@@ -3622,7 +3622,7 @@ nav a {
 /* top nav
 ----------------------------------------------------------------- */
 @media screen and (min-width: 768px) {
-  .l-topNav .utility-nav {
+  .l-top-nav .utility-nav {
     position: absolute;
     top: 113px;
     right: 20px;
@@ -3631,32 +3631,32 @@ nav a {
 }
 
 @media screen and (min-width: 768px) {
-  .l-topNav.search-open .utility-nav {
+  .l-top-nav.search-open .utility-nav {
     top: 209px;
   }
 }
 
-.l-topNav #quicksearch {
+.l-top-nav #quicksearch {
   border-bottom: 1px solid #dddddd;
 }
 
-/* noNav
+/* no-nav
 ----------------------------------------------------------------- */
 @media screen and (min-width: 768px) {
-  .l-noNav .primary-nav {
+  .l-no-nav .primary-nav {
     display: none;
   }
 }
 
-.l-noNav .brand {
+.l-no-nav .brand {
   padding-right: 60px;
 }
 
-.l-noNav .masthead-container .utility-nav {
+.l-no-nav .masthead-container .utility-nav {
   display: none;
 }
 @media screen and (min-width: 768px) {
-  .l-noNav .masthead-container .utility-nav {
+  .l-no-nav .masthead-container .utility-nav {
     position: absolute;
     top: 48px;
     right: 80px;
@@ -3664,13 +3664,13 @@ nav a {
   }
 }
 
-.l-noNav .brand .search-toggle {
+.l-no-nav .brand .search-toggle {
   display: block;
   margin: 0 -60px 0 0;
   font-size: 24px;
 }
 
-.l-noNav #quicksearch {
+.l-no-nav #quicksearch {
   border-top: 1px solid #dddddd;
 }
 
