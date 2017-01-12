@@ -1,6 +1,6 @@
 <?php
 /**
- * Header layout with navigation bar over branding.
+ * Masthead layout with navigation bar over branding.
  *
  * @package Responsive_Framework
  */
