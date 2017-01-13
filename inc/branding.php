@@ -8,21 +8,21 @@
 /**
  * Display branding HTML.
  *
- * Wrapper around `bu_branding`.
+ * If RESPONSIVE_BRANDING_OVERRIDE is true, the BU Branding plugin is not loaded.
+ * Child themes can define custom brand markup within the branding.php template file to override the default branding template.
+ *
+ * @uses bu_branding()
  *
  * @see  mu-plugins/bu-branding
  */
 function responsive_branding() {
 	if ( function_exists( 'bu_branding' ) ) {
-		return bu_branding();
+		bu_branding();
+
+		return;
 	}
 
-	$name = get_bloginfo( 'name' );
-?>
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( $name ); ?>" rel="home">
-		<span class="siteName"><?php echo esc_html( $name ); ?></span>
-	</a>
-<?php
+	get_template_part( 'template-parts/branding' );
 }
 
 /**
