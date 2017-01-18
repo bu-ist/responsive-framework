@@ -8,21 +8,21 @@
 /**
  * Display branding HTML.
  *
- * Wrapper around `bu_branding`.
+ * If the current theme does not support 'bu-branding', the BU Branding plugin is not loaded.
+ * Child themes can define custom brand markup within the branding.php template file to override the default branding template.
+ *
+ * @uses bu_branding()
  *
  * @see  mu-plugins/bu-branding
  */
 function responsive_branding() {
-	if ( function_exists( 'bu_branding' ) ) {
-		return bu_branding();
+	if ( current_theme_supports( 'bu-branding' ) && function_exists( 'bu_branding' ) ) {
+		bu_branding();
+
+		return;
 	}
 
-	$name = get_bloginfo( 'name' );
-?>
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( $name ); ?>" rel="home">
-		<span class="siteName"><?php echo esc_html( $name ); ?></span>
-	</a>
-<?php
+	get_template_part( 'template-parts/branding' );
 }
 
 /**
@@ -46,7 +46,7 @@ function responsive_branding_masterplate( $args = array() ) {
 		);
 	$args = wp_parse_args( $args, $defaults );
 
-	if ( function_exists( 'bu_branding_masterplate' ) ) {
+	if ( current_theme_supports( 'bu-branding' ) &&function_exists( 'bu_branding_masterplate' ) ) {
 		/**
 		 * Fires immediately before the BU branding masterplate.
 		 *
@@ -86,7 +86,7 @@ function responsive_branding_bumc_logo( $args = array() ) {
 		);
 	$args = wp_parse_args( $args, $defaults );
 
-	if ( function_exists( 'bu_branding_bumc_logo' ) ) {
+	if ( current_theme_supports( 'bu-branding' ) &&function_exists( 'bu_branding_bumc_logo' ) ) {
 		/**
 		 * Fires immediately before the BUMC branding logo.
 		 *
@@ -126,7 +126,7 @@ function responsive_branding_disclaimer( $args = array() ) {
 		);
 	$args = wp_parse_args( $args, $defaults );
 
-	if ( function_exists( 'bu_branding_disclaimer' ) ) {
+	if ( current_theme_supports( 'bu-branding' ) &&function_exists( 'bu_branding_disclaimer' ) ) {
 		/**
 		 * Fires immediately before the BU branding disclaimer.
 		 *
@@ -156,7 +156,7 @@ function responsive_branding_disclaimer( $args = array() ) {
  * @return array Filtered array of classes.
  */
 function responsive_branding_footer_classes( $classes ) {
-	if ( function_exists( 'bu_branding_has_masterplate' ) && bu_branding_has_masterplate() ) {
+	if ( current_theme_supports( 'bu-branding' ) && function_exists( 'bu_branding_has_masterplate' ) && bu_branding_has_masterplate() ) {
 		$classes[] = 'has-branding';
 	}
 
