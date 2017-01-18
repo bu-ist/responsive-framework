@@ -1,3 +1,6 @@
+$_customizer-selected-color: #288dbb;
+$_customizer-description-color: #999;
+
 // Customizer: Shared
 %admin-sprite-input {
 	input {
@@ -5,7 +8,7 @@
 	}
 	// Active styles
 	input:checked + label::after {
-		border: 4px solid #288dbb;
+		border: 4px solid $_customizer-selected-color;
 		margin: 0;
 	}
 }
@@ -106,7 +109,7 @@
 
 #accordion-section-bu_branding {
 	.customize-control-description {
-		color: #999;
+		color: $_customizer-description-color;
 		display: none;
 		margin-left: 24px;
 	}
