@@ -1,15 +1,15 @@
-@import 'fonts/capita';
-@import 'fonts/benton';
+@import "fonts/capita";
+@import "fonts/benton";
 
 body {
-	font-family: 'Capita';
+	font-family: "Capita";
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 30px;
 }
 
 p {
-	font-family: 'Capita';
+	font-family: "Capita";
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 30px;
@@ -17,7 +17,7 @@ p {
 }
 
 h1 {
-	font-family: 'Benton';
+	font-family: "Benton";
 	font-weight: 400;
 	font-size: 48px;
 	line-height: 51px;
@@ -25,7 +25,7 @@ h1 {
 }
 
 h2 {
-	font-family: 'Benton';
+	font-family: "Benton";
 	font-weight: 400;
 	font-size: 40px;
 	line-height: 43px;
@@ -33,7 +33,7 @@ h2 {
 }
 
 h3 {
-	font-family: 'Benton';
+	font-family: "Benton";
 	font-weight: 400;
 	font-size: 33px;
 	line-height: 36px;
@@ -41,14 +41,14 @@ h3 {
 }
 
 .widget h3 {
-	font-family: 'Benton';
+	font-family: "Benton";
 	font-weight: 400;
 	font-size: 28px;
 	line-height: 31px;
 }
 
 h4 {
-	font-family: 'Benton';
+	font-family: "Benton";
 	font-weight: 400;
 	font-size: 22px;
 	line-height: 25px;
@@ -56,7 +56,7 @@ h4 {
 }
 
 h5 {
-	font-family: 'Benton';
+	font-family: "Benton";
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 21px;
@@ -64,7 +64,7 @@ h5 {
 }
 
 h6 {
-	font-family: 'Benton';
+	font-family: "Benton";
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 19px;
@@ -72,18 +72,18 @@ h6 {
 }
 
 #q {
-	font-family: 'Benton';
+	font-family: "Benton";
 	font-size: 18px;
 }
 
 .primaryNav-menu li a {
-	font-family: 'Benton';
+	font-family: "Benton";
 	font-weight: 400;
 	font-size: 16px;
 }
 
 .utilityNav li a {
-	font-family: 'Capita';
+	font-family: "Capita";
 	font-weight: 400;
 	font-size: 16px;
 	font-style: italic;
