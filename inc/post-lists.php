@@ -152,7 +152,11 @@ function responsive_posts_widget_format_display( $post, $args ) {
  *
  * @return boolean Whether to show news meta.
  */
-function responsive_post_lists_show_news_meta( $settings ) {
+function responsive_post_lists_show_news_meta( $settings = array() ) {
+	if ( empty( $settings ) ) {
+		$settings = BU_News_Page_Template::$display_content;
+	}
+
 	return ( 'yes' === $settings['disp_date'] ||
 			'yes' === $settings['disp_comments'] ||
 			'yes' === $settings['disp_author'] ||
