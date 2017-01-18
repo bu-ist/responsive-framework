@@ -8,7 +8,7 @@
 /**
  * Display branding HTML.
  *
- * If RESPONSIVE_BRANDING_OVERRIDE is true, the BU Branding plugin is not loaded.
+ * If the current theme does not support 'bu-branding', the BU Branding plugin is not loaded.
  * Child themes can define custom brand markup within the branding.php template file to override the default branding template.
  *
  * @uses bu_branding()
