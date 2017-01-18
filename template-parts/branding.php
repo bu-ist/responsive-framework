@@ -2,7 +2,7 @@
 /**
  * Default branding markup.
  *
- * This is only used when the BU Branding plugin is inactive, or RESPONSIVE_BRANDING_OVERRIDE is defined as true in a child theme.
+ * This is only used when the BU Branding plugin is inactive, or theme support for `bu-branding` is removed in a child theme.
  *
  * @package Responsive_Framework
  */
