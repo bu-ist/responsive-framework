@@ -52,6 +52,7 @@ engines:
     - bcfbf6b95474763b7de69327fe455ae5
 ratings:
   paths:
+  - "**.md"
   - "**.inc"
   - "**.js"
   - "**.php"
