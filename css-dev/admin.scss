@@ -42,15 +42,17 @@
 
 		// For specific layouts
 		&[for="burf_setting_layout_default"]::after {
-			background-position: 0 0px;
+			background-position: 0 0;
 		}
 
 		&[for="burf_setting_layout_topNav"]::after {
 			background-position: 0 -150px;
 		}
+
 		&[for="burf_setting_layout_sideNav"]::after {
 			background-position: 0 -300px;
 		}
+
 		&[for="burf_setting_layout_noNav"]::after {
 			background-position: -300px 0;
 		}
@@ -76,15 +78,19 @@
 		&[for="burf_setting_fonts_f1"]::after {
 			background-position: 0 -750px;
 		}
+
 		&[for="burf_setting_fonts_f2"]::after {
 			background-position: 0 -850px;
 		}
+
 		&[for="burf_setting_fonts_f3"]::after {
 			background-position: 0 -950px;
 		}
+
 		&[for="burf_setting_fonts_f4"]::after {
 			background-position: 0 -1050px;
 		}
+
 		&[for="burf_setting_fonts_f5"]::after {
 			background-position: 0 -1150px;
 		}
@@ -104,6 +110,7 @@
 		display: none;
 		margin-left: 24px;
 	}
+
 	input[disabled] + .customize-control-description {
 		display: block;
 	}
