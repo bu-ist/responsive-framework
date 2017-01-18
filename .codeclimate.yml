@@ -48,6 +48,8 @@ engines:
       rulesets: codesize,naming,unusedcode
   scss-lint:
     enabled: true
+    exclude_fingerprints:
+    - bcfbf6b95474763b7de69327fe455ae5
 ratings:
   paths:
   - "**.inc"
