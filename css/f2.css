@@ -42,70 +42,70 @@
 }
 body {
   font-family: "Benton", sans-serif;
-  font-weight: 400;
   font-size: 16px;
+  font-weight: 400;
   line-height: 28px;
 }
 
 p {
   font-family: "Benton", sans-serif;
-  font-weight: 400;
   font-size: 16px;
+  font-weight: 400;
   line-height: 28px;
   margin-bottom: 24px;
 }
 
 h1 {
   font-family: "Capita", serif;
-  font-weight: 700;
   font-size: 48px;
+  font-weight: 700;
   line-height: 51px;
   margin-bottom: 22px;
 }
 
 h2 {
   font-family: "Capita", serif;
-  font-weight: 700;
   font-size: 40px;
+  font-weight: 700;
   line-height: 43px;
   margin-bottom: 22px;
 }
 
 h3 {
   font-family: "Capita", serif;
-  font-weight: 700;
   font-size: 33px;
+  font-weight: 700;
   line-height: 36px;
   margin-bottom: 22px;
 }
 
 .widget h3 {
   font-family: "Capita", serif;
-  font-weight: 700;
   font-size: 28px;
+  font-weight: 700;
   line-height: 31px;
 }
 
 h4 {
   font-family: "Capita", serif;
-  font-weight: 700;
   font-size: 22px;
+  font-weight: 700;
   line-height: 25px;
   margin-bottom: 22px;
 }
 
 h5 {
   font-family: "Capita", serif;
-  font-weight: 700;
   font-size: 18px;
+  font-weight: 700;
   line-height: 21px;
   margin-bottom: 22px;
 }
 
 h6 {
   font-family: "Capita", serif;
-  font-weight: 700;
   font-size: 16px;
+  font-weight: 700;
   line-height: 19px;
   margin-bottom: 22px;
 }
@@ -117,14 +117,14 @@ h6 {
 
 .primaryNav-menu li a {
   font-family: "Capita", serif;
-  font-weight: 700;
   font-size: 16px;
+  font-weight: 700;
 }
 
 .utilityNav li a {
   font-family: "Capita", serif;
-  font-weight: 400;
   font-size: 16px;
+  font-weight: 400;
 }
 
 .primaryNav-menu li a {

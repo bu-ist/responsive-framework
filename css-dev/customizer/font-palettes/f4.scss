@@ -1,23 +1,23 @@
-$_font-heading: "TiemposHeadline", serif;
-$_font-body: "Benton", sans-serif;
-$_font-body-accent: "TiemposText", serif;
+$font-heading: "TiemposHeadline", serif;
+$font-body: "Benton", sans-serif;
+$font-body-accent: "TiemposText", serif;
 
 @import "fonts/benton";
 @import "fonts/tiempos";
 @import "fonts/shared";
 
 #q {
-	font-family: $_font-body-accent;
+	font-family: $font-body-accent;
 	text-transform: uppercase;
 }
 
 .primaryNav-menu li a {
-	font-family: $_font-body-accent;
+	font-family: $font-body-accent;
 	font-weight: 400;
 	font-size: 18px;
 }
 
 .utilityNav li a {
-	font-family: $_font-body-accent;
+	font-family: $font-body-accent;
 	font-style: italic;
 }
