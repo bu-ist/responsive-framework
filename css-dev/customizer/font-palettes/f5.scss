@@ -1,5 +1,5 @@
-$_font-heading: "Pressura", sans-serif;
-$_font-body: "Benton", sans-serif;
+$font-heading: "Pressura", sans-serif;
+$font-body: "Benton", sans-serif;
 
 @import "fonts/benton";
 @import "fonts/pressura";
@@ -22,6 +22,6 @@ h6,
 }
 
 .utilityNav li a {
-	font-family: $_font-body;
+	font-family: $font-body;
 	font-style: italic;
 }

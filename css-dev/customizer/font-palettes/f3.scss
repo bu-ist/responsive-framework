@@ -1,5 +1,5 @@
-$_font-heading: "Benton", sans-serif;
-$_font-body: "Capita", serif;
+$font-heading: "Benton", sans-serif;
+$font-body: "Capita", serif;
 
 @import "fonts/capita";
 @import "fonts/benton";
@@ -33,6 +33,6 @@ h6 {
 }
 
 .utilityNav li a {
-	font-family: $_font-body;
+	font-family: $font-body;
 	font-style: italic;
 }
