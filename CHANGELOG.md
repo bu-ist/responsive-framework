@@ -47,7 +47,7 @@
 * Added `r_content_banner_output` filter for modifying content banner output.
  This was previously `responsive_content_banner_output`.
 * Add `branding.php` template part so child themes can override the default
- branding markup.
+ branding markup by calling `remove_theme_support( 'bu-branding' )`.
 
 ## 1.5.3
 
