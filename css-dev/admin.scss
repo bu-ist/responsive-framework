@@ -5,15 +5,15 @@
 	}
 	// Active styles
 	input:checked + label::after {
-		margin: 0;
 		border: 4px solid #288DBB;
+		margin: 0;
 	}
 }
 %admin-sprite-label {
-	font-size: 0;
-	width: auto;
-	height: auto;
 	display: inline-block;
+	font-size: 0;
+	height: auto;
+	width: auto;
 }
 %admin-sprite-background {
 	background: url("admin_sprite.png") no-repeat 0 0 transparent;
@@ -34,8 +34,8 @@
 		&::after {
 			@extend %admin-sprite-background;
 			height: 129px;
-			width: 227px;
 			padding: 4px;
+			width: 227px;
 		}
 
 		// For specific layouts
@@ -97,8 +97,8 @@
 
 #accordion-section-bu_branding {
 	.customize-control-description {
-		display: none;
 		color: #999;
+		display: none;
 		margin-left: 24px;
 	}
 	input[disabled] + .customize-control-description {
