@@ -114,7 +114,7 @@ $_customizer-description-color: #999;
 		margin-left: 24px;
 	}
 
-	input[disabled] + .customize-control-description {
+	[disabled] + .customize-control-description {
 		display: block;
 	}
 }
