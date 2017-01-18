@@ -8,3 +8,4 @@ sftp-config.json
 .eslintignore
 .eslintrc
 .sass-lint.yml
+.scss-lint.yml
