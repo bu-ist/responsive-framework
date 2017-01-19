@@ -32,10 +32,10 @@ function responsive_body_class( $classes ) {
 	if ( $sidebar_location ) {
 		if ( true === $posts_sidebar_bottom ) {
 			if ( is_page() && ! is_page_template( 'page-templates/news.php' ) && ! is_page_template( 'page-templates/profiles.php' ) ) {
-				$classes[] = "sidebarLocation-$sidebar_location";
+				$classes[] = "sidebar-location-$sidebar_location";
 			}
 		} else {
-			$classes[] = "sidebarLocation-$sidebar_location";
+			$classes[] = "sidebar-location-$sidebar_location";
 		}
 	}
 
