@@ -7,7 +7,7 @@
 
 ?>
 <nav class="primary-nav" role="navigation">
-	<a href="#primaryNav-menu" class="nav-toggle"><span>Menu</span></a>
+	<a href="#primary-nav-menu" class="nav-toggle"><span>Menu</span></a>
 
 	<?php if ( responsive_search_is_enabled() ) : ?>
 	<a href="#quicksearch" class="search-toggle"><span>Search</span></a>
