@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 				],
 				tasks: ['concat', 'uglify'],
 				options: {
-					spawn: false,
+					spawn: false
 				},
 			},
 			styles: {
@@ -31,16 +31,25 @@ module.exports = function(grunt) {
 				],
 				tasks: ['sass:dev', 'sass:prod'],
 				options: {
-					spawn: false,
+					spawn: false
 				}
 			},
 			fonts: {
 				files: [
-				'css-dev/customizer/font-palettes/*.scss',
+				'css-dev/customizer/font-palettes/*.scss'
 				],
 				tasks: ['sass:fonts'],
 				options: {
-					spawn: false,
+					spawn: false
+				}
+			},
+			admin: {
+				files: [
+				'css-dev/admin.scss'
+				],
+				tasks: ['sass:admin'],
+				options: {
+					spawn: false
 				}
 			}
 		},
@@ -50,7 +59,7 @@ module.exports = function(grunt) {
 					'bower_components/responsive-foundation/js-dev/*.js',
 					'js-dev/*.js'
 				],
-				dest: 'js/script.js',
+				dest: 'js/script.js'
 			}
 		},
 		uglify: {
@@ -103,6 +112,15 @@ module.exports = function(grunt) {
 					src: ['*.scss'],
 					dest: 'css',
 					ext: '.css'
+				}]
+			},
+			admin: {
+				options: {
+					style: 'compressed',
+					bundleExec: true
+				},
+				files: [{
+					'admin/admin.css': 'css-dev/admin.scss'
 				}]
 			}
 		},

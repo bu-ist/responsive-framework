@@ -1,0 +1,126 @@
+$_customizer-selected-color: #288dbb;
+$_customizer-description-color: #999;
+
+// Customizer: Shared
+%admin-sprite-input {
+	input {
+		display: none;
+	}
+	// Active styles
+	input:checked + label::after {
+		border: 4px solid $_customizer-selected-color;
+		margin: 0;
+	}
+}
+
+%admin-sprite-label {
+	display: inline-block;
+	font-size: 0;
+	height: auto;
+	width: auto;
+}
+
+%admin-sprite-background {
+	background: url( "admin_sprite.png" ) no-repeat 0 0 transparent;
+	content: "";
+	display: block;
+	margin: 4px;
+}
+
+// Customizer: Layout
+#burf_setting_layout {
+	@extend %admin-sprite-input;
+
+	// Styles for the layout selector images
+	label {
+		@extend %admin-sprite-label;
+
+		// For everyone
+		&::after {
+			@extend %admin-sprite-background;
+			height: 129px;
+			padding: 4px;
+			width: 227px;
+		}
+
+		// For specific layouts
+		&[for="burf_setting_layout_default"]::after {
+			background-position: 0 0;
+		}
+
+		&[for="burf_setting_layout_topNav"]::after {
+			background-position: 0 -150px;
+		}
+
+		&[for="burf_setting_layout_sideNav"]::after {
+			background-position: 0 -300px;
+		}
+
+		&[for="burf_setting_layout_noNav"]::after {
+			background-position: -300px 0;
+		}
+	}
+}
+
+// Customizer: Fonts
+#burf_setting_fonts {
+	@extend %admin-sprite-input;
+
+	// Styles for the layout selector images
+	label {
+		@extend %admin-sprite-label;
+
+		// For everyone
+		&::after {
+			@extend %admin-sprite-background;
+			height: 82px;
+			width: 245px;
+		}
+
+		// For specific layouts
+		&[for="burf_setting_fonts_f1"]::after {
+			background-position: 0 -750px;
+		}
+
+		&[for="burf_setting_fonts_f2"]::after {
+			background-position: 0 -850px;
+		}
+
+		&[for="burf_setting_fonts_f3"]::after {
+			background-position: 0 -950px;
+		}
+
+		&[for="burf_setting_fonts_f4"]::after {
+			background-position: 0 -1050px;
+		}
+
+		&[for="burf_setting_fonts_f5"]::after {
+			background-position: 0 -1150px;
+		}
+	}
+}
+
+// Customizer: Other
+#customize-control-burf_setting_color_scheme {
+	.customize-control-title {
+		display: none;
+	}
+}
+
+#accordion-section-bu_branding {
+	.customize-control-description {
+		color: $_customizer-description-color;
+		display: none;
+		margin-left: 24px;
+	}
+
+	[disabled] + .customize-control-description {
+		display: block;
+	}
+}
+
+#customize-control-burf_setting_sidebar_options {
+	.description {
+		font-style: normal;
+	}
+}
