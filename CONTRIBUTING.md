@@ -20,7 +20,7 @@ Every effort should be made to make a pull request as stable as possible before
 ### `develop` Pull Request Process
 
 When the code in your feature branch is done and ready to be merged, a pull
- request to `develp` should be created.
+ request to `develop` should be created.
 
 1. Ensure your local checkout of the repository is up to date.
 1. Check out the `develop` branch.
