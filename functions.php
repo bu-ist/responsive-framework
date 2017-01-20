@@ -224,7 +224,7 @@ function responsive_enqueue_scripts() {
 	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", apply_filters( 'r_script_dependencies', array( 'jquery' ) ), RESPONSIVE_THEME_VERSION, apply_filters( 'r_script_location', true ) );
 
 	// Vendor scripts will load from parent theme directory.
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), '2.8.3' );
+	wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), '3.3.1' );
 
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
 	if ( is_singular() && responsive_has_comment_support() && comments_open() && get_option( 'thread_comments' ) ) {
