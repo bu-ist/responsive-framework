@@ -1,7 +1,6 @@
 {
   "name": "responsive-framework",
   "dependencies": {
-    "responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#1.4.0",
-    "Modernizr": "https://modernizr.com/download/?audio-backgroundsize-borderimage-borderradius-boxshadow-canvas-canvastext-cssanimations-csscolumns-cssgradients-cssreflections-csstransforms-csstransforms3d-csstransitions-flexbox-flexboxlegacy-fontface-generatedcontent-geolocation-hashchange-hsla-inlinesvg-localstorage-multiplebgs-opacity-postmessage-requestanimationframe-rgba-smil-svg-svgclippaths-textshadow-video-webgl-domprefixes-hasevent-prefixed-prefixes-printshiv-setclasses-testallprops-testprop-teststyles.zip"
+    "responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#1.4.0"
   }
 }
