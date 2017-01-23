@@ -859,7 +859,7 @@ function responsive_archive_type( WP_Query $query = null ) {
 		}
 	}
 
-	return apply_filters( 'responsive_archive_type', $archive_type, $post_types );
+	return sanitize_key( apply_filters( 'responsive_archive_type', $archive_type, $post_types ) );
 }
 
 /**
