@@ -921,3 +921,26 @@ function responsive_get_footbar_id( $post = null ) {
 
 	return $footbar;
 }
+
+/**
+ * Check a theme for a generic template part, or specialised template for a post type.
+ *
+ * If no template part exists for the given post type.
+ *
+ * @param string $post_type The slug name for the post type.
+ * @param string $name      The name of the specialised template.
+ */
+function r_get_template_part( $post_type, $name = null ) {
+	$templates = array();
+	$name = (string) $name;
+
+	if ( '' !== $name ) {
+		$templates[] = "template-parts/{$post_type}-{$name}.php";
+	}
+
+	$templates[] = "template-parts/{$post_type}.php";
+
+	if ( ! $located = locate_template( $templates, true, false ) ) {
+		get_template_part( "template-parts/content", "{$name}" );
+	}
+}
