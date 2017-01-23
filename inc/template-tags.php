@@ -941,6 +941,6 @@ function r_get_template_part( $post_type, $name = null ) {
 	$templates[] = "template-parts/{$post_type}.php";
 
 	if ( ! locate_template( $templates, true, false ) ) {
-		get_template_part( "template-parts/content", $name );
+		get_template_part( 'template-parts/content', $name );
 	}
 }
