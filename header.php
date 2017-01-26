@@ -88,7 +88,7 @@
 				do_action( 'r_after_opening_content' );
 			?>
 
-			<?php responsive_content_banner( 'windowWidth' ); ?>
+			<?php responsive_content_banner( 'window-width' ); ?>
 
 			<?php
 				/**
