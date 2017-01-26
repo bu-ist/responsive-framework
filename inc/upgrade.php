@@ -74,9 +74,9 @@ function responsive_upgrade_091() {
 	// Rename banner positions.
 	error_log( __FUNCTION__ . ' - Migrating content banners...' );
 	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
-		'content-width' => 'contentWidth',
-		'page-width'    => 'pageWidth',
-		'window-width'  => 'windowWidth',
+		'contentWidth' => 'content-width',
+		'pageWidth'    => 'page-width',
+		'windowWidth'  => 'window-width',
 	) );
 	$banner_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
 		$wpdb->postmeta
@@ -90,9 +90,9 @@ function responsive_upgrade_091() {
 				$banner['position'] = $banner_map[ $banner['position'] ];
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
-				error_log( __FUNCTION__ . ' - Resetting empty banner position to default (contentWidth)' );
+				error_log( __FUNCTION__ . ' - Resetting empty banner position to default (content-width)' );
 				// Reset to default.
-				$banner['position'] = 'contentWidth';
+				$banner['position'] = 'content-width';
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			}
 		}
