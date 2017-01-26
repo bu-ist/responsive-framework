@@ -706,7 +706,7 @@ function responsive_framework_get_color_regions_css( $colors, $context = 'defaul
 
 .sidebar .widget,
 .sidebar-posts .widget,
-.sidebarProfiles .widget {
+.sidebar-profiles .widget {
 	background: {$colors['sidebar-bg']};
 	padding:24px;
 }
@@ -793,9 +793,9 @@ article a:visited,
 .event-list .event-link a,
 .event-list .event-link a:hover,
 .event-list .event-link a:focus,
-.monthCalendar td a,
-.monthCalendar td a:hover,
-.monthCalendar td,
+.month td a,
+.month td a:hover,
+.month td,
 .bu_collapsible:hover:after,
 .bu_collapsible:focus:after,
 .bu_collapsible_open .bu_collapsible:hover:after,
@@ -808,7 +808,7 @@ article a:visited,
 article a:hover,
 .widget a:hover,
 .event-list .event-link a:hover,
-.monthCalendar td a:hover, {
+.month td a:hover, {
 	color: {$colors['content-link-hover']};
 }
 
@@ -843,36 +843,36 @@ input[type="submit"],
 .sidebar-posts #contentnav li,
 .sidebar-posts .widget_nav_menu li,
 .sidebar-posts .widget-bu-calendar li,
-.sidebarProfiles .widget-title,
-.sidebarProfiles #contentnav ul,
-.sidebarProfiles .widget_nav_menu ul,
-.sidebarProfiles #contentnav li,
-.sidebarProfiles .widget_nav_menu li,
-.sidebarProfiles .widget-bu-calendar li,
-.monthCalendar,
-.monthCalendar th,
-.monthCalendar td {
+.sidebar-profiles .widget-title,
+.sidebar-profiles #contentnav ul,
+.sidebar-profiles .widget_nav_menu ul,
+.sidebar-profiles #contentnav li,
+.sidebar-profiles .widget_nav_menu li,
+.sidebar-profiles .widget-bu-calendar li,
+.month,
+.month th,
+.month td {
 	border-color: {$colors['sidebar-widgetTitle-border']};
 }
 
 .sidebar .widget-title,
 .sidebar .widget .widget-title a,
 .sidebar-posts .widget .widget-title a,
-.sidebarProfiles .widget .widget-title a,
+.sidebar-profiles .widget .widget-title a,
 .sidebar .widget-title a:after,
 .sidebar-posts .widget-title,
 .sidebar-posts .widget-title a:after,
-.sidebarProfiles .widget-title,
-.sidebarProfiles .widget-title a:after {
+.sidebar-profiles .widget-title,
+.sidebar-profiles .widget-title a:after {
 	color: {$colors['sidebar-widgetTitle']};
 }
 
 /* text color */
 .sidebar .widget,
 .sidebar-posts .widget,
-.sidebarProfiles .widget,
-.monthCalendar th,
-.monthCalendar caption {
+.sidebar-profiles .widget,
+.month th,
+.month caption {
 	color: {$colors['sidebar-base']};
 }
 
@@ -883,9 +883,9 @@ input[type="submit"],
 .sidebar-posts .widget a,
 .sidebar-posts #contentnav li a,
 .sidebar-posts .widget_nav_menu li a,
-.sidebarProfiles .widget a,
-.sidebarProfiles #contentnav li a,
-.sidebarProfiles .widget_nav_menu li a {
+.sidebar-profiles .widget a,
+.sidebar-profiles #contentnav li a,
+.sidebar-profiles .widget_nav_menu li a {
 	color: {$colors['sidebar-link']};
 }
 
@@ -900,11 +900,11 @@ input[type="submit"],
 .sidebar-posts .widget_nav_menu li a:hover,
 .sidebar-posts #contentnav li.current_page_item > a,
 .sidebar-posts .widget_nav_menu li.current_page_item > a,
-.sidebarProfiles .widget a:hover,
-.sidebarProfiles #contentnav li a:hover,
-.sidebarProfiles .widget_nav_menu li a:hover,
-.sidebarProfiles #contentnav li.current_page_item > a,
-.sidebarProfiles .widget_nav_menu li.current_page_item > a {
+.sidebar-profiles .widget a:hover,
+.sidebar-profiles #contentnav li a:hover,
+.sidebar-profiles .widget_nav_menu li a:hover,
+.sidebar-profiles #contentnav li.current_page_item > a,
+.sidebar-profiles .widget_nav_menu li.current_page_item > a {
 	color: {$colors['sidebar-link-hover']};
 }
 
@@ -972,17 +972,17 @@ input[type="submit"],
 .l-side-nav #quicksearch,
 .message,
 .single .content-area .meta,
-.singleEvent .dateSummary,
+.single-event .date-summary,
 .single-profile .profile-info {
 	background: #f5f8ff;
 	border-color: #dfdfea;
 }
 
 /* calendar table */
-.monthCalendar thead,
-.monthCalendar th,
-.monthCalendar .out,
-.monthCalendar .today {
+.month thead,
+.month th,
+.month .out,
+.month .today {
 	background: rgba(0,0,0,0.15);
 }
 
