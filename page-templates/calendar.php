@@ -186,11 +186,11 @@ endif; ?>
 				</div>
 			<?php } ?>
 		<?php } else { ?>
-			<div class="singleEvent">
-				<div class="eventSummary">
+			<div class="single-event">
+				<div class="event-summary">
 
 					<h1><?php echo wp_kses_post( $event['summary'] ); ?></h1>
-					<div class="dateSummary">
+					<div class="date-summary">
 						<ul>
 							<?php if ( ! empty( $event['start_time'] ) ) { ?>
 								<li>
@@ -208,7 +208,7 @@ endif; ?>
 					<div class="description"><?php echo wp_kses_post( html_entity_decode( $event['description'] ) ); ?></div>
 				</div> <!-- /.eventSummary -->
 
-				<div class="additionalDetails">
+				<div class="additional-details">
 					<dl class="tabular">
 						<?php if ( $event['speakers'] ) { ?>
 							<dt class="label">Speakers:</dt>
@@ -301,7 +301,7 @@ endif; ?>
 
 				<p><a href="<?php the_permalink(); ?>" class="archive-link calendar-archive-link">Back to Calendar</a></p>
 
-			</div><!-- /.singleEvent -->
+			</div><!-- /.single-event -->
 		<?php } ?>
 </article>
 
