@@ -64,11 +64,11 @@ if ( $timestamp > $boundary_future ) {
 ?>
 <?php get_header(); ?>
 
-<?php responsive_content_banner( 'pageWidth' ); ?>
+<?php responsive_content_banner( 'page-width' ); ?>
 
 <article role="main" id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
 
-		<?php responsive_content_banner( 'contentWidth' ); ?>
+		<?php responsive_content_banner( 'content-width' ); ?>
 
 		<?php if ( is_null( $eventID ) ) { ?>
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

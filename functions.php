@@ -82,15 +82,15 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 
 			// Content banner locations.
 		if ( function_exists( 'bu_register_banner_position' ) ) {
-			bu_register_banner_position( 'windowWidth', array(
+			bu_register_banner_position( 'window-width', array(
 				'label' => 'Full browser window width',
 				'hint'  => 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.',
 			) );
-				bu_register_banner_position( 'pageWidth', array(
+				bu_register_banner_position( 'page-width', array(
 					'label' => 'Page width',
 					'hint'  => 'Banner will appear above the content and sidebars and should be 1130 pixels wide.',
 				) );
-				bu_register_banner_position( 'contentWidth', array(
+				bu_register_banner_position( 'content-width', array(
 					'label'   => 'Content width',
 					'hint'    => 'Banner will appear above the title in the content area and should be 760 pixels wide.',
 					'default' => true,
