@@ -237,7 +237,7 @@ function responsive_content_banner( $position ) {
 	do_action( 'r_before_content_banner', $position, $post_id );
 
 	$banner_args = array(
-		'before'   => sprintf( '<div class="banner-container bannerContainer-%s">', $position ),
+		'before'   => sprintf( '<div class="banner-container banner-container-%s">', $position ),
 		'after'    => '</div>',
 		'class'    => 'banner',
 		'position' => $position,
@@ -770,7 +770,7 @@ function responsive_sidebar_classes( $sidebar_id ) {
 	$widget_count = responsive_get_widget_counts( $sidebar_id );
 	$count = ( $widget_count > 0 ) ? $widget_count : 'none';
 
-	echo esc_attr( "widgetCount-$count" );
+	echo esc_attr( "widget-count-$count" );
 }
 
 /**
