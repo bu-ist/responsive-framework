@@ -12,9 +12,9 @@
  what should show, how, or where, should be contained in the page template.
 * For most post types, single templates only display content in one way. For
  that reason, single templates should not use `get_template_part()` unless more
- than one display variations actually exist. 
+ than one display variations actually exist.
 * Updated profile, news, and page templates to use the above thought process.
-* `responsive_post_lists_show_news_meta()` no longer requires a settings array 
+* `responsive_post_lists_show_news_meta()` no longer requires a settings array
  to be passed when called. By default, it will utilize the settings selected on
  the news page. An array of settings different form those selected can still be
  passed.
@@ -50,6 +50,10 @@
  branding markup by calling `remove_theme_support( 'bu-branding' )`.
 * Add `r_script_location` filter for changing the loading location of the
  theme's JavaScript file.
+* Add `r_enqueue_modernizr` filter for preventing Modernizr from being
+ enqueued. Child themes and plugins can use this to load their own build of
+ Modernizr.
+* Add video autoplay to the list of Modernizr checks.
 
 ## 1.5.3
 
