@@ -35,7 +35,8 @@
 		"localstorage",
 		"svgclippaths",
 		"inlinesvg",
-		"smil"
+		"smil",
+		"videoautoplay"
 	],
 	"options": [
 		"domPrefixes",
