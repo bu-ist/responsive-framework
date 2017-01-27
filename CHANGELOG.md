@@ -48,6 +48,8 @@
  This was previously `responsive_content_banner_output`.
 * Add `branding.php` template part so child themes can override the default
  branding markup by calling `remove_theme_support( 'bu-branding' )`.
+* Add `r_script_location` filter for changing the loading location of the
+ theme's JavaScript file.
 * Change content banner position names to match coding standards.
 * Add upgrade routine for content banners moving to version 2.0.
 
