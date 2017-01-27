@@ -153,7 +153,15 @@ module.exports = function(grunt) {
 					targetDir: 'bower_components'
 				}
 			}
- 		}
+ 		},
+		modernizr_builder: {
+			build: {
+				options: {
+					config: 'modernizr-config.json',
+					dest: 'js/vendor/modernizr.js'
+				}
+			}
+		}
 	});
 
 	// 3. Where we tell Grunt we plan to use this plug-in.
@@ -165,10 +173,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-version');
 	grunt.loadNpmTasks( 'grunt-bower-task' );
+	grunt.loadNpmTasks( 'grunt-modernizr-builder' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask('install', ['copy:hooks', 'build']);
-	grunt.registerTask('build', ['bower:install', 'sass', 'concat', 'uglify']);
 	grunt.registerTask('default', ['bower:install', 'watch']);
+	grunt.registerTask( 'build', ['bower:install', 'modernizr_builder', 'sass', 'concat', 'uglify'] );
 
 };
