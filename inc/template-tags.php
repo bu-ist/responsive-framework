@@ -944,3 +944,41 @@ function r_get_template_part( $post_type, $name = null ) {
 		get_template_part( 'template-parts/content', $name );
 	}
 }
+
+/**
+ * Load sidebar template for an archive page.
+ *
+ * Templates will be searched for from most specific to least specific.
+ *
+ * @param string $name The name of the specialised sidebar.
+ */
+function r_get_archive_sidebar( $name = null ) {
+	$templates = array();
+	$name = (string) $name;
+
+	$queried_object = get_queried_object();
+
+	if ( is_tag() || is_category() || is_tax() ) {
+		$templates[] = "sidebar-{$queried_object->taxonomy}-{$queried_object->slug}-{$name}.php";
+		$templates[] = "sidebar-{$queried_object->taxonomy}-{$queried_object->slug}.php";
+		$templates[] = "sidebar-{$queried_object->taxonomy}-{$name}.php";
+		$templates[] = "sidebar-{$queried_object->taxonomy}.php";
+		$templates[] = "sidebar-taxonomy-{$name}.php";
+		$templates[] = 'sidebar-taxonomy.php';
+	} elseif ( is_post_type_archive() ) {
+		$templates[] = "sidebar-{$queried_object->name}-{$name}.php";
+		$templates[] = "sidebar-{$queried_object->name}.php";
+		$templates[] = "sidebar-post-type-{$name}.php";
+		$templates[] = 'sidebar-post-type.php';
+	} elseif ( is_author() ) {
+		$templates[] = "sidebar-{$queried_object->user_login}-{$name}.php";
+		$templates[] = "sidebar-{$queried_object->user_login}.php";
+		$templates[] = "sidebar-author-{$name}.php";
+		$templates[] = 'sidebar-author.php';
+	}
+
+	$templates[] = "sidebar-{$name}.php";
+	$templates[] = 'sidebar.php';
+
+	locate_template( $templates, true );
+}
