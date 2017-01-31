@@ -483,6 +483,9 @@ if ( ! function_exists( 'responsive_posts_navigation' ) ) :
 
 		// Don't print empty markup if there's only one page.
 		if ( $wp_query->max_num_pages >= 2 ) :
+			/**
+			 * @todo Deprecate responsive_archive_type().
+			 */
 			$archive_type = responsive_archive_type( $wp_query );
 			$defaults = array(
 				'prev_text'          => '<span class="meta-nav">&larr;</span> Previous',
@@ -842,6 +845,8 @@ function responsive_queried_post_types( WP_Query $query = null ) {
 /**
  * Determine primary post type of archive query
  *
+ * @todo Deprecate and return archive type based on get_quereied_object().
+ *
  * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
  * @return string Post type name. Uses lowercase version of plural (name) label.
  */
@@ -864,6 +869,8 @@ function responsive_archive_type( WP_Query $query = null ) {
 
 /**
  * Is the archive query for the given post type?
+ *
+ * @todo deprecate in favor of is_category() is_tax, is_post_type_archive() etc.
  *
  * @param  string   $type  Plural post type name for comparison.
  * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
