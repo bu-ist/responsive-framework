@@ -154,6 +154,19 @@ module.exports = function(grunt) {
 				}
 			}
  		},
+		bowercopy: {
+			options: {
+				srcPrefix: 'bower_components'
+			},
+			scripts: {
+				options: {
+					destPrefix: 'js/vendor'
+				},
+				files: {
+					'lightgallery/': 'lightgallery/dist/'
+				}
+			}
+		},
 		modernizr_builder: {
 			build: {
 				options: {
@@ -174,10 +187,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-version');
 	grunt.loadNpmTasks( 'grunt-bower-task' );
 	grunt.loadNpmTasks( 'grunt-modernizr-builder' );
+	grunt.loadNpmTasks( 'grunt-bowercopy' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask('install', ['copy:hooks', 'build']);
 	grunt.registerTask('default', ['bower:install', 'watch']);
-	grunt.registerTask( 'build', ['bower:install', 'modernizr_builder', 'sass', 'concat', 'uglify'] );
+	grunt.registerTask( 'build', ['bower:install', 'bowercopy', 'modernizr_builder', 'sass', 'concat', 'uglify'] );
 
 };
