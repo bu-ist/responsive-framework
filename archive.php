@@ -31,6 +31,6 @@ get_header();
 
 </div>
 
-<?php r_get_archive_sidebar( 'test' ); ?>
+<?php r_get_archive_sidebar(); ?>
 
 <?php get_footer();
