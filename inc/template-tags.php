@@ -823,7 +823,7 @@ function responsive_extra_footer_classes() {
  *
  * @deprecated 2.0.0 Use is_post_type_archive()
  *
- * @param  string   $type  Plural post type name for comparison.
+ * @param string $type Plural post type name for comparison.
  *
  * @return bool
  */
