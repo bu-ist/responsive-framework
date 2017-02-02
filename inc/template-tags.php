@@ -824,11 +824,10 @@ function responsive_extra_footer_classes() {
  * @deprecated 2.0.0 Use is_post_type_archive()
  *
  * @param  string   $type  Plural post type name for comparison.
- * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
  *
  * @return bool
  */
-function responsive_is_archive_type( $type, WP_Query $query = null ) {
+function responsive_is_archive_type( $type ) {
 	_deprecated_function( __FUNCTION__, '2.0.0', 'is_post_type_archive()' );
 
 	return is_post_type_archive( $type );
