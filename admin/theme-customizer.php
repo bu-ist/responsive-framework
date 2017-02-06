@@ -1,6 +1,8 @@
 <?php
 /**
  * This hides the Font / Color / Background Customizer panels and associated styles.
+ *
+ * @package Responsive_Framework\Customizer
  */
 
 require_once __DIR__ . '/customizer-controls.php';
@@ -9,8 +11,8 @@ require_once __DIR__ . '/customizer-controls.php';
  * Enqueue scripts and styles for customizer preview.
  */
 function responsive_customizer_scripts() {
-	wp_enqueue_style( 'responsi-admin', get_template_directory_uri() . "/admin/admin.css", array(), RESPONSIVE_FRAMEWORK_VERSION );
-	wp_enqueue_script( 'responsi-customizer', get_template_directory_uri() . "/admin/theme-customizer.js", array( 'jquery', 'customize-controls', 'iris', 'underscore', 'wp-util' ), RESPONSIVE_FRAMEWORK_VERSION, true );
+	wp_enqueue_style( 'responsi-admin', get_template_directory_uri() . '/admin/admin.css', array(), RESPONSIVE_FRAMEWORK_VERSION );
+	wp_enqueue_script( 'responsi-customizer', get_template_directory_uri() . '/admin/theme-customizer.js', array( 'jquery', 'customize-controls', 'iris', 'underscore', 'wp-util' ), RESPONSIVE_FRAMEWORK_VERSION, true );
 	wp_localize_script( 'responsi-customizer', 'responsiveColor', array( 'schemes' => responsive_get_color_schemes(), 'regions' => responsive_customizer_color_regions(), 'optional' => responsive_get_optional_color_regions() ) );
 }
 
@@ -20,17 +22,19 @@ add_action( 'customize_controls_enqueue_scripts', 'responsive_customizer_scripts
  * Binds JS handlers to make the Customizer preview reload changes asynchronously.
  */
 function responsive_framework_customizer_preview_scripts() {
-	wp_enqueue_script( 'responsi-customize-preview', get_template_directory_uri() . "/admin/customize-preview.js", array( 'customize-preview' ), RESPONSIVE_FRAMEWORK_VERSION, true );
+	wp_enqueue_script( 'responsi-customize-preview', get_template_directory_uri() . '/admin/customize-preview.js', array( 'customize-preview' ), RESPONSIVE_FRAMEWORK_VERSION, true );
 }
 
 add_action( 'customize_preview_init', 'responsive_framework_customizer_preview_scripts' );
 
 /**
  * Register customizer sections & controls.
+ *
+ * @param WP_Customize_Manager $wp_customize Current WP_Customize_Manager instance.
  */
 function responsive_customize_register( $wp_customize ) {
 
-	// Layout
+	// Layout.
 	if ( ! defined( 'BU_RESPONSIVE_LAYOUT' ) ) {
 		$wp_customize->add_section( 'burf_section_layout', array(
 			'title'    => 'Layout',
@@ -51,10 +55,10 @@ function responsive_customize_register( $wp_customize ) {
 		) ) );
 	}
 
-	// Fonts and colors are only useful for Framework
+	// Fonts and colors are only useful for Framework.
 	if ( ! is_child_theme() && ! defined( 'RESPONSIVE_CUSTOMIZER_DISABLE' ) ) {
 
-		// Fonts
+		// Fonts.
 		$wp_customize->add_section( 'burf_section_fonts', array(
 			'title'    => 'Fonts',
 			'priority' => 31,
@@ -73,7 +77,7 @@ function responsive_customize_register( $wp_customize ) {
 			'choices'  => responsive_font_options(),
 		) ) );
 
-		// Colors
+		// Colors.
 		$wp_customize->remove_section( 'colors' );
 
 		$wp_customize->add_panel( 'burf_panel_colors', array(
@@ -90,7 +94,7 @@ function responsive_customize_register( $wp_customize ) {
 			'default'           => 'default',
 			'sanitize_callback' => 'responsive_sanitize_color_scheme',
 			'transport'         => 'postMessage',
-			'type'              => 'option'
+			'type'              => 'option',
 		) );
 
 		$wp_customize->add_control( 'burf_setting_color_scheme', array(
@@ -100,7 +104,7 @@ function responsive_customize_register( $wp_customize ) {
 			'choices'  => responsive_get_color_scheme_choices(),
 		) );
 
-		// Add color picker for each customizable colo region
+		// Add color picker for each customizable colo region.
 		$color_groups = responsive_customizer_color_region_groups();
 		$regions = responsive_customizer_color_regions();
 		$scheme = responsive_get_color_scheme();
@@ -118,14 +122,14 @@ function responsive_customize_register( $wp_customize ) {
 					} else {
 						return true;
 					}
-				}
+				},
 			) );
 
 			$group_regions = wp_filter_object_list( $regions, array( 'group' => $slug ) );
 
 			foreach ( $group_regions as $option => $colors ) {
 
-				// Color picker
+				// Color picker.
 				$wp_customize->add_setting( "burf_setting_custom_colors[$option]", array(
 					'default'           => $colors['default'],
 					'sanitize_callback' => 'sanitize_hex_color',
@@ -139,7 +143,7 @@ function responsive_customize_register( $wp_customize ) {
 					'section'     => "burf_section_custom_colors[$slug]",
 				) ) );
 
-				// Disable toggle (for optional color regions)
+				// Disable toggle (for optional color regions).
 				if ( $colors['optional'] && array_key_exists( $option, $active_settings ) ) {
 					$wp_customize->add_setting( "burf_setting_active_color_regions[$option]", array(
 						'default'           => $active_settings[ $option ],
@@ -157,9 +161,7 @@ function responsive_customize_register( $wp_customize ) {
 		}
 	}
 
-
-
-	// Content Options
+	// Content Options.
 	$wp_customize->add_section( 'burf_section_content_options', array(
 		'title'       => 'Content Options',
 		'priority'    => 39,
@@ -169,7 +171,7 @@ function responsive_customize_register( $wp_customize ) {
 		'default'    => array( 'categories', 'tags' ),
 		'capability' => 'edit_theme_options',
 		'type'       => 'option',
-		) );
+	) );
 
 	$wp_customize->add_control(
 		new BURF_Customize_Checkbox_Group(
@@ -183,21 +185,16 @@ function responsive_customize_register( $wp_customize ) {
 					'categories' => 'Categories',
 					'tags'       => 'Tags',
 					'author'     => 'Author',
-					)
+					),
 			)
 		)
 	);
 
-
-
-
-
-
-	// Sidebar Options
+	// Sidebar Options.
 	$wp_customize->add_setting( 'burf_setting_sidebar_options', array(
 		'default'           => '',
 		'capability'        => 'edit_theme_options',
-		'type'              => 'option'
+		'type'              => 'option',
 	) );
 
 	$sidebar_description = '';
@@ -223,20 +220,20 @@ function responsive_customize_register( $wp_customize ) {
 				'description' => $sidebar_description,
 				'choices'     => array(
 					'dynamic_footbars' => 'Enable alternate footbar?',
-				)
+				),
 			)
 		)
 	);
 
-	// Footer
-	$menu_url = admin_url( 'nav-menus.php?action=locations' );
+	// Footer.
+	$menu_url = admin_url( 'customize.php?autofocus[section]=menu_locations' );
 	$wp_customize->add_section( 'burf_section_footer', array(
 		'title'       => 'Footer',
 		'description' => "Footer links can be managed using the <a href=\"$menu_url\">Footer and Social Links Custom Menu locations</a>.",
 		'priority'    => 34,
 	) );
 
-	// Additional Info (free-form textarea)
+	// Additional Info (free-form textarea).
 	$wp_customize->add_setting( 'burf_setting_footer[text]', array(
 		'default'    => '',
 		'capability' => 'edit_theme_options',
@@ -249,12 +246,13 @@ function responsive_customize_register( $wp_customize ) {
 		'type'       => 'option',
 	) );
 
-	// Core <textarea> type added in WP 4.0
+	// Core <textarea> type added in WP 4.0.
 	$footer_info_args = array(
-		'label'    => 'Additional Information',
+		'label'    => 'Custom HTML',
 		'section'  => 'burf_section_footer',
 		'settings' => 'burf_setting_footer[text]',
 		'type'     => 'textarea',
+		'description' => "May be used to enter an address or contact information.",
 	);
 	if ( version_compare( $GLOBALS['wp_version'], '4.0', '<' ) ) {
 		$wp_customize->add_control( new BURF_Customize_Textarea( $wp_customize, 'burf_section_footer_info', $footer_info_args ) );
@@ -269,12 +267,11 @@ function responsive_customize_register( $wp_customize ) {
 		'type'     => 'checkbox',
 	) );
 
-
-	/* Front Page H1 Display */
+	// Front Page H1 Display.
 	$wp_customize->add_setting( 'burf_setting_hide_front_h1', array(
 		'default'           => '',
 		'capability'        => 'edit_theme_options',
-		'type'              => 'option'
+		'type'              => 'option',
 	) );
 
 	$wp_customize->add_control(
@@ -286,16 +283,16 @@ function responsive_customize_register( $wp_customize ) {
 				'section'     => 'static_front_page',
 				'choices'     => array(
 					'true' => 'Hide the homepage title',
-				)
+				),
 			)
 		)
 	);
 
-	/* Main Sidebar Location */
+	// Main Sidebar Location.
 	if ( ! defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ) {
 		$wp_customize->add_setting( 'burf_setting_sidebar_location', array(
 			'default'	=> 'right',
-			'type'		=> 'option'
+			'type'		=> 'option',
 		) );
 
 		$wp_customize->add_control( 'burf_setting_sidebar_location', array(
@@ -304,23 +301,23 @@ function responsive_customize_register( $wp_customize ) {
 			'description' => 'Changes the position of the main sidebar.',
 			'type'		=> 'radio',
 			'choices'	=> array(
-				'bottom'=>	'Bottom',
-				'left'	=>	'Left',
-				'right'	=>	'Right'
-			)
+				'bottom' => 'Bottom',
+				'left'	=> 'Left',
+				'right'	=> 'Right',
+			),
 		) );
 	}
 
-	/* Posts Sidebar Location */
+	// Posts Sidebar Location.
 	if ( ! defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
 		$wp_customize->add_setting( 'burf_setting_posts_sidebar_bottom', array(
-			'type'		=> 'option'
+			'type'		=> 'option',
 		) );
 
 		$wp_customize->add_control( 'burf_setting_posts_sidebar_bottom', array(
 			'label'		=> 'Keep the posts sidebar on bottom',
 			'section'	=> 'burf_section_content_options',
-			'type'		=> 'checkbox'
+			'type'		=> 'checkbox',
 		) );
 	}
 }
@@ -357,10 +354,10 @@ function responsive_customizer_styles() {
 		return;
 	}
 
-	// Inline styles are cached in a site option for production
+	// Inline styles are cached in a site option for production.
 	$use_cache = true;
 
-	// Bypass cached styles during Customizer previews
+	// Bypass cached styles during Customizer previews.
 	if ( is_customize_preview() ) {
 		$use_cache = false;
 	}
