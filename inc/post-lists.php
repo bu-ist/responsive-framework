@@ -1,65 +1,74 @@
 <?php
 /**
  * BU Post List plugin support functions & templates.
+ *
+ * @package Responsive_Framework\BU_Post_List
  */
 
 if ( ! function_exists( 'responsive_posts_widget_formats' ) ) :
 
-function responsive_posts_widget_formats( $formats ) {
+	/**
+	 * Remove/add display formats for the BU Posts widget.
+	 *
+	 * @param array $formats Default formats for the widget.
+	 *
+	 * @return array $formats Adjusted formats for the widget.
+	 */
+	function responsive_posts_widget_formats( $formats ) {
 
-	unset( $formats['date_title_excerpt'] );
+		unset( $formats['date_title_excerpt'] );
 
-	$formats['title_only'] = array(
+		$formats['title_only'] = array(
 		'label'               => 'title only (no thumbnail)',
 		'callback'            => 'responsive_posts_widget_format_display',
 		'requires_commenting' => false,
 		'supports_thumbnail'  => false,
-	);
+			);
 
-	$formats['title_date'] = array(
-		'label'               => 'title, date',
-		'callback'            => 'responsive_posts_widget_format_display',
-		'supports_thumbnail'  => true,
-		'requires_commenting' => false,
-	);
+			$formats['title_date'] = array(
+			'label'               => 'title, date',
+			'callback'            => 'responsive_posts_widget_format_display',
+			'supports_thumbnail'  => true,
+			'requires_commenting' => false,
+			);
 
-	$formats['title_excerpt'] = array(
-		'label'               => 'title, excerpt',
-		'callback'            => 'responsive_posts_widget_format_display',
-		'supports_thumbnail'  => true,
-		'requires_commenting' => false,
-	);
+			$formats['title_excerpt'] = array(
+			'label'               => 'title, excerpt',
+			'callback'            => 'responsive_posts_widget_format_display',
+			'supports_thumbnail'  => true,
+			'requires_commenting' => false,
+			);
 
-	$formats['title_date_excerpt'] = array(
-		'label'               => 'title, date, excerpt',
-		'callback'            => 'responsive_posts_widget_format_display',
-		'supports_thumbnail'  => true,
-		'requires_commenting' => false,
-	);
+			$formats['title_date_excerpt'] = array(
+			'label'               => 'title, date, excerpt',
+			'callback'            => 'responsive_posts_widget_format_display',
+			'supports_thumbnail'  => true,
+			'requires_commenting' => false,
+			);
 
-	$formats['title_author_excerpt'] = array(
-		'label'               => 'title, author, excerpt',
-		'callback'            => 'responsive_posts_widget_format_display',
-		'supports_thumbnail'  => true,
-		'requires_commenting' => false,
-	);
+			$formats['title_author_excerpt'] = array(
+			'label'               => 'title, author, excerpt',
+			'callback'            => 'responsive_posts_widget_format_display',
+			'supports_thumbnail'  => true,
+			'requires_commenting' => false,
+			);
 
-	$formats['title_date_comments_excerpt'] = array(
-		'label'               => 'title, date, comments, excerpt',
-		'callback'            => 'responsive_posts_widget_format_display',
-		'supports_thumbnail'  => true,
-		'requires_commenting' => true,
-	);
+			$formats['title_date_comments_excerpt'] = array(
+			'label'               => 'title, date, comments, excerpt',
+			'callback'            => 'responsive_posts_widget_format_display',
+			'supports_thumbnail'  => true,
+			'requires_commenting' => true,
+			);
 
-	$formats['title_author_comments_excerpt'] = array(
-		'label'               => 'title, author, comments, excerpt',
-		'callback'            => 'responsive_posts_widget_format_display',
-		'supports_thumbnail'  => true,
-		'requires_commenting' => true,
-	);
+			$formats['title_author_comments_excerpt'] = array(
+			'label'               => 'title, author, comments, excerpt',
+			'callback'            => 'responsive_posts_widget_format_display',
+			'supports_thumbnail'  => true,
+			'requires_commenting' => true,
+			);
 
-	return $formats;
-}
+			return $formats;
+	}
 
 endif;
 
@@ -67,13 +76,23 @@ add_filter( 'bu_posts_widget_formats', 'responsive_posts_widget_formats', 1, 1 )
 
 /**
  * One BU Post Lists widget format callback to rule them all.
+ *
+ * @param string $post Post being displayed.
+ * @param array  $args {
+ *     Arguments to configure how a post displays in a BU Posts widget.
+ *
+ *     @type  boolean $show_thumbnail Show or hide post thumbnails.
+ *     @type  string  $current_format Selected format for current widget.
+ * }
+ *
+ * @return string $output HTML output for the current post.
  */
 function responsive_posts_widget_format_display( $post, $args ) {
 	global $post;
 
 	$output = '<article class="post">';
 
-	// Thumbnail
+	// Thumbnail.
 	if ( $args['show_thumbnail'] && function_exists( 'bu_get_thumbnail_src' ) ) {
 
 		// Thumbnail dimensions change for formats with less content.
@@ -94,10 +113,10 @@ function responsive_posts_widget_format_display( $post, $args ) {
 		);
 	}
 
-	// Title
+	// Title.
 	$output .= sprintf( '<h1 class="headline"><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title() );
 
-	// Meta
+	// Meta.
 	switch ( $args['current_format'] ) {
 		case 'title_date':
 		case 'title_date_excerpt':
@@ -115,7 +134,7 @@ function responsive_posts_widget_format_display( $post, $args ) {
 			break;
 	}
 
-	// Excerpt
+	// Excerpt.
 	$show_excerpt = ( false !== strpos( $args['current_format'], 'excerpt' ) );
 	if ( $show_excerpt && BU_PostList::get_post_excerpt( 12 ) ) {
 		$output .= sprintf( '<p class="excerpt">%s</p>', BU_PostList::get_post_excerpt( 12 ) );
@@ -127,14 +146,21 @@ function responsive_posts_widget_format_display( $post, $args ) {
 }
 
 /**
- * Checks all of the News template display options to determine
- * whether or not we have meta to display.
+ * Checks all of the News template display options to determine whether or not we have meta to display.
+ *
+ * @param array $settings BU_News_Page_Template settings array.
+ *
+ * @return boolean Whether to show news meta.
  */
-function responsive_post_lists_show_news_meta( $settings ) {
-	return ( $settings['disp_date'] === 'yes' ||
-		$settings['disp_comments'] === 'yes' ||
-		$settings['disp_author'] === 'yes' ||
-		$settings['disp_cat'] === 'yes' ||
-		$settings['disp_author'] === 'yes' ||
-		$settings['disp_tags'] === 'yes' );
+function responsive_post_lists_show_news_meta( $settings = array() ) {
+	if ( empty( $settings ) ) {
+		$settings = BU_News_Page_Template::$display_content;
+	}
+
+	return ( 'yes' === $settings['disp_date'] ||
+			'yes' === $settings['disp_comments'] ||
+			'yes' === $settings['disp_author'] ||
+			'yes' === $settings['disp_cat'] ||
+			'yes' === $settings['disp_author'] ||
+			'yes' === $settings['disp_tags'] );
 }

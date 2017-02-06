@@ -1,11 +1,11 @@
 <?php
 /**
  * Generic post archive template.
+
+ * @package Responsive_Framework
  */
 
 get_header();
-
-$archive_type = responsive_archive_type();
 ?>
 
 <div class="content-area">
@@ -17,23 +17,9 @@ $archive_type = responsive_archive_type();
 			the_archive_description( '<div class="taxonomyDescription">', '</div>' );
 		?>
 
-		<?php
-		// Profiles get some special sauce.
-		if ( 'profiles' === $archive_type ) : ?>
-		<div class="profile-listing">
-			<ul class="basic">
-		<?php endif; ?>
-
-		<?php while ( have_posts() ): the_post();
-
-			get_template_part( 'template-parts/content', $archive_type );
-
-		endwhile; ?>
-
-		<?php if ( 'profiles' === $archive_type ) : ?>
-			</ul>
-		</div>
-		<?php endif; ?>
+		<?php while ( have_posts() ) : the_post(); ?>
+			<?php r_get_template_part( get_post_type(), 'archive' ); ?>
+		<?php endwhile; ?>
 
 		<?php responsive_posts_navigation(); ?>
 
@@ -45,6 +31,6 @@ $archive_type = responsive_archive_type();
 
 </div>
 
-<?php get_sidebar( $archive_type ); ?>
+<?php r_get_archive_sidebar(); ?>
 
 <?php get_footer();

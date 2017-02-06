@@ -1,26 +1,28 @@
 <?php
 /**
- * Branding
+ * Branding.
+ *
+ * @package Responsive_Framework\branding
  */
 
 /**
  * Display branding HTML.
  *
- * Wrapper around `bu_branding`.
+ * If the current theme does not support 'bu-branding', the BU Branding plugin is not loaded.
+ * Child themes can define custom brand markup within the branding.php template file to override the default branding template.
+ *
+ * @uses bu_branding()
  *
  * @see  mu-plugins/bu-branding
  */
 function responsive_branding() {
-	if ( function_exists( 'bu_branding' ) ) {
-		return bu_branding();
+	if ( current_theme_supports( 'bu-branding' ) && function_exists( 'bu_branding' ) ) {
+		bu_branding();
+
+		return;
 	}
 
-	$name = get_bloginfo( 'name' );
-?>
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( $name ); ?>" rel="home">
-		<span class="siteName"><?php echo $name; ?></span>
-	</a>
-<?php
+	get_template_part( 'template-parts/branding' );
 }
 
 /**
@@ -29,6 +31,13 @@ function responsive_branding() {
  * Wrapper around `bu_branding_masterplate`.
  *
  * @see  mu-plugins/bu-branding
+ *
+ * @param array $args {
+ *     Optional. Shortcode attributes.
+ *
+ *     @type string $before Markup or text to go before the branding masterplate.
+ *     @type string $after  Markup or text to go after the branding masterplate.
+ * }
  */
 function responsive_branding_masterplate( $args = array() ) {
 	$defaults = array(
@@ -37,10 +46,23 @@ function responsive_branding_masterplate( $args = array() ) {
 		);
 	$args = wp_parse_args( $args, $defaults );
 
-	if ( function_exists( 'bu_branding_masterplate' ) ) {
-		return bu_branding_masterplate( $args );
+	if ( current_theme_supports( 'bu-branding' ) && function_exists( 'bu_branding_masterplate' ) ) {
+		/**
+		 * Fires immediately before the BU branding masterplate.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_before_branding_masterplate' );
+
+		bu_branding_masterplate( $args );
+
+		/**
+		 * Fires immediately after the BU branding masterplate.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_after_branding_masterplate' );
 	}
-	return false;
 }
 
 /**
@@ -49,6 +71,13 @@ function responsive_branding_masterplate( $args = array() ) {
  * Wrapper around `bu_branding_bumc_logo`.
  *
  * @see  mu-plugins/bu-branding
+ *
+ * @param array $args {
+ *     Optional. Shortcode attributes.
+ *
+ *     @type string $before Markup or text to go before the branding masterplate.
+ *     @type string $after  Markup or text to go after the branding masterplate.
+ * }
  */
 function responsive_branding_bumc_logo( $args = array() ) {
 	$defaults = array(
@@ -57,10 +86,23 @@ function responsive_branding_bumc_logo( $args = array() ) {
 		);
 	$args = wp_parse_args( $args, $defaults );
 
-	if ( function_exists( 'bu_branding_bumc_logo' ) ) {
-		return bu_branding_bumc_logo( $args );
+	if ( current_theme_supports( 'bu-branding' ) && function_exists( 'bu_branding_bumc_logo' ) ) {
+		/**
+		 * Fires immediately before the BUMC branding logo.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_before_bumc_branding_logo' );
+
+		bu_branding_bumc_logo( $args );
+
+		/**
+		 * Fires immediately after the BUMC branding logo.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_after_bumc_branding_logo' );
 	}
-	return false;
 }
 
 /**
@@ -69,6 +111,13 @@ function responsive_branding_bumc_logo( $args = array() ) {
  * Wrapper around `bu_branding_disclaimer`.
  *
  * @see  mu-plugins/bu-branding
+ *
+ * @param array $args {
+ *     Optional. Shortcode attributes.
+ *
+ *     @type string $before Markup or text to go before the branding disclaimer.
+ *     @type string $after  Markup or text to go after the branding disclaimber.
+ * }
  */
 function responsive_branding_disclaimer( $args = array() ) {
 	$defaults = array(
@@ -77,10 +126,23 @@ function responsive_branding_disclaimer( $args = array() ) {
 		);
 	$args = wp_parse_args( $args, $defaults );
 
-	if ( function_exists( 'bu_branding_disclaimer' ) ) {
-		return bu_branding_disclaimer( $args );
+	if ( current_theme_supports( 'bu-branding' ) && function_exists( 'bu_branding_disclaimer' ) ) {
+		/**
+		 * Fires immediately before the BU branding disclaimer.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_before_branding_disclaimer' );
+
+		bu_branding_disclaimer( $args );
+
+		/**
+		 * Fires immediately after the BU branding disclaimer.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_after_branding_disclaimer' );
 	}
-	return false;
 }
 
 
@@ -88,9 +150,13 @@ function responsive_branding_disclaimer( $args = array() ) {
  * Adds branding classes to the footer container.
  *
  * Used to determine layout of footer columns.
+ *
+ * @param array $classes Array of classes.
+ *
+ * @return array Filtered array of classes.
  */
 function responsive_branding_footer_classes( $classes ) {
-	if ( function_exists( 'bu_branding_has_masterplate' ) && bu_branding_has_masterplate() ) {
+	if ( current_theme_supports( 'bu-branding' ) && function_exists( 'bu_branding_has_masterplate' ) && bu_branding_has_masterplate() ) {
 		$classes[] = 'has-branding';
 	}
 

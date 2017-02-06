@@ -3,7 +3,10 @@
  * Default content template partial.
  *
  * Used to render post content for archives.
+ *
+ * @package Responsive_Framework
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>">
@@ -18,7 +21,7 @@
 
 	<?php if ( responsive_posts_should_display( 'tags' ) ) {
 		the_tags( '<div class="tags">Tags: ', ', ', '</div>' );
-	} ?>
+} ?>
 
 	<?php edit_post_link( 'Edit', '<p class="edit-link">', '</p>' ); ?>
 
