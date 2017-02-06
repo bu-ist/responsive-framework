@@ -1,6 +1,8 @@
 <?php
-/*
+/**
  * Template Name: Profiles
+ *
+ * @package Responsive_Framework\BU_Profiles
  */
 
 get_header(); ?>
@@ -9,7 +11,7 @@ get_header(); ?>
 
 		<?php responsive_content_banner( 'pageWidth' ); ?>
 
-		<article role="main" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<article role="main" id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
 
 			<?php responsive_content_banner( 'contentWidth' ); ?>
 

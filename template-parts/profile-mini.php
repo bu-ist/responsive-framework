@@ -3,11 +3,14 @@
  * Default content template partial.
  *
  * Used to render individual profiles for mini profile listings.
+ *
+ * @package Responsive_Framework\BU_Profiles
  */
+
 ?>
 
 <li>
-	<?php if ( function_exists( 'bu_thumbnail' ) ): $thumb_args = array( 'maxwidth' => 150, 'maxheight' => 150 ); ?>
+	<?php if ( function_exists( 'bu_thumbnail' ) ) : $thumb_args = array( 'maxwidth' => 150, 'maxheight' => 150 ); ?>
 		<?php bu_thumbnail( '<figure>', '</figure>', $thumb_args ); ?>
 	<?php endif; ?>
 	<div class="details">
