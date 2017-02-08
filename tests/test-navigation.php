@@ -32,10 +32,5 @@ class Tests_Responsive_Framework_Navigation extends WP_UnitTestCase {
 
 		$this->assertTrue( isset( $nav_menus['utility'] ) );
 		$this->assertEquals( 'Utility Navigation', $nav_menus['utility'] );
-
-		if ( ! function_exists( 'bu_navigation_display_primary' ) ) {
-			$this->assertTrue( isset( $nav_menus['responsive-primary'] ) );
-			$this->assertEquals( 'Primary Navigation', $nav_menus['responsive-primary'] );
-		}
 	}
 }
