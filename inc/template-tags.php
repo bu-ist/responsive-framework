@@ -303,10 +303,21 @@ function responsive_content_banner( $position ) {
 function responsive_primary_nav() {
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
 		false == BuAccessControlPlugin::is_site_403() ) {
-		bu_navigation_display_primary( array(
-					'container_id'    => 'primaryNav-menu',
-					'container_class' => 'primaryNav-menu',
-		) );
+
+		if ( function_exists( 'bu_navigation_display_primary' ) ) {
+			bu_navigation_display_primary( array(
+				'container_id'    => 'primaryNav-menu',
+				'container_class' => 'primaryNav-menu',
+			) );
+		} else {
+			wp_nav_menu( array(
+				'theme_location'  => 'responsive-primary',
+				'menu_id'    => 'primaryNav-menu',
+				'menu_class' => 'primaryNav-menu',
+				'container_tag'   => 'ul',
+				'depth'           => 2,
+			) );
+		}
 	}
 }
 
