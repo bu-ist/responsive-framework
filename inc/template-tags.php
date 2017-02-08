@@ -43,8 +43,8 @@ function responsive_get_description() {
  * @return bool
  */
 function responsive_is_bu_domain() {
-	$current_site = get_current_site();
-	return preg_match( '#bu.edu$#', $current_site->domain );
+	$site_url = get_site_url();
+	return preg_match( '#bu.edu$#', $site_url );
 }
 
 /**
