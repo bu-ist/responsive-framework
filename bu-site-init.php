@@ -87,7 +87,7 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 	));
 
 	// Content Navigation widget settings.
-	update_option( 'widget_bu_pages', array(
+	update_option( 'widget-bu-pages', array(
 		'_multiwidget' => 1,
 		1 => array(
 			'navigation_title'      => 'section',
