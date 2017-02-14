@@ -833,21 +833,21 @@ input[type="submit"],
 /* widget border color */
 .sidebar .widget-title,
 .sidebar #contentnav ul,
-.sidebar .widget-nav-menu ul,
+.sidebar .widget_nav_menu ul,
 .sidebar #contentnav li,
-.sidebar .widget-nav-menu li,
+.sidebar .widget_nav_menu li,
 .sidebar .widget-bu-calendar li,
 .sidebar-posts .widget-title,
 .sidebar-posts #contentnav ul,
-.sidebar-posts .widget-nav-menu ul,
+.sidebar-posts .widget_nav_menu ul,
 .sidebar-posts #contentnav li,
-.sidebar-posts .widget-nav-menu li,
+.sidebar-posts .widget_nav_menu li,
 .sidebar-posts .widget-bu-calendar li,
 .sidebar-profiles .widget-title,
 .sidebar-profiles #contentnav ul,
-.sidebar-profiles .widget-nav-menu ul,
+.sidebar-profiles .widget_nav_menu ul,
 .sidebar-profiles #contentnav li,
-.sidebar-profiles .widget-nav-menu li,
+.sidebar-profiles .widget_nav_menu li,
 .sidebar-profiles .widget-bu-calendar li,
 .month,
 .month th,
@@ -879,32 +879,32 @@ input[type="submit"],
 /* link color */
 .sidebar .widget a,
 .sidebar #contentnav li a,
-.sidebar .widget-nav-menu li a,
+.sidebar .widget_nav_menu li a,
 .sidebar-posts .widget a,
 .sidebar-posts #contentnav li a,
-.sidebar-posts .widget-nav-menu li a,
+.sidebar-posts .widget_nav_menu li a,
 .sidebar-profiles .widget a,
 .sidebar-profiles #contentnav li a,
-.sidebar-profiles .widget-nav-menu li a {
+.sidebar-profiles .widget_nav_menu li a {
 	color: {$colors['sidebar-link']};
 }
 
 /* link hover color */
 .sidebar .widget a:hover,
 .sidebar #contentnav li a:hover,
-.sidebar .widget-nav-menu li a:hover,
+.sidebar .widget_nav_menu li a:hover,
 .sidebar #contentnav li.current_page_item > a,
-.sidebar .widget-nav-menu li.current_page_item > a,
+.sidebar .widget_nav_menu li.current_page_item > a,
 .sidebar-posts .widget a:hover,
 .sidebar-posts #contentnav li a:hover,
-.sidebar-posts .widget-nav-menu li a:hover,
+.sidebar-posts .widget_nav_menu li a:hover,
 .sidebar-posts #contentnav li.current_page_item > a,
-.sidebar-posts .widget-nav-menu li.current_page_item > a,
+.sidebar-posts .widget_nav_menu li.current_page_item > a,
 .sidebar-profiles .widget a:hover,
 .sidebar-profiles #contentnav li a:hover,
-.sidebar-profiles .widget-nav-menu li a:hover,
+.sidebar-profiles .widget_nav_menu li a:hover,
 .sidebar-profiles #contentnav li.current_page_item > a,
-.sidebar-profiles .widget-nav-menu li.current_page_item > a {
+.sidebar-profiles .widget_nav_menu li.current_page_item > a {
 	color: {$colors['sidebar-link-hover']};
 }
 
@@ -936,9 +936,9 @@ input[type="submit"],
 /* border color */
 .footbar .widget-title,
 .footbar #contentnav ul,
-.footbar .widget-nav-menu ul,
+.footbar .widget_nav_menu ul,
 .footbar #contentnav li,
-.footbar .widget-nav-menu li,
+.footbar .widget_nav_menu li,
 .footbar .widget-bu-calendar li {
 	border-color: {$colors['footbar-widgetTitle-border']};
 }
@@ -946,14 +946,14 @@ input[type="submit"],
 /* link color */
 .footbar .widget a,
 .footbar #contentnav li a,
-.footbar .widget-nav-menu li a {
+.footbar .widget_nav_menu li a {
 	color: {$colors['footbar-link']};
 }
 
 /* link hover color */
 .footbar .widget a:hover,
 .footbar #contentnav li a:hover,
-.footbar .widget-nav-menu li a:hover {
+.footbar .widget_nav_menu li a:hover {
 	color: {$colors['footbar-link-hover']};
 }
 
