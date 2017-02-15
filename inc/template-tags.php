@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom template tags for this framework
+ * Custom template tags for this framework.
  *
  * @package Responsive_Framework
  */
@@ -483,12 +483,22 @@ if ( ! function_exists( 'responsive_posts_navigation' ) ) :
 
 		// Don't print empty markup if there's only one page.
 		if ( $wp_query->max_num_pages >= 2 ) :
-			$archive_type = responsive_archive_type( $wp_query );
+			$queried_object = get_queried_object();
+			if ( is_post_type_archive() ) {
+				$archive_type = $queried_object->labels->singular_name;
+			} elseif ( is_tax() || is_category() || is_tag() ) {
+				$taxonomy_object = get_taxonomy( $queried_object->taxonomy );
+
+				$post_type = get_post_type( $taxonomy_object->object_type[0] );
+
+				$archive_type = $post_type->labels->singular_name;
+			}
+
 			$defaults = array(
 				'prev_text'          => '<span class="meta-nav">&larr;</span> Previous',
 				'next_text'          => 'Next <span class="meta-nav">&rarr;</span>',
 				'screen_reader_text' => ucfirst( $archive_type ) . ' navigation',
-				);
+			);
 
 				// Post archive labels are more specific.
 			if ( 'posts' === $archive_type ) {
@@ -809,68 +819,18 @@ function responsive_extra_footer_classes() {
 }
 
 /**
- * Get list of all post types included for the given query
- *
- * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
- * @return array  Array of post type names
- */
-function responsive_queried_post_types( WP_Query $query = null ) {
-	if ( is_null( $query ) ) {
-		$query = $GLOBALS['wp_query'];
-	}
-
-	$queried_object = $query->get_queried_object();
-
-	// Post = post object.
-	if ( $query->is_single() || $query->is_page() ) {
-		$post_types = array( $queried_object->post_type );
-	} // Post type archive = post type object.
-	elseif ( $query->is_post_type_archive() ) {
-		$post_types = array( $queried_object->name );
-	} // Taxonomy archive = taxonomy object.
-	elseif ( $query->is_tax() || $query->is_category() || $query->is_tag() ) {
-		$tax = get_taxonomy( $queried_object->taxonomy );
-		$post_types = $tax->object_type;
-	} // All other requests default to posts (author archives, date archives, etc.).
-	else {
-		$post_types = array( 'post' );
-	}
-
-	return apply_filters( 'responsive_queried_post_types', $post_types, $query );
-}
-
-/**
- * Determine primary post type of archive query
- *
- * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
- * @return string Post type name. Uses lowercase version of plural (name) label.
- */
-function responsive_archive_type( WP_Query $query = null ) {
-	$post_types = responsive_queried_post_types( $query );
-
-	// Default type.
-	$archive_type = 'posts';
-
-	// Use plural label.
-	if ( is_array( $post_types ) && 1 === count( $post_types ) ) {
-		$pto = get_post_type_object( reset( $post_types ) );
-		if ( $pto ) {
-			$archive_type = strtolower( $pto->label );
-		}
-	}
-
-	return apply_filters( 'responsive_archive_type', $archive_type, $post_types );
-}
-
-/**
  * Is the archive query for the given post type?
  *
- * @param  string   $type  Plural post type name for comparison.
- * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
+ * @deprecated 2.0.0 Use is_post_type_archive()
+ *
+ * @param string $type Plural post type name for comparison.
+ *
  * @return bool
  */
-function responsive_is_archive_type( $type, WP_Query $query = null ) {
-	return ( strtolower( $type ) === responsive_archive_type( $query ) );
+function responsive_is_archive_type( $type ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', 'is_post_type_archive()' );
+
+	return is_post_type_archive( $type );
 }
 
 /**
@@ -920,4 +880,65 @@ function responsive_get_footbar_id( $post = null ) {
 	}
 
 	return $footbar;
+}
+
+/**
+ * Check a theme for a generic template part, or specialised template for a post type.
+ *
+ * If no template part exists for the given post type.
+ *
+ * @param string $post_type The slug name for the post type.
+ * @param string $name      The name of the specialised template.
+ */
+function r_get_template_part( $post_type, $name = null ) {
+	$templates = array();
+	$name = (string) $name;
+
+	if ( '' !== $name ) {
+		$templates[] = "template-parts/{$post_type}-{$name}.php";
+	}
+
+	$templates[] = "template-parts/{$post_type}.php";
+
+	if ( ! locate_template( $templates, true, false ) ) {
+		get_template_part( 'template-parts/content', $name );
+	}
+}
+
+/**
+ * Load sidebar template for an archive page.
+ *
+ * Templates will be searched for from most specific to least specific.
+ *
+ * @param string $name The name of the specialised sidebar.
+ */
+function r_get_archive_sidebar( $name = null ) {
+	$templates = array();
+	$name = (string) $name;
+
+	$queried_object = get_queried_object();
+
+	if ( is_tag() || is_category() || is_tax() ) {
+		$templates[] = "sidebar-{$queried_object->taxonomy}-{$queried_object->slug}-{$name}.php";
+		$templates[] = "sidebar-{$queried_object->taxonomy}-{$queried_object->slug}.php";
+		$templates[] = "sidebar-{$queried_object->taxonomy}-{$name}.php";
+		$templates[] = "sidebar-{$queried_object->taxonomy}.php";
+		$templates[] = "sidebar-taxonomy-{$name}.php";
+		$templates[] = 'sidebar-taxonomy.php';
+	} elseif ( is_post_type_archive() ) {
+		$templates[] = "sidebar-{$queried_object->name}-{$name}.php";
+		$templates[] = "sidebar-{$queried_object->name}.php";
+		$templates[] = "sidebar-post-type-{$name}.php";
+		$templates[] = 'sidebar-post-type.php';
+	} elseif ( is_author() ) {
+		$templates[] = "sidebar-{$queried_object->user_login}-{$name}.php";
+		$templates[] = "sidebar-{$queried_object->user_login}.php";
+		$templates[] = "sidebar-author-{$name}.php";
+		$templates[] = 'sidebar-author.php';
+	}
+
+	$templates[] = "sidebar-{$name}.php";
+	$templates[] = 'sidebar.php';
+
+	locate_template( $templates, true );
 }
