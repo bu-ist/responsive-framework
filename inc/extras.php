@@ -32,10 +32,10 @@ function responsive_body_class( $classes ) {
 	if ( $sidebar_location ) {
 		if ( true === $posts_sidebar_bottom ) {
 			if ( is_page() && ! is_page_template( 'page-templates/news.php' ) && ! is_page_template( 'page-templates/profiles.php' ) ) {
-				$classes[] = "sidebarLocation-$sidebar_location";
+				$classes[] = "sidebar-location-$sidebar_location";
 			}
 		} else {
-			$classes[] = "sidebarLocation-$sidebar_location";
+			$classes[] = "sidebar-location-$sidebar_location";
 		}
 	}
 
@@ -300,7 +300,7 @@ function responsive_oembed_output( $html, $url ) {
 
 		foreach ( $patterns as $pattern ) {
 			if ( preg_match( $pattern, $url ) ) {
-				return( sprintf( '<div class="responsiveVideo responsive-%s">%s</div>', $slug, $html ) );
+				return( sprintf( '<div class="responsive-video responsive-%s">%s</div>', $slug, $html ) );
 			}
 		}
 	}
