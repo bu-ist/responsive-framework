@@ -81,9 +81,9 @@ function responsive_flexi_migration() {
 
 	// Migrate banner positions.
 	$banner_position_map = apply_filters( __FUNCTION__ . '_banner_position_map', array(
-		'content-width' => 'contentWidth',
-		'page-width'    => 'pageWidth',
-		'window-width'  => 'windowWidth',
+		'contentWidth' => 'content-width',
+		'pageWidth'    => 'page-width',
+		'windowWidth'  => 'window-width',
 	) );
 	$result = bu_migrate_banner_positions( $banner_position_map );
 	if ( is_wp_error( $result ) ) {
