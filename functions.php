@@ -221,10 +221,22 @@ function responsive_enqueue_scripts() {
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	// Main script file (script.js) will load from child theme directory.
-	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", apply_filters( 'r_script_dependencies', array( 'jquery' ) ), RESPONSIVE_THEME_VERSION, true );
+	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", apply_filters( 'r_script_dependencies', array( 'jquery' ) ), RESPONSIVE_THEME_VERSION, apply_filters( 'r_script_location', true ) );
 
-	// Vendor scripts will load from parent theme directory.
-	wp_enqueue_script( 'responsive-modernizer', get_template_directory_uri() . "/js/vendor/modernizer$postfix.js", array(), '2.8.3' );
+	/**
+	 * Filters whether Modernizr should be enqueued by the framework.
+	 *
+	 * False can be returned by child themes or plugins to load a custom Modernizr build.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param bool Default is to enqueue Modernizr.
+	 */
+	$enqueue_modernizr = apply_filters( 'r_enqueue_modernizr', true );
+
+	if ( (bool) $enqueue_modernizr ) {
+		wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), '3.3.1' );
+	}
 
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
 	if ( is_singular() && responsive_has_comment_support() && comments_open() && get_option( 'thread_comments' ) ) {
