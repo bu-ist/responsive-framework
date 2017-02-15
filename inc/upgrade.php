@@ -28,6 +28,10 @@ function responsive_framework_upgrade() {
 				responsive_upgrade_091();
 			}
 
+			if ( version_compare( $db_version, '2.0.0', '<' ) ) {
+				responsive_upgrade_2_0();
+			}
+
 			do_action( 'responsive_framework_upgrade', $db_version, RESPONSIVE_FRAMEWORK_VERSION );
 
 			error_log( __FUNCTION__ . ' - Updating framework version in DB: ' . $db_version . ' -> ' . RESPONSIVE_FRAMEWORK_VERSION );
@@ -74,9 +78,9 @@ function responsive_upgrade_091() {
 	// Rename banner positions.
 	error_log( __FUNCTION__ . ' - Migrating content banners...' );
 	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
-		'content-width' => 'contentWidth',
-		'page-width'    => 'pageWidth',
-		'window-width'  => 'windowWidth',
+		'contentWidth' => 'content-width',
+		'pageWidth'    => 'page-width',
+		'windowWidth'  => 'window-width',
 	) );
 	$banner_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
 		$wpdb->postmeta
@@ -90,9 +94,9 @@ function responsive_upgrade_091() {
 				$banner['position'] = $banner_map[ $banner['position'] ];
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
-				error_log( __FUNCTION__ . ' - Resetting empty banner position to default (contentWidth)' );
+				error_log( __FUNCTION__ . ' - Resetting empty banner position to default (content-width)' );
 				// Reset to default.
-				$banner['position'] = 'contentWidth';
+				$banner['position'] = 'content-width';
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			}
 		}
@@ -112,4 +116,40 @@ function responsive_upgrade_091() {
 		}
 	}
 	wp_set_sidebars_widgets( $sidebars_widgets );
+}
+
+/**
+ * Upgrade routines for Responsive Framework 2.0.0.
+ *
+ * - Content banner names have been updated to match coding standards.
+ */
+function responsive_upgrade_2_0() {
+	global $wpdb;
+
+	// Rename banner positions.
+	error_log( __FUNCTION__ . ' - Migrating content banners...' );
+	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
+		'contentWidth' => 'content-width',
+		'pageWidth'    => 'page-width',
+		'windowWidth'  => 'window-width',
+	) );
+
+	$results = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'",
+		$wpdb->postmeta
+	) );
+
+	foreach ( $results as $result ) {
+		$banner = maybe_unserialize( $result->meta_value );
+		if ( is_array( $banner ) ) {
+			if ( array_key_exists( 'position', $banner ) && in_array( $banner['position'], array_keys( $banner_map ) ) ) {
+				$banner['position'] = $banner_map[ $banner['position'] ];
+				update_post_meta( $result->post_id, '_bu_banner', $banner );
+			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
+				error_log( __FUNCTION__ . ' - Resetting empty banner position to default (content-width)' );
+				// Reset to default.
+				$banner['position'] = 'content-width';
+				update_post_meta( $result->post_id, '_bu_banner', $banner );
+			}
+		}
+	}
 }
