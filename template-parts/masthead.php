@@ -11,8 +11,6 @@
 	<p class="site-description brand-site-description"><?php bloginfo( 'description' ); ?></p>
 </div>
 
-<?php responsive_utility_nav(); ?>
-
 <nav class="primary-nav" role="navigation">
 	<a href="#primary-nav-menu" class="nav-toggle"><span>Menu</span></a>
 
