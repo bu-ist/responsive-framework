@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main role="main" class="no-access not-found content-area">
+<div class="no-access not-found content-area">
 	<header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Access Restricted To BU/BUMC/BMC' ); ?></h1>
 	</header><!-- .page-header -->
@@ -19,6 +19,6 @@ get_header();
 		<p><a href="http://www.bumc.bu.edu/bumc/oit/network/VPN">http://www.bumc.bu.edu/bumc/oit/network/VPN</a></p>
 
 	</div><!-- .page-content -->
-</main><!-- .no-access -->
+</div><!-- .no-access -->
 
 <?php get_footer();
