@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-<section class="error-404 not-found">
+<main role="main" class="error-404 not-found content-area">
 
 	<header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( "Yikes! We couldn't find that." ); ?></h1>
@@ -19,6 +19,6 @@ get_header(); ?>
 		<?php responsive_search_form(); ?>
 
 	</div><!-- .page-content -->
-</section><!-- .error-404 -->
+</main><!-- .error-404 -->
 
 <?php get_footer();
