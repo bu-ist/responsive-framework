@@ -15,7 +15,7 @@ get_header(); ?>
 
 	<?php responsive_content_banner( 'page-width' ); ?>
 
-	<main role="main" id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
 
 	<?php responsive_content_banner( 'content-width' ); ?>
 
@@ -49,7 +49,7 @@ get_header(); ?>
 
 		<?php wp_reset_postdata(); ?>
 
-	</main>
+	</article>
 
 <?php endwhile; ?>
 
