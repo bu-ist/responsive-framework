@@ -30,5 +30,3 @@
 	<?php endif; ?>
 
 </div>
-
-<?php responsive_utility_nav();
