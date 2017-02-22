@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-<main role="main" class="content-area">
+<article class="content-area">
 
 	<?php if ( have_posts() ) : ?>
 
@@ -25,7 +25,7 @@ get_header(); ?>
 
 	<?php endif; ?>
 
-</main>
+</article>
 
 <?php get_sidebar( 'posts' ); ?>
 <?php get_footer();

@@ -11,7 +11,7 @@ get_header(); ?>
 
 		<?php responsive_content_banner( 'page-width' ); ?>
 
-		<article role="main" id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
+		<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
 
 			<?php the_title( '<header><h1>', '</h1></header>' ); ?>
 
