@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<div class="content-area">
+<main role="main" class="content-area">
 
 	<?php if ( have_posts() ) : ?>
 
@@ -29,7 +29,7 @@ get_header();
 
 	<?php endif; ?>
 
-</div>
+</main>
 
 <?php r_get_archive_sidebar(); ?>
 
