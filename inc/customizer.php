@@ -734,7 +734,8 @@ CSS;
 /* navbar bg color */
 .l-side-nav .wrapper,
 .primary-nav,
-.primary-nav-menu ul {
+.primary-nav-menu ul,
+.l-side-nav {
 	background: {$colors['primaryNav-bg']};
 }
 
