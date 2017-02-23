@@ -21,10 +21,8 @@ class Tests_Responsive_Framework_Branding extends WP_UnitTestCase {
 	/**
 	 * Theme and framework version constants.
 	 */
-	function test_default_theme_version_constants() {
-		$this->expectOutputString( locate_template( array(
-			'template-parts/branding.php',
-		), true ) );
+	function test_responsive_branding() {
+		$this->expectOutputString( locate_template( 'template-parts/branding.php', true ) );
 
 		responsive_branding();
 	}
