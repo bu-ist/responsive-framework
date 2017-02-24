@@ -66,7 +66,7 @@ if ( $timestamp > $boundary_future ) {
 
 <?php responsive_content_banner( 'page-width' ); ?>
 
-<article role="main" id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
 
 		<?php responsive_content_banner( 'content-width' ); ?>
 
