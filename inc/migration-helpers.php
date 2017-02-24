@@ -203,9 +203,7 @@ function responsive_migrate_flexi_footbars() {
 	}
 
 	// Migrate post-specific dynamic footbar selections.
-	$footbar_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_flexi_framework_footbar" AND meta_value != ""',
-	$wpdb->postmeta );
-	$results = $wpdb->get_results( $footbar_query );
+	$results = $wpdb->get_results( $wpdb->prepare( 'SELECT post_id, meta_value FROM %s WHERE meta_key = %s AND meta_value != ""', $wpdb->postmeta, '_bu_flexi_framework_footbar' ) );
 
 	if ( empty( $results ) ) {
 		return;
