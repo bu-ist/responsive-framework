@@ -2597,6 +2597,8 @@ body {
 /* Has info + general links */
 /* Has info + social media links */
 /* Has all three */
+/* Branding
+----------------------------------------------------------------- */
 .lt-ie9 .brand {
   display: table;
 }
@@ -2628,11 +2630,12 @@ body {
 }
 
 .brand {
+  overflow: hidden;
+  height: 120px;
+  padding: 0 0 0 20px;
   font-family: "Whitney SSm A", "Whitney SSm B", "Benton", Helvetica, sans-serif;
   font-size: 18px;
-  height: 120px;
   line-height: 1.3;
-  padding: 0 0 0 20px;
 }
 .brand > .has-parent {
   font-size: 16px;
@@ -2642,10 +2645,10 @@ body {
 }
 
 .brand-container {
-  color: #000000;
   display: block;
   float: left;
   font-weight: 400;
+  color: #000000;
   text-decoration: none;
 }
 .brand-container:visited {
@@ -2658,16 +2661,17 @@ body {
 
 .brand-site-description {
   display: none;
-  color: #9f9f9f;
   display: block;
   font-family: "TiemposText", Georgia, serif;
   font-size: 16px;
+  color: #9f9f9f;
 }
 
+/* Sub-brand signature */
 .brand-signature {
-  background: url("https://www.bu.edu/cdn/images/logos/subbrand49x35.png") no-repeat 0 49%;
-  min-height: 35px;
   padding: 10px 30px 9px 56px;
+  min-height: 35px;
+  background: url("https://www.bu.edu/cdn/images/logos/subbrand49x35.png") no-repeat 0 49%;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-signature {
@@ -2676,11 +2680,12 @@ body {
   }
 }
 .brand-signature.has-parent {
-  background-position: 0 3px;
-  padding-bottom: 0;
   padding-top: 0;
+  padding-bottom: 0;
+  background-position: 0 3px;
 }
 
+/* Sponsored branding */
 .brand-part-sitename {
   display: block;
 }
@@ -2689,9 +2694,9 @@ body {
 }
 
 .brand-unbranded {
-  color: #cc0000;
   font-family: "Benton", Helvetica, sans-serif;
   font-size: 20px;
+  color: #cc0000;
 }
 .brand-unbranded:visited {
   color: #cc0000;
@@ -2705,11 +2710,12 @@ body {
   display: block;
 }
 
+/* Master logo in footer */
 .brand-masterplate {
-  background: url("https://www.bu.edu/cdn/images/logos/masterplate112x50.png") no-repeat 0 0;
   display: block;
-  height: 50px;
   width: 112px;
+  height: 50px;
+  background: url("https://www.bu.edu/cdn/images/logos/masterplate112x50.png") no-repeat 0 0;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-masterplate {
@@ -2718,11 +2724,12 @@ body {
   }
 }
 
+/* BUMC logo in footer */
 .brand-bumclogo {
-  background: url("https://www.bu.edu/cdn/images/logos/bumclogo96x40.png") no-repeat 0 0;
   display: block;
-  height: 40px;
+  background: url("https://www.bu.edu/cdn/images/logos/bumclogo96x40.png") no-repeat 0 0;
   width: 96px;
+  height: 40px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-bumclogo {
@@ -2910,6 +2917,11 @@ nav a {
   text-decoration: none;
 }
 
+/* .search-toggle appears only when header is small and above, otherwise it's hidden */
+.brand .search-toggle {
+  display: none;
+}
+
 .brand .site-description {
   float: left;
   width: auto;
@@ -3074,6 +3086,10 @@ nav a {
   background: #000000;
 }
 
+.masthead-container .primary-nav .utility-nav {
+  display: none;
+}
+
 .primary-nav.is-open {
   height: auto;
   padding-bottom: 20px;
@@ -3175,13 +3191,18 @@ nav a {
 }
 
 .utility-nav a {
-  color: #aaaaaa;
-  text-decoration: none;
   color: #7a7a7a;
+  text-decoration: none;
 }
 .utility-nav a:hover {
-  color: #ffffff;
   color: #000000;
+}
+
+.primary-nav .utility-nav a {
+  color: #aaaaaa;
+}
+.primary-nav .utility-nav a:hover {
+  color: #ffffff;
 }
 
 /* default
@@ -3208,33 +3229,6 @@ nav a {
   top: 120px;
   width: 240px;
   background: none;
-}
-
-.l-side-nav .search-toggle {
-  position: absolute;
-  top: 150px;
-  right: 0;
-  color: #ffffff;
-  right: 10px;
-  display: block;
-  position: relative;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  color: #9f9f9f;
-}
-.lt-ie9 .l-side-nav .search-toggle {
-  top: auto;
-}
-.l-side-nav .search-toggle:visited {
-  color: currentColor;
-}
-.l-side-nav .search-toggle:hover {
-  color: currentColor;
-  color: #000000;
 }
 
 .search-open.l-side-nav .primary-nav {
@@ -3273,6 +3267,7 @@ nav a {
   border-width: 1px 0 0 0;
 }
 
+.l-side-nav .brand .search-toggle,
 .l-no-nav .brand .search-toggle {
   color: #9f9f9f;
   right: 10px;
@@ -3284,12 +3279,15 @@ nav a {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.lt-ie9 .l-no-nav .brand .search-toggle {
+.lt-ie9 .l-side-nav .brand .search-toggle, .lt-ie9
+.l-no-nav .brand .search-toggle {
   top: auto;
 }
+.l-side-nav .brand .search-toggle:visited,
 .l-no-nav .brand .search-toggle:visited {
   color: #9f9f9f;
 }
+.l-side-nav .brand .search-toggle:hover,
 .l-no-nav .brand .search-toggle:hover {
   color: #000000;
 }
@@ -3581,10 +3579,6 @@ h6.bu_collapsible {
 
 .comment-author {
   color: #aaaaaa;
-}
-
-.comment-author img {
-  display: none;
 }
 
 .comment-author .fn {
