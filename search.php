@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-	<article role="main" <?php post_class( 'content-area' ); ?>>
+	<article <?php post_class( 'content-area' ); ?>>
 
 		<?php if ( have_posts() ) : ?>
 

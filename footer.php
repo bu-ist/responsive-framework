@@ -15,7 +15,7 @@
 					 */
 					do_action( 'r_before_closing_content_container' );
 				?>
-			</div><!-- .content-container -->
+			</main><!-- .content-container -->
 			<?php
 				/**
 				 * Fires immediately after the closing content container div.
