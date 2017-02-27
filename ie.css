@@ -2597,8 +2597,6 @@ body {
 /* Has info + general links */
 /* Has info + social media links */
 /* Has all three */
-/* Branding
------------------------------------------------------------------ */
 .lt-ie9 .brand {
   display: table;
 }
@@ -2630,12 +2628,11 @@ body {
 }
 
 .brand {
-  overflow: hidden;
-  height: 120px;
-  padding: 0 0 0 20px;
   font-family: "Whitney SSm A", "Whitney SSm B", "Benton", Helvetica, sans-serif;
   font-size: 18px;
+  height: 120px;
   line-height: 1.3;
+  padding: 0 0 0 20px;
 }
 .brand > .has-parent {
   font-size: 16px;
@@ -2645,10 +2642,10 @@ body {
 }
 
 .brand-container {
+  color: #000000;
   display: block;
   float: left;
   font-weight: 400;
-  color: #000000;
   text-decoration: none;
 }
 .brand-container:visited {
@@ -2661,17 +2658,16 @@ body {
 
 .brand-site-description {
   display: none;
+  color: #9f9f9f;
   display: block;
   font-family: "TiemposText", Georgia, serif;
   font-size: 16px;
-  color: #9f9f9f;
 }
 
-/* Sub-brand signature */
 .brand-signature {
-  padding: 10px 30px 9px 56px;
-  min-height: 35px;
   background: url("https://www.bu.edu/cdn/images/logos/subbrand49x35.png") no-repeat 0 49%;
+  min-height: 35px;
+  padding: 10px 30px 9px 56px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-signature {
@@ -2680,12 +2676,11 @@ body {
   }
 }
 .brand-signature.has-parent {
-  padding-top: 0;
-  padding-bottom: 0;
   background-position: 0 3px;
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
-/* Sponsored branding */
 .brand-part-sitename {
   display: block;
 }
@@ -2694,9 +2689,9 @@ body {
 }
 
 .brand-unbranded {
+  color: #cc0000;
   font-family: "Benton", Helvetica, sans-serif;
   font-size: 20px;
-  color: #cc0000;
 }
 .brand-unbranded:visited {
   color: #cc0000;
@@ -2710,12 +2705,11 @@ body {
   display: block;
 }
 
-/* Master logo in footer */
 .brand-masterplate {
-  display: block;
-  width: 112px;
-  height: 50px;
   background: url("https://www.bu.edu/cdn/images/logos/masterplate112x50.png") no-repeat 0 0;
+  display: block;
+  height: 50px;
+  width: 112px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-masterplate {
@@ -2724,12 +2718,11 @@ body {
   }
 }
 
-/* BUMC logo in footer */
 .brand-bumclogo {
-  display: block;
   background: url("https://www.bu.edu/cdn/images/logos/bumclogo96x40.png") no-repeat 0 0;
-  width: 96px;
+  display: block;
   height: 40px;
+  width: 96px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-bumclogo {
@@ -2906,30 +2899,23 @@ body {
   display: none;
 }
 
-/* common
------------------------------------------------------------------ */
 nav {
   font-family: "Benton", Helvetica, sans-serif;
   font-size: 16px;
 }
-
 nav a {
   text-decoration: none;
 }
 
-/* .search-toggle appears only when header is small and above, otherwise it's hidden */
 .brand .search-toggle {
   display: none;
 }
-
 .brand .site-description {
   float: left;
   width: auto;
   margin-left: 50px;
 }
 
-/* quicksearch (use WordPress plugin class name)
------------------------------------------------------------------ */
 #quicksearch {
   position: relative;
   display: none;
@@ -2937,14 +2923,12 @@ nav a {
   margin: 0;
   background: #f5f5f5;
 }
-
 #quicksearch fieldset {
   margin: 0;
   max-width: 750px;
   padding: 0 20px;
   margin: 0 auto;
 }
-
 #quicksearch .button {
   -webkit-border-radius: 0 20px 20px 0;
   -moz-border-radius: 0 20px 20px 0;
@@ -2973,8 +2957,6 @@ nav a {
   width: 85%;
 }
 
-/* search-toggle
------------------------------------------------------------------ */
 .search-toggle {
   -webkit-transition: color 200ms ease-in-out 0s;
   -moz-transition: color 200ms ease-in-out 0s;
@@ -2996,20 +2978,16 @@ nav a {
 .search-toggle:hover {
   color: #aaaaaa;
 }
-
 .search-toggle span {
   display: none;
 }
 
-/* when nav or search are opened */
 .is-open .primary-nav-menu,
 .is-open .utility-nav {
   display: block;
   clear: left;
 }
 
-/* nav-toggle
------------------------------------------------------------------ */
 .nav-toggle {
   position: relative;
   float: left;
@@ -3078,16 +3056,10 @@ nav a {
   transform: rotate(-45deg);
 }
 
-/* primaryNav and menu
------------------------------------------------------------------ */
 .primary-nav {
   display: block;
   padding: 0 10px;
   background: #000000;
-}
-
-.masthead-container .primary-nav .utility-nav {
-  display: none;
 }
 
 .primary-nav.is-open {
@@ -3103,7 +3075,6 @@ nav a {
   margin: 0;
   border: none;
 }
-
 .primary-nav-menu li {
   display: block;
   zoom: 1;
@@ -3113,7 +3084,6 @@ nav a {
 .lt-ie8 .primary-nav-menu li {
   display: inline;
 }
-
 .primary-nav-menu a {
   display: block;
   padding: 10px 0;
@@ -3128,12 +3098,6 @@ nav a {
 .primary-nav-menu a:hover, .primary-nav-menu a:focus {
   color: #aaaaaa;
 }
-
-.primary-nav-menu li a.active,
-.primary-nav-menu li a.active_section {
-  color: #9f9f9f;
-}
-
 .primary-nav-menu ul {
   display: none;
   position: absolute;
@@ -3142,6 +3106,11 @@ nav a {
   display: block;
   width: 240px;
   background: #000000;
+}
+
+.primary-nav-menu li a.active,
+.primary-nav-menu li a.active_section {
+  color: #9f9f9f;
 }
 
 .primary-nav-menu li:hover ul,
@@ -3173,6 +3142,21 @@ nav a {
   border-width: 1px 0 0 0;
   font-size: 14px;
 }
+.utility-nav li {
+  padding: 0;
+  border: none;
+  display: inline-block;
+  padding-left: 10px;
+  border: none;
+  *display: inline;
+}
+.utility-nav a {
+  color: #7a7a7a;
+  text-decoration: none;
+}
+.utility-nav a:hover {
+  color: #000000;
+}
 
 .masthead-container .utility-nav {
   display: block;
@@ -3191,18 +3175,13 @@ nav a {
 }
 
 .utility-nav a {
-  color: #7a7a7a;
+  color: #aaaaaa;
   text-decoration: none;
+  color: #7a7a7a;
 }
 .utility-nav a:hover {
-  color: #000000;
-}
-
-.primary-nav .utility-nav a {
-  color: #aaaaaa;
-}
-.primary-nav .utility-nav a:hover {
   color: #ffffff;
+  color: #000000;
 }
 
 /* default
@@ -3216,58 +3195,97 @@ nav a {
 
 /* side-nav
 ----------------------------------------------------------------- */
+.l-side-nav .masthead:after {
+  display: none;
+}
 .l-side-nav .wrapper {
   background: #000000;
 }
-
-.l-side-nav .content {
-  margin-left: 60px;
-}
-
 .l-side-nav .primary-nav {
-  position: absolute;
-  top: 120px;
+  position: relative;
+  top: 0;
   width: 240px;
   background: none;
+  float: left;
+  margin-left: -180px;
+  left: 0;
 }
-
-.search-open.l-side-nav .primary-nav {
-  top: 218px;
-  /* adds the height of the open search form */
+.l-side-nav .primary-nav.is-open {
+  left: 180px;
 }
-
 .l-side-nav .nav-toggle {
-  margin-left: -10px;
+  float: right;
+  margin-right: -10px;
 }
-
 .l-side-nav .primary-nav-menu {
   display: none;
   margin: 0 10px;
 }
-
 .l-side-nav .primary-nav-menu li {
   display: block;
   padding: 0;
 }
-
 .l-side-nav .primary-nav-menu a {
   padding: 10px 0;
   border: 1px solid #333333;
   border-width: 1px 0 0 0;
   line-height: 1.6;
 }
-
 .l-side-nav .primary-nav-menu ul {
   display: none;
 }
 
-/* side-nav and no-nav: quicksearch */
+.l-side-nav .search-toggle {
+  position: absolute;
+  right: 0;
+  color: #ffffff;
+  right: 10px;
+  display: block;
+  position: relative;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #9f9f9f;
+}
+.lt-ie9 .l-side-nav .search-toggle {
+  top: auto;
+}
+.l-side-nav .search-toggle:active, .l-side-nav .search-toggle:visited {
+  color: currentColor;
+}
+.l-side-nav .search-toggle:hover {
+  color: currentColor;
+  color: #000000;
+}
+
+.search-open.l-side-nav .primary-nav {
+  top: 103px;
+}
+.search-open.l-side-nav .content {
+  margin-top: 103px;
+}
+
 .l-side-nav #quicksearch {
+  position: absolute;
+  width: 100%;
   border: 1px solid #dddddd;
   border-width: 1px 0 0 0;
 }
+.l-side-nav .primary-nav .search-toggle {
+  display: none;
+}
 
-.l-side-nav .brand .search-toggle,
+.l-side-nav.nav-open .content {
+  left: 180px;
+}
+.l-side-nav.nav-open .nav-toggle {
+  float: left;
+  margin-left: -10px;
+}
+
 .l-no-nav .brand .search-toggle {
   color: #9f9f9f;
   right: 10px;
@@ -3279,24 +3297,16 @@ nav a {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.lt-ie9 .l-side-nav .brand .search-toggle, .lt-ie9
-.l-no-nav .brand .search-toggle {
+.lt-ie9 .l-no-nav .brand .search-toggle {
   top: auto;
 }
-.l-side-nav .brand .search-toggle:visited,
 .l-no-nav .brand .search-toggle:visited {
   color: #9f9f9f;
 }
-.l-side-nav .brand .search-toggle:hover,
 .l-no-nav .brand .search-toggle:hover {
   color: #000000;
 }
 
-.l-side-nav .primary-nav .search-toggle {
-  display: none;
-}
-
-/* side-nav: nav-toggle */
 .l-side-nav .nav-toggle {
   display: block;
 }
@@ -3308,11 +3318,6 @@ nav a {
 .l-side-nav .utility-nav li {
   display: block;
   padding-left: 0;
-}
-
-.l-side-nav.nav-open .content {
-  left: 240px;
-  margin-left: 0;
 }
 
 .l-side-nav.nav-open .primary-nav-menu,
@@ -3329,13 +3334,12 @@ nav a {
   right: 20px;
   line-height: 1;
 }
+.l-top-nav #quicksearch {
+  border-bottom: 1px solid #dddddd;
+}
 
 .l-top-nav.search-open .utility-nav {
   top: 209px;
-}
-
-.l-top-nav #quicksearch {
-  border-bottom: 1px solid #dddddd;
 }
 
 /* no-nav
@@ -3343,27 +3347,23 @@ nav a {
 .l-no-nav .primary-nav {
   display: none;
 }
-
 .l-no-nav .brand {
   padding-right: 60px;
 }
-
+.l-no-nav .brand .search-toggle {
+  display: block;
+  margin: 0 -60px 0 0;
+  font-size: 24px;
+}
+.l-no-nav #quicksearch {
+  border-top: 1px solid #dddddd;
+}
 .l-no-nav .masthead-container .utility-nav {
   display: none;
   position: absolute;
   top: 48px;
   right: 80px;
   display: block;
-}
-
-.l-no-nav .brand .search-toggle {
-  display: block;
-  margin: 0 -60px 0 0;
-  font-size: 24px;
-}
-
-.l-no-nav #quicksearch {
-  border-top: 1px solid #dddddd;
 }
 
 /* components
