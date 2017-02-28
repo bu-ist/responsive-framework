@@ -20,7 +20,7 @@ Every effort should be made to make a pull request as stable as possible before
 ### `develop` Pull Request Process
 
 When the code in your feature branch is done and ready to be merged, a pull
- request to `develp` should be created.
+ request to `develop` should be created.
 
 1. Ensure your local checkout of the repository is up to date.
 1. Check out the `develop` branch.
@@ -106,7 +106,8 @@ When the code in `develop` is ready to be released into the wild, a pull
 1. Increment version number strings.
 1. Update the "Unreleased heading in the `CHANGELOG.md` to reflect the version
  being released.
-1. Perform any necessary build tasks through Grunt.
+1. Perform any necessary build tasks through Grunt. Remember to verify the
+ proper version of Responsive Foundation is being loaded through Bower.
 1. Submit a pull request to merge your branch into `master`.
 1. After your pull request receives approval from at least one other team
  member, merge your code into `master` and ensure the merge went smoothly.

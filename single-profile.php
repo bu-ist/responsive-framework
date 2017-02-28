@@ -20,7 +20,7 @@ get_header(); ?>
 		}
 		?>
 
-		<article role="main" <?php post_class( 'content-area' ); ?>>
+		<article <?php post_class( 'content-area' ); ?>>
 
 			<h1 class="name"><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h1>
 			<h2 class="title"><?php bu_profile_detail( 'title' ); ?></h2>

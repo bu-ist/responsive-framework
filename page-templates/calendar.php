@@ -64,11 +64,11 @@ if ( $timestamp > $boundary_future ) {
 ?>
 <?php get_header(); ?>
 
-<?php responsive_content_banner( 'pageWidth' ); ?>
+<?php responsive_content_banner( 'page-width' ); ?>
 
-<article role="main" id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
 
-		<?php responsive_content_banner( 'contentWidth' ); ?>
+		<?php responsive_content_banner( 'content-width' ); ?>
 
 		<?php if ( is_null( $eventID ) ) { ?>
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -186,11 +186,11 @@ endif; ?>
 				</div>
 			<?php } ?>
 		<?php } else { ?>
-			<div class="singleEvent">
-				<div class="eventSummary">
+			<div class="single-event">
+				<div class="event-summary">
 
 					<h1><?php echo wp_kses_post( $event['summary'] ); ?></h1>
-					<div class="dateSummary">
+					<div class="date-summary">
 						<ul>
 							<?php if ( ! empty( $event['start_time'] ) ) { ?>
 								<li>
@@ -208,7 +208,7 @@ endif; ?>
 					<div class="description"><?php echo wp_kses_post( html_entity_decode( $event['description'] ) ); ?></div>
 				</div> <!-- /.eventSummary -->
 
-				<div class="additionalDetails">
+				<div class="additional-details">
 					<dl class="tabular">
 						<?php if ( $event['speakers'] ) { ?>
 							<dt class="label">Speakers:</dt>
@@ -299,9 +299,9 @@ endif; ?>
 					</dl>
 				</div> <!-- /.additionalDetails -->
 
-				<p><a href="<?php the_permalink(); ?>" class="archiveLink calendarArchiveLink">Back to Calendar</a></p>
+				<p><a href="<?php the_permalink(); ?>" class="archive-link calendar-archive-link">Back to Calendar</a></p>
 
-			</div><!-- /.singleEvent -->
+			</div><!-- /.single-event -->
 		<?php } ?>
 </article>
 
