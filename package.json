@@ -13,7 +13,8 @@
     "Scott Dasse <sdasse@bu.edu>",
     "Steve Rudolfi <srudolfi@bu.edu>",
     "Inderpreet Singh <isingh@bu.edu>",
-    "Jonathan Desrosiers <jondes@bu.edu>"
+    "Jonathan Desrosiers <jondes@bu.edu>",
+    "Ashley Kolodziej <kolodz10@bu.edu>"
   ],
   "devDependencies": {
     "grunt": "~0.4.5",

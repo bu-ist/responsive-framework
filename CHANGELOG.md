@@ -54,6 +54,13 @@
  enqueued. Child themes and plugins can use this to load their own build of
  Modernizr.
 * Add video autoplay to the list of Modernizr checks.
+* Introduce `r_get_template_part()`. Adds the ability to theme a specific post
+ type's display in archive contexts within a child theme without having to
+ change the `archive.php` template that serves as the default for all archive
+ pages. For more details see [102e38a](https://github.com/bu-ist/responsive-framework/pull/153/commits/102e38aa79a6d42bd782d5d4be5c1d3f20fc5b83).
+* Introduce `r_get_archive_sidebar()`. Adds the ability to theme sidebars for
+ specific archive contexts without having to change the `archive.php` template
+ in a child theme. For more details see [55f3602](https://github.com/bu-ist/responsive-framework/pull/153/commits/55f3602dc496439d414f28a24b72dd6e19edec99).
 
 ## 1.5.3
 
@@ -62,7 +69,7 @@
 ## 1.5.2
 
 * Fix `responsive_maybe_hide_homepage_h1()` to accept the second parameter for
-`the_title` filter.
+ `the_title` filter.
 * Introduce the `r_script_dependencies` filter. Used to filter script
  dependencies for child theme script files.
 
@@ -93,8 +100,11 @@
 ## 1.3.4-beta
 
 * Create new gravity forms contact forms only when necessary.
-  * They should be generated only when current site has contact forms using the Contact Us plugin.
-  * Previous bug: gravity forms were generated for sites without contact forms. And if the theme got activated multiple times, more gravity forms were generated each time.
+  * They should be generated only when current site has contact forms using the
+   Contact Us plugin.
+  * Previous bug: gravity forms were generated for sites without contact forms.
+   And if the theme got activated multiple times, more gravity forms were
+   generated each time.
 
 ## 1.3.3-beta
 
@@ -106,7 +116,8 @@
 
 ## 1.3.1-beta
 
-* Add `no-access.php` and no-access-bumc.php` template files to framework for Audience plugin on bumc.bu.edu
+* Add `no-access.php` and no-access-bumc.php` template files to framework for
+ Audience plugin on bumc.bu.edu
 
 ## 1.3.0-beta
 
@@ -125,10 +136,12 @@
 ## 1.2.1
 
 * Change empty value for calendar event time from '&nbsp;' to ''
-* Add site initialization and Flexi migration logic (dormant pending release of Site Manager 4.0.0)
+* Add site initialization and Flexi migration logic (dormant pending release of
+ Site Manager 4.0.0)
 * Fix #30: Don't display search icon when search is disabled
 * Fix #32: Don't override threaded comment depth set via Settings > Discussion
-* Fix #19: Update social media icons to add alternate icons, fix issues with Flickr / Vine and Google+. See https://github.com/bu-ist/responsive-foundation/commit/a30470947bc5bf05533e183e31f2060dd89d99c2.
+* Fix #19: Update social media icons to add alternate icons, fix issues with
+ Flickr / Vine and Google+. See [a304709](https://github.com/bu-ist/responsive-foundation/commit/a30470947bc5bf05533e183e31f2060dd89d99c2).
 * Fix typo with archive button.
 
 ## 1.2.0
@@ -138,21 +151,26 @@
 * Add support for BU Sharing plugin
 * Introduce `responsive_share_tools()` for share tools display
 * Ensure Customizer is accessible to non-super admin
-* Remove shims for BU Profiles / Content Banner template tags that have been integrated into plugins
+* Remove shims for BU Profiles / Content Banner template tags that have been
+ integrated into plugins
 * Add hooks to upgrade function to support pending migration of Research theme
 
 ## 1.1.0
 
 * Add basic BUniverse embed provider
-* Archive template now utilizes profile template parts for profile-specific taxonomy archives (#22)
+* Archive template now utilizes profile template parts for profile-specific
+ taxonomy archives (#22)
 * Profile shortcode templates now utilize template partials
-* Navigation template tags now support customizable labels and screen reader text (#23)
+* Navigation template tags now support customizable labels and screen reader
+ text (#23)
 * Navigation template tags are now post type-agnostic
 * Fix posts navigation button placement (they were reversed)
 * Fix #18: Empty <p> tags when no post meta exists for News template
 * Fix #21: Use correct class attribute for `[buniverse]` shortcode
-* Introduce `responsive_archive_type()` and `responsive_queried_post_types()` helpers (#22)
-* Deprecate `responsive_paging_nav()` in favor of `responsive_posts_navigation()`
+* Introduce `responsive_archive_type()` and `responsive_queried_post_types()`
+ helpers (#22)
+* Deprecate `responsive_paging_nav()` in favor of
+ `responsive_posts_navigation()`
 * Deprecate `responsive_post_nav()` in favor of `responsive_post_navigation()`
 
 ## 1.0.3
@@ -176,4 +194,5 @@
 ## 0.9.1
 
 * Pre-release version of Responsi.
-* Child themes based on 0.9.1 include: r-cfa, r-hr, r-pardeeschool, r-research, and r-school.
+* Child themes based on 0.9.1 include: r-cfa, r-hr, r-pardeeschool, r-research,
+ and r-school.

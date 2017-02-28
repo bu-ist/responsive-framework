@@ -9,13 +9,13 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php responsive_content_banner( 'pageWidth' ); ?>
+		<?php responsive_content_banner( 'page-width' ); ?>
 
-		<article role="main" id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
+		<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
 
 			<?php the_title( '<header><h1>', '</h1></header>' ); ?>
 
-			<?php responsive_content_banner( 'contentWidth' ); ?>
+			<?php responsive_content_banner( 'content-width' ); ?>
 
 			<?php the_content(); ?>
 
@@ -28,7 +28,7 @@ get_header(); ?>
 				<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
 					<h5 class="byline"><em>By </em><?php the_author(); ?></h5>
 				<?php endif; ?>
-				<p class="postedDateCategory">
+				<p class="posted-date-category">
 					<em class="posted">Posted </em><span class="date-offset"><?php echo esc_attr( human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago' ); ?></span>
 					<em class="on"> on </em><span class="date"><time datetime="<?php the_time( 'l, F jS, Y' ) ?>" pubdate><?php the_time( 'l, F jS, Y' ) ?></time></span>
 					<?php if ( responsive_posts_should_display( 'categories' ) ) : ?>
