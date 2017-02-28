@@ -7,17 +7,17 @@
 
 get_header(); ?>
 
-<div class="content-area">
+<article class="content-area">
 
 	<?php if ( have_posts() ) : ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php get_template_part( 'template-parts/content' ); ?>
+			<?php get_template_part( 'template-parts/content' ); ?>
 
-	<?php endwhile; ?>
+		<?php endwhile; ?>
 
-	<?php responsive_posts_navigation(); ?>
+		<?php responsive_posts_navigation(); ?>
 
 	<?php else : ?>
 
@@ -25,7 +25,7 @@ get_header(); ?>
 
 	<?php endif; ?>
 
-</div>
+</article>
 
 <?php get_sidebar( 'posts' ); ?>
 <?php get_footer();

@@ -12,7 +12,7 @@
 	<p class="site-description brand-site-description"><?php bloginfo( 'description' ); ?></p>
 
 	<?php if ( responsive_search_is_enabled() ) : ?>
-	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
+	<a href="#quicksearch" class="search-toggle"><span>Search</span></a>
 	<?php endif; ?>
 </div>
 

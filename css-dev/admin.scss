@@ -48,15 +48,15 @@ $_customizer-description-color: #999;
 			background-position: 0 0;
 		}
 
-		&[for="burf_setting_layout_topNav"]::after {
+		&[for="burf_setting_layout_top-nav"]::after {
 			background-position: 0 -150px;
 		}
 
-		&[for="burf_setting_layout_sideNav"]::after {
+		&[for="burf_setting_layout_side-nav"]::after {
 			background-position: 0 -300px;
 		}
 
-		&[for="burf_setting_layout_noNav"]::after {
+		&[for="burf_setting_layout_no-nav"]::after {
 			background-position: -300px 0;
 		}
 	}

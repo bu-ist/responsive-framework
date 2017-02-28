@@ -11,13 +11,11 @@
 	<p class="site-description brand-site-description"><?php bloginfo( 'description' ); ?></p>
 </div>
 
-<?php responsive_utility_nav(); ?>
-
-<nav class="primaryNav" role="navigation">
-	<a href="#primaryNav-menu" class="navToggle"><span>Menu</span></a>
+<nav class="primary-nav" role="navigation">
+	<a href="#primary-nav-menu" class="nav-toggle"><span>Menu</span></a>
 
 	<?php if ( responsive_search_is_enabled() ) : ?>
-	<a href="#quicksearch" class="searchToggle"><span>Search</span></a>
+	<a href="#quicksearch" class="search-toggle"><span>Search</span></a>
 	<?php endif; ?>
 
 	<?php responsive_primary_nav(); ?>
