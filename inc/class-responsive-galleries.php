@@ -1,5 +1,6 @@
 <?php
 /**
+ * Let's provide a better experience for the WordPress core gallery shortcode.
  *
  * @package Responsive_Framework
  */
@@ -13,11 +14,10 @@ class Responsive_Galleries {
 	 * Responsive_Galleries constructor.
 	 */
 	function __construct() {
-		add_action( 'after_setup_theme', array( $this,'after_setup_theme' ) );
+		add_action( 'after_setup_theme', array( $this, 'after_setup_theme' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
-//		add_filter( 'use_default_gallery_style', array( $this, 'use_default_gallery_style' ) );
-		add_filter( 'shortcode_atts_gallery', array( $this, 'shortcode_atts_gallery' ), 10, 3 );
+		add_filter( 'shortcode_atts_gallery', array( $this, 'shortcode_atts_gallery' ) );
 	}
 
 	/**
@@ -35,7 +35,9 @@ class Responsive_Galleries {
 			return;
 		}
 
-		if ( ! $galleries = get_post_galleries( get_queried_object(), false ) ) {
+		$galleries = get_post_galleries( get_queried_object(), false );
+
+		if ( ! empty( $galleries ) ) {
 			return;
 		}
 
@@ -62,13 +64,11 @@ class Responsive_Galleries {
 	/**
 	 * Filter the default image size to prevent pixelated images in galleries.
 	 *
-	 * @param array  $out   The output array of shortcode attributes.
-	 * @param array  $pairs The supported attributes and their defaults.
-	 * @param array  $atts  The user defined shortcode attributes.
+	 * @param array $out The output array of shortcode attributes.
 	 *
 	 * @return array Filtered shortcode attributes.
 	 */
-	function shortcode_atts_gallery( $out, $pairs, $atts ) {
+	function shortcode_atts_gallery( $out ) {
 		if ( 'thumbnail' === $out['size'] ) {
 			$out['size'] = 'responsive-gallery-thumbnail';
 		}
