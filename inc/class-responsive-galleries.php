@@ -37,7 +37,7 @@ class Responsive_Galleries {
 
 		$galleries = get_post_galleries( get_queried_object(), false );
 
-		if ( ! empty( $galleries ) ) {
+		if ( empty( $galleries ) ) {
 			return;
 		}
 
