@@ -163,7 +163,8 @@ module.exports = function(grunt) {
 					destPrefix: 'js/vendor'
 				},
 				files: {
-					'lightgallery/': 'lightgallery/dist/'
+					'lightgallery/': 'lightgallery/dist/',
+					'lg-thumbnail/': 'lg-thumbnail/dist/'
 				}
 			}
 		},
