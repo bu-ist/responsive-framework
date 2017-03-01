@@ -17,7 +17,7 @@
 </div>
 
 <nav class="primary-nav" role="navigation">
-	<a href="#primary-nav-menu" class="nav-toggle"><span>Menu</span></a>
+	<a href="#primary-nav-menu" class="nav-toggle"><span class="nav-toggle-icon">Menu</span></a>
 
 	<?php responsive_primary_nav(); ?>
 	<?php responsive_utility_nav(); ?>
