@@ -12,12 +12,12 @@
 	<p class="site-description brand-site-description"><?php bloginfo( 'description' ); ?></p>
 
 	<?php if ( responsive_search_is_enabled() ) : ?>
-	<a href="#quicksearch" class="search-toggle"><span>Search</span></a>
+	<a href="#quicksearch" class="search-toggle search-toggle-sidenav"><span>Search</span></a>
 	<?php endif; ?>
 </div>
 
 <nav class="primary-nav primary-nav-sidenav" role="navigation">
-	<a href="#primary-nav-menu" class="nav-toggle"><span class="nav-toggle-icon">Menu</span></a>
+	<a href="#primary-nav-menu" class="nav-toggle nav-toggle-sidenav"><span class="nav-toggle-icon">Menu</span></a>
 
 	<?php responsive_primary_nav(); ?>
 	<?php responsive_utility_nav(); ?>
