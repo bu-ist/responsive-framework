@@ -16,7 +16,7 @@
 	<?php endif; ?>
 </div>
 
-<nav class="primary-nav" role="navigation">
+<nav class="primary-nav primary-nav-sidenav" role="navigation">
 	<a href="#primary-nav-menu" class="nav-toggle"><span class="nav-toggle-icon">Menu</span></a>
 
 	<?php responsive_primary_nav(); ?>

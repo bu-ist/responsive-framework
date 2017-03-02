@@ -6,7 +6,7 @@
  */
 
 ?>
-<nav class="primary-nav" role="navigation">
+<nav class="primary-nav primary-nav-topnav" role="navigation">
 	<a href="#primary-nav-menu" class="nav-toggle"><span class="nav-toggle-icon">Menu</span></a>
 
 	<?php if ( responsive_search_is_enabled() ) : ?>
