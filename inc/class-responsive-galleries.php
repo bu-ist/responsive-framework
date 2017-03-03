@@ -43,8 +43,13 @@ class Responsive_Galleries {
 			return;
 		}
 
-		wp_enqueue_script( 'lightgallery', get_template_directory_uri() . '/js/vendor/lightgallery/js/lightgallery.min.js', array( 'jquery' ), '1.3.9', true );
-		wp_enqueue_script( 'lightgallery-thumbnail', get_template_directory_uri() . '/js/vendor/lg-thumbnail/lg-thumbnail.min.js', array( 'jquery', 'lightgallery' ), '1.0.3', true );
+		$postfix = '';
+		if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+			$postfix = '.min';
+		}
+
+		wp_enqueue_script( 'lightgallery', get_template_directory_uri() . "/js/vendor/lightgallery/js/lightgallery{$postfix}.js", array( 'jquery' ), '1.3.9', true );
+		wp_enqueue_script( 'lightgallery-thumbnail', get_template_directory_uri() . "/js/vendor/lg-thumbnail/lg-thumbnail{$postfix}..js", array( 'jquery', 'lightgallery' ), '1.0.3', true );
 		wp_enqueue_style( 'lightgallery', get_template_directory_uri() . '/js/vendor/lightgallery/css/lightgallery.min.css', array(), '1.3.9' );
 	}
 
