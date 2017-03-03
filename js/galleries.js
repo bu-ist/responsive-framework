@@ -54,7 +54,8 @@ responsive_framework.galleries = ( function( $ ) {
 				download: false,
 				thumbnail: true,
 				zoom: false,
-				animateThumb: true
+				animateThumb: true,
+				getCaptionFromTitleOrAlt: false
 			});
 		}
 	}
