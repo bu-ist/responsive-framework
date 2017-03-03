@@ -21,10 +21,12 @@ class Responsive_Galleries {
 	}
 
 	/**
-	 * Add a larger thumbnail size to prevent pixelated images in galleries.
+	 * Add a larger thumbnail sizes to prevent pixelated images in galleries.
 	 */
 	function after_setup_theme() {
-		add_image_size( 'responsive-gallery-thumbnail', 500, 500, true );
+		add_image_size( 'responsive-gallery', 400, 400, true );
+		add_image_size( 'responsive-gallery-1col', 710, 710, true );
+		add_image_size( 'responsive-gallery-4col', 200, 200, true );
 	}
 
 	/**
@@ -70,7 +72,13 @@ class Responsive_Galleries {
 	 */
 	function shortcode_atts_gallery( $out ) {
 		if ( 'thumbnail' === $out['size'] ) {
-			$out['size'] = 'responsive-gallery-thumbnail';
+			if ( 1 === (int) $out['columns'] ) {
+				$out['size'] = 'responsive-gallery-1col';
+			} elseif ( 4 <= $out['columns'] ) {
+				$out['size'] = 'responsive-gallery-4col';
+			} else {
+				$out['size'] = 'responsive-gallery';
+			}
 		}
 
 		/**
