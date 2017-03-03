@@ -19,8 +19,8 @@
 <nav class="primary-nav primary-nav-sidenav" role="navigation">
 	<a href="#primary-nav-menu" class="nav-toggle nav-toggle-sidenav"><span class="nav-toggle-icon">Menu</span></a>
 
-	<?php responsive_primary_nav( 'primary-nav-menu primary-nav-menu-sidenav' ); ?>
-	<?php responsive_utility_nav(); ?>
+	<?php responsive_primary_nav( 'primary-nav-menu-sidenav' ); ?>
+	<?php responsive_utility_nav( 'utility-nav-sidenav' ); ?>
 </nav>
 
 <?php responsive_search_form();

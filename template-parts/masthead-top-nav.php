@@ -15,7 +15,7 @@
 
 	<?php responsive_primary_nav( 'primary-nav-menu-topnav' ); ?>
 
-	<?php responsive_utility_nav(); ?>
+	<?php responsive_utility_nav( 'utility-nav-topnav' ); ?>
 </nav>
 
 <?php responsive_search_form(); ?>
