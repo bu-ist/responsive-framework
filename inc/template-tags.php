@@ -299,13 +299,21 @@ function responsive_content_banner( $position ) {
  * If the current site has a site-wide ACL applied nothing will be displayed.
  *
  * @uses  BU Navigation plugin
+ * @param string $add_classes Classes to add to the default set of primary nav classes.
  */
-function responsive_primary_nav() {
+function responsive_primary_nav( $add_classes = NULL ) {
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
 		false == BuAccessControlPlugin::is_site_403() ) {
+
+		$classes = 'primary-nav-menu';
+
+		if ( $add_classes ) {
+			$classes .= ' ' . $add_classes;
+		}
+
 		bu_navigation_display_primary( array(
 			'container_id'    => 'primary-nav-menu',
-			'container_class' => 'primary-nav-menu',
+			'container_class' => $classes,
 		) );
 	}
 }
