@@ -4603,4 +4603,8 @@ h6.bu_collapsible {
   clear: left;
 }
 
+.admin-bar .lg-outer {
+  margin-top: 32px;
+}
+
 /*# sourceMappingURL=ie.css.map */
