@@ -13,7 +13,7 @@
 	<a href="#quicksearch" class="search-toggle search-toggle-topnav"><span>Search</span></a>
 	<?php endif; ?>
 
-	<?php responsive_primary_nav(); ?>
+	<?php responsive_primary_nav( 'primary-nav-menu-topnav' ); ?>
 
 	<?php responsive_utility_nav(); ?>
 </nav>
