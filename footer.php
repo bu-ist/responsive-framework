@@ -54,7 +54,7 @@
 			<?php responsive_branding_disclaimer(); ?>
 			<?php responsive_customizer_footer_info(); ?>
 		</div>
-		<div class="site-footer-content">
+		<div class="site-footer-menus">
 			<?php responsive_footer_menu(); ?>
 			<?php responsive_social_menu(); ?>
 		</div>
