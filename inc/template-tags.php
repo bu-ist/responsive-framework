@@ -791,25 +791,17 @@ function responsive_sidebar_classes( $sidebar_id ) {
 function responsive_extra_footer_classes() {
 	$classes = array();
 
-	// Build an array to capture current footer content permutation.
-	$footer_components = array();
-
 	// Is the Customizer-provided footer info in use?
 	if ( responsive_customizer_has_footer_info() ) {
-		$footer_components[] = 'info';
+		$classes[] = 'has-footer-info';
 	}
 	// Is the custom footer links menu in use?
 	if ( has_nav_menu( 'footer' ) ) {
-		$footer_components[] = 'links';
+		$classes[] = 'has-footer-links';
 	}
 	// Is the custom social menu in use?
 	if ( has_nav_menu( 'social' ) ) {
-		$footer_components[] = 'social';
-	}
-
-	// Combine all components in to one stateful class.
-	if ( ! empty( $footer_components ) ) {
-		$classes[] = 'has-' . implode( '-', $footer_components );
+		$classes[] = 'has-footer-social';
 	}
 
 	$classes = apply_filters( 'responsive_extra_footer_classes', $classes );
