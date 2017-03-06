@@ -16,6 +16,6 @@
 	<?php endif; ?>
 </div>
 
-<?php responsive_utility_nav(); ?>
+<?php responsive_utility_nav( 'utility-nav-nonav' ); ?>
 
 <?php responsive_search_form();
