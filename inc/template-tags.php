@@ -416,7 +416,7 @@ function responsive_social_menu( $args = array() ) {
 	$menu = wp_nav_menu( array(
 		'theme_location' => 'social',
 		'depth'          => 1,
-		'link_before'    => '<i aria-hidden="true"></i><span>',
+		'link_before'    => '<span>',
 		'link_after'     => '</span>',
 		'menu_id'        => 'site-footer-social-menu',
 		'menu_class'     => 'site-footer-social-menu',
