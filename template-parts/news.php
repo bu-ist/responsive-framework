@@ -8,9 +8,9 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php BU_News_Page_Template::show_thumbnail( '<div class="thumb">', '</div>' ); ?>
+	<?php BU_News_Page_Template::show_thumbnail( '<div class="thumb post-thumb">', '</div>' ); ?>
 
-	<h2>
+	<h2 class="post-headline">
 		<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 	</h2>
 
@@ -19,10 +19,10 @@
 	$show_meta = (bool) BU_News_Page_Template::$display_content;
 
 	if ( $show_meta ) : ?>
-		<div class="meta">
-			<?php BU_News_Page_Template::show_author( '<span class="author"><em>By</em> ', '</span>' ); ?>
-			<?php BU_News_Page_Template::show_date( '<span class="date">', '</span>' ); ?>
-			<?php BU_News_Page_Template::show_categories( '<span class="category"><em>in</em> ', '</span>' ); ?>
+		<div class="meta post-meta">
+			<?php BU_News_Page_Template::show_author( '<span class="author post-author"><em>By</em> ', '</span>' ); ?>
+			<?php BU_News_Page_Template::show_date( '<span class="date post-date">', '</span>' ); ?>
+			<?php BU_News_Page_Template::show_categories( '<span class="category post-category"><em>in</em> ', '</span>' ); ?>
 			<?php BU_News_Page_Template::show_comments( '<span class="comment-counter">', '</span>' ); ?>
 		</div>
 	<?php endif; ?>
