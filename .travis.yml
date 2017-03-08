@@ -3,6 +3,7 @@ language: php
 sudo: false
 
 notifications:
+  slack: buweb:bIGlWDOUDD2pIqKDfTEmRxce
   email:
     on_success: never
     on_failure: change
