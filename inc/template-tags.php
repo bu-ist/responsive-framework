@@ -156,10 +156,10 @@ function responsive_category_links( $args = array() ) {
 /**
  * Generates a list of term links for each taxonomy registered to the post's type, excluding categories and tags.
  *
- * @param int|WP_Post|null $post Optional. Post ID or post object. Defaults to global $post.
- * @param string $before Optional.         Before list.
- * @param string $sep Optional.            Separate items using this.
- * @param string $after Optional.          After list.
+ * @param int|WP_Post|null $post Optional.   Post ID or post object. Defaults to global $post.
+ * @param string           $before Optional. Before list.
+ * @param string           $sep Optional.    Separate items using this.
+ * @param string           $after Optional.  After list.
  *
  * @return string A list of term links.
  */
