@@ -11,11 +11,19 @@
  * @group sidebars
  */
 class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
+
+	var $test_post_id = 0;
+
 	/**
 	 * Setup parent class.
 	 */
 	function setUp() {
 		parent::setUp();
+
+		$this->test_post_id = $this->factory->post->create( array(
+			'post_title' => 'Test Post',
+			'post_type' => 'post',
+		) );
 	}
 
 	/**
