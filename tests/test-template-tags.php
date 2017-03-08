@@ -43,7 +43,41 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 	/**
 	 * Test default search setting.
 	 */
-	function responsive_search_is_enabled() {
+	function test_responsive_search_is_enabled() {
 		$this->assertTrue( responsive_search_is_enabled() );
 	}
+
+	/**
+	 * Test the default search form output.
+	 */
+	function test_responsive_search_form() {
+		ob_start();
+		get_search_form();
+		$expected_output = ob_get_clean();
+
+		$this->expectOutputString( $expected_output );
+
+		responsive_search_form();
+	}
+
+	/**
+	 * Test category link list output.
+	 */
+	function test_responsive_category_links() {
+		wp_set_object_terms( $this->test_post_id, array( 'Category 1', 'Category 2' ), false );
+
+		$this->expectOutputString( get_the_category_list( ', ', '', $this->test_post_id ) );
+
+		responsive_category_links();
+
+		wp_set_object_terms( $this->test_post_id, array( 'Uncategorized' ), false );
+	}
+
+	/**
+	 * Test default content banner return value.
+	 */
+	function test_responsive_content_banner() {
+		$this->assertEmpty( responsive_content_banner( 'test' ) );
+	}
+
 }
