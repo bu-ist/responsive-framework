@@ -693,7 +693,7 @@ function responsive_get_posts_archive_link() {
 function responsive_posts_archive_link( $args = array() ) {
 	$defaults = array(
 		'label'  => 'View all posts',
-		'before' => '<p>',
+		'before' => '<p class="archive-link-container">',
 		'after'  => '</p>',
 		'class'  => 'archive-link posts-archive-link',
 		'echo'   => true,
