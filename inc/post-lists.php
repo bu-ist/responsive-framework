@@ -99,11 +99,11 @@ function responsive_posts_widget_format_display( $post, $args ) {
 
 		// Thumbnail dimensions change for formats with less content.
 		if ( 'title_date' === $args['current_format'] ) {
-			$max_width = $max_height = 88;
+			$max_width = $max_height = 60;
 			$use_thumb = true;
 			$thumbclass = 'widget-post-thumbnail-title-date';
 		} else {
-			$max_width = $max_height = 260;
+			$max_width = $max_height = 340;
 			$use_thumb = false;
 		}
 
