@@ -174,7 +174,12 @@ endif; ?>
 									$event_url = add_query_arg( 'cid', intval( $_GET['cid'] ), $event_url );
 								}
 								echo "\t";
-								printf( '<li class="calendar-list-event"><span class="calendar-list-event-time">%s</span> ', esc_html( $event_time ) );
+
+								echo '<li class="calendar-list-event">';
+
+								if ( $event_time ) {
+									printf( '<span class="calendar-list-event-time">%s</span> ', esc_html( $event_time ) );
+								}
 
 								printf( '<a class="calendar-list-event-link" href="%s">%s</a></li>',  esc_url( $event_url ), wp_kses_post( $e['summary'] ) );
 								echo PHP_EOL;
