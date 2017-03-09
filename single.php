@@ -23,7 +23,7 @@ get_header(); ?>
 
 			<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:' ), 'after' => '</div>' ) ); ?>
 
-			<footer class="meta">
+			<footer class="meta single-meta">
 				<h4 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 				<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
 					<h5 class="byline"><em>By </em><?php the_author(); ?></h5>
