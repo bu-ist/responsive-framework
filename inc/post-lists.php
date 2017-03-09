@@ -95,10 +95,13 @@ function responsive_posts_widget_format_display( $post, $args ) {
 		// Thumbnail.
 	if ( $args['show_thumbnail'] && function_exists( 'bu_get_thumbnail_src' ) ) {
 
+		$thumbclass = 'widget-post-thumbnail';
+
 		// Thumbnail dimensions change for formats with less content.
 		if ( 'title_date' === $args['current_format'] ) {
 			$max_width = $max_height = 88;
 			$use_thumb = true;
+			$thumbclass = 'widget-post-thumbnail-title-date';
 		} else {
 			$max_width = $max_height = 260;
 			$use_thumb = false;
@@ -107,7 +110,7 @@ function responsive_posts_widget_format_display( $post, $args ) {
 		$output .= bu_get_thumbnail_src( $post->ID, array(
 				'maxwidth'  => $max_width,
 				'maxheight' => $max_height,
-				'classes'   => 'widget-post-thumbnail',
+				'classes'   => $thumbclass,
 				'use_thumb' => $use_thumb,
 			)
 		);
