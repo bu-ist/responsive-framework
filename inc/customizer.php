@@ -970,7 +970,7 @@ input[type="submit"],
 .l-side-nav #quicksearch,
 .message,
 .single .content-area .meta,
-.single-event .date-summary,
+.single-event-schedule,
 .single-profile .profile-info {
 	background: #f5f8ff;
 	border-color: #dfdfea;
