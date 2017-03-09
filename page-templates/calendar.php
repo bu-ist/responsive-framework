@@ -299,7 +299,7 @@ endif; ?>
 					</dl>
 				</div> <!-- /.additionalDetails -->
 
-				<p><a href="<?php the_permalink(); ?>" class="archive-link calendar-archive-link">Back to Calendar</a></p>
+				<p class="archive-link-container"><a href="<?php the_permalink(); ?>" class="archive-link calendar-archive-link">Back to Calendar</a></p>
 
 			</div><!-- /.single-event -->
 		<?php } ?>
