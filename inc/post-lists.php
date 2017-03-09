@@ -92,7 +92,7 @@ function responsive_posts_widget_format_display( $post, $args ) {
 
 	$output = '<article class="post widget-post">';
 
-	// Thumbnail.
+		// Thumbnail.
 	if ( $args['show_thumbnail'] && function_exists( 'bu_get_thumbnail_src' ) ) {
 
 		// Thumbnail dimensions change for formats with less content.
@@ -107,29 +107,29 @@ function responsive_posts_widget_format_display( $post, $args ) {
 		$output .= bu_get_thumbnail_src( $post->ID, array(
 				'maxwidth'  => $max_width,
 				'maxheight' => $max_height,
-				'classes'   => 'thumb',
+				'classes'   => 'widget-post-thumbnail',
 				'use_thumb' => $use_thumb,
-				)
+			)
 		);
 	}
 
 	// Title.
-	$output .= sprintf( '<h1 class="post-headline widget-headline"><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title() );
+	$output .= sprintf( '<h1 class="post-headline widget-post-headline"><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title() );
 
 	// Meta.
 	switch ( $args['current_format'] ) {
 		case 'title_date':
 		case 'title_date_excerpt':
-			$output .= sprintf( '<p class="meta widget-meta"><span class="published widget-published">%s</span></p>', BU_PostList::post_date( 'F j, Y' ) );
+			$output .= sprintf( '<p class="meta widget-post-meta"><span class="published widget-post-published">%s</span></p>', BU_PostList::post_date( 'F j, Y' ) );
 			break;
 		case 'title_author_excerpt':
-			$output .= sprintf( '<p class="meta widget-meta"><span class="author widget-author">by %s</span></p>', get_the_author() );
+			$output .= sprintf( '<p class="meta widget-post-meta"><span class="author widget-post-author">by %s</span></p>', get_the_author() );
 			break;
 		case 'title_date_comments_excerpt':
-			$output .= sprintf( '<p class="meta widget-meta"><span class="published widget-published">%s</span>  <span class="comment-counter widget-comment-counter"> <a href="%s" rel="nofollow"><strong>%s</strong> comments</a></span></p>', BU_PostList::post_date( 'F j, Y' ), get_comments_link(), get_comments_number( $post->ID ) );
+			$output .= sprintf( '<p class="meta widget-post-meta"><span class="published widget-post-published">%s</span>  <span class="comment-counter widget-post-comment-counter"> <a href="%s" rel="nofollow"><strong>%s</strong> comments</a></span></p>', BU_PostList::post_date( 'F j, Y' ), get_comments_link(), get_comments_number( $post->ID ) );
 			break;
 		case 'title_author_comments_excerpt':
-			$output .= sprintf( '<p class="meta widget-meta"><span class="author widget-author">by %s</span>  <span class="comment-counter widget-comment-counter">
+			$output .= sprintf( '<p class="meta widget-post-meta"><span class="author widget-post-author">by %s</span>  <span class="comment-counter widget-post-comment-counter">
 					<a href="%s" rel="nofollow"><strong>%s</strong> comments</a></span></p>', get_the_author(), get_comments_link(), get_comments_number( $post->ID ) );
 			break;
 	}
@@ -137,7 +137,7 @@ function responsive_posts_widget_format_display( $post, $args ) {
 	// Excerpt.
 	$show_excerpt = ( false !== strpos( $args['current_format'], 'excerpt' ) );
 	if ( $show_excerpt && BU_PostList::get_post_excerpt( 12 ) ) {
-		$output .= sprintf( '<p class="excerpt widget-excerpt">%s</p>', BU_PostList::get_post_excerpt( 12 ) );
+		$output .= sprintf( '<p class="excerpt widget-post-excerpt">%s</p>', BU_PostList::get_post_excerpt( 12 ) );
 	}
 
 	$output .= '</article>';
