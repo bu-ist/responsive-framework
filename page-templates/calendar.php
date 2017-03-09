@@ -149,7 +149,7 @@ endif; ?>
 										echo '</ul>' . PHP_EOL;
 									}
 									printf( '<h3 class="event-date">%s</h3>', esc_html( $_day ) );
-									echo PHP_EOL . '<ul class="event-list">' . PHP_EOL;
+									echo PHP_EOL . '<ul class="calendar-list-events">' . PHP_EOL;
 									$day = $_day;
 									$time = null;
 								}
@@ -174,7 +174,7 @@ endif; ?>
 									$event_url = add_query_arg( 'cid', intval( $_GET['cid'] ), $event_url );
 								}
 								echo "\t";
-								printf( '<li><span class="event-time">%s</span> ', esc_html( $event_time ) );
+								printf( '<li class="calendar-list-event"><span class="calendar-list-event-time">%s</span> ', esc_html( $event_time ) );
 
 								printf( '<span class="event-link"><a href="%s">%s</a></span></li>',  esc_url( $event_url ), wp_kses_post( $e['summary'] ) );
 								echo PHP_EOL;
