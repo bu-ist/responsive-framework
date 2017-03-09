@@ -66,7 +66,19 @@ if ( $timestamp > $boundary_future ) {
 
 <?php responsive_content_banner( 'page-width' ); ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
+<?php
+
+$extra_classes = array( 'content-area' );
+
+if ( is_null( $eventID ) ) {
+	$extra_classes[] = 'calendar-list';
+} else {
+	$extra_classes[] = 'calendar-single';
+}
+
+?>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class( $extra_classes ); ?>>
 
 		<?php responsive_content_banner( 'content-width' ); ?>
 
@@ -113,14 +125,12 @@ endif; ?>
 
 		/* Content: Calendar Topic */
 	if ( is_array( $topicDetail ) ) { ?>
-				<h2 class="calendar-topic">
-					<?php echo esc_html( $topicDetail['name'] ); ?><span class="calendar-range">
+				<h2 class="calendar-list-topic">
+					<?php echo esc_html( $topicDetail['name'] ); ?><span class="calendar-list-range">
 						(<?php echo esc_html( date( 'F j', $timestamp ) ); ?> through <?php echo esc_html( date( 'F j', $query_end ) ); ?>)
 					</span>
 				</h2>
 			<?php } ?>
-				<div class="event-list">
-					<div id="events">
 						<?php
 						$day = null;
 						$time = null;
@@ -139,7 +149,7 @@ endif; ?>
 										echo '</ul>' . PHP_EOL;
 									}
 									printf( '<h3 class="event-date">%s</h3>', esc_html( $_day ) );
-									echo PHP_EOL . '<ul>' . PHP_EOL;
+									echo PHP_EOL . '<ul class="event-list">' . PHP_EOL;
 									$day = $_day;
 									$time = null;
 								}
@@ -182,8 +192,6 @@ endif; ?>
 							printf( '<div id="noevents"><p>There are no events in <strong>%s</strong> during the specified time period.</p></div>', esc_html( $topicDetail['name'] ) );
 						}
 ?>
-					</div>
-				</div>
 			<?php } ?>
 		<?php } else { ?>
 			<div class="single-event">
