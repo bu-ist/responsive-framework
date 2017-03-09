@@ -704,11 +704,14 @@ function responsive_framework_get_color_regions_css( $colors, $context = 'defaul
 /* sidebar widget background color
 ----------------------------------------------------------------- */
 
-.sidebar .widget,
-.sidebar-posts .widget,
-.sidebar-profiles .widget {
+.widget {
 	background: {$colors['sidebar-bg']};
-	padding:24px;
+	padding: 24px;
+}
+
+.footbar .widget {
+	background: transparent;
+	padding: 0;
 }
 CSS;
 
@@ -765,18 +768,12 @@ CSS;
 ----------------------------------------------------------------- */
 
 /* heading color */
-.wrapper h1,
-.wrapper h2,
-.wrapper h3,
-.wrapper h4,
-.wrapper h5,
-.wrapper h6,
-.wrapper h1 a,
-.wrapper h2 a,
-.wrapper h3 a,
-.wrapper h4 a,
-.wrapper h5 a,
-.wrapper h6 a {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	color: {$colors['content-heading']};
 }
 
