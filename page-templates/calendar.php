@@ -175,10 +175,10 @@ endif; ?>
 								}
 								echo "\t";
 
-								echo '<li class="calendar-list-event">';
-
 								if ( $event_time ) {
-									printf( '<span class="calendar-list-event-time">%s</span> ', esc_html( $event_time ) );
+									printf( '<li class="calendar-list-event calendar-list-event-first-at-time"><span class="calendar-list-event-time">%s</span> ', esc_html( $event_time ) );
+								} else {
+									echo '<li class="calendar-list-event">';
 								}
 
 								printf( '<a class="calendar-list-event-link" href="%s">%s</a></li>',  esc_url( $event_url ), wp_kses_post( $e['summary'] ) );
