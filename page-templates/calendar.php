@@ -148,7 +148,7 @@ endif; ?>
 									if ( 0 != $nDisplayed ) {
 										echo '</ul>' . PHP_EOL;
 									}
-									printf( '<h3 class="event-date">%s</h3>', esc_html( $_day ) );
+									printf( '<h3 class="calendar-list-event-date">%s</h3>', esc_html( $_day ) );
 									echo PHP_EOL . '<ul class="calendar-list-events">' . PHP_EOL;
 									$day = $_day;
 									$time = null;
@@ -176,7 +176,7 @@ endif; ?>
 								echo "\t";
 								printf( '<li class="calendar-list-event"><span class="calendar-list-event-time">%s</span> ', esc_html( $event_time ) );
 
-								printf( '<span class="event-link"><a href="%s">%s</a></span></li>',  esc_url( $event_url ), wp_kses_post( $e['summary'] ) );
+								printf( '<a class="calendar-list-event-link" href="%s">%s</a></li>',  esc_url( $event_url ), wp_kses_post( $e['summary'] ) );
 								echo PHP_EOL;
 
 								$nDisplayed++;
