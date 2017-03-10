@@ -14,7 +14,7 @@
 $extra_classes = [];
 
 if ( bu_profile_detail( 'title', array( 'echo' => false ) ) ) {
-	$extra_classes[] = "has-title";
+	$extra_classes[] = 'has-title';
 }
 
 ?>
