@@ -20,7 +20,7 @@ cache:
 env:
   - WP_VERSION=nightly WP_MULTISITE=1
   - WP_VERSION=latest WP_MULTISITE=1
-  - WP_VERSION=4.6.3 WP_MULTISITE=1
+  - WP_VERSION=4.6.4 WP_MULTISITE=1
 
 before_install:
   - composer self-update
@@ -30,8 +30,8 @@ install:
 
 before_script:
   - |
-    if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.0" ]]; then
-      composer global require "phpunit/phpunit=5.6.*"
+    if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
+      composer global require "phpunit/phpunit=5.7.*"
     else
       composer global require "phpunit/phpunit=4.8.*"
     fi
