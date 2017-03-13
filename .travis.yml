@@ -18,8 +18,11 @@ cache:
     - $HOME/.composer/cache
 
 env:
+  - WP_VERSION=nightly WP_MULTISITE=0
   - WP_VERSION=nightly WP_MULTISITE=1
+  - WP_VERSION=latest WP_MULTISITE=0
   - WP_VERSION=latest WP_MULTISITE=1
+  - WP_VERSION=4.6.4 WP_MULTISITE=0
   - WP_VERSION=4.6.4 WP_MULTISITE=1
 
 before_install:
