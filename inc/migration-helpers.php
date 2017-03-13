@@ -158,9 +158,11 @@ function responsive_flexi_migration() {
 /**
  * Migrate Flexi post meta display options
  *
+ * @param bool $verbose Whether to display error log messages.
+ *
  * @return bool|WP_Error        true on success, or a WP_Error instance describing failures.
  */
-function responsive_migrate_post_display_options() {
+function responsive_migrate_post_display_options( $verbose = true ) {
 	$flexi_display_options = get_option( 'flexi_display' );
 	if ( $flexi_display_options ) {
 		$responsi_display_options = array();
@@ -168,16 +170,21 @@ function responsive_migrate_post_display_options() {
 			'cat'    => 'categories',
 			'tag'    => 'tags',
 			'author' => 'author',
-			);
+		);
+
 		foreach ( $option_map as $from => $to ) {
 			if ( $flexi_display_options[ $from ] ) {
 				$responsi_display_options[] = $to;
 			}
 		}
 		$responsi_display_options = implode( ',', $responsi_display_options );
-		error_log( sprintf( '[%s] Migrating display options: %s', __FUNCTION__, $responsi_display_options ) );
+
+		if ( $verbose ) {
+			error_log( sprintf( '[%s] Migrating display options: %s', __FUNCTION__, $responsi_display_options ) );
+		}
 
 		$result = update_option( 'burf_setting_post_display_options', $responsi_display_options );
+
 		if ( ! $result ) {
 			return new WP_Error( 'flexi_display_options_updates_failed', 'Could not migrate post display options' );
 		}
@@ -191,7 +198,7 @@ function responsive_migrate_post_display_options() {
  *
  * @return bool|WP_Error        true on success, or a WP_Error instance describing failures.
  */
-function responsive_migrate_flexi_footbars() {
+function responsive_migrate_flexi_footbars( $verbose = true ) {
 	global $wpdb;
 
 	$errors = array();
@@ -203,13 +210,15 @@ function responsive_migrate_flexi_footbars() {
 	}
 
 	// Migrate post-specific dynamic footbar selections.
-	$results = $wpdb->get_results( $wpdb->prepare( 'SELECT post_id, meta_value FROM %s WHERE meta_key = %s AND meta_value != ""', $wpdb->postmeta, '_bu_flexi_framework_footbar' ) );
+	$results = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = %s AND meta_value != ''", '_bu_flexi_framework_footbar' ) );
 
 	if ( empty( $results ) ) {
 		return;
 	}
 
-	error_log( sprintf( '[%s] Migrating %d Flexi footbars...', __FUNCTION__, count( $results ) ) );
+	if ( $verbose ) {
+		error_log( sprintf( '[%s] Migrating %d Flexi footbars...', __FUNCTION__, count( $results ) ) );
+	}
 
 	foreach ( $results as $result ) {
 		$success = update_post_meta( $result->post_id, '_bu_footbar_id', $result->meta_value );
