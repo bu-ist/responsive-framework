@@ -99,10 +99,11 @@ function responsive_upgrade_091( $verbose = true ) {
 	}
 
 	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
-		'contentWidth' => 'content-width',
-		'pageWidth'    => 'page-width',
-		'windowWidth'  => 'window-width',
+		'content-width' => 'contentWidth',
+		'page-width'    => 'pageWidth',
+		'window-width'  => 'windowWidth',
 	) );
+
 	$banner_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
 		$wpdb->postmeta
 	);
@@ -116,11 +117,11 @@ function responsive_upgrade_091( $verbose = true ) {
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
 				if ( $verbose ) {
-					error_log( __FUNCTION__ . ' - Resetting empty banner position to default (content-width)' );
+					error_log( __FUNCTION__ . ' - Resetting empty banner position to default (contentWidth)' );
 				}
 
 				// Reset to default.
-				$banner['position'] = 'content-width';
+				$banner['position'] = 'contentWidth';
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			}
 		}
