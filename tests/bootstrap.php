@@ -28,6 +28,10 @@ function _register_theme() {
 	add_filter( 'pre_option_stylesheet', function() use ( $current_theme ) {
 		return $current_theme;
 	});
+
+	if ( ! function_exists( 'responsive_init' ) ! is_multisite() ) {
+		require_once( dirname( dirname( __FILE__ ) ) . '/functions.php' );
+	}
 }
 tests_add_filter( 'muplugins_loaded', '_register_theme' );
 

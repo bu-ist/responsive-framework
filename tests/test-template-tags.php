@@ -27,10 +27,6 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 			'post_title' => 'Test Post',
 			'post_type' => 'post',
 		) );
-
-		if ( ! function_exists( 'responsive_get_dynamic_footbars' ) ) {
-			require_once( dirname( dirname( __FILE__ ) ) . '/inc/template-tags.php' );
-		}
 	}
 
 	/**
