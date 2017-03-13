@@ -88,4 +88,19 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 		$this->assertEmpty( responsive_content_banner( 'test' ) );
 	}
 
+	/**
+	 * Test default post display options.
+	 */
+	function test_responsive_get_post_display_options() {
+		$this->assertEquals( array( 'categories', 'tags' ), responsive_get_post_display_options() );
+	}
+
+	/**
+	 * Test display checking for post fields.
+	 */
+	function test_responsive_posts_should_display() {
+		$this->assertTrue( responsive_posts_should_display( 'categories' ) );
+		$this->assertTrue( responsive_posts_should_display( 'tags' ) );
+		$this->assertFalse( responsive_posts_should_display( 'some-other-field' ) );
+	}
 }
