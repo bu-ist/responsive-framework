@@ -55,6 +55,7 @@ ratings:
   - "**.md"
   - "**.inc"
   - "**.js"
+  - "**.json"
   - "**.php"
   - "**.css"
   - "**.scss"
