@@ -16,10 +16,6 @@ class Tests_Responsive_Framework_Search extends WP_UnitTestCase {
 	 */
 	function setUp() {
 		parent::setUp();
-
-		if ( ! function_exists( 'responsive_bu_search_form_contexts' ) ) {
-			require_once( dirname( dirname( __FILE__ ) ) . '/inc/search-form.php' );
-		}
 	}
 
 	/**
