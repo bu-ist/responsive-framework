@@ -19,6 +19,19 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 	}
 
 	/**
+	 * Test our theme is actually active.
+	 *
+	 * @expectedIncorrectUsage wpdb::prepare
+	 */
+	function test_responsive_framework_upgrade() {
+		update_option( '_responsive_framework_version', '0.0' );
+
+		responsive_framework_upgrade( false );
+
+		$this->assertEquals( RESPONSIVE_FRAMEWORK_VERSION, get_option( '_responsive_framework_version' ) );
+	}
+
+	/**
 	 * Test upgrade routines from Responsive 0.91.
 	 */
 	function test_responsive_upgrade_091() {
@@ -60,7 +73,7 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 			),
 		) );
 
-		responsive_upgrade_091();
+		responsive_upgrade_091( false );
 
 		// Test page template conversions.
 		$this->assertEquals( 'page-templates/calendar.php', get_post_meta( $test_page_id_1, '_wp_page_template', true ) );
@@ -73,15 +86,48 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 		$this->assertEquals( array( 'position' => 'pageWidth' ), get_post_meta( $test_page_id_2, '_bu_banner', true ) );
 		$this->assertEquals( array( 'position' => 'windowWidth' ), get_post_meta( $test_page_id_3, '_bu_banner', true ) );
 	}
-	
+
 	/**
-	 * Test our theme is actually active.
+	 * Test Responsive 2.0 upgrade routine.
+	 *
+	 * @expectedIncorrectUsage wpdb::prepare
 	 */
-	function test_responsive_framework_upgrade() {
-		update_option( '_responsive_framework_version', '0.0' );
+	function test_responsive_upgrade_2_0() {
+		$test_page_id_1 = $this->factory->post->create( array(
+			'post_title' => 'Test Page 1',
+			'post_type' => 'page',
+			'meta_input' => array(
+				'_wp_page_template' => 'calendar.php',
+				'_bu_banner' => array(
+					'position' => 'contentWidth',
+				),
+			),
+		) );
+		$test_page_id_2 = $this->factory->post->create( array(
+			'post_title' => 'Test Page 2',
+			'post_type' => 'page',
+			'meta_input' => array(
+				'_wp_page_template' => 'news.php',
+				'_bu_banner' => array(
+					'position' => 'pageWidth',
+				),
+			),
+		) );
+		$test_page_id_3 = $this->factory->post->create( array(
+			'post_title' => 'Test Page 3',
+			'post_type' => 'page',
+			'meta_input' => array(
+				'_wp_page_template' => 'page-nosidebars.php',
+				'_bu_banner' => array(
+					'position' => 'windowWidth',
+				),
+			),
+		) );
 
-		responsive_framework_upgrade();
+		responsive_upgrade_2_0( false );
 
-		$this->assertEquals( RESPONSIVE_FRAMEWORK_VERSION, get_option( '_responsive_framework_version' ) );
+		$this->assertEquals( array( 'position' => 'content-width' ), get_post_meta( $test_page_id_1, '_bu_banner', true ) );
+		$this->assertEquals( array( 'position' => 'page-width' ), get_post_meta( $test_page_id_2, '_bu_banner', true ) );
+		$this->assertEquals( array( 'position' => 'window-width' ), get_post_meta( $test_page_id_3, '_bu_banner', true ) );
 	}
 }
