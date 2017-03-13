@@ -29,7 +29,7 @@ function _register_theme() {
 		return $current_theme;
 	});
 
-	if ( ! function_exists( 'responsive_init' ) ! is_multisite() ) {
+	if ( ! function_exists( 'responsive_init' ) && ! is_multisite() ) {
 		require_once( dirname( dirname( __FILE__ ) ) . '/functions.php' );
 	}
 }
