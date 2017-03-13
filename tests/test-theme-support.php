@@ -36,6 +36,8 @@ class Tests_Responsive_Framework_Core_Feature_Support extends WP_UnitTestCase {
 		$this->assertTrue( current_theme_supports( 'bu-profiles-post_type' ) );
 
 		/**
+		 * These are currently failing for some reason.
+		 * 
 		 * @todo Figure out why these tests don't pass.
 		 */
 //		$this->assertTrue( current_theme_supports( 'html5' ) );

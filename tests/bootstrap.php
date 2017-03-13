@@ -30,7 +30,7 @@ function _register_theme() {
 	});
 
 	if ( ! function_exists( 'responsive_init' ) ) {
-		require_once ( dirname( dirname( __FILE__ ) ) ) . '/functions.php';
+		require_once( dirname( dirname( __FILE__ ) ) . '/functions.php' );
 	}
 }
 tests_add_filter( 'muplugins_loaded', '_register_theme' );
