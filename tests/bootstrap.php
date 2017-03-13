@@ -29,8 +29,16 @@ function _register_theme() {
 		return $current_theme;
 	});
 
+	/**
+	 * Before WordPress version 4.7, the theme's functions.php file needs to be included manually.
+	 * This only needs to be done when running as multisite.
+	 */
 	if ( ! function_exists( 'responsive_init' ) && ! is_multisite() ) {
-		require_once( dirname( dirname( __FILE__ ) ) . '/functions.php' );
+		global $wp_version;
+
+		if ( 1 === version_compare( '4.7', $wp_version ) ) {
+			require_once( dirname( dirname( __FILE__ ) ) . '/functions.php' );
+		}
 	}
 }
 tests_add_filter( 'muplugins_loaded', '_register_theme' );
