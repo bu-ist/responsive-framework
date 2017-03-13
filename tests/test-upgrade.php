@@ -19,17 +19,6 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 	}
 
 	/**
-	 * Test our theme is actually active.
-	 */
-	function test_responsive_framework_upgrade() {
-		update_option( '_responsive_framework_version', '0.0' );
-
-		responsive_framework_upgrade();
-
-		$this->assertEquals( RESPONSIVE_FRAMEWORK_VERSION, get_option( '_responsive_framework_version' ) );
-	}
-
-	/**
 	 * Test upgrade routines from Responsive 0.91.
 	 */
 	function test_responsive_upgrade_091() {
@@ -83,5 +72,16 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 		$this->assertEquals( array( 'position' => 'contentWidth' ), get_post_meta( $test_page_id_1, '_bu_banner', true ) );
 		$this->assertEquals( array( 'position' => 'pageWidth' ), get_post_meta( $test_page_id_2, '_bu_banner', true ) );
 		$this->assertEquals( array( 'position' => 'windowWidth' ), get_post_meta( $test_page_id_3, '_bu_banner', true ) );
+	}
+	
+	/**
+	 * Test our theme is actually active.
+	 */
+	function test_responsive_framework_upgrade() {
+		update_option( '_responsive_framework_version', '0.0' );
+
+		responsive_framework_upgrade();
+
+		$this->assertEquals( RESPONSIVE_FRAMEWORK_VERSION, get_option( '_responsive_framework_version' ) );
 	}
 }
