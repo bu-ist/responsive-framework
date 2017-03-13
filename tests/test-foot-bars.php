@@ -16,6 +16,10 @@ class Tests_Responsive_Framework_Footbars extends WP_UnitTestCase {
 	 */
 	function setUp() {
 		parent::setUp();
+
+		if ( ! function_exists( 'responsive_get_dynamic_footbars' ) ) {
+			require_once( dirname( dirname( __FILE__ ) ) . '/inc/template-tags.php' );
+		}
 	}
 
 	/**
