@@ -29,7 +29,9 @@ function _register_theme() {
 		return $current_theme;
 	});
 
-	require_once( dirname( dirname( __FILE__ ) ) ) . '/functions.php';
+	if ( ! function_exists( 'responsive_init' ) ) {
+		require_once ( dirname( dirname( __FILE__ ) ) ) . '/functions.php';
+	}
 }
 tests_add_filter( 'muplugins_loaded', '_register_theme' );
 
