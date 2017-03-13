@@ -12,6 +12,9 @@
  */
 class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 
+	/**
+	 * @var int Test post ID.
+	 */
 	var $test_post_id = 0;
 
 	/**
