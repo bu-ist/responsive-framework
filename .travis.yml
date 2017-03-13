@@ -8,7 +8,7 @@ notifications:
       - buweb:bIGlWDOUDD2pIqKDfTEmRxce #responsi
     on_failure: change
     on_success: always
-    
+
   email:
     on_success: never
     on_failure: change
