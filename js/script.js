@@ -2,16 +2,16 @@
  * Toggle behavior for navigation / search buttons.
  */
 ( function ( $ ) {
-	$( '.navToggle' ).on( 'click', function ( e ) {
+	$( '.nav-toggle' ).on( 'click', function ( e ) {
 		e.preventDefault();
-		$( 'nav, .navToggle' ).toggleClass( 'is-open' );
-		$( '.searchToggle, #quicksearch' ).removeClass( 'is-open' );
+		$( 'nav, .nav-toggle' ).toggleClass( 'is-open' );
+		$( '.search-toggle, #quicksearch' ).removeClass( 'is-open' );
 		$( 'body' ).toggleClass( 'nav-open' ).removeClass( 'search-open' );
 	});
 
-	$( '.searchToggle' ).on( 'click', function ( e ) {
+	$( '.search-toggle' ).on( 'click', function ( e ) {
 		e.preventDefault();
-		$( 'nav, .navToggle' ).removeClass( 'is-open' );
+		$( 'nav, .nav-toggle' ).removeClass( 'is-open' );
 
 		if( ! $( this ).hasClass( 'is-open' ) ){
 			setTimeout(function(){
@@ -19,7 +19,7 @@
 			}, 100 );
 		}
 
-		$( '.searchToggle, #quicksearch' ).toggleClass( 'is-open' );
+		$( '.search-toggle, #quicksearch' ).toggleClass( 'is-open' );
 		$( 'body' ).toggleClass( 'search-open' ).removeClass('nav-open');
 	});
 } ( jQuery ) );

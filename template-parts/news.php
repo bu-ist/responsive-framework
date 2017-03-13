@@ -6,7 +6,7 @@
  */
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php BU_News_Page_Template::show_thumbnail( '<div class="thumb">', '</div>' ); ?>
 

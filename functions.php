@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '1.5.3' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.0.0-dev' );
 
 /**
  * Theme version.
@@ -82,15 +82,15 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 
 			// Content banner locations.
 		if ( function_exists( 'bu_register_banner_position' ) ) {
-			bu_register_banner_position( 'windowWidth', array(
+			bu_register_banner_position( 'window-width', array(
 				'label' => 'Full browser window width',
 				'hint'  => 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.',
 			) );
-				bu_register_banner_position( 'pageWidth', array(
+				bu_register_banner_position( 'page-width', array(
 					'label' => 'Page width',
 					'hint'  => 'Banner will appear above the content and sidebars and should be 1130 pixels wide.',
 				) );
-				bu_register_banner_position( 'contentWidth', array(
+				bu_register_banner_position( 'content-width', array(
 					'label'   => 'Content width',
 					'hint'    => 'Banner will appear above the title in the content area and should be 760 pixels wide.',
 					'default' => true,
@@ -161,7 +161,7 @@ function responsive_sidebars() {
 			'description'   => 'Add widgets here to appear in your sidebar.',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h3 class="widgetTitle">',
+			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 	) );
 
@@ -171,7 +171,7 @@ function responsive_sidebars() {
 			'description'   => 'Add widgets here for display on posts and archives. Only the first 2 widgets will appear.',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h3 class="widgetTitle">',
+			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 	) );
 
@@ -182,7 +182,7 @@ function responsive_sidebars() {
 				'description'   => 'Add widgets here for display on profile pages and archives. Only the first 2 widgets will appear.',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h3 class="widgetTitle">',
+				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>',
 		) );
 	}
@@ -193,7 +193,7 @@ function responsive_sidebars() {
 			'description'   => 'Add widgets here to appear in your footer.',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h3 class="widgetTitle">',
+			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 	) );
 
@@ -205,7 +205,7 @@ function responsive_sidebars() {
 				'description'   => 'Add widgets here to appear in your footer.',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h3 class="widgetTitle">',
+				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>',
 		) );
 	}
