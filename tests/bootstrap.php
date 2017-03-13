@@ -36,7 +36,8 @@ function _register_theme() {
 	if ( ! function_exists( 'responsive_init' ) && ! is_multisite() ) {
 		global $wp_version;
 
-		if ( 1 === version_compare( '4.7', $wp_version ) ) {
+		echo $wp_version;
+		if ( 1 >= version_compare( '4.7', $wp_version ) ) {
 			require_once( dirname( dirname( __FILE__ ) ) . '/functions.php' );
 		}
 	}
