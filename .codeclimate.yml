@@ -1,6 +1,5 @@
 ---
 exclude_paths:
-- tests/
 - node_modules/
 - languages/
 - vendor/
