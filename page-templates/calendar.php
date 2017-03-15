@@ -289,24 +289,24 @@ endif; ?>
 								$urlText = $event['urlText'];
 							}
 						?>
-							<dt class="single-event-label">Registration:</dt>
-							<dd><?php printf( '<a href="%s">%s</a>', esc_url( $event['url'] ), esc_html( $urlText ) ); ?></dd>
+							<dt class="single-event-registration-label">Registration:</dt>
+							<dd class="single-event-registration-info"><?php printf( '<a href="%s" class="single-event-registration-link">%s</a>', esc_url( $event['url'] ), esc_html( $urlText ) ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['contactOrganization'] ) { ?>
-							<dt class="single-event-label">Contact Organization:</dt>
-							<dd><?php echo wp_kses_post( $event['contactOrganization'] ); ?></dd>
+							<dt class="single-event-contact-org-label">Contact Organization:</dt>
+							<dd class="single-event-contact-org-info"><?php echo wp_kses_post( $event['contactOrganization'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['contact_name'] ) { ?>
-							<dt class="single-event-label">Contact Name:</dt>
-							<dd><?php echo wp_kses_post( $event['contact_name'] ); ?></dd>
+							<dt class="single-event-contact-name-label">Contact Name:</dt>
+							<dd class="single-event-contact-name-info"><?php echo wp_kses_post( $event['contact_name'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['contact_email'] ) { ?>
-							<dt class="single-event-label">Contact Email:</dt>
-							<dd><?php printf( '<a href="mailto:%s">%s</a>', esc_url( $event['contact_email'] ), esc_html( $event['contact_email'] ) ); ?></dd>
+							<dt class="single-event-contact-email-label">Contact Email:</dt>
+							<dd class="single-event-contact-email-info"><?php printf( '<a href="mailto:%s" class="single-event-contact-email-link">%s</a>', esc_url( $event['contact_email'] ), esc_html( $event['contact_email'] ) ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['phone'] ) { ?>
-							<dt class="single-event-label">Contact Phone:</dt>
-							<dd><?php echo wp_kses_post( $event['phone'] ); ?></dd>
+							<dt class="single-event-contact-phone-label">Contact Phone:</dt>
+							<dd class="single-event-contact-phone-info"><?php echo wp_kses_post( $event['phone'] ); ?></dd>
 						<?php } ?>
 
 					</dl>
