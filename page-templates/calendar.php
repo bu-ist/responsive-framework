@@ -207,13 +207,13 @@ endif; ?>
 						<ul class="single-event-schedule-list">
 							<?php if ( ! empty( $event['start_time'] ) ) { ?>
 								<li class="single-event-schedule-start">
-									<span class="label single-event-label">Starts: </span><?php printf( '<span class="single-event-time">%s</span><em class="event-time-make-sentence"> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['starts'] ) ), esc_html( date( 'l, F j, Y', $event['starts'] ) ) ); ?>
+									<span class="single-event-label">Starts: </span><?php printf( '<span class="single-event-time">%s</span><em class="event-time-make-sentence"> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['starts'] ) ), esc_html( date( 'l, F j, Y', $event['starts'] ) ) ); ?>
 								</li>
 								<?php if ( $event['ends'] > 0 ) { ?>
-									<li class="single-event-schedule-end"><span class="label single-event-label">Ends: </span><?php printf( '<span class="single-event-time">%s</span><em class="event-time-make-sentence"> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['ends'] ) ), esc_html( date( 'l, F j, Y', $event['ends'] ) ) ); ?></dd>
+									<li class="single-event-schedule-end"><span class="single-event-label">Ends: </span><?php printf( '<span class="single-event-time">%s</span><em class="event-time-make-sentence"> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['ends'] ) ), esc_html( date( 'l, F j, Y', $event['ends'] ) ) ); ?></dd>
 								<?php }
 } else {
-	printf( '<li class="allday"><span class="label single-event-label">All Day</span><em> on </em><span class="single-event-date">%s</span></li>', esc_html( date( 'l, F j, Y', $event['starts'] - intval( date( 'Z' ) ) ) ) );
+	printf( '<li class="allday"><span class="single-event-label">All Day</span><em> on </em><span class="single-event-date">%s</span></li>', esc_html( date( 'l, F j, Y', $event['starts'] - intval( date( 'Z' ) ) ) ) );
 }
 							?>
 						</ul>
@@ -224,63 +224,63 @@ endif; ?>
 				<div class="single-event-additional-details">
 					<dl class="tabular">
 						<?php if ( $event['speakers'] ) { ?>
-							<dt class="label single-event-label single-event-speakers">Speakers:</dt>
+							<dt class="single-event-label single-event-speakers">Speakers:</dt>
 							<dd><?php echo wp_kses_post( $event['speakers'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['audience'] ) { ?>
-							<dt class="label single-event-label single-event-audience">Audience:</dt>
+							<dt class="single-event-label single-event-audience">Audience:</dt>
 							<dd><?php echo wp_kses_post( $event['audience'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['departments'] ) { ?>
-							<dt class="label single-event-label single-event-departments">Departments:</dt>
+							<dt class="single-event-label single-event-departments">Departments:</dt>
 							<dd><?php echo wp_kses_post( $event['departments'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['location'] ) { ?>
-							<dt class="label single-event-label single-event-location">Location:</dt>
+							<dt class="single-event-label single-event-location">Location:</dt>
 							<dd><?php echo wp_kses_post( $event['location'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['locationBuilding'] ) { ?>
-							<dt class="label single-event-label single-event-location-building">Address:</dt>
+							<dt class="single-event-label single-event-location-building">Address:</dt>
 							<dd><?php echo wp_kses_post( $event['locationBuilding'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['locationRoom'] ) { ?>
-							<dt class="label single-event-label single-event-location-room">Room:</dt>
+							<dt class="single-event-label single-event-location-room">Room:</dt>
 							<dd><?php echo wp_kses_post( $event['locationRoom'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['fees'] ) { ?>
-							<dt class="label single-event-label single-event-fees">Fees:</dt>
+							<dt class="single-event-label single-event-fees">Fees:</dt>
 							<dd><?php echo wp_kses_post( $event['fees'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['fee'] ) { ?>
-							<dt class="label single-event-label single-event-fee">Fees:</dt>
+							<dt class="single-event-label single-event-fee">Fees:</dt>
 							<dd><?php echo wp_kses_post( $event['fee'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['feeGeneral'] ) { ?>
-							<dt class="label single-event-label single-event-fee-general">Fee (General):</dt>
+							<dt class="single-event-label single-event-fee-general">Fee (General):</dt>
 							<dd><?php echo wp_kses_post( $event['feeGeneral'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['feePublic'] ) { ?>
-							<dt class="label single-event-label single-event-fee-public">Fee (Public):</dt>
+							<dt class="single-event-label single-event-fee-public">Fee (Public):</dt>
 							<dd><?php echo wp_kses_post( $event['feePublic'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['feeStaff'] ) { ?>
-							<dt class="label single-event-label single-event-fee-staff">Fee (Staff):</dt>
+							<dt class="single-event-label single-event-fee-staff">Fee (Staff):</dt>
 							<dd><?php echo wp_kses_post( $event['feeStaff'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['feeStudent'] ) { ?>
-							<dt class="label single-event-label single-event-fee-student">Fee (Students):</dt>
+							<dt class="single-event-label single-event-fee-student">Fee (Students):</dt>
 							<dd><?php echo wp_kses_post( $event['feeStudent'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['feeBUStudent'] ) { ?>
-							<dt class="label single-event-label single-event-fee-bu-student">Fee (BU Students):</dt>
+							<dt class="single-event-label single-event-fee-bu-student">Fee (BU Students):</dt>
 							<dd><?php echo wp_kses_post( $event['feeBUStudent'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['feeSenior'] ) { ?>
-							<dt class="label single-event-label single-event-fee-senior">Fee (Seniors):</dt>
+							<dt class="single-event-label single-event-fee-senior">Fee (Seniors):</dt>
 							<dd><?php echo wp_kses_post( $event['feeSenior'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['deadline'] ) { ?>
-							<dt class="label single-event-label single-event-deadline">Deadline:</dt>
+							<dt class="single-event-label single-event-deadline">Deadline:</dt>
 							<dd><?php echo wp_kses_post( $event['deadline'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['url'] ) {
@@ -289,23 +289,23 @@ endif; ?>
 								$urlText = $event['urlText'];
 							}
 						?>
-							<dt class="label single-event-label">Registration:</dt>
+							<dt class="single-event-label">Registration:</dt>
 							<dd><?php printf( '<a href="%s">%s</a>', esc_url( $event['url'] ), esc_html( $urlText ) ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['contactOrganization'] ) { ?>
-							<dt class="label single-event-label">Contact Organization:</dt>
+							<dt class="single-event-label">Contact Organization:</dt>
 							<dd><?php echo wp_kses_post( $event['contactOrganization'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['contact_name'] ) { ?>
-							<dt class="label single-event-label">Contact Name:</dt>
+							<dt class="single-event-label">Contact Name:</dt>
 							<dd><?php echo wp_kses_post( $event['contact_name'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['contact_email'] ) { ?>
-							<dt class="label single-event-label">Contact Email:</dt>
+							<dt class="single-event-label">Contact Email:</dt>
 							<dd><?php printf( '<a href="mailto:%s">%s</a>', esc_url( $event['contact_email'] ), esc_html( $event['contact_email'] ) ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['phone'] ) { ?>
-							<dt class="label single-event-label">Contact Phone:</dt>
+							<dt class="single-event-label">Contact Phone:</dt>
 							<dd><?php echo wp_kses_post( $event['phone'] ); ?></dd>
 						<?php } ?>
 
