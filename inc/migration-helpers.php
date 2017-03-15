@@ -81,9 +81,9 @@ function responsive_flexi_migration() {
 
 	// Migrate banner positions.
 	$banner_position_map = apply_filters( __FUNCTION__ . '_banner_position_map', array(
-		'content-width' => 'contentWidth',
-		'page-width'    => 'pageWidth',
-		'window-width'  => 'windowWidth',
+		'contentWidth' => 'content-width',
+		'pageWidth'    => 'page-width',
+		'windowWidth'  => 'window-width',
 	) );
 	$result = bu_migrate_banner_positions( $banner_position_map );
 	if ( is_wp_error( $result ) ) {
@@ -203,9 +203,7 @@ function responsive_migrate_flexi_footbars() {
 	}
 
 	// Migrate post-specific dynamic footbar selections.
-	$footbar_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_flexi_framework_footbar" AND meta_value != ""',
-	$wpdb->postmeta );
-	$results = $wpdb->get_results( $footbar_query );
+	$results = $wpdb->get_results( $wpdb->prepare( 'SELECT post_id, meta_value FROM %s WHERE meta_key = %s AND meta_value != ""', $wpdb->postmeta, '_bu_flexi_framework_footbar' ) );
 
 	if ( empty( $results ) ) {
 		return;
