@@ -12,7 +12,7 @@ get_header(); ?>
 
 			<h1>Profile Directory</h1>
 
-			<ul class="profile-listing basic">
+			<ul class="profile-listing profile-format-basic">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'template-parts/profile' ); ?>
 				<?php endwhile; ?>

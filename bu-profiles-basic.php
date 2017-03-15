@@ -10,7 +10,7 @@
 ?>
 
 <?php if ( $query->have_posts() ) : ?>
-	<ul class="profile-shortcode basic">
+	<ul class="profile-shortcode profile-format-basic">
 		<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 			<?php get_template_part( 'template-parts/profile', 'basic' ); ?>
 		<?php endwhile; ?>
