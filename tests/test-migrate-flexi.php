@@ -27,7 +27,7 @@ class Tests_Responsive_Framework_Migrate_Flexi extends WP_UnitTestCase {
 		update_option( 'flexi_display', array( 'cat' => 1, 'tag' => 1, 'author' => 1 ) );
 
 		$this->assertTrue( responsive_migrate_post_display_options( false ) );
-		$this->assertEquals('categories,tags,author', get_option( 'burf_setting_post_display_options' ) );
+		$this->assertEquals( 'categories,tags,author', get_option( 'burf_setting_post_display_options' ) );
 	}
 
 	/**
