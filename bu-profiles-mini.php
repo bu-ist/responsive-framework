@@ -10,8 +10,8 @@
 ?>
 
 <?php if ( $query->have_posts() ) : ?>
-	<div class="profile-shortcode profile-listing">
-		<ul class="mini">
+	<div class="profile-listing">
+		<ul class="profile-shortcode mini">
 			<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 				<?php get_template_part( 'template-parts/profile', 'mini' ); ?>
 			<?php endwhile; ?>
