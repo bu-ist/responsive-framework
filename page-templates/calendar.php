@@ -204,13 +204,13 @@ endif; ?>
 
 					<h1><?php echo wp_kses_post( $event['summary'] ); ?></h1>
 					<div class="single-event-schedule">
-						<ul>
+						<ul class="single-event-schedule-times">
 							<?php if ( ! empty( $event['start_time'] ) ) { ?>
-								<li>
+								<li class="single-event-schedule-start">
 									<span class="label single-event-label">Starts: </span><?php printf( '<span class="single-event-time">%s</span><em> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['starts'] ) ), esc_html( date( 'l, F j, Y', $event['starts'] ) ) ); ?>
 								</li>
 								<?php if ( $event['ends'] > 0 ) { ?>
-									<li><span class="label single-event-label">Ends: </span><?php printf( '<span class="single-event-time">%s</span><em> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['ends'] ) ), esc_html( date( 'l, F j, Y', $event['ends'] ) ) ); ?></dd>
+									<li class="single-event-schedule-end"><span class="label single-event-label">Ends: </span><?php printf( '<span class="single-event-time">%s</span><em> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['ends'] ) ), esc_html( date( 'l, F j, Y', $event['ends'] ) ) ); ?></dd>
 								<?php }
 } else {
 	printf( '<li class="allday"><span class="label single-event-label">All Day</span><em> on </em><span class="single-event-date">%s</span></li>', esc_html( date( 'l, F j, Y', $event['starts'] - intval( date( 'Z' ) ) ) ) );
