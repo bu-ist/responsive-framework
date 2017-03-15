@@ -224,64 +224,64 @@ endif; ?>
 				<div class="single-event-additional-details">
 					<dl class="tabular">
 						<?php if ( $event['speakers'] ) { ?>
-							<dt class="single-event-label single-event-speakers">Speakers:</dt>
-							<dd><?php echo wp_kses_post( $event['speakers'] ); ?></dd>
+							<dt class="single-event-speakers-label">Speakers:</dt>
+							<dd class="single-event-speakers-info"><?php echo wp_kses_post( $event['speakers'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['audience'] ) { ?>
-							<dt class="single-event-label single-event-audience">Audience:</dt>
-							<dd><?php echo wp_kses_post( $event['audience'] ); ?></dd>
+							<dt class="single-event-audience-label">Audience:</dt>
+							<dd class="single-event-audience-info"><?php echo wp_kses_post( $event['audience'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['departments'] ) { ?>
-							<dt class="single-event-label single-event-departments">Departments:</dt>
-							<dd><?php echo wp_kses_post( $event['departments'] ); ?></dd>
+							<dt class="single-event-departments-label">Departments:</dt>
+							<dd class="single-event-departments-info"><?php echo wp_kses_post( $event['departments'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['location'] ) { ?>
-							<dt class="single-event-label single-event-location">Location:</dt>
-							<dd><?php echo wp_kses_post( $event['location'] ); ?></dd>
+							<dt class="single-event-location-label">Location:</dt>
+							<dd class="single-event-location-info"><?php echo wp_kses_post( $event['location'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['locationBuilding'] ) { ?>
-							<dt class="single-event-label single-event-location-building">Address:</dt>
-							<dd><?php echo wp_kses_post( $event['locationBuilding'] ); ?></dd>
+							<dt class="single-event-location-building-label">Address:</dt>
+							<dd class="single-event-location-building-info"><?php echo wp_kses_post( $event['locationBuilding'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['locationRoom'] ) { ?>
-							<dt class="single-event-label single-event-location-room">Room:</dt>
-							<dd><?php echo wp_kses_post( $event['locationRoom'] ); ?></dd>
+							<dt class="single-event-location-room-label">Room:</dt>
+							<dd class="single-event-location-room-info"><?php echo wp_kses_post( $event['locationRoom'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['fees'] ) { ?>
-							<dt class="single-event-label single-event-fees">Fees:</dt>
-							<dd><?php echo wp_kses_post( $event['fees'] ); ?></dd>
+							<dt class="single-event-fees-label">Fees:</dt>
+							<dd class="single-event-fees-info"><?php echo wp_kses_post( $event['fees'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['fee'] ) { ?>
-							<dt class="single-event-label single-event-fee">Fees:</dt>
-							<dd><?php echo wp_kses_post( $event['fee'] ); ?></dd>
+							<dt class="single-event-fee-label">Fees:</dt>
+							<dd class="single-event-fee-info"><?php echo wp_kses_post( $event['fee'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['feeGeneral'] ) { ?>
-							<dt class="single-event-label single-event-fee-general">Fee (General):</dt>
-							<dd><?php echo wp_kses_post( $event['feeGeneral'] ); ?></dd>
+							<dt class="single-event-fee-general-label">Fee (General):</dt>
+							<dd class="single-event-fee-general-info"><?php echo wp_kses_post( $event['feeGeneral'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['feePublic'] ) { ?>
-							<dt class="single-event-label single-event-fee-public">Fee (Public):</dt>
-							<dd><?php echo wp_kses_post( $event['feePublic'] ); ?></dd>
+							<dt class="single-event-fee-public-label">Fee (Public):</dt>
+							<dd class="single-event-fee-public-info"><?php echo wp_kses_post( $event['feePublic'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['feeStaff'] ) { ?>
-							<dt class="single-event-label single-event-fee-staff">Fee (Staff):</dt>
-							<dd><?php echo wp_kses_post( $event['feeStaff'] ); ?></dd>
+							<dt class="single-event-fee-staff-label">Fee (Staff):</dt>
+							<dd class="single-event-fee-staff-info"><?php echo wp_kses_post( $event['feeStaff'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['feeStudent'] ) { ?>
-							<dt class="single-event-label single-event-fee-student">Fee (Students):</dt>
-							<dd><?php echo wp_kses_post( $event['feeStudent'] ); ?></dd>
+							<dt class="single-event-fee-student-label">Fee (Students):</dt>
+							<dd class="single-event-fee-student-info"><?php echo wp_kses_post( $event['feeStudent'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['feeBUStudent'] ) { ?>
-							<dt class="single-event-label single-event-fee-bu-student">Fee (BU Students):</dt>
-							<dd><?php echo wp_kses_post( $event['feeBUStudent'] ); ?></dd>
+							<dt class="single-event-fee-bu-student-label">Fee (BU Students):</dt>
+							<dd class="single-event-fee-bu-student-info"><?php echo wp_kses_post( $event['feeBUStudent'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['feeSenior'] ) { ?>
-							<dt class="single-event-label single-event-fee-senior">Fee (Seniors):</dt>
-							<dd><?php echo wp_kses_post( $event['feeSenior'] ); ?></dd>
+							<dt class="single-event-fee-senior-label">Fee (Seniors):</dt>
+							<dd class="single-event-fee-senior-info"><?php echo wp_kses_post( $event['feeSenior'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['deadline'] ) { ?>
-							<dt class="single-event-label single-event-deadline">Deadline:</dt>
-							<dd><?php echo wp_kses_post( $event['deadline'] ); ?></dd>
+							<dt class="single-event-deadline-label">Deadline:</dt>
+							<dd class="single-event-deadline-info"><?php echo wp_kses_post( $event['deadline'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['url'] ) {
 							$urlText = $event['url'];
