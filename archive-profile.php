@@ -12,13 +12,11 @@ get_header(); ?>
 
 			<h1>Profile Directory</h1>
 
-			<div class="profile-listing">
-				<ul class="basic">
-					<?php while ( have_posts() ) : the_post(); ?>
-						<?php get_template_part( 'template-parts/profile' ); ?>
-					<?php endwhile; ?>
-				</ul>
-			</div>
+			<ul class="profile-listing basic">
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php get_template_part( 'template-parts/profile' ); ?>
+				<?php endwhile; ?>
+			</ul>
 
 			<?php responsive_posts_navigation(); ?>
 

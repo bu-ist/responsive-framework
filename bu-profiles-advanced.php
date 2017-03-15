@@ -10,11 +10,9 @@
 ?>
 
 <?php if ( $query->have_posts() ) : ?>
-	<div class="profile-listing">
-		<ul class="profile-shortcode advanced">
-			<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-				<?php get_template_part( 'template-parts/profile', 'advanced' ); ?>
-			<?php endwhile; ?>
-		</ul>
-	</div><!--/.profile-listing-->
+	<ul class="profile-shortcode advanced">
+		<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+			<?php get_template_part( 'template-parts/profile', 'advanced' ); ?>
+		<?php endwhile; ?>
+	</ul>
 <?php endif;
