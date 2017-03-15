@@ -196,7 +196,9 @@ function responsive_migrate_post_display_options( $verbose = true ) {
 /**
  * Attempt to migrate dynamic footbar settings from Flexi.
  *
- * @return bool|WP_Error        true on success, or a WP_Error instance describing failures.
+ * @param bool $verbose Whether to display error log messages.
+ *
+ * @return bool|WP_Error true on success, or a WP_Error instance describing failures.
  */
 function responsive_migrate_flexi_footbars( $verbose = true ) {
 	global $wpdb;
