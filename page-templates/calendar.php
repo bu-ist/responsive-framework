@@ -204,7 +204,7 @@ endif; ?>
 
 					<h1><?php echo wp_kses_post( $event['summary'] ); ?></h1>
 					<div class="single-event-schedule">
-						<ul class="single-event-schedule-times">
+						<ul class="single-event-schedule-list">
 							<?php if ( ! empty( $event['start_time'] ) ) { ?>
 								<li class="single-event-schedule-start">
 									<span class="label single-event-label">Starts: </span><?php printf( '<span class="single-event-time">%s</span><em> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['starts'] ) ), esc_html( date( 'l, F j, Y', $event['starts'] ) ) ); ?>
