@@ -14,32 +14,42 @@
  * Stores current theme version in database.
  *
  * Allows us to run code when the framework is updated.
+ *
+ * @param bool $verbose Whether to display notices in error log.
  */
-function responsive_framework_upgrade() {
+function responsive_framework_upgrade( $verbose = true ) {
 	$db_version = get_option( '_responsive_framework_version', false );
 
 	// Old theme version detected.
 	if ( $db_version ) {
 		if ( version_compare( $db_version, RESPONSIVE_FRAMEWORK_VERSION, '<' ) ) {
-			error_log( __FUNCTION__ . ' - Version mismatch detected. Starting upgrade...' );
+			if ( $verbose ) {
+				error_log( __FUNCTION__ . ' - Version mismatch detected. Starting upgrade...' );
+			}
 
 			// Run version-specific upgrade routine(s).
 			if ( version_compare( $db_version, '0.9.1', '<' ) ) {
-				responsive_upgrade_091();
+				responsive_upgrade_091( $verbose );
 			}
 
 			if ( version_compare( $db_version, '2.0.0', '<' ) ) {
-				responsive_upgrade_2_0();
+				responsive_upgrade_2_0( $verbose );
 			}
 
 			do_action( 'responsive_framework_upgrade', $db_version, RESPONSIVE_FRAMEWORK_VERSION );
 
-			error_log( __FUNCTION__ . ' - Updating framework version in DB: ' . $db_version . ' -> ' . RESPONSIVE_FRAMEWORK_VERSION );
+			if ( $verbose ) {
+				error_log( __FUNCTION__ . ' - Updating framework version in DB: ' . $db_version . ' -> ' . RESPONSIVE_FRAMEWORK_VERSION );
+			}
+
 			update_option( '_responsive_framework_version', RESPONSIVE_FRAMEWORK_VERSION );
 		}
 	} else {
 		// No version was previously set -- add it now.
-		error_log( __FUNCTION__ . ' - Adding framework version to DB: ' . RESPONSIVE_FRAMEWORK_VERSION );
+		if ( $verbose ) {
+			error_log( __FUNCTION__ . ' - Adding framework version to DB: ' . RESPONSIVE_FRAMEWORK_VERSION );
+		}
+
 		add_option( '_responsive_framework_version', RESPONSIVE_FRAMEWORK_VERSION );
 	}
 }
@@ -52,12 +62,17 @@ add_action( 'init', 'responsive_framework_upgrade' );
  * - Page template renaming
  * - Banner position renaming
  * - Sidebar renaming
+ *
+ * @param bool $verbose Whether to display notices in error log.
  */
-function responsive_upgrade_091() {
+function responsive_upgrade_091( $verbose = true ) {
 	global $wpdb;
 
 	// Rename page templates.
-	error_log( __FUNCTION__ . ' - Migrating page templates...' );
+	if ( $verbose ) {
+		error_log( __FUNCTION__ . ' - Migrating page templates...' );
+	}
+
 	$template_map = apply_filters( __FUNCTION__ . '_template_map', array(
 		'calendar.php'        => 'page-templates/calendar.php',
 		'news.php'            => 'page-templates/news.php',
@@ -69,19 +84,26 @@ function responsive_upgrade_091() {
 		$wpdb->postmeta, implode( '","', array_keys( $template_map ) )
 	);
 	$results = $wpdb->get_results( $template_query );
-	error_log( __FUNCTION__ . ' - Posts to migrate: ' . count( $results ) );
+
+	if ( $verbose ) {
+		error_log( __FUNCTION__ . ' - Posts to migrate: ' . count( $results ) );
+	}
 
 	foreach ( $results as $result ) {
 		update_post_meta( $result->post_id, '_wp_page_template', $template_map[ $result->meta_value ] );
 	}
 
 	// Rename banner positions.
-	error_log( __FUNCTION__ . ' - Migrating content banners...' );
+	if ( $verbose ) {
+		error_log( __FUNCTION__ . ' - Migrating content banners...' );
+	}
+
 	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
-		'contentWidth' => 'content-width',
-		'pageWidth'    => 'page-width',
-		'windowWidth'  => 'window-width',
+		'content-width' => 'contentWidth',
+		'page-width'    => 'pageWidth',
+		'window-width'  => 'windowWidth',
 	) );
+
 	$banner_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
 		$wpdb->postmeta
 	);
@@ -94,16 +116,22 @@ function responsive_upgrade_091() {
 				$banner['position'] = $banner_map[ $banner['position'] ];
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
-				error_log( __FUNCTION__ . ' - Resetting empty banner position to default (content-width)' );
+				if ( $verbose ) {
+					error_log( __FUNCTION__ . ' - Resetting empty banner position to default (contentWidth)' );
+				}
+
 				// Reset to default.
-				$banner['position'] = 'content-width';
+				$banner['position'] = 'contentWidth';
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			}
 		}
 	}
 
 	// Rename sidebars.
-	error_log( __FUNCTION__ . ' - Migrating sidebars...' );
+	if ( $verbose ) {
+		error_log( __FUNCTION__ . ' - Migrating sidebars...' );
+	}
+
 	$sidebars_map = apply_filters( __FUNCTION__ . '_sidebars_map', array(
 		'right-content-area'  => 'sidebar',
 		'bottom-content-area' => 'footbar',
@@ -122,12 +150,17 @@ function responsive_upgrade_091() {
  * Upgrade routines for Responsive Framework 2.0.0.
  *
  * - Content banner names have been updated to match coding standards.
+ *
+ * @param bool $verbose Whether to display notices in error log.
  */
-function responsive_upgrade_2_0() {
+function responsive_upgrade_2_0( $verbose = true ) {
 	global $wpdb;
 
 	// Rename banner positions.
-	error_log( __FUNCTION__ . ' - Migrating content banners...' );
+	if ( $verbose ) {
+		error_log( __FUNCTION__ . ' - Migrating content banners...' );
+	}
+
 	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
 		'contentWidth' => 'content-width',
 		'pageWidth'    => 'page-width',
@@ -145,7 +178,10 @@ function responsive_upgrade_2_0() {
 				$banner['position'] = $banner_map[ $banner['position'] ];
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
-				error_log( __FUNCTION__ . ' - Resetting empty banner position to default (content-width)' );
+				if ( $verbose ) {
+					error_log( __FUNCTION__ . ' - Resetting empty banner position to default (content-width)' );
+				}
+
 				// Reset to default.
 				$banner['position'] = 'content-width';
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
