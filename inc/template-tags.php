@@ -237,7 +237,7 @@ function responsive_content_banner( $position ) {
 	do_action( 'r_before_content_banner', $position, $post_id );
 
 	$banner_args = array(
-		'before'   => sprintf( '<div class="bannerContainer bannerContainer-%s">', $position ),
+		'before'   => sprintf( '<div class="banner-container banner-container-%s">', $position ),
 		'after'    => '</div>',
 		'class'    => 'banner',
 		'position' => $position,
@@ -306,8 +306,8 @@ function responsive_primary_nav() {
 
 		if ( function_exists( 'bu_navigation_display_primary' ) ) {
 			bu_navigation_display_primary( array(
-				'container_id'    => 'primaryNav-menu',
-				'container_class' => 'primaryNav-menu',
+				'container_id'    => 'primary-nav-menu',
+				'container_class' => 'primary-nav-menu',
 			) );
 		} else {
 			wp_nav_menu( array(
@@ -340,7 +340,7 @@ function responsive_utility_nav( $args = array() ) {
 	}
 
 	$defaults = array(
-		'before' => '<nav class="utilityNav" role="navigation">',
+		'before' => '<nav class="utility-nav" role="navigation">',
 		'after'  => '</nav>',
 		);
 	$args = wp_parse_args( $args, $defaults );
@@ -350,8 +350,8 @@ function responsive_utility_nav( $args = array() ) {
 		false == BuAccessControlPlugin::is_site_403() ) {
 		$menu = wp_nav_menu( array(
 			'theme_location' => 'utility',
-			'menu_id'        => 'utilityNav-menu',
-			'menu_class'     => 'utilityNav-menu',
+			'menu_id'        => 'utility-nav-menu',
+			'menu_class'     => 'utility-nav-menu',
 			'container'      => false,
 			'echo'           => false,
 		) );
@@ -378,7 +378,7 @@ function responsive_footer_menu( $args = array() ) {
 	}
 
 	$defaults = array(
-		'before' => '<nav class="siteFooter-links" role="navigation">',
+		'before' => '<nav class="site-footer-links" role="navigation">',
 		'after'  => '</nav>',
 		);
 	$args = wp_parse_args( $args, $defaults );
@@ -387,8 +387,8 @@ function responsive_footer_menu( $args = array() ) {
 	$menu = wp_nav_menu( array(
 		'theme_location' => 'footer',
 		'depth'          => 1,
-		'menu_id'        => 'siteFooter-links-menu',
-		'menu_class'     => 'siteFooter-links-menu',
+		'menu_id'        => 'site-footer-links-menu',
+		'menu_class'     => 'site-footer-links-menu',
 		'container'      => false,
 		'echo'           => false,
 	) );
@@ -416,7 +416,7 @@ function responsive_social_menu( $args = array() ) {
 	}
 
 	$defaults = array(
-		'before' => '<nav class="siteFooter-social" role="navigation">',
+		'before' => '<nav class="site-footer-social" role="navigation">',
 		'after'  => '</nav>',
 		);
 	$args = wp_parse_args( $args, $defaults );
@@ -429,8 +429,8 @@ function responsive_social_menu( $args = array() ) {
 		'depth'          => 1,
 		'link_before'    => '<i aria-hidden="true"></i><span>',
 		'link_after'     => '</span>',
-		'menu_id'        => 'siteFooter-social-menu',
-		'menu_class'     => 'siteFooter-social-menu',
+		'menu_id'        => 'site-footer-social-menu',
+		'menu_class'     => 'site-footer-social-menu',
 		'container'      => false,
 		'echo'           => false,
 	) );
@@ -706,7 +706,7 @@ function responsive_posts_archive_link( $args = array() ) {
 		'label'  => 'View all posts',
 		'before' => '<p>',
 		'after'  => '</p>',
-		'class'  => 'archiveLink postsArchiveLink',
+		'class'  => 'archive-link posts-archive-link',
 		'echo'   => true,
 		);
 	$args = wp_parse_args( $args, $defaults );
@@ -754,7 +754,7 @@ function responsive_profiles_archive_link( $args = array() ) {
 	$defaults = array(
 		'before' => '<p>',
 		'after'  => '</p>',
-		'class'  => 'archiveLink profilesArchiveLink',
+		'class'  => 'archive-link profiles-archive-link',
 		'echo'   => true,
 		);
 	$args = wp_parse_args( $args, $defaults );
@@ -791,7 +791,7 @@ function responsive_sidebar_classes( $sidebar_id ) {
 	$widget_count = responsive_get_widget_counts( $sidebar_id );
 	$count = ( $widget_count > 0 ) ? $widget_count : 'none';
 
-	echo esc_attr( "widgetCount-$count" );
+	echo esc_attr( "widget-count-$count" );
 }
 
 /**

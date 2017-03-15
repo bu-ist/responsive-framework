@@ -8,13 +8,13 @@
 get_header();
 ?>
 
-<div class="content-area">
+<article class="content-area">
 
 	<?php if ( have_posts() ) : ?>
 
 		<?php
 			the_archive_title( '<h1>', '</h1>' );
-			the_archive_description( '<div class="taxonomyDescription">', '</div>' );
+			the_archive_description( '<div class="taxonomy-description">', '</div>' );
 		?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
@@ -29,7 +29,7 @@ get_header();
 
 	<?php endif; ?>
 
-</div>
+</article>
 
 <?php r_get_archive_sidebar(); ?>
 
