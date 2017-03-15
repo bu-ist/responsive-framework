@@ -575,7 +575,7 @@ if ( ! function_exists( 'responsive_post_meta' ) ) :
 	 */
 	function responsive_post_meta() {
 		?>
-		<div class="meta post-part-meta">
+		<div class="meta post-meta">
 		<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
 		<span class="author"><em>By</em> <?php the_author_posts_link(); ?></span>
 		<?php endif; ?>
