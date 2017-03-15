@@ -41,9 +41,9 @@ $_customizer-description-color: #999;
 		&::after {
 			@extend %admin-sprite-background;
 			height: 129px;
+			margin: 0 auto;
 			padding: 4px;
 			width: 227px;
-			margin: 0 auto;
 		}
 
 		// For specific layouts
