@@ -248,8 +248,6 @@ function responsive_migrate_flexi_footbars( $verbose = true ) {
 function responsive_migrate_contact_form() {
 	global $wpdb;
 
-	$errors = array();
-
 	if ( class_exists( 'GFForms' ) && class_exists( 'GFAPI' ) ) {
 
 		$contact_query = sprintf( 'SELECT post_id FROM %s WHERE meta_key = "_wp_page_template" AND meta_value = "contact-us.php"', $wpdb->postmeta );

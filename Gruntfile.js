@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 				tasks: ['concat', 'uglify'],
 				options: {
 					spawn: false
-				},
+				}
 			},
 			styles: {
 				files: [
