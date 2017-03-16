@@ -188,4 +188,23 @@ function responsive_upgrade_2_0( $verbose = true ) {
 			}
 		}
 	}
+
+	// Upgrade Layout Names.
+	$names = array(
+		'sideNav' => 'side-nav',
+		'topNav' => 'top-nav',
+		'noNav' => 'no-nav',
+	);
+
+	$layout = get_option( 'burf_setting_layout', 'default' );
+
+	if ( 'default' !== $layout ) {
+		if ( $verbose ) {
+			error_log( __FUNCTION__ . ' - Updating layout name.' );
+		}
+
+		if ( isset( $names[ $layout ] ) ) {
+			update_option( 'burf_setting_layout', $names[ $layout ] );
+		}
+	}
 }
