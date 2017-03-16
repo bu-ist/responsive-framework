@@ -22,7 +22,7 @@ add_filter( 'bu_search_form_contexts', 'responsive_bu_search_form_contexts' );
  *
  * @return string Modified search field input tag attributes.
  */
-function responsive_bu_search_form_query_attributes( $attrs ) {
+function responsive_bu_search_form_query_attributes() {
 	return 'placeholder="Search site&hellip;"';
 }
 add_filter( 'bu_search_form_query_attributes', 'responsive_bu_search_form_query_attributes' );
