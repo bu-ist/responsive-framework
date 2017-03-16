@@ -295,7 +295,6 @@ function responsive_oembed_output( $html, $url ) {
 
 	foreach ( $providers as $provider ) {
 		$slug = $provider[0];
-		$name = $provider[1];
 		$patterns = $provider[2];
 
 		foreach ( $patterns as $pattern ) {
