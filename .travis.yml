@@ -31,6 +31,10 @@ env:
   - WP_VERSION=nightly WP_MULTISITE=1
 
 before_install:
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:3} != "7.1" ]]; then
+      phpenv config-rm xdebug.ini
+    fi
   - composer self-update
 
 install:
@@ -50,10 +54,19 @@ before_script:
   - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
 
 script:
-  - phpunit --coverage-clover build/logs/clover.xml
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then
+      phpunit --coverage-clover build/logs/clover.xml
+    else
+      phpunit
+    fi
+  -
 
 after_script:
-  - ./bin/codeclimate.sh
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then
+      ./bin/codeclimate.sh
+    fi
 
 addons:
   codeclimate:
