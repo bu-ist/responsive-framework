@@ -61,6 +61,17 @@
 * Introduce `r_get_archive_sidebar()`. Adds the ability to theme sidebars for
  specific archive contexts without having to change the `archive.php` template
  in a child theme. For more details see [55f3602](https://github.com/bu-ist/responsive-framework/pull/153/commits/55f3602dc496439d414f28a24b72dd6e19edec99).
+* Update `responsive_term_links()` to act as a wrapper of `get_the_term_list()`
+ to solve several issues. See [#185](https://github.com/bu-ist/responsive-framework/issues/185).
+* Set up unit testing with Travis CI with an initial test suite. These should be
+ updated and maintained with every pull request.
+* Set up Code Climate test coverage reporting.
+* Make sure `post_class()` is used for every container of every post,
+ regardless of post type.
+* Comment message field is now marked required. The browser will now notify the
+ commenter when they try to submit the form if the field is empty.
+* Ensure `role="main"` is used properly and adheres to the proper accessibility
+ standards.
 
 ## 1.5.3
 
