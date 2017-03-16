@@ -37,7 +37,10 @@ install:
   - composer install --dev
 
 before_script:
-  - phpenv config-rm xdebug.ini
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:2} != "7.1" ]]; then
+      phpenv config-rm xdebug.ini
+    fi
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
     if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
@@ -54,7 +57,10 @@ script:
   - phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
-  - ./bin/codeclimate.sh
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:2} == "7.1" ]]; then
+      ./bin/codeclimate.sh
+    fi
 
 addons:
   codeclimate:
