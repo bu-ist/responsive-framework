@@ -37,6 +37,7 @@ install:
   - composer install --dev
 
 before_script:
+  - phpenv config-rm xdebug.ini
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
     if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
