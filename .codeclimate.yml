@@ -27,6 +27,8 @@ engines:
       languages:
       - javascript
       - php
+    exclude_paths:
+      - "Gruntfile.js"
   eslint:
     enabled: true
     channel: eslint-3
