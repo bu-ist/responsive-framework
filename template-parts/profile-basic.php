@@ -9,7 +9,7 @@
 
 ?>
 
-<li<?php if ( bu_profile_detail( 'title', array( 'echo' => false ) ) ) : ?> class="has-title"<?php endif; ?>>
+<li class="profile-item<?php if ( bu_profile_detail( 'title', array( 'echo' => false ) ) ) : ?> has-title<?php endif; ?>">
 	<a href="<?php the_permalink(); ?>">
 		<?php if ( function_exists( 'bu_thumbnail' ) ) : $thumb_args = array( 'maxwidth' => 60, 'maxheight' => 60 ); ?>
 			<?php bu_thumbnail( '<figure>', '</figure>', $thumb_args ); ?>
