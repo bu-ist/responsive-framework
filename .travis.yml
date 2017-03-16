@@ -31,16 +31,16 @@ env:
   - WP_VERSION=nightly WP_MULTISITE=1
 
 before_install:
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:2} != "7.1" ]]; then
+      phpenv config-rm xdebug.ini
+    fi
   - composer self-update
 
 install:
   - composer install --dev
 
 before_script:
-  - |
-    if [[ ${TRAVIS_PHP_VERSION:0:2} != "7.1" ]]; then
-      phpenv config-rm xdebug.ini
-    fi
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
     if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
