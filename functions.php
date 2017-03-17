@@ -339,6 +339,10 @@ function r_content_container_class( $class = '' ) {
 	 */
 	$classes = apply_filters( 'r_content_container_class', $classes, $class );
 
+	if ( empty( $classes ) ) {
+		return;
+	}
+
 	// Separates classes with a single space, collates classes for content container element.
 	echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
 }
