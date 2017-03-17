@@ -72,6 +72,9 @@
  commenter when they try to submit the form if the field is empty.
 * Ensure `role="main"` is used properly and adheres to the proper accessibility
  standards.
+* Introduce `r_content_container_class()` for displaying the class attribute
+ for the content container element. Classes are filterable through the
+ `r_content_container_class` filter.
 
 ## 1.5.3
 
