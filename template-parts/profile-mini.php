@@ -11,7 +11,7 @@
 
 <li <?php post_class( 'profile-item' ); ?>>
 	<?php if ( function_exists( 'bu_thumbnail' ) ) : $thumb_args = array( 'maxwidth' => 150, 'maxheight' => 150 ); ?>
-		<?php bu_thumbnail( '<figure>', '</figure>', $thumb_args ); ?>
+		<?php bu_thumbnail( '<figure class="profile-photo profile-photo-mini">', '</figure>', $thumb_args ); ?>
 	<?php endif; ?>
 	<div class="details">
 		<?php bu_profile_detail( 'first_name', array( 'before' => '<p class="name">' ) ); ?>
