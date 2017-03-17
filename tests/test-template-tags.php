@@ -169,4 +169,22 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 		$this->expectOutputString( 'class="content-container te&quot;st c&amp;lass"' );
 		r_content_container_class( array( 'te"st', 'c&lass' ) );
 	}
+
+	/**
+	 * Test content container class function with no classes.
+	 */
+	function test_r_content_container_class_no_classes() {
+		$this->expectOutputString( '' );
+
+		add_filter( 'r_content_container_class', array( $this, 'r_test_filter_empty_array' ) );
+		r_content_container_class( array( 'test', 'class' ) );
+		remove_filter( 'r_content_container_class', array( $this, 'r_test_filter_empty_array' ) );
+	}
+
+	/**
+	 * Return an empty array for filters.
+	 */
+	function r_test_filter_empty_array() {
+		return array();
+	}
 }
