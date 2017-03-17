@@ -252,7 +252,7 @@ function responsive_customize_register( $wp_customize ) {
 		'section'  => 'burf_section_footer',
 		'settings' => 'burf_setting_footer[text]',
 		'type'     => 'textarea',
-		'description' => "May be used to enter an address or contact information.",
+		'description' => 'May be used to enter an address or contact information.',
 	);
 	if ( version_compare( $GLOBALS['wp_version'], '4.0', '<' ) ) {
 		$wp_customize->add_control( new BURF_Customize_Textarea( $wp_customize, 'burf_section_footer_info', $footer_info_args ) );

@@ -594,7 +594,7 @@ function responsive_sanitize_color_scheme( $value ) {
  */
 function responsive_get_color_scheme_choices() {
 	$schemes = responsive_get_color_schemes();
-	$choices = array();
+
 	foreach ( $schemes as $slug => $scheme ) {
 		$schemes[ $slug ] = $scheme['label'];
 	}
