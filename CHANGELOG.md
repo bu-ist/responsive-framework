@@ -79,6 +79,8 @@
 * Clarifies the use of Footer Additional Information in the Customizer.
 * Adds a new class, `content-area`, for styling what was formerly
  `article[role=main]`.
+* Moves `profiles.php` to the root of the theme directory from `/page-templates`
+ to allow users to select which profile format to use on the profiles template.
 
 ## 1.5.3
 
