@@ -307,6 +307,41 @@ function responsive_change_title_tag( $attr, $page ) {
 }
 add_filter( 'bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 10, 2 );
 
+/**
+ * Displays the classes for the main content container.
+ *
+ * @since 2.0.0
+ *
+ * @param string|array $class One or more classes to add to the class list.
+ */
+function r_content_container_class( $class = '' ) {
+	$classes = array(
+		'content-container',
+	);
+
+	if ( $class ) {
+		if ( ! is_array( $class ) ) {
+			$class = preg_split( '#\s+#', $class );
+		}
+		$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
+	} else {
+		// Ensure that we always coerce class to being an array.
+		$class = array();
+	}
+
+	/**
+	 * Filters the list of CSS classes for the content-container.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array $classes An array of post classes.
+	 * @param array $class   An array of additional classes added to the post.
+	 */
+	$classes = apply_filters( 'r_content_container_class', $classes, $class );
+
+	// Separates classes with a single space, collates classes for post DIV
+	echo 'class="' . join( ' ', array_unique( $classes ) ) . '"';
+}
 
 /**
  * Admin.
