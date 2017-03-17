@@ -81,6 +81,9 @@
  `article[role=main]`.
 * Moves `profiles.php` to the root of the theme directory from `/page-templates`
  to allow users to select which profile format to use on the profiles template.
+* Introduce `r_content_container_class()` for displaying the class attribute
+ for the content container element. Classes are filterable through the
+ `r_content_container_class` filter.
 
 ## 1.5.3
 
