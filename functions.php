@@ -330,7 +330,7 @@ function r_content_container_class( $class = '' ) {
 	}
 
 	/**
-	 * Filters the list of CSS classes for the content-container.
+	 * Filters the list of CSS classes for the content container.
 	 *
 	 * @since 2.0.0
 	 *
@@ -339,8 +339,8 @@ function r_content_container_class( $class = '' ) {
 	 */
 	$classes = apply_filters( 'r_content_container_class', $classes, $class );
 
-	// Separates classes with a single space, collates classes for post DIV
-	echo 'class="' . join( ' ', array_unique( $classes ) ) . '"';
+	// Separates classes with a single space, collates classes for content container element.
+	echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
 }
 
 /**
