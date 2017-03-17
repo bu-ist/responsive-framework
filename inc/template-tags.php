@@ -154,42 +154,38 @@ function responsive_category_links( $args = array() ) {
 }
 
 /**
- * Generates a list of term links (excluding categories and tags) for the given post.
+ * Generates a list of term links for each taxonomy registered to the post's type, excluding categories and tags.
  *
- * @param int|WP_Post|null $post Optional. Post ID or post object. Defaults to global $post.
+ * @param int|WP_Post|null $post Optional.   Post ID or post object. Defaults to global $post.
+ * @param string           $before Optional. Before list.
+ * @param string           $sep Optional.    Separate items using this.
+ * @param string           $after Optional.  After list.
  *
  * @return string A list of term links.
  */
-function responsive_term_links( $post = null ) {
-	$post = get_post( $post );
-
-	if ( ! $post ) {
-		return '';
+function responsive_term_links( $post = null, $before = '', $sep = '', $after = '' ) {
+	if ( ! $post = get_post( $post ) ) {
+		return;
 	}
 
 	// Get taxonomies registered for the current post type.
-	$taxonomies = get_object_taxonomies( $post->post_type, 'objects' );
+	$taxonomies = get_object_taxonomies( $post->post_type );
 
-	$out = array();
-	foreach ( $taxonomies as $taxonomy_slug => $taxonomy ) {
-		if ( 'category' !== $taxonomy_slug && 'post_tag' !== $taxonomy_slug ) {
-
-			$terms = get_the_terms( $post->ID, $taxonomy_slug );
-
-			if ( ! empty( $terms ) ) {
-				$out[] = $taxonomy->label . ': ';
-				foreach ( $terms as $term ) {
-					$out[] =
-						'  <a href="'
-						. get_term_link( $term->slug, $taxonomy_slug ) . '">'
-						. $term->name
-						. '</a>';
-				}
-			}
-		}
+	if ( empty( $taxonomies ) || is_wp_error( $taxonomies ) ) {
+		return;
 	}
 
-	return implode( '', $out );
+	$output = '';
+
+	foreach ( $taxonomies as $taxonomy ) {
+		if ( 'category' === $taxonomy && 'post_tag' === $taxonomy ) {
+			continue;
+		}
+
+		$output .= get_the_term_list( $post->ID, $taxonomy, $before, $sep, $after );
+	}
+
+	return $output;
 }
 
 /**
