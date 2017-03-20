@@ -65,7 +65,7 @@ script:
 after_script:
   - |
     if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then
-      ~/.composer/vendor/bin/test-reporter
+      $HOME/.composer/vendor/bin/test-reporter
     fi
 
 addons:
