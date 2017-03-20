@@ -14,14 +14,15 @@
  */
 function responsive_course_template( $template ) {
 	$template = <<<TPL
-<div class="cf-course">
-	<h4 class="cf-course-title">{{title}}</h4>
-	<p class="meta cf-course-info">{{college}} {{department}} {{course_num}} ({{credits}} credits). Offered {{offered}}</p>
-	<p class="meta">Prerequisites: <span class="prerequisites">{{prereq_u_plain}}{{prereq_g_plain}}{{coreq_g_plain}}</span></p>
-	<p>{{description}}</p>
+<aside class="cf-course">
+	<div class="cf-course-card">
+		<h3 class="cf-course-title"><span class="cf-course-id"><span class="cf-course-college">{{college}}</span> <span class="cf-course-dept">{{department}}</span> <span class="cf-course-number">{{course_num}}</span></span> {{title}}</h3>
+		<p class="meta cf-course-info"><span class="cf-course-credits">{{credits}} credits.</span> <span class="cf-course-offered">{{offered}}</span> <span class="cf-course-prereqs">{{prereq_u_plain}}{{prereq_g_plain}}{{coreq_g_plain}}</span></p>
+		<p class="cf-course-description">{{description}}</p>
+	</div>
 
 	[bu-course-feed_section]
-</div>
+</aside>
 TPL;
 
 	return $template;
@@ -40,7 +41,7 @@ function responsive_section_template( $template ) {
 	$template = <<<TPL
 <div class="responsive-table cf-section-wrapper">
 <table class="cf-table">
-	<caption>Section {{section_name}}, {{semester}} {{year}} <span class="cf-section-dates">{{date_start}} to {{date_end}}</span></caption>
+	<caption class="cf-section-title">Section {{section_name}}, {{semester}} {{year}} <span class="cf-section-dates">{{date_start}} to {{date_end}}</span></caption>
 	<thead class="cf-section-header">
 		<tr>
 			<th class="cf-section-instructortitle">Instructor</th>
