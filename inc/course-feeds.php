@@ -46,7 +46,7 @@ function responsive_section_template( $template ) {
 			<th class="cf-section-starttitle">Start</th>
 			<th class="cf-section-endtitle">End</th>
 			<th class="cf-section-typetitle">Type</th>
-			<th class="cf-section-bldgtitle">Bldg</th>
+			<th class="cf-section-bldgtitle" aria-label="Building">Bldg</th>
 			<th class="cf-section-roomtitle">Room</th>
 		</tr>
 	</thead>
