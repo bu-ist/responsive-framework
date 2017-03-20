@@ -39,15 +39,14 @@ function responsive_section_template( $template ) {
 	$template = <<<TPL
 <div class="responsive-table cf-section-wrapper">
 <table class="cf-table">
-	<caption>{{section_id}}, {{date_start}} to {{date_end}} {{year}}</caption>
+	<caption>Section {{section_name}}, {{date_start}} to {{date_end}} {{year}}</caption>
 	<thead class="cf-section-header">
 		<tr>
-			<th class="cf-section-daytitle">Days</th>
-			<th class="cf-section-starttitle">Start</th>
-			<th class="cf-section-endtitle">End</th>
+			<th class="cf-section-instructortitle">Instructor</th>
 			<th class="cf-section-typetitle">Type</th>
-			<th class="cf-section-bldgtitle" aria-label="Building">Bldg</th>
-			<th class="cf-section-roomtitle">Room</th>
+			<th class="cf-section-daytitle">Days</th>
+			<th class="cf-section-timestitle">Times</th>
+			<th class="cf-section-locationtitle">Location</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -71,12 +70,11 @@ add_filter( 'bu_course_feeds_default_section_template', 'responsive_section_temp
 function responsive_schedule_template( $template ) {
 	$template = <<<TPL
 <tr class="cf-section-item">
-	<td class="cf-section-day">{{days}}</td>
-	<td class="cf-section-start">{{time_start}}</td>
-	<td class="cf-section-end">{{time_end}}</td>
+	<td class="cf-section-instructor">{{instructor}}</td>
 	<td class="cf-section-type">{{type}}</td>
-	<td class="cf-section-bldg">{{building}}</td>
-	<td class="cf-section-room">{{room}}</td>
+	<td class="cf-section-day">{{days}}</td>
+	<td class="cf-section-start">{{time_start}}&ndash;{{time_end}}</td>
+	<td class="cf-section-location"><a href="http://www.bu.edu/maps/?search={{building}}">{{building}} {{room}}</a></td>
 </tr>
 TPL;
 
