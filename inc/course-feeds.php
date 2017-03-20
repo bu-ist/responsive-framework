@@ -70,7 +70,7 @@ add_filter( 'bu_course_feeds_default_section_template', 'responsive_section_temp
 function responsive_schedule_template( $template ) {
 	$template = <<<TPL
 <tr class="cf-section-item">
-	<td class="cf-section-instructor">{{instructor}}</td>
+	<td class="cf-section-instructor">{{section_instructor}}</td>
 	<td class="cf-section-type">{{class_type_text}}</td>
 	<td class="cf-section-day">{{days}}</td>
 	<td class="cf-section-start">{{time_start}}&ndash;{{time_end}}</td>
