@@ -69,5 +69,5 @@ after_script:
     fi
 
 addons:
-  codeclimate:
+  code_climate:
     repo_token: CODECLIMATE_REPO_TOKEN
