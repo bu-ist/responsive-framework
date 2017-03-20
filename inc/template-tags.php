@@ -737,7 +737,7 @@ function responsive_posts_archive_link( $args = array() ) {
  */
 function responsive_profiles_archive_link( $args = array() ) {
 	$defaults = array(
-		'before' => '<p>',
+		'before' => '<p class="archive-link-container">',
 		'after'  => '</p>',
 		'class'  => 'archive-link profiles-archive-link',
 		'echo'   => true,
