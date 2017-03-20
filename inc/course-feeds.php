@@ -37,9 +37,9 @@ add_filter( 'bu_course_feeds_default_course_template', 'responsive_course_templa
  */
 function responsive_section_template( $template ) {
 	$template = <<<TPL
-<p class=""><em>{{section_id}}, {{date_start}} to {{date_end}} {{year}}</em></p>
 <div class="responsive-table cf-section-wrapper">
 <table class="cf-table">
+	<caption>{{section_id}}, {{date_start}} to {{date_end}} {{year}}</caption>
 	<thead class="cf-section-header">
 		<tr>
 			<th class="cf-section-daytitle">Days</th>
