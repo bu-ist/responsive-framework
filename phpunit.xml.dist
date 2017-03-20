@@ -16,12 +16,6 @@
 		<whitelist processUncoveredFilesFromWhitelist="true">
 			<directory suffix=".php">./</directory>
 		</whitelist>
-		<blacklist>
-			<directory suffix=".php">./tests/</directory>
-			<directory suffix=".php">./bower_components/</directory>
-			<directory suffix=".php">./node_modules/</directory>
-			<directory suffix=".php">./vendor/</directory>
-		</blacklist>
 	</filter>
 
 	<logging>
