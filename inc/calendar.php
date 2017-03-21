@@ -86,6 +86,33 @@ function responsive_calendar_widget_formats( $formats ) {
 	return $formats;
 }
 
+add_filter( 'bu_calendar_widget_formats', 'responsive_calendar_widget_formats', 12, 1 );
+
+/**
+ * Helper function to determine URL for widget format display callbacks.
+ *
+ * @param  int    $event 		 An event
+ * @param  int    $calendar_id Calendar ID
+ *
+ * @return string $url         The URL to the event.
+ */
+
+function responsive_calendar_build_url( $event, $calendar_id ) {
+	$url = sprintf( '%s?eid=%s', $base_url, urlencode( $event['id'] ) );
+
+	if ( ! empty( $e['oid'] ) ) {
+		$url .= '&oid=' . urlencode( $event['oid'] );
+	}
+	if ( ! empty( $calendar_id ) ) {
+		$url .= '&cid=' . urlencode( $calendar_id );
+	}
+	if ( isset( $e['subscription_name'] ) ) {
+		$url .= '&sub=' . urlencode( $event['subscription_name'] );
+	}
+
+	return $url;
+}
+
 /**
  * Calendar widget format display callbacks.
  *
@@ -101,26 +128,14 @@ function responsive_calendar_format_callback( $events, $base_url, $calendar_id =
 	if ( ( is_array( $events ) ) && ( count( $events ) > 0 ) ) {
 
 		foreach ( $events as $e ) {
-			$url = sprintf( '%s?eid=%s', $base_url, urlencode( $e['id'] ) );
-			if ( ! empty( $e['oid'] ) ) {
-				$url .= '&oid=' . urlencode( $e['oid'] );
-			}
-			if ( ! empty( $calendar_id ) ) {
-				$url .= '&cid=' . urlencode( $calendar_id );
-			}
-			if ( isset( $e['subscription_name'] ) ) {
-				$url .= '&sub=' . urlencode( $e['subscription_name'] );
-			}
-
-			$output .= sprintf( '<li><span class="date">%s</span> <a href="%s"><span class="title">%s</span></a></li>', date( 'l, F j', $e['starts'] ), esc_url( $url ), $e['summary'] );
+			$url = responsive_calendar_build_url( $e, $calendar_id );
+			$output .= sprintf( '<li class="widget-calendar-event"><span class="widget-calendar-date">%s</span> <a href="%s" class="widget-calendar-title">%s</a></li>', date( 'l, F j', $e['starts'] ), esc_url( $url ), $e['summary'] );
 			$output .= "\n";
 		}
 	}
 
 	return $output;
 }
-
-add_filter( 'bu_calendar_widget_formats', 'responsive_calendar_widget_formats', 12, 1 );
 
 /**
  * Ensure that sidebar mini-calendar view adds a 'busy' class to days with events.
