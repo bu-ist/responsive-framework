@@ -740,12 +740,12 @@ CSS;
 .primary-nav-menu ul,
 .l-side-nav {
 	background: {$colors['primaryNav-bg']};
+	color: {$colors['primaryNav-link']};
 }
 
 /* main nav and nav border color */
 .primary-nav-menu a,
 .l-side-nav .primary-nav-menu a {
-	color: {$colors['primaryNav-link']};
 	border-color: {$colors['primaryNav-border']};
 }
 
@@ -756,7 +756,9 @@ CSS;
 
 /* main nav and utility nav hover color */
 .primary-nav-menu a:hover,
+.primary-nav-menu a:focus,
 .l-side-nav .utility-nav a:hover,
+.l-side-nav .utility-nav a:focus,
 .primary-nav-menu li a.active,
 .primary-nav-menu li a.active_section,
 .primary-nav-menu li li a:hover,
@@ -783,30 +785,23 @@ body {
 }
 
 /* link color */
-article a,
-article a:visited,
+a,
 .widget a,
 .widget a:hover,
 .widget a:focus,
 .calendar-list-event-link,
-.calendar-list-event-link:hover,
 .calendar-list-event-link:focus,
-.month td a,
-.month td a:hover,
-.month td,
-.bu_collapsible:hover:after,
-.bu_collapsible:focus:after,
-.bu_collapsible_open .bu_collapsible:hover:after,
-.bu_collapsible_open .bu_collapsible:focus:after,
-.profile-listing a .profile-name {
+.bu_collapsible::before,
+.profile-name {
 	color: {$colors['content-link']};
 }
 
 /* link hover color */
-article a:hover,
-.widget a:hover,
-.event-list .event-link a:hover,
-.month td a:hover, {
+a:hover,
+.calendar-list-event-link:hover,
+.bu_collapsible:hover::before,
+.bu_collapsible:focus::before,
+.month td a:hover {
 	color: {$colors['content-link-hover']};
 }
 
@@ -829,80 +824,42 @@ input[type="submit"],
 ----------------------------------------------------------------- */
 
 /* widget border color */
-.sidebar .widget-title,
-.sidebar #contentnav ul,
-.sidebar .widget_nav_menu ul,
-.sidebar #contentnav li,
-.sidebar .widget_nav_menu li,
-.sidebar .widget-bu-calendar li,
-.sidebar-posts .widget-title,
-.sidebar-posts #contentnav ul,
-.sidebar-posts .widget_nav_menu ul,
-.sidebar-posts #contentnav li,
-.sidebar-posts .widget_nav_menu li,
-.sidebar-posts .widget-bu-calendar li,
-.sidebar-profiles .widget-title,
-.sidebar-profiles #contentnav ul,
-.sidebar-profiles .widget_nav_menu ul,
-.sidebar-profiles #contentnav li,
-.sidebar-profiles .widget_nav_menu li,
-.sidebar-profiles .widget-bu-calendar li,
+.widget-title,
+#contentnav ul,
+#contentnav li,
+.widget_nav_menu ul,
+.widget_nav_menu li,
+.widget-calendar-event,
 .month,
-.month th,
-.month td {
+.widget-calendar-picker th,
+.widget-calendar-picker td {
 	border-color: {$colors['sidebar-widgetTitle-border']};
 }
 
-.sidebar .widget-title,
-.sidebar .widget .widget-title a,
-.sidebar-posts .widget .widget-title a,
-.sidebar-profiles .widget .widget-title a,
-.sidebar .widget-title a:after,
-.sidebar-posts .widget-title,
-.sidebar-posts .widget-title a:after,
-.sidebar-profiles .widget-title,
-.sidebar-profiles .widget-title a:after {
+.widget-title {
 	color: {$colors['sidebar-widgetTitle']};
 }
 
 /* text color */
-.sidebar .widget,
-.sidebar-posts .widget,
-.sidebar-profiles .widget,
-.month th,
-.month caption {
+.widget,
+.widget-calendar-picker th,
+.widget-calendar-picker caption {
 	color: {$colors['sidebar-base']};
 }
 
 /* link color */
-.sidebar .widget a,
-.sidebar #contentnav li a,
-.sidebar .widget_nav_menu li a,
-.sidebar-posts .widget a,
-.sidebar-posts #contentnav li a,
-.sidebar-posts .widget_nav_menu li a,
-.sidebar-profiles .widget a,
-.sidebar-profiles #contentnav li a,
-.sidebar-profiles .widget_nav_menu li a {
+.widget a,
+#contentnav li a,
+.widget_nav_menu li a {
 	color: {$colors['sidebar-link']};
 }
 
 /* link hover color */
-.sidebar .widget a:hover,
-.sidebar #contentnav li a:hover,
-.sidebar .widget_nav_menu li a:hover,
-.sidebar #contentnav li.current_page_item > a,
-.sidebar .widget_nav_menu li.current_page_item > a,
-.sidebar-posts .widget a:hover,
-.sidebar-posts #contentnav li a:hover,
-.sidebar-posts .widget_nav_menu li a:hover,
-.sidebar-posts #contentnav li.current_page_item > a,
-.sidebar-posts .widget_nav_menu li.current_page_item > a,
-.sidebar-profiles .widget a:hover,
-.sidebar-profiles #contentnav li a:hover,
-.sidebar-profiles .widget_nav_menu li a:hover,
-.sidebar-profiles #contentnav li.current_page_item > a,
-.sidebar-profiles .widget_nav_menu li.current_page_item > a {
+.widget a:hover,
+#contentnav li a:hover,
+.widget_nav_menu li a:hover,
+#contentnav li.current_page_item > a,
+.widget_nav_menu li.current_page_item > a{
 	color: {$colors['sidebar-link-hover']};
 }
 
@@ -911,7 +868,7 @@ input[type="submit"],
 
 /* background color */
 .footbar,
-.footbar .footbar-container,
+.footbar-container,
 .banner-container-window-width {
 	background: {$colors['footbar-bg']};
 }
@@ -921,31 +878,27 @@ input[type="submit"],
 	border-color: {$colors['footbar-topBorder']};
 }
 
+/* link color */
+.footbar a,
+.footbar #contentnav li a,
+.footbar .widget_nav_menu li a {
+	color: {$colors['footbar-link']};
+}
+
 /* widget title color */
 .footbar .widget-title,
-.footbar .widget-title a:after,
-.footbar h3.widget-title a,
-.footbar .widget-bu-calendar .default a .date,
-.footbar .widget-bu-calendar .graphic .day,
-.footbar .widget-bu-calendar .date {
+.footbar .widget-calendar-date {
 	color: {$colors['footbar-widgetTitle']};
 }
 
 /* border color */
 .footbar .widget-title,
 .footbar #contentnav ul,
-.footbar .widget_nav_menu ul,
 .footbar #contentnav li,
+.footbar .widget_nav_menu ul,
 .footbar .widget_nav_menu li,
-.footbar .widget-bu-calendar li {
+.footbar .widget-calendar-event {
 	border-color: {$colors['footbar-widgetTitle-border']};
-}
-
-/* link color */
-.footbar .widget a,
-.footbar #contentnav li a,
-.footbar .widget_nav_menu li a {
-	color: {$colors['footbar-link']};
 }
 
 /* link hover color */
@@ -957,8 +910,8 @@ input[type="submit"],
 
 /* text color */
 .footbar .widget,
-.widget-bu-calendar .graphic .month,
-.widget-bu-posts .meta {
+.footbar .widget-calendar-day-graphic,
+.footbar .widget-bu-posts .meta {
 	color: {$colors['footbar-base']};
 }
 
@@ -977,11 +930,18 @@ input[type="submit"],
 }
 
 /* calendar table */
-.month thead,
-.month th,
-.month .out,
-.month .today {
+.widget-calendar-picker thead,
+.widget-calendar-picker th,
+.widget-calendar-picker .out,
+.widget-calendar-picker .today {
 	background: rgba(0,0,0,0.15);
+}
+
+a:active,
+a:visited,
+.widget-title a,
+.widget-post-meta {
+	color: inherit;
 }
 
 CSS;
