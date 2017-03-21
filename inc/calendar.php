@@ -102,7 +102,7 @@ add_filter( 'bu_calendar_widget_formats', 'responsive_calendar_widget_formats', 
  * @return string $url         The URL to the event.
  */
 
-function responsive_calendar_build_url( $event, $calendar_id ) {
+function responsive_calendar_build_url( $event, $base_url, $calendar_id ) {
 	$url = sprintf( '%s?eid=%s', $base_url, urlencode( $event['id'] ) );
 
 	if ( ! empty( $e['oid'] ) ) {
@@ -133,7 +133,7 @@ function responsive_calendar_format_default( $events, $base_url, $calendar_id = 
 	if ( ( is_array( $events ) ) && ( count( $events ) > 0 ) ) {
 
 		foreach ( $events as $e ) {
-			$url = responsive_calendar_build_url( $e, $calendar_id );
+			$url = responsive_calendar_build_url( $e, $base_url, $calendar_id );
 
 			$output .= sprintf( '
 				<li class="widget-calendar-event widget-calendar-event-default">
@@ -163,7 +163,7 @@ function responsive_calendar_format_fulldate( $events, $base_url, $calendar_id =
 	if ( ( is_array( $events ) ) && ( count( $events ) > 0 ) ) {
 
 		foreach ( $events as $e ) {
-			$url = responsive_calendar_build_url( $e, $calendar_id );
+			$url = responsive_calendar_build_url( $e, $base_url, $calendar_id );
 
 			$output .= sprintf( '
 				<li class="widget-calendar-event widget-calendar-event-fulldate">
@@ -181,7 +181,7 @@ function responsive_calendar_format_fulldate( $events, $base_url, $calendar_id =
 /**
  * Calendar widget format display for the graphic format.
  *
- * @param  array  $events      Event list.
+ * @param  array  $events      Event list.-li
  * @param  string $base_url    Calendar URL.
  * @param  int    $calendar_id Calendar ID.
  *
@@ -193,7 +193,7 @@ function responsive_calendar_format_graphic( $events, $base_url, $calendar_id = 
 	if ( ( is_array( $events ) ) && ( count( $events ) > 0 ) ) {
 
 		foreach ( $events as $e ) {
-			$url = responsive_calendar_build_url( $e, $calendar_id );
+			$url = responsive_calendar_build_url( $e, $base_url, $calendar_id );
 
 			$output .= sprintf( '
 				<li class="widget-calendar-event widget-calendar-event-graphic">
