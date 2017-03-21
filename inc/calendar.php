@@ -73,9 +73,14 @@ function responsive_calendar_widget_formats( $formats ) {
 	unset( $formats['plain'] );
 	unset( $formats['big'] );
 
+	$formats['default'] = array(
+		'label'    => 'Default',
+		'callback' => 'responsive_calendar_format_default',
+	);
+
 	$formats['full-date'] = array(
 		'label'    => 'Full Date',
-		'callback' => 'responsive_calendar_format_callback',
+		'callback' => 'responsive_calendar_format_fulldate',
 	);
 
 	$formats['graphic'] = array(
@@ -114,7 +119,7 @@ function responsive_calendar_build_url( $event, $calendar_id ) {
 }
 
 /**
- * Calendar widget format display callbacks.
+ * Calendar widget format display for the default format.
  *
  * @param  array  $events      Event list.
  * @param  string $base_url    Calendar URL.
@@ -122,13 +127,46 @@ function responsive_calendar_build_url( $event, $calendar_id ) {
  *
  * @return string              Calendar widget markup.
  */
-function responsive_calendar_format_callback( $events, $base_url, $calendar_id = null ) {
+function responsive_calendar_format_default( $events, $base_url, $calendar_id = null ) {
 	$output = '';
 
 	if ( ( is_array( $events ) ) && ( count( $events ) > 0 ) ) {
 
 		foreach ( $events as $e ) {
 			$url = responsive_calendar_build_url( $e, $calendar_id );
+
+			$output .= sprintf( '
+				<li class="widget-calendar-event widget-calendar-event-default">
+					<a href="%s" class="widget-calendar-link widget-calendar-link-default">
+						<time class="widget-calendar-date widget-calendar-date-default">%s</time>
+						<span class="widget-calendar-title widget-calendar-title-default">%s</span>
+					</a>
+				</li>', esc_url( $url ), date( 'n.j', $e['starts'] ), $e['summary'] );
+
+			$output .= "\n";
+		}
+	}
+
+	return $output;
+}
+
+/**
+ * Calendar widget format display for the full date format.
+ *
+ * @param  array  $events      Event list.
+ * @param  string $base_url    Calendar URL.
+ * @param  int    $calendar_id Calendar ID.
+ *
+ * @return string              Calendar widget markup.
+ */
+function responsive_calendar_format_fulldate( $events, $base_url, $calendar_id = null ) {
+	$output = '';
+
+	if ( ( is_array( $events ) ) && ( count( $events ) > 0 ) ) {
+
+		foreach ( $events as $e ) {
+			$url = responsive_calendar_build_url( $e, $calendar_id );
+
 			$output .= sprintf( '
 				<li class="widget-calendar-event">
 					<time class="widget-calendar-date">%s</time>
