@@ -80,7 +80,7 @@ function responsive_calendar_widget_formats( $formats ) {
 
 	$formats['graphic'] = array(
 		'label'    => 'Graphic',
-		'callback' => 'bu_calendar_widget_format_big',
+		'callback' => 'responsive_calendar_format_graphic',
 	);
 
 	return $formats;
@@ -130,6 +130,41 @@ function responsive_calendar_format_callback( $events, $base_url, $calendar_id =
 		foreach ( $events as $e ) {
 			$url = responsive_calendar_build_url( $e, $calendar_id );
 			$output .= sprintf( '<li class="widget-calendar-event"><span class="widget-calendar-date">%s</span> <a href="%s" class="widget-calendar-title">%s</a></li>', date( 'l, F j', $e['starts'] ), esc_url( $url ), $e['summary'] );
+			$output .= "\n";
+		}
+	}
+
+	return $output;
+}
+
+/**
+ * Calendar widget format display for the graphic format.
+ *
+ * @param  array  $events      Event list.
+ * @param  string $base_url    Calendar URL.
+ * @param  int    $calendar_id Calendar ID.
+ *
+ * @return string              Calendar widget markup.
+ */
+function responsive_calendar_format_graphic( $events, $base_url, $calendar_id = null ) {
+	$output = '';
+
+	if ( ( is_array( $events ) ) && ( count( $events ) > 0 ) ) {
+
+		foreach ( $events as $e ) {
+			$url = responsive_calendar_build_url( $e, $calendar_id );
+
+			$output .= sprintf('
+				<li class="widget-calendar-event widget-calendar-event-graphic">
+					<a href="%s" class="widget-calendar-link widget-calendar-link-graphic">
+						<time class="widget-calendar-date widget-calendar-date-graphic">
+							<span class="widget-calendar-day widget-calendar-day-graphic">%s</span>
+							<span class="widget-calendar-month widget-calendar-month-graphic">%s</span>
+						</time>
+						<span class="widget-calendar-title widget-calendar-title-graphic">%s</span>
+					</a>
+				</li>', esc_url($url), date('j', $e['starts']), date('M', $e['starts']), $e['summary']);
+
 			$output .= "\n";
 		}
 	}
