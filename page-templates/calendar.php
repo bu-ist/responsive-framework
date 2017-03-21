@@ -10,7 +10,7 @@ $calendarID = array_key_exists( 'cid', $_GET ) ? intval( $_GET['cid'] ) : get_op
 $calendarURI = get_permalink( $post );
 
 $topics = null;
-$topicDetail = null;
+$topic_detail = null;
 $event = null;
 
 // input.
@@ -25,7 +25,7 @@ $topic = apply_filters( 'bu_flexi_calendar_topic', $topic );
 $eventID = array_key_exists( 'eid', $_GET ) ? intval( $_GET['eid'] ) : null;
 
 $topics = $buCalendar->getTopics( $calendarID );
-$topicDetail = ( $topic ) ? $buCalendar->pullTopicDetail( $topic, $topics ) : array( 'name' => 'All Topics' );
+$topic_detail = ( $topic ) ? $buCalendar->pullTopicDetail( $topic, $topics ) : array( 'name' => 'All Topics' );
 
 if ( ! is_null( $eventID ) ) {
 	$oid = array_key_exists( 'oid', $_GET ) ? intval( $_GET['oid'] ) : 0;
@@ -124,9 +124,9 @@ endif; ?>
 	}
 
 		/* Content: Calendar Topic */
-	if ( is_array( $topicDetail ) ) { ?>
+	if ( is_array( $topic_detail ) ) { ?>
 				<h2 class="calendar-list-topic">
-					<?php echo esc_html( $topicDetail['name'] ); ?><span class="calendar-list-range">
+					<?php echo esc_html( $topic_detail['name'] ); ?><span class="calendar-list-range">
 						(<?php echo esc_html( date( 'F j', $timestamp ) ); ?> through <?php echo esc_html( date( 'F j', $query_end ) ); ?>)
 					</span>
 				</h2>
@@ -194,7 +194,7 @@ endif; ?>
 						}
 
 						if ( 0 === $nDisplayed ) {
-							printf( '<div id="noevents"><p>There are no events in <strong>%s</strong> during the specified time period.</p></div>', esc_html( $topicDetail['name'] ) );
+							printf( '<div id="noevents"><p>There are no events in <strong>%s</strong> during the specified time period.</p></div>', esc_html( $topic_detail['name'] ) );
 						}
 ?>
 			<?php } ?>
@@ -284,13 +284,13 @@ endif; ?>
 							<dd class="single-event-deadline-info"><?php echo wp_kses_post( $event['deadline'] ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['url'] ) {
-							$urlText = $event['url'];
+							$url_text = $event['url'];
 							if ( $event['urlText'] ) {
-								$urlText = $event['urlText'];
+								$url_text = $event['urlText'];
 							}
 						?>
 							<dt class="single-event-registration-label">Registration:</dt>
-							<dd class="single-event-registration-info"><?php printf( '<a href="%s" class="single-event-registration-link">%s</a>', esc_url( $event['url'] ), esc_html( $urlText ) ); ?></dd>
+							<dd class="single-event-registration-info"><?php printf( '<a href="%s" class="single-event-registration-link">%s</a>', esc_url( $event['url'] ), esc_html( $url_text ) ); ?></dd>
 						<?php } ?>
 						<?php if ( $event['contactOrganization'] ) { ?>
 							<dt class="single-event-contact-org-label">Contact Organization:</dt>
