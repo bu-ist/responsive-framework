@@ -129,7 +129,12 @@ function responsive_calendar_format_callback( $events, $base_url, $calendar_id =
 
 		foreach ( $events as $e ) {
 			$url = responsive_calendar_build_url( $e, $calendar_id );
-			$output .= sprintf( '<li class="widget-calendar-event"><span class="widget-calendar-date">%s</span> <a href="%s" class="widget-calendar-title">%s</a></li>', date( 'l, F j', $e['starts'] ), esc_url( $url ), $e['summary'] );
+			$output .= sprintf( '
+				<li class="widget-calendar-event">
+					<time class="widget-calendar-date">%s</time>
+					<a href="%s" class="widget-calendar-title widget-calendar-link">%s</a>
+				</li>', date( 'l, F j', $e['starts'] ), esc_url( $url ), $e['summary'] );
+
 			$output .= "\n";
 		}
 	}
@@ -154,7 +159,7 @@ function responsive_calendar_format_graphic( $events, $base_url, $calendar_id = 
 		foreach ( $events as $e ) {
 			$url = responsive_calendar_build_url( $e, $calendar_id );
 
-			$output .= sprintf('
+			$output .= sprintf( '
 				<li class="widget-calendar-event widget-calendar-event-graphic">
 					<a href="%s" class="widget-calendar-link widget-calendar-link-graphic">
 						<time class="widget-calendar-date widget-calendar-date-graphic">
@@ -163,7 +168,7 @@ function responsive_calendar_format_graphic( $events, $base_url, $calendar_id = 
 						</time>
 						<span class="widget-calendar-title widget-calendar-title-graphic">%s</span>
 					</a>
-				</li>', esc_url($url), date('j', $e['starts']), date('M', $e['starts']), $e['summary']);
+				</li>', esc_url( $url ), date( 'j', $e['starts'] ), date( 'M', $e['starts'] ), $e['summary'] );
 
 			$output .= "\n";
 		}
