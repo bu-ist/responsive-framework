@@ -72,6 +72,18 @@
  commenter when they try to submit the form if the field is empty.
 * Ensure `role="main"` is used properly and adheres to the proper accessibility
  standards.
+* Add HTML5 required attributes to comment form elements and require comments.
+* Fixes a longstanding issue with the left navigation layout where pages with
+ little to no content would cut off the navigation.
+* Remove unnecessary gravatars markup.
+* Clarifies the use of Footer Additional Information in the Customizer.
+* Adds a new class, `content-area`, for styling what was formerly
+ `article[role=main]`.
+* Moves `profiles.php` to the root of the theme directory from `/page-templates`
+ to allow users to select which profile format to use on the profiles template.
+* Introduce `r_content_container_class()` for displaying the class attribute
+ for the content container element. Classes are filterable through the
+ `r_content_container_class` filter.
 * Restructured HTML and added CSS classes in the footer for cleaner branding
  styles.
 * Add extra classes to `post_class()` based on template part and template type.
