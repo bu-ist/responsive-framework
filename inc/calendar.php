@@ -168,9 +168,9 @@ function responsive_calendar_format_fulldate( $events, $base_url, $calendar_id =
 			$url = responsive_calendar_build_url( $e, $calendar_id );
 
 			$output .= sprintf( '
-				<li class="widget-calendar-event">
-					<time class="widget-calendar-date">%s</time>
-					<a href="%s" class="widget-calendar-title widget-calendar-link">%s</a>
+				<li class="widget-calendar-event widget-calendar-event-fulldate">
+					<time class="widget-calendar-date widget-calendar-date-fulldate">%s</time>
+					<a href="%s" class="widget-calendar-title widget-calendar-title-fulldate widget-calendar-link widget-calendar-link-fulldate">%s</a>
 				</li>', date( 'l, F j', $e['starts'] ), esc_url( $url ), $e['summary'] );
 
 			$output .= "\n";
