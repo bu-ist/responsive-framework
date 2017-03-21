@@ -137,11 +137,9 @@ function responsive_calendar_format_default( $events, $base_url, $calendar_id = 
 
 			$output .= sprintf( '
 				<li class="widget-calendar-event widget-calendar-event-default">
-					<a href="%s" class="widget-calendar-link widget-calendar-link-default">
-						<time class="widget-calendar-date widget-calendar-date-default">%s</time>
-						<span class="widget-calendar-title widget-calendar-title-default">%s</span>
-					</a>
-				</li>', esc_url( $url ), date( 'n.j', $e['starts'] ), $e['summary'] );
+					<time class="widget-calendar-date widget-calendar-date-default">%s</time>
+					<a href="%s" class="widget-calendar-title widget-calendar-title-default widget-calendar-link widget-calendar-link-default">%s</a>
+				</li>', date( 'n.j', $e['starts'] ), esc_url( $url ), $e['summary'] );
 
 			$output .= "\n";
 		}
