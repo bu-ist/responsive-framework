@@ -31,6 +31,10 @@ env:
   - WP_VERSION=nightly WP_MULTISITE=1
 
 before_install:
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:3} != "7.1" ]]; then
+      phpenv config-rm xdebug.ini
+    fi
   - composer self-update
 
 install:
@@ -61,7 +65,7 @@ script:
 after_script:
   - |
     if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then
-      ./bin/codeclimate.sh
+      test-reporter
     fi
 
 addons:
