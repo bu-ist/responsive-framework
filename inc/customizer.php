@@ -937,6 +937,7 @@ input[type="submit"],
 	background: rgba(0,0,0,0.15);
 }
 
+.utility-nav a,
 a:active,
 a:visited,
 .widget-title a,
