@@ -84,6 +84,7 @@
 * Introduce `r_content_container_class()` for displaying the class attribute
  for the content container element. Classes are filterable through the
  `r_content_container_class` filter.
+* Fetch the `.mdlrc` and `markdown.rb` files from the [coding standards repository](https://github.com/bu-ist/coding-standards/tree/master).
 
 ## 1.5.3
 
