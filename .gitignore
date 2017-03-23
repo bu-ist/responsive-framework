@@ -8,3 +8,5 @@ sftp-config.json
 .eslintignore
 .eslintrc
 .scss-lint.yml
+.mdlrc
+markdown.rb
