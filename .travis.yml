@@ -10,7 +10,7 @@ notifications:
     on_success: always
 
   email:
-    on_success: never
+    on_success: change
     on_failure: change
 
 php:
@@ -41,6 +41,7 @@ install:
   - composer install --dev
 
 before_script:
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
     if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
       composer global require "phpunit/phpunit=5.7.*"
@@ -64,7 +65,7 @@ script:
 after_script:
   - |
     if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then
-      test-reporter
+      ./bin/codeclimate.sh
     fi
 
 addons:
