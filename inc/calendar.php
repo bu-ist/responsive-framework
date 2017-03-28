@@ -46,13 +46,13 @@ function responsive_calendar_sidebar( $args = array() ) {
 	if ( is_page_template( $args['page_template'] ) && ! empty( $args['calendar_uri'] ) ) { ?>
 
 		<div class="widget widget-calendar-picker">
-			<h2 class="widget-title">Event Calendar</h2>
+			<h3 class="widget-title">Event Calendar</h3>
 			<?php echo $buCalendar->buildMonthCalendar( $yyyymmdd, null, $args['monthly_dropdown'] ); ?>
 		</div>
 
 		<?php if ( $args['show_topics'] ) : ?>
 			<div id="calendar-topics" class="widget widget-calendar-topics">
-				<h2 class="widget-title">Event <?php echo esc_html( $args['topic_heading'] ); ?></h2>
+				<h3 class="widget-title">Event <?php echo esc_html( $args['topic_heading'] ); ?></h3>
 				<a class="content-nav-header" href="<?php echo esc_url( $all_topics_url ); ?>">All <?php echo esc_html( $args['topic_heading'] ); ?></a>
 				<?php echo $buCalendar->buildTopicTree( $topics ); ?>
 			</div>
