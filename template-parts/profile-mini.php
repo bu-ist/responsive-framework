@@ -18,6 +18,7 @@
 
 		bu_profile_detail( 'first_name', array(
 			'before' => '<h6 class="profile-name profile-name-mini">',
+			'after' => ' ',
 		) );
 
 		bu_profile_detail( 'last_name', array( 'after' => '</h6>' ) );
