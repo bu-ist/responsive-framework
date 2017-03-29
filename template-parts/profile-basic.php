@@ -25,6 +25,14 @@ if ( bu_profile_detail( 'title', array( 'echo' => false ) ) ) {
 			<?php bu_thumbnail( '<figure class="profile-photo profile-photo-basic">', '</figure>', $thumb_args ); ?>
 		<?php endif; ?>
 		<p class="profile-name profile-name-basic"><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></p>
-		<?php bu_profile_detail( 'title', array( 'before' => '<p class="profile-title profile-title-basic">', 'after' => '</p>', 'format' => 'multi-line' ) ); ?>
+		<?php
+
+		bu_profile_detail( 'title', array(
+			'before' => '<p class="profile-title profile-title-basic">',
+			'after' => '</p>',
+			'format' => 'multi-line',
+		) );
+
+		?>
 	</a>
 </li>
