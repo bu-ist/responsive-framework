@@ -24,7 +24,7 @@ if ( bu_profile_detail( 'title', array( 'echo' => false ) ) ) {
 		<?php if ( function_exists( 'bu_thumbnail' ) ) : $thumb_args = array( 'maxwidth' => 60, 'maxheight' => 60 ); ?>
 			<?php bu_thumbnail( '<figure class="profile-photo profile-photo-default">', '</figure>', $thumb_args ); ?>
 		<?php endif; ?>
-		<p class="profile-name profile-name-default"><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></p>
+		<h6 class="profile-name profile-name-default"><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h6>
 		<?php
 
 		bu_profile_detail( 'title', array(
