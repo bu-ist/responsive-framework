@@ -17,10 +17,10 @@
 		<?php
 
 		bu_profile_detail( 'first_name', array(
-			'before' => '<p class="profile-name profile-name-mini">',
+			'before' => '<h6 class="profile-name profile-name-mini">',
 		) );
 
-		bu_profile_detail( 'last_name', array( 'after' => '</p>' ) );
+		bu_profile_detail( 'last_name', array( 'after' => '</h6>' ) );
 
 		bu_profile_detail( 'email', array(
 			'format' => 'email',
