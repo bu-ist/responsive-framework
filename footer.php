@@ -48,7 +48,7 @@
 	</div><!-- .wrapper -->
 
 	<footer class="site-footer <?php responsive_extra_footer_classes(); ?>" role="contentinfo">
-		<div class="site-footer-brandassets">
+		<div class="site-footer-brand-assets">
 			<?php responsive_branding_masterplate(); ?>
 			<?php responsive_branding_bumc_logo(); ?>
 			<?php responsive_branding_disclaimer(); ?>
