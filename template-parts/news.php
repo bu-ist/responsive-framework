@@ -19,12 +19,12 @@
 	$show_meta = (bool) BU_News_Page_Template::$display_content;
 
 	if ( $show_meta ) : ?>
-		<div class="meta post-meta">
+		<p class="meta post-meta">
 			<?php BU_News_Page_Template::show_author( '<span class="author post-author"><em>By</em> ', '</span>' ); ?>
 			<?php BU_News_Page_Template::show_date( '<span class="date post-date">', '</span>' ); ?>
 			<?php BU_News_Page_Template::show_categories( '<span class="category post-category"><em>in</em> ', '</span>' ); ?>
 			<?php BU_News_Page_Template::show_comments( '<span class="comment-counter">', '</span>' ); ?>
-		</div>
+		</p>
 	<?php endif; ?>
 
 	<?php BU_News_Page_Template::show_content( '', '', 'More' ); ?>
