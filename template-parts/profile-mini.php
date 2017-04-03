@@ -21,7 +21,9 @@
 			'after' => ' ',
 		) );
 
-		bu_profile_detail( 'last_name', array( 'after' => '</h6>' ) );
+		bu_profile_detail( 'last_name', array(
+			'after' => '</h6>',
+		) );
 
 		bu_profile_detail( 'email', array(
 			'format' => 'email',
