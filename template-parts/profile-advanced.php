@@ -11,7 +11,10 @@
 
 <?php
 
-$extra_classes = [ 'profile-item', 'profile-item-advanced' ];
+$extra_classes = array(
+	'profile-item',
+	'profile-item-advanced'
+);
 
 if ( bu_profile_detail( 'title', array( 'echo' => false ) ) ) {
 	$extra_classes[] = 'has-title';
