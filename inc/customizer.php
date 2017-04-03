@@ -740,6 +740,10 @@ CSS;
 .primary-nav-menu ul,
 .l-side-nav {
 	background: {$colors['primaryNav-bg']};
+}
+
+.primary-nav,
+.primary-nav-menu ul {
 	color: {$colors['primaryNav-link']};
 }
 
