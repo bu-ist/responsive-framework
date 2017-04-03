@@ -64,7 +64,7 @@ if ( post_password_required() ) {
 
 					<div class="form-row"><label for="comment">Comment<em class="required">*</em> <span class="form-tip">(<a href="http://www.bu.edu/tech/web/departments/wordpress/management/comment-guidelines/">view guidelines</a>)</span></label><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4" required="required" aria-required="true"></textarea></div>
 					<div class="comment-form-submit form-row">
-						<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment" />
+						<input name="submit" type="submit" id="submit" class="button comment-submit" tabindex="5" value="Submit Comment" />
 						<span class="cancel-comment-reply"><?php cancel_comment_reply_link( 'Cancel' ); ?></span>
 					</div>
 
