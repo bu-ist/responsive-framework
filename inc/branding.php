@@ -41,8 +41,8 @@ function responsive_branding() {
  */
 function responsive_branding_masterplate( $args = array() ) {
 	$defaults = array(
-		'before' => '<div class="site-footer-brand">',
-		'after'  => '</div>',
+		'before' => '',
+		'after'  => '',
 		);
 	$args = wp_parse_args( $args, $defaults );
 
@@ -81,8 +81,8 @@ function responsive_branding_masterplate( $args = array() ) {
  */
 function responsive_branding_bumc_logo( $args = array() ) {
 	$defaults = array(
-		'before' => '<div class="site-footer-bumc">',
-		'after'  => '</div>',
+		'before' => '',
+		'after'  => '',
 		);
 	$args = wp_parse_args( $args, $defaults );
 
@@ -121,8 +121,8 @@ function responsive_branding_bumc_logo( $args = array() ) {
  */
 function responsive_branding_disclaimer( $args = array() ) {
 	$defaults = array(
-		'before' => '<div class="site-footer-disclaimer">',
-		'after'  => '</div>',
+		'before' => '',
+		'after'  => '',
 		);
 	$args = wp_parse_args( $args, $defaults );
 

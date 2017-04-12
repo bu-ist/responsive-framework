@@ -154,42 +154,38 @@ function responsive_category_links( $args = array() ) {
 }
 
 /**
- * Generates a list of term links (excluding categories and tags) for the given post.
+ * Generates a list of term links for each taxonomy registered to the post's type, excluding categories and tags.
  *
- * @param int|WP_Post|null $post Optional. Post ID or post object. Defaults to global $post.
+ * @param int|WP_Post|null $post Optional.   Post ID or post object. Defaults to global $post.
+ * @param string           $before Optional. Before list.
+ * @param string           $sep Optional.    Separate items using this.
+ * @param string           $after Optional.  After list.
  *
  * @return string A list of term links.
  */
-function responsive_term_links( $post = null ) {
-	$post = get_post( $post );
-
-	if ( ! $post ) {
-		return '';
+function responsive_term_links( $post = null, $before = '', $sep = '', $after = '' ) {
+	if ( ! $post = get_post( $post ) ) {
+		return;
 	}
 
 	// Get taxonomies registered for the current post type.
-	$taxonomies = get_object_taxonomies( $post->post_type, 'objects' );
+	$taxonomies = get_object_taxonomies( $post->post_type );
 
-	$out = array();
-	foreach ( $taxonomies as $taxonomy_slug => $taxonomy ) {
-		if ( 'category' !== $taxonomy_slug && 'post_tag' !== $taxonomy_slug ) {
-
-			$terms = get_the_terms( $post->ID, $taxonomy_slug );
-
-			if ( ! empty( $terms ) ) {
-				$out[] = $taxonomy->label . ': ';
-				foreach ( $terms as $term ) {
-					$out[] =
-						'  <a href="'
-						. get_term_link( $term->slug, $taxonomy_slug ) . '">'
-						. $term->name
-						. '</a>';
-				}
-			}
-		}
+	if ( empty( $taxonomies ) || is_wp_error( $taxonomies ) ) {
+		return;
 	}
 
-	return implode( '', $out );
+	$output = '';
+
+	foreach ( $taxonomies as $taxonomy ) {
+		if ( 'category' === $taxonomy && 'post_tag' === $taxonomy ) {
+			continue;
+		}
+
+		$output .= get_the_term_list( $post->ID, $taxonomy, $before, $sep, $after );
+	}
+
+	return $output;
 }
 
 /**
@@ -416,7 +412,7 @@ function responsive_social_menu( $args = array() ) {
 	$menu = wp_nav_menu( array(
 		'theme_location' => 'social',
 		'depth'          => 1,
-		'link_before'    => '<i aria-hidden="true"></i><span>',
+		'link_before'    => '<span>',
 		'link_after'     => '</span>',
 		'menu_id'        => 'site-footer-social-menu',
 		'menu_class'     => 'site-footer-social-menu',
@@ -575,7 +571,7 @@ if ( ! function_exists( 'responsive_post_meta' ) ) :
 	 */
 	function responsive_post_meta() {
 		?>
-		<div class="entry-meta">
+		<div class="meta post-meta">
 		<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
 		<span class="author"><em>By</em> <?php the_author_posts_link(); ?></span>
 		<?php endif; ?>
@@ -693,7 +689,7 @@ function responsive_get_posts_archive_link() {
 function responsive_posts_archive_link( $args = array() ) {
 	$defaults = array(
 		'label'  => 'View all posts',
-		'before' => '<p>',
+		'before' => '<p class="archive-link-container">',
 		'after'  => '</p>',
 		'class'  => 'archive-link posts-archive-link',
 		'echo'   => true,
@@ -741,7 +737,7 @@ function responsive_posts_archive_link( $args = array() ) {
  */
 function responsive_profiles_archive_link( $args = array() ) {
 	$defaults = array(
-		'before' => '<p>',
+		'before' => '<p class="archive-link-container">',
 		'after'  => '</p>',
 		'class'  => 'archive-link profiles-archive-link',
 		'echo'   => true,
@@ -791,25 +787,17 @@ function responsive_sidebar_classes( $sidebar_id ) {
 function responsive_extra_footer_classes() {
 	$classes = array();
 
-	// Build an array to capture current footer content permutation.
-	$footer_components = array();
-
 	// Is the Customizer-provided footer info in use?
 	if ( responsive_customizer_has_footer_info() ) {
-		$footer_components[] = 'info';
+		$classes[] = 'has-footer-info';
 	}
 	// Is the custom footer links menu in use?
 	if ( has_nav_menu( 'footer' ) ) {
-		$footer_components[] = 'links';
+		$classes[] = 'has-footer-links';
 	}
 	// Is the custom social menu in use?
 	if ( has_nav_menu( 'social' ) ) {
-		$footer_components[] = 'social';
-	}
-
-	// Combine all components in to one stateful class.
-	if ( ! empty( $footer_components ) ) {
-		$classes[] = 'has-' . implode( '-', $footer_components );
+		$classes[] = 'has-footer-social';
 	}
 
 	$classes = apply_filters( 'responsive_extra_footer_classes', $classes );
