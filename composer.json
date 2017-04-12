@@ -1,8 +1,8 @@
 {
     "require": {
-        "cerdic/css-tidy": "^1.5"
+        "cerdic/css-tidy": "^1.5.2"
     },
     "require-dev": {
-        "codeclimate/php-test-reporter": "^0.3.2"
+        "codeclimate/php-test-reporter": "^0.4.4"
     }
 }

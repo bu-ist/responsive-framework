@@ -108,4 +108,83 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 		$this->assertTrue( responsive_posts_should_display( 'tags' ) );
 		$this->assertFalse( responsive_posts_should_display( 'some-other-field' ) );
 	}
+
+	/**
+	 * Test the responsive term links output.
+	 */
+	function test_responsive_term_links() {
+		register_taxonomy( 'test_taxonomy', 'post' );
+
+		$cat_term_id = self::factory()->term->create( array( 'category' => 'test category 1' ) );
+		$cat_term_id_2 = self::factory()->term->create( array( 'category' => 'test category 2' ) );
+		$custom_term_id = self::factory()->term->create( array( 'test_taxonomy' => 'test term 1' ) );
+		$custom_term_id_2 = self::factory()->term->create( array( 'test_taxonomy' => 'test term 2' ) );
+
+		wp_set_object_terms( $this->test_post_id, array_map( 'intval', array( $cat_term_id, $cat_term_id_2 ) ), 'category', false );
+		wp_set_object_terms( $this->test_post_id, array_map( 'intval', array( $custom_term_id, $custom_term_id_2 ) ), 'test_taxonomy', false );
+
+		$expected = get_the_term_list( $this->test_post_id, 'test_taxonomy', '<div class="test-container">', ', ', '</div>' );
+
+		$this->assertEquals( $expected, responsive_term_links( get_post( $this->test_post_id ), '<div class="test-container">', ', ', '</div>' ) );
+
+		// Add a second taxonomy.
+		register_taxonomy( 'second_taxonomy', 'post' );
+		$custom_tax_2_term_id = self::factory()->term->create( array( 'second_taxonomy' => 'test term 1' ) );
+		$custom_tax_2_term_id_2 = self::factory()->term->create( array( 'second_taxonomy' => 'test term 2' ) );
+		wp_set_object_terms( $this->test_post_id, array_map( 'intval', array( $custom_tax_2_term_id, $custom_tax_2_term_id_2 ) ), 'second_taxonomy', false );
+
+		$expected = get_the_term_list( $this->test_post_id, 'test_taxonomy', '<div class="test-container">', ', ', '</div>' ) . get_the_term_list( $this->test_post_id, 'second_taxonomy', '<div class="test-container">', ', ', '</div>' );
+
+		$this->assertEquals( $expected, responsive_term_links( get_post( $this->test_post_id ), '<div class="test-container">', ', ', '</div>' ) );
+	}
+
+	/**
+	 * Test content container class function with no args.
+	 */
+	function test_r_content_container_class_no_args() {
+		$this->expectOutputString( 'class="content-container"' );
+		r_content_container_class();
+	}
+
+	/**
+	 * Test content container class function with string arg.
+	 */
+	function test_r_content_container_class_string_arg() {
+		$this->expectOutputString( 'class="content-container test class"' );
+		r_content_container_class( 'test class' );
+	}
+
+	/**
+	 * Test content container class function with array arg.
+	 */
+	function test_r_content_container_class_array_arg() {
+		$this->expectOutputString( 'class="content-container test class"' );
+		r_content_container_class( array( 'test', 'class' ) );
+	}
+
+	/**
+	 * Test content container class function with bad characters.
+	 */
+	function test_r_content_container_class_bad_characters() {
+		$this->expectOutputString( 'class="content-container te&quot;st c&amp;lass"' );
+		r_content_container_class( array( 'te"st', 'c&lass' ) );
+	}
+
+	/**
+	 * Test content container class function with no classes.
+	 */
+	function test_r_content_container_class_no_classes() {
+		$this->expectOutputString( '' );
+
+		add_filter( 'r_content_container_class', array( $this, 'r_test_filter_empty_array' ) );
+		r_content_container_class( array( 'test', 'class' ) );
+		remove_filter( 'r_content_container_class', array( $this, 'r_test_filter_empty_array' ) );
+	}
+
+	/**
+	 * Return an empty array for filters.
+	 */
+	function r_test_filter_empty_array() {
+		return array();
+	}
 }
