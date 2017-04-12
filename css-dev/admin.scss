@@ -127,6 +127,12 @@ $_customizer-description-color: #999;
 	}
 }
 
+#customize-control-bu_branding-has_disclaimer {
+	.customize-control-description {
+		display: block;
+	}
+}
+
 #customize-control-burf_setting_sidebar_options {
 	.description {
 		font-style: normal;
