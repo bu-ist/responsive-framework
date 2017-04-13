@@ -235,7 +235,7 @@ function responsive_enqueue_scripts() {
 	$enqueue_modernizr = apply_filters( 'r_enqueue_modernizr', true );
 
 	if ( (bool) $enqueue_modernizr ) {
-		wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), '3.3.1' );
+		wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), '3.4.0' );
 	}
 
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
