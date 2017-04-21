@@ -359,7 +359,7 @@ function r_is_narrow_template() {
 	 *
 	 * @param array $archive_post_types List of post types.
 	 */
-	$archive_post_types = apply_filters( 'r_narrow_single_templates', $archive_post_types );
+	$archive_post_types = apply_filters( 'r_narrow_archive_templates', $archive_post_types );
 
 	if ( is_post_type_archive( $archive_post_types ) ) {
 		$is_narrow_template = true;
@@ -374,7 +374,7 @@ function r_is_narrow_template() {
 	 *
 	 * @param array $page_templates List of page templates.
 	 */
-	$page_templates = apply_filters( 'r_narrow_single_templates', $page_templates );
+	$page_templates = apply_filters( 'r_narrow_page_templates', $page_templates );
 
 	if ( is_page_template( $page_templates ) ) {
 		$is_narrow_template = true;
