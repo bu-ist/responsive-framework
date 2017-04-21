@@ -6,6 +6,11 @@ machine:
     WP_CORE_DIR: /tmp/wordpress/
     PATH: $HOME/.composer/vendor/bin:$PATH
 
+general:
+  branches:
+    ignore:
+      - gh-pages
+
 dependencies:
   pre:
     - sudo apt-get update; sudo apt-get install subversion
