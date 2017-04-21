@@ -243,27 +243,20 @@ function responsive_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-
 add_action( 'wp_enqueue_scripts', 'responsive_enqueue_scripts' );
 
 /**
- * Print main theme stylesheet with IE fallback.
- *
- * Works for both parent and child themes.
+ * Enqueue CSS files for the theme.
  */
-function responsive_styles() {
-	$suffix    = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	$style_css = add_query_arg( 'ver', RESPONSIVE_THEME_VERSION, get_stylesheet_directory_uri() . "/style$suffix.css" );
-	$ie_css    = add_query_arg( 'ver', RESPONSIVE_THEME_VERSION, get_stylesheet_directory_uri() . "/ie$suffix.css" );
-?>
-	<!--[if gt IE 8]><!-->
-	<link rel="stylesheet" id="responsi-css"  href="<?php echo esc_url( $style_css ); ?>" type="text/css" media="all" />
-	<!--<![endif]-->
-	<!--[if (lt IE 9) & (!IEMobile 7)]>
-	<link rel="stylesheet" id="responsi-ie-css"   href="<?php echo esc_url( $ie_css ); ?>" type="text/css" media="all" />
-	<![endif]-->
-<?php
+function responsive_enqueue_styles() {
+	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+	wp_enqueue_style( 'responsive-framework', get_stylesheet_directory_uri() . "/style$postfix.css", array(), RESPONSIVE_THEME_VERSION, 'all' );
+
+	wp_enqueue_style( 'responsive-framework-ie', get_stylesheet_directory_uri() . "/ie$postfix.css", array( 'responsive-framework' ), RESPONSIVE_THEME_VERSION, 'all' );
+	wp_style_add_data( 'responsive-framework-ie', 'conditional', '(lt IE 9) & (!IEMobile 7)' );
 }
+add_action( 'wp_enqueue_scripts', 'responsive_enqueue_styles' );
 
 /**
  * Maybe trigger theme migration procedure.
