@@ -5,7 +5,7 @@
  * @package Responsive_Framework
  */
 
-?><form id="quicksearch" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+?><form id="quicksearch" class="js-quick-search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
 	<fieldset>
 		<legend>Search</legend>
 		<label for="q">Search in <?php echo esc_url( home_url( '/' ) ); ?></label>
