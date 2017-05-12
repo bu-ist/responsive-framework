@@ -23,12 +23,9 @@ cache:
     - $HOME/.composer/cache
 
 env:
-  - WP_VERSION=4.6.4 WP_MULTISITE=0
-  - WP_VERSION=4.6.4 WP_MULTISITE=1
-  - WP_VERSION=latest WP_MULTISITE=0
-  - WP_VERSION=latest WP_MULTISITE=1
-  - WP_VERSION=nightly WP_MULTISITE=0
-  - WP_VERSION=nightly WP_MULTISITE=1
+  - WP_VERSION=nightly
+  - WP_VERSION=latest
+  - WP_VERSION=4.6.5
 
 before_install:
   - |
@@ -55,12 +52,10 @@ before_script:
 
 script:
   - |
-    if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then
-      phpunit --coverage-clover build/logs/clover.xml
-    else
+    if [[ ! -z "$WP_VERSION" ]] ; then
       phpunit
+      WP_MULTISITE=1 phpunit
     fi
-  -
 
 after_script:
   - |
@@ -69,5 +64,5 @@ after_script:
     fi
 
 addons:
-  code_climate:
-    repo_token: CODECLIMATE_REPO_TOKEN
+  codeclimate:
+    repo_token: $CODECLIMATE_REPO_TOKEN
