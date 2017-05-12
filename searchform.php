@@ -1,15 +1,18 @@
 <?php
 /**
  * Search form template used by `get_searchform()`.
+ * Used for the WordPress default search form if BU Search is not available.
  *
  * @package Responsive_Framework
  */
 
-?><form id="quicksearch" class="js-quick-search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+?><form id="quicksearch" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
 	<fieldset>
-		<legend>Search</legend>
-		<label for="q">Search in <?php echo esc_url( home_url( '/' ) ); ?></label>
-		<input id="q" type="text" name="s" class="search" aria-label="Search" title="Search" placeholder="Search site&hellip;" value="<?php echo esc_attr( the_search_query() ); ?>" />
-		<input type="submit" value="Search" name="do_search" class="button">
+		<legend class="screen-reader-text"><span>Search</span></legend>
+		<label>
+			<span class="screen-reader-text">Search for:</span>
+			<input id="q" name="s" aria-label="Search" class="search-field"  placeholder="Search site&hellip;" title="Search for:" type="text" value="<?php echo esc_attr( the_search_query() ); ?>">
+		</label>
+		<input type="submit" value="Search" name="do_search" class="button search-submit">
 	</fieldset>
 </form>
