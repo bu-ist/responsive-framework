@@ -2,16 +2,22 @@
  * Toggle behavior for navigation / search buttons.
  */
 ( function ( $ ) {
-	$( '.js-nav-toggle' ).on( 'click', function ( e ) {
+	var $body = $( 'body' ),
+		 $toggle = $( '.js-nav-toggle' ),
+		 $toggleitems = $toggle.add( 'nav' ),
+		 $searchtoggle = $( '.js-search-toggle' ),
+		 $searchitems = $searchtoggle.add( '#quicksearch' );
+
+	$toggle.on( 'click', function ( e ) {
 		e.preventDefault();
-		$( 'nav, .js-nav-toggle' ).toggleClass( 'is-open' );
-		$( '.js-search-toggle, .js-quick-search' ).removeClass( 'is-open' );
-		$( 'body' ).toggleClass( 'nav-open' ).removeClass( 'search-open' );
+		$toggleitems.toggleClass( 'is-open' );
+		$searchitems.removeClass( 'is-open' );
+		$body.toggleClass( 'nav-open' ).removeClass( 'search-open' );
 	});
 
-	$( '.js-search-toggle' ).on( 'click', function ( e ) {
+	$searchtoggle.on( 'click', function ( e ) {
 		e.preventDefault();
-		$( 'nav, .js-nav-toggle' ).removeClass( 'is-open' );
+		$toggleitems.removeClass( 'is-open' );
 
 		if( ! $( this ).hasClass( 'is-open' ) ){
 			setTimeout(function(){
@@ -19,7 +25,7 @@
 			}, 100 );
 		}
 
-		$( '.js-search-toggle, .js-quick-search' ).toggleClass( 'is-open' );
-		$( 'body' ).toggleClass( 'search-open' ).removeClass('nav-open');
+		$searchitems.toggleClass( 'is-open' );
+		$body.toggleClass( 'search-open' ).removeClass('nav-open');
 	});
 } ( jQuery ) );
