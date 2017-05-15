@@ -114,7 +114,7 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 
 		update_post_meta( $page_id, '_wp_page_template', 'page-templates/calendar.php' );
 
-		$this->assertTrue( r_is_narrow_template() );
+		$this->assertFalse( r_is_narrow_template() );
 
 		update_post_meta( $page_id, '_wp_page_template', 'page-templates/news.php' );
 
