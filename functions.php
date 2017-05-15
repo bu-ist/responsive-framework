@@ -329,6 +329,19 @@ function r_is_narrow_template() {
 
 	$is_narrow_template = false;
 
+	/**
+	 * Filters whether the blog page (post type archive) should be considered narrow.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param bool true Default for checking is_home() conditional.
+	 */
+	$blog_page_narrow = (bool) apply_filters( 'r_narrow_blog_page', true );
+
+	if ( $blog_page_narrow && is_home() ) {
+		$is_narrow_template = true;
+	}
+
 	$single_post_types = array(
 		'profile',
 		'post',
