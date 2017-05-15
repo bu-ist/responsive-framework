@@ -329,15 +329,15 @@ function r_is_narrow_template() {
 		$is_narrow_template = true;
 	}
 
+	// Check for single calendar events. These are always narrow.
+	if ( ! $is_narrow_template && ! empty( $_GET['eid'] ) ) {
+		$is_narrow_template = true;
+	}
+
 	$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom', false );
 
 	if ( ! $is_narrow_template && ! $narrow_enabled ) {
 		return false;
-	}
-
-	// Check for single calendar events. These are always narrow.
-	if ( ! $is_narrow_template && ! empty( $_GET['eid'] ) ) {
-		$is_narrow_template = true;
 	}
 
 	/**
