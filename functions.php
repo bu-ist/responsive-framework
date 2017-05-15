@@ -390,7 +390,6 @@ function r_is_narrow_template() {
 	}
 
 	$page_templates = array(
-		'page-templates/calendar.php',
 		'page-templates/news.php',
 	);
 
