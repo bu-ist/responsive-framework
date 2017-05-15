@@ -78,13 +78,6 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 
 		$this->assertTrue( r_is_narrow_template() );
 
-		/**
-		 * Remove posts from allowed post types and test.
-		 */
-		add_filter( 'r_narrow_archive_templates', array( $this, 'filter_r_narrow_archive_templates' ) );
-		$this->assertFalse( r_is_narrow_template() );
-		remove_filter( 'r_narrow_archive_templates', array( $this, 'filter_r_narrow_archive_templates' ) );
-
 		$wp_query = new WP_Query();
 		update_option( 'burf_setting_posts_sidebar_bottom', false );
 	}
@@ -102,7 +95,6 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 			'post_type' => 'page',
 			'pagename' => 'calendar',
 		) );
-		update_post_meta( $page_id, '_wp_page_template', 'page-templates/calendar.php' );
 
 		$wp_query = new WP_Query( array(
 			'pagename' => 'calendar',
@@ -110,6 +102,16 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 		) );
 
 		$this->assertFalse( r_is_narrow_template() );
+
+		update_post_meta( $page_id, '_wp_page_template', 'page-templates/calendar.php' );
+
+		$this->assertTrue( r_is_narrow_template() );
+
+		update_post_meta( $page_id, '_wp_page_template', 'page-templates/news.php' );
+
+		$this->assertTrue( r_is_narrow_template() );
+
+		update_post_meta( $page_id, '_wp_page_template', 'another-post-template.php' );
 
 		/**
 		 * Add calendar page template to list of allowed post types to check our filter works properly.
@@ -149,17 +151,6 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 	}
 
 	/**
-	 * Alter allowed post types for testing.
-	 *
-	 * @return array
-	 */
-	function filter_r_narrow_archive_templates() {
-		return array(
-			'profile',
-		);
-	}
-
-	/**
 	 * Alter allowed page templates for testing.
 	 *
 	 * @param array $templates List of allowed templates.
@@ -167,7 +158,7 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 	 * @return array
 	 */
 	function filter_r_narrow_page_templates( $templates ) {
-		$templates[] = 'page-templates/calendar.php';
+		$templates[] = 'another-post-template.php';
 
 		return $templates;
 	}
