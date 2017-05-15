@@ -7,158 +7,190 @@ Version: 1.5.1
 Description: A responsive WordPress theme framework built with the Responsive Foundation.
 Theme Groups: Responsive Framework
 */
-/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
-summary {
-  display: block;
-}
-
-audio,
-canvas,
-video {
-  display: inline-block;
-  *zoom: 1;
-  *display: inline;
-}
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-[hidden] {
-  display: none;
-}
-
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+/* Document
+   ========================================================================== */
 html {
-  font-size: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-html,
-button,
-input,
-select,
-textarea {
   font-family: sans-serif;
+  /* 1 */
+  line-height: 1.15;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 3 */
+  -webkit-text-size-adjust: 100%;
+  /* 3 */
 }
 
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
 body {
   margin: 0;
 }
 
-a:focus {
-  outline: thin dotted;
+/**
+ * Add the correct display in IE 9-.
+ */
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
 }
 
-a:active,
-a:hover {
-  outline: 0;
-}
-
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
 
-h2 {
-  font-size: 1.5em;
-  margin: 0.83em 0;
+/* Grouping content
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+figcaption,
+figure,
+main {
+  /* 1 */
+  display: block;
 }
 
-h3 {
-  font-size: 1.17em;
-  margin: 1em 0;
-}
-
-h4 {
-  font-size: 1em;
-  margin: 1.33em 0;
-}
-
-h5 {
-  font-size: 0.83em;
-  margin: 1.67em 0;
-}
-
-h6 {
-  font-size: 0.67em;
-  margin: 2.33em 0;
-}
-
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-
-b,
-strong {
-  font-weight: bold;
-}
-
-blockquote {
+/**
+ * Add the correct margin in IE 8.
+ */
+figure {
   margin: 1em 40px;
 }
 
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */
+}
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
 dfn {
   font-style: italic;
 }
 
-hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0;
-}
-
+/**
+ * Add the correct background and color in IE 9-.
+ */
 mark {
-  background: #ff0;
+  background-color: #ff0;
   color: #000;
 }
 
-p,
-pre {
-  margin: 1em 0;
-}
-
-code,
-kbd,
-pre,
-samp {
-  _font-family: 'courier new', monospace;
-  font-family: monospace, serif;
-  font-size: 1em;
-}
-
-pre {
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-q {
-  quotes: none;
-}
-
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
+/**
+ * Add the correct font size in all browsers.
+ */
 small {
   font-size: 80%;
 }
 
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
 sub,
 sup {
   font-size: 75%;
@@ -167,135 +199,260 @@ sup {
   vertical-align: baseline;
 }
 
-sup {
-  top: -0.5em;
-}
-
 sub {
   bottom: -0.25em;
 }
 
-dl,
-menu,
-ol,
-ul {
-  margin: 1em 0;
+sup {
+  top: -0.5em;
 }
 
-dd {
-  margin: 0 0 0 40px;
+/* Embedded content
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ */
+audio,
+video {
+  display: inline-block;
 }
 
-menu,
-ol,
-ul {
-  padding: 0 0 0 40px;
+/**
+ * Add the correct display in iOS 4-7.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
 }
 
-nav ul,
-nav ol {
-  list-style: none;
-  list-style-image: none;
-}
-
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
 img {
-  border: 0;
-  -ms-interpolation-mode: bicubic;
+  border-style: none;
 }
 
+/**
+ * Hide the overflow in IE.
+ */
 svg:not(:root) {
   overflow: hidden;
 }
 
-figure {
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
   margin: 0;
+  /* 2 */
 }
 
-form {
-  margin: 0;
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible;
 }
 
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
 
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
 legend {
-  border: 0;
-  padding: 0;
-  white-space: normal;
-  *margin-left: -7px;
-}
-
-button,
-input,
-select,
-textarea {
-  font-size: 100%;
-  margin: 0;
-  vertical-align: baseline;
-  *vertical-align: middle;
-}
-
-button,
-input {
-  line-height: normal;
-}
-
-button,
-select {
-  text-transform: none;
-}
-
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  cursor: pointer;
-  *overflow: visible;
-}
-
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  *height: 13px;
-  *width: 13px;
   box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
   padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
 }
 
-input[type="search"] {
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
 }
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
 }
 
-textarea {
-  overflow: auto;
-  vertical-align: top;
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+details,
+menu {
+  display: block;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/* Scripting
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ */
+canvas {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in IE.
+ */
+template {
+  display: none;
+}
+
+/* Hidden
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10-.
+ */
+[hidden] {
+  display: none;
 }
 
 .container::after, .content-container::after, .footbar-container::after, .sidebar-location-left .sidebar-posts::after, .sidebar-location-right .sidebar-posts::after, .sidebar-location-left
@@ -1736,45 +1893,195 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   color: inherit;
 }
 
-h1 {
-  font-size: 49px;
-  line-height: 1.1;
-  margin: 0 0 25px 0;
+.font-size-secondary,
+table,
+form,
+.sidebar,
+.sidebar-location-left .sidebar-posts,
+.sidebar-location-right .sidebar-posts,
+.sidebar-location-left .sidebar-profiles,
+.sidebar-location-right .sidebar-profiles,
+.site-footer,
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer h6,
+.brand-site-description,
+.message,
+.single-meta,
+.single-event-schedule,
+.profile-single-details,
+.comment-body,
+.meta,
+.widget {
+  font-size: 12px;
+  line-height: 1;
+}
+@media screen and (min-width: 500px) {
+  .font-size-secondary,
+  table,
+  form,
+  .sidebar,
+  .sidebar-location-left .sidebar-posts,
+  .sidebar-location-right .sidebar-posts,
+  .sidebar-location-left .sidebar-profiles,
+  .sidebar-location-right .sidebar-profiles,
+  .site-footer,
+  .site-footer h1,
+  .site-footer h2,
+  .site-footer h3,
+  .site-footer h4,
+  .site-footer h5,
+  .site-footer h6,
+  .brand-site-description,
+  .message,
+  .single-meta,
+  .single-event-schedule,
+  .profile-single-details,
+  .comment-body,
+  .meta,
+  .widget {
+    font-size: 16px;
+    line-height: 1;
+  }
 }
 
-h2 {
-  font-size: 37px;
+.font-size-minimum,
+.wp-caption-text,
+.comment-reply-link,
+.comment-metadata,
+.form-tip,
+.cancel-comment-reply,
+.label,
+.widget-post-meta,
+.profile-details-mini p {
+  font-size: 8px;
+  line-height: 1;
+}
+@media screen and (min-width: 500px) {
+  .font-size-minimum,
+  .wp-caption-text,
+  .comment-reply-link,
+  .comment-metadata,
+  .form-tip,
+  .cancel-comment-reply,
+  .label,
+  .widget-post-meta,
+  .profile-details-mini p {
+    font-size: 13px;
+    line-height: 1;
+  }
+}
+
+.font-size-maximum {
+  font-size: 2.7152em;
   line-height: 1.15;
-  margin: 0 0 27px 0;
+}
+@media screen and (min-width: 500px) {
+  .font-size-maximum {
+    font-size: 4.52568em;
+    line-height: 1.15;
+  }
 }
 
+.font-size-1,
+h1 {
+  font-size: 2em;
+  line-height: 1.15085;
+}
+@media screen and (min-width: 500px) {
+  .font-size-1,
+  h1 {
+    font-size: 3.05556em;
+    line-height: 1.15085;
+  }
+}
+
+.font-size-2,
+h2 {
+  font-size: 1.52828em;
+  line-height: 1.15962;
+}
+@media screen and (min-width: 500px) {
+  .font-size-2,
+  h2 {
+    font-size: 2.08591em;
+    line-height: 1.15962;
+  }
+}
+
+.font-size-3,
 h3 {
-  font-size: 28px;
-  line-height: 1.25;
-  margin: 0 0 25px 0;
+  font-size: 1.24192em;
+  line-height: 1.18977;
+}
+@media screen and (min-width: 500px) {
+  .font-size-3,
+  h3 {
+    font-size: 1.49729em;
+    line-height: 1.18977;
+  }
 }
 
-h4 {
-  font-size: 21px;
-  line-height: 1.3;
-  margin: 0 0 25px 0;
+.font-size-4,
+h4,
+.comment-respond-title {
+  font-size: 1.08839em;
+  line-height: 1.25887;
+}
+@media screen and (min-width: 500px) {
+  .font-size-4,
+  h4,
+  .comment-respond-title {
+    font-size: 1.18169em;
+    line-height: 1.25887;
+  }
 }
 
-h5 {
-  font-size: 18px;
-  line-height: 1.4;
-  margin: 0 0 25px 0;
+.font-size-5,
+h5,
+.comment-author,
+.widget-post-headline,
+.widget-calendar-picker caption {
+  font-size: 1.02138em;
+  line-height: 1.38773;
+}
+@media screen and (min-width: 500px) {
+  .font-size-5,
+  h5,
+  .comment-author,
+  .widget-post-headline,
+  .widget-calendar-picker caption {
+    font-size: 1.04395em;
+    line-height: 1.38773;
+  }
 }
 
-h6 {
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0 0 25px 0;
+.font-size-6,
+h6,
+.calendar-list-topic {
+  font-size: 1em;
+  line-height: 1.6;
+}
+@media screen and (min-width: 500px) {
+  .font-size-6,
+  h6,
+  .calendar-list-topic {
+    font-size: 1em;
+    line-height: 1.6;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
   font-family: "Benton", Helvetica, sans-serif;
+  margin-bottom: 0.6em;
+  margin-top: 1em;
+}
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+  margin-top: 0;
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   color: #9f9f9f;
@@ -1792,7 +2099,7 @@ blockquote {
 
 p,
 pre {
-  margin: 0 0 25px 0;
+  margin: 0 0 1.5em 0;
 }
 
 code,
@@ -1811,7 +2118,7 @@ dl,
 menu,
 ol,
 ul {
-  margin: 0 0 25px 0;
+  margin: 0 0 1.5em 0;
 }
 
 dd {
@@ -1867,10 +2174,10 @@ table {
   border: 1px solid #ddd;
   empty-cells: show;
   margin: 35px 0;
+  width: 100%;
 }
 table caption {
   color: #9f9f9f;
-  font-size: 16px;
   font-style: italic;
   padding: 0 0 10px;
   text-align: center;
@@ -1944,7 +2251,7 @@ button,
   color: #444;
   display: inline-block;
   font-family: "Benton", Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: inherit;
   line-height: normal;
   padding: 0.5em 1em;
   text-align: center;
@@ -2029,21 +2336,19 @@ button[disabled],
   cursor: not-allowed;
 }
 .button-primary,
-.button-selected, #quicksearch .button, .paging-navigation a, .archive-link {
+.button-selected, .search-submit, .paging-navigation a, .archive-link {
   background-color: #0078e7;
   color: #fff;
 }
 .button-primary:hover,
-.button-selected:hover, #quicksearch .button:hover, .paging-navigation a:hover, .archive-link:hover, .button-primary:active,
-.button-selected:active, #quicksearch .button:active, .paging-navigation a:active, .archive-link:active, .button-primary:visited,
-.button-selected:visited, #quicksearch .button:visited, .paging-navigation a:visited, .archive-link:visited {
+.button-selected:hover, .search-submit:hover, .paging-navigation a:hover, .archive-link:hover, .button-primary:active,
+.button-selected:active, .search-submit:active, .paging-navigation a:active, .archive-link:active, .button-primary:visited,
+.button-selected:visited, .search-submit:visited, .paging-navigation a:visited, .archive-link:visited {
   color: #fff;
 }
 
 form {
   font-family: "Benton", Helvetica, sans-serif;
-  font-size: 16px;
-  margin: 0;
 }
 
 fieldset {
@@ -2381,7 +2686,6 @@ body {
 .sidebar-profiles, .sidebar-location-right
 .sidebar-profiles {
   clear: none;
-  font-size: 16px;
 }
 @media screen and (min-width: 992px) {
   .sidebar, .sidebar-location-left .sidebar-posts, .sidebar-location-right .sidebar-posts, .sidebar-location-left
@@ -2443,8 +2747,6 @@ body {
   color: #888;
   display: block;
   font-family: "Benton", Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
   padding: 40px 20px 5px;
   position: relative;
   width: 100%;
@@ -2470,8 +2772,6 @@ body {
 .site-footer h6 {
   color: #fff;
   font-family: "Benton", Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
   margin: 0 0 3px;
 }
 
@@ -2732,7 +3032,6 @@ body {
     color: #9f9f9f;
     display: block;
     font-family: "TiemposText", Georgia, serif;
-    font-size: 16px;
   }
 }
 
@@ -2881,7 +3180,6 @@ body {
 
 nav {
   font-family: "Benton", Helvetica, sans-serif;
-  font-size: 16px;
 }
 nav a {
   text-decoration: none;
@@ -2903,6 +3201,10 @@ nav a {
   margin: 0;
   background: #f5f5f5;
 }
+#quicksearch.is-open {
+  display: block;
+  border-bottom: 0;
+}
 #quicksearch fieldset {
   margin: 0;
 }
@@ -2913,27 +3215,8 @@ nav a {
     margin: 0 auto;
   }
 }
-#quicksearch .button {
-  -webkit-border-radius: 0 20px 20px 0;
-  -moz-border-radius: 0 20px 20px 0;
-  -ms-border-radius: 0 20px 20px 0;
-  border-radius: 0 20px 20px 0;
-  width: 25%;
-  padding: 11px 0 12px 0;
-  float: right;
-}
-@media screen and (min-width: 768px) {
-  #quicksearch .button {
-    width: 15%;
-  }
-}
 
-#quicksearch.is-open {
-  display: block;
-  border-bottom: 0;
-}
-
-#q {
+.search-field {
   -webkit-border-radius: 20px 0 0 20px;
   -moz-border-radius: 20px 0 0 20px;
   -ms-border-radius: 20px 0 0 20px;
@@ -2944,8 +3227,23 @@ nav a {
   color: #000;
 }
 @media screen and (min-width: 768px) {
-  #q {
+  .search-field {
     width: 85%;
+  }
+}
+
+.search-submit {
+  -webkit-border-radius: 0 20px 20px 0;
+  -moz-border-radius: 0 20px 20px 0;
+  -ms-border-radius: 0 20px 20px 0;
+  border-radius: 0 20px 20px 0;
+  width: 25%;
+  padding: 11px 0 12px 0;
+  float: right;
+}
+@media screen and (min-width: 768px) {
+  .search-submit {
+    width: 15%;
   }
 }
 
@@ -3484,7 +3782,6 @@ nav a {
   border: 1px solid #ddd;
   border-left-color: #000;
   border-width: 1px 1px 1px 5px;
-  font-size: 16px;
   padding: 20px;
 }
 
@@ -3536,9 +3833,8 @@ nav a {
 
 .wp-caption-text {
   clear: both;
-  color: #9f9f9f;
+  color: #666;
   font-family: "Benton", Helvetica, sans-serif;
-  font-size: 14px;
   line-height: 1.4;
 }
 
@@ -3615,7 +3911,6 @@ nav a {
   border: 1px solid #ddd;
   border-width: 1px 1px 1px 5px;
   font-family: "Benton", Helvetica, sans-serif;
-  font-size: 14px;
   padding: 10px;
   position: relative;
 }
@@ -3633,12 +3928,10 @@ nav a {
 
 .comment-reply-link {
   color: #888;
-  font-size: 12px;
 }
 
 .comment-author {
   color: #000;
-  font-size: 16px;
 }
 
 .says {
@@ -3646,7 +3939,6 @@ nav a {
 }
 
 .comment-metadata {
-  font-size: 12px;
   position: absolute;
   right: 10px;
   top: 10px;
@@ -3698,18 +3990,12 @@ nav a {
   }
 }
 
-.comment-respond-title {
-  font-size: 18px;
-  margin: 0 0 20px;
-}
-
 .comment-form-submit {
   margin: 15px 0 0;
 }
 
 .form-tip {
   color: #888;
-  font-size: 12px;
 }
 @media screen and (min-width: 768px) {
   .form-tip {
@@ -3751,7 +4037,6 @@ nav a {
 
 .cancel-comment-reply {
   display: inline-block;
-  font-size: 12px;
   position: absolute;
   right: 20px;
   top: 20px;
@@ -3817,12 +4102,6 @@ nav a {
   display: none;
 }
 
-.meta {
-  font-family: "Benton", Helvetica, sans-serif;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
 .paging-navigation {
   border: 1px solid #ddd;
   border-width: 1px 0 0 0;
@@ -3851,8 +4130,8 @@ nav a {
   padding-top: 0;
 }
 
-.post-headline {
-  margin-bottom: 10px;
+.post-headline + .meta {
+  margin-top: -0.5em;
 }
 
 .post-meta span::before {
@@ -3876,7 +4155,6 @@ nav a {
   border: 1px solid #ddd;
   border-left-color: #000;
   border-width: 1px 1px 1px 5px;
-  font-size: 16px;
   margin-bottom: 30px;
   padding: 20px;
 }
@@ -3900,16 +4178,8 @@ nav a {
   text-align: center;
 }
 
-.calendar-list-topic {
-  font-size: 21px;
-}
-
 .calendar-list-range {
   color: #9f9f9f;
-}
-
-.calendar-list-event-date {
-  font-size: 18px;
 }
 
 .calendar-list-events {
@@ -3977,7 +4247,6 @@ nav a {
   color: #9f9f9f;
   display: block;
   font-family: "Benton", Helvetica, sans-serif;
-  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -3985,12 +4254,11 @@ nav a {
 .single-event-time {
   color: #000;
   display: block;
-  font-size: 18px;
   font-weight: bold;
 }
 
 .single-event-description {
-  margin: 0 0 25px 0;
+  margin: 0 0 1.5em 0;
 }
 
 .single-event-additional-details {
@@ -4016,7 +4284,6 @@ nav a {
 }
 
 .profile-single-details {
-  font-size: 16px;
   margin: 0 0 20px;
 }
 @media screen and (min-width: 768px) {
@@ -4030,7 +4297,6 @@ nav a {
 .label {
   display: block;
   font-family: "Benton", Helvetica, sans-serif;
-  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -4051,8 +4317,6 @@ nav a {
 }
 
 .widget {
-  font-size: 16px;
-  line-height: 1.6;
   margin-bottom: 40px;
 }
 .widget h1,
@@ -4086,8 +4350,6 @@ nav a {
   border-width: 0 0 4px 0;
   color: #000;
   font-family: "Benton", Helvetica, sans-serif;
-  font-size: 21px;
-  line-height: 1.3;
   padding: 0 0 4px;
 }
 .widget-title a {
@@ -4102,30 +4364,12 @@ nav a {
   color: #000;
 }
 
-.widget-post {
-  margin-top: 15px;
-}
-
-.widget-post-headline {
-  font-size: 16px;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.widget-posts-published {
-  font-size: 12px;
-}
-
 .widget-post-meta {
   color: #aaa;
-  font-size: 12px;
-  margin: 0;
 }
 
 .widget-post-excerpt {
-  font-size: 16px;
-  line-height: 1.4;
-  margin: 4px 0 0;
+  margin-top: -0.5em;
 }
 
 .widget-post-thumbnail {
@@ -4170,13 +4414,13 @@ nav a {
 }
 .widget_bu_pages li li a,
 .widget_nav_menu li li a {
-  font-size: 16px;
+  font-size: inherit;
 }
 .widget_bu_pages li a,
 .widget_nav_menu li a {
   color: #0f69d7;
   display: block;
-  font-size: 16px;
+  font-size: inherit;
   padding: 10px 0;
 }
 .widget_bu_pages li a:hover, .widget_bu_pages li a:focus,
@@ -4229,10 +4473,6 @@ nav a {
   position: relative;
 }
 
-.widget-calednar-date-fulldate {
-  font-size: 12px;
-}
-
 .widget-calendar-link-graphic {
   display: table;
   text-decoration: none;
@@ -4242,14 +4482,14 @@ nav a {
   color: #000;
   display: table-cell;
   width: 48px;
-  line-height: 1.3;
+  line-height: 1.1;
   text-align: center;
 }
 
 .widget-calendar-day-graphic {
   color: inherit;
   display: block;
-  font-size: 21px;
+  font-size: 22px;
 }
 
 .widget-calendar-month-graphic {
@@ -4274,6 +4514,7 @@ nav a {
 
 .widget-calendar-picker {
   color: #0f69d7;
+  line-height: 1.6;
 }
 .widget-calendar-picker .month {
   width: 100%;
@@ -4281,8 +4522,8 @@ nav a {
 .widget-calendar-picker caption {
   color: #7a7a7a;
   font-family: "Benton", Helvetica, sans-serif;
-  font-size: 18px;
   font-style: normal;
+  font-weight: bold;
 }
 .widget-calendar-picker th,
 .widget-calendar-picker td {
@@ -4309,6 +4550,12 @@ nav a {
 .widget-calendar-picker .today {
   background: #eee;
   color: #000;
+}
+
+.prev-month,
+.next-month {
+  font-weight: normal;
+  margin: 0 0.5em;
 }
 
 .calendar-topics {
@@ -4433,8 +4680,6 @@ nav a {
 
 .profile-name {
   color: #0f69d7;
-  font-family: "Benton", Helvetica, sans-serif;
-  font-size: 18px;
   margin-bottom: 0;
   text-decoration: underline;
 }
@@ -4442,8 +4687,6 @@ nav a {
 .profile-title {
   color: #555;
   display: block;
-  font-family: "TiemposText", Georgia, serif;
-  font-size: 16px;
 }
 
 .profile-link {
@@ -4530,14 +4773,11 @@ nav a {
 }
 
 .profile-details-mini {
-  font-size: 14px;
-  line-height: 1.4;
   padding-left: 20px;
 }
 
 .profile-name-mini {
   color: inherit;
-  font-size: 16px;
   text-decoration: none;
 }
 
