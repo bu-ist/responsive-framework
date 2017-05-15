@@ -134,14 +134,14 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 	}
 
 	/**
-	 * Single events should be considered narrow.
+	 * Single events should always be considered narrow.
 	 */
 	function test_r_is_narrow_template_single_calendar_event() {
-		update_option( 'burf_setting_posts_sidebar_bottom', true );
-
-		$this->assertFalse( r_is_narrow_template() );
-
 		$_GET['eid'] = 1;
+
+		$this->assertTrue( r_is_narrow_template() );
+
+		update_option( 'burf_setting_posts_sidebar_bottom', true );
 
 		$this->assertTrue( r_is_narrow_template() );
 
