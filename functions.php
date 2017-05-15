@@ -335,6 +335,11 @@ function r_is_narrow_template() {
 		return false;
 	}
 
+	// Check for single calendar events. These are always narrow.
+	if ( ! $is_narrow_template && ! empty( $_GET['eid'] ) ) {
+		$is_narrow_template = true;
+	}
+
 	/**
 	 * Filters whether the blog page (post type archive) should be considered narrow.
 	 *
@@ -399,11 +404,6 @@ function r_is_narrow_template() {
 	$page_templates = apply_filters( 'r_narrow_page_templates', $page_templates );
 
 	if ( ! $is_narrow_template && ! empty( $page_templates ) && is_page_template( (array) $page_templates ) ) {
-		$is_narrow_template = true;
-	}
-
-	// Check for single calendar events.
-	if ( ! $is_narrow_template && ! empty( $_GET['eid'] ) ) {
 		$is_narrow_template = true;
 	}
 
