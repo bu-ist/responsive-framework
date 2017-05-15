@@ -378,6 +378,11 @@ function r_is_narrow_template() {
 		$is_narrow_template = true;
 	}
 
+	$page_templates = array(
+		'page-templates/calendar.php',
+		'page-templates/news.php',
+	);
+
 	/**
 	 * Filters page templates to consider narrow when is_page_template() is true.
 	 *
@@ -385,7 +390,7 @@ function r_is_narrow_template() {
 	 *
 	 * @param array $page_templates List of page templates.
 	 */
-	$page_templates = apply_filters( 'r_narrow_page_templates', array() );
+	$page_templates = apply_filters( 'r_narrow_page_templates', $page_templates );
 
 	if ( ! empty( $page_templates ) && is_page_template( (array) $page_templates ) ) {
 		$is_narrow_template = true;
