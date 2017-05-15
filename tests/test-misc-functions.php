@@ -26,6 +26,15 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 	}
 
 	/**
+	 * If sidebar is on the bottom, it should always be narrow.
+	 */
+	function test_r_is_narrow_template_bottom_sidebar_location() {
+		update_option( 'burf_setting_sidebar_location', 'bottom' );
+		$this->assertTrue( r_is_narrow_template() );
+		update_option( 'burf_setting_sidebar_location', 'right' );
+	}
+
+	/**
 	 * Single posts should be considered narrow.
 	 */
 	function test_r_is_narrow_template_single_post() {
