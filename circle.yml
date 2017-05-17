@@ -1,0 +1,67 @@
+machine:
+  php:
+    version: 7.1.3
+  environment:
+    WP_TESTS_DIR: /tmp/wordpress-tests-lib
+    WP_CORE_DIR: /tmp/wordpress/
+    PATH: $HOME/.composer/vendor/bin:$PATH
+
+general:
+  branches:
+    ignore:
+      - gh-pages
+
+dependencies:
+  pre:
+    - sudo apt-get update; sudo apt-get install subversion
+    - export PATH="$HOME/.composer/vendor/bin:$PATH"
+    - composer global require "phpunit/phpunit=5.7.*"
+    - bundle install
+
+test:
+  override:
+    - |
+      rm -rf $WP_TESTS_DIR $WP_CORE_DIR
+      php -v
+      phpunit --version
+      bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 4.6.5
+      phpunit
+      WP_MULTISITE=1 phpunit
+    - |
+      php -v
+      phpunit --version
+      rm -rf $WP_TESTS_DIR $WP_CORE_DIR
+      bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 latest
+      phpunit
+      WP_MULTISITE=1 phpunit
+    - |
+      rm -rf $WP_TESTS_DIR $WP_CORE_DIR
+      php -v
+      phpunit --version
+      bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 trunk
+      phpunit
+      WP_MULTISITE=1 phpunit
+    - |
+      phpenv global 7.0.17
+      php -v
+      phpunit --version
+      rm -rf $WP_TESTS_DIR $WP_CORE_DIR
+      bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 4.6.5
+      phpunit
+      WP_MULTISITE=1 phpunit
+    - |
+      phpenv global 7.0.17
+      php -v
+      phpunit --version
+      rm -rf $WP_TESTS_DIR $WP_CORE_DIR
+      bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 latest
+      phpunit
+      WP_MULTISITE=1 phpunit
+    - |
+      phpenv global 7.0.17
+      php -v
+      phpunit --version
+      rm -rf $WP_TESTS_DIR $WP_CORE_DIR
+      bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 trunk
+      phpunit
+      WP_MULTISITE=1 phpunit
