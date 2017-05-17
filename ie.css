@@ -455,10 +455,7 @@ template {
   display: none;
 }
 
-.container::after, .content-container::after, .footbar-container::after, .sidebar-location-left .sidebar-posts::after, .sidebar-location-right .sidebar-posts::after, .sidebar-location-left
-.sidebar-profiles::after, .sidebar-location-right
-.sidebar-profiles::after, .row::after, .masthead::after, .footbar::after, .site-footer::after, .primary-nav::after, .sidebar-posts::after,
-.sidebar-profiles::after, .paging-navigation::after, .widget-post::after, .profile-listing::after, .profile-format-advanced::after, .profile-item-mini::after, .gallery::after {
+.container::after, .content-container::after, .footbar-container::after, .content-container-narrow::after, .row::after, .masthead::after, .content-container-narrow .sidebar::after, .footbar::after, .site-footer::after, .primary-nav::after, .paging-navigation::after, .widget-post::after, .profile-listing::after, .profile-format-advanced::after, .profile-item-mini::after, .gallery::after {
   display: table;
   clear: both;
   content: "";
@@ -544,32 +541,24 @@ template {
   overflow: hidden;
 }
 
-.container, .content-container, .footbar-container, .sidebar-location-left .sidebar-posts, .sidebar-location-right .sidebar-posts, .sidebar-location-left
-.sidebar-profiles, .sidebar-location-right
-.sidebar-profiles {
+.container, .content-container, .footbar-container, .content-container-narrow {
   margin: 0 auto;
   padding: 20px;
   width: 100%;
 }
 @media screen and (min-width: 768px) {
-  .container, .content-container, .footbar-container, .sidebar-location-left .sidebar-posts, .sidebar-location-right .sidebar-posts, .sidebar-location-left
-  .sidebar-profiles, .sidebar-location-right
-  .sidebar-profiles {
+  .container, .content-container, .footbar-container, .content-container-narrow {
     max-width: 750px;
     padding: 60px 20px 0;
   }
 }
 @media screen and (min-width: 992px) {
-  .container, .content-container, .footbar-container, .sidebar-location-left .sidebar-posts, .sidebar-location-right .sidebar-posts, .sidebar-location-left
-  .sidebar-profiles, .sidebar-location-right
-  .sidebar-profiles {
+  .container, .content-container, .footbar-container, .content-container-narrow {
     max-width: 970px;
   }
 }
 @media screen and (min-width: 1200px) {
-  .container, .content-container, .footbar-container, .sidebar-location-left .sidebar-posts, .sidebar-location-right .sidebar-posts, .sidebar-location-left
-  .sidebar-profiles, .sidebar-location-right
-  .sidebar-profiles {
+  .container, .content-container, .footbar-container, .content-container-narrow {
     max-width: 1170px;
   }
 }
@@ -600,9 +589,7 @@ template {
 }
 
 .col-margin-1, .col-margin-2, .col-margin-quarter, .col-margin-3, .col-margin-third, .col-margin-4, .col-margin-5, .col-margin-half, .col-margin-6, .col-margin-7, .col-margin-two-third, .col-margin-8, .col-margin-three-quarter, .col-margin-9, .col-margin-10, .col-margin-11, .col-margin-full, .col-margin-12, .col-xs-margin-1, .col-xs-margin-2, .col-xs-margin-quarter, .col-xs-margin-3, .col-xs-margin-third, .col-xs-margin-4, .col-xs-margin-5, .col-xs-margin-half, .col-xs-margin-6, .col-xs-margin-7, .col-xs-margin-two-third, .col-xs-margin-8, .col-xs-margin-three-quarter, .col-xs-margin-9, .col-xs-margin-10, .col-xs-margin-11, .col-xs-margin-full, .col-xs-margin-12, .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half,
-.sidebar-location-bottom .sidebar .widget,
-.sidebar-posts .widget,
-.sidebar-profiles .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12, .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
+.content-container-narrow .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12, .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
   margin-bottom: 2.6%;
   margin-top: 0;
   padding: 20px;
@@ -1113,16 +1100,12 @@ template {
 }
 @media screen and (min-width: 768px) {
   .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half,
-  .sidebar-location-bottom .sidebar .widget,
-  .sidebar-posts .widget,
-  .sidebar-profiles .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12 {
+  .content-container-narrow .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12 {
     margin-left: 2.6%;
   }
 
   .col-sm-margin-parent,
-  .sidebar-location-bottom .sidebar,
-  .sidebar-posts,
-  .sidebar-profiles {
+  .content-container-narrow .sidebar {
     margin-left: -2.6%;
   }
 
@@ -1246,9 +1229,7 @@ template {
     margin-left: 50%;
   }
   .col-sm-margin-half,
-  .sidebar-location-bottom .sidebar .widget,
-  .sidebar-posts .widget,
-  .sidebar-profiles .widget, .col-sm-margin-6 {
+  .content-container-narrow .widget, .col-sm-margin-6 {
     width: 47.4%;
     float: left;
   }
@@ -1435,13 +1416,11 @@ template {
   }
 
   .col-md-third,
-  .has-branding .site-footer-menus, .col-md-4, .sidebar, .sidebar-location-left .sidebar-posts, .sidebar-location-right .sidebar-posts, .sidebar-location-left
-  .sidebar-profiles, .sidebar-location-right
-  .sidebar-profiles, .profile-item-advanced {
+  .has-branding .site-footer-menus, .col-md-4, .content-container .sidebar, .profile-item-advanced {
     width: 33.33333%;
     float: left;
   }
-  .col-md-push-third, .col-md-push-4, .sidebar-location-left .content-area {
+  .col-md-push-third, .col-md-push-4, .sidebar-location-left .content-container .content-area {
     left: 33.33333%;
   }
   .col-md-pull-third, .col-md-pull-4 {
@@ -1510,14 +1489,14 @@ template {
   }
 
   .col-md-two-third,
-  .has-branding .site-footer-brand-assets, .col-md-8, .content-area {
+  .has-branding .site-footer-brand-assets, .col-md-8, .content-container .content-area {
     width: 66.66667%;
     float: left;
   }
   .col-md-push-two-third, .col-md-push-8 {
     left: 66.66667%;
   }
-  .col-md-pull-two-third, .col-md-pull-8, .sidebar-location-left .sidebar, .sidebar-location-left .sidebar-posts, .sidebar-location-left .sidebar-profiles {
+  .col-md-pull-two-third, .col-md-pull-8, .sidebar-location-left .content-container .sidebar, .sidebar-location-left .sidebar {
     right: 66.66667%;
   }
   .col-md-offset-two-third, .col-md-offset-8 {
@@ -1582,16 +1561,7 @@ template {
     float: left;
   }
 
-  .col-md-full,
-  .sidebar-location-bottom .content-area,
-  .blog .content-area,
-  .archive .content-area,
-  .page-template-news .content-area,
-  .single-post .content-area,
-  .single-calendar .content-area,
-  .page-template-profiles .content-area,
-  .post-type-archive-profile .content-area,
-  .single-profile .content-area, .col-md-12 {
+  .col-md-full, .col-md-12 {
     width: 100%;
     float: left;
   }
@@ -1897,10 +1867,6 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 table,
 form,
 .sidebar,
-.sidebar-location-left .sidebar-posts,
-.sidebar-location-right .sidebar-posts,
-.sidebar-location-left .sidebar-profiles,
-.sidebar-location-right .sidebar-profiles,
 .site-footer,
 .site-footer h1,
 .site-footer h2,
@@ -1924,10 +1890,6 @@ form,
   table,
   form,
   .sidebar,
-  .sidebar-location-left .sidebar-posts,
-  .sidebar-location-right .sidebar-posts,
-  .sidebar-location-left .sidebar-profiles,
-  .sidebar-location-right .sidebar-profiles,
   .site-footer,
   .site-footer h1,
   .site-footer h2,
@@ -2668,44 +2630,35 @@ body {
     padding-bottom: 35px;
   }
 }
-.page-template-no-sidebars .content-area {
+.sidebar-location-left .content-container .content-area {
+  position: relative;
+}
+.page-template-no-sidebars .content-area, .error404 .content-area {
   left: 0;
   width: 100%;
 }
 
-.sidebar-location-bottom .sidebar {
-  clear: both;
-  float: none;
-  margin-bottom: 40px;
-  overflow: hidden;
-  padding-left: 0;
-  width: auto;
-}
-
-.sidebar, .sidebar-location-left .sidebar-posts, .sidebar-location-right .sidebar-posts, .sidebar-location-left
-.sidebar-profiles, .sidebar-location-right
-.sidebar-profiles {
+.sidebar {
   clear: none;
 }
 @media screen and (min-width: 992px) {
-  .sidebar, .sidebar-location-left .sidebar-posts, .sidebar-location-right .sidebar-posts, .sidebar-location-left
-  .sidebar-profiles, .sidebar-location-right
-  .sidebar-profiles {
+  .sidebar-location-right .content-container .sidebar {
     padding-left: 3.46667%;
   }
 }
+.sidebar-location-left .content-container .sidebar {
+  position: relative;
+}
 @media screen and (min-width: 992px) {
-  .sidebar-location-left .sidebar, .sidebar-location-left .sidebar-posts, .sidebar-location-left .sidebar-profiles {
-    padding: 0;
+  .sidebar-location-left .content-container .sidebar {
     padding-right: 3.46667%;
   }
 }
 
-@media screen and (min-width: 992px) {
-  .sidebar-location-left .sidebar {
-    padding: 0;
-    padding-right: 3.46667%;
-  }
+.content-container-narrow .sidebar {
+  margin-bottom: 40px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .footbar {
@@ -4042,49 +3995,14 @@ nav a {
   top: 20px;
 }
 
-.sidebar-location-bottom .content-container, .blog .content-container,
-.archive .content-container,
-.page-template-news .content-container, .single-post .content-container, .single-calendar .content-container, .page-template-profiles .content-container,
-.post-type-archive-profile .content-container, .single-profile .content-container {
+.content-container-narrow {
   max-width: 750px;
 }
 
-.sidebar-location-left .content-container,
-.sidebar-location-right .content-container {
-  max-width: 1170px;
-}
-@media screen and (min-width: 992px) {
-  .sidebar-location-left .content-area,
-  .sidebar-location-right .content-area {
-    float: left;
-    width: 66.66667%;
-  }
-}
-
-.sidebar-posts,
-.sidebar-profiles {
-  clear: both;
-  float: none;
-  margin-bottom: 40px;
-  width: auto;
-}
-
-@media screen and (min-width: 992px) {
-  .sidebar-location-left .sidebar-posts, .sidebar-location-right .sidebar-posts, .sidebar-location-left
-  .sidebar-profiles, .sidebar-location-right
-  .sidebar-profiles {
-    clear: none;
-    float: left;
-  }
-}
-.sidebar-location-left .sidebar-posts .widget, .sidebar-location-right .sidebar-posts .widget, .sidebar-location-left
-.sidebar-profiles .widget, .sidebar-location-right
-.sidebar-profiles .widget {
-  margin-bottom: 40px;
-  margin-left: 0;
+.error-404 {
+  left: 0;
   width: 100%;
 }
-
 .error-404 #quicksearch {
   background: transparent !important;
   border: 0;
@@ -4213,11 +4131,6 @@ nav a {
 }
 .calendar-list-event-link:hover, .calendar-list-event-link:focus {
   color: #0f69d7;
-}
-
-.single-calendar .content-area {
-  float: none;
-  margin: 0 auto;
 }
 
 .single-event-schedule {
