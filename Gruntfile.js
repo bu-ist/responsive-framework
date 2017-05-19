@@ -25,9 +25,10 @@ module.exports = function(grunt) {
 			},
 			styles: {
 				files: [
-				'bower_components/responsive-foundation/css-dev/**/*.scss',
-				'!css-dev/customizer/**/*.scss',
-				'css-dev/*.scss'
+					'bower_components/responsive-foundation/css-dev/**/*.scss',
+					'!css-dev/customizer/**/*.scss',
+					'!css-dev/admin.scss',
+					'css-dev/*.scss'
 				],
 				tasks: ['sass:dev', 'sass:prod'],
 				options: {
@@ -36,7 +37,7 @@ module.exports = function(grunt) {
 			},
 			fonts: {
 				files: [
-				'css-dev/customizer/font-palettes/*.scss'
+					'css-dev/customizer/font-palettes/*.scss'
 				],
 				tasks: ['sass:fonts'],
 				options: {
@@ -45,7 +46,7 @@ module.exports = function(grunt) {
 			},
 			admin: {
 				files: [
-				'css-dev/admin.scss'
+					'css-dev/admin.scss'
 				],
 				tasks: ['sass:admin'],
 				options: {
