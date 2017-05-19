@@ -82,7 +82,11 @@ module.exports = function(grunt) {
 			dev: {
 				options: {
 					style: 'expanded',
-					loadPath: 'bower_components/responsive-foundation/css-dev',
+					loadPath: [
+						'bower_components/normalize.scss/sass',
+						'bower_components/mathsass/dist/',
+						'bower_components/responsive-foundation/css-dev'
+					],
 					bundleExec: true
 				},
 				files: {
@@ -93,7 +97,11 @@ module.exports = function(grunt) {
 			prod: {
 				options: {
 					style: 'compressed',
-					loadPath: 'bower_components/responsive-foundation/css-dev',
+					loadPath: [
+						'bower_components/normalize.scss/sass',
+						'bower_components/mathsass/dist/',
+						'bower_components/responsive-foundation/css-dev'
+					],
 					bundleExec: true
 				},
 				files: {
