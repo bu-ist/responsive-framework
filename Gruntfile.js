@@ -25,7 +25,6 @@ module.exports = function(grunt) {
 			},
 			styles: {
 				files: [
-				'bower_components/responsive-foundation/css-dev/**/*.scss',
 				'!css-dev/customizer/**/*.scss',
 				'css-dev/*.scss'
 				],
