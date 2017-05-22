@@ -6,6 +6,7 @@ $_customizer-description-color: #999;
 	input {
 		display: none;
 	}
+
 	// Active styles
 	input:checked + label::after {
 		border: 4px solid $_customizer-selected-color;
@@ -34,11 +35,13 @@ $_customizer-description-color: #999;
 	// Styles for the layout selector images
 	label {
 		@extend %admin-sprite-label;
+		margin-left: 0;
 
 		// For everyone
 		&::after {
 			@extend %admin-sprite-background;
 			height: 129px;
+			margin: 0 auto;
 			padding: 4px;
 			width: 227px;
 		}
@@ -111,10 +114,21 @@ $_customizer-description-color: #999;
 	.customize-control-description {
 		color: $_customizer-description-color;
 		display: none;
-		margin-left: 24px;
+	}
+
+	.customize-section-description {
+		p {
+			margin-top: 1em;
+		}
 	}
 
 	[disabled] + .customize-control-description {
+		display: block;
+	}
+}
+
+#customize-control-bu_branding-has_disclaimer {
+	.customize-control-description {
 		display: block;
 	}
 }
