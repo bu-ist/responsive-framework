@@ -88,11 +88,11 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 	}
 
 	/**
-	 * Test Responsive 2.0 upgrade routine.
+	 * Test Responsive 2.0 upgrade routine for banner positions.
 	 *
 	 * @expectedIncorrectUsage wpdb::prepare
 	 */
-	function test_responsive_upgrade_2_0() {
+	function test_responsive_upgrade_2_0_banner_positions() {
 		$test_page_id_1 = $this->factory->post->create( array(
 			'post_title' => 'Test Page 1',
 			'post_type' => 'page',
@@ -129,5 +129,25 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 		$this->assertEquals( array( 'position' => 'content-width' ), get_post_meta( $test_page_id_1, '_bu_banner', true ) );
 		$this->assertEquals( array( 'position' => 'page-width' ), get_post_meta( $test_page_id_2, '_bu_banner', true ) );
 		$this->assertEquals( array( 'position' => 'window-width' ), get_post_meta( $test_page_id_3, '_bu_banner', true ) );
+	}
+
+	/**
+	 * Test Responsive 2.0 upgrade routine for layour names.
+	 *
+	 * @expectedIncorrectUsage wpdb::prepare
+	 */
+	function test_responsive_upgrade_2_0_layout_names() {
+
+		update_option( 'burf_setting_layout', 'topNav' );
+		responsive_upgrade_2_0( false );
+		$this->assertEquals( 'top-nav', get_option( 'burf_setting_layout' ) );
+
+		update_option( 'burf_setting_layout', 'sideNav' );
+		responsive_upgrade_2_0( false );
+		$this->assertEquals( 'side-nav', get_option( 'burf_setting_layout' ) );
+
+		update_option( 'burf_setting_layout', 'noNav' );
+		responsive_upgrade_2_0( false );
+		$this->assertEquals( 'no-nav', get_option( 'burf_setting_layout' ) );
 	}
 }

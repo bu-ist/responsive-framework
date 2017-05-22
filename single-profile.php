@@ -21,29 +21,60 @@ get_header(); ?>
 		?>
 
 		<article <?php post_class( 'content-area' ); ?>>
-
-			<h1 class="name"><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h1>
-			<h2 class="title"><?php bu_profile_detail( 'title' ); ?></h2>
-
 			<?php if ( $profile_thumb ) : ?>
-				<div class="profile-thumb"><figure><?php echo wp_kses_post( $profile_thumb ); ?></figure></div>
+				<figure class="profile-photo profile-single-photo"><?php echo wp_kses_post( $profile_thumb ); ?></figure>
 			<?php endif; ?>
 
+			<h1 class="profile-single-name"><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h1>
+			<h2 class="profile-single-title"><?php bu_profile_detail( 'title' ); ?></h2>
+
 			<?php if ( $has_details ) : ?>
-				<div class="profile-info">
-					<ul>
-						<?php bu_profile_detail( 'title', array( 'before' => '<li class="title"><span class="label">Title </span>', 'after' => '</li>', 'post_id' => get_the_ID(), 'format' => 'multi-line' ) ); ?>
-						<?php bu_profile_detail( 'office', array( 'before' => '<li class="office"><span class="label">Office </span>', 'after' => '</li>', 'post_id' => get_the_ID(), 'format' => 'multi-line' ) ); ?>
-						<?php bu_profile_detail( 'email', array( 'before' => '<li class="email"><span class="label">Email </span>', 'after' => '</li>', 'post_id' => get_the_ID(), 'format' => 'email' ) ); ?>
-						<?php bu_profile_detail( 'phone', array( 'before' => '<li class="phone"><span class="label">Phone </span>', 'after' => '</li>', 'post_id' => get_the_ID() ) ); ?>
-						<?php bu_profile_detail( 'education', array( 'before' => '<li class="education"><span class="label">Education </span>', 'after' => '</li>', 'post_id' => get_the_ID(), 'format' => 'multi-line' ) ); ?>
+				<div class="profile-single-details">
+					<ul class="profile-details-list">
+						<?php
+
+						bu_profile_detail( 'title', array(
+							'before' => '<li class="profile-details-item profile-details-title"><span class="label profile-details-label">Title </span>',
+							'after' => '</li>',
+							'post_id' => get_the_ID(),
+							'format' => 'multi-line',
+						) );
+
+						bu_profile_detail( 'office', array(
+							'before' => '<li class="profile-details-item profile-details-office"><span class="label profile-details-label">Office </span>',
+							'after' => '</li>',
+							'post_id' => get_the_ID(),
+							'format' => 'multi-line',
+						) );
+
+						bu_profile_detail( 'email', array(
+							'before' => '<li class="profile-details-item profile-details-email"><span class="label profile-details-label">Email </span>',
+							'after' => '</li>',
+							'post_id' => get_the_ID(),
+							'format' => 'email',
+						) );
+
+						bu_profile_detail( 'phone', array(
+							'before' => '<li class="profile-details-item profile-details-phone"><span class="label profile-details-label">Phone </span>',
+							'after' => '</li>',
+							'post_id' => get_the_ID(),
+						) );
+
+						bu_profile_detail( 'education', array(
+							'before' => '<li class="profile-details-item profile-details-education"><span class="label profile-details-label">Education </span>',
+							'after' => '</li>',
+							'post_id' => get_the_ID(),
+							'format' => 'multi-line',
+						) );
+
+						?>
 					</ul>
 				</div><!--/.profile-info-->
 
 			<?php endif; ?>
 
 			<?php if ( get_the_content() !== '' ) : ?>
-				<div class="profile-bio">
+				<div class="profile-single-bio">
 					<?php the_content(); ?>
 				</div><!--/.profile-bio-->
 			<?php endif; ?>
