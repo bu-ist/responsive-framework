@@ -302,6 +302,118 @@ function responsive_change_title_tag( $attr, $page ) {
 add_filter( 'bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 10, 2 );
 
 /**
+ * Checks if the current content is considered narrow.
+ *
+ * By default, this function returns true for the following:
+ *
+ * - Single profiles
+ * - Single posts
+ * - Single calendar events
+ * - Profile archives
+ * - Post archives
+ *
+ * @return bool Whether this is narrow content.
+ */
+function r_is_narrow_template() {
+	$is_narrow_template = false;
+
+	$sidebar_position = (string) get_option( 'burf_setting_sidebar_location', 'right' );
+
+	if ( 'bottom' === $sidebar_position ) {
+		$is_narrow_template = true;
+	}
+
+	// Check for single calendar events. These are always narrow.
+	if ( ! $is_narrow_template && ! empty( $_GET['eid'] ) ) {
+		$is_narrow_template = true;
+	}
+
+	$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom', false );
+
+	if ( ! $is_narrow_template && ! $narrow_enabled ) {
+		return false;
+	}
+
+	/**
+	 * Filters whether the blog page (post type archive) should be considered narrow.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param bool true Default for checking is_home() conditional.
+	 */
+	$blog_page_narrow = (bool) apply_filters( 'r_narrow_blog_page', true );
+
+	if ( ! $is_narrow_template && $blog_page_narrow && is_home() ) {
+		$is_narrow_template = true;
+	}
+
+	$single_post_types = array(
+		'profile',
+		'post',
+	);
+
+	/**
+	 * Filters post types to consider narrow when is_singular() is true.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array $narrow_single_post_types List of post types.
+	 */
+	$single_post_types = apply_filters( 'r_narrow_single_templates', $single_post_types );
+
+	if ( ! $is_narrow_template && ! empty( $single_post_types ) && is_singular( (array) $single_post_types ) ) {
+		$is_narrow_template = true;
+	}
+
+	$archive_post_types = array(
+		'profile',
+		'post',
+	);
+
+	/**
+	 * Filters post types to consider narrow when is_post_type_archive() is true.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array $archive_post_types List of post types.
+	 */
+	$archive_post_types = apply_filters( 'r_narrow_archive_templates', $archive_post_types );
+
+	if ( ! $is_narrow_template && ! empty( $archive_post_types ) && is_post_type_archive( (array) $archive_post_types ) ) {
+		$is_narrow_template = true;
+	}
+
+	$page_templates = array(
+		'page-templates/news.php',
+		'profiles.php',
+	);
+
+	/**
+	 * Filters page templates to consider narrow when is_page_template() is true.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array $page_templates List of page templates.
+	 */
+	$page_templates = apply_filters( 'r_narrow_page_templates', $page_templates );
+
+	if ( ! $is_narrow_template && ! empty( $page_templates ) && is_page_template( (array) $page_templates ) ) {
+		$is_narrow_template = true;
+	}
+
+	/**
+	 * Filters the final result of checking for a narrow template.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param bool $is_narrow_template Whether this is a narrow template.
+	 */
+	$is_narrow_template = apply_filters( 'r_is_narrow_template', $is_narrow_template );
+
+	return $is_narrow_template;
+}
+
+/**
  * Displays the classes for the main content container.
  *
  * @since 2.0.0
@@ -309,9 +421,13 @@ add_filter( 'bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 
  * @param string|array $class One or more classes to add to the class list.
  */
 function r_content_container_class( $class = '' ) {
-	$classes = array(
-		'content-container',
-	);
+	$classes = array();
+
+	if ( r_is_narrow_template() ) {
+		$classes[] = 'content-container-narrow';
+	} else {
+		$classes[] = 'content-container';
+	}
 
 	if ( $class ) {
 		if ( ! is_array( $class ) ) {

@@ -96,7 +96,7 @@
 				 */
 				do_action( 'r_before_opening_content_container' );
 			?>
-			<main role="main" <?php r_content_container_class( array( 'test', 'classes' ) ); ?>>
+			<main role="main" <?php r_content_container_class( array() ); ?>>
 				<?php
 					/**
 					 * Fires immediately after the opening content container div.
