@@ -153,12 +153,59 @@ module.exports = function(grunt) {
 				}
 			}
  		},
-		modernizr_builder: {
-			build: {
-				options: {
-					config: 'modernizr-config.json',
-					dest: 'js/vendor/modernizr.js'
-				}
+		modernizr: {
+			dist: {
+				"parseFiles": false,
+				"dest": "js/vendor/modernizr.js",
+				"tests": [
+					"audio",
+					"canvas",
+					"canvastext",
+					"geolocation",
+					"hashchange",
+					"postmessage",
+					"requestanimationframe",
+					"svg",
+					"video",
+					"webgl",
+					"cssanimations",
+					"backgroundsize",
+					"borderimage",
+					"borderradius",
+					"boxshadow",
+					"csscolumns",
+					"flexbox",
+					"flexboxlegacy",
+					"fontface",
+					"generatedcontent",
+					"cssgradients",
+					"hsla",
+					"multiplebgs",
+					"opacity",
+					"cssreflections",
+					"rgba",
+					"textshadow",
+					"csstransforms",
+					"csstransforms3d",
+					"csstransitions",
+					"localstorage",
+					"svgclippaths",
+					"inlinesvg",
+					"smil",
+					"videoautoplay"
+				],
+				"options": [
+					"domPrefixes",
+					"prefixes",
+					"hasEvent",
+					"prefixed",
+					"testAllProps",
+					"testProp",
+					"testStyles",
+					"html5printshiv",
+					"setClasses"
+				],
+				"uglify": false
 			}
 		}
 	});
@@ -172,12 +219,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-version');
 	grunt.loadNpmTasks( 'grunt-bower-task' );
-	grunt.loadNpmTasks( 'grunt-modernizr-builder' );
+	grunt.loadNpmTasks( 'grunt-modernizr' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask('install', ['copy:hooks', 'build']);
 	grunt.registerTask('default', ['bower:install', 'watch']);
-	grunt.registerTask( 'modernizr', [ 'modernizr_builder' ] );
+	grunt.registerTask( 'upgrade_modernizer', [ 'modernizr:dist', 'uglify' ] );
 	grunt.registerTask( 'build', ['bower:install', 'sass', 'concat', 'uglify'] );
 
 };
