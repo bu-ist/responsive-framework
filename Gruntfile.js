@@ -224,7 +224,7 @@ module.exports = function(grunt) {
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask('install', ['copy:hooks', 'build']);
 	grunt.registerTask('default', ['bower:install', 'watch']);
-	grunt.registerTask( 'upgrade_modernizer', [ 'modernizr:dist', 'uglify' ] );
+	grunt.registerTask( 'upgrade_modernizr', [ 'modernizr:dist', 'uglify' ] );
 	grunt.registerTask( 'build', ['bower:install', 'sass', 'concat', 'uglify'] );
 
 };
