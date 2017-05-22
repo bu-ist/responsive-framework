@@ -135,6 +135,13 @@ module.exports = function(grunt) {
 					prefix: 'Version:\\s*'
 				},
 				src: ['css-dev/style.scss']
+			},
+			modernizr: {
+				options: {
+					pkg: 'node_modules/grunt-modernizr/node_modules/customizr/node_modules/modernizr/package.json',
+					prefix: '[\'"]RESPONSIVE_MODERNIZR_VERSION[\'"],\\s*\''
+				},
+				src: ['functions.php']
 			}
 		},
 		copy: {
@@ -224,7 +231,7 @@ module.exports = function(grunt) {
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask('install', ['copy:hooks', 'build']);
 	grunt.registerTask('default', ['bower:install', 'watch']);
-	grunt.registerTask( 'upgrade_modernizer', [ 'modernizr:dist', 'uglify' ] );
+	grunt.registerTask( 'upgrade_modernizer', [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
 	grunt.registerTask( 'build', ['bower:install', 'sass', 'concat', 'uglify'] );
 
 };
