@@ -745,14 +745,14 @@ figure {
 }
 
 .col-margin-1, .col-margin-2, .col-margin-quarter, .col-margin-3, .col-margin-third, .col-margin-4, .col-margin-5, .col-margin-half, .col-margin-6, .col-margin-7, .col-margin-two-third, .col-margin-8, .col-margin-three-quarter, .col-margin-9, .col-margin-10, .col-margin-11, .col-margin-full, .col-margin-12, .col-xs-margin-1, .col-xs-margin-2, .col-xs-margin-quarter, .col-xs-margin-3, .col-xs-margin-third, .col-xs-margin-4, .col-xs-margin-5, .col-xs-margin-half, .col-xs-margin-6, .col-xs-margin-7, .col-xs-margin-two-third, .col-xs-margin-8, .col-xs-margin-three-quarter, .col-xs-margin-9, .col-xs-margin-10, .col-xs-margin-11, .col-xs-margin-full, .col-xs-margin-12, .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half,
-.content-container-narrow .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12, .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
-  margin-bottom: 2.6%;
+.content-container-narrow .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12, .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .no-csscolumns .footbar-container .widget, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12, .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
+  margin-bottom: 2.5641%;
   margin-top: 0;
   padding: 20px;
 }
 
 .col-margin-parent {
-  margin-left: -2.6%;
+  margin-left: -2.5641%;
 }
 
 .col-1 {
@@ -828,7 +828,7 @@ figure {
 }
 
 .col-margin-1 {
-  width: 5.73333%;
+  width: 5.76923%;
   float: left;
 }
 
@@ -845,7 +845,7 @@ figure {
 }
 
 .col-margin-2 {
-  width: 14.06667%;
+  width: 14.10256%;
   float: left;
 }
 
@@ -862,7 +862,7 @@ figure {
 }
 
 .col-margin-quarter, .col-margin-3 {
-  width: 22.4%;
+  width: 22.4359%;
   float: left;
 }
 
@@ -879,7 +879,7 @@ figure {
 }
 
 .col-margin-third, .col-margin-4 {
-  width: 30.73333%;
+  width: 30.76923%;
   float: left;
 }
 
@@ -896,7 +896,7 @@ figure {
 }
 
 .col-margin-5 {
-  width: 39.06667%;
+  width: 39.10256%;
   float: left;
 }
 
@@ -913,7 +913,7 @@ figure {
 }
 
 .col-margin-half, .col-margin-6 {
-  width: 47.4%;
+  width: 47.4359%;
   float: left;
 }
 
@@ -930,7 +930,7 @@ figure {
 }
 
 .col-margin-7 {
-  width: 55.73333%;
+  width: 55.76923%;
   float: left;
 }
 
@@ -947,7 +947,7 @@ figure {
 }
 
 .col-margin-two-third, .col-margin-8 {
-  width: 64.06667%;
+  width: 64.10256%;
   float: left;
 }
 
@@ -964,7 +964,7 @@ figure {
 }
 
 .col-margin-three-quarter, .col-margin-9 {
-  width: 72.4%;
+  width: 72.4359%;
   float: left;
 }
 
@@ -981,7 +981,7 @@ figure {
 }
 
 .col-margin-10 {
-  width: 80.73333%;
+  width: 80.76923%;
   float: left;
 }
 
@@ -998,7 +998,7 @@ figure {
 }
 
 .col-margin-11 {
-  width: 89.06667%;
+  width: 89.10256%;
   float: left;
 }
 
@@ -1015,17 +1015,17 @@ figure {
 }
 
 .col-margin-full, .col-margin-12 {
-  width: 97.4%;
+  width: 97.4359%;
   float: left;
 }
 
 @media screen and (min-width: 500px) {
   .col-xs-margin-1, .col-xs-margin-2, .col-xs-margin-quarter, .col-xs-margin-3, .col-xs-margin-third, .col-xs-margin-4, .col-xs-margin-5, .col-xs-margin-half, .col-xs-margin-6, .col-xs-margin-7, .col-xs-margin-two-third, .col-xs-margin-8, .col-xs-margin-three-quarter, .col-xs-margin-9, .col-xs-margin-10, .col-xs-margin-11, .col-xs-margin-full, .col-xs-margin-12 {
-    margin-left: 2.6%;
+    margin-left: 2.5641%;
   }
 
   .col-xs-margin-parent {
-    margin-left: -2.6%;
+    margin-left: -2.5641%;
   }
 
   .col-xs-push-remove, .col-xs-push-0 {
@@ -1052,7 +1052,7 @@ figure {
     margin-left: 8.33333%;
   }
   .col-xs-margin-1 {
-    width: 5.73333%;
+    width: 5.76923%;
     float: left;
   }
 
@@ -1070,7 +1070,7 @@ figure {
     margin-left: 16.66667%;
   }
   .col-xs-margin-2 {
-    width: 14.06667%;
+    width: 14.10256%;
     float: left;
   }
 
@@ -1088,7 +1088,7 @@ figure {
     margin-left: 25%;
   }
   .col-xs-margin-quarter, .col-xs-margin-3 {
-    width: 22.4%;
+    width: 22.4359%;
     float: left;
   }
 
@@ -1106,7 +1106,7 @@ figure {
     margin-left: 33.33333%;
   }
   .col-xs-margin-third, .col-xs-margin-4 {
-    width: 30.73333%;
+    width: 30.76923%;
     float: left;
   }
 
@@ -1124,7 +1124,7 @@ figure {
     margin-left: 41.66667%;
   }
   .col-xs-margin-5 {
-    width: 39.06667%;
+    width: 39.10256%;
     float: left;
   }
 
@@ -1142,7 +1142,7 @@ figure {
     margin-left: 50%;
   }
   .col-xs-margin-half, .col-xs-margin-6 {
-    width: 47.4%;
+    width: 47.4359%;
     float: left;
   }
 
@@ -1160,7 +1160,7 @@ figure {
     margin-left: 58.33333%;
   }
   .col-xs-margin-7 {
-    width: 55.73333%;
+    width: 55.76923%;
     float: left;
   }
 
@@ -1178,7 +1178,7 @@ figure {
     margin-left: 66.66667%;
   }
   .col-xs-margin-two-third, .col-xs-margin-8 {
-    width: 64.06667%;
+    width: 64.10256%;
     float: left;
   }
 
@@ -1196,7 +1196,7 @@ figure {
     margin-left: 75%;
   }
   .col-xs-margin-three-quarter, .col-xs-margin-9 {
-    width: 72.4%;
+    width: 72.4359%;
     float: left;
   }
 
@@ -1214,7 +1214,7 @@ figure {
     margin-left: 83.33333%;
   }
   .col-xs-margin-10 {
-    width: 80.73333%;
+    width: 80.76923%;
     float: left;
   }
 
@@ -1232,7 +1232,7 @@ figure {
     margin-left: 91.66667%;
   }
   .col-xs-margin-11 {
-    width: 89.06667%;
+    width: 89.10256%;
     float: left;
   }
 
@@ -1250,19 +1250,19 @@ figure {
     margin-left: 100%;
   }
   .col-xs-margin-full, .col-xs-margin-12 {
-    width: 97.4%;
+    width: 97.4359%;
     float: left;
   }
 }
 @media screen and (min-width: 768px) {
   .col-sm-margin-1, .col-sm-margin-2, .col-sm-margin-quarter, .col-sm-margin-3, .col-sm-margin-third, .col-sm-margin-4, .col-sm-margin-5, .col-sm-margin-half,
   .content-container-narrow .widget, .col-sm-margin-6, .col-sm-margin-7, .col-sm-margin-two-third, .col-sm-margin-8, .col-sm-margin-three-quarter, .col-sm-margin-9, .col-sm-margin-10, .col-sm-margin-11, .col-sm-margin-full, .col-sm-margin-12 {
-    margin-left: 2.6%;
+    margin-left: 2.5641%;
   }
 
   .col-sm-margin-parent,
   .content-container-narrow .sidebar {
-    margin-left: -2.6%;
+    margin-left: -2.5641%;
   }
 
   .col-sm-push-remove, .col-sm-push-0 {
@@ -1289,7 +1289,7 @@ figure {
     margin-left: 8.33333%;
   }
   .col-sm-margin-1 {
-    width: 5.73333%;
+    width: 5.76923%;
     float: left;
   }
 
@@ -1307,7 +1307,7 @@ figure {
     margin-left: 16.66667%;
   }
   .col-sm-margin-2 {
-    width: 14.06667%;
+    width: 14.10256%;
     float: left;
   }
 
@@ -1325,7 +1325,7 @@ figure {
     margin-left: 25%;
   }
   .col-sm-margin-quarter, .col-sm-margin-3 {
-    width: 22.4%;
+    width: 22.4359%;
     float: left;
   }
 
@@ -1344,7 +1344,7 @@ figure {
     margin-left: 33.33333%;
   }
   .col-sm-margin-third, .col-sm-margin-4 {
-    width: 30.73333%;
+    width: 30.76923%;
     float: left;
   }
 
@@ -1362,7 +1362,7 @@ figure {
     margin-left: 41.66667%;
   }
   .col-sm-margin-5 {
-    width: 39.06667%;
+    width: 39.10256%;
     float: left;
   }
 
@@ -1386,7 +1386,7 @@ figure {
   }
   .col-sm-margin-half,
   .content-container-narrow .widget, .col-sm-margin-6 {
-    width: 47.4%;
+    width: 47.4359%;
     float: left;
   }
 
@@ -1404,7 +1404,7 @@ figure {
     margin-left: 58.33333%;
   }
   .col-sm-margin-7 {
-    width: 55.73333%;
+    width: 55.76923%;
     float: left;
   }
 
@@ -1422,7 +1422,7 @@ figure {
     margin-left: 66.66667%;
   }
   .col-sm-margin-two-third, .col-sm-margin-8 {
-    width: 64.06667%;
+    width: 64.10256%;
     float: left;
   }
 
@@ -1440,7 +1440,7 @@ figure {
     margin-left: 75%;
   }
   .col-sm-margin-three-quarter, .col-sm-margin-9 {
-    width: 72.4%;
+    width: 72.4359%;
     float: left;
   }
 
@@ -1458,7 +1458,7 @@ figure {
     margin-left: 83.33333%;
   }
   .col-sm-margin-10 {
-    width: 80.73333%;
+    width: 80.76923%;
     float: left;
   }
 
@@ -1476,7 +1476,7 @@ figure {
     margin-left: 91.66667%;
   }
   .col-sm-margin-11 {
-    width: 89.06667%;
+    width: 89.10256%;
     float: left;
   }
 
@@ -1494,17 +1494,17 @@ figure {
     margin-left: 100%;
   }
   .col-sm-margin-full, .col-sm-margin-12 {
-    width: 97.4%;
+    width: 97.4359%;
     float: left;
   }
 }
 @media screen and (min-width: 992px) {
-  .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12 {
-    margin-left: 2.6%;
+  .col-md-margin-1, .col-md-margin-2, .col-md-margin-quarter, .col-md-margin-3, .col-md-margin-third, .col-md-margin-4, .no-csscolumns .footbar-container .widget, .col-md-margin-5, .col-md-margin-half, .col-md-margin-6, .col-md-margin-7, .col-md-margin-two-third, .col-md-margin-8, .col-md-margin-three-quarter, .col-md-margin-9, .col-md-margin-10, .col-md-margin-11, .col-md-margin-full, .col-md-margin-12 {
+    margin-left: 2.5641%;
   }
 
   .col-md-margin-parent {
-    margin-left: -2.6%;
+    margin-left: -2.5641%;
   }
 
   .col-md-push-remove, .col-md-push-0 {
@@ -1531,7 +1531,7 @@ figure {
     margin-left: 8.33333%;
   }
   .col-md-margin-1 {
-    width: 5.73333%;
+    width: 5.76923%;
     float: left;
   }
 
@@ -1549,7 +1549,7 @@ figure {
     margin-left: 16.66667%;
   }
   .col-md-margin-2 {
-    width: 14.06667%;
+    width: 14.10256%;
     float: left;
   }
 
@@ -1567,7 +1567,7 @@ figure {
     margin-left: 25%;
   }
   .col-md-margin-quarter, .col-md-margin-3 {
-    width: 22.4%;
+    width: 22.4359%;
     float: left;
   }
 
@@ -1585,8 +1585,8 @@ figure {
   .col-md-offset-third, .col-md-offset-4 {
     margin-left: 33.33333%;
   }
-  .col-md-margin-third, .col-md-margin-4 {
-    width: 30.73333%;
+  .col-md-margin-third, .col-md-margin-4, .no-csscolumns .footbar-container .widget {
+    width: 30.76923%;
     float: left;
   }
 
@@ -1604,7 +1604,7 @@ figure {
     margin-left: 41.66667%;
   }
   .col-md-margin-5 {
-    width: 39.06667%;
+    width: 39.10256%;
     float: left;
   }
 
@@ -1622,7 +1622,7 @@ figure {
     margin-left: 50%;
   }
   .col-md-margin-half, .col-md-margin-6 {
-    width: 47.4%;
+    width: 47.4359%;
     float: left;
   }
 
@@ -1640,7 +1640,7 @@ figure {
     margin-left: 58.33333%;
   }
   .col-md-margin-7 {
-    width: 55.73333%;
+    width: 55.76923%;
     float: left;
   }
 
@@ -1659,7 +1659,7 @@ figure {
     margin-left: 66.66667%;
   }
   .col-md-margin-two-third, .col-md-margin-8 {
-    width: 64.06667%;
+    width: 64.10256%;
     float: left;
   }
 
@@ -1677,7 +1677,7 @@ figure {
     margin-left: 75%;
   }
   .col-md-margin-three-quarter, .col-md-margin-9 {
-    width: 72.4%;
+    width: 72.4359%;
     float: left;
   }
 
@@ -1695,7 +1695,7 @@ figure {
     margin-left: 83.33333%;
   }
   .col-md-margin-10 {
-    width: 80.73333%;
+    width: 80.76923%;
     float: left;
   }
 
@@ -1713,7 +1713,7 @@ figure {
     margin-left: 91.66667%;
   }
   .col-md-margin-11 {
-    width: 89.06667%;
+    width: 89.10256%;
     float: left;
   }
 
@@ -1731,17 +1731,17 @@ figure {
     margin-left: 100%;
   }
   .col-md-margin-full, .col-md-margin-12 {
-    width: 97.4%;
+    width: 97.4359%;
     float: left;
   }
 }
 @media screen and (min-width: 1200px) {
   .col-lg-margin-1, .col-lg-margin-2, .col-lg-margin-quarter, .col-lg-margin-3, .col-lg-margin-third, .col-lg-margin-4, .col-lg-margin-5, .col-lg-margin-half, .col-lg-margin-6, .col-lg-margin-7, .col-lg-margin-two-third, .col-lg-margin-8, .col-lg-margin-three-quarter, .col-lg-margin-9, .col-lg-margin-10, .col-lg-margin-11, .col-lg-margin-full, .col-lg-margin-12 {
-    margin-left: 2.6%;
+    margin-left: 2.5641%;
   }
 
   .col-lg-margin-parent {
-    margin-left: -2.6%;
+    margin-left: -2.5641%;
   }
 
   .col-lg-push-remove, .col-lg-push-0 {
@@ -1768,7 +1768,7 @@ figure {
     margin-left: 8.33333%;
   }
   .col-lg-margin-1 {
-    width: 5.73333%;
+    width: 5.76923%;
     float: left;
   }
 
@@ -1786,7 +1786,7 @@ figure {
     margin-left: 16.66667%;
   }
   .col-lg-margin-2 {
-    width: 14.06667%;
+    width: 14.10256%;
     float: left;
   }
 
@@ -1804,7 +1804,7 @@ figure {
     margin-left: 25%;
   }
   .col-lg-margin-quarter, .col-lg-margin-3 {
-    width: 22.4%;
+    width: 22.4359%;
     float: left;
   }
 
@@ -1822,7 +1822,7 @@ figure {
     margin-left: 33.33333%;
   }
   .col-lg-margin-third, .col-lg-margin-4 {
-    width: 30.73333%;
+    width: 30.76923%;
     float: left;
   }
 
@@ -1840,7 +1840,7 @@ figure {
     margin-left: 41.66667%;
   }
   .col-lg-margin-5 {
-    width: 39.06667%;
+    width: 39.10256%;
     float: left;
   }
 
@@ -1858,7 +1858,7 @@ figure {
     margin-left: 50%;
   }
   .col-lg-margin-half, .col-lg-margin-6 {
-    width: 47.4%;
+    width: 47.4359%;
     float: left;
   }
 
@@ -1876,7 +1876,7 @@ figure {
     margin-left: 58.33333%;
   }
   .col-lg-margin-7 {
-    width: 55.73333%;
+    width: 55.76923%;
     float: left;
   }
 
@@ -1894,7 +1894,7 @@ figure {
     margin-left: 66.66667%;
   }
   .col-lg-margin-two-third, .col-lg-margin-8 {
-    width: 64.06667%;
+    width: 64.10256%;
     float: left;
   }
 
@@ -1912,7 +1912,7 @@ figure {
     margin-left: 75%;
   }
   .col-lg-margin-three-quarter, .col-lg-margin-9 {
-    width: 72.4%;
+    width: 72.4359%;
     float: left;
   }
 
@@ -1930,7 +1930,7 @@ figure {
     margin-left: 83.33333%;
   }
   .col-lg-margin-10 {
-    width: 80.73333%;
+    width: 80.76923%;
     float: left;
   }
 
@@ -1948,7 +1948,7 @@ figure {
     margin-left: 91.66667%;
   }
   .col-lg-margin-11 {
-    width: 89.06667%;
+    width: 89.10256%;
     float: left;
   }
 
@@ -1966,7 +1966,7 @@ figure {
     margin-left: 100%;
   }
   .col-lg-margin-full, .col-lg-margin-12 {
-    width: 97.4%;
+    width: 97.4359%;
     float: left;
   }
 }
@@ -2166,7 +2166,7 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
   margin-top: 0;
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  color: #9f9f9f;
+  color: #999;
   font-size: 0.75em;
   font-weight: normal;
 }
@@ -2176,7 +2176,7 @@ abbr[title] {
 }
 
 blockquote {
-  margin: 1em 40px;
+  margin: 1em 60px;
 }
 
 p,
@@ -2204,7 +2204,7 @@ ul {
 }
 
 dd {
-  margin: 0 0 0 40px;
+  margin: 0 0 0 30px;
 }
 
 menu,
@@ -2228,7 +2228,7 @@ ol ol {
 
 code {
   background: #f5f5f5;
-  color: #7a7a7a;
+  color: #777;
   padding: 0.2em 0.4em;
   white-space: nowrap;
 }
@@ -2255,11 +2255,11 @@ code {
 table {
   border: 1px solid #ddd;
   empty-cells: show;
-  margin: 35px 0;
+  margin: 30px 0;
   width: 100%;
 }
 table caption {
-  color: #9f9f9f;
+  color: #999;
   font-style: italic;
   padding: 0 0 10px;
   text-align: center;
@@ -2328,7 +2328,7 @@ button,
 .button-selected, .paging-navigation a, .archive-link {
   background-color: #eee;
   border-radius: 2px;
-  border: 1px solid #9f9f9f;
+  border: 1px solid #999;
   border: none transparent;
   color: #444;
   display: inline-block;
@@ -2444,7 +2444,7 @@ legend {
   border-width: 0 0 1px 0;
   display: block;
   font-weight: 700;
-  margin: 0 0 20px;
+  margin: 0 0 30px;
   padding: 0 0 4px;
   width: 100%;
 }
@@ -2562,7 +2562,7 @@ textarea:focus {
 [readonly] {
   background: #eee;
   border-color: #ccc;
-  color: #7a7a7a;
+  color: #777;
 }
 
 input:focus:invalid,
@@ -2587,7 +2587,7 @@ select[multiple] {
 }
 
 .form-row {
-  margin: 0 0 10px;
+  margin: 0 0 30px;
 }
 
 .form-controls {
@@ -2656,7 +2656,7 @@ textarea {
   }
   .form-aligned .form-row-checkbox,
   .form-aligned .form-row-radio {
-    margin: 0 0 10px;
+    margin: 0 0 30px;
     margin-left: 220px;
   }
   .form-aligned .form-controls {
@@ -2675,6 +2675,150 @@ textarea {
 }
 .gform_wrapper [type="radio"] {
   margin-left: 1px;
+}
+
+.color-grayscale-0 {
+  background-color: #000;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-1 {
+  background-color: #111;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-2 {
+  background-color: #222;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-3 {
+  background-color: #333;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-4 {
+  background-color: #444;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-5 {
+  background-color: #555;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-6 {
+  background-color: #666;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-7 {
+  background-color: #777;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-8 {
+  background-color: #888;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-9 {
+  background-color: #999;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-a {
+  background-color: #aaa;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-b {
+  background-color: #bbb;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-c {
+  background-color: #ccc;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-d {
+  background-color: #ddd;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-e {
+  background-color: #eee;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-f0 {
+  background-color: #f0f0f0;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-f5 {
+  background-color: #f5f5f5;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.color-grayscale-f {
+  background-color: #fff;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
 }
 
 .bu_collapsible_container {
@@ -2709,7 +2853,7 @@ textarea {
 }
 .cf-course {
   border-top: 1px solid #ddd;
-  margin-top: 2em;
+  margin-top: 60px;
   padding-top: 2em;
 }
 .cf-course:first-child {
@@ -2722,7 +2866,7 @@ textarea {
 }
 
 .cf-course-id {
-  color: #7a7a7a;
+  color: #777;
   display: block;
   font-family: "Benton", "Helvetica", sans-serif;
   font-size: 0.5em;
@@ -2979,7 +3123,7 @@ textarea {
 }
 
 .bu-slideshow-container {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   text-align: center;
   z-index: 1;
 }
@@ -3008,7 +3152,7 @@ textarea {
 }
 
 .alignright, .alignleft {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   max-width: 100%;
 }
 @media screen and (min-width: 500px) {
@@ -3020,20 +3164,20 @@ textarea {
 @media screen and (min-width: 500px) {
   .alignright {
     float: right;
-    margin: 0 0 10px 10px;
+    margin: 0 0 15px 15px;
   }
 }
 
 @media screen and (min-width: 500px) {
   .alignleft {
     float: left;
-    margin: 0 10px 10px 0;
+    margin: 0 15px 15px 0;
   }
 }
 
 .aligncenter {
   display: block;
-  margin: 0 auto 10px;
+  margin: 0 auto 15px;
 }
 
 .wp-caption-text {
@@ -3077,7 +3221,7 @@ textarea {
 }
 
 .widget {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 .widget h1,
 .widget h2,
@@ -3151,6 +3295,7 @@ textarea {
   display: block;
   font-family: "Benton", "Helvetica", sans-serif;
   font-weight: 700;
+  margin-bottom: 0.5em;
 }
 
 .widget-calendar-event-default {
@@ -3216,7 +3361,7 @@ textarea {
   width: 100%;
 }
 .widget-calendar-picker caption {
-  color: #7a7a7a;
+  color: #777;
   font-family: "Benton", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -3226,7 +3371,7 @@ textarea {
   font-family: "Benton", "Helvetica", sans-serif;
   padding: 4px;
   text-align: center;
-  width: 14.285714285%;
+  width: 14.28571%;
 }
 .widget-calendar-picker th {
   background: #eee;
@@ -3241,7 +3386,7 @@ textarea {
 }
 .widget-calendar-picker .out {
   background: #f5f5f5;
-  color: #9f9f9f;
+  color: #999;
 }
 .widget-calendar-picker .today {
   background: #eee;
@@ -3324,13 +3469,13 @@ textarea {
 }
 
 .widget-post-thumbnail {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .widget-post-thumbnail-title-date {
   float: right;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin-bottom: 15px;
+  margin-left: 15px;
 }
 
 .lt-ie9 .brand {
@@ -3444,7 +3589,7 @@ textarea {
 }
 @media screen and (min-width: 992px) {
   .brand-site-description {
-    color: #9f9f9f;
+    color: #999;
     display: block;
     font-family: "TiemposText", Georgia, serif;
   }
@@ -3499,7 +3644,7 @@ nav a {
 }
 .brand .site-description {
   float: left;
-  margin-left: 50px;
+  margin-left: 60px;
   width: auto;
 }
 
@@ -3564,7 +3709,7 @@ nav a {
   transition: color 200ms ease-in-out 0s;
   color: #fff;
   float: right;
-  font-size: 31px;
+  font-size: 30px;
   height: 60px;
   line-height: 60px;
   padding: 0;
@@ -3612,7 +3757,7 @@ nav a {
   height: 4px;
   left: 15px;
   position: absolute;
-  top: 28px;
+  top: 30px;
   width: 30px;
 }
 .nav-toggle span::before, .nav-toggle span::after {
@@ -3628,7 +3773,7 @@ nav a {
   height: 4px;
   left: 15px;
   position: absolute;
-  top: 28px;
+  top: 30px;
   width: 30px;
 }
 .nav-toggle span::before {
@@ -3677,7 +3822,7 @@ nav a {
 
 .primary-nav-menu {
   display: none;
-  margin: 40px 10px 0;
+  margin: 60px 10px 0;
 }
 @media screen and (min-width: 768px) {
   .primary-nav-menu {
@@ -3733,7 +3878,7 @@ nav a {
   color: #aaa;
 }
 .primary-nav-menu a.active, .primary-nav-menu a.active_section {
-  color: #9f9f9f;
+  color: #999;
 }
 .primary-nav-menu ul {
   display: none;
@@ -3761,7 +3906,7 @@ nav a {
 }
 @media screen and (min-width: 768px) {
   .utility-nav {
-    color: #7a7a7a;
+    color: #777;
   }
 }
 .utility-nav li {
@@ -3890,7 +4035,7 @@ nav a {
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    color: #9f9f9f;
+    color: #999;
     display: block;
     position: relative;
     right: 10px;
@@ -4005,7 +4150,7 @@ nav a {
   padding-right: 60px;
 }
 .l-no-nav .brand .search-toggle {
-  color: #9f9f9f;
+  color: #999;
   display: block;
   font-size: 24px;
   margin: 0 -60px 0 0;
@@ -4026,7 +4171,7 @@ nav a {
   }
 }
 .l-no-nav .brand .search-toggle:visited {
-  color: #9f9f9f;
+  color: #999;
 }
 .l-no-nav .brand .search-toggle:hover {
   color: #000;
@@ -4130,7 +4275,7 @@ nav a {
 }
 
 .content-container-narrow .sidebar {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   padding-left: 0;
   padding-right: 0;
 }
@@ -4154,19 +4299,16 @@ nav a {
 }
 @media screen and (min-width: 992px) {
   .footbar-container {
+    display: grid;
+    grid-gap: 60px;
+    grid-template-columns: repeat(3, 1fr);
     padding: 60px 20px 0;
   }
 }
-.footbar-container .widget {
-  width: 100%;
-}
 @media screen and (min-width: 992px) {
   .footbar-container .widget {
-    float: left;
-    margin-left: 5.2%;
     margin-top: 0;
     padding: 0;
-    width: 29.86667%;
   }
   .footbar-container .widget:first-child, .footbar-container .widget:nth-child(3n+1) {
     clear: left;
@@ -4196,7 +4338,7 @@ body {
 }
 .site-footer li {
   line-height: 1.4;
-  margin: 0 0 5px;
+  margin: 0 0 0.3em;
 }
 .site-footer li:last-child {
   margin: 0;
@@ -4209,7 +4351,7 @@ body {
 .site-footer h6 {
   color: #fff;
   font-family: "Benton", "Helvetica", sans-serif;
-  margin: 0 0 3px;
+  margin: 0 0 0.3em;
 }
 
 .site-footer-social li, .site-footer-links li {
@@ -4368,7 +4510,7 @@ body {
   border: 0;
   display: block;
   font-size: 16.5px;
-  margin: 50px 0;
+  margin: 60px 0;
   max-width: 500px;
   padding: 0;
   position: static;
@@ -4407,12 +4549,12 @@ body {
   }
 }
 .comment.depth-1 {
-  margin: 10px 0;
+  margin: 15px 0;
   padding: 0;
 }
 @media screen and (min-width: 768px) {
   .comment.depth-1 {
-    margin: 20px 0;
+    margin: 30px 0;
   }
 }
 
@@ -4425,7 +4567,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .comment-body {
-    margin: 10px 0;
+    margin: 15px 0;
     padding: 15px;
   }
 }
@@ -4601,11 +4743,11 @@ body {
 }
 
 .calendar-list-range {
-  color: #9f9f9f;
+  color: #999;
 }
 
 .calendar-list-events {
-  margin-bottom: 3em;
+  margin-bottom: 60px;
   padding: 0;
 }
 
@@ -4643,7 +4785,7 @@ body {
 
 .profile-item {
   list-style: none;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   position: relative;
 }
 
@@ -4711,12 +4853,12 @@ body {
 .single-meta-byline {
   font-size: inherit;
   font-weight: normal;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .single-meta-info {
   margin-bottom: 0;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .archive-link-container {
@@ -4729,7 +4871,7 @@ body {
 @media screen and (min-width: 768px) {
   .single-event-schedule {
     float: right;
-    margin-left: 2.6%;
+    margin-left: 2.5641%;
   }
 }
 
@@ -4747,7 +4889,7 @@ body {
 }
 
 .single-event-label, .single-event-speakers-label, .single-event-audience-label, .single-event-departments-label, .single-event-location-label, .single-event-location-building-label, .single-event-location-room-label, .single-event-fees-label, .single-event-fee-label, .single-event-fee-general-label, .single-event-fee-public-label, .single-event-fee-staff-label, .single-event-fee-student-label, .single-event-fee-bu-student-label, .single-event-fee-senior-label, .single-event-deadline-label, .single-event-registration-label, .single-event-contact-org-label, .single-event-contact-name-label, .single-event-contact-email-label, .single-event-contact-phone-label {
-  color: #9f9f9f;
+  color: #999;
   display: block;
   font-family: "Benton", "Helvetica", sans-serif;
   font-weight: 700;
@@ -4782,7 +4924,7 @@ body {
 }
 
 .profile-single-photo {
-  margin: 0 auto 20px;
+  margin: 0 auto 30px;
   width: 120px;
 }
 
