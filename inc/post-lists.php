@@ -117,7 +117,7 @@ function responsive_posts_widget_format_display( $post, $args ) {
 	}
 
 	// Title.
-	$output .= sprintf( '<h1 class="post-headline widget-post-headline"><a href="%s" rel="bookmark">%s</a></h1>', get_permalink(), get_the_title() );
+	$output .= sprintf( '<h4 class="post-headline widget-post-headline"><a href="%s" rel="bookmark">%s</a></h4>', get_permalink(), get_the_title() );
 
 	// Meta.
 	switch ( $args['current_format'] ) {
