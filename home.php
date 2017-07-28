@@ -9,6 +9,8 @@ get_header(); ?>
 
 <article class="content-area">
 
+	<h1><?php single_post_title(); ?></h1>
+
 	<?php if ( have_posts() ) : ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
