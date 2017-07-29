@@ -7,7 +7,7 @@
 
 ?>
 <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
-	<aside class="sidebar">
+	<aside class="sidebar" role="complementary">
 		<h2 class="visually-hidden">Related to <?php the_title(); ?></h2>
 		<?php dynamic_sidebar( 'sidebar' ); ?>
 	</aside>
