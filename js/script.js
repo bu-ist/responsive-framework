@@ -15,11 +15,10 @@
 		$body.toggleClass( 'nav-open' ).removeClass( 'search-open' );
 	});
 
-	$searchtoggle.on( 'click', function ( e ) {
-		e.preventDefault();
+	function toggleSearchPanel( focus ) {
 		$toggleitems.removeClass( 'is-open' );
 
-		if( ! $( this ).hasClass( 'is-open' ) ){
+		if( focus === true && ! $( this ).hasClass( 'is-open' ) ){
 			setTimeout(function(){
 				$( '#q' ).focus();
 			}, 100 );
@@ -27,5 +26,17 @@
 
 		$searchitems.toggleClass( 'is-open' );
 		$body.toggleClass( 'search-open' ).removeClass('nav-open');
+	}
+
+	$searchtoggle.on( 'mouseup tap', function ( e ) {
+		e.preventDefault();
+		toggleSearchPanel( true );
+	});
+
+	$searchtoggle.on( 'keypress', function ( e ) {
+		if ( e.keyCode == 13 ) {
+			e.preventDefault();
+			toggleSearchPanel( false );
+		}
 	});
 } ( jQuery ) );
