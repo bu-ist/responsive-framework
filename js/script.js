@@ -28,15 +28,17 @@
 		$body.toggleClass( 'search-open' ).removeClass('nav-open');
 	}
 
-	$searchtoggle.on( 'mouseup tap', function ( e ) {
-		e.preventDefault();
-		toggleSearchPanel( true );
-	});
-
-	$searchtoggle.on( 'keypress', function ( e ) {
-		if ( e.keyCode == 13 ) {
+	$searchtoggle.on({
+		mouseup: function (e) {
 			e.preventDefault();
-			toggleSearchPanel( false );
+			toggleSearchPanel( true );
+		},
+		keypress: function (e) {
+			if ( e.keyCode == 13 ) {
+				e.preventDefault();
+				toggleSearchPanel( false );
+			}
 		}
 	});
+
 } ( jQuery ) );
