@@ -472,7 +472,7 @@ template {
 
 .screen-reader-text,
 .screen-reader-text span,
-.ui-helper-hidden-accessible, .event-time-make-sentence,
+.ui-helper-hidden-accessible, .search-toggle span, .event-time-make-sentence,
 .visually-hidden {
   border: 0;
   clip: rect(0, 0, 0, 0);
@@ -3722,9 +3722,6 @@ nav a {
 }
 .search-toggle:hover {
   color: #aaa;
-}
-.search-toggle span {
-  display: none;
 }
 
 .is-open .primary-nav-menu,
