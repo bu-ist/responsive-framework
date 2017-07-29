@@ -6,6 +6,6 @@
  */
 
 ?>
-<aside class="sidebar sidebar-calendar">
+<aside class="sidebar sidebar-calendar" role="complementary">
 	<?php responsive_calendar_sidebar(); ?>
 </aside>
