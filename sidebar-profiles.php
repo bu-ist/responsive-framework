@@ -7,7 +7,7 @@
 
 ?>
 <?php if ( is_active_sidebar( 'profiles' ) ) : ?>
-	<aside class="sidebar sidebar-profiles">
+	<aside class="sidebar sidebar-profiles" role="complementary">
 		<?php dynamic_sidebar( 'profiles' ); ?>
 	</aside>
 <?php endif;
