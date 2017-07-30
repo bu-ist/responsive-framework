@@ -884,6 +884,7 @@ input[type="submit"],
 
 /* link color */
 .footbar a,
+.footbar .widget a,
 .footbar #contentnav li a,
 .footbar .widget_nav_menu li a {
 	color: {$colors['footbar-link']};
