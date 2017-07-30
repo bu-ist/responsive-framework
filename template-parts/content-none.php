@@ -7,7 +7,7 @@
 
 ?>
 
-<article>
+<article role="article">
 
 	<h1><?php esc_html_e( 'Nothing Found' ); ?></h1>
 

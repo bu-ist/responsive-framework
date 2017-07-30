@@ -6,7 +6,7 @@
  */
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-part' ); ?>>
+<article role="article" id="post-<?php the_ID(); ?>" <?php post_class( 'post-part' ); ?>>
 
 	<?php BU_News_Page_Template::show_thumbnail( '<div class="thumb post-thumb">', '</div>' ); ?>
 
