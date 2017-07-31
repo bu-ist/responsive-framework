@@ -20,6 +20,14 @@ if ( ! defined( 'RESPONSIVE_THEME_VERSION' ) ) {
 	define( 'RESPONSIVE_THEME_VERSION', RESPONSIVE_FRAMEWORK_VERSION );
 }
 
+/**
+ * Modernizr version.
+ *
+ * This is automatically updated when Modernizr is upgraded using `grunt upgrade_modernizer`.
+ * Used to version Modernizr assets.
+ */
+define( 'RESPONSIVE_MODERNIZR_VERSION', '3.5.0' );
+
 if ( ! function_exists( 'responsive_setup' ) ) :
 
 	/**
@@ -239,7 +247,7 @@ function responsive_enqueue_scripts() {
 	$enqueue_modernizr = apply_filters( 'r_enqueue_modernizr', true );
 
 	if ( (bool) $enqueue_modernizr ) {
-		wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), '3.3.1' );
+		wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), RESPONSIVE_MODERNIZR_VERSION );
 	}
 
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
