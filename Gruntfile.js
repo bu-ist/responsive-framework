@@ -135,6 +135,13 @@ module.exports = function(grunt) {
 					prefix: 'Version:\\s*'
 				},
 				src: ['css-dev/style.scss']
+			},
+			modernizr: {
+				options: {
+					pkg: 'node_modules/grunt-modernizr/node_modules/customizr/node_modules/modernizr/package.json',
+					prefix: '[\'"]RESPONSIVE_MODERNIZR_VERSION[\'"],\\s*\''
+				},
+				src: ['functions.php']
 			}
 		},
 		copy: {
@@ -167,12 +174,59 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		modernizr_builder: {
-			build: {
-				options: {
-					config: 'modernizr-config.json',
-					dest: 'js/vendor/modernizr.js'
-				}
+		modernizr: {
+			dist: {
+				'parseFiles': false,
+				'dest': 'js/vendor/modernizr.js',
+				'tests': [
+					'audio',
+					'canvas',
+					'canvastext',
+					'geolocation',
+					'hashchange',
+					'postmessage',
+					'requestanimationframe',
+					'svg',
+					'video',
+					'webgl',
+					'cssanimations',
+					'backgroundsize',
+					'borderimage',
+					'borderradius',
+					'boxshadow',
+					'csscolumns',
+					'flexbox',
+					'flexboxlegacy',
+					'fontface',
+					'generatedcontent',
+					'cssgradients',
+					'hsla',
+					'multiplebgs',
+					'opacity',
+					'cssreflections',
+					'rgba',
+					'textshadow',
+					'csstransforms',
+					'csstransforms3d',
+					'csstransitions',
+					'localstorage',
+					'svgclippaths',
+					'inlinesvg',
+					'smil',
+					'videoautoplay'
+				],
+				'options': [
+					'domPrefixes',
+					'prefixes',
+					'hasEvent',
+					'prefixed',
+					'testAllProps',
+					'testProp',
+					'testStyles',
+					'html5printshiv',
+					'setClasses'
+				],
+				'uglify': false
 			}
 		}
 	});
@@ -186,12 +240,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-version');
 	grunt.loadNpmTasks( 'grunt-bower-task' );
-	grunt.loadNpmTasks( 'grunt-modernizr-builder' );
 	grunt.loadNpmTasks( 'grunt-bowercopy' );
+	grunt.loadNpmTasks( 'grunt-modernizr' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask('install', ['copy:hooks', 'build']);
 	grunt.registerTask('default', ['bower:install', 'watch']);
-	grunt.registerTask( 'build', ['bower:install', 'bowercopy', 'modernizr_builder', 'sass', 'concat', 'uglify'] );
-
+	grunt.registerTask( 'upgrade_modernizr', [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
+	grunt.registerTask( 'build', ['bower:install', 'bowercopy', 'sass', 'concat', 'uglify'] );
 };
