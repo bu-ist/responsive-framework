@@ -26,8 +26,8 @@ test:
       php -v
       phpunit --version
       bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 4.6.6
-      vendor/bin/phpunit
-      WP_MULTISITE=1 vendor/bin/phpunit
+      phpunit
+      WP_MULTISITE=1 phpunit
     - |
       php -v
       phpunit --version
@@ -48,8 +48,8 @@ test:
       phpunit --version
       rm -rf $WP_TESTS_DIR $WP_CORE_DIR
       bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 4.6.6
-      vendor/bin/phpunit
-      WP_MULTISITE=1 vendor/bin/phpunit
+      phpunit
+      WP_MULTISITE=1 phpunit
     - |
       phpenv global 7.0.17
       php -v
