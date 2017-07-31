@@ -25,7 +25,7 @@ test:
       rm -rf $WP_TESTS_DIR $WP_CORE_DIR
       php -v
       phpunit --version
-      bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 4.6.5
+      bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 4.6.6
       phpunit
       WP_MULTISITE=1 phpunit
     - |
@@ -47,7 +47,7 @@ test:
       php -v
       phpunit --version
       rm -rf $WP_TESTS_DIR $WP_CORE_DIR
-      bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 4.6.5
+      bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 4.6.6
       phpunit
       WP_MULTISITE=1 phpunit
     - |
