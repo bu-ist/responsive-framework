@@ -17,6 +17,7 @@ dependencies:
     - export PATH="$HOME/.composer/vendor/bin:$PATH"
     - composer global require "phpunit/phpunit=5.7.*"
     - gem install bundler --pre
+    - bundle install
 
 test:
   override:
