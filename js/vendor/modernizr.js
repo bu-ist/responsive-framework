@@ -1,6 +1,6 @@
 /*!
- * modernizr v3.4.0
- * Build https://modernizr.com/download?-domprefixes-hasevent-prefixed-prefixes-printshiv-setclasses-testallprops-testprop-teststyles-dontmin
+ * modernizr v3.5.0
+ * Build https://modernizr.com/download?-audio-backgroundsize-borderimage-borderradius-boxshadow-canvas-canvastext-cssanimations-csscolumns-cssgradients-cssreflections-csstransforms-csstransforms3d-csstransitions-flexbox-flexboxlegacy-fontface-generatedcontent-geolocation-hashchange-hsla-inlinesvg-localstorage-multiplebgs-objectfit-opacity-postmessage-requestanimationframe-rgba-smil-svg-svgclippaths-textshadow-video-videoautoplay-webgl-domprefixes-hasevent-prefixed-prefixes-printshiv-setclasses-testallprops-testprop-teststyles-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -24,7 +24,7 @@
 
 ;(function(window, document, undefined){
   var tests = [];
-  
+
 
   /**
    *
@@ -36,7 +36,7 @@
 
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.4.0',
+    _version: '3.5.0',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -73,7 +73,7 @@
     }
   };
 
-  
+
 
   // Fake some of Object.create so we can force non test results to be non "own" properties.
   var Modernizr = function() {};
@@ -83,10 +83,10 @@
   // Overwrite name so constructor name is nicer :D
   Modernizr = new Modernizr();
 
-  
+
 
   var classes = [];
-  
+
 
   /**
    * is returns a boolean if the typeof an obj is exactly type.
@@ -181,7 +181,7 @@
    */
 
   var docElement = document.documentElement;
-  
+
 
   /**
    * A convenience helper to check if the document we are running in is an SVG document
@@ -191,7 +191,7 @@
    */
 
   var isSVG = docElement.nodeName.toLowerCase() === 'svg';
-  
+
 
   /**
    * setClasses takes an array of class names and adds them to the root element
@@ -249,7 +249,7 @@
    */
 
   var omPrefixes = 'Moz O ms Webkit';
-  
+
 
   /**
    * List of JavaScript DOM values used for tests
@@ -271,7 +271,7 @@
 
   var domPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.toLowerCase().split(' ') : []);
   ModernizrProto._domPrefixes = domPrefixes;
-  
+
 
   /**
    * List of property values to set for css tests. See ticket #21
@@ -312,7 +312,7 @@
   // expose these for the plugin API. Look in the source for how to join() them against your input
   ModernizrProto._prefixes = prefixes;
 
-  
+
 
   /**
    * createElement is a convenience wrapper around document.createElement. Since we
@@ -413,11 +413,11 @@
 
 
   ModernizrProto.hasEvent = hasEvent;
-  
+
 
   var cssomPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.split(' ') : []);
   ModernizrProto._cssomPrefixes = cssomPrefixes;
-  
+
 
 
   /**
@@ -451,7 +451,7 @@
     delete modElem.elem;
   });
 
-  
+
 
   var mStyle = {
     style: modElem.elem.style
@@ -463,7 +463,7 @@
     delete mStyle.style;
   });
 
-  
+
 
   /**
    * getBody returns the body of a document, or an element that can stand in for
@@ -867,7 +867,7 @@
   // Modernizr.testAllProps('boxSizing')
   ModernizrProto.testAllProps = testPropsAll;
 
-  
+
 
   /**
    * atRule returns a given CSS property at-rule (eg @keyframes), possibly in
@@ -934,7 +934,7 @@
 
   ModernizrProto.atRule = atRule;
 
-  
+
 
   /**
    * prefixed returns the prefixed or nonprefixed property name variant of your input
@@ -1018,7 +1018,7 @@
     }
   };
 
-  
+
 
   /**
    * testAllProps determines whether a given CSS property is supported in the browser
@@ -1061,7 +1061,7 @@
     return testPropsAll(prop, undefined, undefined, value, skipValueTest);
   }
   ModernizrProto.testAllProps = testAllProps;
-  
+
 
   /**
    * testProp() investigates whether a given style property is recognized
@@ -1100,7 +1100,7 @@
   var testProp = ModernizrProto.testProp = function(prop, value, useValue) {
     return testProps([prop], undefined, value, useValue);
   };
-  
+
 
   /**
    * testStyles injects an element with style element and some CSS rules
@@ -1160,7 +1160,7 @@
    */
 
   var testStyles = ModernizrProto.testStyles = injectElementWithStyles;
-  
+
 
 /**
   * @optionName html5printshiv
@@ -1697,6 +1697,1257 @@
   }
 
   ;
+/*!
+{
+  "name" : "HTML5 Audio Element",
+  "property": "audio",
+  "tags" : ["html5", "audio", "media"]
+}
+!*/
+/* DOC
+Detects the audio element
+*/
+
+  // This tests evaluates support of the audio element, as well as
+  // testing what types of content it supports.
+  //
+  // We're using the Boolean constructor here, so that we can extend the value
+  // e.g.  Modernizr.audio     // true
+  //       Modernizr.audio.ogg // 'probably'
+  //
+  // Codec values from : github.com/NielsLeenheer/html5test/blob/9106a8/index.html#L845
+  //                     thx to NielsLeenheer and zcorpan
+
+  // Note: in some older browsers, "no" was a return value instead of empty string.
+  //   It was live in FF3.5.0 and 3.5.1, but fixed in 3.5.2
+  //   It was also live in Safari 4.0.0 - 4.0.4, but fixed in 4.0.5
+  Modernizr.addTest('audio', function() {
+    var elem = createElement('audio');
+    var bool = false;
+
+    try {
+      bool = !!elem.canPlayType
+      if (bool) {
+        bool      = new Boolean(bool);
+        bool.ogg  = elem.canPlayType('audio/ogg; codecs="vorbis"') .replace(/^no$/, '');
+        bool.mp3  = elem.canPlayType('audio/mpeg; codecs="mp3"')   .replace(/^no$/, '');
+        bool.opus  = elem.canPlayType('audio/ogg; codecs="opus"')  ||
+                     elem.canPlayType('audio/webm; codecs="opus"') .replace(/^no$/, '');
+
+        // Mimetypes accepted:
+        //   developer.mozilla.org/En/Media_formats_supported_by_the_audio_and_video_elements
+        //   bit.ly/iphoneoscodecs
+        bool.wav  = elem.canPlayType('audio/wav; codecs="1"')     .replace(/^no$/, '');
+        bool.m4a  = (elem.canPlayType('audio/x-m4a;')            ||
+                     elem.canPlayType('audio/aac;'))             .replace(/^no$/, '');
+      }
+    } catch (e) { }
+
+    return bool;
+  });
+
+/*!
+{
+  "name": "Canvas",
+  "property": "canvas",
+  "caniuse": "canvas",
+  "tags": ["canvas", "graphics"],
+  "polyfills": ["flashcanvas", "excanvas", "slcanvas", "fxcanvas"]
+}
+!*/
+/* DOC
+Detects support for the `<canvas>` element for 2D drawing.
+*/
+
+  // On the S60 and BB Storm, getContext exists, but always returns undefined
+  // so we actually have to call getContext() to verify
+  // github.com/Modernizr/Modernizr/issues/issue/97/
+  Modernizr.addTest('canvas', function() {
+    var elem = createElement('canvas');
+    return !!(elem.getContext && elem.getContext('2d'));
+  });
+
+/*!
+{
+  "name": "Canvas text",
+  "property": "canvastext",
+  "caniuse": "canvas-text",
+  "tags": ["canvas", "graphics"],
+  "polyfills": ["canvastext"]
+}
+!*/
+/* DOC
+Detects support for the text APIs for `<canvas>` elements.
+*/
+
+  Modernizr.addTest('canvastext',  function() {
+    if (Modernizr.canvas  === false) {
+      return false;
+    }
+    return typeof createElement('canvas').getContext('2d').fillText == 'function';
+  });
+
+/*!
+{
+  "name": "Geolocation API",
+  "property": "geolocation",
+  "caniuse": "geolocation",
+  "tags": ["media"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/WebAPI/Using_geolocation"
+  }],
+  "polyfills": [
+    "joshuabell-polyfill",
+    "webshims",
+    "geo-location-javascript",
+    "geolocation-api-polyfill"
+  ]
+}
+!*/
+/* DOC
+Detects support for the Geolocation API for users to provide their location to web applications.
+*/
+
+  // geolocation is often considered a trivial feature detect...
+  // Turns out, it's quite tricky to get right:
+  //
+  // Using !!navigator.geolocation does two things we don't want. It:
+  //   1. Leaks memory in IE9: github.com/Modernizr/Modernizr/issues/513
+  //   2. Disables page caching in WebKit: webk.it/43956
+  //
+  // Meanwhile, in Firefox < 8, an about:config setting could expose
+  // a false positive that would throw an exception: bugzil.la/688158
+
+  Modernizr.addTest('geolocation', 'geolocation' in navigator);
+
+/*!
+{
+  "name": "Hashchange event",
+  "property": "hashchange",
+  "caniuse": "hashchange",
+  "tags": ["history"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/API/window.onhashchange"
+  }],
+  "polyfills": [
+    "jquery-hashchange",
+    "moo-historymanager",
+    "jquery-ajaxy",
+    "hasher",
+    "shistory"
+  ]
+}
+!*/
+/* DOC
+Detects support for the `hashchange` event, fired when the current location fragment changes.
+*/
+
+  Modernizr.addTest('hashchange', function() {
+    if (hasEvent('hashchange', window) === false) {
+      return false;
+    }
+
+    // documentMode logic from YUI to filter out IE8 Compat Mode
+    //   which false positives.
+    return (document.documentMode === undefined || document.documentMode > 7);
+  });
+
+/*!
+{
+  "name": "postMessage",
+  "property": "postmessage",
+  "caniuse": "x-doc-messaging",
+  "notes": [{
+    "name": "W3C Spec",
+    "href": "http://www.w3.org/TR/html5/comms.html#posting-messages"
+  }],
+  "polyfills": ["easyxdm", "postmessage-jquery"]
+}
+!*/
+/* DOC
+Detects support for the `window.postMessage` protocol for cross-document messaging.
+*/
+
+  Modernizr.addTest('postmessage', 'postMessage' in window);
+
+/*!
+{
+  "name": "requestAnimationFrame",
+  "property": "requestanimationframe",
+  "aliases": ["raf"],
+  "caniuse": "requestanimationframe",
+  "tags": ["animation"],
+  "authors": ["Addy Osmani"],
+  "notes": [{
+    "name": "W3C spec",
+    "href": "https://www.w3.org/TR/animation-timing/"
+  }],
+  "polyfills": ["raf"]
+}
+!*/
+/* DOC
+Detects support for the `window.requestAnimationFrame` API, for offloading animation repainting to the browser for optimized performance.
+*/
+
+  Modernizr.addTest('requestanimationframe', !!prefixed('requestAnimationFrame', window), {aliases: ['raf']});
+
+/*!
+{
+  "name": "SVG",
+  "property": "svg",
+  "caniuse": "svg",
+  "tags": ["svg"],
+  "authors": ["Erik Dahlstrom"],
+  "polyfills": [
+    "svgweb",
+    "raphael",
+    "amplesdk",
+    "canvg",
+    "svg-boilerplate",
+    "sie",
+    "dojogfx",
+    "fabricjs"
+  ]
+}
+!*/
+/* DOC
+Detects support for SVG in `<embed>` or `<object>` elements.
+*/
+
+  Modernizr.addTest('svg', !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
+
+/*!
+{
+  "name": "HTML5 Video",
+  "property": "video",
+  "caniuse": "video",
+  "tags": ["html5"],
+  "knownBugs": [
+    "Without QuickTime, `Modernizr.video.h264` will be `undefined`; https://github.com/Modernizr/Modernizr/issues/546"
+  ],
+  "polyfills": [
+    "html5media",
+    "mediaelementjs",
+    "sublimevideo",
+    "videojs",
+    "leanbackplayer",
+    "videoforeverybody"
+  ]
+}
+!*/
+/* DOC
+Detects support for the video element, as well as testing what types of content it supports.
+
+Subproperties are provided to describe support for `ogg`, `h264` and `webm` formats, e.g.:
+
+```javascript
+Modernizr.video         // true
+Modernizr.video.ogg     // 'probably'
+```
+*/
+
+  // Codec values from : github.com/NielsLeenheer/html5test/blob/9106a8/index.html#L845
+  //                     thx to NielsLeenheer and zcorpan
+
+  // Note: in some older browsers, "no" was a return value instead of empty string.
+  //   It was live in FF3.5.0 and 3.5.1, but fixed in 3.5.2
+  //   It was also live in Safari 4.0.0 - 4.0.4, but fixed in 4.0.5
+
+  Modernizr.addTest('video', function() {
+    var elem = createElement('video');
+    var bool = false;
+
+    // IE9 Running on Windows Server SKU can cause an exception to be thrown, bug #224
+    try {
+      bool = !!elem.canPlayType
+      if (bool) {
+        bool = new Boolean(bool);
+        bool.ogg = elem.canPlayType('video/ogg; codecs="theora"').replace(/^no$/, '');
+
+        // Without QuickTime, this value will be `undefined`. github.com/Modernizr/Modernizr/issues/546
+        bool.h264 = elem.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/, '');
+
+        bool.webm = elem.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/, '');
+
+        bool.vp9 = elem.canPlayType('video/webm; codecs="vp9"').replace(/^no$/, '');
+
+        bool.hls = elem.canPlayType('application/x-mpegURL; codecs="avc1.42E01E"').replace(/^no$/, '');
+      }
+    } catch (e) {}
+
+    return bool;
+  });
+
+/*!
+{
+  "name": "WebGL",
+  "property": "webgl",
+  "caniuse": "webgl",
+  "tags": ["webgl", "graphics"],
+  "polyfills": ["jebgl", "cwebgl", "iewebgl"]
+}
+!*/
+
+  Modernizr.addTest('webgl', function() {
+    var canvas = createElement('canvas');
+    var supports = 'probablySupportsContext' in canvas ? 'probablySupportsContext' :  'supportsContext';
+    if (supports in canvas) {
+      return canvas[supports]('webgl') || canvas[supports]('experimental-webgl');
+    }
+    return 'WebGLRenderingContext' in window;
+  });
+
+/*!
+{
+  "name": "CSS Animations",
+  "property": "cssanimations",
+  "caniuse": "css-animation",
+  "polyfills": ["transformie", "csssandpaper"],
+  "tags": ["css"],
+  "warnings": ["Android < 4 will pass this test, but can only animate a single property at a time"],
+  "notes": [{
+    "name" : "Article: 'Dispelling the Android CSS animation myths'",
+    "href": "https://goo.gl/OGw5Gm"
+  }]
+}
+!*/
+/* DOC
+Detects whether or not elements can be animated using CSS
+*/
+
+  Modernizr.addTest('cssanimations', testAllProps('animationName', 'a', true));
+
+/*!
+{
+  "name": "Background Size",
+  "property": "backgroundsize",
+  "tags": ["css"],
+  "knownBugs": ["This will false positive in Opera Mini - https://github.com/Modernizr/Modernizr/issues/396"],
+  "notes": [{
+    "name": "Related Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/396"
+  }]
+}
+!*/
+
+  Modernizr.addTest('backgroundsize', testAllProps('backgroundSize', '100%', true));
+
+/*!
+{
+  "name": "Border Image",
+  "property": "borderimage",
+  "caniuse": "border-image",
+  "polyfills": ["css3pie"],
+   "knownBugs": ["Android < 2.0 is true, but has a broken implementation"],
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('borderimage', testAllProps('borderImage', 'url() 1', true));
+
+/*!
+{
+  "name": "Border Radius",
+  "property": "borderradius",
+  "caniuse": "border-radius",
+  "polyfills": ["css3pie"],
+  "tags": ["css"],
+  "notes": [{
+    "name": "Comprehensive Compat Chart",
+    "href": "https://muddledramblings.com/table-of-css3-border-radius-compliance"
+  }]
+}
+!*/
+
+  Modernizr.addTest('borderradius', testAllProps('borderRadius', '0px', true));
+
+/*!
+{
+  "name": "Box Shadow",
+  "property": "boxshadow",
+  "caniuse": "css-boxshadow",
+  "tags": ["css"],
+  "knownBugs": [
+    "WebOS false positives on this test.",
+    "The Kindle Silk browser false positives"
+  ]
+}
+!*/
+
+  Modernizr.addTest('boxshadow', testAllProps('boxShadow', '1px 1px', true));
+
+/*!
+{
+  "name": "CSS Columns",
+  "property": "csscolumns",
+  "caniuse": "multicolumn",
+  "polyfills": ["css3multicolumnjs"],
+  "tags": ["css"]
+}
+!*/
+
+
+  (function() {
+
+    Modernizr.addTest('csscolumns', function() {
+      var bool = false;
+      var test = testAllProps('columnCount');
+      try {
+        bool = !!test
+        if (bool) {
+          bool = new Boolean(bool);
+        }
+      } catch (e) {}
+
+      return bool;
+    });
+
+    var props = ['Width', 'Span', 'Fill', 'Gap', 'Rule', 'RuleColor', 'RuleStyle', 'RuleWidth', 'BreakBefore', 'BreakAfter', 'BreakInside'];
+    var name, test;
+
+    for (var i = 0; i < props.length; i++) {
+      name = props[i].toLowerCase();
+      test = testAllProps('column' + props[i]);
+
+      // break-before, break-after & break-inside are not "column"-prefixed in spec
+      if (name === 'breakbefore' || name === 'breakafter' || name == 'breakinside') {
+        test = test || testAllProps(props[i]);
+      }
+
+      Modernizr.addTest('csscolumns.' + name, test);
+    }
+
+
+  })();
+
+
+/*!
+{
+  "name": "Flexbox",
+  "property": "flexbox",
+  "caniuse": "flexbox",
+  "tags": ["css"],
+  "notes": [{
+    "name": "The _new_ flexbox",
+    "href": "http://dev.w3.org/csswg/css3-flexbox"
+  }],
+  "warnings": [
+    "A `true` result for this detect does not imply that the `flex-wrap` property is supported; see the `flexwrap` detect."
+  ]
+}
+!*/
+/* DOC
+Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows easy manipulation of layout order and sizing within a container.
+*/
+
+  Modernizr.addTest('flexbox', testAllProps('flexBasis', '1px', true));
+
+/*!
+{
+  "name": "Flexbox (legacy)",
+  "property": "flexboxlegacy",
+  "tags": ["css"],
+  "polyfills": ["flexie"],
+  "notes": [{
+    "name": "The _old_ flexbox",
+    "href": "https://www.w3.org/TR/2009/WD-css3-flexbox-20090723/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('flexboxlegacy', testAllProps('boxDirection', 'reverse', true));
+
+/*!
+{
+  "name": "@font-face",
+  "property": "fontface",
+  "authors": ["Diego Perini", "Mat Marquis"],
+  "tags": ["css"],
+  "knownBugs": [
+    "False Positive: WebOS https://github.com/Modernizr/Modernizr/issues/342",
+    "False Postive: WP7 https://github.com/Modernizr/Modernizr/issues/538"
+  ],
+  "notes": [{
+    "name": "@font-face detection routine by Diego Perini",
+    "href": "http://javascript.nwbox.com/CSSSupport/"
+  },{
+    "name": "Filament Group @font-face compatibility research",
+    "href": "https://docs.google.com/presentation/d/1n4NyG4uPRjAA8zn_pSQ_Ket0RhcWC6QlZ6LMjKeECo0/edit#slide=id.p"
+  },{
+    "name": "Filament Grunticon/@font-face device testing results",
+    "href": "https://docs.google.com/spreadsheet/ccc?key=0Ag5_yGvxpINRdHFYeUJPNnZMWUZKR2ItMEpRTXZPdUE#gid=0"
+  },{
+    "name": "CSS fonts on Android",
+    "href": "https://stackoverflow.com/questions/3200069/css-fonts-on-android"
+  },{
+    "name": "@font-face and Android",
+    "href": "http://archivist.incutio.com/viewlist/css-discuss/115960"
+  }]
+}
+!*/
+
+  var blacklist = (function() {
+    var ua = navigator.userAgent;
+    var webos = ua.match(/w(eb)?osbrowser/gi);
+    var wppre8 = ua.match(/windows phone/gi) && ua.match(/iemobile\/([0-9])+/gi) && parseFloat(RegExp.$1) >= 9;
+    return webos || wppre8;
+  }());
+  if (blacklist) {
+    Modernizr.addTest('fontface', false);
+  } else {
+    testStyles('@font-face {font-family:"font";src:url("https://")}', function(node, rule) {
+      var style = document.getElementById('smodernizr');
+      var sheet = style.sheet || style.styleSheet;
+      var cssText = sheet ? (sheet.cssRules && sheet.cssRules[0] ? sheet.cssRules[0].cssText : sheet.cssText || '') : '';
+      var bool = /src/i.test(cssText) && cssText.indexOf(rule.split(' ')[0]) === 0;
+      Modernizr.addTest('fontface', bool);
+    });
+  }
+;
+/*!
+{
+  "name": "CSS Generated Content",
+  "property": "generatedcontent",
+  "tags": ["css"],
+  "warnings": ["Android won't return correct height for anything below 7px #738"],
+  "notes": [{
+    "name": "W3C CSS Selectors Level 3 spec",
+    "href": "https://www.w3.org/TR/css3-selectors/#gen-content"
+  },{
+    "name": "MDN article on :before",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  },{
+    "name": "MDN article on :after",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  }]
+}
+!*/
+
+  testStyles('#modernizr{font:0/0 a}#modernizr:after{content:":)";visibility:hidden;font:7px/1 a}', function(node) {
+    // See bug report on why this value is 6 crbug.com/608142
+    Modernizr.addTest('generatedcontent', node.offsetHeight >= 6);
+  });
+
+/*!
+{
+  "name": "CSS Gradients",
+  "caniuse": "css-gradients",
+  "property": "cssgradients",
+  "tags": ["css"],
+  "knownBugs": ["False-positives on webOS (https://github.com/Modernizr/Modernizr/issues/202)"],
+  "notes": [{
+    "name": "Webkit Gradient Syntax",
+    "href": "https://webkit.org/blog/175/introducing-css-gradients/"
+  },{
+    "name": "Linear Gradient Syntax",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient"
+  },{
+    "name": "W3C Gradient Spec",
+    "href": "https://drafts.csswg.org/css-images-3/#gradients"
+  }]
+}
+!*/
+
+
+  Modernizr.addTest('cssgradients', function() {
+
+    var str1 = 'background-image:';
+    var str2 = 'gradient(linear,left top,right bottom,from(#9f9),to(white));';
+    var css = '';
+    var angle;
+
+    for (var i = 0, len = prefixes.length - 1; i < len; i++) {
+      angle = (i === 0 ? 'to ' : '');
+      css += str1 + prefixes[i] + 'linear-gradient(' + angle + 'left top, #9f9, white);';
+    }
+
+    if (Modernizr._config.usePrefixes) {
+    // legacy webkit syntax (FIXME: remove when syntax not in use anymore)
+      css += str1 + '-webkit-' + str2;
+    }
+
+    var elem = createElement('a');
+    var style = elem.style;
+    style.cssText = css;
+
+    // IE6 returns undefined so cast to string
+    return ('' + style.backgroundImage).indexOf('gradient') > -1;
+  });
+
+/*!
+{
+  "name": "CSS HSLA Colors",
+  "caniuse": "css3-colors",
+  "property": "hsla",
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('hsla', function() {
+    var style = createElement('a').style;
+    style.cssText = 'background-color:hsla(120,40%,100%,.5)';
+    return contains(style.backgroundColor, 'rgba') || contains(style.backgroundColor, 'hsla');
+  });
+
+/*!
+{
+  "name": "CSS Multiple Backgrounds",
+  "caniuse": "multibackgrounds",
+  "property": "multiplebgs",
+  "tags": ["css"]
+}
+!*/
+
+  // Setting multiple images AND a color on the background shorthand property
+  // and then querying the style.background property value for the number of
+  // occurrences of "url(" is a reliable method for detecting ACTUAL support for this!
+
+  Modernizr.addTest('multiplebgs', function() {
+    var style = createElement('a').style;
+    style.cssText = 'background:url(https://),url(https://),red url(https://)';
+
+    // If the UA supports multiple backgrounds, there should be three occurrences
+    // of the string "url(" in the return value for elemStyle.background
+    return (/(url\s*\(.*?){3}/).test(style.background);
+  });
+
+/*!
+{
+  "name": "CSS Opacity",
+  "caniuse": "css-opacity",
+  "property": "opacity",
+  "tags": ["css"]
+}
+!*/
+
+  // Browsers that actually have CSS Opacity implemented have done so
+  // according to spec, which means their return values are within the
+  // range of [0.0,1.0] - including the leading zero.
+
+  Modernizr.addTest('opacity', function() {
+    var style = createElement('a').style;
+    style.cssText = prefixes.join('opacity:.55;');
+
+    // The non-literal . in this regex is intentional:
+    // German Chrome returns this value as 0,55
+    // github.com/Modernizr/Modernizr/issues/#issue/59/comment/516632
+    return (/^0.55$/).test(style.opacity);
+  });
+
+/*!
+{
+  "name": "CSS Object Fit",
+  "caniuse": "object-fit",
+  "property": "objectfit",
+  "tags": ["css"],
+  "builderAliases": ["css_objectfit"],
+  "notes": [{
+    "name": "Opera Article on Object Fit",
+    "href": "https://dev.opera.com/articles/css3-object-fit-object-position/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('objectfit', !!prefixed('objectFit'), {aliases: ['object-fit']});
+
+/*!
+{
+  "name": "CSS Reflections",
+  "caniuse": "css-reflections",
+  "property": "cssreflections",
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('cssreflections', testAllProps('boxReflect', 'above', true));
+
+/*!
+{
+  "name": "CSS rgba",
+  "caniuse": "css3-colors",
+  "property": "rgba",
+  "tags": ["css"],
+  "notes": [{
+    "name": "CSSTricks Tutorial",
+    "href": "https://css-tricks.com/rgba-browser-support/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('rgba', function() {
+    var style = createElement('a').style;
+    style.cssText = 'background-color:rgba(150,255,150,.5)';
+
+    return ('' + style.backgroundColor).indexOf('rgba') > -1;
+  });
+
+/*!
+{
+  "name": "CSS textshadow",
+  "property": "textshadow",
+  "caniuse": "css-textshadow",
+  "tags": ["css"],
+  "knownBugs": ["FF3.0 will false positive on this test"]
+}
+!*/
+
+  Modernizr.addTest('textshadow', testProp('textShadow', '1px 1px'));
+
+/*!
+{
+  "name": "CSS Transforms",
+  "property": "csstransforms",
+  "caniuse": "transforms2d",
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('csstransforms', function() {
+    // Android < 3.0 is buggy, so we sniff and blacklist
+    // http://git.io/hHzL7w
+    return navigator.userAgent.indexOf('Android 2.') === -1 &&
+           testAllProps('transform', 'scale(1)', true);
+  });
+
+/*!
+{
+  "name": "CSS Supports",
+  "property": "supports",
+  "caniuse": "css-featurequeries",
+  "tags": ["css"],
+  "builderAliases": ["css_supports"],
+  "notes": [{
+    "name": "W3 Spec",
+    "href": "http://dev.w3.org/csswg/css3-conditional/#at-supports"
+  },{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/648"
+  },{
+    "name": "W3 Info",
+    "href": "http://dev.w3.org/csswg/css3-conditional/#the-csssupportsrule-interface"
+  }]
+}
+!*/
+
+  var newSyntax = 'CSS' in window && 'supports' in window.CSS;
+  var oldSyntax = 'supportsCSS' in window;
+  Modernizr.addTest('supports', newSyntax || oldSyntax);
+
+/*!
+{
+  "name": "CSS Transforms 3D",
+  "property": "csstransforms3d",
+  "caniuse": "transforms3d",
+  "tags": ["css"],
+  "warnings": [
+    "Chrome may occassionally fail this test on some systems; more info: https://code.google.com/p/chromium/issues/detail?id=129004"
+  ]
+}
+!*/
+
+  Modernizr.addTest('csstransforms3d', function() {
+    var ret = !!testAllProps('perspective', '1px', true);
+    var usePrefix = Modernizr._config.usePrefixes;
+
+    // Webkit's 3D transforms are passed off to the browser's own graphics renderer.
+    //   It works fine in Safari on Leopard and Snow Leopard, but not in Chrome in
+    //   some conditions. As a result, Webkit typically recognizes the syntax but
+    //   will sometimes throw a false positive, thus we must do a more thorough check:
+    if (ret && (!usePrefix || 'webkitPerspective' in docElement.style)) {
+      var mq;
+      var defaultStyle = '#modernizr{width:0;height:0}';
+      // Use CSS Conditional Rules if available
+      if (Modernizr.supports) {
+        mq = '@supports (perspective: 1px)';
+      } else {
+        // Otherwise, Webkit allows this media query to succeed only if the feature is enabled.
+        // `@media (transform-3d),(-webkit-transform-3d){ ... }`
+        mq = '@media (transform-3d)';
+        if (usePrefix) {
+          mq += ',(-webkit-transform-3d)';
+        }
+      }
+
+      mq += '{#modernizr{width:7px;height:18px;margin:0;padding:0;border:0}}';
+
+      testStyles(defaultStyle + mq, function(elem) {
+        ret = elem.offsetWidth === 7 && elem.offsetHeight === 18;
+      });
+    }
+
+    return ret;
+  });
+
+/*!
+{
+  "name": "CSS Transitions",
+  "property": "csstransitions",
+  "caniuse": "css-transitions",
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('csstransitions', testAllProps('transition', 'all', true));
+
+/*!
+{
+  "name": "Local Storage",
+  "property": "localstorage",
+  "caniuse": "namevalue-storage",
+  "tags": ["storage"],
+  "knownBugs": [],
+  "notes": [],
+  "warnings": [],
+  "polyfills": [
+    "joshuabell-polyfill",
+    "cupcake",
+    "storagepolyfill",
+    "amplifyjs",
+    "yui-cacheoffline"
+  ]
+}
+!*/
+
+  // In FF4, if disabled, window.localStorage should === null.
+
+  // Normally, we could not test that directly and need to do a
+  //   `('localStorage' in window)` test first because otherwise Firefox will
+  //   throw bugzil.la/365772 if cookies are disabled
+
+  // Similarly, in Chrome with "Block third-party cookies and site data" enabled,
+  // attempting to access `window.sessionStorage` will throw an exception. crbug.com/357625
+
+  // Also in iOS5 Private Browsing mode, attempting to use localStorage.setItem
+  // will throw the exception:
+  //   QUOTA_EXCEEDED_ERROR DOM Exception 22.
+  // Peculiarly, getItem and removeItem calls do not throw.
+
+  // Because we are forced to try/catch this, we'll go aggressive.
+
+  // Just FWIW: IE8 Compat mode supports these features completely:
+  //   www.quirksmode.org/dom/html5.html
+  // But IE8 doesn't support either with local files
+
+  Modernizr.addTest('localstorage', function() {
+    var mod = 'modernizr';
+    try {
+      localStorage.setItem(mod, mod);
+      localStorage.removeItem(mod);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  });
+
+
+  /**
+   * Object.prototype.toString can be used with every object and allows you to
+   * get its class easily. Abstracting it off of an object prevents situations
+   * where the toString property has been overridden
+   *
+   * @access private
+   * @function toStringFn
+   * @returns {function} An abstracted toString function
+   */
+
+  var toStringFn = ({}).toString;
+
+/*!
+{
+  "name": "SVG clip paths",
+  "property": "svgclippaths",
+  "tags": ["svg"],
+  "notes": [{
+    "name": "Demo",
+    "href": "http://srufaculty.sru.edu/david.dailey/svg/newstuff/clipPath4.svg"
+  }]
+}
+!*/
+/* DOC
+Detects support for clip paths in SVG (only, not on HTML content).
+
+See [this discussion](https://github.com/Modernizr/Modernizr/issues/213) regarding applying SVG clip paths to HTML content.
+*/
+
+  Modernizr.addTest('svgclippaths', function() {
+    return !!document.createElementNS &&
+      /SVGClipPath/.test(toStringFn.call(document.createElementNS('http://www.w3.org/2000/svg', 'clipPath')));
+  });
+
+/*!
+{
+  "name": "Inline SVG",
+  "property": "inlinesvg",
+  "caniuse": "svg-html5",
+  "tags": ["svg"],
+  "notes": [{
+    "name": "Test page",
+    "href": "https://paulirish.com/demo/inline-svg"
+  }, {
+    "name": "Test page and results",
+    "href": "https://codepen.io/eltonmesquita/full/GgXbvo/"
+  }],
+  "polyfills": ["inline-svg-polyfill"],
+  "knownBugs": ["False negative on some Chromia browsers."]
+}
+!*/
+/* DOC
+Detects support for inline SVG in HTML (not within XHTML).
+*/
+
+  Modernizr.addTest('inlinesvg', function() {
+    var div = createElement('div');
+    div.innerHTML = '<svg/>';
+    return (typeof SVGRect != 'undefined' && div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
+  });
+
+/*!
+{
+  "name": "SVG SMIL animation",
+  "property": "smil",
+  "caniuse": "svg-smil",
+  "tags": ["svg"],
+  "notes": [{
+  "name": "W3C Synchronised Multimedia spec",
+  "href": "https://www.w3.org/AudioVideo/"
+  }]
+}
+!*/
+
+  // SVG SMIL animation
+  Modernizr.addTest('smil', function() {
+    return !!document.createElementNS &&
+      /SVGAnimate/.test(toStringFn.call(document.createElementNS('http://www.w3.org/2000/svg', 'animate')));
+  });
+
+
+  /**
+   * hasOwnProp is a shim for hasOwnProperty that is needed for Safari 2.0 support
+   *
+   * @author kangax
+   * @access private
+   * @function hasOwnProp
+   * @param {object} object - The object to check for a property
+   * @param {string} property - The property to check for
+   * @returns {boolean}
+   */
+
+  // hasOwnProperty shim by kangax needed for Safari 2.0 support
+  var hasOwnProp;
+
+  (function() {
+    var _hasOwnProperty = ({}).hasOwnProperty;
+    /* istanbul ignore else */
+    /* we have no way of testing IE 5.5 or safari 2,
+     * so just assume the else gets hit */
+    if (!is(_hasOwnProperty, 'undefined') && !is(_hasOwnProperty.call, 'undefined')) {
+      hasOwnProp = function(object, property) {
+        return _hasOwnProperty.call(object, property);
+      };
+    }
+    else {
+      hasOwnProp = function(object, property) { /* yes, this can give false positives/negatives, but most of the time we don't care about those */
+        return ((property in object) && is(object.constructor.prototype[property], 'undefined'));
+      };
+    }
+  })();
+
+
+
+
+   // _l tracks listeners for async tests, as well as tests that execute after the initial run
+  ModernizrProto._l = {};
+
+  /**
+   * Modernizr.on is a way to listen for the completion of async tests. Being
+   * asynchronous, they may not finish before your scripts run. As a result you
+   * will get a possibly false negative `undefined` value.
+   *
+   * @memberof Modernizr
+   * @name Modernizr.on
+   * @access public
+   * @function on
+   * @param {string} feature - String name of the feature detect
+   * @param {function} cb - Callback function returning a Boolean - true if feature is supported, false if not
+   * @example
+   *
+   * ```js
+   * Modernizr.on('flash', function( result ) {
+   *   if (result) {
+   *    // the browser has flash
+   *   } else {
+   *     // the browser does not have flash
+   *   }
+   * });
+   * ```
+   */
+
+  ModernizrProto.on = function(feature, cb) {
+    // Create the list of listeners if it doesn't exist
+    if (!this._l[feature]) {
+      this._l[feature] = [];
+    }
+
+    // Push this test on to the listener list
+    this._l[feature].push(cb);
+
+    // If it's already been resolved, trigger it on next tick
+    if (Modernizr.hasOwnProperty(feature)) {
+      // Next Tick
+      setTimeout(function() {
+        Modernizr._trigger(feature, Modernizr[feature]);
+      }, 0);
+    }
+  };
+
+  /**
+   * _trigger is the private function used to signal test completion and run any
+   * callbacks registered through [Modernizr.on](#modernizr-on)
+   *
+   * @memberof Modernizr
+   * @name Modernizr._trigger
+   * @access private
+   * @function _trigger
+   * @param {string} feature - string name of the feature detect
+   * @param {function|boolean} [res] - A feature detection function, or the boolean =
+   * result of a feature detection function
+   */
+
+  ModernizrProto._trigger = function(feature, res) {
+    if (!this._l[feature]) {
+      return;
+    }
+
+    var cbs = this._l[feature];
+
+    // Force async
+    setTimeout(function() {
+      var i, cb;
+      for (i = 0; i < cbs.length; i++) {
+        cb = cbs[i];
+        cb(res);
+      }
+    }, 0);
+
+    // Don't trigger these again
+    delete this._l[feature];
+  };
+
+  /**
+   * addTest allows you to define your own feature detects that are not currently
+   * included in Modernizr (under the covers it's the exact same code Modernizr
+   * uses for its own [feature detections](https://github.com/Modernizr/Modernizr/tree/master/feature-detects)). Just like the offical detects, the result
+   * will be added onto the Modernizr object, as well as an appropriate className set on
+   * the html element when configured to do so
+   *
+   * @memberof Modernizr
+   * @name Modernizr.addTest
+   * @optionName Modernizr.addTest()
+   * @optionProp addTest
+   * @access public
+   * @function addTest
+   * @param {string|object} feature - The string name of the feature detect, or an
+   * object of feature detect names and test
+   * @param {function|boolean} test - Function returning true if feature is supported,
+   * false if not. Otherwise a boolean representing the results of a feature detection
+   * @example
+   *
+   * The most common way of creating your own feature detects is by calling
+   * `Modernizr.addTest` with a string (preferably just lowercase, without any
+   * punctuation), and a function you want executed that will return a boolean result
+   *
+   * ```js
+   * Modernizr.addTest('itsTuesday', function() {
+   *  var d = new Date();
+   *  return d.getDay() === 2;
+   * });
+   * ```
+   *
+   * When the above is run, it will set Modernizr.itstuesday to `true` when it is tuesday,
+   * and to `false` every other day of the week. One thing to notice is that the names of
+   * feature detect functions are always lowercased when added to the Modernizr object. That
+   * means that `Modernizr.itsTuesday` will not exist, but `Modernizr.itstuesday` will.
+   *
+   *
+   *  Since we only look at the returned value from any feature detection function,
+   *  you do not need to actually use a function. For simple detections, just passing
+   *  in a statement that will return a boolean value works just fine.
+   *
+   * ```js
+   * Modernizr.addTest('hasJquery', 'jQuery' in window);
+   * ```
+   *
+   * Just like before, when the above runs `Modernizr.hasjquery` will be true if
+   * jQuery has been included on the page. Not using a function saves a small amount
+   * of overhead for the browser, as well as making your code much more readable.
+   *
+   * Finally, you also have the ability to pass in an object of feature names and
+   * their tests. This is handy if you want to add multiple detections in one go.
+   * The keys should always be a string, and the value can be either a boolean or
+   * function that returns a boolean.
+   *
+   * ```js
+   * var detects = {
+   *  'hasjquery': 'jQuery' in window,
+   *  'itstuesday': function() {
+   *    var d = new Date();
+   *    return d.getDay() === 2;
+   *  }
+   * }
+   *
+   * Modernizr.addTest(detects);
+   * ```
+   *
+   * There is really no difference between the first methods and this one, it is
+   * just a convenience to let you write more readable code.
+   */
+
+  function addTest(feature, test) {
+
+    if (typeof feature == 'object') {
+      for (var key in feature) {
+        if (hasOwnProp(feature, key)) {
+          addTest(key, feature[ key ]);
+        }
+      }
+    } else {
+
+      feature = feature.toLowerCase();
+      var featureNameSplit = feature.split('.');
+      var last = Modernizr[featureNameSplit[0]];
+
+      // Again, we don't check for parent test existence. Get that right, though.
+      if (featureNameSplit.length == 2) {
+        last = last[featureNameSplit[1]];
+      }
+
+      if (typeof last != 'undefined') {
+        // we're going to quit if you're trying to overwrite an existing test
+        // if we were to allow it, we'd do this:
+        //   var re = new RegExp("\\b(no-)?" + feature + "\\b");
+        //   docElement.className = docElement.className.replace( re, '' );
+        // but, no rly, stuff 'em.
+        return Modernizr;
+      }
+
+      test = typeof test == 'function' ? test() : test;
+
+      // Set the value (this is the magic, right here).
+      if (featureNameSplit.length == 1) {
+        Modernizr[featureNameSplit[0]] = test;
+      } else {
+        // cast to a Boolean, if not one already
+        if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
+          Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
+        }
+
+        Modernizr[featureNameSplit[0]][featureNameSplit[1]] = test;
+      }
+
+      // Set a single class (either `feature` or `no-feature`)
+      setClasses([(!!test && test != false ? '' : 'no-') + featureNameSplit.join('-')]);
+
+      // Trigger the event
+      Modernizr._trigger(feature, test);
+    }
+
+    return Modernizr; // allow chaining.
+  }
+
+  // After all the tests are run, add self to the Modernizr prototype
+  Modernizr._q.push(function() {
+    ModernizrProto.addTest = addTest;
+  });
+
+
+
+/*!
+{
+  "name": "Video Autoplay",
+  "property": "videoautoplay",
+  "tags": ["video"],
+  "async" : true,
+  "warnings": ["This test is very large – only include it if you absolutely need it"],
+  "knownBugs": ["crashes with an alert on iOS7 when added to homescreen"]
+}
+!*/
+/* DOC
+Checks for support of the autoplay attribute of the video element.
+*/
+
+
+  Modernizr.addAsyncTest(function() {
+    var timeout;
+    var waitTime = 200;
+    var retries = 5;
+    var currentTry = 0;
+    var elem = createElement('video');
+    var elemStyle = elem.style;
+
+    function testAutoplay(arg) {
+      currentTry++;
+      clearTimeout(timeout);
+
+      var result = arg && arg.type === 'playing' || elem.currentTime !== 0;
+
+      if (!result && currentTry < retries) {
+        //Detection can be flaky if the browser is slow, so lets retry in a little bit
+        timeout = setTimeout(testAutoplay, waitTime);
+        return;
+      }
+
+      elem.removeEventListener('playing', testAutoplay, false);
+      addTest('videoautoplay', result);
+
+      // Cleanup, but don't assume elem is still in the page -
+      // an extension (eg Flashblock) may already have removed it.
+      if (elem.parentNode) {
+        elem.parentNode.removeChild(elem);
+      }
+    }
+
+    //skip the test if video itself, or the autoplay
+    //element on it isn't supported
+    if (!Modernizr.video || !('autoplay' in elem)) {
+      addTest('videoautoplay', false);
+      return;
+    }
+
+    elemStyle.position = 'absolute';
+    elemStyle.height = 0;
+    elemStyle.width = 0;
+
+    try {
+      if (Modernizr.video.ogg) {
+        elem.src = 'data:video/ogg;base64,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';
+      }
+      else if (Modernizr.video.h264) {
+        elem.src = 'data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAs1tZGF0AAACrgYF//+q3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE0OCByMjYwMSBhMGNkN2QzIC0gSC4yNjQvTVBFRy00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAxNSAtIGh0dHA6Ly93d3cudmlkZW9sYW4ub3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTEgcmVmPTMgZGVibG9jaz0xOjA6MCBhbmFseXNlPTB4MzoweDExMyBtZT1oZXggc3VibWU9NyBwc3k9MSBwc3lfcmQ9MS4wMDowLjAwIG1peGVkX3JlZj0xIG1lX3JhbmdlPTE2IGNocm9tYV9tZT0xIHRyZWxsaXM9MSA4eDhkY3Q9MSBjcW09MCBkZWFkem9uZT0yMSwxMSBmYXN0X3Bza2lwPTEgY2hyb21hX3FwX29mZnNldD0tMiB0aHJlYWRzPTEgbG9va2FoZWFkX3RocmVhZHM9MSBzbGljZWRfdGhyZWFkcz0wIG5yPTAgZGVjaW1hdGU9MSBpbnRlcmxhY2VkPTAgYmx1cmF5X2NvbXBhdD0wIGNvbnN0cmFpbmVkX2ludHJhPTAgYmZyYW1lcz0zIGJfcHlyYW1pZD0yIGJfYWRhcHQ9MSBiX2JpYXM9MCBkaXJlY3Q9MSB3ZWlnaHRiPTEgb3Blbl9nb3A9MCB3ZWlnaHRwPTIga2V5aW50PTI1MCBrZXlpbnRfbWluPTEwIHNjZW5lY3V0PTQwIGludHJhX3JlZnJlc2g9MCByY19sb29rYWhlYWQ9NDAgcmM9Y3JmIG1idHJlZT0xIGNyZj0yMy4wIHFjb21wPTAuNjAgcXBtaW49MCBxcG1heD02OSBxcHN0ZXA9NCBpcF9yYXRpbz0xLjQwIGFxPTE6MS4wMACAAAAAD2WIhAA3//728P4FNjuZQQAAAu5tb292AAAAbG12aGQAAAAAAAAAAAAAAAAAAAPoAAAAZAABAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAACGHRyYWsAAABcdGtoZAAAAAMAAAAAAAAAAAAAAAEAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAgAAAAIAAAAAACRlZHRzAAAAHGVsc3QAAAAAAAAAAQAAAGQAAAAAAAEAAAAAAZBtZGlhAAAAIG1kaGQAAAAAAAAAAAAAAAAAACgAAAAEAFXEAAAAAAAtaGRscgAAAAAAAAAAdmlkZQAAAAAAAAAAAAAAAFZpZGVvSGFuZGxlcgAAAAE7bWluZgAAABR2bWhkAAAAAQAAAAAAAAAAAAAAJGRpbmYAAAAcZHJlZgAAAAAAAAABAAAADHVybCAAAAABAAAA+3N0YmwAAACXc3RzZAAAAAAAAAABAAAAh2F2YzEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAgACAEgAAABIAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY//8AAAAxYXZjQwFkAAr/4QAYZ2QACqzZX4iIhAAAAwAEAAADAFA8SJZYAQAGaOvjyyLAAAAAGHN0dHMAAAAAAAAAAQAAAAEAAAQAAAAAHHN0c2MAAAAAAAAAAQAAAAEAAAABAAAAAQAAABRzdHN6AAAAAAAAAsUAAAABAAAAFHN0Y28AAAAAAAAAAQAAADAAAABidWR0YQAAAFptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABtZGlyYXBwbAAAAAAAAAAAAAAAAC1pbHN0AAAAJal0b28AAAAdZGF0YQAAAAEAAAAATGF2ZjU2LjQwLjEwMQ==';
+      }
+      else {
+        addTest('videoautoplay', false);
+        return;
+      }
+    }
+
+    catch (e) {
+      addTest('videoautoplay', false);
+      return;
+    }
+
+    elem.setAttribute('autoplay', '');
+    elem.style.cssText = 'display:none';
+    docElement.appendChild(elem);
+    // wait for the next tick to add the listener, otherwise the element may
+    // not have time to play in high load situations (e.g. the test suite)
+    setTimeout(function() {
+      elem.addEventListener('playing', testAutoplay, false);
+      timeout = setTimeout(testAutoplay, waitTime);
+    }, 0);
+  });
+
 
   // Run each test
   testRunner();
