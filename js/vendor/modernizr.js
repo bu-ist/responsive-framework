@@ -24,7 +24,7 @@
 
 ;(function(window, document, undefined){
   var tests = [];
-
+  
 
   /**
    *
@@ -73,7 +73,7 @@
     }
   };
 
-
+  
 
   // Fake some of Object.create so we can force non test results to be non "own" properties.
   var Modernizr = function() {};
@@ -83,10 +83,10 @@
   // Overwrite name so constructor name is nicer :D
   Modernizr = new Modernizr();
 
-
+  
 
   var classes = [];
-
+  
 
   /**
    * is returns a boolean if the typeof an obj is exactly type.
@@ -181,7 +181,7 @@
    */
 
   var docElement = document.documentElement;
-
+  
 
   /**
    * A convenience helper to check if the document we are running in is an SVG document
@@ -191,7 +191,7 @@
    */
 
   var isSVG = docElement.nodeName.toLowerCase() === 'svg';
-
+  
 
   /**
    * setClasses takes an array of class names and adds them to the root element
@@ -249,7 +249,7 @@
    */
 
   var omPrefixes = 'Moz O ms Webkit';
-
+  
 
   /**
    * List of JavaScript DOM values used for tests
@@ -271,7 +271,7 @@
 
   var domPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.toLowerCase().split(' ') : []);
   ModernizrProto._domPrefixes = domPrefixes;
-
+  
 
   /**
    * List of property values to set for css tests. See ticket #21
@@ -312,7 +312,7 @@
   // expose these for the plugin API. Look in the source for how to join() them against your input
   ModernizrProto._prefixes = prefixes;
 
-
+  
 
   /**
    * createElement is a convenience wrapper around document.createElement. Since we
@@ -413,11 +413,11 @@
 
 
   ModernizrProto.hasEvent = hasEvent;
-
+  
 
   var cssomPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.split(' ') : []);
   ModernizrProto._cssomPrefixes = cssomPrefixes;
-
+  
 
 
   /**
@@ -451,7 +451,7 @@
     delete modElem.elem;
   });
 
-
+  
 
   var mStyle = {
     style: modElem.elem.style
@@ -463,7 +463,7 @@
     delete mStyle.style;
   });
 
-
+  
 
   /**
    * getBody returns the body of a document, or an element that can stand in for
@@ -867,7 +867,7 @@
   // Modernizr.testAllProps('boxSizing')
   ModernizrProto.testAllProps = testPropsAll;
 
-
+  
 
   /**
    * atRule returns a given CSS property at-rule (eg @keyframes), possibly in
@@ -934,7 +934,7 @@
 
   ModernizrProto.atRule = atRule;
 
-
+  
 
   /**
    * prefixed returns the prefixed or nonprefixed property name variant of your input
@@ -1018,7 +1018,7 @@
     }
   };
 
-
+  
 
   /**
    * testAllProps determines whether a given CSS property is supported in the browser
@@ -1061,7 +1061,7 @@
     return testPropsAll(prop, undefined, undefined, value, skipValueTest);
   }
   ModernizrProto.testAllProps = testAllProps;
-
+  
 
   /**
    * testProp() investigates whether a given style property is recognized
@@ -1100,7 +1100,7 @@
   var testProp = ModernizrProto.testProp = function(prop, value, useValue) {
     return testProps([prop], undefined, value, useValue);
   };
-
+  
 
   /**
    * testStyles injects an element with style element and some CSS rules
@@ -1160,7 +1160,7 @@
    */
 
   var testStyles = ModernizrProto.testStyles = injectElementWithStyles;
-
+  
 
 /**
   * @optionName html5printshiv
@@ -2553,7 +2553,7 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
    */
 
   var toStringFn = ({}).toString;
-
+  
 /*!
 {
   "name": "SVG clip paths",
@@ -2654,7 +2654,7 @@ Detects support for inline SVG in HTML (not within XHTML).
     }
   })();
 
-
+  
 
 
    // _l tracks listeners for async tests, as well as tests that execute after the initial run
@@ -2861,7 +2861,7 @@ Detects support for inline SVG in HTML (not within XHTML).
     ModernizrProto.addTest = addTest;
   });
 
-
+  
 
 /*!
 {
