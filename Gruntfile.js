@@ -25,9 +25,10 @@ module.exports = function(grunt) {
 			},
 			styles: {
 				files: [
-				'bower_components/responsive-foundation/css-dev/**/*.scss',
-				'!css-dev/customizer/**/*.scss',
-				'css-dev/*.scss'
+					'bower_components/responsive-foundation/css-dev/**/*.scss',
+					'!css-dev/customizer/**/*.scss',
+					'!css-dev/admin.scss',
+					'css-dev/*.scss'
 				],
 				tasks: ['sass:dev', 'sass:prod'],
 				options: {
@@ -36,7 +37,7 @@ module.exports = function(grunt) {
 			},
 			fonts: {
 				files: [
-				'css-dev/customizer/font-palettes/*.scss'
+					'css-dev/customizer/font-palettes/*.scss'
 				],
 				tasks: ['sass:fonts'],
 				options: {
@@ -45,7 +46,7 @@ module.exports = function(grunt) {
 			},
 			admin: {
 				files: [
-				'css-dev/admin.scss'
+					'css-dev/admin.scss'
 				],
 				tasks: ['sass:admin'],
 				options: {
@@ -79,11 +80,18 @@ module.exports = function(grunt) {
 			}
 		},
 		sass: {
+			options: {
+				style: 'compressed',
+				loadPath: [
+					'bower_components/normalize.scss/sass',
+					'bower_components/mathsass/dist/',
+					'bower_components/responsive-foundation/css-dev'
+				],
+				bundleExec: true
+			},
 			dev: {
 				options: {
-					style: 'expanded',
-					loadPath: 'bower_components/responsive-foundation/css-dev',
-					bundleExec: true
+					style: 'expanded'
 				},
 				files: {
 					'style.css': 'css-dev/style.scss',
@@ -91,11 +99,6 @@ module.exports = function(grunt) {
 				}
 			},
 			prod: {
-				options: {
-					style: 'compressed',
-					loadPath: 'bower_components/responsive-foundation/css-dev',
-					bundleExec: true
-				},
 				files: {
 					'style.min.css': 'css-dev/style.scss',
 					'ie.min.css': 'css-dev/ie.scss'
@@ -115,10 +118,6 @@ module.exports = function(grunt) {
 				}]
 			},
 			admin: {
-				options: {
-					style: 'compressed',
-					bundleExec: true
-				},
 				files: [{
 					'admin/admin.css': 'css-dev/admin.scss'
 				}]
@@ -136,6 +135,13 @@ module.exports = function(grunt) {
 					prefix: 'Version:\\s*'
 				},
 				src: ['css-dev/style.scss']
+			},
+			modernizr: {
+				options: {
+					pkg: 'node_modules/grunt-modernizr/node_modules/customizr/node_modules/modernizr/package.json',
+					prefix: '[\'"]RESPONSIVE_MODERNIZR_VERSION[\'"],\\s*\''
+				},
+				src: ['functions.php']
 			}
 		},
 		copy: {
@@ -154,26 +160,60 @@ module.exports = function(grunt) {
 				}
 			}
  		},
-		bowercopy: {
-			options: {
-				srcPrefix: 'bower_components'
-			},
-			scripts: {
-				options: {
-					destPrefix: 'js/vendor'
-				},
-				files: {
-					'lightgallery/': 'lightgallery/dist/',
-					'lg-thumbnail/': 'lg-thumbnail/dist/'
-				}
-			}
-		},
-		modernizr_builder: {
-			build: {
-				options: {
-					config: 'modernizr-config.json',
-					dest: 'js/vendor/modernizr.js'
-				}
+
+		modernizr: {
+			dist: {
+				'parseFiles': false,
+				'dest': 'js/vendor/modernizr.js',
+				'tests': [
+					'audio',
+					'canvas',
+					'canvastext',
+					'geolocation',
+					'hashchange',
+					'postmessage',
+					'requestanimationframe',
+					'svg',
+					'video',
+					'webgl',
+					'cssanimations',
+					'backgroundsize',
+					'borderimage',
+					'borderradius',
+					'boxshadow',
+					'csscolumns',
+					'flexbox',
+					'flexboxlegacy',
+					'fontface',
+					'generatedcontent',
+					'cssgradients',
+					'hsla',
+					'multiplebgs',
+					'opacity',
+					'cssreflections',
+					'rgba',
+					'textshadow',
+					'csstransforms',
+					'csstransforms3d',
+					'csstransitions',
+					'localstorage',
+					'svgclippaths',
+					'inlinesvg',
+					'smil',
+					'videoautoplay'
+				],
+				'options': [
+					'domPrefixes',
+					'prefixes',
+					'hasEvent',
+					'prefixed',
+					'testAllProps',
+					'testProp',
+					'testStyles',
+					'html5printshiv',
+					'setClasses'
+				],
+				'uglify': false
 			}
 		}
 	});
@@ -187,12 +227,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-version');
 	grunt.loadNpmTasks( 'grunt-bower-task' );
-	grunt.loadNpmTasks( 'grunt-modernizr-builder' );
-	grunt.loadNpmTasks( 'grunt-bowercopy' );
+	grunt.loadNpmTasks( 'grunt-modernizr' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask('install', ['copy:hooks', 'build']);
 	grunt.registerTask('default', ['bower:install', 'watch']);
-	grunt.registerTask( 'build', ['bower:install', 'bowercopy', 'modernizr_builder', 'sass', 'concat', 'uglify'] );
+	grunt.registerTask( 'upgrade_modernizr', [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
+	grunt.registerTask( 'build', ['bower:install', 'sass', 'concat', 'uglify'] );
 
 };
