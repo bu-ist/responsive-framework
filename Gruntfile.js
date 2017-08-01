@@ -160,7 +160,6 @@ module.exports = function(grunt) {
 				}
 			}
  		},
-
 		modernizr: {
 			dist: {
 				'parseFiles': false,
@@ -235,5 +234,4 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['bower:install', 'watch']);
 	grunt.registerTask( 'upgrade_modernizr', [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
 	grunt.registerTask( 'build', ['bower:install', 'sass', 'concat', 'uglify'] );
-
 };
