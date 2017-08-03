@@ -1,6 +1,6 @@
 {
 	"name": "responsive-framework",
 	"dependencies": {
-		"responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#50-fix-benton-name"
+		"responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#develop"
 	}
 }
