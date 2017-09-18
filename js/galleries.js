@@ -41,10 +41,11 @@ responsive_framework.galleries = ( function( $ ) {
 				$caption_container.addClass( 'gallery-caption' );
 
 				if ( 0 < $caption_container.length ) {
-					$link.attr( 'data-sub-html', $caption_container.text() );
+					var caption_text = $.trim( $caption_container.text() );
+					$link.attr( 'data-sub-html', caption_text );
 
 					if ( 60 < $caption_container.text().length ) {
-						$caption_container.html( $caption_container.text().substring( 0, 60 ) + '&hellip;' );
+						$caption_container.html( $caption_container.text() ).substring( 0, 60 ) + '&hellip;' );
 					}
 				} else {
 					$link.attr( 'data-sub-html', '' );
