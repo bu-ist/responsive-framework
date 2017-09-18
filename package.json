@@ -27,7 +27,9 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-modernizr": "^1.0.2",
     "grunt-notify": "^0.4.1",
-    "grunt-version": "^0.3.0"
+    "grunt-version": "^0.3.0",
+    "lg-thumbnail": "^1.1.0",
+    "lightgallery": "^1.6.1"
   },
   "scripts": {
     "postinstall": "grunt install"

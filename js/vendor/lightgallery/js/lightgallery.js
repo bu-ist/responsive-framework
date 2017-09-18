@@ -1,7 +1,6 @@
-/*! lightgallery - v1.3.9 - 2017-02-05
+/*! lightgallery - v1.6.1 - 2017-09-18
 * http://sachinchoolur.github.io/lightGallery/
 * Copyright (c) 2017 Sachin N; Licensed GPLv3 */
-
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module unless amdModuleId is set
@@ -248,6 +247,10 @@
             if (_this.s.mousewheel) {
                 _this.mousewheel();
             }
+        } else {
+            _this.$slide.on('click.lg', function() {
+                _this.$el.trigger('onSlideClick.lg');
+            });
         }
 
         _this.counter();
@@ -293,8 +296,8 @@
         // Create controlls
         if (this.s.controls && this.$items.length > 1) {
             controls = '<div class="lg-actions">' +
-                '<div class="lg-prev lg-icon">' + this.s.prevHtml + '</div>' +
-                '<div class="lg-next lg-icon">' + this.s.nextHtml + '</div>' +
+                '<button class="lg-prev lg-icon">' + this.s.prevHtml + '</button>' +
+                '<button class="lg-next lg-icon">' + this.s.nextHtml + '</button>' +
                 '</div>';
         }
 
@@ -430,10 +433,15 @@
             html = this.$items.eq(index).attr('data-html');
         }
 
-        if (!src && html) {
-            return {
-                html5: true
-            };
+        if (!src) {
+            if(html) {
+                return {
+                    html5: true
+                };
+            } else {
+                console.error('lightGallery :- data-src is not pvovided on slide item ' + (index + 1) + '. Please make sure the selector property is properly configured. More info - http://sachinchoolur.github.io/lightGallery/demos/html-markup.html');
+                return false;
+            }
         }
 
         var youtube = src.match(/\/\/(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=|embed\/)?([a-z0-9\-\_\%]+)/i);
@@ -661,7 +669,7 @@
         var _isVideo = _this.isVideo(_src, index);
         if (!_this.$slide.eq(index).hasClass('lg-loaded')) {
             if (iframe) {
-                _this.$slide.eq(index).prepend('<div class="lg-video-cont" style="max-width:' + _this.s.iframeMaxWidth + '"><div class="lg-video"><iframe class="lg-object" frameborder="0" src="' + _src + '"  allowfullscreen="true"></iframe></div></div>');
+                _this.$slide.eq(index).prepend('<div class="lg-video-cont lg-has-iframe" style="max-width:' + _this.s.iframeMaxWidth + '"><div class="lg-video"><iframe class="lg-object" frameborder="0" src="' + _src + '"  allowfullscreen="true"></iframe></div></div>');
             } else if (_hasPoster) {
                 var videoClass = '';
                 if (_isVideo && _isVideo.youtube) {
@@ -695,7 +703,7 @@
                         elements: [_$img[0]]
                     });
                 } catch (e) {
-                    console.error('Make sure you have included Picturefill version 2');
+                    console.warn('lightGallery :- If you want srcset to be supported for older browser please include picturefil version 2 javascript library in your document.');
                 }
             }
 
@@ -909,6 +917,7 @@
             }
 
         }
+        _this.index = index;
 
     };
 
@@ -1102,7 +1111,7 @@
         var endCoords = 0;
         var isMoved = false;
 
-        if (_this.s.enableSwipe && _this.isTouch && _this.doCss()) {
+        if (_this.s.enableSwipe && _this.doCss()) {
 
             _this.$slide.on('touchstart.lg', function(e) {
                 if (!_this.$outer.hasClass('lg-zoomed') && !_this.lgBusy) {
@@ -1141,7 +1150,7 @@
         var endCoords = 0;
         var isDraging = false;
         var isMoved = false;
-        if (_this.s.enableDrag && !_this.isTouch && _this.doCss()) {
+        if (_this.s.enableDrag && _this.doCss()) {
             _this.$slide.on('mousedown.lg', function(e) {
                 // execute only on .lg-object
                 if (!_this.$outer.hasClass('lg-zoomed')) {
