@@ -45,7 +45,7 @@ responsive_framework.galleries = ( function( $ ) {
 					$link.attr( 'data-sub-html', caption_text );
 
 					if ( 60 < $caption_container.text().length ) {
-						$caption_container.html( $caption_container.text() ).substring( 0, 60 ) + '&hellip;' );
+						$caption_container.html( $caption_container.text().substring( 0, 60 ) + '&hellip;' );
 					}
 				} else {
 					$link.attr( 'data-sub-html', '' );
