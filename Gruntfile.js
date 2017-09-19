@@ -138,7 +138,7 @@ module.exports = function(grunt) {
 			},
 			modernizr: {
 				options: {
-					pkg: 'node_modules/grunt-modernizr/node_modules/customizr/node_modules/modernizr/package.json',
+					pkg: 'node_modules/modernizr/package.json',
 					prefix: '[\'"]RESPONSIVE_MODERNIZR_VERSION[\'"],\\s*\''
 				},
 				src: ['functions.php']
@@ -192,6 +192,7 @@ module.exports = function(grunt) {
 					'cssreflections',
 					'rgba',
 					'textshadow',
+					'csspositionsticky',
 					'csstransforms',
 					'csstransforms3d',
 					'csstransitions',
