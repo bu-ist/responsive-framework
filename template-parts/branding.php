@@ -8,6 +8,6 @@
  */
 
 ?>
-<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home">
+<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 	<span class="site-name"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
 </a>
