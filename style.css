@@ -458,13 +458,15 @@ template {
   display: none;
 }
 
-.container::after, .content-container::after, .footbar-container::after, .content-container-narrow::after, .row::after, .gallery::after, .profile-format-advanced::after, .profile-item-mini::after, .widget-post::after, .masthead::after, .primary-nav::after, .content-container-narrow .sidebar::after, .footbar::after, .site-footer::after, .paging-navigation::after, .profile-listing::after {
+.container::after, .content-container::after, .footbar-container::after, .content-container-narrow::after, .row::after, .gallery::after, .profile-format-advanced::after, .profile-item-mini::after, .widget-post::after, .masthead::after, .primary-nav::after, .content-container-narrow .sidebar::after, .footbar::after, .site-footer::after, .paging-navigation::after, .profile-listing::after,
+.u-clearfix::after {
   display: table;
   clear: both;
   content: "";
 }
 
-.brand-masterplate, .brand-bumclogo, .nav-toggle {
+.brand-masterplate, .brand-bumclogo, .nav-toggle,
+.u-hide-text {
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
@@ -472,7 +474,8 @@ template {
 
 .screen-reader-text,
 .screen-reader-text span,
-.ui-helper-hidden-accessible, .event-time-make-sentence {
+.ui-helper-hidden-accessible, .event-time-make-sentence,
+.u-visually-hidden {
   border: 0;
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
@@ -484,29 +487,37 @@ template {
   width: 1px;
 }
 
+.u-hide {
+  display: none;
+}
+
+.u-show {
+  display: block;
+}
+
 @font-face {
-  font-family: "Benton";
+  font-family: "Benton-Sans";
   src: url("//www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot");
   src: url("//www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot?") format("embedded-opentype"), url("//www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-3.woff") format("woff"), url("//www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-1.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
-  font-family: "Benton";
+  font-family: "Benton-Sans";
   src: url("//www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot");
   src: url("//www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot?") format("embedded-opentype"), url("//www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-3.woff") format("woff"), url("//www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-1.ttf") format("truetype");
   font-style: italic;
   font-weight: 400;
 }
 @font-face {
-  font-family: "Benton";
+  font-family: "Benton-Sans";
   src: url("//www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot");
   src: url("//www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot?") format("embedded-opentype"), url("//www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-3.woff") format("woff"), url("//www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-1.ttf") format("truetype");
   font-style: normal;
   font-weight: 700;
 }
 @font-face {
-  font-family: "Benton";
+  font-family: "Benton-Sans";
   src: url("//www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot");
   src: url("//www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot?") format("embedded-opentype"), url("//www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-3.woff") format("woff"), url("//www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-1.ttf") format("truetype");
   font-style: italic;
@@ -2171,7 +2182,7 @@ h6,
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   margin-bottom: 0.6em;
   margin-top: 1em;
 }
@@ -2201,7 +2212,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  font-family: "Consolas", "Liberation Mono", Courier, monospace;
   font-size: 18px;
 }
 
@@ -2248,7 +2259,7 @@ code {
 
 .code {
   background: #f5f5f5;
-  border: 1px solid #eee;
+  border: 1px solid #ddd;
   margin: 30px 0;
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
@@ -2267,6 +2278,7 @@ code {
 
 table {
   border: 1px solid #ddd;
+  border-collapse: collapse;
   empty-cells: show;
   margin: 30px 0;
   width: 100%;
@@ -2280,7 +2292,6 @@ table caption {
 table td,
 table th {
   border-left: 1px solid #ddd;
-  border-width: 0 0 0 1px;
   font-size: inherit;
   margin: 0;
   overflow: visible;
@@ -2315,7 +2326,7 @@ table col[class*="col-"] {
 
 .table-striped tr:nth-child(2n-1) td,
 .u-odd td {
-  background-color: #f5f5f5;
+  background: #f5f5f5;
 }
 
 .table-bordered td {
@@ -2334,18 +2345,21 @@ table col[class*="col-"] {
   border-bottom-width: 0;
 }
 
+table.sortable thead tr th.header {
+  border: 1px solid #ddd;
+}
+
 button,
 [type="button"],
 [type="reset"],
 [type="submit"], .button, .button-primary,
 .button-selected, .paging-navigation a, .archive-link {
   background-color: #eee;
+  border: 0;
   border-radius: 2px;
-  border: 1px solid #999;
-  border: none transparent;
   color: #444;
   display: inline-block;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   font-size: inherit;
   line-height: normal;
   margin: 0 15px 15px 0;
@@ -2363,15 +2377,10 @@ button:focus,
 [type="submit"]:hover, .button:hover, .button-primary:hover,
 .button-selected:hover, .paging-navigation a:hover, .archive-link:hover {
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
-  /* Saf4+, Chrome */
   background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));
-  /* Chrome 10+, Saf5.1+, iOS 5+ */
   background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));
-  /* FF3.6 */
   background-image: -ms-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));
-  /* IE10 */
   background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));
-  /* Opera 11.10+ */
   background-image: linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='transparent', EndColorStr='rgba(0, 0, 0, 0.1)');
 }
@@ -2425,10 +2434,8 @@ button[disabled],
   -ms-box-shadow: none;
   -o-box-shadow: none;
   box-shadow: none;
-  opacity: 0.4;
-  filter: alpha(opacity=40);
-  background-image: none;
-  border: 0;
+  background: #ddd;
+  color: #777;
   cursor: not-allowed;
 }
 .button-primary,
@@ -2444,7 +2451,7 @@ button[disabled],
 }
 
 form {
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
 }
 
 fieldset {
@@ -2454,8 +2461,7 @@ fieldset {
 }
 
 legend {
-  border: 1px solid #eee;
-  border-width: 0 0 1px 0;
+  border-bottom: 1px solid #ddd;
   display: block;
   font-size: 1.5em;
   font-weight: 700;
@@ -2531,7 +2537,7 @@ textarea {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   display: inline-block;
   line-height: 1;
   margin: 0 0 15px;
@@ -2894,7 +2900,7 @@ textarea {
 .wp-caption-text {
   clear: both;
   color: #666;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   line-height: 1.4;
 }
 
@@ -2915,16 +2921,8 @@ textarea {
     table-layout: auto;
   }
   .responsive-table table td {
-    border: 1px solid #ddd;
     white-space: nowrap;
   }
-}
-.responsive-table table {
-  border: 1px solid #ddd;
-}
-.responsive-table table td,
-.responsive-table table th {
-  border: 1px solid #ddd;
 }
 
 .content p code {
@@ -2936,7 +2934,7 @@ textarea {
   position: relative;
 }
 .bu_collapsible_container + .bu_collapsible_container {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #ddd;
 }
 
 .bu_collapsible {
@@ -2978,7 +2976,7 @@ textarea {
 .cf-course-id {
   color: #777;
   display: block;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   font-size: 0.5em;
   margin-bottom: 0.5em;
 }
@@ -3166,11 +3164,6 @@ textarea {
   z-index: 1;
 }
 .gallery-icon a:hover::before, .gallery-icon a:hover::after {
-  -webkit-transition: opacity 250ms ease-in-out 0s;
-  -moz-transition: opacity 250ms ease-in-out 0s;
-  -ms-transition: opacity 250ms ease-in-out 0s;
-  -o-transition: opacity 250ms ease-in-out 0s;
-  transition: opacity 250ms ease-in-out 0s;
   opacity: 1;
 }
 .gallery-icon img {
@@ -3265,7 +3258,7 @@ textarea {
 }
 .lg-toogle-thumb::before {
   content: "Show thumbnails";
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   margin-right: 5px;
   position: relative;
   top: -5px;
@@ -3415,7 +3408,7 @@ textarea {
 .widget h4,
 .widget h5,
 .widget h6 {
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
 }
 .widget a {
   color: #0f69d7;
@@ -3429,10 +3422,10 @@ textarea {
 }
 
 .widget-title {
-  border: 4px solid #000;
+  border: 1px solid #ddd;
   border-width: 0 0 4px 0;
   color: #000;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   padding: 0 0 4px;
 }
 .widget-title a {
@@ -3453,8 +3446,7 @@ textarea {
 
 .widget_links li,
 .widget_archive li {
-  border: 1px solid #ddd;
-  border-width: 1px 0 0 0;
+  border-top: 1px solid #ddd;
   padding: 15px 0;
 }
 .widget_links li:first-child,
@@ -3463,8 +3455,7 @@ textarea {
 }
 
 .widget-calendar-event {
-  border: 1px solid #ddd;
-  border-width: 1px 0 0 0;
+  border-top: 1px solid #ddd;
   padding: 15px 0;
 }
 .widget-calendar-event:first-child {
@@ -3479,7 +3470,7 @@ textarea {
 .widget-calendar-date {
   color: #000;
   display: block;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   font-weight: 700;
   margin-bottom: 0.5em;
 }
@@ -3548,13 +3539,13 @@ textarea {
 }
 .widget-calendar-picker caption {
   color: #777;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: bold;
 }
 .widget-calendar-picker th,
 .widget-calendar-picker td {
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   padding: 0.25em;
   text-align: center;
   width: 14.28571%;
@@ -3598,8 +3589,7 @@ textarea {
 }
 .widget_bu_pages ul,
 .widget_nav_menu ul {
-  border: 1px solid #ddd;
-  border-width: 0 0 1px 0;
+  border-bottom: 1px solid #ddd;
   padding: 0;
 }
 .widget_bu_pages ul ul,
@@ -3609,9 +3599,8 @@ textarea {
 }
 .widget_bu_pages li,
 .widget_nav_menu li {
-  border: 1px solid #ddd;
-  border-width: 1px 0 0 0;
-  font-family: "Benton", "Helvetica", sans-serif;
+  border-top: 1px solid #ddd;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
 }
 .widget_bu_pages li:first-child,
 .widget_nav_menu li:first-child {
@@ -3701,7 +3690,7 @@ textarea {
 }
 
 .brand {
-  font-family: "Whitney SSm A", "Whitney SSm B", "Benton", "Helvetica", sans-serif;
+  font-family: "Whitney SSm A", "Whitney SSm B", "Benton-Sans", "Helvetica", sans-serif;
   font-size: 18px;
   height: 120px;
   line-height: 1.3;
@@ -3748,7 +3737,7 @@ textarea {
 
 .brand-unbranded {
   color: #c00;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   font-size: 20px;
 }
 .brand-unbranded:visited {
@@ -3809,8 +3798,7 @@ textarea {
 
 .masthead {
   background: #fff;
-  border: 1px solid #ddd;
-  border-width: 0 0 1px 0;
+  border-bottom: 1px solid #ddd;
   position: relative;
 }
 
@@ -3819,7 +3807,7 @@ textarea {
 }
 
 nav {
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
 }
 nav a {
   text-decoration: none;
@@ -4079,7 +4067,7 @@ nav a {
     left: -9999px;
     position: absolute;
     width: 240px;
-    z-index: 2;
+    z-index: 700;
   }
 }
 
@@ -4471,8 +4459,7 @@ nav a {
 
 .footbar {
   background: #f5f5f5;
-  border: 1px solid #ccc;
-  border-width: 1px 0 0 0;
+  border-top: 1px solid #ddd;
   padding-bottom: 30px;
   width: 100%;
 }
@@ -4514,7 +4501,7 @@ body {
   clear: both;
   color: #888;
   display: block;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   padding: 30px 30px 15px;
   position: relative;
   width: 100%;
@@ -4539,7 +4526,7 @@ body {
 .site-footer h5,
 .site-footer h6 {
   color: #fff;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   margin: 0 0 0.3em;
 }
 
@@ -4750,7 +4737,7 @@ body {
 .comment-body {
   border: 1px solid #ddd;
   border-width: 1px 1px 1px 5px;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   padding: 15px;
   position: relative;
 }
@@ -4803,7 +4790,7 @@ body {
   -ms-border-radius: 5px;
   border-radius: 5px;
   background: #f5f5f5;
-  border: 1px solid #eee;
+  border: 1px solid #ddd;
   border-width: 3px;
   margin: 15px 0 30px;
   padding: 30px;
@@ -4888,8 +4875,7 @@ body {
 }
 
 .paging-navigation {
-  border: 1px solid #ddd;
-  border-width: 1px 0 0 0;
+  border-top: 1px solid #ddd;
   margin-top: 30px;
   padding-top: 30px;
 }
@@ -4903,8 +4889,7 @@ body {
 }
 
 .post-part {
-  border: 1px solid #ddd;
-  border-width: 1px 0 0 0;
+  border-top: 1px solid #ddd;
   margin-top: 30px;
   padding-top: 30px;
   position: relative;
@@ -4948,7 +4933,7 @@ body {
 }
 
 .calendar-list-event-first-at-time {
-  border-top: 1px dotted #ccc;
+  border-top: 1px solid #ddd;
   margin-bottom: 0.75em;
   padding-top: 0.75em;
 }
@@ -5080,7 +5065,7 @@ body {
 .single-event-label, .single-event-speakers-label, .single-event-audience-label, .single-event-departments-label, .single-event-location-label, .single-event-location-building-label, .single-event-location-room-label, .single-event-fees-label, .single-event-fee-label, .single-event-fee-general-label, .single-event-fee-public-label, .single-event-fee-staff-label, .single-event-fee-student-label, .single-event-fee-bu-student-label, .single-event-fee-senior-label, .single-event-deadline-label, .single-event-registration-label, .single-event-contact-org-label, .single-event-contact-name-label, .single-event-contact-email-label, .single-event-contact-phone-label {
   color: #999;
   display: block;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -5130,7 +5115,7 @@ body {
 
 .label {
   display: block;
-  font-family: "Benton", "Helvetica", sans-serif;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
 }
