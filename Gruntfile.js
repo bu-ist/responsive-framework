@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 			vendor: {
 				expand: true,
 				cwd: 'js/vendor',
-				src: ['**/*.js', '!**/*.min.js'],
+				src: ['*.js', '!*.min.js'],
 				dest: 'js/vendor',
 				ext: '.min.js'
 			}
@@ -138,7 +138,7 @@ module.exports = function(grunt) {
 			},
 			modernizr: {
 				options: {
-					pkg: 'node_modules/grunt-modernizr/node_modules/customizr/node_modules/modernizr/package.json',
+					pkg: 'node_modules/modernizr/package.json',
 					prefix: '[\'"]RESPONSIVE_MODERNIZR_VERSION[\'"],\\s*\''
 				},
 				src: ['functions.php']
@@ -151,6 +151,24 @@ module.exports = function(grunt) {
 				},
 				src: 'hooks/post-merge',
 				dest: '.git/hooks/post-merge'
+			},
+			lightgallery: {
+				options: {
+					mode: true
+				},
+				expand: true,
+				cwd: 'node_modules/lightgallery/dist/',
+				src: '**',
+				dest: 'js/vendor/lightgallery/'
+			},
+			lgthumbnail: {
+				options: {
+					mode: true
+				},
+				expand: true,
+				cwd: 'node_modules/lg-thumbnail/dist/',
+				src: '**',
+				dest: 'js/vendor/lg-thumbnail/'
 			}
 		},
 		bower: {
@@ -189,6 +207,7 @@ module.exports = function(grunt) {
 					'hsla',
 					'multiplebgs',
 					'opacity',
+					'objectfit',
 					'cssreflections',
 					'rgba',
 					'textshadow',
@@ -231,7 +250,7 @@ module.exports = function(grunt) {
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask('install', ['copy:hooks', 'build']);
 	grunt.registerTask('default', ['bower:install', 'watch']);
+	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail' ] );
 	grunt.registerTask( 'upgrade_modernizr', [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
 	grunt.registerTask( 'build', ['bower:install', 'sass', 'concat', 'uglify'] );
-
 };
