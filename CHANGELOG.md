@@ -4,6 +4,7 @@
 
 * Enables pinch to zoom for accessibility on mobile.
 * Fixes a bug where BUMC branding styles do not apply correctly.
+* Add `right` default to `burf_setting_sidebar_location` option.
 
 ## 1.5.3
 
