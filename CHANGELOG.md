@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.4
+
+* Enables pinch to zoom for accessibility on mobile.
+* Fixes a bug where BUMC branding styles do not apply correctly.
+
 ## 1.5.3
 
 * Move the body `id` declaration in front of `class`.
