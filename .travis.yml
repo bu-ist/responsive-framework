@@ -13,19 +13,33 @@ notifications:
     on_success: change
     on_failure: change
 
-php:
-  - 5.6
-  - 7.0
-  - 7.1
+env:
+  global:
+    - WP_TRAVISCI=travis:phpunit
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.0
+      env: WP_VERSION=trunk
+    - php: 7.0
+      env: WP_VERSION=latest
+    - php: 7.0
+      env: WP_VERSION=4.7
+    - php: 7.0
+      env: WP_VERSION=4.6
+    - php: 7.1
+      env: WP_VERSION=trunk
+    - php: 7.1
+      env: WP_VERSION=latest
+    - php: 7.2
+      env: WP_VERION=trunk
+  allow_failures:
+    - php: 7.2
 
 cache:
   directories:
     - $HOME/.composer/cache
-
-env:
-  - WP_VERSION=nightly
-  - WP_VERSION=latest
-  - WP_VERSION=4.6.7
 
 before_install:
   - |
@@ -40,10 +54,13 @@ install:
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
-    if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
-      composer global require "phpunit/phpunit=5.7.*"
-    else
-      composer global require "phpunit/phpunit=4.8.*"
+    if [[ "$WP_TRAVISCI" == "travis:phpunit" ]]; then
+      if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
+        composer global require "phpunit/phpunit=5.7.*"
+      else
+        composer global require "phpunit/phpunit=4.8.*"
+      fi
+      bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
     fi
 
   - git config --global user.email "travis-ci@codeclimate.com"
