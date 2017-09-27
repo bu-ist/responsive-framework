@@ -93,7 +93,6 @@ class Responsive_Galleries {
 		 */
 		$out['link'] = 'file';
 
-		print_r( $out );
 		return $out;
 	}
 }
