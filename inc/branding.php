@@ -81,9 +81,9 @@ function responsive_branding_masterplate( $args = array() ) {
  */
 function responsive_branding_bumc_logo( $args = array() ) {
 	$defaults = array(
-		'before' => '',
-		'after'  => '',
-		);
+		'before' => '<div class="siteFooter-bumc site-footer-bumc">',
+		'after'  => '</div>',
+	);
 	$args = wp_parse_args( $args, $defaults );
 
 	if ( current_theme_supports( 'bu-branding' ) && function_exists( 'bu_branding_bumc_logo' ) ) {
@@ -121,9 +121,9 @@ function responsive_branding_bumc_logo( $args = array() ) {
  */
 function responsive_branding_disclaimer( $args = array() ) {
 	$defaults = array(
-		'before' => '',
-		'after'  => '',
-		);
+		'before' => '<div class="siteFooter-disclaimer site-footer-disclaimer">',
+		'after'  => '</div>',
+	);
 	$args = wp_parse_args( $args, $defaults );
 
 	if ( current_theme_supports( 'bu-branding' ) && function_exists( 'bu_branding_disclaimer' ) ) {
