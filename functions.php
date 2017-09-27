@@ -543,6 +543,11 @@ require __DIR__ . '/inc/template-tags.php';
 require __DIR__ . '/inc/upgrade.php';
 
 /**
+ * WordPress galleries code.
+ */
+require __DIR__ . '/inc/class-responsive-galleries.php';
+
+/**
  * WP-CLI commands.
  */
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
