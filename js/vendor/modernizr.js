@@ -1,6 +1,6 @@
 /*!
  * modernizr v3.5.0
- * Build https://modernizr.com/download?-audio-backgroundsize-borderimage-borderradius-boxshadow-canvas-canvastext-cssanimations-csscolumns-cssgradients-csspositionsticky-cssreflections-csstransforms-csstransforms3d-csstransitions-flexbox-flexboxlegacy-fontface-generatedcontent-geolocation-hashchange-hsla-inlinesvg-localstorage-multiplebgs-opacity-postmessage-requestanimationframe-rgba-smil-svg-svgclippaths-textshadow-video-videoautoplay-webgl-domprefixes-hasevent-prefixed-prefixes-printshiv-setclasses-testallprops-testprop-teststyles-dontmin
+ * Build https://modernizr.com/download?-audio-backgroundsize-borderimage-borderradius-boxshadow-canvas-canvastext-cssanimations-csscolumns-cssgradients-csspositionsticky-cssreflections-csstransforms-csstransforms3d-csstransitions-flexbox-flexboxlegacy-fontface-generatedcontent-geolocation-hashchange-hsla-inlinesvg-localstorage-multiplebgs-objectfit-opacity-postmessage-requestanimationframe-rgba-smil-svg-svgclippaths-textshadow-video-videoautoplay-webgl-domprefixes-hasevent-prefixed-prefixes-printshiv-setclasses-testallprops-testprop-teststyles-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -2378,6 +2378,22 @@ Detects support for inline SVG in HTML (not within XHTML).
     // of the string "url(" in the return value for elemStyle.background
     return (/(url\s*\(.*?){3}/).test(style.background);
   });
+
+/*!
+{
+  "name": "CSS Object Fit",
+  "caniuse": "object-fit",
+  "property": "objectfit",
+  "tags": ["css"],
+  "builderAliases": ["css_objectfit"],
+  "notes": [{
+    "name": "Opera Article on Object Fit",
+    "href": "https://dev.opera.com/articles/css3-object-fit-object-position/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('objectfit', !!prefixed('objectFit'), {aliases: ['object-fit']});
 
 /*!
 {
