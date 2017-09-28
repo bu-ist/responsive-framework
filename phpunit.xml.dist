@@ -1,0 +1,35 @@
+<phpunit
+		bootstrap="tests/bootstrap.php"
+		backupGlobals="false"
+		colors="true"
+		convertErrorsToExceptions="true"
+		convertNoticesToExceptions="true"
+		convertWarningsToExceptions="true"
+>
+	<testsuites>
+		<testsuite>
+			<directory prefix="test-" suffix=".php">./tests/</directory>
+		</testsuite>
+	</testsuites>
+
+	<logging>
+		<log type="coverage-clover" target="build/logs/clover.xml"/>
+	</logging>
+
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<file>./functions.php</file>
+			<exclude>
+				<directory suffix=".php">./.sass-cache/</directory>
+				<directory suffix=".php">./bin/</directory>
+				<directory suffix=".php">./bower_components/</directory>
+				<directory suffix=".php">./hooks/</directory>
+				<directory suffix=".php">./node_modules/</directory>
+				<directory suffix=".php">./page-templates/</directory>
+				<directory suffix=".php">./template-parts/</directory>
+				<directory suffix=".php">./tests/</directory>
+				<directory suffix=".php">./vendor/</directory>
+			</exclude>
+		</whitelist>
+	</filter>
+</phpunit>
