@@ -102,6 +102,13 @@
  display prerequisites for the course, and removes the cryptic course ID in favor
  of a clearer display of section ID, semester, and year.
 - Adds unique callbacks for calendar widget formats and updates tags to HTML5.
+- Adds a lightbox for galleries automatically. 
+
+## 1.5.4
+
+* Enables pinch to zoom for accessibility on mobile.
+* Fixes a bug where BUMC branding styles do not apply correctly.
+* Add `right` default to `burf_setting_sidebar_location` option.
 
 ## 1.5.3
 
