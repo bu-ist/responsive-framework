@@ -83,7 +83,6 @@ module.exports = function(grunt) {
 			options: {
 				outputStyle: 'compressed',
 				sourceMap: true,
-				sourceMapEmbed: true,
 				indentType: 'space',
 				indentWidth: 2,
 				precision: '5',
@@ -113,7 +112,6 @@ module.exports = function(grunt) {
 				options: {
 					outputStyle: 'expanded',
 					sourceMap: false,
-					sourceMapEmbed: false,
 				},
 				files: [{
 					expand: true,
