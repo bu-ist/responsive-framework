@@ -65,7 +65,10 @@ before_script:
     fi
 
 script:
-  - bundle exec rspec
+  - |
+    if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      bundle exec rspec
+    fi
   - |
     if [[ ! -z "$WP_VERSION" ]] ; then
       phpunit
