@@ -81,8 +81,13 @@ module.exports = function(grunt) {
 		},
 		sass: {
 			options: {
-				style: 'compressed',
-				loadPath: [
+				outputStyle: 'compressed',
+				sourceMap: true,
+				sourceMapEmbed: true,
+				indentType: 'space',
+				indentWidth: 2,
+				precision: '5',
+				includePaths: [
 					'bower_components/normalize.scss/sass',
 					'bower_components/mathsass/dist/',
 					'bower_components/responsive-foundation/css-dev'
@@ -91,7 +96,7 @@ module.exports = function(grunt) {
 			},
 			dev: {
 				options: {
-					style: 'expanded'
+					outputStyle: 'expanded',
 				},
 				files: {
 					'style.css': 'css-dev/style.scss',
@@ -106,8 +111,9 @@ module.exports = function(grunt) {
 			},
 			fonts: {
 				options: {
-					style: 'expanded',
-					sourcemap: 'none'
+					outputStyle: 'expanded',
+					sourceMap: false,
+					sourceMapEmbed: false,
 				},
 				files: [{
 					expand: true,
@@ -241,7 +247,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-version');
 	grunt.loadNpmTasks( 'grunt-bower-task' );
