@@ -178,9 +178,6 @@ add_action( 'after_setup_theme', 'responsive_setup' );
 function responsive_init() {
 	// Add support for dynamic footbars (e.g. alternate footbar).
 	add_post_type_support( 'page', 'bu-dynamic-footbars' );
-
-	// Make sure images are set to 'no link' by default.
-	update_option( 'image_default_link_type', 'none' );
 }
 
 add_action( 'init', 'responsive_init' );
@@ -333,8 +330,17 @@ function responsive_maybe_migrate_theme( $old_name, $old_theme = false ) {
 		responsive_flexi_migration();
 	}
 }
-
 add_action( 'after_switch_theme', 'responsive_maybe_migrate_theme', 1, 2 );
+
+/**
+ * Updates the image_default_link_type option to none.
+ *
+ * This prevents media from linking to the attachment's page.
+ */
+function responsive_update_image_default_link_type() {
+	update_option( 'image_default_link_type', 'none' );
+}
+add_action( 'after_switch_theme', 'responsive_update_image_default_link_type', 1, 2 );
 
 /**
  * Reset title tag for navigation.
