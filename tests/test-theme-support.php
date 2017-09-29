@@ -11,12 +11,6 @@
  * @group core-features
  */
 class Tests_Responsive_Framework_Core_Feature_Support extends WP_UnitTestCase {
-	/**
-	 * Setup parent class.
-	 */
-	function setUp() {
-		parent::setUp();
-	}
 
 	/**
 	 * Test our theme is actually active.
