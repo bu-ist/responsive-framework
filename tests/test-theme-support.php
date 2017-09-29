@@ -34,13 +34,7 @@ class Tests_Responsive_Framework_Core_Feature_Support extends WP_UnitTestCase {
 	 * Page post type support.
 	 */
 	function test_page_support() {
+		responsive_init();
 		$this->assertTrue( post_type_supports( 'page', 'bu-dynamic-footbars' ) );
-	}
-
-	/**
-	 * Make sure image_default_link_type is set to none.
-	 */
-	function test_image_default_link_type() {
-		$this->assertEquals( 'none', get_option( 'image_default_link_type' ) );
 	}
 }
