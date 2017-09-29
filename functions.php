@@ -75,11 +75,16 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			define( 'BU_SUPPORTS_SEO', true );
 		}
 
-			// Disable BU Links Footer editor under Appearance menu.
+		// Disable BU Links Footer editor under Appearance menu.
+		if ( ! defined( 'BU_DISABLE_FOOTER_EDITOR' ) ) {
 			define( 'BU_DISABLE_FOOTER_EDITOR', true );
+		}
 
-			// Only support one level of dropdowns by default.
+
+		// Only support one level of dropdowns by default.
+		if ( ! defined( 'BU_NAVIGATION_SUPPORTED_DEPTH' ) ) {
 			define( 'BU_NAVIGATION_SUPPORTED_DEPTH', 1 );
+		}
 
 			// Custom menu locations.
 			register_nav_menus( array(
