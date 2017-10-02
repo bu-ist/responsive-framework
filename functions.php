@@ -293,7 +293,6 @@ function responsive_enqueue_styles() {
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	wp_enqueue_style( 'responsive-framework', get_stylesheet_directory_uri() . "/style$postfix.css", array(), RESPONSIVE_THEME_VERSION, 'all' );
-	wp_style_add_data( 'responsive-framework', 'conditional', 'gt IE 8' );
 
 	wp_enqueue_style( 'responsive-framework-ie', get_stylesheet_directory_uri() . "/ie$postfix.css", array( 'responsive-framework' ), RESPONSIVE_THEME_VERSION, 'all' );
 	wp_style_add_data( 'responsive-framework-ie', 'conditional', '(lt IE 9) & (!IEMobile 7)' );
