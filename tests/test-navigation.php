@@ -11,12 +11,6 @@
  * @group navigation
  */
 class Tests_Responsive_Framework_Navigation extends WP_UnitTestCase {
-	/**
-	 * Setup parent class.
-	 */
-	function setUp() {
-		parent::setUp();
-	}
 
 	/**
 	 * Default nav menu locations.
