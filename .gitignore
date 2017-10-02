@@ -10,3 +10,4 @@ sftp-config.json
 .scss-lint.yml
 .mdlrc
 markdown.rb
+build

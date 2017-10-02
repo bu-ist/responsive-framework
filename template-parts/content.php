@@ -12,7 +12,7 @@
 <article role="article" id="post-<?php the_ID(); ?>" <?php post_class( 'post-part' ); ?>>
 
 	<h2 class="post-headline">
-		<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a>
+		<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 	</h2>
 
 	<?php responsive_post_meta(); ?>
