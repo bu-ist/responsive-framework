@@ -19,6 +19,8 @@
 	<filter>
 		<whitelist processUncoveredFilesFromWhitelist="true">
 			<file>./functions.php</file>
+			<directory suffix=".php">./admin/</directory>
+			<directory suffix=".php">./inc/</directory>
 			<exclude>
 				<directory suffix=".php">./.sass-cache/</directory>
 				<directory suffix=".php">./bin/</directory>
@@ -29,6 +31,7 @@
 				<directory suffix=".php">./template-parts/</directory>
 				<directory suffix=".php">./tests/</directory>
 				<directory suffix=".php">./vendor/</directory>
+				<directory suffix=".php">./inc/wp-cli.php</directory>
 			</exclude>
 		</whitelist>
 	</filter>
