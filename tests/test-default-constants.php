@@ -11,11 +11,14 @@
  * @group default-constants
  */
 class Tests_Responsive_Framework_Default_Constants extends WP_UnitTestCase {
+
 	/**
 	 * Setup parent class.
 	 */
 	function setUp() {
 		parent::setUp();
+
+		responsive_setup();
 	}
 
 	/**
