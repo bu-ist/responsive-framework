@@ -343,6 +343,17 @@ function responsive_update_image_default_link_type() {
 add_action( 'after_switch_theme', 'responsive_update_image_default_link_type', 1, 2 );
 
 /**
+ * Disable BU Mobile when the theme is activated.
+ *
+ * BU Mobile plugin does device detection on the front end servers and adds headers to serve mobile specific pages.
+ * This is not ideal for any site running this theme because this theme is responsive by default.
+ */
+function responsive_disable_bu_mobile_plugin() {
+	deactivate_plugins( 'bu-mobile/bu-mobile.php' );
+}
+add_action( 'after_switch_theme', 'responsive_update_image_default_link_type', 1, 2 );
+
+/**
  * Reset title tag for navigation.
  *
  * @param array   $attr BU Navigation item arguments. See bu_navigation_format_page().
