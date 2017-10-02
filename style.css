@@ -4071,8 +4071,8 @@ nav a {
 }
 
 .utility-nav {
-  border-width: 1px 0 0 0;
   border: 1px solid #333;
+  border-width: 1px 0 0 0;
   clear: left;
   color: #aaa;
   display: none;
