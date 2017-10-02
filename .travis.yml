@@ -13,44 +13,63 @@ notifications:
     on_success: change
     on_failure: change
 
-php:
-  - 5.6
-  - 7.0
-  - 7.1
+env:
+  global:
+    - WP_TRAVISCI=travis:phpunit
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.0
+      env: WP_VERSION=trunk
+    - php: 7.0
+      env: WP_VERSION=latest
+    - php: 7.0
+      env: WP_VERSION=4.7
+    - php: 7.0
+      env: WP_VERSION=4.6
+    - php: 7.1
+      env: WP_VERSION=trunk
+    - php: 7.1
+      env: WP_VERSION=latest
+    - php: 7.2
+      env: WP_VERION=trunk
+  allow_failures:
+    - php: 7.2
 
 cache:
+  apt: true
   directories:
-    - $HOME/.composer/cache
-
-env:
-  - WP_VERSION=nightly
-  - WP_VERSION=latest
-  - WP_VERSION=4.6.7
+    - "$HOME/.composer/cache"
 
 before_install:
-  - |
-    if [[ ${TRAVIS_PHP_VERSION:0:3} != "7.1" ]]; then
-      phpenv config-rm xdebug.ini
-    fi
   - composer self-update
-
-install:
-  - composer install --dev
+  - bundle install
 
 before_script:
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
-    if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
-      composer global require "phpunit/phpunit=5.7.*"
-    else
-      composer global require "phpunit/phpunit=4.8.*"
+    if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      chmod +x ./cc-test-reporter
+      ./cc-test-reporter before-build
     fi
 
-  - git config --global user.email "travis-ci@codeclimate.com"
-  - git config --global user.name "Travis CI"
-  - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - |
+    if [[ "$WP_TRAVISCI" == "travis:phpunit" ]]; then
+      if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
+        composer global require "phpunit/phpunit=5.7.*"
+      else
+        composer global require "phpunit/phpunit=4.8.*"
+      fi
+      bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+    fi
 
 script:
+  - |
+    if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      bundle exec rspec
+    fi
   - |
     if [[ ! -z "$WP_VERSION" ]] ; then
       phpunit
@@ -59,10 +78,6 @@ script:
 
 after_script:
   - |
-    if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then
-      ./bin/codeclimate.sh
+    if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT;
     fi
-
-addons:
-  codeclimate:
-    repo_token: $CODECLIMATE_REPO_TOKEN
