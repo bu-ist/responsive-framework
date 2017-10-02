@@ -11,12 +11,6 @@
  * @group narrow-templates
  */
 class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase {
-	/**
-	 * Setup parent class.
-	 */
-	function setUp() {
-		parent::setUp();
-	}
 
 	/**
 	 * Test for narrow template when feature is disabled.

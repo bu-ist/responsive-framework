@@ -11,12 +11,6 @@
  * @group footbars
  */
 class Tests_Responsive_Framework_Footbars extends WP_UnitTestCase {
-	/**
-	 * Setup parent class.
-	 */
-	function setUp() {
-		parent::setUp();
-	}
 
 	/**
 	 * Default responsive footbars.
