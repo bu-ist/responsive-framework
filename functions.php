@@ -514,6 +514,15 @@ function r_content_container_class( $class = '' ) {
 }
 
 /**
+ * In BU Core, there is a filter on sanitize_html_class that strips underscores from HTML classes.
+ *
+ * This was added to preserve a legacy behavior that was changed in WordPress r17614.
+ *
+ * @since 2.0.0
+ */
+remove_filter( 'sanitize_html_class', 'bu_sanitize_html_class', 10 );
+
+/**
  * Admin.
  */
 if ( is_admin() ) {
