@@ -32,10 +32,10 @@ add_action( 'customize_preview_init', 'responsive_framework_customizer_preview_s
  */
 function responsive_customize_register( $wp_customize ) {
 
-	// Layout.
+	// Navigation Style.
 	if ( ! defined( 'BU_RESPONSIVE_LAYOUT' ) ) {
-		$wp_customize->add_section( 'burf_section_layout', array(
-			'title'    => 'Layout',
+		$wp_customize->add_section( 'burf_navigation_style', array(
+			'title'    => 'Navigation Style',
 			'priority' => 30,
 		) );
 
@@ -46,7 +46,7 @@ function responsive_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new BURF_Customize_Radio( $wp_customize, 'burf_setting_layout', array(
-			'section'  => 'burf_section_layout',
+			'section'  => 'burf_navigation_style',
 			'settings' => 'burf_setting_layout',
 			'type'     => 'radio',
 			'choices'  => responsive_layout_options(),
