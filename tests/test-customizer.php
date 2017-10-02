@@ -11,12 +11,6 @@
  * @group branding
  */
 class Tests_Responsive_Framework_Customizer extends WP_UnitTestCase {
-	/**
-	 * Setup parent class.
-	 */
-	function setUp() {
-		parent::setUp();
-	}
 
 	/**
 	 * Test default responsive layout.
