@@ -9,7 +9,11 @@ get_header(); ?>
 
 <article class="content-area">
 
-	<h1><?php single_post_title(); ?></h1>
+	<?php if ( ! empty( $title  ) ) : ?>
+
+		<h1><?php echo esc_html( $title ); ?></h1>
+
+	<?php endif; ?>
 
 	<?php if ( have_posts() ) : ?>
 
