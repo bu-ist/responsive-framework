@@ -15,7 +15,7 @@
 					 */
 					do_action( 'r_before_closing_content_container' );
 				?>
-			</main><!-- .content-container -->
+			</div><!-- .content-container -->
 			<?php
 				/**
 				 * Fires immediately after the closing content container div.
@@ -35,7 +35,7 @@
 				 */
 				do_action( 'r_before_closing_content' );
 			?>
-		</div><!-- .content -->
+		</main><!-- .content -->
 		<?php
 			/**
 			 * Fires immediately after the closing content div.
