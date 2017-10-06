@@ -102,7 +102,8 @@
  display prerequisites for the course, and removes the cryptic course ID in favor
  of a clearer display of section ID, semester, and year.
 - Adds unique callbacks for calendar widget formats and updates tags to HTML5.
-- Adds a lightbox for galleries automatically. 
+- Adds a lightbox for galleries automatically.
+- Add a page template dropdown filter to the top of the page admin screen. 
 
 ## 1.5.4
 
