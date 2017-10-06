@@ -723,9 +723,17 @@ CSS;
 
 /* main nav and nav border color */
 .primaryNav-menu a,
+.searchToggle::before,
 .l-sideNav .primaryNav-menu a {
 	color: {$colors['primaryNav-link']};
 	border-color: {$colors['primaryNav-border']};
+}
+
+/* main nav and nav border color */
+.navToggle span,
+.navToggle span::before,
+.navToggle span::after {
+	background-color: {$colors['primaryNav-link']};
 }
 
 /* utility nav color */
