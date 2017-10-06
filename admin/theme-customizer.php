@@ -279,7 +279,7 @@ function responsive_customize_register( $wp_customize ) {
 			$wp_customize,
 			'burf_setting_hide_front_h1',
 			array(
-				'label'       => 'Additional options',
+				'label'       => 'Static page options',
 				'section'     => 'static_front_page',
 				'choices'     => array(
 					'true' => 'Hide the homepage title',
