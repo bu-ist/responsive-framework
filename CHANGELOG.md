@@ -110,6 +110,8 @@
 - Underscores are no longer stripped from classes in HTML.
 - Title attributes have been removed from anchor tags to promote accessibility.
 - Upgrade Modernizr and add new tests: sticky, video autoplay.
+- Add a page template dropdown filter to the top of the page admin screen.  
+- Deactivate the BU Mobile plugin when the theme is activated.
 
 ## 1.5.4
 
