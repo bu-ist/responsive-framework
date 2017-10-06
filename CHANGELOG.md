@@ -103,7 +103,8 @@
  of a clearer display of section ID, semester, and year.
 - Adds unique callbacks for calendar widget formats and updates tags to HTML5.
 - Adds a lightbox for galleries automatically.
-- Add a page template dropdown filter to the top of the page admin screen. 
+- Add a page template dropdown filter to the top of the page admin screen.  
+- Deactivate the BU Mobile plugin when the theme is activated.
 
 ## 1.5.4
 
