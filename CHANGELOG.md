@@ -103,6 +103,7 @@
  of a clearer display of section ID, semester, and year.
 - Adds unique callbacks for calendar widget formats and updates tags to HTML5.
 - Adds a lightbox for galleries automatically. 
+- Deactivete the BU Mobile plugin when the theme is activated.
 
 ## 1.5.4
 
