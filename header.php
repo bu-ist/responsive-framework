@@ -78,7 +78,7 @@
 			 */
 			do_action( 'r_before_opening_content' );
 		?>
-		<div class="content">
+		<main role="main" class="content">
 			<?php
 				/**
 				 * Fires immediately after the opening content div.
@@ -98,7 +98,7 @@
 				 */
 				do_action( 'r_before_opening_content_container' );
 			?>
-			<main role="main" <?php r_content_container_class( array() ); ?>>
+			<div <?php r_content_container_class( array() ); ?>>
 				<?php
 					/**
 					 * Fires immediately after the opening content container div.
