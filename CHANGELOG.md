@@ -114,6 +114,10 @@
 - Deactivate the BU Mobile plugin when the theme is activated.
 - Introduce pull request and issue templates.
 
+## 1.5.5
+
+- Fix bug where nav toggle icon was not receiving the correct color (#251).
+
 ## 1.5.4
 
 * Enables pinch to zoom for accessibility on mobile.
