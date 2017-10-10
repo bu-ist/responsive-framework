@@ -176,4 +176,26 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 		responsive_update_image_default_link_type();
 		$this->assertEquals( 'none', get_option( 'image_default_link_type' ) );
 	}
+
+	/**
+	 * Test that stylesheets not named responsive-framework are not wrapped in conditionals.
+	 */
+	function test_responsive_style_loader_tag_not_responsi() {
+		$expected = '<link rel="stylesheet" id="not-responsi"  href="https://www.bu.edu/styles/not-responsi.css" type="text/css" media="all" />';
+
+		$this->assertSame( $expected, responsive_style_loader_tag( $expected, 'not-responsi' ) );
+	}
+
+	/**
+	 * Test that the Responsive Framework stylesheet is properly wrapped in conditionals to target all browsers and
+	 * IE greater than IE 8.
+	 */
+	function test_responsive_style_loader_tag_responsi() {
+		$original = '<link rel="stylesheet" id="responsive-framework"  href="https://www.bu.edu/styles/responsive-framework.css" type="text/css" media="all" />';
+		$expected = '<!--[if gt IE 8]><!-->
+<link rel="stylesheet" id="responsive-framework"  href="https://www.bu.edu/styles/responsive-framework.css" type="text/css" media="all" /><![endif]-->
+';
+
+		$this->assertSame( $expected, responsive_style_loader_tag( $original, 'responsive-framework' ) );
+	}
 }
