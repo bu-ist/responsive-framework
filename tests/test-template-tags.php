@@ -81,7 +81,13 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 
 		$this->expectOutputString( get_the_category_list( ', ', '', $this->test_post_id ) );
 
-		responsive_category_links();
+		responsive_category_links(
+			array(
+				'post_id' => $this->test_post_id,
+				'before' => '',
+				'after' => '',
+			)
+		);
 
 		wp_set_object_terms( $this->test_post_id, array( 'Uncategorized' ), false );
 	}
