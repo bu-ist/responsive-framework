@@ -314,7 +314,8 @@ function responsive_customize_register( $wp_customize ) {
 	/* Posts Sidebar Location */
 	if ( ! defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
 		$wp_customize->add_setting( 'burf_setting_posts_sidebar_bottom', array(
-			'type'		=> 'option'
+			'default' => true,
+			'type'    => 'option',
 		) );
 
 		$wp_customize->add_control( 'burf_setting_posts_sidebar_bottom', array(
