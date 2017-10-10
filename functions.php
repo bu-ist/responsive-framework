@@ -294,7 +294,7 @@ function responsive_enqueue_styles() {
 
 	wp_enqueue_style( 'responsive-framework', get_stylesheet_directory_uri() . "/style$postfix.css", array(), RESPONSIVE_THEME_VERSION, 'all' );
 
-	wp_enqueue_style( 'responsive-framework-ie', get_stylesheet_directory_uri() . "/ie$postfix.css", array( 'responsive-framework' ), RESPONSIVE_THEME_VERSION, 'all' );
+	wp_enqueue_style( 'responsive-framework-ie', get_stylesheet_directory_uri() . "/ie$postfix.css", array(), RESPONSIVE_THEME_VERSION, 'all' );
 	wp_style_add_data( 'responsive-framework-ie', 'conditional', '(lt IE 9) & (!IEMobile 7)' );
 }
 add_action( 'wp_enqueue_scripts', 'responsive_enqueue_styles' );
