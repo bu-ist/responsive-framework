@@ -300,6 +300,35 @@ function responsive_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'responsive_enqueue_styles' );
 
 /**
+ * Add the correct IE conditional to the main theme stylesheet.
+ *
+ * WordPress supports adding IE conditionals as data attributes for enqueued styles.
+ * It does not, however, allow you to specify a conditional that targets certain versions
+ * of IE, AND other browsers (<!--[if gt IE 8]><!--> in our case). The extra comment tag
+ * allows the stylesheet to be loaded by non-IE browsers.
+ *
+ * By using this filter, we can enqueue the theme's stylesheet and still load it to our needs.
+ *
+ * @param string $html   The link tag for the enqueued style.
+ * @param string $handle The style's registered handle.
+ *
+ * @return string Unaltered HTML if not the Responsive Framework stylesheet,
+ *                link tag wrapped in the correct IE conditional if it is.
+ */
+function responsive_style_loader_tag( $html, $handle ) {
+	if ( 'responsive-framework' !== $handle ) {
+		return $html;
+	}
+
+	$new_html = "<!--[if gt IE 8]><!-->\n";
+	$new_html .= $html;
+	$new_html .= "<![endif]-->\n";
+
+	return $new_html;
+}
+add_filter( 'style_loader_tag', 'responsive_style_loader_tag', 10, 2 );
+
+/**
  * Maybe trigger theme migration procedure.
  *
  * @param string        $old_name The old theme name.
