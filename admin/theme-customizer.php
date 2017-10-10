@@ -362,5 +362,11 @@ function responsive_customizer_styles() {
 }
 
 if ( ! defined( 'RESPONSIVE_CUSTOMIZER_DISABLE' ) ) {
-	add_action( 'wp_enqueue_scripts', 'responsive_customizer_styles' );
+	/**
+	 * Because the styles generated in the Customizer are not enqueued, there is no way to specify dependencies.
+	 * The wp_head hook prints all enqueued styles and scripts at priorities 8 and 9, respectively.
+	 * By using priority 10 here, we can guarantee that the Customizer generate styles are output after the default
+	 * stylesheet is printed.
+	 */
+	add_action( 'wp_head', 'responsive_customizer_styles', 10 );
 }
