@@ -38,6 +38,7 @@ class Tests_Responsive_Framework_Scripts_Styles extends WP_UnitTestCase {
 	 * Test that scripts are properly enqueued.
 	 */
 	function test_responsive_enqueue_scripts() {
+		wp_scripts();
 		responsive_enqueue_scripts();
 
 		$this->assertTrue( wp_script_is( 'responsive-scripts' ) );
@@ -48,6 +49,7 @@ class Tests_Responsive_Framework_Scripts_Styles extends WP_UnitTestCase {
 	 * Test that stylesheets are properly enqueued.
 	 */
 	function test_responsive_enqueue_styles() {
+		wp_scripts();
 		responsive_enqueue_styles();
 
 		$this->assertTrue( wp_style_is( 'responsive-framework' ) );
