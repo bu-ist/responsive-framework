@@ -28,12 +28,13 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-modernizr": "^1.0.2",
     "grunt-notify": "^0.4.1",
+    "grunt-phplint": "~0.1.0",
     "grunt-version": "^0.3.0",
     "grunt-wp-i18n": "~1.0.0",
     "lg-thumbnail": "^1.1.0",
     "lightgallery": "^1.6.1"
   },
   "scripts": {
-    "postinstall": "grunt install"
+    "postinstall": "bundle install && grunt install"
   }
 }
