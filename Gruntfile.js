@@ -135,7 +135,7 @@ module.exports = function(grunt) {
 			target: {
 				files: {
 					src: [
-						'**/**.php',
+						'**/*.php',
 						'!bin/**',
 						'!node_modules/**',
 						'!vendor/**'
@@ -151,7 +151,11 @@ module.exports = function(grunt) {
 					mainFile: 'functions.php',
 					potHeaders: {
 						poedit: true,
-						'x-poedit-keywordslist': true
+						'language': 'en',
+						'x-poedit-country': 'United States',
+						'x-poedit-keywordslist': true,
+						'x-poedit-sourcecharset': 'UTF-8',
+						'x-textdomain-support': 'yes'
 					},
 					type: 'wp-theme',
 					updateTimestamp: false

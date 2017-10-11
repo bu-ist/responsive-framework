@@ -29,7 +29,7 @@ function responsive_calendar_sidebar( $args = array() ) {
 		'show_topics'   => true,
 		'calendar_uri'  => get_permalink( $post ),
 		'page_template' => 'page-templates/calendar.php',
-		'topic_heading' => 'Topics',
+		'topic_heading' => __( 'Topics', 'responsive-framework' ),
 		'monthly_dropdown' => false,
 	);
 
@@ -46,13 +46,13 @@ function responsive_calendar_sidebar( $args = array() ) {
 	if ( is_page_template( $args['page_template'] ) && ! empty( $args['calendar_uri'] ) ) { ?>
 
 		<div class="widget widget-calendar-picker">
-			<h3 class="widget-title">Event Calendar</h3>
+			<h3 class="widget-title"><?php esc_html_e( 'Event Calendar', 'responsive-framework' ); ?></h3>
 			<?php echo $buCalendar->buildMonthCalendar( $yyyymmdd, null, $args['monthly_dropdown'] ); ?>
 		</div>
 
 		<?php if ( $args['show_topics'] ) : ?>
 			<div id="calendar-topics" class="widget widget-calendar-topics">
-				<h3 class="widget-title">Event <?php echo esc_html( $args['topic_heading'] ); ?></h3>
+				<h3 class="widget-title"><?php esc_html_e( 'Event', 'responsive-framework' ); ?> <?php echo esc_html( $args['topic_heading'] ); ?></h3>
 				<a class="content-nav-header" href="<?php echo esc_url( $all_topics_url ); ?>">All <?php echo esc_html( $args['topic_heading'] ); ?></a>
 				<?php echo $buCalendar->buildTopicTree( $topics ); ?>
 			</div>
@@ -74,17 +74,17 @@ function responsive_calendar_widget_formats( $formats ) {
 	unset( $formats['big'] );
 
 	$formats['default'] = array(
-		'label'    => 'Default',
+		'label'    => __( 'Default', 'responsive-framework' ),
 		'callback' => 'responsive_calendar_format_default',
 	);
 
 	$formats['full-date'] = array(
-		'label'    => 'Full Date',
+		'label'    => __( 'Full Date', 'responsive-framework' ),
 		'callback' => 'responsive_calendar_format_fulldate',
 	);
 
 	$formats['graphic'] = array(
-		'label'    => 'Graphic',
+		'label'    => __( 'Graphic', 'responsive-framework' ),
 		'callback' => 'responsive_calendar_format_graphic',
 	);
 

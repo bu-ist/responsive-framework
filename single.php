@@ -21,7 +21,7 @@ get_header(); ?>
 
 			<?php responsive_share_tools(); ?>
 
-			<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:' ), 'after' => '</div>' ) ); ?>
+			<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'responsive-framework' ), 'after' => '</div>' ) ); ?>
 
 			<footer class="meta single-meta">
 				<h4 class="post-title single-meta-post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
@@ -36,13 +36,13 @@ get_header(); ?>
 					<?php endif; ?>
 				</p>
 				<?php if ( responsive_posts_should_display( 'tags' ) ) : ?>
-					<?php the_tags( '<p class="tagged single-meta-info"><em>Tagged: </em>', ', ', '</p>' ); ?>
+					<?php the_tags( sprintf( '<p class="tagged single-meta-info"><em>%s: </em>', esc_html__( 'Tagged', 'responsive-framework' ) ), ', ', '</p>' ); ?>
 				<?php endif; ?>
 			</footer>
 
 			<?php responsive_posts_archive_link(); ?>
 
-			<?php edit_post_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
+			<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<span class="edit-link">', '</span>' ); ?>
 
 			<?php responsive_comments(); ?>
 

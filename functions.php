@@ -90,9 +90,9 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		// Custom menu locations.
 		register_nav_menus(
 			array(
-				'footer'  => 'Footer Links',
-				'social'  => 'Social Links',
-				'utility' => 'Utility Navigation',
+				'footer'  => __( 'Footer Links', 'responsive-framework' ),
+				'social'  => __( 'Social Links', 'responsive-framework' ),
+				'utility' => __( 'Utility Navigation', 'responsive-framework' ),
 			)
 		);
 
@@ -100,20 +100,20 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		if ( function_exists( 'bu_register_banner_position' ) ) {
 			bu_register_banner_position(
 				'window-width', array(
-					'label' => 'Full browser window width',
-					'hint'  => 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.',
+					'label' => __( 'Full browser window width', 'responsive-framework' ),
+					'hint'  => __( 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.', 'responsive-framework' ),
 				)
 			);
 			bu_register_banner_position(
 				'page-width', array(
-					'label' => 'Page width',
-					'hint'  => 'Banner will appear above the content and sidebars and should be 1130 pixels wide.',
+					'label' => __( 'Page width', 'responsive-framework' ),
+					'hint'  => __( 'Banner will appear above the content and sidebars and should be 1130 pixels wide.', 'responsive-framework' ),
 				)
 			);
 			bu_register_banner_position(
 				'content-width', array(
-					'label'   => 'Content width',
-					'hint'    => 'Banner will appear above the title in the content area and should be 760 pixels wide.',
+					'label'   => __( 'Content width', 'responsive-framework' ),
+					'hint'    => __( 'Banner will appear above the title in the content area and should be 760 pixels wide.', 'responsive-framework' ),
 					'default' => true,
 				)
 			);
@@ -188,9 +188,9 @@ add_action( 'init', 'responsive_init' );
 function responsive_sidebars() {
 	register_sidebar(
 		array(
-			'name'          => 'Main Sidebar',
+			'name'          => __( 'Main Sidebar', 'responsive-framework' ),
 			'id'            => 'sidebar',
-			'description'   => 'Add widgets here to appear in your sidebar.',
+			'description'   => __( 'Add widgets here to appear in your sidebar.', 'responsive-framework' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -200,9 +200,9 @@ function responsive_sidebars() {
 
 	register_sidebar(
 		array(
-			'name'          => 'Posts Content Area',
+			'name'          => __( 'Posts Content Area', 'responsive-framework' ),
 			'id'            => 'posts',
-			'description'   => 'Add widgets here for display on posts and archives. Only the first 2 widgets will appear.',
+			'description'   => __( 'Add widgets here for display on posts and archives. Only the first 2 widgets will appear.', 'responsive-framework' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -213,9 +213,9 @@ function responsive_sidebars() {
 	if ( defined( 'BU_PROFILES_PLUGIN_ACTIVE' ) ) {
 		register_sidebar(
 			array(
-				'name'          => 'Profiles Content Area',
+				'name'          => __( 'Profiles Content Area', 'responsive-framework' ),
 				'id'            => 'profiles',
-				'description'   => 'Add widgets here for display on profile pages and archives. Only the first 2 widgets will appear.',
+				'description'   => __( 'Add widgets here for display on profile pages and archives. Only the first 2 widgets will appear.', 'responsive-framework' ),
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widget-title">',
@@ -226,9 +226,9 @@ function responsive_sidebars() {
 
 	register_sidebar(
 		array(
-			'name'          => 'Footbar',
+			'name'          => __( 'Footbar', 'responsive-framework' ),
 			'id'            => 'footbar',
-			'description'   => 'Add widgets here to appear in your footer.',
+			'description'   => __( 'Add widgets here to appear in your footer.', 'responsive-framework' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -240,9 +240,9 @@ function responsive_sidebars() {
 	if ( responsive_theme_supports_dynamic_footbars() || is_customize_preview() ) {
 		register_sidebar(
 			array(
-				'name'          => 'Alternate Footbar',
+				'name'          => __( 'Alternate Footbar', 'responsive-framework' ),
 				'id'            => 'alternate-footbar',
-				'description'   => 'Add widgets here to appear in your footer.',
+				'description'   => __( 'Add widgets here to appear in your footer.', 'responsive-framework' ),
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widget-title">',
@@ -316,7 +316,7 @@ function responsive_styles() {
  */
 function responsive_change_title_tag( $attr, $page ) {
 	unset( $attr['title'] );
-	$attr['title'] = 'Navigate to: ' . $page->navigation_label;
+	$attr['title'] = sprintf( esc_html__( 'Navigate to: %s', 'responsive-framework' ), esc_html( $page->navigation_label ) );
 	return $attr;
 }
 add_filter( 'bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 10, 2 );
