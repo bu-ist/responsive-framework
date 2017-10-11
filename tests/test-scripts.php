@@ -38,7 +38,12 @@ class Tests_Responsive_Framework_Scripts_Styles extends WP_UnitTestCase {
 	 * Test that scripts are properly enqueued.
 	 */
 	function test_responsive_enqueue_scripts() {
-		wp_scripts();
+		global $wp_version;
+
+		if ( version_compare( '4.7', $wp_version ) > 0 && version_compare( phpversion(), '7.1' ) >= 0 ) {
+			$this->markTestSkipped( 'This test causes errors in WordPress < 4.7 on PHP >= 7.1' );
+		}
+
 		responsive_enqueue_scripts();
 
 		$this->assertTrue( wp_script_is( 'responsive-scripts' ) );
@@ -49,7 +54,12 @@ class Tests_Responsive_Framework_Scripts_Styles extends WP_UnitTestCase {
 	 * Test that stylesheets are properly enqueued.
 	 */
 	function test_responsive_enqueue_styles() {
-		wp_scripts();
+		global $wp_version;
+
+		if ( version_compare( '4.7', $wp_version ) > 0 && version_compare( phpversion(), '7.1' ) >= 0 ) {
+			$this->markTestSkipped( 'This test causes errors in WordPress < 4.7 on PHP >= 7.1' );
+		}
+
 		responsive_enqueue_styles();
 
 		$this->assertTrue( wp_style_is( 'responsive-framework' ) );
