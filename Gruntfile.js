@@ -52,6 +52,13 @@ module.exports = function(grunt) {
 				options: {
 					spawn: false
 				}
+			},
+			phplint : {
+				files : [ '**/*.php' ],
+				tasks : [ 'phplint' ],
+				options : {
+					spawn : false
+				}
 			}
 		},
 		concat: {
@@ -210,6 +217,21 @@ module.exports = function(grunt) {
 				dest: 'js/vendor/lg-thumbnail/'
 			}
 		},
+		phplint: {
+			options: {
+				phpArgs: {
+					'-l': null,
+					'-f': null
+				}
+			},
+			all : {
+				src : [
+					'**/**.php',
+					'!vendor/**',
+					'!node_modules/**'
+				]
+			}
+		},
 		bower: {
 			install: {
 				options: {
@@ -291,6 +313,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-version');
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
+	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-bower-task' );
 	grunt.loadNpmTasks( 'grunt-modernizr' );
 
@@ -298,7 +321,7 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'install',             [ 'copy:hooks', 'bower:install', 'styles', 'scripts' ] );
 	grunt.registerTask( 'i18n',                [ 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'styles',              [ 'sass' ] );
-	grunt.registerTask( 'scripts',             [ 'concat', 'uglify' ] );
+	grunt.registerTask( 'scripts',             [ 'phplint', 'concat', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail' ] );
 	grunt.registerTask( 'upgrade_modernizr',   [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
 	grunt.registerTask( 'build',               [ 'bower:install', 'clean', 'styles', 'scripts', 'i18n' ] );
