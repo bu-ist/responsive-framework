@@ -37,7 +37,7 @@ function responsive_customize_register( $wp_customize ) {
 	// Navigation Style.
 	if ( ! defined( 'BU_RESPONSIVE_LAYOUT' ) ) {
 		$wp_customize->add_section( 'burf_navigation_style', array(
-			'title'    => 'Navigation Style',
+			'title'    => __( 'Navigation Style', 'responsive-framework' ),
 			'priority' => 30,
 		) );
 
@@ -60,7 +60,7 @@ function responsive_customize_register( $wp_customize ) {
 
 		// Fonts.
 		$wp_customize->add_section( 'burf_section_fonts', array(
-			'title'    => 'Fonts',
+			'title'    => __( 'Fonts', 'responsive-framework' ),
 			'priority' => 31,
 		) );
 
@@ -81,12 +81,12 @@ function responsive_customize_register( $wp_customize ) {
 		$wp_customize->remove_section( 'colors' );
 
 		$wp_customize->add_panel( 'burf_panel_colors', array(
-			'title'    => 'Colors',
+			'title'    => __( 'Colors', 'responsive-framework' ),
 			'priority' => 33,
 		) );
 
 		$wp_customize->add_section( 'burf_section_color_scheme', array(
-			'title'    => 'Color Scheme',
+			'title'    => __( 'Color Scheme', 'responsive-framework' ),
 			'panel'    => 'burf_panel_colors',
 		) );
 
@@ -98,7 +98,7 @@ function responsive_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( 'burf_setting_color_scheme', array(
-			'label'    => 'Base Color Scheme',
+			'label'    => __( 'Base Color Scheme', 'responsive-framework' ),
 			'section'  => 'burf_section_color_scheme',
 			'type'     => 'select',
 			'choices'  => responsive_get_color_scheme_choices(),
@@ -163,7 +163,7 @@ function responsive_customize_register( $wp_customize ) {
 
 	// Content Options.
 	$wp_customize->add_section( 'burf_section_content_options', array(
-		'title'       => 'Content Options',
+		'title'       => __( 'Content Options', 'responsive-framework' ),
 		'priority'    => 39,
 	) );
 
@@ -178,7 +178,7 @@ function responsive_customize_register( $wp_customize ) {
 			$wp_customize,
 			'burf_setting_post_display_options',
 			array(
-				'label'       => 'Post Display Options',
+				'label'       => __( 'Post Display Options', 'responsive-framework' ),
 				'section'     => 'burf_section_content_options',
 				'description' => 'Change visibility of post meta fields. Note that the "News" page template has its own display options.',
 				'choices'     => array(
@@ -200,14 +200,14 @@ function responsive_customize_register( $wp_customize ) {
 	$sidebar_description = '';
 
 	if ( defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) || defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
-		$sidebar_description .= '<h3>Options set by the theme:</h3>';
+		$sidebar_description .= sprintf( '<h3>%s</h3>', esc_html__( 'Options set by the theme:', 'responsive-framework' ) );
 	}
 
 	if ( defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ) {
-		$sidebar_description .= '<p><strong>Main sidebar position</strong>: ' . BU_RESPONSIVE_SIDEBAR_POSITION . '</p>';
+		$sidebar_description .= sprintf( '<p><strong>%s</strong>: %s</p>', esc_html__( 'Main sidebar position ', 'responsive-framework' ), BU_RESPONSIVE_SIDEBAR_POSITION );
 	}
 	if ( defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
-		$sidebar_description .= '<p><strong>Keep posts and profiles sidebar on the bottom?</strong>: ' . BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM . '</p>';
+		$sidebar_description .= sprintf( '<p><strong>%s</strong>: %s</p>', esc_html__( 'Keep posts and profiles sidebar on the bottom?', 'responsive-framework' ), BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM );
 	}
 
 	$wp_customize->add_control(
@@ -215,7 +215,7 @@ function responsive_customize_register( $wp_customize ) {
 			$wp_customize,
 			'burf_setting_sidebar_options',
 			array(
-				'label'       => 'Sidebar Options',
+				'label'       => __( 'Sidebar Options', 'responsive-framework' ),
 				'section'     => 'burf_section_content_options',
 				'description' => $sidebar_description,
 				'choices'     => array(
@@ -228,8 +228,8 @@ function responsive_customize_register( $wp_customize ) {
 	// Footer.
 	$menu_url = admin_url( 'customize.php?autofocus[section]=menu_locations' );
 	$wp_customize->add_section( 'burf_section_footer', array(
-		'title'       => 'Footer',
-		'description' => "Footer links can be managed using the <a href=\"$menu_url\">Footer and Social Links Custom Menu locations</a>.",
+		'title'       => __( 'Footer', 'responsive-framework' ),
+		'description' => sprintf( __( 'Footer links can be managed using the <a href="%s">Footer and Social Links Custom Menu locations</a>.', 'responsive-framework' ), esc_url( $menu_url ) ),
 		'priority'    => 34,
 	) );
 
@@ -248,11 +248,11 @@ function responsive_customize_register( $wp_customize ) {
 
 	// Core <textarea> type added in WP 4.0.
 	$footer_info_args = array(
-		'label'    => 'Custom HTML',
+		'label'    => __( 'Custom HTML', 'responsive-framework' ),
 		'section'  => 'burf_section_footer',
 		'settings' => 'burf_setting_footer[text]',
 		'type'     => 'textarea',
-		'description' => 'May be used to enter an address or contact information.',
+		'description' => __( 'May be used to enter an address or contact information.', 'responsive-framework' ),
 	);
 	if ( version_compare( $GLOBALS['wp_version'], '4.0', '<' ) ) {
 		$wp_customize->add_control( new BURF_Customize_Textarea( $wp_customize, 'burf_section_footer_info', $footer_info_args ) );
@@ -261,7 +261,7 @@ function responsive_customize_register( $wp_customize ) {
 	}
 
 	$wp_customize->add_control( 'burf_section_footer_autop', array(
-		'label'    => 'Automatically add paragraphs',
+		'label'    => __( 'Automatically add paragraphs', 'responsive-framework' ),
 		'section'  => 'burf_section_footer',
 		'settings' => 'burf_setting_footer[autop]',
 		'type'     => 'checkbox',
@@ -279,10 +279,10 @@ function responsive_customize_register( $wp_customize ) {
 			$wp_customize,
 			'burf_setting_hide_front_h1',
 			array(
-				'label'       => 'Static page options',
+				'label'       => __( 'Static page options', 'responsive-framework' ),
 				'section'     => 'static_front_page',
 				'choices'     => array(
-					'true' => 'Hide the homepage title',
+					'true' => __( 'Hide the homepage title', 'responsive-framework' ),
 				),
 			)
 		)
@@ -296,9 +296,9 @@ function responsive_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( 'burf_setting_sidebar_location', array(
-			'label'		=> 'Main Sidebar Position',
+			'label'		=> __( 'Main Sidebar Position', 'responsive-framework' ),
 			'section'	=> 'burf_section_content_options',
-			'description' => 'Changes the position of the main sidebar.',
+			'description' => __( 'Changes the position of the main sidebar.', 'responsive-framework' ),
 			'type'		=> 'radio',
 			'choices'	=> array(
 				'bottom' => 'Bottom',
@@ -315,7 +315,7 @@ function responsive_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( 'burf_setting_posts_sidebar_bottom', array(
-			'label'		=> 'Keep the posts sidebar on bottom',
+			'label'		=> __( 'Keep the posts sidebar on bottom', 'responsive-framework' ),
 			'section'	=> 'burf_section_content_options',
 			'type'		=> 'checkbox',
 		) );

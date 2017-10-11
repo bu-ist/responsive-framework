@@ -1,0 +1,528 @@
+# <!=Copyright (C) 2017 Boston University Interactive Design
+# This file is distributed under the same license as the Responsive Framework package.=!>
+msgid ""
+msgstr ""
+"Project-Id-Version: Responsive Framework 2.0.0-dev\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
+"POT-Creation-Date: 2017-10-11 21:14:26+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n1.0.0\n"
+
+#: 404.php:13
+msgid "Yikes! We couldn't find that."
+msgstr ""
+
+#: 404.php:17
+msgid "Looks like that page might not be here anymore. Want to give search a try?"
+msgstr ""
+
+#: admin/theme-customizer.php:40
+msgid "Navigation Style"
+msgstr ""
+
+#: admin/theme-customizer.php:63
+msgid "Fonts"
+msgstr ""
+
+#: admin/theme-customizer.php:84
+msgid "Colors"
+msgstr ""
+
+#: admin/theme-customizer.php:89
+msgid "Color Scheme"
+msgstr ""
+
+#: admin/theme-customizer.php:101
+msgid "Base Color Scheme"
+msgstr ""
+
+#: admin/theme-customizer.php:166
+msgid "Content Options"
+msgstr ""
+
+#: admin/theme-customizer.php:181
+msgid "Post Display Options"
+msgstr ""
+
+#: admin/theme-customizer.php:203
+msgid "Options set by the theme:"
+msgstr ""
+
+#: admin/theme-customizer.php:207
+msgid "Main sidebar position "
+msgstr ""
+
+#: admin/theme-customizer.php:210
+msgid "Keep posts and profiles sidebar on the bottom?"
+msgstr ""
+
+#: admin/theme-customizer.php:218
+msgid "Sidebar Options"
+msgstr ""
+
+#: admin/theme-customizer.php:231
+msgid "Footer"
+msgstr ""
+
+#: admin/theme-customizer.php:232
+msgid ""
+"Footer links can be managed using the <a href=\"%s\">Footer and Social "
+"Links Custom Menu locations</a>."
+msgstr ""
+
+#: admin/theme-customizer.php:251
+msgid "Custom HTML"
+msgstr ""
+
+#: admin/theme-customizer.php:255
+msgid "May be used to enter an address or contact information."
+msgstr ""
+
+#: admin/theme-customizer.php:264
+msgid "Automatically add paragraphs"
+msgstr ""
+
+#: admin/theme-customizer.php:282
+msgid "Static page options"
+msgstr ""
+
+#: admin/theme-customizer.php:285
+msgid "Hide the homepage title"
+msgstr ""
+
+#: admin/theme-customizer.php:299
+msgid "Main Sidebar Position"
+msgstr ""
+
+#: admin/theme-customizer.php:301
+msgid "Changes the position of the main sidebar."
+msgstr ""
+
+#: admin/theme-customizer.php:318
+msgid "Keep the posts sidebar on bottom"
+msgstr ""
+
+#: archive-profile.php:13
+msgid "Profile Directory"
+msgstr ""
+
+#: comments.php:34
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:35
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:45
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:61
+msgid "Name"
+msgstr ""
+
+#: comments.php:62 single-profile.php:51
+msgid "Email"
+msgstr ""
+
+#: comments.php:65
+msgid "Comment"
+msgstr ""
+
+#: comments.php:65
+msgid "view guidelines"
+msgstr ""
+
+#: comments.php:67
+msgid "Submit Comment"
+msgstr ""
+
+#: functions.php:93
+msgid "Footer Links"
+msgstr ""
+
+#: functions.php:94
+msgid "Social Links"
+msgstr ""
+
+#: functions.php:95
+msgid "Utility Navigation"
+msgstr ""
+
+#: functions.php:103
+msgid "Full browser window width"
+msgstr ""
+
+#: functions.php:104
+msgid ""
+"Banner area will appear above the content and sidebars, for use with "
+"scalable media such as Flash."
+msgstr ""
+
+#: functions.php:109
+msgid "Page width"
+msgstr ""
+
+#: functions.php:110
+msgid ""
+"Banner will appear above the content and sidebars and should be 1130 pixels "
+"wide."
+msgstr ""
+
+#: functions.php:115
+msgid "Content width"
+msgstr ""
+
+#: functions.php:116
+msgid ""
+"Banner will appear above the title in the content area and should be 760 "
+"pixels wide."
+msgstr ""
+
+#: functions.php:191
+msgid "Main Sidebar"
+msgstr ""
+
+#: functions.php:193
+msgid "Add widgets here to appear in your sidebar."
+msgstr ""
+
+#: functions.php:203
+msgid "Posts Content Area"
+msgstr ""
+
+#: functions.php:205
+msgid ""
+"Add widgets here for display on posts and archives. Only the first 2 "
+"widgets will appear."
+msgstr ""
+
+#: functions.php:216
+msgid "Profiles Content Area"
+msgstr ""
+
+#: functions.php:218
+msgid ""
+"Add widgets here for display on profile pages and archives. Only the first "
+"2 widgets will appear."
+msgstr ""
+
+#: functions.php:229 inc/customizer.php:218
+msgid "Footbar"
+msgstr ""
+
+#: functions.php:231 functions.php:245
+msgid "Add widgets here to appear in your footer."
+msgstr ""
+
+#: functions.php:243
+msgid "Alternate Footbar"
+msgstr ""
+
+#: functions.php:319
+msgid "Navigate to: %s"
+msgstr ""
+
+#: header.php:23
+msgid ""
+"Boston University is a leading private research institution with two "
+"primary campuses in the heart of Boston and programs around the world."
+msgstr ""
+
+#: header.php:26
+msgid "Boston University"
+msgstr ""
+
+#: inc/calendar.php:32
+msgid "Topics"
+msgstr ""
+
+#: inc/calendar.php:49
+msgid "Event Calendar"
+msgstr ""
+
+#: inc/calendar.php:55
+msgid "Event"
+msgstr ""
+
+#: inc/calendar.php:77 inc/customizer.php:43 inc/customizer.php:369
+msgid "Default"
+msgstr ""
+
+#: inc/calendar.php:82
+msgid "Full Date"
+msgstr ""
+
+#: inc/calendar.php:87
+msgid "Graphic"
+msgstr ""
+
+#: inc/customizer.php:44
+msgid "Top Navigation Bar"
+msgstr ""
+
+#: inc/customizer.php:45
+msgid "Side Navigation Bar"
+msgstr ""
+
+#: inc/customizer.php:46
+msgid "No Navigation Bar"
+msgstr ""
+
+#: inc/customizer.php:66
+msgid "Capita,Benton"
+msgstr ""
+
+#: inc/customizer.php:67
+msgid "Benton,Benton"
+msgstr ""
+
+#: inc/customizer.php:68
+msgid "Benton,Capita"
+msgstr ""
+
+#: inc/customizer.php:69
+msgid "Pressura,Benton"
+msgstr ""
+
+#: inc/customizer.php:70
+msgid "Stag,Benton"
+msgstr ""
+
+#: inc/customizer.php:208
+msgid "Navigation Bar"
+msgstr ""
+
+#: inc/customizer.php:212
+msgid "Content Area"
+msgstr ""
+
+#: inc/customizer.php:215
+msgid "Sidebar"
+msgstr ""
+
+#: inc/customizer.php:232
+msgid "Background Color"
+msgstr ""
+
+#: inc/customizer.php:237
+msgid "Border Color"
+msgstr ""
+
+#: inc/customizer.php:242
+msgid "Primary Nav Links"
+msgstr ""
+
+#: inc/customizer.php:247
+msgid "Utility Nav Links"
+msgstr ""
+
+#: inc/customizer.php:252
+msgid "Primary Nav Links Hover"
+msgstr ""
+
+#: inc/customizer.php:259
+msgid "Headings"
+msgstr ""
+
+#: inc/customizer.php:264 inc/customizer.php:317 inc/customizer.php:354
+msgid "Text Color"
+msgstr ""
+
+#: inc/customizer.php:269 inc/customizer.php:307 inc/customizer.php:344
+msgid "Link Color"
+msgstr ""
+
+#: inc/customizer.php:274 inc/customizer.php:312 inc/customizer.php:349
+msgid "Link Hover"
+msgstr ""
+
+#: inc/customizer.php:279
+msgid "Button Background"
+msgstr ""
+
+#: inc/customizer.php:284
+msgid "Button Text Color"
+msgstr ""
+
+#: inc/customizer.php:291
+msgid "Widget Background"
+msgstr ""
+
+#: inc/customizer.php:297 inc/customizer.php:334
+msgid "Widget Title"
+msgstr ""
+
+#: inc/customizer.php:302 inc/customizer.php:339
+msgid "Widget Title Border"
+msgstr ""
+
+#: inc/customizer.php:324
+msgid "Background"
+msgstr ""
+
+#: inc/customizer.php:329
+msgid "Top Border"
+msgstr ""
+
+#: inc/customizer.php:408
+msgid "Slacker"
+msgstr ""
+
+#: inc/customizer.php:447
+msgid "Extra Spectral"
+msgstr ""
+
+#: inc/customizer.php:486
+msgid "Rayleigh Scattering"
+msgstr ""
+
+#: inc/customizer.php:525
+msgid "Vinca Minor"
+msgstr ""
+
+#: inc/post-lists.php:22
+msgid "title only (no thumbnail)"
+msgstr ""
+
+#: inc/post-lists.php:29
+msgid "title, date"
+msgstr ""
+
+#: inc/post-lists.php:36
+msgid "title, excerpt"
+msgstr ""
+
+#: inc/post-lists.php:43
+msgid "title, date, excerpt"
+msgstr ""
+
+#: inc/post-lists.php:50
+msgid "title, author, excerpt"
+msgstr ""
+
+#: inc/post-lists.php:57
+msgid "title, date, comments, excerpt"
+msgstr ""
+
+#: inc/post-lists.php:64
+msgid "title, author, comments, excerpt"
+msgstr ""
+
+#: inc/search-form.php:24
+msgid "Search site&hellip;"
+msgstr ""
+
+#: inc/template-tags.php:21
+msgid "Page %s"
+msgstr ""
+
+#: inc/template-tags.php:142
+msgid "Categories"
+msgstr ""
+
+#: no-access-bumc.php:14
+msgid "Access Restricted To BUMC/BMC"
+msgstr ""
+
+#: no-access.php:13
+msgid "Access Restricted To BU/BUMC/BMC"
+msgstr ""
+
+#: page-templates/news.php:26 page-templates/no-sidebars.php:24 page.php:24
+#: single.php:24
+msgid "Pages:"
+msgstr ""
+
+#: page-templates/news.php:28 page-templates/no-sidebars.php:26 page.php:26
+#: single-profile.php:86 single.php:45
+msgid "Edit"
+msgstr ""
+
+#: single-profile.php:37
+msgid "Title"
+msgstr ""
+
+#: single-profile.php:44
+msgid "Office"
+msgstr ""
+
+#: single-profile.php:58
+msgid "Phone"
+msgstr ""
+
+#: single-profile.php:64
+msgid "Education"
+msgstr ""
+
+#: single.php:39
+msgid "Tagged"
+msgstr ""
+
+#: template-parts/content-none.php:12
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:16
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:24
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Responsive Framework"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A responsive WordPress theme framework built with the Responsive Foundation."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Boston University Interactive Design"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Profiles"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Calendar"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "News"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "No Sidebars"
+msgstr ""
+
+#: comments.php:18
+msgctxt "comments title"
+msgid "One comment"
+msgid_plural "%1$s comments"
+msgstr[0] ""
+msgstr[1] ""
