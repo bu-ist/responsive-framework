@@ -18,7 +18,7 @@ function responsive_get_title() {
 		echo esc_html( " | $site_description" );
 	}
 	if ( $paged >= 2 || $page >= 2 ) {
-		echo esc_html( ' | ' . sprintf( __( 'Page %s' ), max( $paged, $page ) ) );
+		echo esc_html( ' | ' . sprintf( __( 'Page %s', 'responsive-framework' ), max( $paged, $page ) ) );
 	}
 }
 
@@ -139,7 +139,7 @@ function responsive_search_form() {
  */
 function responsive_category_links( $args = array() ) {
 	$defaults = array(
-		'before'    => '<span class="categories">Categories: ',
+		'before'    => sprintf( '<span class="categories">%s: ', esc_html__( 'Categories', 'responsive-framework' ) ),
 		'after'     => '</span>',
 		'separator' => ', ',
 		'parents'   => '',

@@ -23,9 +23,9 @@ get_header(); ?>
 
 	<?php the_content(); ?>
 
-	<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:' ), 'after' => '</div>' ) ); ?>
+	<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'responsive-framework' ), 'after' => '</div>' ) ); ?>
 
-	<?php edit_post_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
+	<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<span class="edit-link">', '</span>' ); ?>
 
 	<?php $news_query = BU_News_Page_Template::query_posts(); ?>
 
