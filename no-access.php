@@ -14,7 +14,7 @@ get_header();
 	</header><!-- .page-header -->
 
 	<div class="page-content">
-		<p>You are trying to access a page that is restricted to members of the Boston University community.  For further assistance, please see:</p>
+		<p><?php esc_html_e( 'You are trying to access a page that is restricted to members of the Boston University community.  For further assistance, please see:', 'responsive-framework' ); ?></p>
 		<p><a href="http://www.bu.edu/pcsc/vpn/">http://www.bu.edu/pcsc/vpn/</a></p>
 		<p><a href="http://www.bumc.bu.edu/bumc/oit/network/VPN">http://www.bumc.bu.edu/bumc/oit/network/VPN</a></p>
 

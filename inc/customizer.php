@@ -40,7 +40,7 @@ function responsive_layout() {
  */
 function responsive_layout_options() {
 	return apply_filters( 'responsive_layout_options', array(
-		'default' => __( 'Default', 'responsive-framework' ),
+		'default'  => __( 'Default', 'responsive-framework' ),
 		'top-nav'  => __( 'Top Navigation Bar', 'responsive-framework' ),
 		'side-nav' => __( 'Side Navigation Bar', 'responsive-framework' ),
 		'no-nav'   => __( 'No Navigation Bar', 'responsive-framework' ),

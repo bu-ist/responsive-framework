@@ -27,7 +27,7 @@ function responsive_footbar_display_metabox( $post_type ) {
 	if ( responsive_theme_supports_dynamic_footbars() && post_type_supports( $post_type, 'bu-dynamic-footbars' ) ) {
 		add_meta_box(
 			'bu-footbar',
-			'Footbar Display',
+			__( 'Footbar Display', 'responsive-framework' ),
 			'responsive_footbar_display_metabox_form',
 			$post_type,
 			'side',

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2017-10-11 21:18:14+00:00\n"
+"POT-Creation-Date: 2017-10-12 14:45:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,6 +30,19 @@ msgstr ""
 
 #: 404.php:17
 msgid "Looks like that page might not be here anymore. Want to give search a try?"
+msgstr ""
+
+#: admin/admin.php:30
+msgid "Footbar Display"
+msgstr ""
+
+#: admin/responsive-admin-page-template-filter.php:71
+msgid "All page templates"
+msgstr ""
+
+#: admin/responsive-admin-page-template-filter.php:72 inc/calendar.php:77
+#: inc/customizer.php:43 inc/customizer.php:369
+msgid "Default"
 msgstr ""
 
 #: admin/theme-customizer.php:40
@@ -58,6 +71,18 @@ msgstr ""
 
 #: admin/theme-customizer.php:181
 msgid "Post Display Options"
+msgstr ""
+
+#: admin/theme-customizer.php:185 inc/template-tags.php:142
+msgid "Categories"
+msgstr ""
+
+#: admin/theme-customizer.php:186
+msgid "Tags"
+msgstr ""
+
+#: admin/theme-customizer.php:187
+msgid "Author"
 msgstr ""
 
 #: admin/theme-customizer.php:203
@@ -132,6 +157,10 @@ msgstr ""
 
 #: comments.php:45
 msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:59
+msgid "Log out &raquo;"
 msgstr ""
 
 #: comments.php:61
@@ -224,7 +253,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:229 inc/customizer.php:218
+#: functions.php:229 inc/customizer.php:218 inc/template-tags.php:851
 msgid "Footbar"
 msgstr ""
 
@@ -232,7 +261,7 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:243
+#: functions.php:243 inc/template-tags.php:852
 msgid "Alternate Footbar"
 msgstr ""
 
@@ -262,8 +291,8 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
-#: inc/calendar.php:77 inc/customizer.php:43 inc/customizer.php:369
-msgid "Default"
+#: inc/calendar.php:56
+msgid "All %s"
 msgstr ""
 
 #: inc/calendar.php:82
@@ -426,7 +455,15 @@ msgstr ""
 msgid "title, author, comments, excerpt"
 msgstr ""
 
-#: inc/search-form.php:24
+#: inc/post-lists.php:129 inc/post-lists.php:136
+msgid "by %s"
+msgstr ""
+
+#: inc/post-lists.php:136
+msgid "<strong>%d</strong> comments"
+msgstr ""
+
+#: inc/search-form.php:24 searchform.php:14
 msgid "Search site&hellip;"
 msgstr ""
 
@@ -434,16 +471,67 @@ msgstr ""
 msgid "Page %s"
 msgstr ""
 
-#: inc/template-tags.php:142
-msgid "Categories"
+#: inc/template-tags.php:496
+msgid "%s navigation"
+msgstr ""
+
+#: inc/template-tags.php:501
+msgid "Newer posts"
+msgstr ""
+
+#: inc/template-tags.php:502
+msgid "Older posts"
+msgstr ""
+
+#: inc/template-tags.php:547
+msgid "Post navigation"
+msgstr ""
+
+#: inc/template-tags.php:576
+msgid "<em>By</em> %s"
+msgstr ""
+
+#: inc/template-tags.php:582
+msgid "<em>in</em> %s"
+msgstr ""
+
+#: inc/template-tags.php:587
+msgid "<strong>0</strong> comments"
+msgstr ""
+
+#: inc/template-tags.php:587
+msgid "<strong>1</strong> comment"
+msgstr ""
+
+#: inc/template-tags.php:587
+msgid "<strong>%</strong> comments"
+msgstr ""
+
+#: inc/template-tags.php:695
+msgid "View all posts"
 msgstr ""
 
 #: no-access-bumc.php:14
 msgid "Access Restricted To BUMC/BMC"
 msgstr ""
 
+#: no-access-bumc.php:18
+msgid ""
+"You are trying to access a page that is restricted to members of the Boston "
+"University Medical Campus (BUMC) and Boston Medical Center (BMC). If you "
+"are indeed part of the BUMC/BMC community, contact the BUMC Help Desk (%s | "
+"617-638-5914) for further assistance, Monday through Friday, 8:30 a.m. to 5 "
+"p.m. or visit:"
+msgstr ""
+
 #: no-access.php:13
 msgid "Access Restricted To BU/BUMC/BMC"
+msgstr ""
+
+#: no-access.php:17
+msgid ""
+"You are trying to access a page that is restricted to members of the Boston "
+"University community.  For further assistance, please see:"
 msgstr ""
 
 #: page-templates/news.php:26 page-templates/no-sidebars.php:24 page.php:24
@@ -454,6 +542,14 @@ msgstr ""
 #: page-templates/news.php:28 page-templates/no-sidebars.php:26 page.php:26
 #: single-profile.php:86 single.php:45
 msgid "Edit"
+msgstr ""
+
+#: searchform.php:11 searchform.php:14 searchform.php:16
+msgid "Search"
+msgstr ""
+
+#: searchform.php:14
+msgid "Search for:"
 msgstr ""
 
 #: single-profile.php:37
