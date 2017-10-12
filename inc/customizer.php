@@ -39,12 +39,15 @@ function responsive_layout() {
  * Returns layout options available via Customizer.
  */
 function responsive_layout_options() {
-	return apply_filters( 'responsive_layout_options', array(
-		'default'  => __( 'Default', 'responsive-framework' ),
-		'top-nav'  => __( 'Top Navigation Bar', 'responsive-framework' ),
-		'side-nav' => __( 'Side Navigation Bar', 'responsive-framework' ),
-		'no-nav'   => __( 'No Navigation Bar', 'responsive-framework' ),
-	) );
+	return apply_filters(
+		'responsive_layout_options',
+		array(
+			'default'  => __( 'Default', 'responsive-framework' ),
+			'top-nav'  => __( 'Top Navigation Bar', 'responsive-framework' ),
+			'side-nav' => __( 'Side Navigation Bar', 'responsive-framework' ),
+			'no-nav'   => __( 'No Navigation Bar', 'responsive-framework' ),
+		)
+	);
 }
 
 /**
@@ -207,17 +210,17 @@ function responsive_customizer_color_region_groups() {
 		'navbar'       => array(
 			'label' => __( 'Navigation Bar', 'responsive-framework' ),
 			'layout_excludes' => array( 'no-nav' ),
-			),
+		),
 		'content-area' => array(
 			'label' => __( 'Content Area', 'responsive-framework' ),
-			),
+		),
 		'sidebar'      => array(
 			'label' => __( 'Sidebar', 'responsive-framework' ),
-			),
+		),
 		'footbar'      => array(
 			'label' => __( 'Footbar', 'responsive-framework' ),
-			),
-		);
+		),
+	);
 }
 
 /**
@@ -229,132 +232,132 @@ function responsive_customizer_color_regions() {
 
 		// navigation bar.
 		'primaryNav-bg' => array(
-				'label'       => __( 'Background Color', 'responsive-framework' ),
-				'group'       => 'navbar',
-				'default'     => $scheme['colors'][0],
-			),
+			'label'       => __( 'Background Color', 'responsive-framework' ),
+			'group'       => 'navbar',
+			'default'     => $scheme['colors'][0],
+		),
 		'primaryNav-border' => array(
-				'label'       => __( 'Border Color', 'responsive-framework' ),
-				'group'       => 'navbar',
-				'default'     => $scheme['colors'][1],
-			),
+			'label'       => __( 'Border Color', 'responsive-framework' ),
+			'group'       => 'navbar',
+			'default'     => $scheme['colors'][1],
+		),
 		'primaryNav-link' => array(
-				'label'       => __( 'Primary Nav Links', 'responsive-framework' ),
-				'group'       => 'navbar',
-				'default'     => $scheme['colors'][2],
-			),
+			'label'       => __( 'Primary Nav Links', 'responsive-framework' ),
+			'group'       => 'navbar',
+			'default'     => $scheme['colors'][2],
+		),
 		'utilityNav-link' => array(
-				'label'       => __( 'Utility Nav Links', 'responsive-framework' ),
-				'group'       => 'navbar',
-				'default'     => $scheme['colors'][3],
-			),
+			'label'       => __( 'Utility Nav Links', 'responsive-framework' ),
+			'group'       => 'navbar',
+			'default'     => $scheme['colors'][3],
+		),
 		'primaryNav-hover' => array(
-				'label'       => __( 'Primary Nav Links Hover', 'responsive-framework' ),
-				'group'       => 'navbar',
-				'default'     => $scheme['colors'][4],
-			),
+			'label'       => __( 'Primary Nav Links Hover', 'responsive-framework' ),
+			'group'       => 'navbar',
+			'default'     => $scheme['colors'][4],
+		),
 
 		// content area.
 		'content-heading' => array(
-				'label'       => __( 'Headings', 'responsive-framework' ),
-				'group'       => 'content-area',
-				'default'     => $scheme['colors'][5],
-			),
+			'label'       => __( 'Headings', 'responsive-framework' ),
+			'group'       => 'content-area',
+			'default'     => $scheme['colors'][5],
+		),
 		'content-base' => array(
-				'label'       => __( 'Text Color', 'responsive-framework' ),
-				'group'       => 'content-area',
-				'default'     => $scheme['colors'][6],
-			),
+			'label'       => __( 'Text Color', 'responsive-framework' ),
+			'group'       => 'content-area',
+			'default'     => $scheme['colors'][6],
+		),
 		'content-link' => array(
-				'label'       => __( 'Link Color', 'responsive-framework' ),
-				'group'       => 'content-area',
-				'default'     => $scheme['colors'][7],
-			),
+			'label'       => __( 'Link Color', 'responsive-framework' ),
+			'group'       => 'content-area',
+			'default'     => $scheme['colors'][7],
+		),
 		'content-link-hover' => array(
-				'label'       => __( 'Link Hover', 'responsive-framework' ),
-				'group'       => 'content-area',
-				'default'     => $scheme['colors'][8],
-			),
+			'label'       => __( 'Link Hover', 'responsive-framework' ),
+			'group'       => 'content-area',
+			'default'     => $scheme['colors'][8],
+		),
 		'button-color' => array(
-				'label'       => __( 'Button Background', 'responsive-framework' ),
-				'group'       => 'content-area',
-				'default'     => $scheme['colors'][9],
-			),
+			'label'       => __( 'Button Background', 'responsive-framework' ),
+			'group'       => 'content-area',
+			'default'     => $scheme['colors'][9],
+		),
 		'button-text-color' => array(
-				'label'       => __( 'Button Text Color', 'responsive-framework' ),
-				'group'       => 'content-area',
-				'default'     => $scheme['colors'][10],
-			),
+			'label'       => __( 'Button Text Color', 'responsive-framework' ),
+			'group'       => 'content-area',
+			'default'     => $scheme['colors'][10],
+		),
 
 		// sidebar.
 		'sidebar-bg' => array(
-				'label'       => __( 'Widget Background', 'responsive-framework' ),
-				'group'       => 'sidebar',
-				'optional'    => true,
-				'default'     => $scheme['colors'][11],
-			),
+			'label'       => __( 'Widget Background', 'responsive-framework' ),
+			'group'       => 'sidebar',
+			'optional'    => true,
+			'default'     => $scheme['colors'][11],
+		),
 		'sidebar-widgetTitle' => array(
-				'label'       => __( 'Widget Title', 'responsive-framework' ),
-				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][12],
-			),
+			'label'       => __( 'Widget Title', 'responsive-framework' ),
+			'group'       => 'sidebar',
+			'default'     => $scheme['colors'][12],
+		),
 		'sidebar-widgetTitle-border' => array(
-				'label'       => __( 'Widget Title Border', 'responsive-framework' ),
-				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][13],
-			),
+			'label'       => __( 'Widget Title Border', 'responsive-framework' ),
+			'group'       => 'sidebar',
+			'default'     => $scheme['colors'][13],
+		),
 		'sidebar-link' => array(
-				'label'       => __( 'Link Color', 'responsive-framework' ),
-				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][14],
-			),
+			'label'       => __( 'Link Color', 'responsive-framework' ),
+			'group'       => 'sidebar',
+			'default'     => $scheme['colors'][14],
+		),
 		'sidebar-link-hover' => array(
-				'label'       => __( 'Link Hover', 'responsive-framework' ),
-				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][15],
-			),
+			'label'       => __( 'Link Hover', 'responsive-framework' ),
+			'group'       => 'sidebar',
+			'default'     => $scheme['colors'][15],
+		),
 		'sidebar-base' => array(
-				'label'       => __( 'Text Color', 'responsive-framework' ),
-				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][16],
-			),
+			'label'       => __( 'Text Color', 'responsive-framework' ),
+			'group'       => 'sidebar',
+			'default'     => $scheme['colors'][16],
+		),
 
 		// footbar.
 		'footbar-bg' => array(
-				'label'       => __( 'Background', 'responsive-framework' ),
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][17],
-			),
+			'label'       => __( 'Background', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][17],
+		),
 		'footbar-topBorder' => array(
-				'label'       => __( 'Top Border', 'responsive-framework' ),
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][18],
-			),
+			'label'       => __( 'Top Border', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][18],
+		),
 		'footbar-widgetTitle' => array(
-				'label'       => __( 'Widget Title', 'responsive-framework' ),
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][19],
-			),
+			'label'       => __( 'Widget Title', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][19],
+		),
 		'footbar-widgetTitle-border' => array(
-				'label'       => __( 'Widget Title Border', 'responsive-framework' ),
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][20],
-			),
+			'label'       => __( 'Widget Title Border', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][20],
+		),
 		'footbar-link' => array(
-				'label'       => __( 'Link Color', 'responsive-framework' ),
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][21],
-			),
+			'label'       => __( 'Link Color', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][21],
+		),
 		'footbar-link-hover' => array(
-				'label'       => __( 'Link Hover', 'responsive-framework' ),
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][22],
-			),
+			'label'       => __( 'Link Hover', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][22],
+		),
 		'footbar-base' => array(
-				'label'       => __( 'Text Color', 'responsive-framework' ),
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][23],
-			),
+			'label'       => __( 'Text Color', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][23],
+		),
 	);
 }
 
@@ -568,7 +571,13 @@ function responsive_get_color_schemes() {
  */
 function responsive_get_optional_color_regions() {
 	$regions = responsive_customizer_color_regions();
-	return array_keys( wp_filter_object_list( $regions, array( 'optional' => true ) ) );
+	return array_keys(
+		wp_filter_object_list(
+			$regions, array(
+				'optional' => true,
+			)
+		)
+	);
 }
 
 /**
@@ -996,7 +1005,7 @@ function responsive_customizer_footer_info( $args = array() ) {
 		'before' => '<div class="site-footer-info">',
 		'after'  => '</div>',
 		'echo'   => true,
-		);
+	);
 	$args = wp_parse_args( $args, $defaults );
 	$output = '';
 
