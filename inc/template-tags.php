@@ -573,18 +573,18 @@ if ( ! function_exists( 'responsive_post_meta' ) ) :
 		?>
 		<div class="meta post-meta">
 		<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
-		<span class="author"><?php printf( __( '<em>By</em> %s', 'responsive-framework' ), get_the_author_posts_link() ); ?></span>
+		<span class="author"><?php printf( esc_html__( '<em>By</em> %s', 'responsive-framework' ), get_the_author_posts_link() ); ?></span>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'date' ) ) : ?>
 		<span class="date"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ) ?>" pubdate><?php echo esc_html( get_the_date( 'F jS Y' ) ); ?></time></span>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'categories' ) && $category_list = get_the_category_list( ', ' ) ) : ?>
-		<span class="category"><?php printf( __( '<em>in</em> %s', 'responsive-framework' ), $category_list ); ?></span>
+		<span class="category"><?php printf( esc_html__( '<em>in</em> %s', 'responsive-framework' ), $category_list ); ?></span>
 		<?php endif; ?>
 		<?php if ( bu_supports_comments() ) : ?>
 			<span class="comment-counter">
 				<a href="<?php comments_link(); ?>" rel="nofollow">
-					<?php comments_number( __( '<strong>0</strong> comments', 'responsive-framework' ), __( '<strong>1</strong> comment', 'responsive-framework' ), __( '<strong>%</strong> comments', 'responsive-framework' ) ); ?>
+					<?php comments_number( esc_html__( '<strong>0</strong> comments', 'responsive-framework' ), esc_html__( '<strong>1</strong> comment', 'responsive-framework' ), esc_html__( '<strong>%</strong> comments', 'responsive-framework' ) ); ?>
 				</a>
 			</span>
 		<?php endif; ?>
