@@ -53,9 +53,9 @@ function responsive_is_bu_domain() {
  * If the BU Comments plugin is not active, this will always return true.
  */
 function responsive_has_comment_support() {
-//	if ( function_exists( 'bu_supports_comments' ) ) {
-//		return bu_supports_comments();
-//	}
+	if ( function_exists( 'bu_supports_comments' ) ) {
+		return bu_supports_comments();
+	}
 	return true;
 }
 
@@ -498,7 +498,7 @@ if ( ! function_exists( 'responsive_posts_navigation' ) ) :
 
 				// Post archive labels are more specific.
 			if ( 'posts' === $archive_type ) {
-				$defaults['prev_text'] = sprintf( '<span class="meta-nav">&larr;</span> %s', esc_html__( 'Newer posts', 'responsive-framework' ) ) ;
+				$defaults['prev_text'] = sprintf( '<span class="meta-nav">&larr;</span> %s', esc_html__( 'Newer posts', 'responsive-framework' ) );
 				$defaults['next_text'] = sprintf( '%s <span class="meta-nav">&rarr;</span>', esc_html__( 'Older posts', 'responsive-framework' ) );
 			}
 
