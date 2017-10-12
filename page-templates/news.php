@@ -23,7 +23,12 @@ get_header(); ?>
 
 	<?php the_content(); ?>
 
-	<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'responsive-framework' ), 'after' => '</div>' ) ); ?>
+	<?php
+		wp_link_pages( array(
+			'before' => sprintf( '<div class="page-link">%s', esc_html__( 'Pages:', 'responsive-framework' ) ),
+			'after' => '</div>',
+		) );
+	?>
 
 	<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<span class="edit-link">', '</span>' ); ?>
 

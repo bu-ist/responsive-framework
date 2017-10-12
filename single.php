@@ -21,7 +21,12 @@ get_header(); ?>
 
 			<?php responsive_share_tools(); ?>
 
-			<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'responsive-framework' ), 'after' => '</div>' ) ); ?>
+			<?php
+				wp_link_pages( array(
+					'before' => sprintf( '<div class="page-link">%s', esc_html__( 'Pages:', 'responsive-framework' ) ),
+					'after' => '</div>',
+				) );
+			?>
 
 			<footer class="meta single-meta">
 				<h4 class="post-title single-meta-post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
