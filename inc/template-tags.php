@@ -53,9 +53,9 @@ function responsive_is_bu_domain() {
  * If the BU Comments plugin is not active, this will always return true.
  */
 function responsive_has_comment_support() {
-	if ( function_exists( 'bu_supports_comments' ) ) {
-		return bu_supports_comments();
-	}
+//	if ( function_exists( 'bu_supports_comments' ) ) {
+//		return bu_supports_comments();
+//	}
 	return true;
 }
 
