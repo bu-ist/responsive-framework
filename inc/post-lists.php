@@ -19,52 +19,52 @@ if ( ! function_exists( 'responsive_posts_widget_formats' ) ) :
 		unset( $formats['date_title_excerpt'] );
 
 		$formats['title_only'] = array(
-		'label'               => __( 'title only (no thumbnail)', 'responsive-framework' ),
-		'callback'            => 'responsive_posts_widget_format_display',
-		'requires_commenting' => false,
-		'supports_thumbnail'  => false,
-			);
+			'label'               => __( 'title only (no thumbnail)', 'responsive-framework' ),
+			'callback'            => 'responsive_posts_widget_format_display',
+			'requires_commenting' => false,
+			'supports_thumbnail'  => false,
+		);
 
 			$formats['title_date'] = array(
-			'label'               => __( 'title, date', 'responsive-framework' ),
-			'callback'            => 'responsive_posts_widget_format_display',
-			'supports_thumbnail'  => true,
-			'requires_commenting' => false,
+				'label'               => __( 'title, date', 'responsive-framework' ),
+				'callback'            => 'responsive_posts_widget_format_display',
+				'supports_thumbnail'  => true,
+				'requires_commenting' => false,
 			);
 
 			$formats['title_excerpt'] = array(
-			'label'               => __( 'title, excerpt', 'responsive-framework' ),
-			'callback'            => 'responsive_posts_widget_format_display',
-			'supports_thumbnail'  => true,
-			'requires_commenting' => false,
+				'label'               => __( 'title, excerpt', 'responsive-framework' ),
+				'callback'            => 'responsive_posts_widget_format_display',
+				'supports_thumbnail'  => true,
+				'requires_commenting' => false,
 			);
 
 			$formats['title_date_excerpt'] = array(
-			'label'               => __( 'title, date, excerpt', 'responsive-framework' ),
-			'callback'            => 'responsive_posts_widget_format_display',
-			'supports_thumbnail'  => true,
-			'requires_commenting' => false,
+				'label'               => __( 'title, date, excerpt', 'responsive-framework' ),
+				'callback'            => 'responsive_posts_widget_format_display',
+				'supports_thumbnail'  => true,
+				'requires_commenting' => false,
 			);
 
 			$formats['title_author_excerpt'] = array(
-			'label'               => __( 'title, author, excerpt', 'responsive-framework' ),
-			'callback'            => 'responsive_posts_widget_format_display',
-			'supports_thumbnail'  => true,
-			'requires_commenting' => false,
+				'label'               => __( 'title, author, excerpt', 'responsive-framework' ),
+				'callback'            => 'responsive_posts_widget_format_display',
+				'supports_thumbnail'  => true,
+				'requires_commenting' => false,
 			);
 
 			$formats['title_date_comments_excerpt'] = array(
-			'label'               => __( 'title, date, comments, excerpt', 'responsive-framework' ),
-			'callback'            => 'responsive_posts_widget_format_display',
-			'supports_thumbnail'  => true,
-			'requires_commenting' => true,
+				'label'               => __( 'title, date, comments, excerpt', 'responsive-framework' ),
+				'callback'            => 'responsive_posts_widget_format_display',
+				'supports_thumbnail'  => true,
+				'requires_commenting' => true,
 			);
 
 			$formats['title_author_comments_excerpt'] = array(
-			'label'               => __( 'title, author, comments, excerpt', 'responsive-framework' ),
-			'callback'            => 'responsive_posts_widget_format_display',
-			'supports_thumbnail'  => true,
-			'requires_commenting' => true,
+				'label'               => __( 'title, author, comments, excerpt', 'responsive-framework' ),
+				'callback'            => 'responsive_posts_widget_format_display',
+				'supports_thumbnail'  => true,
+				'requires_commenting' => true,
 			);
 
 			return $formats;
@@ -107,7 +107,9 @@ function responsive_posts_widget_format_display( $post, $args ) {
 			$use_thumb = false;
 		}
 
-		$output .= bu_get_thumbnail_src( $post->ID, array(
+		$output .= bu_get_thumbnail_src(
+			$post->ID,
+			array(
 				'maxwidth'  => $max_width,
 				'maxheight' => $max_height,
 				'classes'   => $thumbclass,
@@ -132,8 +134,10 @@ function responsive_posts_widget_format_display( $post, $args ) {
 			$output .= sprintf( '<p class="meta widget-post-meta"><span class="published widget-post-published">%s</span>  <span class="comment-counter widget-post-comment-counter"> <a href="%s" rel="nofollow"><strong>%s</strong> comments</a></span></p>', BU_PostList::post_date( 'F j, Y' ), get_comments_link(), get_comments_number( $post->ID ) );
 			break;
 		case 'title_author_comments_excerpt':
-			$output .= sprintf( '<p class="meta widget-post-meta"><span class="author widget-post-author">%s</span>  <span class="comment-counter widget-post-comment-counter">
-					<a href="%s" rel="nofollow">%s</a></span></p>', sprintf( __( 'by %s', 'responsive-framework' ), get_the_author() ), get_comments_link(), sprintf( __( '<strong>%d</strong> comments', 'responsive-framework' ), get_comments_number( $post->ID ) ) );
+			$output .= sprintf(
+				'<p class="meta widget-post-meta"><span class="author widget-post-author">%s</span>  <span class="comment-counter widget-post-comment-counter">
+					<a href="%s" rel="nofollow">%s</a></span></p>', sprintf( __( 'by %s', 'responsive-framework' ), get_the_author() ), get_comments_link(), sprintf( __( '<strong>%d</strong> comments', 'responsive-framework' ), get_comments_number( $post->ID ) )
+			);
 			break;
 	}
 
