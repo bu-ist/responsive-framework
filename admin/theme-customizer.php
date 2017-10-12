@@ -182,9 +182,9 @@ function responsive_customize_register( $wp_customize ) {
 				'section'     => 'burf_section_content_options',
 				'description' => 'Change visibility of post meta fields. Note that the "News" page template has its own display options.',
 				'choices'     => array(
-					'categories' => 'Categories',
-					'tags'       => 'Tags',
-					'author'     => 'Author',
+					'categories' => __( 'Categories', 'responsive-framework' ),
+					'tags'       => __( 'Tags', 'responsive-framework' ),
+					'author'     => __( 'Author', 'responsive-framework' ),
 					),
 			)
 		)

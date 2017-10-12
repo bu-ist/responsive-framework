@@ -56,7 +56,7 @@ if ( post_password_required() ) {
 			<form action="<?php echo esc_url( home_url( '/' ) ); ?>/wp-comments-post.php" method="post" id="commentform" class="comment-form">
 				<fieldset>
 					<?php if ( is_user_logged_in() ) : ?>
-						<p>Logged in as <a href="<?php echo esc_url( get_edit_profile_url() ); ?>"><?php echo wp_kses_post( $user_identity ); ?></a>. <a href="<?php echo esc_url( wp_logout_url( get_permalink() ) ); ?>">Log out &raquo;</a></p>
+						<p>Logged in as <a href="<?php echo esc_url( get_edit_profile_url() ); ?>"><?php echo wp_kses_post( $user_identity ); ?></a>. <a href="<?php echo esc_url( wp_logout_url( get_permalink() ) ); ?>"><?php esc_html_e( 'Log out &raquo;', 'responsive-framework' ); ?></a></p>
 					<?php else : ?>
 						<div class="form-row"><label for="author"><?php esc_html_e( 'Name', 'responsive-framework' ); ?><?php if ( $req ) { echo '<em class="required">*</em>';} ?></label><input type="text" name="author" id="author" value="<?php echo esc_attr( $comment_author ); ?>" size="22" tabindex="1" <?php if ( $req ) { echo 'required="required" aria-required="true"';} ?> /></div>
 						<div class="form-row"><label for="email"><?php esc_html_e( 'Email', 'responsive-framework' ); ?><?php if ( $req ) { echo '<em class="required">*</em>';} ?></label><input type="text" name="email" id="email" value="<?php echo esc_attr( $comment_author_email ); ?>" size="22" tabindex="2" <?php if ( $req ) { echo 'required="required" aria-required="true"';} ?> /></div>

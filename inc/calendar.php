@@ -53,7 +53,7 @@ function responsive_calendar_sidebar( $args = array() ) {
 		<?php if ( $args['show_topics'] ) : ?>
 			<div id="calendar-topics" class="widget widget-calendar-topics">
 				<h3 class="widget-title"><?php esc_html_e( 'Event', 'responsive-framework' ); ?> <?php echo esc_html( $args['topic_heading'] ); ?></h3>
-				<a class="content-nav-header" href="<?php echo esc_url( $all_topics_url ); ?>">All <?php echo esc_html( $args['topic_heading'] ); ?></a>
+				<a class="content-nav-header" href="<?php echo esc_url( $all_topics_url ); ?>"><?php printf( __( 'All %s', 'responsive-framework' ), esc_html( $args['topic_heading'] ) ); ?></a>
 				<?php echo $buCalendar->buildTopicTree( $topics ); ?>
 			</div>
 		<?php endif; ?>
