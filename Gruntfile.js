@@ -52,6 +52,13 @@ module.exports = function(grunt) {
 				options: {
 					spawn: false
 				}
+			},
+			phplint : {
+				files : [ '**/*.php' ],
+				tasks : [ 'phplint' ],
+				options : {
+					spawn : false
+				}
 			}
 		},
 		concat: {
@@ -171,6 +178,21 @@ module.exports = function(grunt) {
 				dest: 'js/vendor/lg-thumbnail/'
 			}
 		},
+		phplint: {
+			options: {
+				phpArgs: {
+					'-l': null,
+					'-f': null
+				}
+			},
+			all : {
+				src : [
+					'**/**.php',
+					'!vendor/**',
+					'!node_modules/**'
+				]
+			}
+		},
 		bower: {
 			install: {
 				options: {
@@ -245,6 +267,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-version');
+	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-bower-task' );
 	grunt.loadNpmTasks( 'grunt-modernizr' );
 
