@@ -210,7 +210,7 @@ function responsive_customize_register( $wp_customize ) {
 		$sidebar_description .= '<p><strong>Main sidebar position</strong>: ' . BU_RESPONSIVE_SIDEBAR_POSITION . '</p>';
 	}
 	if ( defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
-		$sidebar_description .= '<p><strong>Keep posts and profiles sidebar on the bottom?</strong>: ' . BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM . '</p>';
+		$sidebar_description .= '<p><strong>Keep posts and profiles sidebar on the bottom?</strong>: ' . ( ( BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM ) ? 'true' : 'false' ) . '</p>';
 	}
 
 	$wp_customize->add_control(
