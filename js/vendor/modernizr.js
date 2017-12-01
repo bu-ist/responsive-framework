@@ -1,6 +1,6 @@
 /*!
  * modernizr v3.5.0
- * Build https://modernizr.com/download?-audio-backgroundsize-borderimage-borderradius-boxshadow-canvas-canvastext-cssanimations-csscolumns-cssgradients-cssreflections-csstransforms-csstransforms3d-csstransitions-flexbox-flexboxlegacy-fontface-generatedcontent-geolocation-hashchange-hsla-inlinesvg-localstorage-multiplebgs-objectfit-opacity-postmessage-requestanimationframe-rgba-smil-svg-svgclippaths-textshadow-video-videoautoplay-webgl-domprefixes-hasevent-prefixed-prefixes-printshiv-setclasses-testallprops-testprop-teststyles-dontmin
+ * Build https://modernizr.com/download?-audio-backgroundsize-borderimage-borderradius-boxshadow-canvas-canvastext-cssanimations-csscolumns-cssgradients-csspositionsticky-cssreflections-csstransforms-csstransforms3d-csstransitions-flexbox-flexboxlegacy-fontface-generatedcontent-geolocation-hashchange-hsla-inlinesvg-localstorage-multiplebgs-objectfit-opacity-postmessage-requestanimationframe-rgba-smil-svg-svgclippaths-textshadow-video-videoautoplay-webgl-domprefixes-hasevent-prefixed-prefixes-printshiv-setclasses-testallprops-testprop-teststyles-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -274,47 +274,6 @@
   
 
   /**
-   * List of property values to set for css tests. See ticket #21
-   * http://git.io/vUGl4
-   *
-   * @memberof Modernizr
-   * @name Modernizr._prefixes
-   * @optionName Modernizr._prefixes
-   * @optionProp prefixes
-   * @access public
-   * @example
-   *
-   * Modernizr._prefixes is the internal list of prefixes that we test against
-   * inside of things like [prefixed](#modernizr-prefixed) and [prefixedCSS](#-code-modernizr-prefixedcss). It is simply
-   * an array of kebab-case vendor prefixes you can use within your code.
-   *
-   * Some common use cases include
-   *
-   * Generating all possible prefixed version of a CSS property
-   * ```js
-   * var rule = Modernizr._prefixes.join('transform: rotate(20deg); ');
-   *
-   * rule === 'transform: rotate(20deg); webkit-transform: rotate(20deg); moz-transform: rotate(20deg); o-transform: rotate(20deg); ms-transform: rotate(20deg);'
-   * ```
-   *
-   * Generating all possible prefixed version of a CSS value
-   * ```js
-   * rule = 'display:' +  Modernizr._prefixes.join('flex; display:') + 'flex';
-   *
-   * rule === 'display:flex; display:-webkit-flex; display:-moz-flex; display:-o-flex; display:-ms-flex; display:flex'
-   * ```
-   */
-
-  // we use ['',''] rather than an empty array in order to allow a pattern of .`join()`ing prefixes to test
-  // values in feature detects to continue to work
-  var prefixes = (ModernizrProto._config.usePrefixes ? ' -webkit- -moz- -o- -ms- '.split(' ') : ['','']);
-
-  // expose these for the plugin API. Look in the source for how to join() them against your input
-  ModernizrProto._prefixes = prefixes;
-
-  
-
-  /**
    * createElement is a convenience wrapper around document.createElement. Since we
    * use createElement all over the place, this allows for (slightly) smaller code
    * as well as abstracting away issues with creating elements in contexts other than
@@ -414,6 +373,542 @@
 
   ModernizrProto.hasEvent = hasEvent;
   
+
+/**
+  * @optionName html5printshiv
+  * @optionProp html5printshiv
+  */
+
+  // Take the html5 variable out of the html5shiv scope so we can return it.
+  var html5;
+  if (!isSVG) {
+
+    /**
+     * @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
+     */
+    ;(function(window, document) {
+      /** version */
+      var version = '3.7.3';
+
+      /** Preset options */
+      var options = window.html5 || {};
+
+      /** Used to skip problem elements */
+      var reSkip = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i;
+
+      /** Not all elements can be cloned in IE **/
+      var saveClones = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i;
+
+      /** Detect whether the browser supports default html5 styles */
+      var supportsHtml5Styles;
+
+      /** Name of the expando, to work with multiple documents or to re-shiv one document */
+      var expando = '_html5shiv';
+
+      /** The id for the the documents expando */
+      var expanID = 0;
+
+      /** Cached data for each document */
+      var expandoData = {};
+
+      /** Detect whether the browser supports unknown elements */
+      var supportsUnknownElements;
+
+      (function() {
+        try {
+          var a = document.createElement('a');
+          a.innerHTML = '<xyz></xyz>';
+          //if the hidden property is implemented we can assume, that the browser supports basic HTML5 Styles
+          supportsHtml5Styles = ('hidden' in a);
+
+          supportsUnknownElements = a.childNodes.length == 1 || (function() {
+            // assign a false positive if unable to shiv
+            (document.createElement)('a');
+            var frag = document.createDocumentFragment();
+            return (
+              typeof frag.cloneNode == 'undefined' ||
+                typeof frag.createDocumentFragment == 'undefined' ||
+                typeof frag.createElement == 'undefined'
+            );
+          }());
+        } catch(e) {
+          // assign a false positive if detection fails => unable to shiv
+          supportsHtml5Styles = true;
+          supportsUnknownElements = true;
+        }
+
+      }());
+
+      /*--------------------------------------------------------------------------*/
+
+      /**
+       * Creates a style sheet with the given CSS text and adds it to the document.
+       * @private
+       * @param {Document} ownerDocument The document.
+       * @param {String} cssText The CSS text.
+       * @returns {StyleSheet} The style element.
+       */
+      function addStyleSheet(ownerDocument, cssText) {
+        var p = ownerDocument.createElement('p'),
+          parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
+
+        p.innerHTML = 'x<style>' + cssText + '</style>';
+        return parent.insertBefore(p.lastChild, parent.firstChild);
+      }
+
+      /**
+       * Returns the value of `html5.elements` as an array.
+       * @private
+       * @returns {Array} An array of shived element node names.
+       */
+      function getElements() {
+        var elements = html5.elements;
+        return typeof elements == 'string' ? elements.split(' ') : elements;
+      }
+
+      /**
+       * Extends the built-in list of html5 elements
+       * @memberOf html5
+       * @param {String|Array} newElements whitespace separated list or array of new element names to shiv
+       * @param {Document} ownerDocument The context document.
+       */
+      function addElements(newElements, ownerDocument) {
+        var elements = html5.elements;
+        if(typeof elements != 'string'){
+          elements = elements.join(' ');
+        }
+        if(typeof newElements != 'string'){
+          newElements = newElements.join(' ');
+        }
+        html5.elements = elements +' '+ newElements;
+        shivDocument(ownerDocument);
+      }
+
+      /**
+       * Returns the data associated to the given document
+       * @private
+       * @param {Document} ownerDocument The document.
+       * @returns {Object} An object of data.
+       */
+      function getExpandoData(ownerDocument) {
+        var data = expandoData[ownerDocument[expando]];
+        if (!data) {
+          data = {};
+          expanID++;
+          ownerDocument[expando] = expanID;
+          expandoData[expanID] = data;
+        }
+        return data;
+      }
+
+      /**
+       * returns a shived element for the given nodeName and document
+       * @memberOf html5
+       * @param {String} nodeName name of the element
+       * @param {Document} ownerDocument The context document.
+       * @returns {Object} The shived element.
+       */
+      function createElement(nodeName, ownerDocument, data){
+        if (!ownerDocument) {
+          ownerDocument = document;
+        }
+        if(supportsUnknownElements){
+          return ownerDocument.createElement(nodeName);
+        }
+        if (!data) {
+          data = getExpandoData(ownerDocument);
+        }
+        var node;
+
+        if (data.cache[nodeName]) {
+          node = data.cache[nodeName].cloneNode();
+        } else if (saveClones.test(nodeName)) {
+          node = (data.cache[nodeName] = data.createElem(nodeName)).cloneNode();
+        } else {
+          node = data.createElem(nodeName);
+        }
+
+        // Avoid adding some elements to fragments in IE < 9 because
+        // * Attributes like `name` or `type` cannot be set/changed once an element
+        //   is inserted into a document/fragment
+        // * Link elements with `src` attributes that are inaccessible, as with
+        //   a 403 response, will cause the tab/window to crash
+        // * Script elements appended to fragments will execute when their `src`
+        //   or `text` property is set
+        return node.canHaveChildren && !reSkip.test(nodeName) && !node.tagUrn ? data.frag.appendChild(node) : node;
+      }
+
+      /**
+       * returns a shived DocumentFragment for the given document
+       * @memberOf html5
+       * @param {Document} ownerDocument The context document.
+       * @returns {Object} The shived DocumentFragment.
+       */
+      function createDocumentFragment(ownerDocument, data){
+        if (!ownerDocument) {
+          ownerDocument = document;
+        }
+        if(supportsUnknownElements){
+          return ownerDocument.createDocumentFragment();
+        }
+        data = data || getExpandoData(ownerDocument);
+        var clone = data.frag.cloneNode(),
+          i = 0,
+          elems = getElements(),
+          l = elems.length;
+        for(;i<l;i++){
+          clone.createElement(elems[i]);
+        }
+        return clone;
+      }
+
+      /**
+       * Shivs the `createElement` and `createDocumentFragment` methods of the document.
+       * @private
+       * @param {Document|DocumentFragment} ownerDocument The document.
+       * @param {Object} data of the document.
+       */
+      function shivMethods(ownerDocument, data) {
+        if (!data.cache) {
+          data.cache = {};
+          data.createElem = ownerDocument.createElement;
+          data.createFrag = ownerDocument.createDocumentFragment;
+          data.frag = data.createFrag();
+        }
+
+
+        ownerDocument.createElement = function(nodeName) {
+          //abort shiv
+          if (!html5.shivMethods) {
+            return data.createElem(nodeName);
+          }
+          return createElement(nodeName, ownerDocument, data);
+        };
+
+        ownerDocument.createDocumentFragment = Function('h,f', 'return function(){' +
+                                                        'var n=f.cloneNode(),c=n.createElement;' +
+                                                        'h.shivMethods&&(' +
+                                                        // unroll the `createElement` calls
+                                                        getElements().join().replace(/[\w\-:]+/g, function(nodeName) {
+                                                          data.createElem(nodeName);
+                                                          data.frag.createElement(nodeName);
+                                                          return 'c("' + nodeName + '")';
+                                                        }) +
+          ');return n}'
+                                                       )(html5, data.frag);
+      }
+
+      /*--------------------------------------------------------------------------*/
+
+      /**
+       * Shivs the given document.
+       * @memberOf html5
+       * @param {Document} ownerDocument The document to shiv.
+       * @returns {Document} The shived document.
+       */
+      function shivDocument(ownerDocument) {
+        if (!ownerDocument) {
+          ownerDocument = document;
+        }
+        var data = getExpandoData(ownerDocument);
+
+        if (html5.shivCSS && !supportsHtml5Styles && !data.hasCSS) {
+          data.hasCSS = !!addStyleSheet(ownerDocument,
+                                        // corrects block display not defined in IE6/7/8/9
+                                        'article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}' +
+                                        // adds styling not present in IE6/7/8/9
+                                        'mark{background:#FF0;color:#000}' +
+                                        // hides non-rendered elements
+                                        'template{display:none}'
+                                       );
+        }
+        if (!supportsUnknownElements) {
+          shivMethods(ownerDocument, data);
+        }
+        return ownerDocument;
+      }
+
+      /*--------------------------------------------------------------------------*/
+
+      /**
+       * The `html5` object is exposed so that more elements can be shived and
+       * existing shiving can be detected on iframes.
+       * @type Object
+       * @example
+       *
+       * // options can be changed before the script is included
+       * html5 = { 'elements': 'mark section', 'shivCSS': false, 'shivMethods': false };
+       */
+      var html5 = {
+
+        /**
+         * An array or space separated string of node names of the elements to shiv.
+         * @memberOf html5
+         * @type Array|String
+         */
+        'elements': options.elements || 'abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video',
+
+        /**
+         * current version of html5shiv
+         */
+        'version': version,
+
+        /**
+         * A flag to indicate that the HTML5 style sheet should be inserted.
+         * @memberOf html5
+         * @type Boolean
+         */
+        'shivCSS': (options.shivCSS !== false),
+
+        /**
+         * Is equal to true if a browser supports creating unknown/HTML5 elements
+         * @memberOf html5
+         * @type boolean
+         */
+        'supportsUnknownElements': supportsUnknownElements,
+
+        /**
+         * A flag to indicate that the document's `createElement` and `createDocumentFragment`
+         * methods should be overwritten.
+         * @memberOf html5
+         * @type Boolean
+         */
+        'shivMethods': (options.shivMethods !== false),
+
+        /**
+         * A string to describe the type of `html5` object ("default" or "default print").
+         * @memberOf html5
+         * @type String
+         */
+        'type': 'default',
+
+        // shivs the document according to the specified `html5` object options
+        'shivDocument': shivDocument,
+
+        //creates a shived element
+        createElement: createElement,
+
+        //creates a shived documentFragment
+        createDocumentFragment: createDocumentFragment,
+
+        //extends list of elements
+        addElements: addElements
+      };
+
+      /*--------------------------------------------------------------------------*/
+
+      // expose html5
+      window.html5 = html5;
+
+      // shiv the document
+      shivDocument(document);
+
+      /*------------------------------- Print Shiv -------------------------------*/
+
+      /** Used to filter media types */
+      var reMedia = /^$|\b(?:all|print)\b/;
+
+      /** Used to namespace printable elements */
+      var shivNamespace = 'html5shiv';
+
+      /** Detect whether the browser supports shivable style sheets */
+      var supportsShivableSheets = !supportsUnknownElements && (function() {
+        // assign a false negative if unable to shiv
+        var docEl = document.documentElement;
+        return !(
+          typeof document.namespaces == 'undefined' ||
+            typeof document.parentWindow == 'undefined' ||
+            typeof docEl.applyElement == 'undefined' ||
+            typeof docEl.removeNode == 'undefined' ||
+            typeof window.attachEvent == 'undefined'
+        );
+      }());
+
+      /*--------------------------------------------------------------------------*/
+
+      /**
+       * Wraps all HTML5 elements in the given document with printable elements.
+       * (eg. the "header" element is wrapped with the "html5shiv:header" element)
+       * @private
+       * @param {Document} ownerDocument The document.
+       * @returns {Array} An array wrappers added.
+       */
+      function addWrappers(ownerDocument) {
+        var node,
+          nodes = ownerDocument.getElementsByTagName('*'),
+          index = nodes.length,
+          reElements = RegExp('^(?:' + getElements().join('|') + ')$', 'i'),
+          result = [];
+
+        while (index--) {
+          node = nodes[index];
+          if (reElements.test(node.nodeName)) {
+            result.push(node.applyElement(createWrapper(node)));
+          }
+        }
+        return result;
+      }
+
+      /**
+       * Creates a printable wrapper for the given element.
+       * @private
+       * @param {Element} element The element.
+       * @returns {Element} The wrapper.
+       */
+      function createWrapper(element) {
+        var node,
+          nodes = element.attributes,
+          index = nodes.length,
+          wrapper = element.ownerDocument.createElement(shivNamespace + ':' + element.nodeName);
+
+        // copy element attributes to the wrapper
+        while (index--) {
+          node = nodes[index];
+          node.specified && wrapper.setAttribute(node.nodeName, node.nodeValue);
+        }
+        // copy element styles to the wrapper
+        wrapper.style.cssText = element.style.cssText;
+        return wrapper;
+      }
+
+      /**
+       * Shivs the given CSS text.
+       * (eg. header{} becomes html5shiv\:header{})
+       * @private
+       * @param {String} cssText The CSS text to shiv.
+       * @returns {String} The shived CSS text.
+       */
+      function shivCssText(cssText) {
+        var pair,
+          parts = cssText.split('{'),
+          index = parts.length,
+          reElements = RegExp('(^|[\\s,>+~])(' + getElements().join('|') + ')(?=[[\\s,>+~#.:]|$)', 'gi'),
+          replacement = '$1' + shivNamespace + '\\:$2';
+
+        while (index--) {
+          pair = parts[index] = parts[index].split('}');
+          pair[pair.length - 1] = pair[pair.length - 1].replace(reElements, replacement);
+          parts[index] = pair.join('}');
+        }
+        return parts.join('{');
+      }
+
+      /**
+       * Removes the given wrappers, leaving the original elements.
+       * @private
+       * @params {Array} wrappers An array of printable wrappers.
+       */
+      function removeWrappers(wrappers) {
+        var index = wrappers.length;
+        while (index--) {
+          wrappers[index].removeNode();
+        }
+      }
+
+      /*--------------------------------------------------------------------------*/
+
+      /**
+       * Shivs the given document for print.
+       * @memberOf html5
+       * @param {Document} ownerDocument The document to shiv.
+       * @returns {Document} The shived document.
+       */
+      function shivPrint(ownerDocument) {
+        var shivedSheet,
+          wrappers,
+          data = getExpandoData(ownerDocument),
+          namespaces = ownerDocument.namespaces,
+          ownerWindow = ownerDocument.parentWindow;
+
+        if (!supportsShivableSheets || ownerDocument.printShived) {
+          return ownerDocument;
+        }
+        if (typeof namespaces[shivNamespace] == 'undefined') {
+          namespaces.add(shivNamespace);
+        }
+
+        function removeSheet() {
+          clearTimeout(data._removeSheetTimer);
+          if (shivedSheet) {
+            shivedSheet.removeNode(true);
+          }
+          shivedSheet= null;
+        }
+
+        ownerWindow.attachEvent('onbeforeprint', function() {
+
+          removeSheet();
+
+          var imports,
+            length,
+            sheet,
+            collection = ownerDocument.styleSheets,
+            cssText = [],
+            index = collection.length,
+            sheets = Array(index);
+
+          // convert styleSheets collection to an array
+          while (index--) {
+            sheets[index] = collection[index];
+          }
+          // concat all style sheet CSS text
+          while ((sheet = sheets.pop())) {
+            // IE does not enforce a same origin policy for external style sheets...
+            // but has trouble with some dynamically created stylesheets
+            if (!sheet.disabled && reMedia.test(sheet.media)) {
+
+              try {
+                imports = sheet.imports;
+                length = imports.length;
+              } catch(er){
+                length = 0;
+              }
+
+              for (index = 0; index < length; index++) {
+                sheets.push(imports[index]);
+              }
+
+              try {
+                cssText.push(sheet.cssText);
+              } catch(er){}
+            }
+          }
+
+          // wrap all HTML5 elements with printable elements and add the shived style sheet
+          cssText = shivCssText(cssText.reverse().join(''));
+          wrappers = addWrappers(ownerDocument);
+          shivedSheet = addStyleSheet(ownerDocument, cssText);
+
+        });
+
+        ownerWindow.attachEvent('onafterprint', function() {
+          // remove wrappers, leaving the original elements, and remove the shived style sheet
+          removeWrappers(wrappers);
+          clearTimeout(data._removeSheetTimer);
+          data._removeSheetTimer = setTimeout(removeSheet, 500);
+        });
+
+        ownerDocument.printShived = true;
+        return ownerDocument;
+      }
+
+      /*--------------------------------------------------------------------------*/
+
+      // expose API
+      html5.type += ' print';
+      html5.shivPrint = shivPrint;
+
+      // shiv for print
+      shivPrint(document);
+
+      if(typeof module == 'object' && module.exports){
+        module.exports = html5;
+      }
+
+    }(typeof window !== 'undefined' ? window : this, document));
+  }
+
+  ;
 
   var cssomPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.split(' ') : []);
   ModernizrProto._cssomPrefixes = cssomPrefixes;
@@ -1021,6 +1516,47 @@
   
 
   /**
+   * List of property values to set for css tests. See ticket #21
+   * http://git.io/vUGl4
+   *
+   * @memberof Modernizr
+   * @name Modernizr._prefixes
+   * @optionName Modernizr._prefixes
+   * @optionProp prefixes
+   * @access public
+   * @example
+   *
+   * Modernizr._prefixes is the internal list of prefixes that we test against
+   * inside of things like [prefixed](#modernizr-prefixed) and [prefixedCSS](#-code-modernizr-prefixedcss). It is simply
+   * an array of kebab-case vendor prefixes you can use within your code.
+   *
+   * Some common use cases include
+   *
+   * Generating all possible prefixed version of a CSS property
+   * ```js
+   * var rule = Modernizr._prefixes.join('transform: rotate(20deg); ');
+   *
+   * rule === 'transform: rotate(20deg); webkit-transform: rotate(20deg); moz-transform: rotate(20deg); o-transform: rotate(20deg); ms-transform: rotate(20deg);'
+   * ```
+   *
+   * Generating all possible prefixed version of a CSS value
+   * ```js
+   * rule = 'display:' +  Modernizr._prefixes.join('flex; display:') + 'flex';
+   *
+   * rule === 'display:flex; display:-webkit-flex; display:-moz-flex; display:-o-flex; display:-ms-flex; display:flex'
+   * ```
+   */
+
+  // we use ['',''] rather than an empty array in order to allow a pattern of .`join()`ing prefixes to test
+  // values in feature detects to continue to work
+  var prefixes = (ModernizrProto._config.usePrefixes ? ' -webkit- -moz- -o- -ms- '.split(' ') : ['','']);
+
+  // expose these for the plugin API. Look in the source for how to join() them against your input
+  ModernizrProto._prefixes = prefixes;
+
+  
+
+  /**
    * testAllProps determines whether a given CSS property is supported in the browser
    *
    * @memberof Modernizr
@@ -1161,542 +1697,6 @@
 
   var testStyles = ModernizrProto.testStyles = injectElementWithStyles;
   
-
-/**
-  * @optionName html5printshiv
-  * @optionProp html5printshiv
-  */
-
-  // Take the html5 variable out of the html5shiv scope so we can return it.
-  var html5;
-  if (!isSVG) {
-
-    /**
-     * @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
-     */
-    ;(function(window, document) {
-      /** version */
-      var version = '3.7.3';
-
-      /** Preset options */
-      var options = window.html5 || {};
-
-      /** Used to skip problem elements */
-      var reSkip = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i;
-
-      /** Not all elements can be cloned in IE **/
-      var saveClones = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i;
-
-      /** Detect whether the browser supports default html5 styles */
-      var supportsHtml5Styles;
-
-      /** Name of the expando, to work with multiple documents or to re-shiv one document */
-      var expando = '_html5shiv';
-
-      /** The id for the the documents expando */
-      var expanID = 0;
-
-      /** Cached data for each document */
-      var expandoData = {};
-
-      /** Detect whether the browser supports unknown elements */
-      var supportsUnknownElements;
-
-      (function() {
-        try {
-          var a = document.createElement('a');
-          a.innerHTML = '<xyz></xyz>';
-          //if the hidden property is implemented we can assume, that the browser supports basic HTML5 Styles
-          supportsHtml5Styles = ('hidden' in a);
-
-          supportsUnknownElements = a.childNodes.length == 1 || (function() {
-            // assign a false positive if unable to shiv
-            (document.createElement)('a');
-            var frag = document.createDocumentFragment();
-            return (
-              typeof frag.cloneNode == 'undefined' ||
-                typeof frag.createDocumentFragment == 'undefined' ||
-                typeof frag.createElement == 'undefined'
-            );
-          }());
-        } catch(e) {
-          // assign a false positive if detection fails => unable to shiv
-          supportsHtml5Styles = true;
-          supportsUnknownElements = true;
-        }
-
-      }());
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * Creates a style sheet with the given CSS text and adds it to the document.
-       * @private
-       * @param {Document} ownerDocument The document.
-       * @param {String} cssText The CSS text.
-       * @returns {StyleSheet} The style element.
-       */
-      function addStyleSheet(ownerDocument, cssText) {
-        var p = ownerDocument.createElement('p'),
-          parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
-
-        p.innerHTML = 'x<style>' + cssText + '</style>';
-        return parent.insertBefore(p.lastChild, parent.firstChild);
-      }
-
-      /**
-       * Returns the value of `html5.elements` as an array.
-       * @private
-       * @returns {Array} An array of shived element node names.
-       */
-      function getElements() {
-        var elements = html5.elements;
-        return typeof elements == 'string' ? elements.split(' ') : elements;
-      }
-
-      /**
-       * Extends the built-in list of html5 elements
-       * @memberOf html5
-       * @param {String|Array} newElements whitespace separated list or array of new element names to shiv
-       * @param {Document} ownerDocument The context document.
-       */
-      function addElements(newElements, ownerDocument) {
-        var elements = html5.elements;
-        if(typeof elements != 'string'){
-          elements = elements.join(' ');
-        }
-        if(typeof newElements != 'string'){
-          newElements = newElements.join(' ');
-        }
-        html5.elements = elements +' '+ newElements;
-        shivDocument(ownerDocument);
-      }
-
-      /**
-       * Returns the data associated to the given document
-       * @private
-       * @param {Document} ownerDocument The document.
-       * @returns {Object} An object of data.
-       */
-      function getExpandoData(ownerDocument) {
-        var data = expandoData[ownerDocument[expando]];
-        if (!data) {
-          data = {};
-          expanID++;
-          ownerDocument[expando] = expanID;
-          expandoData[expanID] = data;
-        }
-        return data;
-      }
-
-      /**
-       * returns a shived element for the given nodeName and document
-       * @memberOf html5
-       * @param {String} nodeName name of the element
-       * @param {Document} ownerDocument The context document.
-       * @returns {Object} The shived element.
-       */
-      function createElement(nodeName, ownerDocument, data){
-        if (!ownerDocument) {
-          ownerDocument = document;
-        }
-        if(supportsUnknownElements){
-          return ownerDocument.createElement(nodeName);
-        }
-        if (!data) {
-          data = getExpandoData(ownerDocument);
-        }
-        var node;
-
-        if (data.cache[nodeName]) {
-          node = data.cache[nodeName].cloneNode();
-        } else if (saveClones.test(nodeName)) {
-          node = (data.cache[nodeName] = data.createElem(nodeName)).cloneNode();
-        } else {
-          node = data.createElem(nodeName);
-        }
-
-        // Avoid adding some elements to fragments in IE < 9 because
-        // * Attributes like `name` or `type` cannot be set/changed once an element
-        //   is inserted into a document/fragment
-        // * Link elements with `src` attributes that are inaccessible, as with
-        //   a 403 response, will cause the tab/window to crash
-        // * Script elements appended to fragments will execute when their `src`
-        //   or `text` property is set
-        return node.canHaveChildren && !reSkip.test(nodeName) && !node.tagUrn ? data.frag.appendChild(node) : node;
-      }
-
-      /**
-       * returns a shived DocumentFragment for the given document
-       * @memberOf html5
-       * @param {Document} ownerDocument The context document.
-       * @returns {Object} The shived DocumentFragment.
-       */
-      function createDocumentFragment(ownerDocument, data){
-        if (!ownerDocument) {
-          ownerDocument = document;
-        }
-        if(supportsUnknownElements){
-          return ownerDocument.createDocumentFragment();
-        }
-        data = data || getExpandoData(ownerDocument);
-        var clone = data.frag.cloneNode(),
-          i = 0,
-          elems = getElements(),
-          l = elems.length;
-        for(;i<l;i++){
-          clone.createElement(elems[i]);
-        }
-        return clone;
-      }
-
-      /**
-       * Shivs the `createElement` and `createDocumentFragment` methods of the document.
-       * @private
-       * @param {Document|DocumentFragment} ownerDocument The document.
-       * @param {Object} data of the document.
-       */
-      function shivMethods(ownerDocument, data) {
-        if (!data.cache) {
-          data.cache = {};
-          data.createElem = ownerDocument.createElement;
-          data.createFrag = ownerDocument.createDocumentFragment;
-          data.frag = data.createFrag();
-        }
-
-
-        ownerDocument.createElement = function(nodeName) {
-          //abort shiv
-          if (!html5.shivMethods) {
-            return data.createElem(nodeName);
-          }
-          return createElement(nodeName, ownerDocument, data);
-        };
-
-        ownerDocument.createDocumentFragment = Function('h,f', 'return function(){' +
-                                                        'var n=f.cloneNode(),c=n.createElement;' +
-                                                        'h.shivMethods&&(' +
-                                                        // unroll the `createElement` calls
-                                                        getElements().join().replace(/[\w\-:]+/g, function(nodeName) {
-                                                          data.createElem(nodeName);
-                                                          data.frag.createElement(nodeName);
-                                                          return 'c("' + nodeName + '")';
-                                                        }) +
-          ');return n}'
-                                                       )(html5, data.frag);
-      }
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * Shivs the given document.
-       * @memberOf html5
-       * @param {Document} ownerDocument The document to shiv.
-       * @returns {Document} The shived document.
-       */
-      function shivDocument(ownerDocument) {
-        if (!ownerDocument) {
-          ownerDocument = document;
-        }
-        var data = getExpandoData(ownerDocument);
-
-        if (html5.shivCSS && !supportsHtml5Styles && !data.hasCSS) {
-          data.hasCSS = !!addStyleSheet(ownerDocument,
-                                        // corrects block display not defined in IE6/7/8/9
-                                        'article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}' +
-                                        // adds styling not present in IE6/7/8/9
-                                        'mark{background:#FF0;color:#000}' +
-                                        // hides non-rendered elements
-                                        'template{display:none}'
-                                       );
-        }
-        if (!supportsUnknownElements) {
-          shivMethods(ownerDocument, data);
-        }
-        return ownerDocument;
-      }
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * The `html5` object is exposed so that more elements can be shived and
-       * existing shiving can be detected on iframes.
-       * @type Object
-       * @example
-       *
-       * // options can be changed before the script is included
-       * html5 = { 'elements': 'mark section', 'shivCSS': false, 'shivMethods': false };
-       */
-      var html5 = {
-
-        /**
-         * An array or space separated string of node names of the elements to shiv.
-         * @memberOf html5
-         * @type Array|String
-         */
-        'elements': options.elements || 'abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video',
-
-        /**
-         * current version of html5shiv
-         */
-        'version': version,
-
-        /**
-         * A flag to indicate that the HTML5 style sheet should be inserted.
-         * @memberOf html5
-         * @type Boolean
-         */
-        'shivCSS': (options.shivCSS !== false),
-
-        /**
-         * Is equal to true if a browser supports creating unknown/HTML5 elements
-         * @memberOf html5
-         * @type boolean
-         */
-        'supportsUnknownElements': supportsUnknownElements,
-
-        /**
-         * A flag to indicate that the document's `createElement` and `createDocumentFragment`
-         * methods should be overwritten.
-         * @memberOf html5
-         * @type Boolean
-         */
-        'shivMethods': (options.shivMethods !== false),
-
-        /**
-         * A string to describe the type of `html5` object ("default" or "default print").
-         * @memberOf html5
-         * @type String
-         */
-        'type': 'default',
-
-        // shivs the document according to the specified `html5` object options
-        'shivDocument': shivDocument,
-
-        //creates a shived element
-        createElement: createElement,
-
-        //creates a shived documentFragment
-        createDocumentFragment: createDocumentFragment,
-
-        //extends list of elements
-        addElements: addElements
-      };
-
-      /*--------------------------------------------------------------------------*/
-
-      // expose html5
-      window.html5 = html5;
-
-      // shiv the document
-      shivDocument(document);
-
-      /*------------------------------- Print Shiv -------------------------------*/
-
-      /** Used to filter media types */
-      var reMedia = /^$|\b(?:all|print)\b/;
-
-      /** Used to namespace printable elements */
-      var shivNamespace = 'html5shiv';
-
-      /** Detect whether the browser supports shivable style sheets */
-      var supportsShivableSheets = !supportsUnknownElements && (function() {
-        // assign a false negative if unable to shiv
-        var docEl = document.documentElement;
-        return !(
-          typeof document.namespaces == 'undefined' ||
-            typeof document.parentWindow == 'undefined' ||
-            typeof docEl.applyElement == 'undefined' ||
-            typeof docEl.removeNode == 'undefined' ||
-            typeof window.attachEvent == 'undefined'
-        );
-      }());
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * Wraps all HTML5 elements in the given document with printable elements.
-       * (eg. the "header" element is wrapped with the "html5shiv:header" element)
-       * @private
-       * @param {Document} ownerDocument The document.
-       * @returns {Array} An array wrappers added.
-       */
-      function addWrappers(ownerDocument) {
-        var node,
-          nodes = ownerDocument.getElementsByTagName('*'),
-          index = nodes.length,
-          reElements = RegExp('^(?:' + getElements().join('|') + ')$', 'i'),
-          result = [];
-
-        while (index--) {
-          node = nodes[index];
-          if (reElements.test(node.nodeName)) {
-            result.push(node.applyElement(createWrapper(node)));
-          }
-        }
-        return result;
-      }
-
-      /**
-       * Creates a printable wrapper for the given element.
-       * @private
-       * @param {Element} element The element.
-       * @returns {Element} The wrapper.
-       */
-      function createWrapper(element) {
-        var node,
-          nodes = element.attributes,
-          index = nodes.length,
-          wrapper = element.ownerDocument.createElement(shivNamespace + ':' + element.nodeName);
-
-        // copy element attributes to the wrapper
-        while (index--) {
-          node = nodes[index];
-          node.specified && wrapper.setAttribute(node.nodeName, node.nodeValue);
-        }
-        // copy element styles to the wrapper
-        wrapper.style.cssText = element.style.cssText;
-        return wrapper;
-      }
-
-      /**
-       * Shivs the given CSS text.
-       * (eg. header{} becomes html5shiv\:header{})
-       * @private
-       * @param {String} cssText The CSS text to shiv.
-       * @returns {String} The shived CSS text.
-       */
-      function shivCssText(cssText) {
-        var pair,
-          parts = cssText.split('{'),
-          index = parts.length,
-          reElements = RegExp('(^|[\\s,>+~])(' + getElements().join('|') + ')(?=[[\\s,>+~#.:]|$)', 'gi'),
-          replacement = '$1' + shivNamespace + '\\:$2';
-
-        while (index--) {
-          pair = parts[index] = parts[index].split('}');
-          pair[pair.length - 1] = pair[pair.length - 1].replace(reElements, replacement);
-          parts[index] = pair.join('}');
-        }
-        return parts.join('{');
-      }
-
-      /**
-       * Removes the given wrappers, leaving the original elements.
-       * @private
-       * @params {Array} wrappers An array of printable wrappers.
-       */
-      function removeWrappers(wrappers) {
-        var index = wrappers.length;
-        while (index--) {
-          wrappers[index].removeNode();
-        }
-      }
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * Shivs the given document for print.
-       * @memberOf html5
-       * @param {Document} ownerDocument The document to shiv.
-       * @returns {Document} The shived document.
-       */
-      function shivPrint(ownerDocument) {
-        var shivedSheet,
-          wrappers,
-          data = getExpandoData(ownerDocument),
-          namespaces = ownerDocument.namespaces,
-          ownerWindow = ownerDocument.parentWindow;
-
-        if (!supportsShivableSheets || ownerDocument.printShived) {
-          return ownerDocument;
-        }
-        if (typeof namespaces[shivNamespace] == 'undefined') {
-          namespaces.add(shivNamespace);
-        }
-
-        function removeSheet() {
-          clearTimeout(data._removeSheetTimer);
-          if (shivedSheet) {
-            shivedSheet.removeNode(true);
-          }
-          shivedSheet= null;
-        }
-
-        ownerWindow.attachEvent('onbeforeprint', function() {
-
-          removeSheet();
-
-          var imports,
-            length,
-            sheet,
-            collection = ownerDocument.styleSheets,
-            cssText = [],
-            index = collection.length,
-            sheets = Array(index);
-
-          // convert styleSheets collection to an array
-          while (index--) {
-            sheets[index] = collection[index];
-          }
-          // concat all style sheet CSS text
-          while ((sheet = sheets.pop())) {
-            // IE does not enforce a same origin policy for external style sheets...
-            // but has trouble with some dynamically created stylesheets
-            if (!sheet.disabled && reMedia.test(sheet.media)) {
-
-              try {
-                imports = sheet.imports;
-                length = imports.length;
-              } catch(er){
-                length = 0;
-              }
-
-              for (index = 0; index < length; index++) {
-                sheets.push(imports[index]);
-              }
-
-              try {
-                cssText.push(sheet.cssText);
-              } catch(er){}
-            }
-          }
-
-          // wrap all HTML5 elements with printable elements and add the shived style sheet
-          cssText = shivCssText(cssText.reverse().join(''));
-          wrappers = addWrappers(ownerDocument);
-          shivedSheet = addStyleSheet(ownerDocument, cssText);
-
-        });
-
-        ownerWindow.attachEvent('onafterprint', function() {
-          // remove wrappers, leaving the original elements, and remove the shived style sheet
-          removeWrappers(wrappers);
-          clearTimeout(data._removeSheetTimer);
-          data._removeSheetTimer = setTimeout(removeSheet, 500);
-        });
-
-        ownerDocument.printShived = true;
-        return ownerDocument;
-      }
-
-      /*--------------------------------------------------------------------------*/
-
-      // expose API
-      html5.type += ' print';
-      html5.shivPrint = shivPrint;
-
-      // shiv for print
-      shivPrint(document);
-
-      if(typeof module == 'object' && module.exports){
-        module.exports = html5;
-      }
-
-    }(typeof window !== 'undefined' ? window : this, document));
-  }
-
-  ;
 /*!
 {
   "name" : "HTML5 Audio Element",
@@ -1745,279 +1745,6 @@ Detects the audio element
 
     return bool;
   });
-
-/*!
-{
-  "name": "Canvas",
-  "property": "canvas",
-  "caniuse": "canvas",
-  "tags": ["canvas", "graphics"],
-  "polyfills": ["flashcanvas", "excanvas", "slcanvas", "fxcanvas"]
-}
-!*/
-/* DOC
-Detects support for the `<canvas>` element for 2D drawing.
-*/
-
-  // On the S60 and BB Storm, getContext exists, but always returns undefined
-  // so we actually have to call getContext() to verify
-  // github.com/Modernizr/Modernizr/issues/issue/97/
-  Modernizr.addTest('canvas', function() {
-    var elem = createElement('canvas');
-    return !!(elem.getContext && elem.getContext('2d'));
-  });
-
-/*!
-{
-  "name": "Canvas text",
-  "property": "canvastext",
-  "caniuse": "canvas-text",
-  "tags": ["canvas", "graphics"],
-  "polyfills": ["canvastext"]
-}
-!*/
-/* DOC
-Detects support for the text APIs for `<canvas>` elements.
-*/
-
-  Modernizr.addTest('canvastext',  function() {
-    if (Modernizr.canvas  === false) {
-      return false;
-    }
-    return typeof createElement('canvas').getContext('2d').fillText == 'function';
-  });
-
-/*!
-{
-  "name": "Geolocation API",
-  "property": "geolocation",
-  "caniuse": "geolocation",
-  "tags": ["media"],
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/WebAPI/Using_geolocation"
-  }],
-  "polyfills": [
-    "joshuabell-polyfill",
-    "webshims",
-    "geo-location-javascript",
-    "geolocation-api-polyfill"
-  ]
-}
-!*/
-/* DOC
-Detects support for the Geolocation API for users to provide their location to web applications.
-*/
-
-  // geolocation is often considered a trivial feature detect...
-  // Turns out, it's quite tricky to get right:
-  //
-  // Using !!navigator.geolocation does two things we don't want. It:
-  //   1. Leaks memory in IE9: github.com/Modernizr/Modernizr/issues/513
-  //   2. Disables page caching in WebKit: webk.it/43956
-  //
-  // Meanwhile, in Firefox < 8, an about:config setting could expose
-  // a false positive that would throw an exception: bugzil.la/688158
-
-  Modernizr.addTest('geolocation', 'geolocation' in navigator);
-
-/*!
-{
-  "name": "Hashchange event",
-  "property": "hashchange",
-  "caniuse": "hashchange",
-  "tags": ["history"],
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/API/window.onhashchange"
-  }],
-  "polyfills": [
-    "jquery-hashchange",
-    "moo-historymanager",
-    "jquery-ajaxy",
-    "hasher",
-    "shistory"
-  ]
-}
-!*/
-/* DOC
-Detects support for the `hashchange` event, fired when the current location fragment changes.
-*/
-
-  Modernizr.addTest('hashchange', function() {
-    if (hasEvent('hashchange', window) === false) {
-      return false;
-    }
-
-    // documentMode logic from YUI to filter out IE8 Compat Mode
-    //   which false positives.
-    return (document.documentMode === undefined || document.documentMode > 7);
-  });
-
-/*!
-{
-  "name": "postMessage",
-  "property": "postmessage",
-  "caniuse": "x-doc-messaging",
-  "notes": [{
-    "name": "W3C Spec",
-    "href": "http://www.w3.org/TR/html5/comms.html#posting-messages"
-  }],
-  "polyfills": ["easyxdm", "postmessage-jquery"]
-}
-!*/
-/* DOC
-Detects support for the `window.postMessage` protocol for cross-document messaging.
-*/
-
-  Modernizr.addTest('postmessage', 'postMessage' in window);
-
-/*!
-{
-  "name": "requestAnimationFrame",
-  "property": "requestanimationframe",
-  "aliases": ["raf"],
-  "caniuse": "requestanimationframe",
-  "tags": ["animation"],
-  "authors": ["Addy Osmani"],
-  "notes": [{
-    "name": "W3C spec",
-    "href": "https://www.w3.org/TR/animation-timing/"
-  }],
-  "polyfills": ["raf"]
-}
-!*/
-/* DOC
-Detects support for the `window.requestAnimationFrame` API, for offloading animation repainting to the browser for optimized performance.
-*/
-
-  Modernizr.addTest('requestanimationframe', !!prefixed('requestAnimationFrame', window), {aliases: ['raf']});
-
-/*!
-{
-  "name": "SVG",
-  "property": "svg",
-  "caniuse": "svg",
-  "tags": ["svg"],
-  "authors": ["Erik Dahlstrom"],
-  "polyfills": [
-    "svgweb",
-    "raphael",
-    "amplesdk",
-    "canvg",
-    "svg-boilerplate",
-    "sie",
-    "dojogfx",
-    "fabricjs"
-  ]
-}
-!*/
-/* DOC
-Detects support for SVG in `<embed>` or `<object>` elements.
-*/
-
-  Modernizr.addTest('svg', !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
-
-/*!
-{
-  "name": "HTML5 Video",
-  "property": "video",
-  "caniuse": "video",
-  "tags": ["html5"],
-  "knownBugs": [
-    "Without QuickTime, `Modernizr.video.h264` will be `undefined`; https://github.com/Modernizr/Modernizr/issues/546"
-  ],
-  "polyfills": [
-    "html5media",
-    "mediaelementjs",
-    "sublimevideo",
-    "videojs",
-    "leanbackplayer",
-    "videoforeverybody"
-  ]
-}
-!*/
-/* DOC
-Detects support for the video element, as well as testing what types of content it supports.
-
-Subproperties are provided to describe support for `ogg`, `h264` and `webm` formats, e.g.:
-
-```javascript
-Modernizr.video         // true
-Modernizr.video.ogg     // 'probably'
-```
-*/
-
-  // Codec values from : github.com/NielsLeenheer/html5test/blob/9106a8/index.html#L845
-  //                     thx to NielsLeenheer and zcorpan
-
-  // Note: in some older browsers, "no" was a return value instead of empty string.
-  //   It was live in FF3.5.0 and 3.5.1, but fixed in 3.5.2
-  //   It was also live in Safari 4.0.0 - 4.0.4, but fixed in 4.0.5
-
-  Modernizr.addTest('video', function() {
-    var elem = createElement('video');
-    var bool = false;
-
-    // IE9 Running on Windows Server SKU can cause an exception to be thrown, bug #224
-    try {
-      bool = !!elem.canPlayType
-      if (bool) {
-        bool = new Boolean(bool);
-        bool.ogg = elem.canPlayType('video/ogg; codecs="theora"').replace(/^no$/, '');
-
-        // Without QuickTime, this value will be `undefined`. github.com/Modernizr/Modernizr/issues/546
-        bool.h264 = elem.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/, '');
-
-        bool.webm = elem.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/, '');
-
-        bool.vp9 = elem.canPlayType('video/webm; codecs="vp9"').replace(/^no$/, '');
-
-        bool.hls = elem.canPlayType('application/x-mpegURL; codecs="avc1.42E01E"').replace(/^no$/, '');
-      }
-    } catch (e) {}
-
-    return bool;
-  });
-
-/*!
-{
-  "name": "WebGL",
-  "property": "webgl",
-  "caniuse": "webgl",
-  "tags": ["webgl", "graphics"],
-  "polyfills": ["jebgl", "cwebgl", "iewebgl"]
-}
-!*/
-
-  Modernizr.addTest('webgl', function() {
-    var canvas = createElement('canvas');
-    var supports = 'probablySupportsContext' in canvas ? 'probablySupportsContext' :  'supportsContext';
-    if (supports in canvas) {
-      return canvas[supports]('webgl') || canvas[supports]('experimental-webgl');
-    }
-    return 'WebGLRenderingContext' in window;
-  });
-
-/*!
-{
-  "name": "CSS Animations",
-  "property": "cssanimations",
-  "caniuse": "css-animation",
-  "polyfills": ["transformie", "csssandpaper"],
-  "tags": ["css"],
-  "warnings": ["Android < 4 will pass this test, but can only animate a single property at a time"],
-  "notes": [{
-    "name" : "Article: 'Dispelling the Android CSS animation myths'",
-    "href": "https://goo.gl/OGw5Gm"
-  }]
-}
-!*/
-/* DOC
-Detects whether or not elements can be animated using CSS
-*/
-
-  Modernizr.addTest('cssanimations', testAllProps('animationName', 'a', true));
 
 /*!
 {
@@ -2080,6 +1807,67 @@ Detects whether or not elements can be animated using CSS
 
 /*!
 {
+  "name": "Canvas",
+  "property": "canvas",
+  "caniuse": "canvas",
+  "tags": ["canvas", "graphics"],
+  "polyfills": ["flashcanvas", "excanvas", "slcanvas", "fxcanvas"]
+}
+!*/
+/* DOC
+Detects support for the `<canvas>` element for 2D drawing.
+*/
+
+  // On the S60 and BB Storm, getContext exists, but always returns undefined
+  // so we actually have to call getContext() to verify
+  // github.com/Modernizr/Modernizr/issues/issue/97/
+  Modernizr.addTest('canvas', function() {
+    var elem = createElement('canvas');
+    return !!(elem.getContext && elem.getContext('2d'));
+  });
+
+/*!
+{
+  "name": "Canvas text",
+  "property": "canvastext",
+  "caniuse": "canvas-text",
+  "tags": ["canvas", "graphics"],
+  "polyfills": ["canvastext"]
+}
+!*/
+/* DOC
+Detects support for the text APIs for `<canvas>` elements.
+*/
+
+  Modernizr.addTest('canvastext',  function() {
+    if (Modernizr.canvas  === false) {
+      return false;
+    }
+    return typeof createElement('canvas').getContext('2d').fillText == 'function';
+  });
+
+/*!
+{
+  "name": "CSS Animations",
+  "property": "cssanimations",
+  "caniuse": "css-animation",
+  "polyfills": ["transformie", "csssandpaper"],
+  "tags": ["css"],
+  "warnings": ["Android < 4 will pass this test, but can only animate a single property at a time"],
+  "notes": [{
+    "name" : "Article: 'Dispelling the Android CSS animation myths'",
+    "href": "https://goo.gl/OGw5Gm"
+  }]
+}
+!*/
+/* DOC
+Detects whether or not elements can be animated using CSS
+*/
+
+  Modernizr.addTest('cssanimations', testAllProps('animationName', 'a', true));
+
+/*!
+{
   "name": "CSS Columns",
   "property": "csscolumns",
   "caniuse": "multicolumn",
@@ -2122,113 +1910,6 @@ Detects whether or not elements can be animated using CSS
 
   })();
 
-
-/*!
-{
-  "name": "Flexbox",
-  "property": "flexbox",
-  "caniuse": "flexbox",
-  "tags": ["css"],
-  "notes": [{
-    "name": "The _new_ flexbox",
-    "href": "http://dev.w3.org/csswg/css3-flexbox"
-  }],
-  "warnings": [
-    "A `true` result for this detect does not imply that the `flex-wrap` property is supported; see the `flexwrap` detect."
-  ]
-}
-!*/
-/* DOC
-Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows easy manipulation of layout order and sizing within a container.
-*/
-
-  Modernizr.addTest('flexbox', testAllProps('flexBasis', '1px', true));
-
-/*!
-{
-  "name": "Flexbox (legacy)",
-  "property": "flexboxlegacy",
-  "tags": ["css"],
-  "polyfills": ["flexie"],
-  "notes": [{
-    "name": "The _old_ flexbox",
-    "href": "https://www.w3.org/TR/2009/WD-css3-flexbox-20090723/"
-  }]
-}
-!*/
-
-  Modernizr.addTest('flexboxlegacy', testAllProps('boxDirection', 'reverse', true));
-
-/*!
-{
-  "name": "@font-face",
-  "property": "fontface",
-  "authors": ["Diego Perini", "Mat Marquis"],
-  "tags": ["css"],
-  "knownBugs": [
-    "False Positive: WebOS https://github.com/Modernizr/Modernizr/issues/342",
-    "False Postive: WP7 https://github.com/Modernizr/Modernizr/issues/538"
-  ],
-  "notes": [{
-    "name": "@font-face detection routine by Diego Perini",
-    "href": "http://javascript.nwbox.com/CSSSupport/"
-  },{
-    "name": "Filament Group @font-face compatibility research",
-    "href": "https://docs.google.com/presentation/d/1n4NyG4uPRjAA8zn_pSQ_Ket0RhcWC6QlZ6LMjKeECo0/edit#slide=id.p"
-  },{
-    "name": "Filament Grunticon/@font-face device testing results",
-    "href": "https://docs.google.com/spreadsheet/ccc?key=0Ag5_yGvxpINRdHFYeUJPNnZMWUZKR2ItMEpRTXZPdUE#gid=0"
-  },{
-    "name": "CSS fonts on Android",
-    "href": "https://stackoverflow.com/questions/3200069/css-fonts-on-android"
-  },{
-    "name": "@font-face and Android",
-    "href": "http://archivist.incutio.com/viewlist/css-discuss/115960"
-  }]
-}
-!*/
-
-  var blacklist = (function() {
-    var ua = navigator.userAgent;
-    var webos = ua.match(/w(eb)?osbrowser/gi);
-    var wppre8 = ua.match(/windows phone/gi) && ua.match(/iemobile\/([0-9])+/gi) && parseFloat(RegExp.$1) >= 9;
-    return webos || wppre8;
-  }());
-  if (blacklist) {
-    Modernizr.addTest('fontface', false);
-  } else {
-    testStyles('@font-face {font-family:"font";src:url("https://")}', function(node, rule) {
-      var style = document.getElementById('smodernizr');
-      var sheet = style.sheet || style.styleSheet;
-      var cssText = sheet ? (sheet.cssRules && sheet.cssRules[0] ? sheet.cssRules[0].cssText : sheet.cssText || '') : '';
-      var bool = /src/i.test(cssText) && cssText.indexOf(rule.split(' ')[0]) === 0;
-      Modernizr.addTest('fontface', bool);
-    });
-  }
-;
-/*!
-{
-  "name": "CSS Generated Content",
-  "property": "generatedcontent",
-  "tags": ["css"],
-  "warnings": ["Android won't return correct height for anything below 7px #738"],
-  "notes": [{
-    "name": "W3C CSS Selectors Level 3 spec",
-    "href": "https://www.w3.org/TR/css3-selectors/#gen-content"
-  },{
-    "name": "MDN article on :before",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
-  },{
-    "name": "MDN article on :after",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
-  }]
-}
-!*/
-
-  testStyles('#modernizr{font:0/0 a}#modernizr:after{content:":)";visibility:hidden;font:7px/1 a}', function(node) {
-    // See bug report on why this value is 6 crbug.com/608142
-    Modernizr.addTest('generatedcontent', node.offsetHeight >= 6);
-  });
 
 /*!
 {
@@ -2278,79 +1959,30 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
 
 /*!
 {
-  "name": "CSS HSLA Colors",
-  "caniuse": "css3-colors",
-  "property": "hsla",
-  "tags": ["css"]
-}
-!*/
-
-  Modernizr.addTest('hsla', function() {
-    var style = createElement('a').style;
-    style.cssText = 'background-color:hsla(120,40%,100%,.5)';
-    return contains(style.backgroundColor, 'rgba') || contains(style.backgroundColor, 'hsla');
-  });
-
-/*!
-{
-  "name": "CSS Multiple Backgrounds",
-  "caniuse": "multibackgrounds",
-  "property": "multiplebgs",
-  "tags": ["css"]
-}
-!*/
-
-  // Setting multiple images AND a color on the background shorthand property
-  // and then querying the style.background property value for the number of
-  // occurrences of "url(" is a reliable method for detecting ACTUAL support for this!
-
-  Modernizr.addTest('multiplebgs', function() {
-    var style = createElement('a').style;
-    style.cssText = 'background:url(https://),url(https://),red url(https://)';
-
-    // If the UA supports multiple backgrounds, there should be three occurrences
-    // of the string "url(" in the return value for elemStyle.background
-    return (/(url\s*\(.*?){3}/).test(style.background);
-  });
-
-/*!
-{
-  "name": "CSS Opacity",
-  "caniuse": "css-opacity",
-  "property": "opacity",
-  "tags": ["css"]
-}
-!*/
-
-  // Browsers that actually have CSS Opacity implemented have done so
-  // according to spec, which means their return values are within the
-  // range of [0.0,1.0] - including the leading zero.
-
-  Modernizr.addTest('opacity', function() {
-    var style = createElement('a').style;
-    style.cssText = prefixes.join('opacity:.55;');
-
-    // The non-literal . in this regex is intentional:
-    // German Chrome returns this value as 0,55
-    // github.com/Modernizr/Modernizr/issues/#issue/59/comment/516632
-    return (/^0.55$/).test(style.opacity);
-  });
-
-/*!
-{
-  "name": "CSS Object Fit",
-  "caniuse": "object-fit",
-  "property": "objectfit",
+  "name": "CSS position: sticky",
+  "property": "csspositionsticky",
   "tags": ["css"],
-  "builderAliases": ["css_objectfit"],
+  "builderAliases": ["css_positionsticky"],
   "notes": [{
-    "name": "Opera Article on Object Fit",
-    "href": "https://dev.opera.com/articles/css3-object-fit-object-position/"
-  }]
+    "name": "Chrome bug report",
+    "href":"https://code.google.com/p/chromium/issues/detail?id=322972"
+  }],
+  "warnings": [ "using position:sticky on anything but top aligned elements is buggy in Chrome < 37 and iOS <=7+" ]
 }
 !*/
 
-  Modernizr.addTest('objectfit', !!prefixed('objectFit'), {aliases: ['object-fit']});
+  // Sticky positioning - constrains an element to be positioned inside the
+  // intersection of its container box, and the viewport.
+  Modernizr.addTest('csspositionsticky', function() {
+    var prop = 'position:';
+    var value = 'sticky';
+    var el = createElement('a');
+    var mStyle = el.style;
+
+    mStyle.cssText = prop + prefixes.join(value + ';' + prop).slice(0, -prop.length);
+
+    return mStyle.position.indexOf(value) !== -1;
+  });
 
 /*!
 {
@@ -2362,38 +1994,6 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
 !*/
 
   Modernizr.addTest('cssreflections', testAllProps('boxReflect', 'above', true));
-
-/*!
-{
-  "name": "CSS rgba",
-  "caniuse": "css3-colors",
-  "property": "rgba",
-  "tags": ["css"],
-  "notes": [{
-    "name": "CSSTricks Tutorial",
-    "href": "https://css-tricks.com/rgba-browser-support/"
-  }]
-}
-!*/
-
-  Modernizr.addTest('rgba', function() {
-    var style = createElement('a').style;
-    style.cssText = 'background-color:rgba(150,255,150,.5)';
-
-    return ('' + style.backgroundColor).indexOf('rgba') > -1;
-  });
-
-/*!
-{
-  "name": "CSS textshadow",
-  "property": "textshadow",
-  "caniuse": "css-textshadow",
-  "tags": ["css"],
-  "knownBugs": ["FF3.0 will false positive on this test"]
-}
-!*/
-
-  Modernizr.addTest('textshadow', testProp('textShadow', '1px 1px'));
 
 /*!
 {
@@ -2493,6 +2093,222 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
 
 /*!
 {
+  "name": "Flexbox",
+  "property": "flexbox",
+  "caniuse": "flexbox",
+  "tags": ["css"],
+  "notes": [{
+    "name": "The _new_ flexbox",
+    "href": "http://dev.w3.org/csswg/css3-flexbox"
+  }],
+  "warnings": [
+    "A `true` result for this detect does not imply that the `flex-wrap` property is supported; see the `flexwrap` detect."
+  ]
+}
+!*/
+/* DOC
+Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows easy manipulation of layout order and sizing within a container.
+*/
+
+  Modernizr.addTest('flexbox', testAllProps('flexBasis', '1px', true));
+
+/*!
+{
+  "name": "Flexbox (legacy)",
+  "property": "flexboxlegacy",
+  "tags": ["css"],
+  "polyfills": ["flexie"],
+  "notes": [{
+    "name": "The _old_ flexbox",
+    "href": "https://www.w3.org/TR/2009/WD-css3-flexbox-20090723/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('flexboxlegacy', testAllProps('boxDirection', 'reverse', true));
+
+/*!
+{
+  "name": "@font-face",
+  "property": "fontface",
+  "authors": ["Diego Perini", "Mat Marquis"],
+  "tags": ["css"],
+  "knownBugs": [
+    "False Positive: WebOS https://github.com/Modernizr/Modernizr/issues/342",
+    "False Postive: WP7 https://github.com/Modernizr/Modernizr/issues/538"
+  ],
+  "notes": [{
+    "name": "@font-face detection routine by Diego Perini",
+    "href": "http://javascript.nwbox.com/CSSSupport/"
+  },{
+    "name": "Filament Group @font-face compatibility research",
+    "href": "https://docs.google.com/presentation/d/1n4NyG4uPRjAA8zn_pSQ_Ket0RhcWC6QlZ6LMjKeECo0/edit#slide=id.p"
+  },{
+    "name": "Filament Grunticon/@font-face device testing results",
+    "href": "https://docs.google.com/spreadsheet/ccc?key=0Ag5_yGvxpINRdHFYeUJPNnZMWUZKR2ItMEpRTXZPdUE#gid=0"
+  },{
+    "name": "CSS fonts on Android",
+    "href": "https://stackoverflow.com/questions/3200069/css-fonts-on-android"
+  },{
+    "name": "@font-face and Android",
+    "href": "http://archivist.incutio.com/viewlist/css-discuss/115960"
+  }]
+}
+!*/
+
+  var blacklist = (function() {
+    var ua = navigator.userAgent;
+    var webos = ua.match(/w(eb)?osbrowser/gi);
+    var wppre8 = ua.match(/windows phone/gi) && ua.match(/iemobile\/([0-9])+/gi) && parseFloat(RegExp.$1) >= 9;
+    return webos || wppre8;
+  }());
+  if (blacklist) {
+    Modernizr.addTest('fontface', false);
+  } else {
+    testStyles('@font-face {font-family:"font";src:url("https://")}', function(node, rule) {
+      var style = document.getElementById('smodernizr');
+      var sheet = style.sheet || style.styleSheet;
+      var cssText = sheet ? (sheet.cssRules && sheet.cssRules[0] ? sheet.cssRules[0].cssText : sheet.cssText || '') : '';
+      var bool = /src/i.test(cssText) && cssText.indexOf(rule.split(' ')[0]) === 0;
+      Modernizr.addTest('fontface', bool);
+    });
+  }
+;
+/*!
+{
+  "name": "Geolocation API",
+  "property": "geolocation",
+  "caniuse": "geolocation",
+  "tags": ["media"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/WebAPI/Using_geolocation"
+  }],
+  "polyfills": [
+    "joshuabell-polyfill",
+    "webshims",
+    "geo-location-javascript",
+    "geolocation-api-polyfill"
+  ]
+}
+!*/
+/* DOC
+Detects support for the Geolocation API for users to provide their location to web applications.
+*/
+
+  // geolocation is often considered a trivial feature detect...
+  // Turns out, it's quite tricky to get right:
+  //
+  // Using !!navigator.geolocation does two things we don't want. It:
+  //   1. Leaks memory in IE9: github.com/Modernizr/Modernizr/issues/513
+  //   2. Disables page caching in WebKit: webk.it/43956
+  //
+  // Meanwhile, in Firefox < 8, an about:config setting could expose
+  // a false positive that would throw an exception: bugzil.la/688158
+
+  Modernizr.addTest('geolocation', 'geolocation' in navigator);
+
+/*!
+{
+  "name": "CSS Generated Content",
+  "property": "generatedcontent",
+  "tags": ["css"],
+  "warnings": ["Android won't return correct height for anything below 7px #738"],
+  "notes": [{
+    "name": "W3C CSS Selectors Level 3 spec",
+    "href": "https://www.w3.org/TR/css3-selectors/#gen-content"
+  },{
+    "name": "MDN article on :before",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  },{
+    "name": "MDN article on :after",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/::before"
+  }]
+}
+!*/
+
+  testStyles('#modernizr{font:0/0 a}#modernizr:after{content:":)";visibility:hidden;font:7px/1 a}', function(node) {
+    // See bug report on why this value is 6 crbug.com/608142
+    Modernizr.addTest('generatedcontent', node.offsetHeight >= 6);
+  });
+
+/*!
+{
+  "name": "Hashchange event",
+  "property": "hashchange",
+  "caniuse": "hashchange",
+  "tags": ["history"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/API/window.onhashchange"
+  }],
+  "polyfills": [
+    "jquery-hashchange",
+    "moo-historymanager",
+    "jquery-ajaxy",
+    "hasher",
+    "shistory"
+  ]
+}
+!*/
+/* DOC
+Detects support for the `hashchange` event, fired when the current location fragment changes.
+*/
+
+  Modernizr.addTest('hashchange', function() {
+    if (hasEvent('hashchange', window) === false) {
+      return false;
+    }
+
+    // documentMode logic from YUI to filter out IE8 Compat Mode
+    //   which false positives.
+    return (document.documentMode === undefined || document.documentMode > 7);
+  });
+
+/*!
+{
+  "name": "CSS HSLA Colors",
+  "caniuse": "css3-colors",
+  "property": "hsla",
+  "tags": ["css"]
+}
+!*/
+
+  Modernizr.addTest('hsla', function() {
+    var style = createElement('a').style;
+    style.cssText = 'background-color:hsla(120,40%,100%,.5)';
+    return contains(style.backgroundColor, 'rgba') || contains(style.backgroundColor, 'hsla');
+  });
+
+/*!
+{
+  "name": "Inline SVG",
+  "property": "inlinesvg",
+  "caniuse": "svg-html5",
+  "tags": ["svg"],
+  "notes": [{
+    "name": "Test page",
+    "href": "https://paulirish.com/demo/inline-svg"
+  }, {
+    "name": "Test page and results",
+    "href": "https://codepen.io/eltonmesquita/full/GgXbvo/"
+  }],
+  "polyfills": ["inline-svg-polyfill"],
+  "knownBugs": ["False negative on some Chromia browsers."]
+}
+!*/
+/* DOC
+Detects support for inline SVG in HTML (not within XHTML).
+*/
+
+  Modernizr.addTest('inlinesvg', function() {
+    var div = createElement('div');
+    div.innerHTML = '<svg/>';
+    return (typeof SVGRect != 'undefined' && div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
+  });
+
+/*!
+{
   "name": "Local Storage",
   "property": "localstorage",
   "caniuse": "namevalue-storage",
@@ -2541,6 +2357,126 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
     }
   });
 
+/*!
+{
+  "name": "CSS Multiple Backgrounds",
+  "caniuse": "multibackgrounds",
+  "property": "multiplebgs",
+  "tags": ["css"]
+}
+!*/
+
+  // Setting multiple images AND a color on the background shorthand property
+  // and then querying the style.background property value for the number of
+  // occurrences of "url(" is a reliable method for detecting ACTUAL support for this!
+
+  Modernizr.addTest('multiplebgs', function() {
+    var style = createElement('a').style;
+    style.cssText = 'background:url(https://),url(https://),red url(https://)';
+
+    // If the UA supports multiple backgrounds, there should be three occurrences
+    // of the string "url(" in the return value for elemStyle.background
+    return (/(url\s*\(.*?){3}/).test(style.background);
+  });
+
+/*!
+{
+  "name": "CSS Object Fit",
+  "caniuse": "object-fit",
+  "property": "objectfit",
+  "tags": ["css"],
+  "builderAliases": ["css_objectfit"],
+  "notes": [{
+    "name": "Opera Article on Object Fit",
+    "href": "https://dev.opera.com/articles/css3-object-fit-object-position/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('objectfit', !!prefixed('objectFit'), {aliases: ['object-fit']});
+
+/*!
+{
+  "name": "CSS Opacity",
+  "caniuse": "css-opacity",
+  "property": "opacity",
+  "tags": ["css"]
+}
+!*/
+
+  // Browsers that actually have CSS Opacity implemented have done so
+  // according to spec, which means their return values are within the
+  // range of [0.0,1.0] - including the leading zero.
+
+  Modernizr.addTest('opacity', function() {
+    var style = createElement('a').style;
+    style.cssText = prefixes.join('opacity:.55;');
+
+    // The non-literal . in this regex is intentional:
+    // German Chrome returns this value as 0,55
+    // github.com/Modernizr/Modernizr/issues/#issue/59/comment/516632
+    return (/^0.55$/).test(style.opacity);
+  });
+
+/*!
+{
+  "name": "postMessage",
+  "property": "postmessage",
+  "caniuse": "x-doc-messaging",
+  "notes": [{
+    "name": "W3C Spec",
+    "href": "http://www.w3.org/TR/html5/comms.html#posting-messages"
+  }],
+  "polyfills": ["easyxdm", "postmessage-jquery"]
+}
+!*/
+/* DOC
+Detects support for the `window.postMessage` protocol for cross-document messaging.
+*/
+
+  Modernizr.addTest('postmessage', 'postMessage' in window);
+
+/*!
+{
+  "name": "requestAnimationFrame",
+  "property": "requestanimationframe",
+  "aliases": ["raf"],
+  "caniuse": "requestanimationframe",
+  "tags": ["animation"],
+  "authors": ["Addy Osmani"],
+  "notes": [{
+    "name": "W3C spec",
+    "href": "https://www.w3.org/TR/animation-timing/"
+  }],
+  "polyfills": ["raf"]
+}
+!*/
+/* DOC
+Detects support for the `window.requestAnimationFrame` API, for offloading animation repainting to the browser for optimized performance.
+*/
+
+  Modernizr.addTest('requestanimationframe', !!prefixed('requestAnimationFrame', window), {aliases: ['raf']});
+
+/*!
+{
+  "name": "CSS rgba",
+  "caniuse": "css3-colors",
+  "property": "rgba",
+  "tags": ["css"],
+  "notes": [{
+    "name": "CSSTricks Tutorial",
+    "href": "https://css-tricks.com/rgba-browser-support/"
+  }]
+}
+!*/
+
+  Modernizr.addTest('rgba', function() {
+    var style = createElement('a').style;
+    style.cssText = 'background-color:rgba(150,255,150,.5)';
+
+    return ('' + style.backgroundColor).indexOf('rgba') > -1;
+  });
+
 
   /**
    * Object.prototype.toString can be used with every object and allows you to
@@ -2554,6 +2490,50 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
 
   var toStringFn = ({}).toString;
   
+/*!
+{
+  "name": "SVG SMIL animation",
+  "property": "smil",
+  "caniuse": "svg-smil",
+  "tags": ["svg"],
+  "notes": [{
+  "name": "W3C Synchronised Multimedia spec",
+  "href": "https://www.w3.org/AudioVideo/"
+  }]
+}
+!*/
+
+  // SVG SMIL animation
+  Modernizr.addTest('smil', function() {
+    return !!document.createElementNS &&
+      /SVGAnimate/.test(toStringFn.call(document.createElementNS('http://www.w3.org/2000/svg', 'animate')));
+  });
+
+/*!
+{
+  "name": "SVG",
+  "property": "svg",
+  "caniuse": "svg",
+  "tags": ["svg"],
+  "authors": ["Erik Dahlstrom"],
+  "polyfills": [
+    "svgweb",
+    "raphael",
+    "amplesdk",
+    "canvg",
+    "svg-boilerplate",
+    "sie",
+    "dojogfx",
+    "fabricjs"
+  ]
+}
+!*/
+/* DOC
+Detects support for SVG in `<embed>` or `<object>` elements.
+*/
+
+  Modernizr.addTest('svg', !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
+
 /*!
 {
   "name": "SVG clip paths",
@@ -2578,48 +2558,76 @@ See [this discussion](https://github.com/Modernizr/Modernizr/issues/213) regardi
 
 /*!
 {
-  "name": "Inline SVG",
-  "property": "inlinesvg",
-  "caniuse": "svg-html5",
-  "tags": ["svg"],
-  "notes": [{
-    "name": "Test page",
-    "href": "https://paulirish.com/demo/inline-svg"
-  }, {
-    "name": "Test page and results",
-    "href": "https://codepen.io/eltonmesquita/full/GgXbvo/"
-  }],
-  "polyfills": ["inline-svg-polyfill"],
-  "knownBugs": ["False negative on some Chromia browsers."]
+  "name": "CSS textshadow",
+  "property": "textshadow",
+  "caniuse": "css-textshadow",
+  "tags": ["css"],
+  "knownBugs": ["FF3.0 will false positive on this test"]
 }
 !*/
-/* DOC
-Detects support for inline SVG in HTML (not within XHTML).
-*/
 
-  Modernizr.addTest('inlinesvg', function() {
-    var div = createElement('div');
-    div.innerHTML = '<svg/>';
-    return (typeof SVGRect != 'undefined' && div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
-  });
+  Modernizr.addTest('textshadow', testProp('textShadow', '1px 1px'));
 
 /*!
 {
-  "name": "SVG SMIL animation",
-  "property": "smil",
-  "caniuse": "svg-smil",
-  "tags": ["svg"],
-  "notes": [{
-  "name": "W3C Synchronised Multimedia spec",
-  "href": "https://www.w3.org/AudioVideo/"
-  }]
+  "name": "HTML5 Video",
+  "property": "video",
+  "caniuse": "video",
+  "tags": ["html5"],
+  "knownBugs": [
+    "Without QuickTime, `Modernizr.video.h264` will be `undefined`; https://github.com/Modernizr/Modernizr/issues/546"
+  ],
+  "polyfills": [
+    "html5media",
+    "mediaelementjs",
+    "sublimevideo",
+    "videojs",
+    "leanbackplayer",
+    "videoforeverybody"
+  ]
 }
 !*/
+/* DOC
+Detects support for the video element, as well as testing what types of content it supports.
 
-  // SVG SMIL animation
-  Modernizr.addTest('smil', function() {
-    return !!document.createElementNS &&
-      /SVGAnimate/.test(toStringFn.call(document.createElementNS('http://www.w3.org/2000/svg', 'animate')));
+Subproperties are provided to describe support for `ogg`, `h264` and `webm` formats, e.g.:
+
+```javascript
+Modernizr.video         // true
+Modernizr.video.ogg     // 'probably'
+```
+*/
+
+  // Codec values from : github.com/NielsLeenheer/html5test/blob/9106a8/index.html#L845
+  //                     thx to NielsLeenheer and zcorpan
+
+  // Note: in some older browsers, "no" was a return value instead of empty string.
+  //   It was live in FF3.5.0 and 3.5.1, but fixed in 3.5.2
+  //   It was also live in Safari 4.0.0 - 4.0.4, but fixed in 4.0.5
+
+  Modernizr.addTest('video', function() {
+    var elem = createElement('video');
+    var bool = false;
+
+    // IE9 Running on Windows Server SKU can cause an exception to be thrown, bug #224
+    try {
+      bool = !!elem.canPlayType
+      if (bool) {
+        bool = new Boolean(bool);
+        bool.ogg = elem.canPlayType('video/ogg; codecs="theora"').replace(/^no$/, '');
+
+        // Without QuickTime, this value will be `undefined`. github.com/Modernizr/Modernizr/issues/546
+        bool.h264 = elem.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/, '');
+
+        bool.webm = elem.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/, '');
+
+        bool.vp9 = elem.canPlayType('video/webm; codecs="vp9"').replace(/^no$/, '');
+
+        bool.hls = elem.canPlayType('application/x-mpegURL; codecs="avc1.42E01E"').replace(/^no$/, '');
+      }
+    } catch (e) {}
+
+    return bool;
   });
 
 
@@ -2946,6 +2954,25 @@ Checks for support of the autoplay attribute of the video element.
       elem.addEventListener('playing', testAutoplay, false);
       timeout = setTimeout(testAutoplay, waitTime);
     }, 0);
+  });
+
+/*!
+{
+  "name": "WebGL",
+  "property": "webgl",
+  "caniuse": "webgl",
+  "tags": ["webgl", "graphics"],
+  "polyfills": ["jebgl", "cwebgl", "iewebgl"]
+}
+!*/
+
+  Modernizr.addTest('webgl', function() {
+    var canvas = createElement('canvas');
+    var supports = 'probablySupportsContext' in canvas ? 'probablySupportsContext' :  'supportsContext';
+    if (supports in canvas) {
+      return canvas[supports]('webgl') || canvas[supports]('experimental-webgl');
+    }
+    return 'WebGLRenderingContext' in window;
   });
 
 
