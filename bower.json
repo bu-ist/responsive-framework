@@ -1,6 +1,6 @@
 {
   "name": "responsive-framework",
   "dependencies": {
-  	"responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#52-better-gallery-experience"
+  	"responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#develop
   }
 }
