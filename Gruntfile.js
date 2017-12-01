@@ -102,7 +102,7 @@ module.exports = function(grunt) {
 			},
 			dev: {
 				options: {
-					outputStyle: 'expanded',
+					outputStyle: 'expanded'
 				},
 				files: {
 					'style.css': 'css-dev/style.scss',
@@ -118,7 +118,7 @@ module.exports = function(grunt) {
 			fonts: {
 				options: {
 					outputStyle: 'expanded',
-					sourceMap: false,
+					sourceMap: false
 				},
 				files: [{
 					expand: true,
