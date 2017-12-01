@@ -41,72 +41,86 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		add_theme_support( 'menus' );
 
 		// Use HTML5 markup for WP provided components where supported.
-		add_theme_support( 'html5', array(
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		) );
-			add_theme_support( 'post-thumbnails' );
+		add_theme_support(
+			'html5', array(
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			)
+		);
+		add_theme_support( 'post-thumbnails' );
 
-			// Add support for branding plugin.
-			add_theme_support( 'bu-branding' );
+		// Add support for branding plugin.
+		add_theme_support( 'bu-branding' );
 
-			// Add support for the custom post type version of profile plugin.
-			add_theme_support( 'bu-profiles-post_type' );
+		// Add support for the custom post type version of profile plugin.
+		add_theme_support( 'bu-profiles-post_type' );
 
-			// Default flexi multi-line style doesn't need the extra <p> tags.
-			remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
-			add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
+		// Default flexi multi-line style doesn't need the extra <p> tags.
+		remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
+		add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
 
-			/*
-			 * By default, comments are disabled for BU sites.
-			 *
-			 * Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
-			 *
-			 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
-			 */
+		/*
+		 * By default, comments are disabled for BU sites.
+		 *
+		 * Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
+		 *
+		 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
+		 */
 		if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
 			define( 'BU_SUPPORTS_COMMENTS', true );
 		}
 
-			// BU Post Details SEO support.
+		// BU Post Details SEO support.
 		if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
 			define( 'BU_SUPPORTS_SEO', true );
 		}
 
-			// Disable BU Links Footer editor under Appearance menu.
+		// Disable BU Links Footer editor under Appearance menu.
+		if ( ! defined( 'BU_DISABLE_FOOTER_EDITOR' ) ) {
 			define( 'BU_DISABLE_FOOTER_EDITOR', true );
+		}
 
-			// Only support one level of dropdowns by default.
+		// Only support one level of dropdowns by default.
+		if ( ! defined( 'BU_NAVIGATION_SUPPORTED_DEPTH' ) ) {
 			define( 'BU_NAVIGATION_SUPPORTED_DEPTH', 1 );
+		}
 
-			// Custom menu locations.
-			register_nav_menus( array(
+		// Custom menu locations.
+		register_nav_menus(
+			array(
 				'footer'  => 'Footer Links',
 				'social'  => 'Social Links',
 				'utility' => 'Utility Navigation',
-			) );
+			)
+		);
 
-			// Content banner locations.
+		// Content banner locations.
 		if ( function_exists( 'bu_register_banner_position' ) ) {
-			bu_register_banner_position( 'window-width', array(
-				'label' => 'Full browser window width',
-				'hint'  => 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.',
-			) );
-				bu_register_banner_position( 'page-width', array(
+			bu_register_banner_position(
+				'window-width', array(
+					'label' => 'Full browser window width',
+					'hint'  => 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.',
+				)
+			);
+			bu_register_banner_position(
+				'page-width', array(
 					'label' => 'Page width',
 					'hint'  => 'Banner will appear above the content and sidebars and should be 1130 pixels wide.',
-				) );
-				bu_register_banner_position( 'content-width', array(
+				)
+			);
+			bu_register_banner_position(
+				'content-width', array(
 					'label'   => 'Content width',
 					'hint'    => 'Banner will appear above the title in the content area and should be 760 pixels wide.',
 					'default' => true,
-				) );
+				)
+			);
 		}
 
-			// Register supported templates for Content Banner and BU Profile plugins.
-			// @TODO: Need to require from BU_INCLUDES.
+		// Register supported templates for Content Banner and BU Profile plugins.
+		// @TODO: Need to require from BU_INCLUDES.
 		if ( class_exists( 'AllowedTemplates' ) ) {
 			global $banner_templates, $profile_templates, $news_templates;
 
@@ -114,30 +128,42 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 				$banner_templates = new AllowedTemplates();
 			}
 
-			$banner_templates->register( apply_filters( 'responsive_banner_templates', array(
-				'default',
-				'page-templates/calendar.php',
-				'page-templates/news.php',
-				'page-templates/no-sidebars.php',
-				'page-templates/profiles.php',
-				'single.php',
-			) ) );
+			$banner_templates->register(
+				apply_filters(
+					'responsive_banner_templates', array(
+						'default',
+						'page-templates/calendar.php',
+						'page-templates/news.php',
+						'page-templates/no-sidebars.php',
+						'page-templates/profiles.php',
+						'single.php',
+					)
+				)
+			);
 
 			if ( ! isset( $profile_templates ) ) {
-					$profile_templates = new AllowedTemplates();
+				$profile_templates = new AllowedTemplates();
 			}
 
-				$profile_templates->register( apply_filters( 'responsive_profile_templates', array(
-					'page-templates/profiles.php'
-				) ) );
+			$profile_templates->register(
+				apply_filters(
+					'responsive_profile_templates', array(
+						'page-templates/profiles.php',
+					)
+				)
+			);
 
 			if ( ! isset( $news_templates ) ) {
-					$news_templates = new AllowedTemplates();
+				$news_templates = new AllowedTemplates();
 			}
 
-				$news_templates->register( apply_filters( 'responsive_news_templates', array(
-					'page-templates/news.php'
-				) ) );
+			$news_templates->register(
+				apply_filters(
+					'responsive_news_templates', array(
+						'page-templates/news.php',
+					)
+				)
+			);
 		}
 
 	}
@@ -152,9 +178,6 @@ add_action( 'after_setup_theme', 'responsive_setup' );
 function responsive_init() {
 	// Add support for dynamic footbars (e.g. alternate footbar).
 	add_post_type_support( 'page', 'bu-dynamic-footbars' );
-
-	// Make sure images are set to 'no link' by default.
-	update_option( 'image_default_link_type', 'none' );
 }
 
 add_action( 'init', 'responsive_init' );
@@ -163,7 +186,8 @@ add_action( 'init', 'responsive_init' );
  * Register widget areas.
  */
 function responsive_sidebars() {
-	register_sidebar( array(
+	register_sidebar(
+		array(
 			'name'          => 'Main Sidebar',
 			'id'            => 'sidebar',
 			'description'   => 'Add widgets here to appear in your sidebar.',
@@ -171,9 +195,11 @@ function responsive_sidebars() {
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-	) );
+		)
+	);
 
-	register_sidebar( array(
+	register_sidebar(
+		array(
 			'name'          => 'Posts Content Area',
 			'id'            => 'posts',
 			'description'   => 'Add widgets here for display on posts and archives. Only the first 2 widgets will appear.',
@@ -181,10 +207,12 @@ function responsive_sidebars() {
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-	) );
+		)
+	);
 
 	if ( defined( 'BU_PROFILES_PLUGIN_ACTIVE' ) ) {
-		register_sidebar( array(
+		register_sidebar(
+			array(
 				'name'          => 'Profiles Content Area',
 				'id'            => 'profiles',
 				'description'   => 'Add widgets here for display on profile pages and archives. Only the first 2 widgets will appear.',
@@ -192,10 +220,12 @@ function responsive_sidebars() {
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>',
-		) );
+			)
+		);
 	}
 
-	register_sidebar( array(
+	register_sidebar(
+		array(
 			'name'          => 'Footbar',
 			'id'            => 'footbar',
 			'description'   => 'Add widgets here to appear in your footer.',
@@ -203,11 +233,13 @@ function responsive_sidebars() {
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-	) );
+		)
+	);
 
 	// Alternate footbar registration.
 	if ( responsive_theme_supports_dynamic_footbars() || is_customize_preview() ) {
-		register_sidebar( array(
+		register_sidebar(
+			array(
 				'name'          => 'Alternate Footbar',
 				'id'            => 'alternate-footbar',
 				'description'   => 'Add widgets here to appear in your footer.',
@@ -215,7 +247,8 @@ function responsive_sidebars() {
 				'after_widget'  => '</div>',
 				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>',
-		) );
+			)
+		);
 	}
 
 }
@@ -272,33 +305,6 @@ function responsive_styles() {
 	<![endif]-->
 <?php
 }
-
-/**
- * Maybe trigger theme migration procedure.
- *
- * @param string        $old_name The old theme name.
- * @param bool|WP_Theme $old_theme false if the old theme does not exist, WP_Theme instance of the old theme if it does.
- */
-function responsive_maybe_migrate_theme( $old_name, $old_theme = false ) {
-	// Theme migrations require Site Manager > 4.0.
-	if ( ! defined( 'BU_SITE_MANAGER_VERSION' ) || version_compare( BU_SITE_MANAGER_VERSION, '4.0', '<' ) ) {
-		return;
-	}
-
-	if ( ! $old_theme ) {
-		return;
-	}
-
-	$new_theme = wp_get_theme();
-
-	if ( 'flexi-framework' === $old_theme->get_template() ) {
-		require __DIR__ . '/inc/migration-helpers.php';
-		error_log( sprintf( '[%s] Migrating from %s to %s...', __FUNCTION__, $old_theme->get_template(), $new_theme->get_template() ) );
-		responsive_flexi_migration();
-	}
-}
-
-add_action( 'after_switch_theme', 'responsive_maybe_migrate_theme', 1, 2 );
 
 /**
  * Reset title tag for navigation.
@@ -472,6 +478,15 @@ function r_content_container_class( $class = '' ) {
 }
 
 /**
+ * In BU Core, there is a filter on sanitize_html_class that strips underscores from HTML classes.
+ *
+ * This was added to preserve a legacy behavior that was changed in WordPress r17614.
+ *
+ * @since 2.0.0
+ */
+remove_filter( 'sanitize_html_class', 'bu_sanitize_html_class', 10 );
+
+/**
  * Admin.
  */
 if ( is_admin() ) {
@@ -482,6 +497,11 @@ if ( is_admin() ) {
  * Theme Customizer.
  */
 require __DIR__ . '/admin/theme-customizer.php';
+
+/**
+ * Theme activation.
+ */
+require __DIR__ . '/inc/activation.php';
 
 /**
  * BU branding support.

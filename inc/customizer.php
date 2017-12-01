@@ -744,6 +744,7 @@ CSS;
 
 .primary-nav,
 .primary-nav-menu ul {
+.search-toggle::before {
 	color: {$colors['primaryNav-link']};
 }
 
@@ -751,6 +752,13 @@ CSS;
 .primary-nav-menu a,
 .l-side-nav .primary-nav-menu a {
 	border-color: {$colors['primaryNav-border']};
+}
+
+/* main nav and nav border color */
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+	background-color: {$colors['primaryNav-link']};
 }
 
 /* utility nav color */

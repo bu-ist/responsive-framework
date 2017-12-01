@@ -11,12 +11,6 @@
  * @group search
  */
 class Tests_Responsive_Framework_Search extends WP_UnitTestCase {
-	/**
-	 * Setup parent class.
-	 */
-	function setUp() {
-		parent::setUp();
-	}
 
 	/**
 	 * Test responsive_bu_search_form_contexts()
