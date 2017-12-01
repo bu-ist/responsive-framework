@@ -24,9 +24,24 @@ class Responsive_Galleries {
 	 * Add a larger thumbnail sizes to prevent pixelated images in galleries.
 	 */
 	function after_setup_theme() {
-		add_image_size( 'responsive_gallery', 420, 420, true );
-		add_image_size( 'responsive_gallery_1col', 710, 710, true );
-		add_image_size( 'responsive_gallery_5col_up', 260, 200, true );
+		add_image_size(
+			'responsive_gallery',
+			(int) apply_filters( 'responsive_gallery_image_width', 420 ),
+			(int) apply_filters( 'responsive_gallery_image_height', 420 ),
+			true
+		);
+		add_image_size(
+			'responsive_gallery_1col',
+			(int) apply_filters( 'responsive_gallery_1col_image_width', 710 ),
+			(int) apply_filters( 'responsive_gallery_1col_image_height', 710 ),
+			true
+		);
+		add_image_size(
+			'responsive_gallery_5col_up',
+			(int) apply_filters( 'responsive_gallery_5col_up_image_width', 260 ),
+			(int) apply_filters( 'responsive_gallery_5col_up_image_height', 200 ),
+			true
+		);
 	}
 
 	/**
@@ -93,7 +108,6 @@ class Responsive_Galleries {
 		 */
 		$out['link'] = 'file';
 
-		print_r( $out );
 		return $out;
 	}
 }

@@ -52,6 +52,13 @@ module.exports = function(grunt) {
 				options: {
 					spawn: false
 				}
+			},
+			phplint : {
+				files : [ '**/*.php' ],
+				tasks : [ 'phplint' ],
+				options : {
+					spawn : false
+				}
 			}
 		},
 		concat: {
@@ -175,6 +182,21 @@ module.exports = function(grunt) {
 				dest: 'js/vendor/lg-thumbnail/'
 			}
 		},
+		phplint: {
+			options: {
+				phpArgs: {
+					'-l': null,
+					'-f': null
+				}
+			},
+			all : {
+				src : [
+					'**/**.php',
+					'!vendor/**',
+					'!node_modules/**'
+				]
+			}
+		},
 		bower: {
 			install: {
 				options: {
@@ -188,52 +210,53 @@ module.exports = function(grunt) {
 				'dest': 'js/vendor/modernizr.js',
 				'tests': [
 					'audio',
-					'canvas',
-					'canvastext',
-					'geolocation',
-					'hashchange',
-					'postmessage',
-					'requestanimationframe',
-					'svg',
-					'video',
-					'webgl',
-					'cssanimations',
 					'backgroundsize',
 					'borderimage',
 					'borderradius',
 					'boxshadow',
+					'canvas',
+					'canvastext',
+					'cssanimations',
 					'csscolumns',
-					'flexbox',
-					'flexboxlegacy',
-					'fontface',
-					'generatedcontent',
 					'cssgradients',
-					'hsla',
-					'multiplebgs',
-					'opacity',
-					'objectfit',
+					'csspositionsticky',
 					'cssreflections',
-					'rgba',
-					'textshadow',
 					'csstransforms',
 					'csstransforms3d',
 					'csstransitions',
-					'localstorage',
-					'svgclippaths',
+					'flexbox',
+					'flexboxlegacy',
+					'fontface',
+					'geolocation',
+					'generatedcontent',
+					'hashchange',
+					'hsla',
 					'inlinesvg',
+					'localstorage',
+					'multiplebgs',
+					'objectfit',
+					'opacity',
+					'postmessage',
+					'requestanimationframe',
+					'rgba',
 					'smil',
-					'videoautoplay'
+					'svg',
+					'svgclippaths',
+					'textshadow',
+					'video',
+					'videoautoplay',
+					'webgl'
 				],
 				'options': [
 					'domPrefixes',
-					'prefixes',
 					'hasEvent',
+					'html5printshiv',
 					'prefixed',
+					'prefixes',
+					'setClasses',
 					'testAllProps',
 					'testProp',
-					'testStyles',
-					'html5printshiv',
-					'setClasses'
+					'testStyles'
 				],
 				'uglify': false
 			}
@@ -248,6 +271,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-version');
+	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-bower-task' );
 	grunt.loadNpmTasks( 'grunt-modernizr' );
 

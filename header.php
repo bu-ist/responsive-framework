@@ -18,7 +18,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta http-equiv="ClearType" content="true" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui" />
 
 	<?php if ( function_exists( 'bu_meta' ) ) : bu_meta(); else : ?><meta name="description" content="Boston University is a leading private research institution with two primary campuses in the heart of Boston and programs around the world." /><?php endif; ?>
 
@@ -78,7 +78,7 @@
 			 */
 			do_action( 'r_before_opening_content' );
 		?>
-		<div class="content">
+		<main role="main" class="content">
 			<?php
 				/**
 				 * Fires immediately after the opening content div.
@@ -98,7 +98,7 @@
 				 */
 				do_action( 'r_before_opening_content_container' );
 			?>
-			<main role="main" <?php r_content_container_class( array() ); ?>>
+			<div <?php r_content_container_class( array() ); ?>>
 				<?php
 					/**
 					 * Fires immediately after the opening content container div.

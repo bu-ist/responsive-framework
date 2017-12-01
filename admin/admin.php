@@ -5,6 +5,19 @@
  * @package Responsive_Framework
  */
 
+$display_page_template = true;
+
+/**
+ * Filter whether to display the page template filter on the page admin.
+ *
+ * @param bool $display_page_template Whether to show the page template filter. Default is true.
+ */
+$display_page_template = apply_filters( 'responsive_show_page_template_filter', $display_page_template );
+
+if ( $display_page_template ) {
+	include_once 'responsive-admin-page-template-filter.php';
+}
+
 /**
  * Register footbar selection metabox.
  *
@@ -65,5 +78,33 @@ function responsive_save_post_footbar( $post_id ) {
 		}
 	}
 }
-
 add_action( 'save_post', 'responsive_save_post_footbar', 10 );
+
+/**
+ * Get the page template query var value.
+ *
+ * @return bool|string false if empty or not set,
+ *                     selected page template if it is.
+ */
+function responsive_get_page_template_filter_value() {
+	$top_arg = get_query_var( 'responsive_template_filter_top' );
+	$bottom_arg = get_query_var( 'responsive_template_filter_bottom' );
+
+	if ( empty( $top_arg ) && empty( $bottom_arg ) ) {
+		return false;
+	}
+
+	if ( ! empty( $top_arg ) ) {
+		$page_template = $top_arg;
+	} elseif ( ! empty( $bottom_arg ) ) {
+		$page_template = $bottom_arg;
+	} else {
+		return false;
+	}
+
+	if ( empty( $page_template ) ) {
+		return false;
+	}
+
+	return sanitize_text_field( $page_template );
+}
