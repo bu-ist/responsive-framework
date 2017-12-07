@@ -592,7 +592,7 @@ if ( ! function_exists( 'responsive_post_meta' ) ) :
 		<?php if ( responsive_posts_should_display( 'categories' ) && $category_list = get_the_category_list( ', ' ) ) : ?>
 		<span class="category"><em>in</em> <?php echo $category_list; ?></span>
 		<?php endif; ?>
-		<?php if ( bu_supports_comments() ) : ?>
+		<?php if ( function_exists( 'bu_supports_comments' ) && bu_supports_comments() ) : ?>
 		<span class="comment-counter"><a href="<?php comments_link(); ?>" rel="nofollow"><?php comments_number( '<strong>0</strong> comments', '<strong>1</strong> comment', '<strong>%</strong> comments' ); ?></a></span>
 		<?php endif; ?>
 	</div>
