@@ -40,10 +40,11 @@ function responsive_get_description() {
 /**
  * Whether or not the current network is a bu.edu domain.
  *
+ * @param int $blog_id Blog ID to check. Default is current site.
  * @return bool
  */
-function responsive_is_bu_domain() {
-	$site_url = get_site_url();
+function responsive_is_bu_domain( $blog_id = 0 ) {
+	$site_url = get_site_url( $blog_id );
 	return preg_match( '#bu.edu$#', $site_url );
 }
 
