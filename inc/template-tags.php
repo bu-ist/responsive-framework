@@ -41,7 +41,8 @@ function responsive_get_description() {
  * Whether or not the current network is a bu.edu domain.
  *
  * @param int $blog_id Blog ID to check. Default is current site.
- * @return bool If the blog is a BU domain.
+ * @return bool true if the blog is a BU domain, false if it is not or returns
+ *              an error.
  */
 function responsive_is_bu_domain( $blog_id = 0 ) {
 	$site_url = get_site_url( $blog_id );
