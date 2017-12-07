@@ -96,6 +96,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			)
 		);
 
+		if ( ! function_exists( 'bu_navigation_display_primary' ) ) {
+			register_nav_menu( 'responsive-primary', __( 'Primary Navigation' ) );
+		}
+
 		// Content banner locations.
 		if ( function_exists( 'bu_register_banner_position' ) ) {
 			bu_register_banner_position(
