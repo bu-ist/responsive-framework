@@ -354,7 +354,7 @@ function r_is_narrow_template() {
 
 	$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom', false );
 
-	if ( ( ! $is_narrow_template && ! $narrow_enabled ) || ( defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) && BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM ) ) {
+	if ( ( ! $is_narrow_template && ! $narrow_enabled ) || ( defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) && ! BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM ) ) {
 		return false;
 	}
 
