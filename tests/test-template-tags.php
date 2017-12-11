@@ -188,6 +188,33 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 	}
 
 	/**
+	 * Test that non BU domains do not match.
+	 */
+	function test_responsive_is_bu_domain() {
+		$this->assertFalse( responsive_is_bu_domain() );
+	}
+
+	/**
+	 * Test that BU domains correctly match.
+	 */
+	function test_responsive_is_bu_domain_true() {
+		update_option( 'siteurl', 'http://www.bu.edu/' );
+		$this->assertTrue( responsive_is_bu_domain() );
+
+		update_option( 'siteurl', 'http://www-staging.bu.edu/' );
+		$this->assertTrue( responsive_is_bu_domain() );
+
+		update_option( 'siteurl', 'http://www-test.bu.edu/' );
+		$this->assertTrue( responsive_is_bu_domain() );
+
+		update_option( 'siteurl', 'http://bu.edu/' );
+		$this->assertTrue( responsive_is_bu_domain() );
+
+		update_option( 'siteurl', 'http://cms-devl.bu.edu/' );
+		$this->assertTrue( responsive_is_bu_domain() );
+	}
+
+	/**
 	 * Return an empty array for filters.
 	 */
 	function r_test_filter_empty_array() {
