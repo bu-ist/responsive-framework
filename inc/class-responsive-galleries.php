@@ -71,21 +71,6 @@ class Responsive_Galleries {
 	}
 
 	/**
-	 * Don't use WordPress default gallery style if using Lightgallery.
-	 *
-	 * @param bool $print Whether to print default gallery styles.
-	 *
-	 * @return bool Whether to print default gallery styles.
-	 */
-	function use_default_gallery_style( $print ) {
-		if ( wp_script_is( 'lightgallery' ) ) {
-			return false;
-		}
-
-		return $print;
-	}
-
-	/**
 	 * Filter the default image size to prevent pixelated images in galleries.
 	 *
 	 * @param array $out The output array of shortcode attributes.
