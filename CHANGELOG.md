@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Remove empty IE conditional at the beginning of `header.php` (#272).
+
 ## 1.5.5
 
 - Fix bug where nav toggle icon was not receiving the correct color (#251).
