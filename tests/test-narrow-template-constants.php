@@ -15,7 +15,20 @@
  */
 class Tests_Responsive_Framework_Narrow_Template_Constants extends WP_UnitTestCase {
 
+	/**
+	 * Do not preserve global state between test methods.
+	 *
+	 * @var bool
+	 */
 	protected $preserveGlobalState = false;
+
+	/**
+	 * Run each test method in a separate, isolated process.
+	 *
+	 * This ensures constants are properly set and tested.
+	 * 
+	 * @var bool
+	 */
 	protected $runTestInSeparateProcess = true;
 
 	/**
