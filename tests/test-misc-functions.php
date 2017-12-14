@@ -32,8 +32,6 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 	 * Single posts should be considered narrow.
 	 */
 	function test_r_is_narrow_template_single_post() {
-		global $wp_query;
-
 		update_option( 'burf_setting_posts_sidebar_bottom', true );
 
 		$post_id = $this->factory->post->create( array(
@@ -41,20 +39,33 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 			'post_type' => 'post',
 		) );
 
-		$wp_query = new WP_Query( array(
-			'p' => $post_id,
-		) );
+		$this->go_to( get_permalink( $post_id ) );
 
 		$this->assertTrue( r_is_narrow_template() );
+
+		update_option( 'burf_setting_posts_sidebar_bottom', false );
+	}
+
+	/**
+	 * Single posts should not be considered narrow when filtered.
+	 */
+	function test_r_is_narrow_template_single_post_filtered() {
+		update_option( 'burf_setting_posts_sidebar_bottom', true );
+
+		$post_id = $this->factory->post->create( array(
+			'post_title' => 'A Test Post',
+			'post_type' => 'post',
+		) );
+
+		$this->go_to( get_permalink( $post_id ) );
 
 		/**
 		 * Remove posts from allowed post types and test.
 		 */
 		add_filter( 'r_narrow_single_templates', array( $this, 'filter_r_narrow_single_templates' ) );
 		$this->assertFalse( r_is_narrow_template() );
-		remove_filter( 'r_narrow_single_templates', array( $this, 'filter_r_narrow_single_templates' ) );
+		remove_all_filters( 'r_narrow_single_templates' );
 
-		$wp_query = new WP_Query();
 		update_option( 'burf_setting_posts_sidebar_bottom', false );
 	}
 
@@ -62,8 +73,6 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 	 * Post type archives should be considered narrow.
 	 */
 	function test_r_is_narrow_template_post_archive() {
-		global $wp_query;
-
 		update_option( 'burf_setting_posts_sidebar_bottom', true );
 
 		$post_id = $this->factory->post->create( array(
@@ -71,17 +80,10 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 			'post_type' => 'post',
 		) );
 
-		$wp_query = new WP_Query( array(
-			'post_type' => 'post',
-		) );
-
-		$wp_query->queried_object = get_post( $post_id );
-		$wp_query->queried_object_id = $post_id;
-		$wp_query->is_post_type_archive = true;
+		$this->go_to( get_post_type_archive_link( 'post' ) );
 
 		$this->assertTrue( r_is_narrow_template() );
 
-		$wp_query = new WP_Query();
 		update_option( 'burf_setting_posts_sidebar_bottom', false );
 	}
 
@@ -89,8 +91,6 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 	 * Calendar page should not be considered narrow.
 	 */
 	function test_r_is_narrow_template_calendar_page() {
-		global $wp_query;
-
 		update_option( 'burf_setting_posts_sidebar_bottom', true );
 
 		$page_id = $this->factory->post->create( array(
@@ -99,10 +99,7 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 			'pagename' => 'calendar',
 		) );
 
-		$wp_query = new WP_Query( array(
-			'pagename' => 'calendar',
-			'page_id' => $page_id,
-		) );
+		$this->go_to( get_permalink( $page_id ) );
 
 		$this->assertFalse( r_is_narrow_template() );
 
@@ -121,9 +118,8 @@ class Tests_Responsive_Framework_Miscellaneous_Functions extends WP_UnitTestCase
 		 */
 		add_filter( 'r_narrow_page_templates', array( $this, 'filter_r_narrow_page_templates' ) );
 		$this->assertTrue( r_is_narrow_template() );
-		remove_filter( 'r_narrow_page_templates', array( $this, 'filter_r_narrow_page_templates' ) );
+		remove_all_filters( 'r_narrow_page_templates' );
 
-		$wp_query = new WP_Query();
 		update_option( 'burf_setting_posts_sidebar_bottom', false );
 	}
 
