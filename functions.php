@@ -330,18 +330,32 @@ add_filter( 'bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 
  *
  * By default, this function returns true for the following:
  *
- * - Single profiles
- * - Single posts
- * - Single calendar events
- * - Profile archives
- * - Post archives
+ * - Single profiles.
+ * - Single posts.
+ * - Single calendar events.
+ * - Profile archives.
+ * - Post archives.
  *
  * @return bool Whether this is narrow content.
  */
 function r_is_narrow_template() {
 	$is_narrow_template = false;
 
-	$sidebar_position = (string) get_option( 'burf_setting_sidebar_location', 'right' );
+	if ( defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
+		if ( ! BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM ) {
+			return false;
+		} else {
+			$narrow_enabled = true;
+		}
+	} else {
+		$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom', false );
+	}
+
+	if ( defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ) {
+		$sidebar_position = BU_RESPONSIVE_SIDEBAR_POSITION;
+	} else {
+		$sidebar_position = (string) get_option( 'burf_setting_sidebar_location', 'right' );
+	}
 
 	if ( 'bottom' === $sidebar_position ) {
 		$is_narrow_template = true;
@@ -352,9 +366,7 @@ function r_is_narrow_template() {
 		$is_narrow_template = true;
 	}
 
-	$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom', false );
-
-	if ( ! $is_narrow_template && ! $narrow_enabled ) {
+	if ( ( ! $is_narrow_template && ! $narrow_enabled ) ) {
 		return false;
 	}
 
