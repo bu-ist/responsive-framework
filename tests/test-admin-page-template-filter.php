@@ -1,6 +1,6 @@
 <?php
 /**
- * Test default constants defined in the framework.
+ * Test the page filter for page template.
  *
  * @package Responsive_Framework
  */
