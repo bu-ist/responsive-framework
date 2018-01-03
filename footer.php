@@ -43,9 +43,23 @@
 			 * @since 2.0.0
 			 */
 			do_action( 'r_after_closing_content' );
-		?>
 
+			/**
+			 * Fires immediately before the closing wrapper div.
+			 *
+			 * @since 2.0.0
+			 */
+			do_action( 'r_before_closing_wrapper' );
+		?>
 	</div><!-- .wrapper -->
+	<?php
+		/**
+		 * Fires immediately after the closing wrapper div.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_after_closing_wrapper' );
+	?>
 
 	<footer class="site-footer <?php responsive_extra_footer_classes(); ?>" role="contentinfo">
 		<div class="site-footer-brand-assets">
