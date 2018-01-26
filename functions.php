@@ -617,7 +617,7 @@ require __DIR__ . '/inc/upgrade.php';
 /**
  * WordPress galleries code.
  */
-require __DIR__ . '/inc/class-responsive-galleries.php';
+require __DIR__ . '/inc/galleries.php';
 
 /**
  * WP-CLI commands.
