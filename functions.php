@@ -491,6 +491,14 @@ function r_content_container_class( $class = '' ) {
 remove_filter( 'sanitize_html_class', 'bu_sanitize_html_class', 10 );
 
 /**
+ * Enqueue gallery scripts and styles.
+ */
+function r_enqueue_fancy_gallery() {
+	wp_enqueue_script( 'responsive-framework-gallery' );
+	wp_enqueue_style( 'lightgallery' );
+}
+
+/**
  * Admin.
  */
 if ( is_admin() ) {
