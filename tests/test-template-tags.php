@@ -153,6 +153,16 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 	}
 
 	/**
+	 * Test content container class function with no args when on a narrow template.
+	 */
+	function test_r_content_container_class_no_args_narrow_template() {
+		update_option( 'burf_setting_sidebar_location', 'bottom' );
+		$this->expectOutputString( 'class="content-container-narrow"' );
+		r_content_container_class();
+		update_option( 'burf_setting_sidebar_location', 'right' );
+	}
+
+	/**
 	 * Test content container class function with string arg.
 	 */
 	function test_r_content_container_class_string_arg() {
