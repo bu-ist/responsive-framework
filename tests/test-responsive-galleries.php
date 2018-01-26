@@ -109,7 +109,7 @@ class Tests_Responsive_Framework_Gallery extends WP_UnitTestCase {
 			'link'    => 'file',
 		);
 
-		$this->assertSame( $expected, BU\Themes\Responsive_Framework\Galleries\shortcode_atts_gallery( $expected ) );
+		$this->assertSame( $expected, BU\Themes\Responsive_Framework\Galleries\shortcode_atts_gallery( $original ) );
 	}
 
 	/**
