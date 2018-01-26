@@ -31,8 +31,6 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<link rel="apple-touch-icon" href="<?php bloginfo( 'template_directory' ); ?>/icons/apple-touch-icon-precomposed.png"/>
 
-	<?php responsive_styles(); ?>
-
 	<?php wp_head(); ?>
 </head>
 <body id="top" <?php body_class(); ?>>
@@ -67,9 +65,23 @@
 		do_action( 'r_after_masthead' );
 	?>
 
+	<?php
+		/**
+		 * Fires immediately before the opening wrapper div.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_before_opening_wrapper' );
+	?>
 	<div class="wrapper">
-
 		<?php
+			/**
+			 * Fires immediately after the opening wrapper div.
+			 *
+			 * @since 2.0.0
+			 */
+			do_action( 'r_after_opening_wrapper' );
+
 			/**
 			 * Fires immediately before the opening content div.
 			 *

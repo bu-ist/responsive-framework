@@ -288,27 +288,49 @@ function responsive_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-
 add_action( 'wp_enqueue_scripts', 'responsive_enqueue_scripts' );
 
 /**
- * Print main theme stylesheet with IE fallback.
- *
- * Works for both parent and child themes.
+ * Enqueue CSS files for the theme.
  */
-function responsive_styles() {
-	$suffix    = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	$style_css = add_query_arg( 'ver', RESPONSIVE_THEME_VERSION, get_stylesheet_directory_uri() . "/style$suffix.css" );
-	$ie_css    = add_query_arg( 'ver', RESPONSIVE_THEME_VERSION, get_stylesheet_directory_uri() . "/ie$suffix.css" );
-?>
-	<!--[if gt IE 8]><!-->
-	<link rel="stylesheet" id="responsi-css"  href="<?php echo esc_url( $style_css ); ?>" type="text/css" media="all" />
-	<!--<![endif]-->
-	<!--[if (lt IE 9) & (!IEMobile 7)]>
-	<link rel="stylesheet" id="responsi-ie-css"   href="<?php echo esc_url( $ie_css ); ?>" type="text/css" media="all" />
-	<![endif]-->
-<?php
+function responsive_enqueue_styles() {
+	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+	wp_enqueue_style( 'responsive-framework', get_stylesheet_directory_uri() . "/style$postfix.css", array(), RESPONSIVE_THEME_VERSION, 'all' );
+
+	wp_enqueue_style( 'responsive-framework-ie', get_stylesheet_directory_uri() . "/ie$postfix.css", array(), RESPONSIVE_THEME_VERSION, 'all' );
+	wp_style_add_data( 'responsive-framework-ie', 'conditional', '(lt IE 9) & (!IEMobile 7)' );
 }
+add_action( 'wp_enqueue_scripts', 'responsive_enqueue_styles' );
+
+/**
+ * Add the correct IE conditional to the main theme stylesheet.
+ *
+ * WordPress supports adding IE conditionals as data attributes for enqueued styles.
+ * It does not, however, allow you to specify a conditional that targets certain versions
+ * of IE, AND other browsers (<!--[if gt IE 8]><!--> in our case). The extra comment tag
+ * allows the stylesheet to be loaded by non-IE browsers.
+ *
+ * By using this filter, we can enqueue the theme's stylesheet and still load it to our needs.
+ *
+ * @param string $html   The link tag for the enqueued style.
+ * @param string $handle The style's registered handle.
+ *
+ * @return string Unaltered HTML if not the Responsive Framework stylesheet,
+ *                link tag wrapped in the correct IE conditional if it is.
+ */
+function responsive_style_loader_tag( $html, $handle ) {
+	if ( 'responsive-framework' !== $handle ) {
+		return $html;
+	}
+
+	$new_html = "<!--[if gt IE 8]><!-->\n";
+	$new_html .= $html;
+	$new_html .= "<![endif]-->\n";
+
+	return $new_html;
+}
+add_filter( 'style_loader_tag', 'responsive_style_loader_tag', 10, 2 );
 
 /**
  * Reset title tag for navigation.
@@ -330,18 +352,32 @@ add_filter( 'bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 
  *
  * By default, this function returns true for the following:
  *
- * - Single profiles
- * - Single posts
- * - Single calendar events
- * - Profile archives
- * - Post archives
+ * - Single profiles.
+ * - Single posts.
+ * - Single calendar events.
+ * - Profile archives.
+ * - Post archives.
  *
  * @return bool Whether this is narrow content.
  */
 function r_is_narrow_template() {
 	$is_narrow_template = false;
 
-	$sidebar_position = (string) get_option( 'burf_setting_sidebar_location', 'right' );
+	if ( defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
+		if ( ! BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM ) {
+			return false;
+		} else {
+			$narrow_enabled = true;
+		}
+	} else {
+		$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom', false );
+	}
+
+	if ( defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ) {
+		$sidebar_position = BU_RESPONSIVE_SIDEBAR_POSITION;
+	} else {
+		$sidebar_position = (string) get_option( 'burf_setting_sidebar_location', 'right' );
+	}
 
 	if ( 'bottom' === $sidebar_position ) {
 		$is_narrow_template = true;
@@ -352,9 +388,7 @@ function r_is_narrow_template() {
 		$is_narrow_template = true;
 	}
 
-	$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom', false );
-
-	if ( ! $is_narrow_template && ! $narrow_enabled ) {
+	if ( ( ! $is_narrow_template && ! $narrow_enabled ) ) {
 		return false;
 	}
 
