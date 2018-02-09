@@ -90,3 +90,15 @@ h6 {
   font-family: "Capita", serif;
   font-style: italic;
 }
+
+blockquote {
+  position: relative;
+  left: 30px;
+}
+blockquote:before {
+  position: absolute;
+  left: -25px;
+  top: -25px;
+  font-size: 3em;
+  content: "\201C";
+}

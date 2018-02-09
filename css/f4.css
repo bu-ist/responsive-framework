@@ -94,3 +94,29 @@ h6,
   font-family: "TiemposText", serif;
   font-style: italic;
 }
+
+blockquote {
+  display: block;
+  padding: 1em 0;
+  position: relative;
+  border-width: 2px 0;
+  border-style: solid;
+  border-color: #EEE;
+}
+blockquote:before {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FFF;
+  line-height: 30px;
+  font-family: "TiemposHeadline", serif;
+  font-size: 3em;
+  font-weight: 700;
+  content: '\201C';
+  text-align: center;
+  width: 40px;
+}
+blockquote > p:last-of-type {
+  margin-bottom: 0;
+}

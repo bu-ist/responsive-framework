@@ -85,3 +85,16 @@ h6,
   font-family: "Benton-Sans", sans-serif;
   font-style: italic;
 }
+
+blockquote {
+  margin-top: -36px;
+}
+blockquote:before {
+  content: "\201C";
+  font-family: "Pressura", sans-serif;
+  font-size: 4em;
+  font-weight: 700;
+}
+blockquote > p:first-of-type {
+  margin: -45px 0 25px 0;
+}
