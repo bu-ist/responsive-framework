@@ -829,6 +829,15 @@ input[type="submit"],
 	color: {$colors['button-text-color']};
 }
 
+/* blockquotes */
+blockquote {
+	border-color: {$colors['content-link']};
+}
+
+blockquote:before {
+	color: {$colors['content-link']};
+}
+
 
 {$sidebar_widget_styles}
 
