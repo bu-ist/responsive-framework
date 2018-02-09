@@ -30,3 +30,19 @@ h6 {
 	font-family: $font-body;
 	font-style: italic;
 }
+
+blockquote {
+	position: relative;
+	left: 30px;
+	&:before {
+		// Position 
+	  	position: absolute;
+	  	left: -25px;
+	  	top: -25px;
+
+	  	// Font
+	 	font-size: 3em;
+	  	content: "\201C"; // Unicode for Left Double Quote
+	  	// quote color will be set by inc/customizer.php if colors customized
+	}
+}
