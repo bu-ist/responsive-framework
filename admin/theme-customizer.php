@@ -228,7 +228,7 @@ function responsive_customize_register( $wp_customize ) {
 			array(
 				'label'       => __( 'Post Display Options', 'responsive-framework' ),
 				'section'     => 'burf_section_content_options',
-				'description' => 'Change visibility of post meta fields. Note that the "News" page template has its own display options.',
+				'description' => __( 'Change visibility of post meta fields. Note that the "News" page template has its own display options.', 'responsive-framework' ),
 				'choices'     => array(
 					'categories' => __( 'Categories', 'responsive-framework' ),
 					'tags'       => __( 'Tags', 'responsive-framework' ),
@@ -280,6 +280,7 @@ function responsive_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'burf_section_footer', array(
 			'title'       => __( 'Footer', 'responsive-framework' ),
+			/* translators: %s: menu url */
 			'description' => sprintf( __( 'Footer links can be managed using the <a href="%s">Footer and Social Links Custom Menu locations</a>.', 'responsive-framework' ), esc_url( $menu_url ) ),
 			'priority'    => 34,
 		)

@@ -18,7 +18,8 @@ function responsive_get_title() {
 		echo esc_html( " | $site_description" );
 	}
 	if ( $paged >= 2 || $page >= 2 ) {
-		echo esc_html( ' | ' . sprintf( __( 'Page %s', 'responsive-framework' ), max( $paged, $page ) ) );
+		/* translators: %d: number of pages. */
+		echo esc_html( ' | ' . sprintf( __( 'Page %d', 'responsive-framework' ), max( $paged, $page ) ) );
 	}
 }
 
@@ -507,6 +508,7 @@ if ( ! function_exists( 'responsive_posts_navigation' ) ) :
 			$defaults = array(
 				'prev_text'          => '<span class="meta-nav">&larr;</span> Previous',
 				'next_text'          => 'Next <span class="meta-nav">&rarr;</span>',
+				/* translators: %s: archive type singular name. */
 				'screen_reader_text' => sprintf( __( '%s navigation', 'responsive-framework' ), ucfirst( $archive_type ) ),
 			);
 
@@ -590,14 +592,21 @@ if ( ! function_exists( 'responsive_post_meta' ) ) :
 		<span class="author">
 		<?php
 			/* translators: %s: author name linking to their archive page. */
-			printf( wp_kses( __( '<em>By </em>%s', 'responsive-framework' ), array( 'em' => array() ) ), get_the_author_posts_link() );
+			printf( wp_kses( __( '<em>By </em>%s', 'responsive-framework' ), array(
+				'em' => array(),
+			) ), get_the_author_posts_link() ); // WPCS: XSS ok.
 		?>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'date' ) ) : ?>
-		<span class="date"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ) ?>" pubdate><?php echo esc_html( get_the_date( 'F jS Y' ) ); ?></time></span>
+			<span class="date"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ) ?>" pubdate><?php echo esc_html( get_the_date( 'F jS Y' ) ); ?></time></span>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'categories' ) && $category_list = get_the_category_list( ', ' ) ) : ?>
-		<span class="category"><?php printf( esc_html__( '<em>in</em> %s', 'responsive-framework' ), $category_list ); ?></span>
+			<span class="category">
+			<?php
+				/* translators: %s: category list for the post. */
+				printf( esc_html__( '<em>in</em> %s', 'responsive-framework' ), $category_list ); // WPCS: XSS ok.
+			?>
+			</span>
 		<?php endif; ?>
 
 		<?php if ( function_exists( 'bu_supports_comments' ) && bu_supports_comments() ) : ?>
