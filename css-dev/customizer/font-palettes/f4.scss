@@ -23,39 +23,28 @@ $font-body-accent: "TiemposText", serif;
 }
 
 blockquote {
+	border-color: #eee; // Default light grey will be overwritten by inc/customizer.php if colors customized
+	border-style: solid;
+	border-width: 2px 0;
 	display: block;
 	padding: 1em 0;
 	position: relative;
-	
-	// Horizontal Lines
-	border-width: 2px 0;
-	border-style: solid;
-	border-color: #EEE; // Default light grey will be overwritten by inc/customizer.php if colors customized
-	
-	&:before {
-		
-		// Positioning
-		position: absolute;
-		top: 12px;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		
-		// Background
-		background: #FFF; 
-		line-height: 30px; // ensures white backround doesn't overlay bquote text
-		
-		
-		// Fonts & Text
+	&::before {
+		background: #fff; 
+		content: "\201C";
 		font-family: $font-heading;
 		font-size: 3em;
 		font-weight: 700;
-		content: '\201C';
+		left: 50%;
+		line-height: 30px; // ensures white backround doesn't overlay bquote text
+		position: absolute;
 		text-align: center;
+		top: 12px;
+		transform: translate(-50%, -50%);
 		width: 40px;
 		// quote color will be set by inc/customizer.php if colors customized
-
 	}
-	&>p:last-of-type {
+	>p:last-of-type {
 		margin-bottom: 0; // equalizes top and bottom space between bquote and horizontal lines
 	}
 } 

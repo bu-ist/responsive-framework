@@ -33,16 +33,12 @@ h6 {
 
 blockquote {
 	position: relative;
-	left: 30px;
-	&:before {
-		// Position 
-	  	position: absolute;
-	  	left: -25px;
-	  	top: -25px;
-
-	  	// Font
-	 	font-size: 3em;
-	  	content: "\201C"; // Unicode for Left Double Quote
+	&::before {
+		content: "\201C"; // Unicode for Left Double Quote
+		font-size: 3em;
+		left: -25px;
+		position: absolute;
+		top: -25px;
 	  	// quote color will be set by inc/customizer.php if colors customized
 	}
 }
