@@ -587,7 +587,11 @@ if ( ! function_exists( 'responsive_post_meta' ) ) :
 		?>
 		<div class="meta post-meta">
 		<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
-		<span class="author"><?php printf( esc_html__( '<em>By</em> %s', 'responsive-framework' ), get_the_author_posts_link() ); ?></span>
+		<span class="author">
+		<?php
+			/* translators: %s: author name linking to their archive page. */
+			printf( wp_kses( __( '<em>By </em>%s', 'responsive-framework' ), array( 'em' => array() ) ), get_the_author_posts_link() );
+		?>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'date' ) ) : ?>
 		<span class="date"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ) ?>" pubdate><?php echo esc_html( get_the_date( 'F jS Y' ) ); ?></time></span>

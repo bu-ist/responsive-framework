@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-02-15 15:48:09+00:00\n"
+"POT-Creation-Date: 2018-02-15 18:35:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -257,7 +257,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:233 inc/customizer.php:221 inc/template-tags.php:866
+#: functions.php:233 inc/customizer.php:221 inc/template-tags.php:870
 msgid "Footbar"
 msgstr ""
 
@@ -265,7 +265,7 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:247 inc/template-tags.php:867
+#: functions.php:247 inc/template-tags.php:871
 msgid "Alternate Footbar"
 msgstr ""
 
@@ -491,27 +491,29 @@ msgstr ""
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:590
-msgid "<em>By</em> %s"
+#: inc/template-tags.php:593 single.php:37
+#. translators: %s: author name linking to their archive page.
+#. translators: %s: author name
+msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:596
+#: inc/template-tags.php:600
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:602
+#: inc/template-tags.php:606
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:602
+#: inc/template-tags.php:606
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:602
+#: inc/template-tags.php:606
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:710
+#: inc/template-tags.php:714
 msgid "View all posts"
 msgstr ""
 
@@ -519,7 +521,8 @@ msgstr ""
 msgid "Access Restricted To BUMC/BMC"
 msgstr ""
 
-#: no-access-bumc.php:18
+#: no-access-bumc.php:21
+#. translators: %s: BUMC help desk email.
 msgid ""
 "You are trying to access a page that is restricted to members of the Boston "
 "University Medical Campus (BUMC) and Boston Medical Center (BMC). If you "
@@ -544,8 +547,17 @@ msgid "Pages:"
 msgstr ""
 
 #: page-templates/news.php:33 page-templates/no-sidebars.php:31 page.php:31
-#: single-profile.php:86 single.php:50
+#: single-profile.php:86 single.php:65
 msgid "Edit"
+msgstr ""
+
+#: profiles.php:20
+msgid "Read the rest of this profile &raquo;"
+msgstr ""
+
+#: search.php:17
+#. translators: %s: current search query.
+msgid "Search Results for: %s"
 msgstr ""
 
 #: searchform.php:11 searchform.php:14 searchform.php:16
@@ -572,7 +584,7 @@ msgstr ""
 msgid "Education"
 msgstr ""
 
-#: single.php:44
+#: single.php:59
 msgid "Tagged"
 msgstr ""
 
@@ -628,3 +640,19 @@ msgid "One comment"
 msgid_plural "%1$s comments"
 msgstr[0] ""
 msgstr[1] ""
+
+#: single.php:42
+msgctxt "Precedes the date posted in a human readable format, ie. 3 days ago."
+msgid "<em class=\"posted\">Posted </em>"
+msgstr ""
+
+#: single.php:46
+#. translators: %s: human readable time format. Ex. 3 days ago.
+msgctxt "%s = human readable time difference"
+msgid "%s ago"
+msgstr ""
+
+#: single.php:53
+msgctxt "Precedes a list of categories the post is in."
+msgid "in"
+msgstr ""
