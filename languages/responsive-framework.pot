@@ -1,16 +1,28 @@
-# <!=Copyright (C) 2017 Boston University Interactive Design
+# <!=Copyright (C) 2018 Boston University Interactive Design
 # This file is distributed under the same license as the Responsive Framework 2.x (BETA) package.=!>
 msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2017-11-17 21:27:04+00:00\n"
+"POT-Creation-Date: 2018-02-15 15:48:09+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n1.0.1\n"
 
 #: 404.php:13
 msgid "Yikes! We couldn't find that."
@@ -33,112 +45,107 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: admin/theme-customizer.php:47
+#: admin/theme-customizer.php:45
 msgid "Navigation Style"
 msgstr ""
 
-#: admin/theme-customizer.php:78
+#: admin/theme-customizer.php:76
 msgid "Fonts"
 msgstr ""
 
-#: admin/theme-customizer.php:107
+#: admin/theme-customizer.php:105
 msgid "Colors"
 msgstr ""
 
-#: admin/theme-customizer.php:114
+#: admin/theme-customizer.php:112
 msgid "Color Scheme"
 msgstr ""
 
-#: admin/theme-customizer.php:130
+#: admin/theme-customizer.php:128
 msgid "Base Color Scheme"
 msgstr ""
 
-#: admin/theme-customizer.php:213
+#: admin/theme-customizer.php:211
 msgid "Content Options"
 msgstr ""
 
-#: admin/theme-customizer.php:231
+#: admin/theme-customizer.php:229
 msgid "Post Display Options"
 msgstr ""
 
-#: admin/theme-customizer.php:235 inc/template-tags.php:142
+#: admin/theme-customizer.php:233 inc/template-tags.php:145
 msgid "Categories"
 msgstr ""
 
-#: admin/theme-customizer.php:236
+#: admin/theme-customizer.php:234
 msgid "Tags"
 msgstr ""
 
-#: admin/theme-customizer.php:237
+#: admin/theme-customizer.php:235
 msgid "Author"
 msgstr ""
 
-#: admin/theme-customizer.php:255
+#: admin/theme-customizer.php:253
 msgid "Options set by the theme:"
 msgstr ""
 
-#: admin/theme-customizer.php:259
+#: admin/theme-customizer.php:257
 msgid "Main sidebar position "
 msgstr ""
 
-#: admin/theme-customizer.php:262
+#: admin/theme-customizer.php:260
 msgid "Keep posts and profiles sidebar on the bottom?"
 msgstr ""
 
-#: admin/theme-customizer.php:270
+#: admin/theme-customizer.php:268
 msgid "Sidebar Options"
 msgstr ""
 
-#: admin/theme-customizer.php:284
+#: admin/theme-customizer.php:282
 msgid "Footer"
 msgstr ""
 
-#: admin/theme-customizer.php:285
-msgid "Footer links can be managed using the <a href=\"%s\">Footer and Social Links Custom Menu locations</a>."
+#: admin/theme-customizer.php:283
+msgid ""
+"Footer links can be managed using the <a href=\"%s\">Footer and Social "
+"Links Custom Menu locations</a>."
 msgstr ""
 
-#: admin/theme-customizer.php:309
+#: admin/theme-customizer.php:307
 msgid "Custom HTML"
 msgstr ""
 
-#: admin/theme-customizer.php:313
+#: admin/theme-customizer.php:311
 msgid "May be used to enter an address or contact information."
 msgstr ""
 
-#: admin/theme-customizer.php:323
+#: admin/theme-customizer.php:321
 msgid "Automatically add paragraphs"
 msgstr ""
 
-#: admin/theme-customizer.php:344
+#: admin/theme-customizer.php:342
 msgid "Static page options"
 msgstr ""
 
-#: admin/theme-customizer.php:347
+#: admin/theme-customizer.php:345
 msgid "Hide the homepage title"
 msgstr ""
 
-#: admin/theme-customizer.php:364
+#: admin/theme-customizer.php:362
 msgid "Main Sidebar Position"
 msgstr ""
 
-#: admin/theme-customizer.php:366
+#: admin/theme-customizer.php:364
 msgid "Changes the position of the main sidebar."
 msgstr ""
 
-#: admin/theme-customizer.php:387
+#: admin/theme-customizer.php:385
 msgid "Keep the posts sidebar on bottom"
 msgstr ""
 
 #: archive-profile.php:13
 msgid "Profile Directory"
 msgstr ""
-
-#: comments.php:18
-msgctxt "comments title"
-msgid "One comment"
-msgid_plural "%1$s comments"
-msgstr[0] ""
-msgstr[1] ""
 
 #: comments.php:36
 msgid "&larr; Older Comments"
@@ -188,75 +195,91 @@ msgstr ""
 msgid "Utility Navigation"
 msgstr ""
 
-#: functions.php:103
+#: functions.php:100
+msgid "Primary Navigation"
+msgstr ""
+
+#: functions.php:107
 msgid "Full browser window width"
 msgstr ""
 
-#: functions.php:104
-msgid "Banner area will appear above the content and sidebars, for use with scalable media such as Flash."
+#: functions.php:108
+msgid ""
+"Banner area will appear above the content and sidebars, for use with "
+"scalable media such as Flash."
 msgstr ""
 
-#: functions.php:109
+#: functions.php:113
 msgid "Page width"
 msgstr ""
 
-#: functions.php:110
-msgid "Banner will appear above the content and sidebars and should be 1130 pixels wide."
+#: functions.php:114
+msgid ""
+"Banner will appear above the content and sidebars and should be 1130 pixels "
+"wide."
 msgstr ""
 
-#: functions.php:115
+#: functions.php:119
 msgid "Content width"
 msgstr ""
 
-#: functions.php:116
-msgid "Banner will appear above the title in the content area and should be 760 pixels wide."
+#: functions.php:120
+msgid ""
+"Banner will appear above the title in the content area and should be 760 "
+"pixels wide."
 msgstr ""
 
-#: functions.php:191
+#: functions.php:195
 msgid "Main Sidebar"
 msgstr ""
 
-#: functions.php:193
+#: functions.php:197
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:203
+#: functions.php:207
 msgid "Posts Content Area"
 msgstr ""
 
-#: functions.php:205
-msgid "Add widgets here for display on posts and archives. Only the first 2 widgets will appear."
+#: functions.php:209
+msgid ""
+"Add widgets here for display on posts and archives. Only the first 2 "
+"widgets will appear."
 msgstr ""
 
-#: functions.php:216
+#: functions.php:220
 msgid "Profiles Content Area"
 msgstr ""
 
-#: functions.php:218
-msgid "Add widgets here for display on profile pages and archives. Only the first 2 widgets will appear."
+#: functions.php:222
+msgid ""
+"Add widgets here for display on profile pages and archives. Only the first "
+"2 widgets will appear."
 msgstr ""
 
-#: functions.php:229 inc/customizer.php:221 inc/template-tags.php:851
+#: functions.php:233 inc/customizer.php:221 inc/template-tags.php:866
 msgid "Footbar"
 msgstr ""
 
-#: functions.php:231 functions.php:245
+#: functions.php:235 functions.php:249
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:243 inc/template-tags.php:852
+#: functions.php:247 inc/template-tags.php:867
 msgid "Alternate Footbar"
 msgstr ""
 
-#: functions.php:319
+#: functions.php:345
 msgid "Navigate to: %s"
 msgstr ""
 
-#: header.php:26
-msgid "Boston University is a leading private research institution with two primary campuses in the heart of Boston and programs around the world."
+#: header.php:25
+msgid ""
+"Boston University is a leading private research institution with two "
+"primary campuses in the heart of Boston and programs around the world."
 msgstr ""
 
-#: header.php:30
+#: header.php:29
 msgid "Boston University"
 msgstr ""
 
@@ -452,43 +475,43 @@ msgstr ""
 msgid "Page %s"
 msgstr ""
 
-#: inc/template-tags.php:496
+#: inc/template-tags.php:510
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:501
+#: inc/template-tags.php:515
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:502
+#: inc/template-tags.php:516
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:547
+#: inc/template-tags.php:561
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:576
+#: inc/template-tags.php:590
 msgid "<em>By</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:582
+#: inc/template-tags.php:596
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:587
+#: inc/template-tags.php:602
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:587
+#: inc/template-tags.php:602
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:587
+#: inc/template-tags.php:602
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:695
+#: inc/template-tags.php:710
 msgid "View all posts"
 msgstr ""
 
@@ -497,7 +520,12 @@ msgid "Access Restricted To BUMC/BMC"
 msgstr ""
 
 #: no-access-bumc.php:18
-msgid "You are trying to access a page that is restricted to members of the Boston University Medical Campus (BUMC) and Boston Medical Center (BMC). If you are indeed part of the BUMC/BMC community, contact the BUMC Help Desk (%s | 617-638-5914) for further assistance, Monday through Friday, 8:30 a.m. to 5 p.m. or visit:"
+msgid ""
+"You are trying to access a page that is restricted to members of the Boston "
+"University Medical Campus (BUMC) and Boston Medical Center (BMC). If you "
+"are indeed part of the BUMC/BMC community, contact the BUMC Help Desk (%s | "
+"617-638-5914) for further assistance, Monday through Friday, 8:30 a.m. to 5 "
+"p.m. or visit:"
 msgstr ""
 
 #: no-access.php:13
@@ -505,7 +533,9 @@ msgid "Access Restricted To BU/BUMC/BMC"
 msgstr ""
 
 #: no-access.php:17
-msgid "You are trying to access a page that is restricted to members of the Boston University community.  For further assistance, please see:"
+msgid ""
+"You are trying to access a page that is restricted to members of the Boston "
+"University community.  For further assistance, please see:"
 msgstr ""
 
 #: page-templates/news.php:28 page-templates/no-sidebars.php:26 page.php:26
@@ -551,18 +581,25 @@ msgid "Nothing Found"
 msgstr ""
 
 #: template-parts/content-none.php:16
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
 msgstr ""
 
 #: template-parts/content-none.php:24
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
 msgstr ""
+
 #. Theme Name of the plugin/theme
 msgid "Responsive Framework 2.x (BETA)"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "THIS IS A BETA THEME. Do not activate this version of Responsive Framework unless you are sure that you want to use version 2.x."
+msgid ""
+"THIS IS A BETA THEME. Do not activate this version of Responsive Framework "
+"unless you are sure that you want to use version 2.x."
 msgstr ""
 
 #. Author of the plugin/theme
@@ -584,3 +621,10 @@ msgstr ""
 #. Template Name of the plugin/theme
 msgid "No Sidebars"
 msgstr ""
+
+#: comments.php:18
+msgctxt "comments title"
+msgid "One comment"
+msgid_plural "%1$s comments"
+msgstr[0] ""
+msgstr[1] ""
