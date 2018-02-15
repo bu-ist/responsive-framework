@@ -594,7 +594,7 @@ if ( ! function_exists( 'responsive_post_meta' ) ) :
 			/* translators: %s: author name linking to their archive page. */
 			printf( wp_kses( __( '<em>By </em>%s', 'responsive-framework' ), array(
 				'em' => array(),
-			) ), get_the_author_posts_link() ); // WPCS: XSS ok.
+			) ), get_the_author_posts_link() );
 		?>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'date' ) ) : ?>

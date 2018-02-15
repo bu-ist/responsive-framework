@@ -34,12 +34,20 @@ get_header(); ?>
 					<h5 class="byline single-meta-byline">
 						<?php
 							/* translators: %s: author name */
-							printf( wp_kses( __( '<em>By </em>%s', 'responsive-framework' ), array( 'em' => array() ) ), get_the_author() );
+							printf( wp_kses( __( '<em>By </em>%s', 'responsive-framework' ), array(
+								'em' => array(),
+							) ), get_the_author() );
 						?>
 					</h5>
 				<?php endif; ?>
 				<p class="posted-date-category single-meta-info">
-					<?php echo wp_kses( _x( '<em class="posted">Posted </em>', 'Precedes the date posted in a human readable format, ie. 3 days ago.', 'responsive-framework' ), array( 'em' => array( 'class' => array() ) ) ); ?>
+					<?php
+						echo wp_kses( _x( '<em class="posted">Posted </em>', 'Precedes the date posted in a human readable format, ie. 3 days ago.', 'responsive-framework' ), array(
+							'em' => array(
+								'class' => array(),
+							),
+						) );
+						?>
 					<span class="date-offset">
 						<?php
 							/* translators: %s: human readable time format. Ex. 3 days ago. */
@@ -50,7 +58,7 @@ get_header(); ?>
 					<?php if ( responsive_posts_should_display( 'categories' ) ) : ?>
 						<?php
 							responsive_category_links( array(
-								'before' => sprintf( '<span class="categories"><em> %s </em>', _x( 'in', 'Precedes a list of categories the post is in.', 'responsive-framework' ) )
+								'before' => sprintf( '<span class="categories"><em> %s </em>', _x( 'in', 'Precedes a list of categories the post is in.', 'responsive-framework' ) ),
 							) );
 						?>
 					<?php endif; ?>
