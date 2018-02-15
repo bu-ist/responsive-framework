@@ -34,8 +34,6 @@ matrix:
       env: WP_VERION=trunk
     - php: 7.2
       env: WP_VERION=latest
-  allow_failures:
-    - php: 7.2
 
 cache:
   apt: true
