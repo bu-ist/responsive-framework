@@ -1,6 +1,6 @@
 /*!
- * modernizr v3.5.0
- * Build https://modernizr.com/download?-audio-backgroundsize-borderimage-borderradius-boxshadow-canvas-canvastext-cssanimations-csscolumns-cssgradients-csspositionsticky-cssreflections-csstransforms-csstransforms3d-csstransitions-flexbox-flexboxlegacy-fontface-generatedcontent-geolocation-hashchange-hsla-inlinesvg-localstorage-multiplebgs-objectfit-opacity-postmessage-requestanimationframe-rgba-smil-svg-svgclippaths-textshadow-video-videoautoplay-webgl-domprefixes-hasevent-prefixed-prefixes-printshiv-setclasses-testallprops-testprop-teststyles-dontmin
+ * modernizr v3.4.0
+ * Build https://modernizr.com/download?-audio-backgroundsize-borderimage-borderradius-boxshadow-canvas-canvastext-cssanimations-csscolumns-cssgradients-csspositionsticky-cssreflections-csstransforms-csstransforms3d-csstransitions-flexbox-flexboxlegacy-fontface-generatedcontent-geolocation-hashchange-hsla-inlinesvg-localstorage-multiplebgs-objectfit-opacity-picture-postmessage-requestanimationframe-rgba-smil-svg-svgclippaths-textshadow-video-videoautoplay-webgl-domprefixes-hasevent-prefixed-prefixes-printshiv-setclasses-testallprops-testprop-teststyles-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -36,7 +36,7 @@
 
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.5.0',
+    _version: '3.4.0',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -2417,6 +2417,24 @@ Detects support for inline SVG in HTML (not within XHTML).
     // github.com/Modernizr/Modernizr/issues/#issue/59/comment/516632
     return (/^0.55$/).test(style.opacity);
   });
+
+/*!
+{
+  "name": "picture Element",
+  "property": "picture",
+  "tags": ["elem"],
+  "authors": ["Scott Jehl", "Mat Marquis"],
+  "notes": [{
+    "name": "Specification",
+    "href": "http://picture.responsiveimages.org"
+  },{
+    "name": "Relevant spec issue",
+    "href": "https://github.com/ResponsiveImagesCG/picture-element/issues/87"
+  }]
+}
+!*/
+
+  Modernizr.addTest('picture', 'HTMLPictureElement' in window);
 
 /*!
 {
