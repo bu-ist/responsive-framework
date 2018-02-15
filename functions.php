@@ -342,6 +342,7 @@ add_filter( 'style_loader_tag', 'responsive_style_loader_tag', 10, 2 );
  */
 function responsive_change_title_tag( $attr, $page ) {
 	unset( $attr['title'] );
+	/* translators: %s: navigation label navigating to. */
 	$attr['title'] = sprintf( esc_html__( 'Navigate to: %s', 'responsive-framework' ), esc_html( $page->navigation_label ) );
 	return $attr;
 }

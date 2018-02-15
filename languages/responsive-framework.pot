@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-02-15 18:35:35+00:00\n"
+"POT-Creation-Date: 2018-02-15 18:57:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -40,7 +40,7 @@ msgstr ""
 msgid "All page templates"
 msgstr ""
 
-#: admin/responsive-admin-page-template-filter.php:72 inc/calendar.php:77
+#: admin/responsive-admin-page-template-filter.php:72 inc/calendar.php:83
 #: inc/customizer.php:45 inc/customizer.php:372
 msgid "Default"
 msgstr ""
@@ -73,7 +73,13 @@ msgstr ""
 msgid "Post Display Options"
 msgstr ""
 
-#: admin/theme-customizer.php:233 inc/template-tags.php:145
+#: admin/theme-customizer.php:231
+msgid ""
+"Change visibility of post meta fields. Note that the \"News\" page template "
+"has its own display options."
+msgstr ""
+
+#: admin/theme-customizer.php:233 inc/template-tags.php:146
 msgid "Categories"
 msgstr ""
 
@@ -105,41 +111,42 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: admin/theme-customizer.php:283
+#: admin/theme-customizer.php:284
+#. translators: %s: menu url
 msgid ""
 "Footer links can be managed using the <a href=\"%s\">Footer and Social "
 "Links Custom Menu locations</a>."
 msgstr ""
 
-#: admin/theme-customizer.php:307
+#: admin/theme-customizer.php:308
 msgid "Custom HTML"
 msgstr ""
 
-#: admin/theme-customizer.php:311
+#: admin/theme-customizer.php:312
 msgid "May be used to enter an address or contact information."
 msgstr ""
 
-#: admin/theme-customizer.php:321
+#: admin/theme-customizer.php:322
 msgid "Automatically add paragraphs"
 msgstr ""
 
-#: admin/theme-customizer.php:342
+#: admin/theme-customizer.php:343
 msgid "Static page options"
 msgstr ""
 
-#: admin/theme-customizer.php:345
+#: admin/theme-customizer.php:346
 msgid "Hide the homepage title"
 msgstr ""
 
-#: admin/theme-customizer.php:362
+#: admin/theme-customizer.php:363
 msgid "Main Sidebar Position"
 msgstr ""
 
-#: admin/theme-customizer.php:364
+#: admin/theme-customizer.php:365
 msgid "Changes the position of the main sidebar."
 msgstr ""
 
-#: admin/theme-customizer.php:385
+#: admin/theme-customizer.php:386
 msgid "Keep the posts sidebar on bottom"
 msgstr ""
 
@@ -147,39 +154,39 @@ msgstr ""
 msgid "Profile Directory"
 msgstr ""
 
-#: comments.php:36
+#: comments.php:37
 msgid "&larr; Older Comments"
 msgstr ""
 
-#: comments.php:37
+#: comments.php:38
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: comments.php:47
+#: comments.php:48
 msgid "Comments are closed."
 msgstr ""
 
-#: comments.php:61
+#: comments.php:62
 msgid "Log out &raquo;"
 msgstr ""
 
-#: comments.php:66
+#: comments.php:67
 msgid "Name"
 msgstr ""
 
-#: comments.php:84 single-profile.php:51
+#: comments.php:85 single-profile.php:51
 msgid "Email"
 msgstr ""
 
-#: comments.php:101
+#: comments.php:102
 msgid "Comment"
 msgstr ""
 
-#: comments.php:101
+#: comments.php:102
 msgid "view guidelines"
 msgstr ""
 
-#: comments.php:103
+#: comments.php:104
 msgid "Submit Comment"
 msgstr ""
 
@@ -257,7 +264,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:233 inc/customizer.php:221 inc/template-tags.php:870
+#: functions.php:233 inc/customizer.php:221 inc/template-tags.php:879
 msgid "Footbar"
 msgstr ""
 
@@ -265,11 +272,12 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:247 inc/template-tags.php:871
+#: functions.php:247 inc/template-tags.php:880
 msgid "Alternate Footbar"
 msgstr ""
 
-#: functions.php:345
+#: functions.php:346
+#. translators: %s: navigation label navigating to.
 msgid "Navigate to: %s"
 msgstr ""
 
@@ -295,15 +303,16 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
-#: inc/calendar.php:56
+#: inc/calendar.php:60
+#. translators: %s: topic name.
 msgid "All %s"
 msgstr ""
 
-#: inc/calendar.php:82
+#: inc/calendar.php:88
 msgid "Full Date"
 msgstr ""
 
-#: inc/calendar.php:87
+#: inc/calendar.php:93
 msgid "Graphic"
 msgstr ""
 
@@ -459,61 +468,61 @@ msgstr ""
 msgid "title, author, comments, excerpt"
 msgstr ""
 
-#: inc/post-lists.php:131 inc/post-lists.php:139
+#: inc/post-lists.php:132 inc/post-lists.php:142
+#. translators: %s: author's name.
 msgid "by %s"
-msgstr ""
-
-#: inc/post-lists.php:139
-msgid "<strong>%d</strong> comments"
 msgstr ""
 
 #: inc/search-form.php:24 searchform.php:14
 msgid "Search site&hellip;"
 msgstr ""
 
-#: inc/template-tags.php:21
-msgid "Page %s"
+#: inc/template-tags.php:22
+#. translators: %d: number of pages.
+msgid "Page %d"
 msgstr ""
 
-#: inc/template-tags.php:510
+#: inc/template-tags.php:512
+#. translators: %s: archive type singular name.
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:515
+#: inc/template-tags.php:517
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:516
+#: inc/template-tags.php:518
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:561
+#: inc/template-tags.php:563
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:593 single.php:37
+#: inc/template-tags.php:595 single.php:37
 #. translators: %s: author name linking to their archive page.
 #. translators: %s: author name
 msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:600
+#: inc/template-tags.php:607
+#. translators: %s: category list for the post.
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:606
+#: inc/template-tags.php:615
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:606
+#: inc/template-tags.php:615
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:606
+#: inc/template-tags.php:615
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:714
+#: inc/template-tags.php:723
 msgid "View all posts"
 msgstr ""
 
@@ -634,10 +643,19 @@ msgstr ""
 msgid "No Sidebars"
 msgstr ""
 
-#: comments.php:18
+#: comments.php:19
+#. translators: %s: number of comments.
 msgctxt "comments title"
-msgid "One comment"
-msgid_plural "%1$s comments"
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post-lists.php:145
+#. translators: %s: number of comments.
+msgctxt "comments title"
+msgid "<strong>%s</strong> comment"
+msgid_plural "<strong>%s</strong> comments"
 msgstr[0] ""
 msgstr[1] ""
 

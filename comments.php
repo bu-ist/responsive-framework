@@ -15,7 +15,8 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-				printf( esc_html( _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title', 'responsive-framework' ) ), esc_html( number_format_i18n( get_comments_number() ) ) );
+				/* translators: %s: number of comments. */
+				printf( esc_html( _nx( '%s comment', '%s comments', get_comments_number(), 'comments title', 'responsive-framework' ) ), esc_html( number_format_i18n( get_comments_number() ) ) );
 			?>
 		</h2>
 
