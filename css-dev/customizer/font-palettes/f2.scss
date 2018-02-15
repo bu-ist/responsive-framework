@@ -15,15 +15,10 @@ $font-body: "Benton-Sans", sans-serif;
 }
 
 blockquote {
-	border-left: 0.125em solid;
 	border-color: #0f69d7; // Default blue will be overwritten by inc/customizer.php if colors customized
-	&>p {
-		padding: 0 15px;
-	}
-	&>p:first-of-type {
-		padding-top: 5px; // Provides top padding for first paragraph of blockquote to fill out gray box.
-	}
-	&>p:last-of-type {
-		padding-bottom: 5px; // Provides bottom padding for last paragraph of blockquote to fill out gray box.
+	border-left: 0.125em solid;
+	padding: 5px 15px;
+	>p:last-of-type {
+		margin-bottom: 0; // Provides bottom padding for last paragraph of blockquote to fill out gray box.
 	}
 }
