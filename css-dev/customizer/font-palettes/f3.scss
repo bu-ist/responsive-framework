@@ -33,6 +33,7 @@ h6 {
 
 blockquote {
 	position: relative;
+	
 	&::before {
 		content: "\201C"; // Unicode for Left Double Quote
 		font-size: 3em;
