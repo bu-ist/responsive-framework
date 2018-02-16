@@ -64,5 +64,5 @@ blockquote::before {
   top: 2px;
 }
 blockquote > p:last-of-type {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
