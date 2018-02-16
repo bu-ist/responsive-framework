@@ -86,7 +86,7 @@ h6,
   font-style: italic;
 }
 
-blockquote:before {
+blockquote::before {
   content: "\201C";
   display: block;
   font-family: "Pressura", sans-serif;
