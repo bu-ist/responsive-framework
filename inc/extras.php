@@ -18,7 +18,7 @@ function responsive_body_class( $classes ) {
 	$font_palette = get_option( 'burf_setting_fonts' );
 	$layout_setting = responsive_layout();
 	$sidebar_location = defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ? BU_RESPONSIVE_SIDEBAR_POSITION : get_option( 'burf_setting_sidebar_location', 'right' );
-	$posts_sidebar_bottom = (bool) defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ? BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM : get_option( 'burf_setting_posts_sidebar_bottom' );
+	$posts_sidebar_bottom = (bool) defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ? BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM : get_option( 'burf_setting_posts_sidebar_bottom', true );
 
 	if ( $font_palette ) {
 		$classes[] = $font_palette;
