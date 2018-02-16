@@ -86,15 +86,14 @@ h6,
   font-style: italic;
 }
 
-blockquote {
-  margin-top: -36px;
-}
 blockquote:before {
   content: "\201C";
+  display: block;
   font-family: "Pressura", sans-serif;
   font-size: 4em;
   font-weight: 700;
+  margin-top: -36px;
 }
 blockquote > p:first-of-type {
-  margin: -45px 0 25px 0;
+  margin: -45px 0 25px;
 }

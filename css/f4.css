@@ -96,25 +96,24 @@ h6,
 }
 
 blockquote {
-  display: block;
-  padding: 1em 0;
-  position: relative;
-  border-width: 2px 0;
+  border-color: #eee;
   border-style: solid;
-  border-color: #EEE;
+  border-width: 2px 0;
+  padding: 1.25em 0;
+  position: relative;
 }
-blockquote:before {
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #FFF;
-  line-height: 30px;
+blockquote::before {
+  background: #fff;
+  content: "\201C";
   font-family: "TiemposHeadline", serif;
   font-size: 3em;
   font-weight: 700;
-  content: '\201C';
+  left: 50%;
+  line-height: 30px;
+  position: absolute;
   text-align: center;
+  top: 12px;
+  transform: translate(-50%, -50%);
   width: 40px;
 }
 blockquote > p:last-of-type {

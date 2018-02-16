@@ -93,12 +93,11 @@ h6 {
 
 blockquote {
   position: relative;
-  left: 30px;
 }
-blockquote:before {
-  position: absolute;
-  left: -25px;
-  top: -25px;
-  font-size: 3em;
+blockquote::before {
   content: "\201C";
+  font-size: 3em;
+  left: -25px;
+  position: absolute;
+  top: -25px;
 }

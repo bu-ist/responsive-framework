@@ -52,22 +52,17 @@ h6,
 }
 
 blockquote {
-  position: relative;
-  border-left: 0.45em solid;
-  border-color: #666;
   background-color: #f0f0f0;
+  border-color: #666;
+  border-left: 0.45em solid;
+  padding: 18px;
+  position: relative;
 }
-blockquote:before {
-  position: absolute;
+blockquote::before {
   left: 14px;
+  position: absolute;
   top: 2px;
 }
-blockquote > p {
-  padding: 0 18px;
-}
-blockquote > p:first-of-type {
-  padding-top: 18px;
-}
 blockquote > p:last-of-type {
-  padding-bottom: 18px;
+  margin-bottom: 0px;
 }

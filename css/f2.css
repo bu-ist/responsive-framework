@@ -75,15 +75,10 @@ h6,
 }
 
 blockquote {
-  border-left: 0.125em solid;
   border-color: #0f69d7;
-}
-blockquote > p {
-  padding: 0 15px;
-}
-blockquote > p:first-of-type {
-  padding-top: 5px;
+  border-left: 0.125em solid;
+  padding: 5px 15px;
 }
 blockquote > p:last-of-type {
-  padding-bottom: 5px;
+  margin-bottom: 0;
 }
