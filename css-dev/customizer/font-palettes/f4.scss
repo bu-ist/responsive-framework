@@ -29,7 +29,7 @@ blockquote {
 	padding: 1.25em 0; // top padding ensures white backround doesn't overlay ascenders in bquote text first p
 	position: relative;
 	&::before {
-		background: #fff; 
+		background: #fff;
 		content: "\201C";
 		font-family: $font-heading;
 		font-size: 3em;
@@ -46,4 +46,4 @@ blockquote {
 	>p:last-of-type {
 		margin-bottom: 0; // equalizes top and bottom space between bquote and horizontal lines
 	}
-} 
+}
