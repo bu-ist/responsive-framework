@@ -10,13 +10,13 @@ blockquote {
 	border-left: 0.45em solid;
 	padding: 18px;
 	position: relative;
-	
+
 	&::before {
 		left: 14px;
 		position: absolute;
 		top: 2px;
 	}
-	
+
 	>p:last-of-type {
 		margin-bottom: 0; // Provides bottom padding for last paragraph of blockquote to fill out gray box.
 	}
