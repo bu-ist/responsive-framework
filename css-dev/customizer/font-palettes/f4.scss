@@ -28,7 +28,7 @@ blockquote {
 	border-width: 2px 0;
 	padding: 1.25em 0; // top padding ensures white backround doesn't overlay ascenders in bquote text first p
 	position: relative;
-	
+
 	&::before {
 		background: #fff;
 		content: "\201C";
@@ -44,7 +44,7 @@ blockquote {
 		width: 40px;
 		// quote color will be set by inc/customizer.php if colors customized
 	}
-	
+
 	>p:last-of-type {
 		margin-bottom: 0; // equalizes top and bottom space between bquote and horizontal lines
 	}
