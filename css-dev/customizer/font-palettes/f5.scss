@@ -27,7 +27,7 @@ h6,
 }
 
 blockquote {
-	&:before {
+	&::before {
 		content: "\201C"; // Unicode for Left Double Quote
 		display: block;
 		font-family: $font-heading;
