@@ -26,8 +26,7 @@ blockquote {
 	border-color: #eee; // Default light grey will be overwritten by inc/customizer.php if colors customized
 	border-style: solid;
 	border-width: 2px 0;
-	display: block;
-	padding: 1em 0;
+	padding: 1.25em 0; // top padding ensures white backround doesn't overlay ascenders in bquote text first p
 	position: relative;
 	&::before {
 		background: #fff; 
