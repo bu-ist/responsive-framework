@@ -257,7 +257,7 @@ function responsive_customize_register( $wp_customize ) {
 		$sidebar_description .= sprintf( '<p><strong>%s</strong>: %s</p>', esc_html__( 'Main sidebar position ', 'responsive-framework' ), BU_RESPONSIVE_SIDEBAR_POSITION );
 	}
 	if ( defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
-		$sidebar_description .= sprintf( '<p><strong>%s</strong>: %s</p>', esc_html__( 'Keep posts and profiles sidebar on the bottom?', 'responsive-framework' ), BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM );
+		$sidebar_description .= sprintf( '<p><strong>%s</strong>: %s</p>', esc_html__( 'Keep posts and profiles sidebar on the bottom?', 'responsive-framework' ), ( ( BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM ) ? 'true' : 'false' ) );
 	}
 
 	$wp_customize->add_control(
@@ -377,7 +377,8 @@ function responsive_customize_register( $wp_customize ) {
 	if ( ! defined( 'BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM' ) ) {
 		$wp_customize->add_setting(
 			'burf_setting_posts_sidebar_bottom', array(
-				'type'      => 'option',
+				'type'    => 'option',
+				'default' => true,
 			)
 		);
 
