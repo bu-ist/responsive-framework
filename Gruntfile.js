@@ -271,6 +271,7 @@ module.exports = function(grunt) {
 					'multiplebgs',
 					'objectfit',
 					'opacity',
+					'picture',
 					'postmessage',
 					'requestanimationframe',
 					'rgba',
@@ -304,13 +305,13 @@ module.exports = function(grunt) {
 	});
 
 	// 3. Where we tell Grunt we plan to use this plug-in.
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-notify');
-	grunt.loadNpmTasks('grunt-version');
+	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.loadNpmTasks( 'grunt-contrib-concat' );
+	grunt.loadNpmTasks( 'grunt-contrib-copy' );
+	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+	grunt.loadNpmTasks( 'grunt-contrib-sass' );
+	grunt.loadNpmTasks( 'grunt-notify' );
+	grunt.loadNpmTasks( 'grunt-version' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-phplint' );
@@ -318,12 +319,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-modernizr' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-	grunt.registerTask( 'install',             [ 'copy:hooks', 'bower:install', 'styles', 'scripts' ] );
+	grunt.registerTask( 'install',             [ 'copy:hooks', 'bower:install', 'build' ] );
 	grunt.registerTask( 'i18n',                [ 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'styles',              [ 'sass' ] );
 	grunt.registerTask( 'scripts',             [ 'phplint', 'concat', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail' ] );
 	grunt.registerTask( 'upgrade_modernizr',   [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
-	grunt.registerTask( 'build',               [ 'bower:install', 'clean', 'styles', 'scripts', 'i18n' ] );
+	grunt.registerTask( 'build',               [ 'bower:install', 'clean', 'sass', 'scripts', 'i18n' ] );
 	grunt.registerTask( 'default',             [ 'bower:install', 'watch' ] );
 };
