@@ -81,7 +81,13 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 
 		$this->expectOutputString( get_the_category_list( ', ', '', $this->test_post_id ) );
 
-		responsive_category_links();
+		responsive_category_links(
+			array(
+				'post_id' => $this->test_post_id,
+				'before' => '',
+				'after' => '',
+			)
+		);
 
 		wp_set_object_terms( $this->test_post_id, array( 'Uncategorized' ), false );
 	}
@@ -147,6 +153,16 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 	}
 
 	/**
+	 * Test content container class function with no args when on a narrow template.
+	 */
+	function test_r_content_container_class_no_args_narrow_template() {
+		update_option( 'burf_setting_sidebar_location', 'bottom' );
+		$this->expectOutputString( 'class="content-container-narrow"' );
+		r_content_container_class();
+		update_option( 'burf_setting_sidebar_location', 'right' );
+	}
+
+	/**
 	 * Test content container class function with string arg.
 	 */
 	function test_r_content_container_class_string_arg() {
@@ -179,6 +195,33 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 		add_filter( 'r_content_container_class', array( $this, 'r_test_filter_empty_array' ) );
 		r_content_container_class( array( 'test', 'class' ) );
 		remove_filter( 'r_content_container_class', array( $this, 'r_test_filter_empty_array' ) );
+	}
+
+	/**
+	 * Test that non BU domains do not match.
+	 */
+	function test_responsive_is_bu_domain() {
+		$this->assertFalse( responsive_is_bu_domain() );
+	}
+
+	/**
+	 * Test that BU domains correctly match.
+	 */
+	function test_responsive_is_bu_domain_true() {
+		update_option( 'siteurl', 'http://www.bu.edu/' );
+		$this->assertTrue( responsive_is_bu_domain() );
+
+		update_option( 'siteurl', 'http://www-staging.bu.edu/' );
+		$this->assertTrue( responsive_is_bu_domain() );
+
+		update_option( 'siteurl', 'http://www-test.bu.edu/' );
+		$this->assertTrue( responsive_is_bu_domain() );
+
+		update_option( 'siteurl', 'http://bu.edu/' );
+		$this->assertTrue( responsive_is_bu_domain() );
+
+		update_option( 'siteurl', 'http://cms-devl.bu.edu/' );
+		$this->assertTrue( responsive_is_bu_domain() );
 	}
 
 	/**

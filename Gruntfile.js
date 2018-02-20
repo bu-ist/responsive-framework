@@ -52,6 +52,13 @@ module.exports = function(grunt) {
 				options: {
 					spawn: false
 				}
+			},
+			phplint : {
+				files : [ '**/*.php' ],
+				tasks : [ 'phplint' ],
+				options : {
+					spawn : false
+				}
 			}
 		},
 		concat: {
@@ -171,6 +178,21 @@ module.exports = function(grunt) {
 				dest: 'js/vendor/lg-thumbnail/'
 			}
 		},
+		phplint: {
+			options: {
+				phpArgs: {
+					'-l': null,
+					'-f': null
+				}
+			},
+			all : {
+				src : [
+					'**/**.php',
+					'!vendor/**',
+					'!node_modules/**'
+				]
+			}
+		},
 		bower: {
 			install: {
 				options: {
@@ -210,6 +232,7 @@ module.exports = function(grunt) {
 					'multiplebgs',
 					'objectfit',
 					'opacity',
+					'picture',
 					'postmessage',
 					'requestanimationframe',
 					'rgba',
@@ -238,20 +261,21 @@ module.exports = function(grunt) {
 	});
 
 	// 3. Where we tell Grunt we plan to use this plug-in.
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-notify');
-	grunt.loadNpmTasks('grunt-version');
+	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.loadNpmTasks( 'grunt-contrib-concat' );
+	grunt.loadNpmTasks( 'grunt-contrib-copy' );
+	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+	grunt.loadNpmTasks( 'grunt-contrib-sass' );
+	grunt.loadNpmTasks( 'grunt-notify' );
+	grunt.loadNpmTasks( 'grunt-version' );
+	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-bower-task' );
 	grunt.loadNpmTasks( 'grunt-modernizr' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-	grunt.registerTask('install', ['copy:hooks', 'build']);
-	grunt.registerTask('default', ['bower:install', 'watch']);
+	grunt.registerTask( 'install', ['copy:hooks', 'build'] );
+	grunt.registerTask( 'default', ['bower:install', 'watch'] );
 	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail' ] );
-	grunt.registerTask( 'upgrade_modernizr', [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
+	grunt.registerTask( 'upgrade_modernizr', [ 'modernizr:dist', 'uglify' ] );
 	grunt.registerTask( 'build', ['bower:install', 'sass', 'concat', 'uglify'] );
 };
