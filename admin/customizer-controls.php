@@ -34,7 +34,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 		<?php endif; ?>
 
 			<?php if ( ! empty( $this->description ) ) : ?>
-			<span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+			<span class="description customize-control-description"><?php echo wp_kses_post( $this->description ); ?></span>
 		<?php endif; ?>
 
 			<?php $multi_values = ! is_array( $this->value() ) ? explode( ',', $this->value() ) : $this->value(); ?>
