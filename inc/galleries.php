@@ -19,7 +19,7 @@ function after_setup_theme() {
 	);
 	add_image_size(
 		'responsive_gallery_1col',
-		(int) apply_filters( 'responsive_gallery_1col_image_width', 710 ),
+		(int) apply_filters( 'responsive_gallery_1col_image_width', 1110 ),
 		(int) apply_filters( 'responsive_gallery_1col_image_height', 710 ),
 		true
 	);
