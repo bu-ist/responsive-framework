@@ -102,7 +102,22 @@
  display prerequisites for the course, and removes the cryptic course ID in favor
  of a clearer display of section ID, semester, and year.
 - Adds unique callbacks for calendar widget formats and updates tags to HTML5.
-- Adds a lightbox for galleries automatically. 
+- Adds a lightbox for galleries automatically.
+- Add a page template dropdown filter to the top of the page admin screen.
+- Switches `content-container` class to a plain div inside of `main`, which enables
+ you to use this class as many times as you need to, such as in a landing page.
+- UI improvements: "Layout" is now called "Navigation Style" in Customizer to
+ avoid future conflicts with a potential layout builder and clarify functionality.
+- Underscores are no longer stripped from classes in HTML.
+- Title attributes have been removed from anchor tags to promote accessibility.
+- Upgrade Modernizr and add new tests: sticky, video autoplay.
+- Deactivate the BU Mobile plugin when the theme is activated.
+- Introduce pull request and issue templates.
+- Add `<picture>` element support detection to Modernizr.
+
+## 1.5.5
+
+- Fix bug where nav toggle icon was not receiving the correct color (#251).
 
 ## 1.5.4
 
