@@ -18,11 +18,4 @@ class Tests_Responsive_Framework_Search extends WP_UnitTestCase {
 	function test_responsive_bu_search_form_contexts() {
 		$this->assertEquals( responsive_bu_search_form_contexts(), array( 'site' => 'This Site' ) );
 	}
-
-	/**
-	 * Test responsive_bu_search_form_query_attributes()
-	 */
-	function test_responsive_bu_search_form_query_attributes() {
-		$this->assertEquals( responsive_bu_search_form_query_attributes( '' ), 'placeholder="Search site&hellip;"' );
-	}
 }
