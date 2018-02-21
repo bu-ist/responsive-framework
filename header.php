@@ -6,7 +6,6 @@
  */
 
 ?>
-<!--[if IE ]><![endif]-->
 <!DOCTYPE html>
 <!--[if lt IE 7]>     <html class="no-js ie lt-ie9 lt-ie8 lt-ie7"  lang="en"> <![endif]-->
 <!--[if IE 7]>        <html class="no-js ie lt-ie9 lt-ie8"  lang="en"> <![endif]-->
@@ -31,8 +30,6 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<link rel="apple-touch-icon" href="<?php bloginfo( 'template_directory' ); ?>/icons/apple-touch-icon-precomposed.png"/>
-
-	<?php responsive_styles(); ?>
 
 	<?php wp_head(); ?>
 </head>
@@ -68,9 +65,23 @@
 		do_action( 'r_after_masthead' );
 	?>
 
+	<?php
+		/**
+		 * Fires immediately before the opening wrapper div.
+		 *
+		 * @since 2.0.0
+		 */
+		do_action( 'r_before_opening_wrapper' );
+	?>
 	<div class="wrapper">
-
 		<?php
+			/**
+			 * Fires immediately after the opening wrapper div.
+			 *
+			 * @since 2.0.0
+			 */
+			do_action( 'r_after_opening_wrapper' );
+
 			/**
 			 * Fires immediately before the opening content div.
 			 *

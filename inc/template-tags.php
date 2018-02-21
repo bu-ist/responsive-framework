@@ -40,11 +40,14 @@ function responsive_get_description() {
 /**
  * Whether or not the current network is a bu.edu domain.
  *
- * @return bool
+ * @param int $blog_id Blog ID to check. Default is current site.
+ * @return bool true if the blog is a BU domain, false if it is not or returns
+ *              an error.
  */
-function responsive_is_bu_domain() {
-	$current_site = get_current_site();
-	return preg_match( '#bu.edu$#', $current_site->domain );
+function responsive_is_bu_domain( $blog_id = 0 ) {
+	$site_url = get_site_url( $blog_id );
+
+	return (bool) preg_match( '#bu.edu$#', $site_url );
 }
 
 /**
@@ -299,10 +302,21 @@ function responsive_content_banner( $position ) {
 function responsive_primary_nav() {
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
 		false == BuAccessControlPlugin::is_site_403() ) {
-		bu_navigation_display_primary( array(
-			'container_id'    => 'primary-nav-menu',
-			'container_class' => 'primary-nav-menu',
-		) );
+
+		if ( function_exists( 'bu_navigation_display_primary' ) ) {
+			bu_navigation_display_primary( array(
+				'container_id'    => 'primary-nav-menu',
+				'container_class' => 'primary-nav-menu',
+			) );
+		} else {
+			wp_nav_menu( array(
+				'theme_location'  => 'responsive-primary',
+				'menu_id'    => 'primaryNav-menu',
+				'menu_class' => 'primaryNav-menu',
+				'container_tag'   => 'ul',
+				'depth'           => 2,
+			) );
+		}
 	}
 }
 
@@ -581,7 +595,7 @@ if ( ! function_exists( 'responsive_post_meta' ) ) :
 		<?php if ( responsive_posts_should_display( 'categories' ) && $category_list = get_the_category_list( ', ' ) ) : ?>
 		<span class="category"><em>in</em> <?php echo $category_list; ?></span>
 		<?php endif; ?>
-		<?php if ( bu_supports_comments() ) : ?>
+		<?php if ( function_exists( 'bu_supports_comments' ) && bu_supports_comments() ) : ?>
 		<span class="comment-counter"><a href="<?php comments_link(); ?>" rel="nofollow"><?php comments_number( '<strong>0</strong> comments', '<strong>1</strong> comment', '<strong>%</strong> comments' ); ?></a></span>
 		<?php endif; ?>
 	</div>

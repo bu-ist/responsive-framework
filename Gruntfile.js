@@ -236,6 +236,7 @@ module.exports = function(grunt) {
 					'multiplebgs',
 					'objectfit',
 					'opacity',
+					'picture',
 					'postmessage',
 					'requestanimationframe',
 					'rgba',
@@ -276,8 +277,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-modernizr' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-	grunt.registerTask('install', ['copy:hooks', 'build']);
-	grunt.registerTask('default', ['bower:install', 'watch']);
+	grunt.registerTask( 'install', ['copy:hooks', 'build'] );
+	grunt.registerTask( 'default', ['bower:install', 'watch'] );
 	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail' ] );
 	grunt.registerTask( 'upgrade_modernizr', [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
 	grunt.registerTask( 'build', ['bower:install', 'sass', 'concat', 'uglify'] );
