@@ -114,6 +114,7 @@
 - Deactivate the BU Mobile plugin when the theme is activated.
 - Introduce pull request and issue templates.
 - Add `<picture>` element support detection to Modernizr.
+- Prepare the theme for localization using internationalization best practices.
 
 ## 1.5.5
 
