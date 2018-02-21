@@ -114,6 +114,8 @@
 - Deactivate the BU Mobile plugin when the theme is activated.
 - Introduce pull request and issue templates.
 - Add `<picture>` element support detection to Modernizr.
+- Remove `bu_search_form_query_attributes` filter function. This is now the
+ default behavior in BU-CMS.
 
 ## 1.5.5
 
