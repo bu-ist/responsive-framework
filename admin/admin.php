@@ -53,7 +53,7 @@ function responsive_footbar_display_metabox_form( $post ) {
 		<label for="bu_footbar_<?php echo esc_attr( $id ); ?>"><?php echo esc_html( $label ); ?></label></p>
 	<?php endforeach; ?>
 	<p><input type="radio" id="bu_footbar_none" name="bu_footbar_id" value="none" <?php checked( 'none', $selected ); ?>/>
-	<label for="bu_footbar_none">None</label></p>
+	<label for="bu_footbar_none"><?php esc_html_e( 'None', 'responsive-framework' ); ?></label></p>
 </fieldset>
 
 <?php
