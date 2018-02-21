@@ -195,7 +195,8 @@ function responsive_customize_register( $wp_customize ) {
 
 					$wp_customize->add_control(
 						"burf_setting_active_color_regions[$option]", array(
-							'label'       => 'Use ' . $colors['label'] . '?',
+							/* translators: %s: color label */
+							'label'       => sprintf( esc_html__( 'Use %s?', 'responsive-framework' ), $colors['label'] ),
 							'section'     => "burf_section_custom_colors[$slug]",
 							'type'        => 'checkbox',
 						)

@@ -47,8 +47,8 @@ get_header(); ?>
 
 	<?php else : ?>
 
-		<h1>No Posts Found</h1>
-		<p>This site does not currently have any posts. Please check back later.</p>
+		<h1><?php esc_html_e( 'No Posts Found', 'responsive-framework' ); ?></h1>
+		<p><?php esc_html_e( 'This site does not currently have any posts. Please check back later.', 'responsive-framework' ); ?></p>
 
 	<?php endif; ?>
 

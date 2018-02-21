@@ -54,7 +54,12 @@ if ( post_password_required() ) {
 		<h3 class="comment-respond-title"><?php comment_form_title( 'Post Your Comment', 'Reply to %s' ); ?></h3>
 
 		<?php if ( get_option( 'comment_registration' ) && ! is_user_logged_in() ) : ?>
-			<p>You must be <a href="<?php echo esc_url( wp_login_url( get_permalink() ) ); ?>">logged in</a> to post a comment.</p>
+			<p>
+				<?php
+					/* translators: 1: opening anchor tag, 2: closing anchor tag. */
+					printf( esc_html__( 'You must be %1$slogged in%2$s to post a comment.', 'responsive-framework' ), '<a href="' . esc_url( wp_login_url( get_permalink() ) ) . '">', '</a>' );
+				?>
+			</p>
 		<?php else : ?>
 			<form action="<?php echo esc_url( home_url( '/' ) ); ?>/wp-comments-post.php" method="post" id="commentform" class="comment-form">
 				<fieldset>
