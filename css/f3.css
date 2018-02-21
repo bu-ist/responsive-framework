@@ -5,6 +5,7 @@
   font-style: normal;
   font-weight: 400;
 }
+
 @font-face {
   font-family: "Capita";
   src: url("https://www.bu.edu/cdn/fonts/Capita-Italic/Capita-Italic.eot");
@@ -12,6 +13,7 @@
   font-style: italic;
   font-weight: 400;
 }
+
 @font-face {
   font-family: "Benton-Sans";
   src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot");
@@ -19,6 +21,7 @@
   font-style: normal;
   font-weight: 400;
 }
+
 @font-face {
   font-family: "Benton-Sans";
   src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot");
@@ -26,6 +29,7 @@
   font-style: italic;
   font-weight: 400;
 }
+
 @font-face {
   font-family: "Benton-Sans";
   src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot");
@@ -33,6 +37,7 @@
   font-style: normal;
   font-weight: 700;
 }
+
 @font-face {
   font-family: "Benton-Sans";
   src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot");
@@ -40,6 +45,7 @@
   font-style: italic;
   font-weight: 700;
 }
+
 body {
   font-family: "Capita", serif;
 }
