@@ -132,7 +132,7 @@ function responsive_posts_widget_format_display( $post, $args ) {
 			$output .= sprintf( '<p class="meta widget-post-meta"><span class="author widget-post-author">%s</span></p>', sprintf( __( 'by %s', 'responsive-framework' ), get_the_author() ) );
 			break;
 		case 'title_date_comments_excerpt':
-			$output .= sprintf( '<p class="meta widget-post-meta"><span class="published widget-post-published">%s</span>  <span class="comment-counter widget-post-comment-counter"> <a href="%s" rel="nofollow"><strong>%s</strong> comments</a></span></p>', BU_PostList::post_date( 'F j, Y' ), get_comments_link(), get_comments_number( $post->ID ) );
+			$output .= sprintf( '<p class="meta widget-post-meta"><span class="published widget-post-published">%s</span>  <span class="comment-counter widget-post-comment-counter"> <a href="%s" rel="nofollow"><strong>%s</strong> comments</a></span></p>', BU_PostList::post_date( 'F j, Y' ), get_comments_link(), get_comments_number() );
 			break;
 		case 'title_author_comments_excerpt':
 			$output .= sprintf(
@@ -142,7 +142,7 @@ function responsive_posts_widget_format_display( $post, $args ) {
 				sprintf( __( 'by %s', 'responsive-framework' ), get_the_author() ),
 				get_comments_link(),
 				/* translators: %s: number of comments. */
-				sprintf( _nx( '<strong>%s</strong> comment', '<strong>%s</strong> comments', get_comments_number(), 'comments title', 'responsive-framework' ) ), esc_html( number_format_i18n( get_comments_number() ), get_comments_number( $post->ID ) )
+				sprintf( _nx( '<strong>%1$d</strong> comment', '<strong>%1$d</strong> comments', get_comments_number(), 'number of comments', 'responsive-framework' ) ), get_comments_number()
 			);
 			break;
 	}
