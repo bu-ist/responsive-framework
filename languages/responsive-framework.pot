@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-02-21 16:59:51+00:00\n"
+"POT-Creation-Date: 2018-02-21 18:12:42+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -340,26 +340,6 @@ msgstr ""
 
 #: inc/customizer.php:48
 msgid "No Navigation Bar"
-msgstr ""
-
-#: inc/customizer.php:69
-msgid "Capita,Benton"
-msgstr ""
-
-#: inc/customizer.php:70
-msgid "Benton,Benton"
-msgstr ""
-
-#: inc/customizer.php:71
-msgid "Benton,Capita"
-msgstr ""
-
-#: inc/customizer.php:72
-msgid "Pressura,Benton"
-msgstr ""
-
-#: inc/customizer.php:73
-msgid "Stag,Benton"
 msgstr ""
 
 #: inc/customizer.php:211

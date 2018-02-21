@@ -66,11 +66,11 @@ function responsive_get_font_palette() {
  */
 function responsive_font_options() {
 	return array(
-		'f1' => __( 'Capita,Benton', 'responsive-framework' ),
-		'f2' => __( 'Benton,Benton', 'responsive-framework' ),
-		'f3' => __( 'Benton,Capita', 'responsive-framework' ),
-		'f4' => __( 'Pressura,Benton', 'responsive-framework' ),
-		'f5' => __( 'Stag,Benton', 'responsive-framework' ),
+		'f1' => 'Capita,Benton',
+		'f2' => 'Benton,Benton',
+		'f3' => 'Benton,Capita',
+		'f4' => 'Pressura,Benton',
+		'f5' => 'Stag,Benton',
 	);
 }
 
