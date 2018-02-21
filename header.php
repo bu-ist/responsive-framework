@@ -26,7 +26,7 @@
 	<?php endif; ?>
 
 	<?php if ( responsive_is_bu_domain() ) : ?>
-		<meta name="copyright" content="&copy; <?php echo esc_attr( date( 'Y' ) ); ?> <?php esc_attr_e( 'Boston University', 'responsive-framework' ); ?>" />
+		<meta name="copyright" content="&copy; <?php echo esc_attr( date( 'Y' ) ); ?> Boston University" />
 	<?php else : ?>
 		<link rel="shortcut icon" href="<?php bloginfo( 'template_directory' ); ?>/icons/favicon-g.ico" />
 	<?php endif; ?>
