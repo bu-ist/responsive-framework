@@ -146,9 +146,12 @@ module.exports = function(grunt) {
 			target: {
 				files: {
 					src: [
+						'*.php',
 						'**/*.php',
 						'!bin/**',
+						'!bower_components/**',
 						'!node_modules/**',
+						'!tests/**',
 						'!vendor/**'
 					]
 				}
