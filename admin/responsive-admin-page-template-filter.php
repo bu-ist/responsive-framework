@@ -68,8 +68,8 @@ function restrict_manage_posts( $post_type, $which ) {
 	}
 	?>
 	<select name="responsive_template_filter_<?php echo esc_attr( $which ); ?>">
-		<option value="">All page templates</option>
-		<option value="default" <?php selected( 'default', $selected_template ); ?>>Default</option>
+		<option value=""><?php esc_html_e( 'All page templates', 'responsive-framework' ); ?></option>
+		<option value="default" <?php selected( 'default', $selected_template ); ?>><?php esc_html_e( 'Default', 'responsive-framework' ); ?></option>
 		<?php foreach ( $templates as $name => $template ) : ?>
 			<option value="<?php echo esc_attr( $template ); ?>" <?php selected( $template, $selected_template ); ?>><?php echo esc_html( $name ); ?></option>
 		<?php endforeach; ?>
