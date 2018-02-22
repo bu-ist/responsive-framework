@@ -34,34 +34,34 @@ get_header(); ?>
 						<?php
 
 						bu_profile_detail( 'title', array(
-							'before' => '<li class="profile-details-item profile-details-title"><span class="label profile-details-label">Title </span>',
+							'before' => sprintf( '<li class="profile-details-item profile-details-title"><span class="label profile-details-label">%s </span>', esc_html__( 'Title', 'responsive-framework' ) ),
 							'after' => '</li>',
 							'post_id' => get_the_ID(),
 							'format' => 'multi-line',
 						) );
 
 						bu_profile_detail( 'office', array(
-							'before' => '<li class="profile-details-item profile-details-office"><span class="label profile-details-label">Office </span>',
+							'before' => sprintf( '<li class="profile-details-item profile-details-office"><span class="label profile-details-label">%s </span>', esc_html__( 'Office', 'responsive-framework' ) ),
 							'after' => '</li>',
 							'post_id' => get_the_ID(),
 							'format' => 'multi-line',
 						) );
 
 						bu_profile_detail( 'email', array(
-							'before' => '<li class="profile-details-item profile-details-email"><span class="label profile-details-label">Email </span>',
+							'before' => sprintf( '<li class="profile-details-item profile-details-email"><span class="label profile-details-label">%s </span>', esc_html__( 'Email', 'responsive-framework' ) ),
 							'after' => '</li>',
 							'post_id' => get_the_ID(),
 							'format' => 'email',
 						) );
 
 						bu_profile_detail( 'phone', array(
-							'before' => '<li class="profile-details-item profile-details-phone"><span class="label profile-details-label">Phone </span>',
+							'before' => sprintf( '<li class="profile-details-item profile-details-phone"><span class="label profile-details-label">%s </span>', esc_html__( 'Phone', 'responsive-framework' ) ),
 							'after' => '</li>',
 							'post_id' => get_the_ID(),
 						) );
 
 						bu_profile_detail( 'education', array(
-							'before' => '<li class="profile-details-item profile-details-education"><span class="label profile-details-label">Education </span>',
+							'before' => sprintf( '<li class="profile-details-item profile-details-education"><span class="label profile-details-label">%s </span>', esc_html__( 'Education', 'responsive-framework' ) ),
 							'after' => '</li>',
 							'post_id' => get_the_ID(),
 							'format' => 'multi-line',
@@ -83,7 +83,7 @@ get_header(); ?>
 
 			<?php the_taxonomies( array( 'before' => '<div class="profile-tax"><dl>', 'sep' => '', 'after' => '</dl></div><!--/.profiles-tax-->', 'template' => '<dt>%s</dt><dd>%l</dd>' ) ); ?>
 
-			<?php edit_post_link( 'Edit', '<p class="edit-link">', '</p>' ); ?>
+			<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<p class="edit-link">', '</p>' ); ?>
 
 			<?php responsive_profiles_archive_link(); ?>
 

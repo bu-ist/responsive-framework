@@ -19,7 +19,11 @@
 	<meta http-equiv="ClearType" content="true" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<?php if ( function_exists( 'bu_meta' ) ) : bu_meta(); else : ?><meta name="description" content="Boston University is a leading private research institution with two primary campuses in the heart of Boston and programs around the world." /><?php endif; ?>
+	<?php if ( function_exists( 'bu_meta' ) ) : ?>
+		<?php bu_meta(); ?>
+	<?php else : ?>
+		<meta name="description" content="<?php esc_attr_e( 'Boston University is a leading private research institution with two primary campuses in the heart of Boston and programs around the world.', 'responsive-framework' ); ?>" />
+	<?php endif; ?>
 
 	<?php if ( responsive_is_bu_domain() ) : ?>
 		<meta name="copyright" content="&copy; <?php echo esc_attr( date( 'Y' ) ); ?> Boston University" />
