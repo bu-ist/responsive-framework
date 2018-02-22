@@ -115,7 +115,9 @@
 - Introduce pull request and issue templates.
 - Add `<picture>` element support detection to Modernizr.
 - Prepare the theme for localization using internationalization best practices.
-
+- Remove `bu_search_form_query_attributes` filter function. This is now the
+ default behavior in BU-CMS.
+ 
 ## 1.5.6
 
 - Remove empty IE conditional at the beginning of `header.php` ([#272](https://github.com/bu-ist/responsive-framework/issues/272)).
