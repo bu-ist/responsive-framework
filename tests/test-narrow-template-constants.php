@@ -8,6 +8,8 @@
  * @package Responsive_Framework
  */
 
+global $wp_version;
+
 if ( isset( $_SERVER['CIRCLECI'] ) && version_compare( '4.7', $wp_version ) > 0 && version_compare( phpversion(), '7.1' ) >= 0 ) {
 	return;
 }
