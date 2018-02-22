@@ -19,9 +19,14 @@ get_header(); ?>
 
 	<?php the_content(); ?>
 
-	<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:' ), 'after' => '</div>' ) ); ?>
+	<?php
+		wp_link_pages( array(
+			'before' => sprintf( '<div class="page-link">%s', esc_html__( 'Pages:', 'responsive-framework' ) ),
+			'after' => '</div>',
+		) );
+	?>
 
-	<?php edit_post_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
+	<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<span class="edit-link">', '</span>' ); ?>
 
 	<?php $news_query = BU_News_Page_Template::query_posts(); ?>
 
@@ -38,8 +43,8 @@ get_header(); ?>
 
 	<?php else : ?>
 
-		<h1>No Posts Found</h1>
-		<p>This site does not currently have any posts. Please check back later.</p>
+		<h1><?php esc_html_e( 'No Posts Found', 'responsive-framework' ); ?></h1>
+		<p><?php esc_html_e( 'This site does not currently have any posts. Please check back later.', 'responsive-framework' ); ?></p>
 
 	<?php endif; ?>
 
