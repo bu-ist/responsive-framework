@@ -61,12 +61,7 @@ if ( $timestamp > $boundary_future ) {
 	$yyyymmdd = date( 'Ymd', $timestamp );
 }
 
-?>
-<?php get_header(); ?>
-
-<?php responsive_content_banner( 'page-width' ); ?>
-
-<?php
+get_header();
 
 $extra_classes = array( 'content-area' );
 
@@ -79,8 +74,6 @@ if ( is_null( $eventID ) ) {
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $extra_classes ); ?>>
-
-		<?php responsive_content_banner( 'content-width' ); ?>
 
 		<?php if ( is_null( $eventID ) ) { ?>
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
