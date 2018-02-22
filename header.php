@@ -103,8 +103,6 @@
 				do_action( 'r_after_opening_content' );
 			?>
 
-			<?php responsive_content_banner( 'window-width' ); ?>
-
 			<?php
 				/**
 				 * Fires immediately before the opening content container div.
