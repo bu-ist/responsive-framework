@@ -62,11 +62,13 @@ blockquote {
   padding: 18px;
   position: relative;
 }
+
 blockquote::before {
   left: 14px;
   position: absolute;
   top: 2px;
 }
+
 blockquote > p:last-of-type {
   margin-bottom: 0;
 }

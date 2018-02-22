@@ -85,6 +85,7 @@ blockquote {
   border-left: 0.125em solid;
   padding: 5px 15px;
 }
+
 blockquote > p:last-of-type {
   margin-bottom: 0;
 }

@@ -110,6 +110,7 @@ blockquote {
   padding: 1.25em 0;
   position: relative;
 }
+
 blockquote::before {
   background: #fff;
   content: "\201C";
@@ -124,6 +125,7 @@ blockquote::before {
   transform: translate(-50%, -50%);
   width: 40px;
 }
+
 blockquote > p:last-of-type {
   margin-bottom: 0;
 }

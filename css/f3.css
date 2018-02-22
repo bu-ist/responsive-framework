@@ -100,6 +100,7 @@ h6 {
 blockquote {
   position: relative;
 }
+
 blockquote::before {
   content: "\201C";
   font-size: 3em;
