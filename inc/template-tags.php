@@ -18,7 +18,8 @@ function responsive_get_title() {
 		echo esc_html( " | $site_description" );
 	}
 	if ( $paged >= 2 || $page >= 2 ) {
-		echo esc_html( ' | ' . sprintf( __( 'Page %s' ), max( $paged, $page ) ) );
+		/* translators: %d: number of pages. */
+		echo esc_html( ' | ' . sprintf( __( 'Page %d', 'responsive-framework' ), max( $paged, $page ) ) );
 	}
 }
 
@@ -142,7 +143,7 @@ function responsive_search_form() {
  */
 function responsive_category_links( $args = array() ) {
 	$defaults = array(
-		'before'    => '<span class="categories">Categories: ',
+		'before'    => sprintf( '<span class="categories">%s: ', esc_html__( 'Categories', 'responsive-framework' ) ),
 		'after'     => '</span>',
 		'separator' => ', ',
 		'parents'   => '',
@@ -406,13 +407,14 @@ if ( ! function_exists( 'responsive_posts_navigation' ) ) :
 			$defaults = array(
 				'prev_text'          => '<span class="meta-nav">&larr;</span> Previous',
 				'next_text'          => 'Next <span class="meta-nav">&rarr;</span>',
-				'screen_reader_text' => ucfirst( $archive_type ) . ' navigation',
+				/* translators: %s: archive type singular name. */
+				'screen_reader_text' => sprintf( __( '%s navigation', 'responsive-framework' ), ucfirst( $archive_type ) ),
 			);
 
 				// Post archive labels are more specific.
 			if ( 'posts' === $archive_type ) {
-				$defaults['prev_text'] = '<span class="meta-nav">&larr;</span> Newer posts';
-				$defaults['next_text'] = 'Older posts <span class="meta-nav">&rarr;</span>';
+				$defaults['prev_text'] = sprintf( '<span class="meta-nav">&larr;</span> %s', esc_html__( 'Newer posts', 'responsive-framework' ) );
+				$defaults['next_text'] = sprintf( '%s <span class="meta-nav">&rarr;</span>', esc_html__( 'Older posts', 'responsive-framework' ) );
 			}
 
 			$args = wp_parse_args( $args, $defaults );
@@ -457,7 +459,7 @@ if ( ! function_exists( 'responsive_post_navigation' ) ) :
 		$args = wp_parse_args( $args, array(
 			'prev_text'          => '<span class="meta-nav">&larr;</span>&nbsp;%title',
 			'next_text'          => '%title&nbsp;<span class="meta-nav">&rarr;</span>',
-			'screen_reader_text' => 'Post navigation',
+			'screen_reader_text' => __( 'Post navigation', 'responsive-framework' ),
 		) );
 
 			$previous   = get_previous_post_link( '<div class="nav-previous">%link</div>', $args['prev_text'] );
@@ -486,16 +488,32 @@ if ( ! function_exists( 'responsive_post_meta' ) ) :
 		?>
 		<div class="meta post-meta">
 		<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
-		<span class="author"><em>By</em> <?php the_author_posts_link(); ?></span>
+		<span class="author">
+		<?php
+			/* translators: %s: author name linking to their archive page. */
+			printf( wp_kses( __( '<em>By </em>%s', 'responsive-framework' ), array(
+				'em' => array(),
+			) ), get_the_author_posts_link() );
+		?>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'date' ) ) : ?>
-		<span class="date"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ) ?>" pubdate><?php echo esc_html( get_the_date( 'F jS Y' ) ); ?></time></span>
+			<span class="date"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ) ?>" pubdate><?php echo esc_html( get_the_date( 'F jS Y' ) ); ?></time></span>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'categories' ) && $category_list = get_the_category_list( ', ' ) ) : ?>
-		<span class="category"><em>in</em> <?php echo $category_list; ?></span>
+			<span class="category">
+			<?php
+				/* translators: %s: category list for the post. */
+				printf( esc_html__( '<em>in</em> %s', 'responsive-framework' ), $category_list ); // WPCS: XSS ok.
+			?>
+			</span>
 		<?php endif; ?>
+
 		<?php if ( function_exists( 'bu_supports_comments' ) && bu_supports_comments() ) : ?>
-		<span class="comment-counter"><a href="<?php comments_link(); ?>" rel="nofollow"><?php comments_number( '<strong>0</strong> comments', '<strong>1</strong> comment', '<strong>%</strong> comments' ); ?></a></span>
+			<span class="comment-counter">
+				<a href="<?php comments_link(); ?>" rel="nofollow">
+					<?php comments_number( esc_html__( '<strong>0</strong> comments', 'responsive-framework' ), esc_html__( '<strong>1</strong> comment', 'responsive-framework' ), esc_html__( '<strong>%</strong> comments', 'responsive-framework' ) ); ?>
+				</a>
+			</span>
 		<?php endif; ?>
 	</div>
 	<?php
@@ -601,7 +619,7 @@ function responsive_get_posts_archive_link() {
  */
 function responsive_posts_archive_link( $args = array() ) {
 	$defaults = array(
-		'label'  => 'View all posts',
+		'label'  => __( 'View all posts', 'responsive-framework' ),
 		'before' => '<p class="archive-link-container">',
 		'after'  => '</p>',
 		'class'  => 'archive-link posts-archive-link',
@@ -757,8 +775,8 @@ function responsive_theme_supports_dynamic_footbars() {
  */
 function responsive_get_dynamic_footbars() {
 	return array(
-		'footbar'           => 'Footbar',
-		'alternate-footbar' => 'Alternate Footbar',
+		'footbar'           => __( 'Footbar', 'responsive-framework' ),
+		'alternate-footbar' => __( 'Alternate Footbar', 'responsive-framework' ),
 		);
 }
 
