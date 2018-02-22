@@ -8,6 +8,10 @@
  * @package Responsive_Framework
  */
 
+if ( isset( $_SERVER['CIRCLECI'] ) && version_compare( '4.7', $wp_version ) > 0 && version_compare( phpversion(), '7.1' ) >= 0 ) {
+	return;
+}
+
 /**
  * Class Tests_Responsive_Framework_Narrow_Template_Constants
  *
