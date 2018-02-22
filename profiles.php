@@ -17,7 +17,7 @@ get_header(); ?>
 
 			<?php the_title( '<h1>', '</h1>' ); ?>
 
-			<?php the_content( '<p class="serif">Read the rest of this page &raquo;</p>' ); ?>
+			<?php the_content( '<p class="serif">' . esc_html__( 'Read the rest of this profile &raquo;', 'responsive-framework' ) . '</p>' ); ?>
 
 			<?php if ( defined( 'BU_PROFILES_PLUGIN_ACTIVE' ) && BU_PROFILES_PLUGIN_ACTIVE ) : ?>
 			<?php $format = bu_profile_get_format_for_post(); ?>
