@@ -130,28 +130,28 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 
 		// Set up default menu items.
 		wp_update_nav_menu_item( $menu_id, 0, array(
-			'menu-item-title'  => __( 'Boston University' ),
+			'menu-item-title'  => 'Boston University',
 			'menu-item-url'    => 'http://www.bu.edu',
 			'menu-item-status' => 'publish',
 			'menu-item-type'   => 'custom',
 		) );
 
 		wp_update_nav_menu_item( $menu_id, 0, array(
-			'menu-item-title'  => __( 'Search' ),
+			'menu-item-title'  => 'Search',
 			'menu-item-url'    => 'http://www.bu.edu/search',
 			'menu-item-status' => 'publish',
 			'menu-item-type'   => 'custom',
 		) );
 
 		wp_update_nav_menu_item( $menu_id, 0, array(
-			'menu-item-title'  => __( 'Directory' ),
+			'menu-item-title'  => 'Directory',
 			'menu-item-url'    => 'http://www.bu.edu/directory',
 			'menu-item-status' => 'publish',
 			'menu-item-type'   => 'custom',
 		) );
 
 		wp_update_nav_menu_item( $menu_id, 0, array(
-			'menu-item-title'  => __( 'BU Today' ),
+			'menu-item-title'  => 'BU Today',
 			'menu-item-url'    => 'http://www.bu.edu/today/',
 			'menu-item-status' => 'publish',
 			'menu-item-type'   => 'custom',
