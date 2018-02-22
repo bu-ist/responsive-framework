@@ -93,13 +93,6 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 	}
 
 	/**
-	 * Test default content banner return value.
-	 */
-	function test_responsive_content_banner() {
-		$this->assertEmpty( responsive_content_banner( 'test' ) );
-	}
-
-	/**
 	 * Test default post display options.
 	 */
 	function test_responsive_get_post_display_options() {
