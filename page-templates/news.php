@@ -13,11 +13,7 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-	<?php responsive_content_banner( 'page-width' ); ?>
-
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
-
-	<?php responsive_content_banner( 'content-width' ); ?>
 
 	<?php the_title( '<h1>', '</h1>' ); ?>
 

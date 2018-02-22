@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-02-22 17:05:43+00:00\n"
+"POT-Creation-Date: 2018-02-22 17:13:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -278,7 +278,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:233 inc/customizer.php:221 inc/template-tags.php:879
+#: functions.php:233 inc/customizer.php:221 inc/template-tags.php:778
 msgid "Footbar"
 msgstr ""
 
@@ -286,7 +286,7 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:247 inc/template-tags.php:880
+#: functions.php:247 inc/template-tags.php:779
 msgid "Alternate Footbar"
 msgstr ""
 
@@ -472,47 +472,47 @@ msgstr ""
 msgid "Page %d"
 msgstr ""
 
-#: inc/template-tags.php:512
+#: inc/template-tags.php:411
 #. translators: %s: archive type singular name.
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:517
+#: inc/template-tags.php:416
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:518
+#: inc/template-tags.php:417
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:563
+#: inc/template-tags.php:462
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:595 single.php:37
+#: inc/template-tags.php:494 single.php:34
 #. translators: %s: author name linking to their archive page.
 #. translators: %s: author name
 msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:607
+#: inc/template-tags.php:506
 #. translators: %s: category list for the post.
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:615
+#: inc/template-tags.php:514
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:615
+#: inc/template-tags.php:514
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:615
+#: inc/template-tags.php:514
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:723
+#: inc/template-tags.php:622
 msgid "View all posts"
 msgstr ""
 
@@ -540,25 +540,25 @@ msgid ""
 "University community.  For further assistance, please see:"
 msgstr ""
 
-#: page-templates/news.php:28 page-templates/no-sidebars.php:26 page.php:26
-#: single.php:26
+#: page-templates/news.php:24 page-templates/no-sidebars.php:22 page.php:22
+#: single.php:23
 msgid "Pages:"
 msgstr ""
 
-#: page-templates/news.php:33 page-templates/no-sidebars.php:31 page.php:31
-#: single-profile.php:86 single.php:73
+#: page-templates/news.php:29 page-templates/no-sidebars.php:27 page.php:27
+#: single-profile.php:86 single.php:70
 msgid "Edit"
 msgstr ""
 
-#: page-templates/news.php:50
+#: page-templates/news.php:46
 msgid "No Posts Found"
 msgstr ""
 
-#: page-templates/news.php:51
+#: page-templates/news.php:47
 msgid "This site does not currently have any posts. Please check back later."
 msgstr ""
 
-#: profiles.php:20
+#: profiles.php:16
 msgid "Read the rest of this profile &raquo;"
 msgstr ""
 
@@ -595,7 +595,7 @@ msgstr ""
 msgid "Education"
 msgstr ""
 
-#: single.php:67
+#: single.php:64
 msgid "Tagged"
 msgstr ""
 
@@ -661,18 +661,18 @@ msgid_plural "<strong>%1$d</strong> comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: single.php:45
+#: single.php:42
 msgctxt "Precedes the date posted in a human readable format, ie. 3 days ago."
 msgid "<em class=\"posted\">Posted </em>"
 msgstr ""
 
-#: single.php:54
+#: single.php:51
 #. translators: %s: human readable time format. Ex. 3 days ago.
 msgctxt "%s = human readable time difference"
 msgid "%s ago"
 msgstr ""
 
-#: single.php:61
+#: single.php:58
 msgctxt "Precedes a list of categories the post is in."
 msgid "in"
 msgstr ""
