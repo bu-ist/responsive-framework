@@ -137,6 +137,48 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
+		addtextdomain: {
+			options: {
+				textdomain: 'responsive-framework',
+				updateDomains: [
+					'YOUR-TEXTDOMAIN',
+					'cmb2',
+					'_s'
+				]
+			},
+			target: {
+				files: {
+					src: [
+						'*.php',
+						'**/*.php',
+						'!bin/**',
+						'!bower_components/**',
+						'!node_modules/**',
+						'!tests/**',
+						'!vendor/**'
+					]
+				}
+			}
+		},
+		makepot: {
+			target: {
+				options: {
+					domainPath: '/languages',
+					potFilename: 'responsive-framework.pot',
+					mainFile: 'functions.php',
+					potHeaders: {
+						poedit: true,
+						'language': 'en',
+						'x-poedit-country': 'United States',
+						'x-poedit-keywordslist': true,
+						'x-poedit-sourcecharset': 'UTF-8',
+						'x-textdomain-support': 'yes'
+					},
+					type: 'wp-theme',
+					updateTimestamp: false
+				}
+			}
+		},
 		version: {
 			functions: {
 				options: {
@@ -264,6 +306,11 @@ module.exports = function(grunt) {
 				],
 				'uglify': false
 			}
+		},
+		clean: {
+			build: [
+				'languages/*'
+			]
 		}
 	});
 
@@ -275,14 +322,18 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-sass' );
 	grunt.loadNpmTasks( 'grunt-notify' );
 	grunt.loadNpmTasks( 'grunt-version' );
+	grunt.loadNpmTasks( 'grunt-contrib-clean' );
+	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-bower-task' );
 	grunt.loadNpmTasks( 'grunt-modernizr' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-	grunt.registerTask( 'install', ['copy:hooks', 'build'] );
-	grunt.registerTask( 'default', ['bower:install', 'watch'] );
+	grunt.registerTask( 'install',             [ 'copy:hooks', 'bower:install', 'build' ] );
+	grunt.registerTask( 'i18n',                [ 'addtextdomain', 'makepot' ] );
+	grunt.registerTask( 'styles',              [ 'sass' ] );
+	grunt.registerTask( 'scripts',             [ 'phplint', 'concat', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail' ] );
-	grunt.registerTask( 'upgrade_modernizr', [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
-	grunt.registerTask( 'build', ['bower:install', 'sass', 'concat', 'uglify'] );
+	grunt.registerTask( 'upgrade_modernizr',   [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
+	grunt.registerTask( 'build',               [ 'bower:install', 'clean', 'sass', 'scripts', 'i18n' ] );
 };
