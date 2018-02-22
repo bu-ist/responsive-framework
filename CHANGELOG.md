@@ -116,6 +116,12 @@
 - Add `<picture>` element support detection to Modernizr.
 - Prepare the theme for localization using internationalization best practices.
 
+## 1.5.6
+
+- Remove empty IE conditional at the beginning of `header.php` ([#272](https://github.com/bu-ist/responsive-framework/issues/272)).
+- Ensure the correct default value is returned for
+ `BU_RESPONSIVE_POSTS_SIDEBAR_SHOW_BOTTOM` ([#268](https://github.com/bu-ist/responsive-framework/pull/268)).
+
 ## 1.5.5
 
 - Fix bug where nav toggle icon was not receiving the correct color (#251).
