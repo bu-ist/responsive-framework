@@ -256,8 +256,15 @@ function responsive_sidebars() {
 	}
 
 }
-
 add_action( 'widgets_init', 'responsive_sidebars' );
+
+/**
+ * Display the bottom sidebar.
+ */
+function responsive_bottom_sidebar_display() {
+	get_sidebar( 'bottom' );
+}
+add_action( 'r_before_closing_content', 'responsive_bottom_sidebar_display' );
 
 /**
  * Enqueue front-end scripts & styles.
