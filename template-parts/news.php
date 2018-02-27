@@ -32,7 +32,7 @@
 	<?php
 
 	if ( $show_meta ) {
-		BU_News_Page_Template::show_tags( '<p class="meta tag-list"><span class="tags"><em>Tagged:</em> ', '</span></p>' );
+		BU_News_Page_Template::show_tags( '<p class="meta tag-list"><span class="tags"><em>' . __( 'Tagged:', 'responsive-framework' ) . '</em> ', '</span></p>' );
 	}
 
 	?>
