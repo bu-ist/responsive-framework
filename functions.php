@@ -152,7 +152,7 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			$profile_templates->register(
 				apply_filters(
 					'responsive_profile_templates', array(
-						'page-templates/profiles.php',
+						'profiles.php',
 					)
 				)
 			);
