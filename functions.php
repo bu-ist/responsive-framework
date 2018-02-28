@@ -100,50 +100,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			register_nav_menu( 'responsive-primary', __( 'Primary Navigation', 'responsive-framework' ) );
 		}
 
-		// Content banner locations.
-		if ( function_exists( 'bu_register_banner_position' ) ) {
-			bu_register_banner_position(
-				'window-width', array(
-					'label' => __( 'Full browser window width', 'responsive-framework' ),
-					'hint'  => __( 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.', 'responsive-framework' ),
-				)
-			);
-			bu_register_banner_position(
-				'page-width', array(
-					'label' => __( 'Page width', 'responsive-framework' ),
-					'hint'  => __( 'Banner will appear above the content and sidebars and should be 1130 pixels wide.', 'responsive-framework' ),
-				)
-			);
-			bu_register_banner_position(
-				'content-width', array(
-					'label'   => __( 'Content width', 'responsive-framework' ),
-					'hint'    => __( 'Banner will appear above the title in the content area and should be 760 pixels wide.', 'responsive-framework' ),
-					'default' => true,
-				)
-			);
-		}
-
-		// Register supported templates for Content Banner and BU Profile plugins.
+		// Register supported templates for BU Profile plugin.
 		// @TODO: Need to require from BU_INCLUDES.
 		if ( class_exists( 'AllowedTemplates' ) ) {
-			global $banner_templates, $profile_templates, $news_templates;
-
-			if ( ! isset( $banner_templates ) ) {
-				$banner_templates = new AllowedTemplates();
-			}
-
-			$banner_templates->register(
-				apply_filters(
-					'responsive_banner_templates', array(
-						'default',
-						'page-templates/calendar.php',
-						'page-templates/news.php',
-						'page-templates/no-sidebars.php',
-						'page-templates/profiles.php',
-						'single.php',
-					)
-				)
-			);
+			global $profile_templates, $news_templates;
 
 			if ( ! isset( $profile_templates ) ) {
 				$profile_templates = new AllowedTemplates();
@@ -169,7 +129,6 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 				)
 			);
 		}
-
 	}
 
 endif;
