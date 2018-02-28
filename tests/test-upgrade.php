@@ -117,8 +117,17 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 				),
 			),
 		) );
+		$test_page_id_4 = $this->factory->post->create( array(
+			'post_title' => 'Test Page 4',
+			'post_type' => 'page',
+			'meta_input' => array(
+				'_wp_page_template' => 'profiles.php',
+			),
+		) );
 
 		responsive_upgrade_2_0( false );
+
+		$this->assertEquals( 'page-templates/profiles.php', get_post_meta( $test_page_id_4, '_wp_page_template', true ) );
 
 		$this->assertEquals( array( 'position' => 'content-width' ), get_post_meta( $test_page_id_1, '_bu_banner', true ) );
 		$this->assertEquals( array( 'position' => 'page-width' ), get_post_meta( $test_page_id_2, '_bu_banner', true ) );

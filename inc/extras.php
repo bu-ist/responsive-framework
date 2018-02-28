@@ -31,7 +31,7 @@ function responsive_body_class( $classes ) {
 	// If "Keep posts sidebar on bottom" is on, don't add classes to those pages.
 	if ( $sidebar_location ) {
 		if ( true === $posts_sidebar_bottom ) {
-			if ( is_page() && ! is_page_template( 'page-templates/news.php' ) && ! is_page_template( 'page-templates/profiles.php' ) ) {
+			if ( is_page() && ! is_page_template( 'page-templates/news.php' ) && ! is_page_template( 'profiles.php' ) ) {
 				$classes[] = "sidebar-location-$sidebar_location";
 			}
 		} else {
