@@ -20,9 +20,9 @@
 	<?php the_excerpt(); ?>
 
 	<?php if ( responsive_posts_should_display( 'tags' ) ) {
-		the_tags( '<p class="meta tags"><em>Tagged:</em> ', ', ', '</p>' );
+		the_tags( '<p class="meta tags"><em>' . __( 'Tagged:', 'responsive-framework' ) . '</em> ', ', ', '</p>' );
 } ?>
 
-	<?php edit_post_link( 'Edit', '<p class="edit-link">', '</p>' ); ?>
+	<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<p class="edit-link">', '</p>' ); ?>
 
 </article>

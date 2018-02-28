@@ -12,10 +12,10 @@
 </div>
 
 <nav class="primary-nav" role="navigation">
-	<a href="#primary-nav-menu" class="nav-toggle js-nav-toggle" aria-label="Toggle Menu"><span>Menu</span></a>
+	<a href="#primary-nav-menu" class="nav-toggle js-nav-toggle" aria-label="Toggle Menu"><span><?php esc_html_e( 'Menu', 'responsive-framework' ); ?></span></a>
 
 	<?php if ( responsive_search_is_enabled() ) : ?>
-		<a href="#quicksearch" class="search-toggle js-search-toggle"><span>Search</span></a>
+		<a href="#quicksearch" class="search-toggle js-search-toggle"><span><?php esc_html_e( 'Search', 'responsive-framework' ); ?></span></a>
 	<?php endif; ?>
 
 	<?php responsive_primary_nav(); ?>
