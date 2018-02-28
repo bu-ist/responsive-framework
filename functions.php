@@ -103,7 +103,19 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		// Register supported templates for BU Profile plugin.
 		// @TODO: Need to require from BU_INCLUDES.
 		if ( class_exists( 'AllowedTemplates' ) ) {
-			global $news_templates;
+			global $profile_templates, $news_templates;
+
+			if ( ! isset( $profile_templates ) ) {
+				$profile_templates = new AllowedTemplates();
+			}
+
+			$profile_templates->register(
+				apply_filters(
+					'responsive_profile_templates', array(
+						'profiles.php',
+					)
+				)
+			);
 
 			if ( ! isset( $news_templates ) ) {
 				$news_templates = new AllowedTemplates();
