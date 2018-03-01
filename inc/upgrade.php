@@ -162,7 +162,7 @@ function responsive_upgrade_2_0( $verbose = true ) {
 	}
 
 	$template_map = apply_filters( __FUNCTION__ . '_template_map', array(
-		'profiles.php'        => 'page-templates/profiles.php',
+		'page-templates/profiles.php' => 'profiles.php',
 	) );
 
 	$template_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
