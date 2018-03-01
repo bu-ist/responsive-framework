@@ -111,7 +111,14 @@ if ( post_password_required() ) {
 					</div>
 
 					<?php comment_id_fields(); ?>
-					<?php do_action( 'comment_form' ); ?>
+					<?php
+						/**
+						 * Fires at the end of a comment form.
+						 *
+						 * @since 1.0.0
+						 */
+						do_action( 'comment_form' );
+					?>
 				</fieldset>
 			</form>
 		<?php endif; // if registration required and not logged in. ?>
