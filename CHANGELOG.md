@@ -42,10 +42,10 @@
   - `r_before_content_banner`
   - `r_after_content_banner_{position}`
   - `r_after_content_banner`
-- Added `r_content_banner_args` filter for modifying generated content banner
- arguments.
-- Added `r_content_banner_output` filter for modifying content banner output.
- This was previously `responsive_content_banner_output`.
+- ~~Added `r_content_banner_args` filter for modifying generated content banner
+ arguments.~~
+- ~~Added `r_content_banner_output` filter for modifying content banner output.
+ This was previously `responsive_content_banner_output`.~~
 - Add `branding.php` template part so child themes can override the default
  branding markup by calling `remove_theme_support( 'bu-branding' )`.
 - Add `r_script_in_footer` filter for changing the loading location of the
