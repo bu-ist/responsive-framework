@@ -109,13 +109,18 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 				$news_templates = new AllowedTemplates();
 			}
 
-			$news_templates->register(
-				apply_filters(
-					'responsive_news_templates', array(
-						'page-templates/news.php',
-					)
-				)
-			);
+			/**
+			 * Filters page templates that allow news posts to be listed.
+			 *
+			 * @since 2.0.0
+			 *
+			 * @param array Page templates.
+			 */
+			$theme_news_templates = apply_filters( 'responsive_news_templates', array(
+				'page-templates/news.php',
+			) );
+
+			$news_templates->register( $theme_news_templates );
 		}
 	}
 
@@ -219,8 +224,15 @@ add_action( 'r_before_closing_content', 'responsive_bottom_sidebar_display' );
 function responsive_enqueue_scripts() {
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
+	/**
+	 * Filter the responsive-scripts script dependencies.
+	 *
+	 * @param array Script dependencies. Default: jquery.
+	 */
+	$dependencies = apply_filters( 'r_script_dependencies', array( 'jquery' ) );
+
 	// Main script file (script.js) will load from child theme directory.
-	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", apply_filters( 'r_script_dependencies', array( 'jquery' ) ), RESPONSIVE_THEME_VERSION, apply_filters( 'r_script_location', true ) );
+	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", $dependencies, RESPONSIVE_THEME_VERSION, apply_filters( 'r_script_location', true ) );
 
 	/**
 	 * Filters whether Modernizr should be enqueued by the framework.
@@ -349,6 +361,8 @@ function r_is_narrow_template() {
 
 	/**
 	 * Filters whether the blog page (post type archive) should be considered narrow.
+	 *
+	 * Default is true, or yes.
 	 *
 	 * @since 2.0.0
 	 *
