@@ -503,7 +503,7 @@ if ( ! function_exists( 'responsive_post_meta' ) ) :
 			<span class="category">
 			<?php
 				/* translators: %s: category list for the post. */
-				printf( esc_html__( '<em>in</em> %s', 'responsive-framework' ), $category_list ); // WPCS: XSS ok.
+				printf( wp_kses_post( __( '<em>in</em> %s', 'responsive-framework' ) ), $category_list ); // WPCS: XSS ok.
 			?>
 			</span>
 		<?php endif; ?>
@@ -511,7 +511,7 @@ if ( ! function_exists( 'responsive_post_meta' ) ) :
 		<?php if ( function_exists( 'bu_supports_comments' ) && bu_supports_comments() ) : ?>
 			<span class="comment-counter">
 				<a href="<?php comments_link(); ?>" rel="nofollow">
-					<?php comments_number( esc_html__( '<strong>0</strong> comments', 'responsive-framework' ), esc_html__( '<strong>1</strong> comment', 'responsive-framework' ), esc_html__( '<strong>%</strong> comments', 'responsive-framework' ) ); ?>
+					<?php comments_number( wp_kses_post( __( '<strong>0</strong> comments', 'responsive-framework' ) ), wp_kses_post( __( '<strong>1</strong> comment', 'responsive-framework' ) ), wp_kses_post( __( '<strong>%</strong> comments', 'responsive-framework' ) ) ); ?>
 				</a>
 			</span>
 		<?php endif; ?>
