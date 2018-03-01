@@ -48,7 +48,7 @@
  This was previously `responsive_content_banner_output`.
 - Add `branding.php` template part so child themes can override the default
  branding markup by calling `remove_theme_support( 'bu-branding' )`.
-- Add `r_script_location` filter for changing the loading location of the
+- Add `r_script_in_footer` filter for changing the loading location of the
  theme's JavaScript file.
 - Add `r_enqueue_modernizr` filter for preventing Modernizr from being
  enqueued. Child themes and plugins can use this to load their own build of
