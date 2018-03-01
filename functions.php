@@ -227,12 +227,25 @@ function responsive_enqueue_scripts() {
 	/**
 	 * Filter the responsive-scripts script dependencies.
 	 *
+	 * @since 2.0.0
+	 *
 	 * @param array Script dependencies. Default: jquery.
 	 */
 	$dependencies = apply_filters( 'r_script_dependencies', array( 'jquery' ) );
 
+	/**
+	 * Filters whether the main framework JavaScript file should be loaded in the footer.
+	 *
+	 * Default is true, or yes.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param bool True, or load in footer.
+	 */
+	$script_in_footer = apply_filters( 'r_script_in_footer', true );
+
 	// Main script file (script.js) will load from child theme directory.
-	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", $dependencies, RESPONSIVE_THEME_VERSION, apply_filters( 'r_script_location', true ) );
+	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", $dependencies, RESPONSIVE_THEME_VERSION, $script_in_footer );
 
 	/**
 	 * Filters whether Modernizr should be enqueued by the framework.
