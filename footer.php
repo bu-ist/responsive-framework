@@ -62,6 +62,8 @@
 		<?php
 			/**
 			 * Fires immediately before the footer brand assets.
+			 *
+			 * @since 2.0.0
 			 */
 			do_action( 'r_before_footer_brand_assets' );
 		?>
@@ -74,6 +76,8 @@
 		<?php
 			/**
 			 * Fires immediately after the footer brand assets.
+			 *
+			 * @since 2.0.0
 			 */
 			do_action( 'r_after_footer_brand_assets' );
 		?>
@@ -91,6 +95,8 @@
 		<?php
 			/**
 			 * Fires immediately after the footer menus.
+			 *
+			 * @since 2.0.0
 			 */
 			do_action( 'r_after_footer_menus' );
 		?>
