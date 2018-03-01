@@ -177,7 +177,6 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 
 		responsive_upgrade_2_0( false );
 
-		echo get_post_meta( $test_page_id, '_wp_page_template', true );
 		$this->assertEquals( 'profiles.php', get_post_meta( $test_page_id, '_wp_page_template', true ) );
 	}
 }
