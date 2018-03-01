@@ -2,6 +2,11 @@
 
 A responsive WordPress theme framework. Uses the [Responsive Foundation](https://github.com/bu-ist/responsive-foundation/).
 
+[![Build Status](https://travis-ci.com/bu-ist/responsive-framework.svg?token=wzsqLbpb4sxFWxMw2jUo&branch=develop)](https://travis-ci.com/bu-ist/responsive-framework)
+[![CircleCI](https://circleci.com/gh/bu-ist/responsive-framework.svg?style=svg)](https://circleci.com/gh/bu-ist/responsive-framework)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/50f17f55e72abe7eb3fa/test_coverage)](https://codeclimate.com/repos/582231969f3c3f007e003961/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/50f17f55e72abe7eb3fa/maintainability)](https://codeclimate.com/repos/582231969f3c3f007e003961/maintainability)
+
 ## Development Requirements
 
 - [Node](http://nodejs.org/) and [Node Package Manager](https://github.com/npm/npm)
