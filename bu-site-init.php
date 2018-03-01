@@ -181,9 +181,9 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 	// Activate default plugins.
 	error_log( sprintf( '[%s] Activating default plugins..', __FUNCTION__ ) );
 	update_option( 'active_plugins', array(
+		'bu-banners/bu-banners.php',
 		'bu-front-end-library/bu-front-end-library.php',
 		'bu-post-details/bu-post-details.php',
-		'content-banner/content-banner.php',
 		'link-lists/link-lists.php',
 		'bu-sharing/bu-sharing.php',
 	) );

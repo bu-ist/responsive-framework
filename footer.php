@@ -23,11 +23,7 @@
 				 * @since 2.0.0
 				 */
 				do_action( 'r_after_closing_content_container' );
-			?>
 
-		<?php get_sidebar( 'bottom' ); ?>
-
-			<?php
 				/**
 				 * Fires immediately before the closing content div.
 				 *
