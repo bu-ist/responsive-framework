@@ -1,6 +1,6 @@
 machine:
   php:
-    version: 7.0.28
+    version: 7.0.24
   environment:
     WP_TESTS_DIR: /tmp/wordpress-tests-lib
     WP_CORE_DIR: /tmp/wordpress/
@@ -43,7 +43,7 @@ test:
       phpunit
       WP_MULTISITE=1 phpunit
     - |
-      phpenv global 7.1.14
+      phpenv global 7.1.9
       php -v
       phpunit --version
       rm -rf $WP_TESTS_DIR $WP_CORE_DIR
@@ -51,23 +51,7 @@ test:
       phpunit
       WP_MULTISITE=1 phpunit
     - |
-      phpenv global 7.1.14
-      php -v
-      phpunit --version
-      rm -rf $WP_TESTS_DIR $WP_CORE_DIR
-      bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 trunk
-      phpunit
-      WP_MULTISITE=1 phpunit
-    - |
-      phpenv global 7.2.2
-      php -v
-      phpunit --version
-      rm -rf $WP_TESTS_DIR $WP_CORE_DIR
-      bash bin/install-wp-tests.sh wordpress_test ubuntu '' 127.0.0.1 latest
-      phpunit
-      WP_MULTISITE=1 phpunit
-    - |
-      phpenv global 7.2.2
+      phpenv global 7.1.9
       php -v
       phpunit --version
       rm -rf $WP_TESTS_DIR $WP_CORE_DIR
