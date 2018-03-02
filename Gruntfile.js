@@ -1,5 +1,8 @@
 module.exports = function(grunt) {
 
+	// Report execution time data.
+	require( 'time-grunt' )(grunt);
+
 	// 1. All configuration goes here
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
