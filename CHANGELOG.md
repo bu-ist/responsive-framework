@@ -118,6 +118,7 @@
 - Remove `bu_search_form_query_attributes` filter function. This is now the
  default behavior in BU-CMS.
 - Remove Content Banner support.
+- Add Grunt time reporting.
  
 ## 1.5.6
 
