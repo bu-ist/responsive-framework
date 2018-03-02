@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-03-01 21:33:57+00:00\n"
+"POT-Creation-Date: 2018-03-02 16:50:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -260,7 +260,7 @@ msgstr ""
 msgid "Alternate Footbar"
 msgstr ""
 
-#: functions.php:312
+#: functions.php:325
 #. translators: %s: navigation label navigating to.
 msgid "Navigate to: %s"
 msgstr ""
