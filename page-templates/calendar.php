@@ -20,7 +20,16 @@ $topic = null;
 if ( array_key_exists( 'topic', $_GET ) ) {
 	$topic = intval( $_GET['topic'] );
 }
-$topic = apply_filters( 'bu_flexi_calendar_topic', $topic );
+
+/**
+ * Filters the current topic ID before retrieving events from BU Calendar.
+ *
+ * @since 0.9.0
+ * @since 2.0.0 Renamed from bu_flexi_calendar_topic to responsive_calendar_topic.
+ *
+ * @param int $topic Topic ID.
+ */
+$topic = apply_filters( 'responsive_calendar_topic', $topic );
 
 $eventID = array_key_exists( 'eid', $_GET ) ? intval( $_GET['eid'] ) : null;
 
