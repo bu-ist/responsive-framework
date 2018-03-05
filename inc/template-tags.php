@@ -24,21 +24,6 @@ function responsive_get_title() {
 }
 
 /**
- * Print the site's description.
- *
- * TODO: Remove once child themes have migrated to 1.0.0.
- */
-function responsive_get_description() {
-	if ( is_single() ) {
-		single_post_title( '', true );
-	} else {
-		bloginfo( 'name' );
-		echo ' - ';
-		bloginfo( 'description' );
-	}
-}
-
-/**
  * Whether or not the current network is a bu.edu domain.
  *
  * @param int $blog_id Blog ID to check. Default is current site.

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-03-05 17:11:23+00:00\n"
+"POT-Creation-Date: 2018-03-05 22:02:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -88,7 +88,7 @@ msgid ""
 "has its own display options."
 msgstr ""
 
-#: admin/theme-customizer.php:234 inc/template-tags.php:146
+#: admin/theme-customizer.php:234 inc/template-tags.php:131
 msgid "Categories"
 msgstr ""
 
@@ -248,7 +248,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:185 inc/customizer.php:227 inc/template-tags.php:793
+#: functions.php:185 inc/customizer.php:227 inc/template-tags.php:778
 msgid "Footbar"
 msgstr ""
 
@@ -256,7 +256,7 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:199 inc/template-tags.php:794
+#: functions.php:199 inc/template-tags.php:779
 msgid "Alternate Footbar"
 msgstr ""
 
@@ -442,47 +442,47 @@ msgstr ""
 msgid "Page %d"
 msgstr ""
 
-#: inc/template-tags.php:411
+#: inc/template-tags.php:396
 #. translators: %s: archive type singular name.
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:416
+#: inc/template-tags.php:401
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:417
+#: inc/template-tags.php:402
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:462
+#: inc/template-tags.php:447
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:494 single.php:34
+#: inc/template-tags.php:479 single.php:34
 #. translators: %s: author name linking to their archive page.
 #. translators: %s: author name
 msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:506
+#: inc/template-tags.php:491
 #. translators: %s: category list for the post.
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:514
+#: inc/template-tags.php:499
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:514
+#: inc/template-tags.php:499
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:514
+#: inc/template-tags.php:499
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:629
+#: inc/template-tags.php:614
 msgid "View all posts"
 msgstr ""
 
