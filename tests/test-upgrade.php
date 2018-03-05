@@ -29,43 +29,51 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 	 * Test upgrade routines from Responsive 0.91.
 	 */
 	function test_responsive_upgrade_091() {
-		$test_page_id_1 = $this->factory->post->create( array(
-			'post_title' => 'Test Page 1',
-			'post_type' => 'page',
-			'meta_input' => array(
-				'_wp_page_template' => 'calendar.php',
-				'_bu_banner' => array(
-					'position' => 'content-width',
+		$test_page_id_1 = $this->factory->post->create(
+			array(
+				'post_title' => 'Test Page 1',
+				'post_type'  => 'page',
+				'meta_input' => array(
+					'_wp_page_template' => 'calendar.php',
+					'_bu_banner'        => array(
+						'position' => 'content-width',
+					),
 				),
-			),
-		) );
-		$test_page_id_2 = $this->factory->post->create( array(
-			'post_title' => 'Test Page 2',
-			'post_type' => 'page',
-			'meta_input' => array(
-				'_wp_page_template' => 'news.php',
-				'_bu_banner' => array(
-					'position' => 'page-width',
+			)
+		);
+		$test_page_id_2 = $this->factory->post->create(
+			array(
+				'post_title' => 'Test Page 2',
+				'post_type'  => 'page',
+				'meta_input' => array(
+					'_wp_page_template' => 'news.php',
+					'_bu_banner'        => array(
+						'position' => 'page-width',
+					),
 				),
-			),
-		) );
-		$test_page_id_3 = $this->factory->post->create( array(
-			'post_title' => 'Test Page 3',
-			'post_type' => 'page',
-			'meta_input' => array(
-				'_wp_page_template' => 'page-nosidebars.php',
-				'_bu_banner' => array(
-					'position' => 'window-width',
+			)
+		);
+		$test_page_id_3 = $this->factory->post->create(
+			array(
+				'post_title' => 'Test Page 3',
+				'post_type'  => 'page',
+				'meta_input' => array(
+					'_wp_page_template' => 'page-nosidebars.php',
+					'_bu_banner'        => array(
+						'position' => 'window-width',
+					),
 				),
-			),
-		) );
-		$test_page_id_4 = $this->factory->post->create( array(
-			'post_title' => 'Test Page 4',
-			'post_type' => 'page',
-			'meta_input' => array(
-				'_wp_page_template' => 'profiles.php',
-			),
-		) );
+			)
+		);
+		$test_page_id_4 = $this->factory->post->create(
+			array(
+				'post_title' => 'Test Page 4',
+				'post_type'  => 'page',
+				'meta_input' => array(
+					'_wp_page_template' => 'profiles.php',
+				),
+			)
+		);
 
 		responsive_upgrade_091( false );
 
@@ -87,36 +95,42 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 	 * @expectedIncorrectUsage wpdb::prepare
 	 */
 	function test_responsive_upgrade_2_0_banner_positions() {
-		$test_page_id_1 = $this->factory->post->create( array(
-			'post_title' => 'Test Page 1',
-			'post_type' => 'page',
-			'meta_input' => array(
-				'_wp_page_template' => 'calendar.php',
-				'_bu_banner' => array(
-					'position' => 'contentWidth',
+		$test_page_id_1 = $this->factory->post->create(
+			array(
+				'post_title' => 'Test Page 1',
+				'post_type'  => 'page',
+				'meta_input' => array(
+					'_wp_page_template' => 'calendar.php',
+					'_bu_banner'        => array(
+						'position' => 'contentWidth',
+					),
 				),
-			),
-		) );
-		$test_page_id_2 = $this->factory->post->create( array(
-			'post_title' => 'Test Page 2',
-			'post_type' => 'page',
-			'meta_input' => array(
-				'_wp_page_template' => 'news.php',
-				'_bu_banner' => array(
-					'position' => 'pageWidth',
+			)
+		);
+		$test_page_id_2 = $this->factory->post->create(
+			array(
+				'post_title' => 'Test Page 2',
+				'post_type'  => 'page',
+				'meta_input' => array(
+					'_wp_page_template' => 'news.php',
+					'_bu_banner'        => array(
+						'position' => 'pageWidth',
+					),
 				),
-			),
-		) );
-		$test_page_id_3 = $this->factory->post->create( array(
-			'post_title' => 'Test Page 3',
-			'post_type' => 'page',
-			'meta_input' => array(
-				'_wp_page_template' => 'page-nosidebars.php',
-				'_bu_banner' => array(
-					'position' => 'windowWidth',
+			)
+		);
+		$test_page_id_3 = $this->factory->post->create(
+			array(
+				'post_title' => 'Test Page 3',
+				'post_type'  => 'page',
+				'meta_input' => array(
+					'_wp_page_template' => 'page-nosidebars.php',
+					'_bu_banner'        => array(
+						'position' => 'windowWidth',
+					),
 				),
-			),
-		) );
+			)
+		);
 
 		responsive_upgrade_2_0( false );
 
@@ -126,7 +140,7 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 	}
 
 	/**
-	 * Test Responsive 2.0 upgrade routine for layour names.
+	 * Test Responsive 2.0 upgrade routine for layout names.
 	 *
 	 * @expectedIncorrectUsage wpdb::prepare
 	 */
@@ -143,5 +157,26 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 		update_option( 'burf_setting_layout', 'noNav' );
 		responsive_upgrade_2_0( false );
 		$this->assertEquals( 'no-nav', get_option( 'burf_setting_layout' ) );
+	}
+
+	/**
+	 * Test Responsive 2.0 upgrade routine for template names.
+	 *
+	 * @expectedIncorrectUsage wpdb::prepare
+	 */
+	function test_responsive_upgrade_2_0_templates() {
+		$test_page_id = $this->factory->post->create(
+			array(
+				'post_title' => 'Test Page 4',
+				'post_type'  => 'page',
+				'meta_input' => array(
+					'_wp_page_template' => 'page-templates/profiles.php',
+				),
+			)
+		);
+
+		responsive_upgrade_2_0( false );
+
+		$this->assertEquals( 'profiles.php', get_post_meta( $test_page_id, '_wp_page_template', true ) );
 	}
 }
