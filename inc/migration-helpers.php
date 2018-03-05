@@ -63,7 +63,6 @@ function responsive_flexi_migration() {
 	$template_map = apply_filters( __FUNCTION__ . '_page_template_map', array(
 		'calendar.php'           => 'page-templates/calendar.php',
 		'news.php'               => 'page-templates/news.php',
-		'profiles.php'           => 'page-templates/profiles.php',
 
 		// Okay mappings ... Flexi hid title for these templates as well.
 		'blank.php'              => 'page-templates/no-sidebars.php',
