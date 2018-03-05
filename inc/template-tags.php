@@ -602,6 +602,13 @@ function responsive_get_posts_archive_link() {
 		}
 	}
 
+	/**
+	 * Filters the post archive link.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string Post archive link.
+	 */
 	return apply_filters( 'responsive_get_posts_archive_link', $archive_link );
 }
 
@@ -731,7 +738,15 @@ function responsive_extra_footer_classes() {
 		$classes[] = 'has-footer-social';
 	}
 
+	/**
+	 * Filters extra footer classes.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array Extra classes for the footer.
+	 */
 	$classes = apply_filters( 'responsive_extra_footer_classes', $classes );
+
 	$classes = array_unique( array_map( 'esc_attr', $classes ) );
 
 	echo esc_attr( implode( ' ', $classes ) );
