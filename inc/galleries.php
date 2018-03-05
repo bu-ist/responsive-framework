@@ -69,7 +69,7 @@ function after_setup_theme() {
 	 */
 	$height_5col = (int) apply_filters( 'responsive_gallery_5col_up_image_height', 200 );
 
-	add_image_size( 'responsive_gallery_5col_up', $width_1col, $height_1col, true );
+	add_image_size( 'responsive_gallery_5col_up', $width_5col, $height_5col, true );
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\after_setup_theme' );
 
