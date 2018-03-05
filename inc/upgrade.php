@@ -36,6 +36,14 @@ function responsive_framework_upgrade( $verbose = true ) {
 				responsive_upgrade_2_0( $verbose );
 			}
 
+			/**
+			 * Fires immediately after upgrade routines have run.
+			 *
+			 * @param string Database version before upgrade.
+			 * @param string New theme version.
+			 *
+			 * @since 1.2.0
+			 */
 			do_action( 'responsive_framework_upgrade', $db_version, RESPONSIVE_FRAMEWORK_VERSION );
 
 			if ( $verbose ) {
