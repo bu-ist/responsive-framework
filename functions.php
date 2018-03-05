@@ -109,13 +109,18 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 				$news_templates = new AllowedTemplates();
 			}
 
-			$news_templates->register(
-				apply_filters(
-					'responsive_news_templates', array(
-						'page-templates/news.php',
-					)
-				)
-			);
+			/**
+			 * Filters page templates that allow news posts to be listed.
+			 *
+			 * @since 2.0.0
+			 *
+			 * @param array Page templates.
+			 */
+			$theme_news_templates = apply_filters( 'responsive_news_templates', array(
+				'page-templates/news.php',
+			) );
+
+			$news_templates->register( $theme_news_templates );
 		}
 	}
 
@@ -219,8 +224,28 @@ add_action( 'r_before_closing_content', 'responsive_bottom_sidebar_display' );
 function responsive_enqueue_scripts() {
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
+	/**
+	 * Filter the responsive-scripts script dependencies.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array Script dependencies. Default: jquery.
+	 */
+	$dependencies = apply_filters( 'r_script_dependencies', array( 'jquery' ) );
+
+	/**
+	 * Filters whether the main framework JavaScript file should be loaded in the footer.
+	 *
+	 * Default is true, or yes.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param bool True, or load in footer.
+	 */
+	$script_in_footer = apply_filters( 'r_script_in_footer', true );
+
 	// Main script file (script.js) will load from child theme directory.
-	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", apply_filters( 'r_script_dependencies', array( 'jquery' ) ), RESPONSIVE_THEME_VERSION, apply_filters( 'r_script_location', true ) );
+	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", $dependencies, RESPONSIVE_THEME_VERSION, $script_in_footer );
 
 	/**
 	 * Filters whether Modernizr should be enqueued by the framework.
@@ -350,6 +375,8 @@ function r_is_narrow_template() {
 	/**
 	 * Filters whether the blog page (post type archive) should be considered narrow.
 	 *
+	 * Default is true, or yes.
+	 *
 	 * @since 2.0.0
 	 *
 	 * @param bool true Default for checking is_home() conditional.
@@ -457,8 +484,8 @@ function r_content_container_class( $class = '' ) {
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param array $classes An array of post classes.
-	 * @param array $class   An array of additional classes added to the post.
+	 * @param array $classes Content container classes.
+	 * @param array $class   Additional classes added to the content container.
 	 */
 	$classes = apply_filters( 'r_content_container_class', $classes, $class );
 

@@ -111,7 +111,7 @@
 				 */
 				do_action( 'r_before_opening_content_container' );
 			?>
-			<div <?php r_content_container_class( array() ); ?>>
+			<div <?php r_content_container_class(); ?>>
 				<?php
 					/**
 					 * Fires immediately after the opening content container div.
