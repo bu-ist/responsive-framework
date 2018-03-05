@@ -503,8 +503,8 @@ function r_content_container_class( $class = '' ) {
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param array $classes An array of post classes.
-	 * @param array $class   An array of additional classes added to the post.
+	 * @param array $classes Content container classes.
+	 * @param array $class   Additional classes added to the content container.
 	 */
 	$classes = apply_filters( 'r_content_container_class', $classes, $class );
 
