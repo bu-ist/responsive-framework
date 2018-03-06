@@ -522,6 +522,13 @@ function r_container_outer_class( $class = '' ) {
 	echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
 }
 
+/**
+ * Ensure the class argument for class attribute functions are in the proper format.
+ *
+ * @param string|array $class Element classes.
+ *
+ * @return array Element classes.
+ */
 function r_prepare_passed_classes( $class ) {
 	if ( $class ) {
 		if ( ! is_array( $class ) ) {
