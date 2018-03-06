@@ -135,7 +135,6 @@ function responsive_init() {
 	// Add support for dynamic footbars (e.g. alternate footbar).
 	add_post_type_support( 'page', 'bu-dynamic-footbars' );
 }
-
 add_action( 'init', 'responsive_init' );
 
 /**
@@ -454,13 +453,13 @@ function r_is_narrow_template() {
 }
 
 /**
- * Displays the classes for the main content container.
+ * Displays the classes for the inner content container.
  *
  * @since 2.0.0
  *
  * @param string|array $class One or more classes to add to the class list.
  */
-function r_content_container_class( $class = '' ) {
+function r_container_inner_class( $class = '' ) {
 	$classes = array();
 
 	if ( r_is_narrow_template() ) {
@@ -469,25 +468,18 @@ function r_content_container_class( $class = '' ) {
 		$classes[] = 'content-container';
 	}
 
-	if ( $class ) {
-		if ( ! is_array( $class ) ) {
-			$class = preg_split( '#\s+#', $class );
-		}
-		$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
-	} else {
-		// Ensure that we always coerce class to being an array.
-		$class = array();
-	}
+	$class = r_prepare_passed_classes( $class );
+	$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
 
 	/**
-	 * Filters the list of CSS classes for the content container.
+	 * Filters the list of CSS classes for the inner content container.
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param array $classes Content container classes.
-	 * @param array $class   Additional classes added to the content container.
+	 * @param array $classes Inner content container classes.
+	 * @param array $class   Additional classes added to the inner content container.
 	 */
-	$classes = apply_filters( 'r_content_container_class', $classes, $class );
+	$classes = apply_filters( 'r_container_inner_class', $classes, $class );
 
 	if ( empty( $classes ) ) {
 		return;
@@ -495,6 +487,52 @@ function r_content_container_class( $class = '' ) {
 
 	// Separates classes with a single space, collates classes for content container element.
 	echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
+}
+
+/**
+ * Displays the classes for the outer content container.
+ *
+ * @since 2.0.0
+ *
+ * @param string|array $class One or more classes to add to the class list.
+ */
+function r_container_outer_class( $class = '' ) {
+	$classes = array(
+		'container',
+	);
+
+	$class = r_prepare_passed_classes( $class );
+	$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
+
+	/**
+	 * Filters the list of CSS classes for the outer content container.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array $classes Outer content container classes.
+	 * @param array $class   Additional classes added to the outer content container.
+	 */
+	$classes = apply_filters( 'r_container_outer_class', $classes, $class );
+
+	if ( empty( $classes ) ) {
+		return;
+	}
+
+	// Separates classes with a single space, collates classes for content container element.
+	echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
+}
+
+function r_prepare_passed_classes( $class ) {
+	if ( $class ) {
+		if ( ! is_array( $class ) ) {
+			$class = preg_split( '#\s+#', $class );
+		}
+	} else {
+		// Ensure that we always coerce class to being an array.
+		$class = array();
+	}
+
+	return $class;
 }
 
 /**
