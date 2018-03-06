@@ -87,35 +87,35 @@
 			do_action( 'r_after_opening_wrapper' );
 
 			/**
-			 * Fires immediately before the opening content div.
+			 * Fires immediately before the outer opening content container.
 			 *
 			 * @since 2.0.0
 			 */
-			do_action( 'r_before_opening_content' );
+			do_action( 'r_before_opening_container_outer' );
 		?>
-		<main role="main" class="content">
+		<main role="main" <?php r_container_outer_class(); ?>>
 			<?php
 				/**
-				 * Fires immediately after the opening content div.
+				 * Fires immediately after the outer opening content container.
 				 *
 				 * @since 2.0.0
 				 */
-				do_action( 'r_after_opening_content' );
+				do_action( 'r_after_opening_container_outer' );
 			?>
 
 			<?php
 				/**
-				 * Fires immediately before the opening content container div.
+				 * Fires immediately before the inner opening content container.
 				 *
 				 * @since 2.0.0
 				 */
-				do_action( 'r_before_opening_content_container' );
+				do_action( 'r_before_opening_container_inner' );
 			?>
-			<div <?php r_content_container_class(); ?>>
+			<div <?php r_container_inner_class(); ?>>
 				<?php
 					/**
-					 * Fires immediately after the opening content container div.
+					 * Fires immediately after the inner opening content container.
 					 *
 					 * @since 2.0.0
 					 */
-					do_action( 'r_after_opening_content_container' );
+					do_action( 'r_after_opening_container_inner' );
