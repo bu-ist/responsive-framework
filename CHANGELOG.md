@@ -20,28 +20,31 @@
  passed.
 - Introduce several action hooks to make it easier for child themes to inject
  markup without having to copy the entire template file. Hooks introduced:
-  - `r_before_closing_content_container`
-  - `r_after_closing_content_container`
-  - `r_before_closing_content`
-  - `r_after_closing_content`
-  - `r_after_closing_content`
   - `r_after_opening_body_tag`
+  - `r_before_opening_wrapper`
+  - `r_after_opening_wrapper`
+  - `r_before_opening_container_outer`
+  - `r_after_opening_container_outer`
+  - `r_before_opening_container_inner`
+  - `r_after_opening_container_inner`
   - `r_before_masthead`
   - `r_after_masthead`
-  - `r_before_opening_content`
-  - `r_after_opening_content`
-  - `r_before_opening_content_container`
-  - `r_after_opening_content_container`
+  - `r_before_closing_container_inner`
+  - `r_after_closing_container_inner`
+  - `r_before_closing_container_outer`
+  - `r_after_closing_container_outer`
+  - `r_before_closing_wrapper`
+  - `r_after_closing_wrapper`
   - `r_before_branding_masterplate`
   - `r_after_branding_masterplate`
   - `r_before_bumc_branding_logo`
   - `r_after_bumc_branding_logo`
   - `r_before_branding_disclaimer`
   - `r_after_branding_disclaimer`
-  - `r_before_content_banner_{position}`
-  - `r_before_content_banner`
-  - `r_after_content_banner_{position}`
-  - `r_after_content_banner`
+  - ~~`r_before_content_banner_{position}`~~
+  - ~~`r_before_content_banner`~~
+  - ~~`r_after_content_banner_{position}`~~
+  - ~~`r_after_content_banner`~~
 - ~~Added `r_content_banner_args` filter for modifying generated content banner
  arguments.~~
 - ~~Added `r_content_banner_output` filter for modifying content banner output.
