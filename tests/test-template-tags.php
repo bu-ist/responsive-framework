@@ -234,6 +234,66 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 	}
 
 	/**
+	 * Test when an empty array is passed.
+	 */
+	function test_r_prepare_passed_classes_empty_array() {
+		$this->assertSame( array(), r_prepare_passed_classes( array() ) );
+	}
+
+	/**
+	 * Test when an empty string is passed.
+	 */
+	function test_r_prepare_passed_classes_empty_string() {
+		$this->assertSame( array(), r_prepare_passed_classes( '' ) );
+	}
+
+	/**
+	 * Test when a single string class is passed.
+	 */
+	function test_r_prepare_passed_classes_single_string_class() {
+		$expected = array(
+			'some-class',
+		);
+
+		$this->assertSame( $expected, r_prepare_passed_classes( 'some-class' ) );
+	}
+
+	/**
+	 * Test when multiple classes in a string are passed.
+	 */
+	function test_r_prepare_passed_classes_multiple_string_classes() {
+		$expected = array(
+			'some-class',
+			'another-class',
+		);
+
+		$this->assertSame( $expected, r_prepare_passed_classes( 'some-class another-class' ) );
+	}
+
+	/**
+	 * Test when a single class in an array is passed.
+	 */
+	function test_r_prepare_passed_classes_single_array_classes() {
+		$expected = array(
+			'some-class',
+		);
+
+		$this->assertSame( $expected, r_prepare_passed_classes( $expected ) );
+	}
+
+	/**
+	 * Test when multiple classes in an array are passed.
+	 */
+	function test_r_prepare_passed_classes_multiple_array_classes() {
+		$expected = array(
+			'some-class',
+			'another-class',
+		);
+
+		$this->assertSame( $expected, r_prepare_passed_classes( $expected ) );
+	}
+
+	/**
 	 * Test that non BU domains do not match.
 	 */
 	function test_responsive_is_bu_domain() {
