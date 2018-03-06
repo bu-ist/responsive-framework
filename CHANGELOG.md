@@ -81,9 +81,12 @@
  `article[role=main]`.
 - Moves `profiles.php` to the root of the theme directory from `/page-templates`
  to allow users to select which profile format to use on the profiles template.
-- Introduce `r_content_container_class()` for displaying the class attribute
- for the content container element. Classes are filterable through the
- `r_content_container_class` filter.
+- Introduce `r_container_inner_class()` for displaying the class attribute for
+ the inner content container element. Classes are filterable through the
+ `r_container_inner_class` filter.
+- Introduce `r_container_outer_class()` for displaying the class attribute for
+ the outer content container element. Classes are filterable through the
+ `r_container_outer_class` filter.
 - Fetch the `.mdlrc` and `markdown.rb` files from the [coding standards repository](https://github.com/bu-ist/coding-standards/tree/master).
 - Restructured HTML and added CSS classes in the footer for cleaner branding
  styles.
