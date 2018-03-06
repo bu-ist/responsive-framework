@@ -224,28 +224,9 @@ add_action( 'r_before_closing_content', 'responsive_bottom_sidebar_display' );
 function responsive_enqueue_scripts() {
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-	/**
-	 * Filter the responsive-scripts script dependencies.
-	 *
-	 * @since 2.0.0
-	 *
-	 * @param array Script dependencies. Default: jquery.
-	 */
-	$dependencies = apply_filters( 'r_script_dependencies', array( 'jquery' ) );
-
-	/**
-	 * Filters whether the main framework JavaScript file should be loaded in the footer.
-	 *
-	 * Default is true, or yes.
-	 *
-	 * @since 2.0.0
-	 *
-	 * @param bool True, or load in footer.
-	 */
-	$script_in_footer = apply_filters( 'r_script_in_footer', true );
-
-	// Main script file (script.js) will load from child theme directory.
-	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", $dependencies, RESPONSIVE_THEME_VERSION, $script_in_footer );
+	$dependencies = array(
+		'jquery',
+	);
 
 	/**
 	 * Filters whether Modernizr should be enqueued by the framework.
@@ -256,11 +237,49 @@ function responsive_enqueue_scripts() {
 	 *
 	 * @param bool Default is to enqueue Modernizr.
 	 */
-	$enqueue_modernizr = apply_filters( 'r_enqueue_modernizr', true );
+	$enqueue_modernizr = (bool) apply_filters( 'r_enqueue_modernizr', true );
 
-	if ( (bool) $enqueue_modernizr ) {
-		wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), RESPONSIVE_MODERNIZR_VERSION );
+	if ( $enqueue_modernizr ) {
+		$dependencies[] = 'modernizr';
+
+		/**
+		 * Filters whether the Modernizr should be loaded in the footer.
+		 *
+		 * Default is false (no).
+		 *
+		 * @link https://github.com/Modernizr/Modernizr/issues/878#issuecomment-41448059
+		 *
+		 * @since 2.0.0
+		 *
+		 * @param bool Whether to load the script in the footer.
+		 */
+		$modernizr_in_footer = (bool) apply_filters( 'r_modernizr_in_footer', false );
+
+		wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), RESPONSIVE_MODERNIZR_VERSION, $modernizr_in_footer );
 	}
+
+	/**
+	 * Filter the responsive-scripts script dependencies.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array Framework script dependencies.
+	 */
+	$dependencies = apply_filters( 'r_script_dependencies', $dependencies );
+
+	/**
+	 * Filters whether the main framework JavaScript file should be loaded in the footer.
+	 *
+	 * Default is true (yes).
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param bool Whether to load the script in the footer.
+	 */
+	$script_in_footer = (bool) apply_filters( 'r_script_in_footer', true );
+
+	// Main script file (script.js) will load from child theme directory.
+	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", $dependencies, RESPONSIVE_THEME_VERSION, $script_in_footer );
 
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
 	if ( is_singular() && responsive_has_comment_support() && comments_open() && get_option( 'thread_comments' ) ) {
