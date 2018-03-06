@@ -13,6 +13,22 @@
 class Tests_Responsive_Framework_Scripts_Styles extends WP_UnitTestCase {
 
 	/**
+	 * Do not preserve global state between test methods.
+	 *
+	 * @var bool
+	 */
+	protected $preserveGlobalState = false;
+
+	/**
+	 * Run each test method in a separate, isolated process.
+	 *
+	 * This ensures constants are properly set and tested.
+	 *
+	 * @var bool
+	 */
+	protected $runTestInSeparateProcess = true;
+
+	/**
 	 * Test that stylesheets not named responsive-framework are not wrapped in conditionals.
 	 */
 	function test_responsive_style_loader_tag_not_responsi() {
@@ -44,10 +60,36 @@ class Tests_Responsive_Framework_Scripts_Styles extends WP_UnitTestCase {
 			$this->markTestSkipped( 'This test causes errors in WordPress < 4.7 on PHP >= 7.1' );
 		}
 
+		$this->assertFalse( wp_script_is( 'responsive-scripts' ) );
+		$this->assertFalse( wp_script_is( 'modernizr' ) );
+
 		responsive_enqueue_scripts();
 
 		$this->assertTrue( wp_script_is( 'responsive-scripts' ) );
 		$this->assertTrue( wp_script_is( 'modernizr' ) );
+	}
+
+	/**
+	 * Test that the framework JavaScript still loads when Modernizr is disabled.
+	 */
+	function test_responsive_enqueue_scripts_no_modernizr() {
+		global $wp_version;
+
+		if ( version_compare( '4.7', $wp_version ) > 0 && version_compare( phpversion(), '7.1' ) >= 0 ) {
+			$this->markTestSkipped( 'This test causes errors in WordPress < 4.7 on PHP >= 7.1' );
+		}
+
+		$this->assertFalse( wp_script_is( 'responsive-scripts' ) );
+		$this->assertFalse( wp_script_is( 'modernizr' ) );
+
+		add_filter( 'r_enqueue_modernizr', '__return_false' );
+
+		responsive_enqueue_scripts();
+
+		$this->assertTrue( wp_script_is( 'responsive-scripts' ) );
+		$this->assertFalse( wp_script_is( 'modernizr' ) );
+
+		remove_all_filters( 'r_enqueue_modernizr' );
 	}
 
 	/**
