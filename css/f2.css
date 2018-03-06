@@ -79,3 +79,13 @@ h6,
 .utility-nav li a {
   font-style: italic;
 }
+
+blockquote {
+  border-color: #0f69d7;
+  border-left: 0.125em solid;
+  padding: 5px 15px;
+}
+
+blockquote > p:last-of-type {
+  margin-bottom: 0;
+}
