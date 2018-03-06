@@ -504,7 +504,7 @@ function r_container_inner_class( $class = '' ) {
 		return;
 	}
 
-	// Separates classes with a single space, collates classes for content container element.
+	// Separates classes with a single space, collates classes for the inner content container element.
 	echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
 }
 
@@ -537,12 +537,12 @@ function r_container_outer_class( $class = '' ) {
 		return;
 	}
 
-	// Separates classes with a single space, collates classes for content container element.
+	// Separates classes with a single space, collates classes for the outer content container element.
 	echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
 }
 
 /**
- * Ensure the class argument for class attribute functions are in the proper format.
+ * Ensure the class argument for class attribute functions is always an array.
  *
  * @param string|array $class Element classes.
  *
@@ -554,7 +554,6 @@ function r_prepare_passed_classes( $class ) {
 			$class = preg_split( '#\s+#', $class );
 		}
 	} else {
-		// Ensure that we always coerce class to being an array.
 		$class = array();
 	}
 
