@@ -20,28 +20,31 @@
  passed.
 - Introduce several action hooks to make it easier for child themes to inject
  markup without having to copy the entire template file. Hooks introduced:
-  - `r_before_closing_content_container`
-  - `r_after_closing_content_container`
-  - `r_before_closing_content`
-  - `r_after_closing_content`
-  - `r_after_closing_content`
   - `r_after_opening_body_tag`
+  - `r_before_opening_wrapper`
+  - `r_after_opening_wrapper`
+  - `r_before_opening_container_outer`
+  - `r_after_opening_container_outer`
+  - `r_before_opening_container_inner`
+  - `r_after_opening_container_inner`
   - `r_before_masthead`
   - `r_after_masthead`
-  - `r_before_opening_content`
-  - `r_after_opening_content`
-  - `r_before_opening_content_container`
-  - `r_after_opening_content_container`
+  - `r_before_closing_container_inner`
+  - `r_after_closing_container_inner`
+  - `r_before_closing_container_outer`
+  - `r_after_closing_container_outer`
+  - `r_before_closing_wrapper`
+  - `r_after_closing_wrapper`
   - `r_before_branding_masterplate`
   - `r_after_branding_masterplate`
   - `r_before_bumc_branding_logo`
   - `r_after_bumc_branding_logo`
   - `r_before_branding_disclaimer`
   - `r_after_branding_disclaimer`
-  - `r_before_content_banner_{position}`
-  - `r_before_content_banner`
-  - `r_after_content_banner_{position}`
-  - `r_after_content_banner`
+  - ~~`r_before_content_banner_{position}`~~
+  - ~~`r_before_content_banner`~~
+  - ~~`r_after_content_banner_{position}`~~
+  - ~~`r_after_content_banner`~~
 - ~~Added `r_content_banner_args` filter for modifying generated content banner
  arguments.~~
 - ~~Added `r_content_banner_output` filter for modifying content banner output.
@@ -81,9 +84,12 @@
  `article[role=main]`.
 - Moves `profiles.php` to the root of the theme directory from `/page-templates`
  to allow users to select which profile format to use on the profiles template.
-- Introduce `r_content_container_class()` for displaying the class attribute
- for the content container element. Classes are filterable through the
- `r_content_container_class` filter.
+- Introduce `r_container_inner_class()` for displaying the class attribute for
+ the inner content container element. Classes are filterable through the
+ `r_container_inner_class` filter.
+- Introduce `r_container_outer_class()` for displaying the class attribute for
+ the outer content container element. Classes are filterable through the
+ `r_container_outer_class` filter.
 - Fetch the `.mdlrc` and `markdown.rb` files from the [coding standards repository](https://github.com/bu-ist/coding-standards/tree/master).
 - Restructured HTML and added CSS classes in the footer for cleaner branding
  styles.

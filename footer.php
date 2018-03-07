@@ -9,37 +9,37 @@
 
 				<?php
 					/**
-					 * Fires immediately before the closing content container div.
+					 * Fires immediately before the inner closing content container.
 					 *
 					 * @since 2.0.0
 					 */
-					do_action( 'r_before_closing_content_container' );
+					do_action( 'r_before_closing_container_inner' );
 				?>
 			</div><!-- .content-container -->
 			<?php
 				/**
-				 * Fires immediately after the closing content container div.
+				 * Fires immediately after the inner closing content container.
 				 *
 				 * @since 2.0.0
 				 */
-				do_action( 'r_after_closing_content_container' );
+				do_action( 'r_after_closing_container_inner' );
 
 				/**
-				 * Fires immediately before the closing content div.
+				 * Fires immediately before the outer closing content container.
 				 *
 				 * @since 2.0.0
 				 */
-				do_action( 'r_before_closing_content' );
+				do_action( 'r_before_closing_container_outer' );
 			?>
 		</main><!-- .content -->
 
 		<?php
 			/**
-			 * Fires immediately after the closing content div.
+			 * Fires immediately after the outer closing content container.
 			 *
 			 * @since 2.0.0
 			 */
-			do_action( 'r_after_closing_content' );
+			do_action( 'r_after_closing_container_outer' );
 
 			/**
 			 * Fires immediately before the closing wrapper div.
