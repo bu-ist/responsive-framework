@@ -517,7 +517,7 @@ function r_container_inner_class( $class = '' ) {
  */
 function r_container_outer_class( $class = '' ) {
 	$classes = array(
-		'container',
+		'content',
 	);
 
 	$class = r_prepare_passed_classes( $class );
