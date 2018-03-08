@@ -69,7 +69,7 @@ class Tests_Responsive_Framework_Container_Class_Functions extends WP_UnitTestCa
 	 * Test outer content container class function with no args.
 	 */
 	function test_r_container_outer_class_no_args() {
-		$this->expectOutputString( 'class="container"' );
+		$this->expectOutputString( 'class="content"' );
 		r_container_outer_class();
 	}
 
@@ -77,7 +77,7 @@ class Tests_Responsive_Framework_Container_Class_Functions extends WP_UnitTestCa
 	 * Test outer content container class function with string arg.
 	 */
 	function test_r_container_outer_class_string_arg() {
-		$this->expectOutputString( 'class="container test class"' );
+		$this->expectOutputString( 'class="content test class"' );
 		r_container_outer_class( 'test class' );
 	}
 
@@ -85,7 +85,7 @@ class Tests_Responsive_Framework_Container_Class_Functions extends WP_UnitTestCa
 	 * Test outer content container class function with array arg.
 	 */
 	function test_r_container_outer_class_array_arg() {
-		$this->expectOutputString( 'class="container test class"' );
+		$this->expectOutputString( 'class="content test class"' );
 		r_container_outer_class( array( 'test', 'class' ) );
 	}
 
@@ -93,7 +93,7 @@ class Tests_Responsive_Framework_Container_Class_Functions extends WP_UnitTestCa
 	 * Test outer content container class function with bad characters.
 	 */
 	function test_r_container_outer_class_bad_characters() {
-		$this->expectOutputString( 'class="container te&quot;st c&amp;lass"' );
+		$this->expectOutputString( 'class="content te&quot;st c&amp;lass"' );
 		r_container_outer_class( array( 'te"st', 'c&lass' ) );
 	}
 
