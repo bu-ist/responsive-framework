@@ -214,7 +214,7 @@ function responsive_upgrade_2_0( $verbose = true ) {
 	if ( 'default' !== $new_layout ) {
 		if ( isset( $names[ $old_layout ] ) ) {
 			$new_layout = $names[ $old_layout ];
-		} elseif ( ! in_array( $new_layout, array_keys( responsive_layout_options() ), true ) ) {
+		} elseif ( ! array_key_exists( $new_layout, responsive_layout_options() ) ) {
 			$new_layout = 'default';
 		}
 	}
