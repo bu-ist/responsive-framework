@@ -25,8 +25,8 @@ function after_setup_theme() {
 	);
 	add_image_size(
 		'responsive_gallery_5col_up',
-		(int) apply_filters( 'responsive_gallery_5col_up_image_width', 260 ),
-		(int) apply_filters( 'responsive_gallery_5col_up_image_height', 200 ),
+		(int) apply_filters( 'responsive_gallery_5col_up_image_width', 400 ),
+		(int) apply_filters( 'responsive_gallery_5col_up_image_height', 308 ),
 		true
 	);
 }
