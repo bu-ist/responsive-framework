@@ -13,3 +13,13 @@ $font-body: "Benton-Sans", sans-serif;
 .utility-nav li a {
 	font-style: italic;
 }
+
+blockquote {
+	border-color: #0f69d7; // Default blue will be overwritten by inc/customizer.php if colors customized
+	border-left: 0.125em solid;
+	padding: 5px 15px;
+
+	>p:last-of-type {
+		margin-bottom: 0; // Provides bottom padding for last paragraph of blockquote to fill out gray box.
+	}
+}
