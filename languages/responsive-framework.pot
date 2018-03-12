@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-03-01 15:02:43+00:00\n"
+"POT-Creation-Date: 2018-03-12 16:24:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: grunt-wp-i18n1.0.1\n"
+"X-Generator: grunt-wp-i18n1.0.2\n"
 
 #: 404.php:13
 msgid "Yikes! We couldn't find that."
@@ -45,7 +45,7 @@ msgid "All page templates"
 msgstr ""
 
 #: admin/responsive-admin-page-template-filter.php:72 inc/calendar.php:83
-#: inc/customizer.php:45 inc/customizer.php:372
+#: inc/customizer.php:54 inc/customizer.php:381
 msgid "Default"
 msgstr ""
 
@@ -220,47 +220,47 @@ msgstr ""
 msgid "Primary Navigation"
 msgstr ""
 
-#: functions.php:154
+#: functions.php:142
 msgid "Main Sidebar"
 msgstr ""
 
-#: functions.php:156
+#: functions.php:144
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:166
+#: functions.php:154
 msgid "Posts Content Area"
 msgstr ""
 
-#: functions.php:168
+#: functions.php:156
 msgid ""
 "Add widgets here for display on posts and archives. Only the first 2 "
 "widgets will appear."
 msgstr ""
 
-#: functions.php:179
+#: functions.php:167
 msgid "Profiles Content Area"
 msgstr ""
 
-#: functions.php:181
+#: functions.php:169
 msgid ""
 "Add widgets here for display on profile pages and archives. Only the first "
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:192 inc/customizer.php:221 inc/template-tags.php:778
+#: functions.php:180 inc/customizer.php:230 inc/template-tags.php:778
 msgid "Footbar"
 msgstr ""
 
-#: functions.php:194 functions.php:208
+#: functions.php:182 functions.php:196
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:206 inc/template-tags.php:779
+#: functions.php:194 inc/template-tags.php:779
 msgid "Alternate Footbar"
 msgstr ""
 
-#: functions.php:312
+#: functions.php:300
 #. translators: %s: navigation label navigating to.
 msgid "Navigate to: %s"
 msgstr ""
@@ -296,107 +296,107 @@ msgstr ""
 msgid "Graphic"
 msgstr ""
 
-#: inc/customizer.php:46
+#: inc/customizer.php:55
 msgid "Top Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:47
+#: inc/customizer.php:56
 msgid "Side Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:48
+#: inc/customizer.php:57
 msgid "No Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:211
+#: inc/customizer.php:220
 msgid "Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:215
+#: inc/customizer.php:224
 msgid "Content Area"
 msgstr ""
 
-#: inc/customizer.php:218
+#: inc/customizer.php:227
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer.php:235
+#: inc/customizer.php:244
 msgid "Background Color"
 msgstr ""
 
-#: inc/customizer.php:240
+#: inc/customizer.php:249
 msgid "Border Color"
 msgstr ""
 
-#: inc/customizer.php:245
+#: inc/customizer.php:254
 msgid "Primary Nav Links"
 msgstr ""
 
-#: inc/customizer.php:250
+#: inc/customizer.php:259
 msgid "Utility Nav Links"
 msgstr ""
 
-#: inc/customizer.php:255
+#: inc/customizer.php:264
 msgid "Primary Nav Links Hover"
 msgstr ""
 
-#: inc/customizer.php:262
+#: inc/customizer.php:271
 msgid "Headings"
 msgstr ""
 
-#: inc/customizer.php:267 inc/customizer.php:320 inc/customizer.php:357
+#: inc/customizer.php:276 inc/customizer.php:329 inc/customizer.php:366
 msgid "Text Color"
 msgstr ""
 
-#: inc/customizer.php:272 inc/customizer.php:310 inc/customizer.php:347
+#: inc/customizer.php:281 inc/customizer.php:319 inc/customizer.php:356
 msgid "Link Color"
 msgstr ""
 
-#: inc/customizer.php:277 inc/customizer.php:315 inc/customizer.php:352
+#: inc/customizer.php:286 inc/customizer.php:324 inc/customizer.php:361
 msgid "Link Hover"
 msgstr ""
 
-#: inc/customizer.php:282
+#: inc/customizer.php:291
 msgid "Button Background"
 msgstr ""
 
-#: inc/customizer.php:287
+#: inc/customizer.php:296
 msgid "Button Text Color"
 msgstr ""
 
-#: inc/customizer.php:294
+#: inc/customizer.php:303
 msgid "Widget Background"
 msgstr ""
 
-#: inc/customizer.php:300 inc/customizer.php:337
+#: inc/customizer.php:309 inc/customizer.php:346
 msgid "Widget Title"
 msgstr ""
 
-#: inc/customizer.php:305 inc/customizer.php:342
+#: inc/customizer.php:314 inc/customizer.php:351
 msgid "Widget Title Border"
 msgstr ""
 
-#: inc/customizer.php:327
+#: inc/customizer.php:336
 msgid "Background"
 msgstr ""
 
-#: inc/customizer.php:332
+#: inc/customizer.php:341
 msgid "Top Border"
 msgstr ""
 
-#: inc/customizer.php:411
+#: inc/customizer.php:420
 msgid "Slacker"
 msgstr ""
 
-#: inc/customizer.php:450
+#: inc/customizer.php:459
 msgid "Extra Spectral"
 msgstr ""
 
-#: inc/customizer.php:489
+#: inc/customizer.php:498
 msgid "Rayleigh Scattering"
 msgstr ""
 
-#: inc/customizer.php:528
+#: inc/customizer.php:537
 msgid "Vinca Minor"
 msgstr ""
 

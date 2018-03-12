@@ -29,10 +29,19 @@ add_action( 'init', 'responsive_enable_customizer', 12 );
  * @see  responsive_layout_options()
  */
 function responsive_layout() {
+	$layout = 'default';
+
 	if ( defined( 'BU_RESPONSIVE_LAYOUT' ) && array_key_exists( BU_RESPONSIVE_LAYOUT, responsive_layout_options() ) ) {
-		return BU_RESPONSIVE_LAYOUT;
+		$layout = BU_RESPONSIVE_LAYOUT;
+	} else {
+		$saved_layout = get_option( 'burf_setting_layout', 'default' );
+
+		if ( array_key_exists( $saved_layout, responsive_layout_options() ) ) {
+			$layout = $saved_layout;
+		}
 	}
-	return get_option( 'burf_setting_layout', 'default' );
+
+	return $layout;
 }
 
 /**
