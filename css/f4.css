@@ -102,3 +102,30 @@ h6,
   font-family: "TiemposText", serif;
   font-style: italic;
 }
+
+blockquote {
+  border-color: #eee;
+  border-style: solid;
+  border-width: 2px 0;
+  padding: 1.25em 0;
+  position: relative;
+}
+
+blockquote::before {
+  background: #fff;
+  content: "\201C";
+  font-family: "TiemposHeadline", serif;
+  font-size: 3em;
+  font-weight: 700;
+  left: 50%;
+  line-height: 30px;
+  position: absolute;
+  text-align: center;
+  top: 12px;
+  transform: translate(-50%, -50%);
+  width: 40px;
+}
+
+blockquote > p:last-of-type {
+  margin-bottom: 0;
+}

@@ -54,3 +54,21 @@ h6,
   font-family: "Benton-Sans", sans-serif;
   font-weight: 400;
 }
+
+blockquote {
+  background-color: #f0f0f0;
+  border-color: #666;
+  border-left: 0.45em solid;
+  padding: 18px;
+  position: relative;
+}
+
+blockquote::before {
+  left: 14px;
+  position: absolute;
+  top: 2px;
+}
+
+blockquote > p:last-of-type {
+  margin-bottom: 0;
+}

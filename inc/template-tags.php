@@ -24,21 +24,6 @@ function responsive_get_title() {
 }
 
 /**
- * Print the site's description.
- *
- * TODO: Remove once child themes have migrated to 1.0.0.
- */
-function responsive_get_description() {
-	if ( is_single() ) {
-		single_post_title( '', true );
-	} else {
-		bloginfo( 'name' );
-		echo ' - ';
-		bloginfo( 'description' );
-	}
-}
-
-/**
  * Whether or not the current network is a bu.edu domain.
  *
  * @param int $blog_id Blog ID to check. Default is current site.
@@ -602,6 +587,13 @@ function responsive_get_posts_archive_link() {
 		}
 	}
 
+	/**
+	 * Filters the post archive link.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string Post archive link.
+	 */
 	return apply_filters( 'responsive_get_posts_archive_link', $archive_link );
 }
 
@@ -731,7 +723,15 @@ function responsive_extra_footer_classes() {
 		$classes[] = 'has-footer-social';
 	}
 
+	/**
+	 * Filters extra footer classes.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array Extra classes for the footer.
+	 */
 	$classes = apply_filters( 'responsive_extra_footer_classes', $classes );
+
 	$classes = array_unique( array_map( 'esc_attr', $classes ) );
 
 	echo esc_attr( implode( ' ', $classes ) );
