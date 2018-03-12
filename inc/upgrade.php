@@ -150,6 +150,8 @@ function responsive_upgrade_091( $verbose = true ) {
  * Upgrade routines for Responsive Framework 2.0.0.
  *
  * - Content banner names have been updated to match coding standards.
+ * - Layout names have been updated to match coding standards.
+ * - Ensure a layout option is saved to the database.
  *
  * @param bool $verbose Whether to display notices in error log.
  */
@@ -189,22 +191,35 @@ function responsive_upgrade_2_0( $verbose = true ) {
 		}
 	}
 
-	// Upgrade Layout Names.
+	// Upgrade layout names and ensure a value is saved to the option in the database.
 	$names = array(
 		'sideNav' => 'side-nav',
 		'topNav' => 'top-nav',
 		'noNav' => 'no-nav',
 	);
 
-	$layout = get_option( 'burf_setting_layout', 'default' );
+	if ( $verbose ) {
+		error_log( __FUNCTION__ . ' - Updating layout name.' );
+	}
 
-	if ( 'default' !== $layout ) {
-		if ( $verbose ) {
-			error_log( __FUNCTION__ . ' - Updating layout name.' );
-		}
+	$old_layout = get_option( 'burf_setting_layout' );
+	$new_layout = 'default';
 
-		if ( isset( $names[ $layout ] ) ) {
-			update_option( 'burf_setting_layout', $names[ $layout ] );
+	if ( defined( 'BU_RESPONSIVE_LAYOUT' ) ) {
+		$new_layout = BU_RESPONSIVE_LAYOUT;
+	} elseif ( ! empty( $old_layout ) ) {
+		$new_layout = $old_layout;
+	}
+
+	if ( 'default' !== $new_layout ) {
+		if ( isset( $names[ $old_layout ] ) ) {
+			$new_layout = $names[ $old_layout ];
+		} elseif ( ! in_array( $new_layout, array_keys( responsive_layout_options() ), true ) ) {
+			$new_layout = 'default';
 		}
+	}
+
+	if ( $new_layout !== $old_layout ) {
+		update_option( 'burf_setting_layout', $new_layout );
 	}
 }
