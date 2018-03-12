@@ -126,12 +126,11 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 	}
 
 	/**
-	 * Test Responsive 2.0 upgrade routine for layour names.
+	 * Test Responsive 2.0 upgrade routine for layout names.
 	 *
 	 * @expectedIncorrectUsage wpdb::prepare
 	 */
 	function test_responsive_upgrade_2_0_layout_names() {
-
 		update_option( 'burf_setting_layout', 'topNav' );
 		responsive_upgrade_2_0( false );
 		$this->assertEquals( 'top-nav', get_option( 'burf_setting_layout' ) );
@@ -143,5 +142,32 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 		update_option( 'burf_setting_layout', 'noNav' );
 		responsive_upgrade_2_0( false );
 		$this->assertEquals( 'no-nav', get_option( 'burf_setting_layout' ) );
+	}
+
+	/**
+	 * Test Responsive 2.0 upgrade routine when no layout is saved and no constant is set.
+	 *
+	 * @expectedIncorrectUsage wpdb::prepare
+	 */
+	function test_responsive_upgrade_2_0_layout_empty() {
+		delete_option( 'burf_setting_layout' );
+
+		responsive_upgrade_2_0( false );
+
+		$this->assertSame( 'default', get_option( 'burf_setting_layout' ) );
+	}
+
+	/**
+	 * Test Responsive 2.0 upgrade routine when no layout is saved and a constant
+	 * is set with a value that is not an allowed layout.
+	 *
+	 * @expectedIncorrectUsage wpdb::prepare
+	 */
+	function test_responsive_upgrade_2_0_layout_invalid_constant() {
+		update_option( 'burf_setting_layout', 'not-a-valid-layout' );
+
+		responsive_upgrade_2_0( false );
+
+		$this->assertSame( 'default', get_option( 'burf_setting_layout' ) );
 	}
 }
