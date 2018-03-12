@@ -109,13 +109,18 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 				$news_templates = new AllowedTemplates();
 			}
 
-			$news_templates->register(
-				apply_filters(
-					'responsive_news_templates', array(
-						'page-templates/news.php',
-					)
-				)
-			);
+			/**
+			 * Filters page templates that allow news posts to be listed.
+			 *
+			 * @since 2.0.0
+			 *
+			 * @param array Page templates.
+			 */
+			$theme_news_templates = apply_filters( 'responsive_news_templates', array(
+				'page-templates/news.php',
+			) );
+
+			$news_templates->register( $theme_news_templates );
 		}
 	}
 
@@ -130,7 +135,6 @@ function responsive_init() {
 	// Add support for dynamic footbars (e.g. alternate footbar).
 	add_post_type_support( 'page', 'bu-dynamic-footbars' );
 }
-
 add_action( 'init', 'responsive_init' );
 
 /**
@@ -219,8 +223,9 @@ add_action( 'r_before_closing_content', 'responsive_bottom_sidebar_display' );
 function responsive_enqueue_scripts() {
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-	// Main script file (script.js) will load from child theme directory.
-	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", apply_filters( 'r_script_dependencies', array( 'jquery' ) ), RESPONSIVE_THEME_VERSION, apply_filters( 'r_script_location', true ) );
+	$dependencies = array(
+		'jquery',
+	);
 
 	/**
 	 * Filters whether Modernizr should be enqueued by the framework.
@@ -231,11 +236,49 @@ function responsive_enqueue_scripts() {
 	 *
 	 * @param bool Default is to enqueue Modernizr.
 	 */
-	$enqueue_modernizr = apply_filters( 'r_enqueue_modernizr', true );
+	$enqueue_modernizr = (bool) apply_filters( 'r_enqueue_modernizr', true );
 
-	if ( (bool) $enqueue_modernizr ) {
-		wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), RESPONSIVE_MODERNIZR_VERSION );
+	if ( $enqueue_modernizr ) {
+		$dependencies[] = 'modernizr';
+
+		/**
+		 * Filters whether the Modernizr should be loaded in the footer.
+		 *
+		 * Default is false (no).
+		 *
+		 * @link https://github.com/Modernizr/Modernizr/issues/878#issuecomment-41448059
+		 *
+		 * @since 2.0.0
+		 *
+		 * @param bool Whether to load the script in the footer.
+		 */
+		$modernizr_in_footer = (bool) apply_filters( 'r_modernizr_in_footer', false );
+
+		wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), RESPONSIVE_MODERNIZR_VERSION, $modernizr_in_footer );
 	}
+
+	/**
+	 * Filter the responsive-scripts script dependencies.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array Framework script dependencies.
+	 */
+	$dependencies = apply_filters( 'r_script_dependencies', $dependencies );
+
+	/**
+	 * Filters whether the main framework JavaScript file should be loaded in the footer.
+	 *
+	 * Default is true (yes).
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param bool Whether to load the script in the footer.
+	 */
+	$script_in_footer = (bool) apply_filters( 'r_script_in_footer', true );
+
+	// Main script file (script.js) will load from child theme directory.
+	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", $dependencies, RESPONSIVE_THEME_VERSION, $script_in_footer );
 
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
 	if ( is_singular() && responsive_has_comment_support() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -350,6 +393,8 @@ function r_is_narrow_template() {
 	/**
 	 * Filters whether the blog page (post type archive) should be considered narrow.
 	 *
+	 * Default is true, or yes.
+	 *
 	 * @since 2.0.0
 	 *
 	 * @param bool true Default for checking is_home() conditional.
@@ -427,13 +472,13 @@ function r_is_narrow_template() {
 }
 
 /**
- * Displays the classes for the main content container.
+ * Displays the classes for the inner content container.
  *
  * @since 2.0.0
  *
  * @param string|array $class One or more classes to add to the class list.
  */
-function r_content_container_class( $class = '' ) {
+function r_container_inner_class( $class = '' ) {
 	$classes = array();
 
 	if ( r_is_narrow_template() ) {
@@ -442,32 +487,77 @@ function r_content_container_class( $class = '' ) {
 		$classes[] = 'content-container';
 	}
 
-	if ( $class ) {
-		if ( ! is_array( $class ) ) {
-			$class = preg_split( '#\s+#', $class );
-		}
-		$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
-	} else {
-		// Ensure that we always coerce class to being an array.
-		$class = array();
-	}
+	$class = r_prepare_passed_classes( $class );
+	$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
 
 	/**
-	 * Filters the list of CSS classes for the content container.
+	 * Filters the list of CSS classes for the inner content container.
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param array $classes An array of post classes.
-	 * @param array $class   An array of additional classes added to the post.
+	 * @param array $classes Inner content container classes.
+	 * @param array $class   Additional classes added to the inner content container.
 	 */
-	$classes = apply_filters( 'r_content_container_class', $classes, $class );
+	$classes = apply_filters( 'r_container_inner_class', $classes, $class );
 
 	if ( empty( $classes ) ) {
 		return;
 	}
 
-	// Separates classes with a single space, collates classes for content container element.
+	// Separates classes with a single space, collates classes for the inner content container element.
 	echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
+}
+
+/**
+ * Displays the classes for the outer content container.
+ *
+ * @since 2.0.0
+ *
+ * @param string|array $class One or more classes to add to the class list.
+ */
+function r_container_outer_class( $class = '' ) {
+	$classes = array(
+		'content',
+	);
+
+	$class = r_prepare_passed_classes( $class );
+	$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
+
+	/**
+	 * Filters the list of CSS classes for the outer content container.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array $classes Outer content container classes.
+	 * @param array $class   Additional classes added to the outer content container.
+	 */
+	$classes = apply_filters( 'r_container_outer_class', $classes, $class );
+
+	if ( empty( $classes ) ) {
+		return;
+	}
+
+	// Separates classes with a single space, collates classes for the outer content container element.
+	echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
+}
+
+/**
+ * Ensure the class argument for class attribute functions is always an array.
+ *
+ * @param string|array $class Element classes.
+ *
+ * @return array Element classes.
+ */
+function r_prepare_passed_classes( $class ) {
+	if ( $class ) {
+		if ( ! is_array( $class ) ) {
+			$class = preg_split( '#\s+#', $class );
+		}
+	} else {
+		$class = array();
+	}
+
+	return $class;
 }
 
 /**
