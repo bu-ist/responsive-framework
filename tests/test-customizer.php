@@ -8,33 +8,9 @@
 /**
  * Class Tests_Responsive_Framework_Customizer
  *
- * @group branding
+ * @group customizer
  */
 class Tests_Responsive_Framework_Customizer extends WP_UnitTestCase {
-
-	/**
-	 * Test default responsive layout.
-	 */
-	function test_responsive_layout() {
-		$this->assertEquals( 'default', responsive_layout() );
-		update_option( 'burf_setting_layout', 'side-nav' );
-		$this->assertEquals( 'side-nav', responsive_layout() );
-		update_option( 'burf_setting_layout', 'default' );
-	}
-
-	/**
-	 * Test default responsive layout options.
-	 */
-	function test_responsive_layout_options() {
-		$layout_options = array(
-			'default' => 'Default',
-			'top-nav'  => 'Top Navigation Bar',
-			'side-nav' => 'Side Navigation Bar',
-			'no-nav'   => 'No Navigation Bar',
-		);
-
-		$this->assertEquals( $layout_options, responsive_layout_options() );
-	}
 
 	/**
 	 * Test default responsive font palette.

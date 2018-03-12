@@ -108,3 +108,24 @@ function responsive_get_page_template_filter_value() {
 
 	return sanitize_text_field( $page_template );
 }
+
+/**
+ * Ensure that the option value for layout is always in sync with the constant value.
+ */
+function responsive_maybe_save_layout_setting() {
+	$transient = get_transient( 'responsive_layout_setting_check' );
+
+	if ( false !== $transient ) {
+		return;
+	}
+
+	$saved_layout = get_option( 'burf_setting_layout' );
+	$current_layout = responsive_layout();
+
+	if ( $saved_layout !== $current_layout ) {
+		update_option( 'burf_setting_layout', $current_layout );
+	}
+
+	set_transient( 'responsive_layout_setting_check', '', WEEK_IN_SECONDS );
+}
+add_action( 'admin_init', 'responsive_maybe_save_layout_setting' );
