@@ -215,7 +215,7 @@ add_action( 'widgets_init', 'responsive_sidebars' );
 function responsive_bottom_sidebar_display() {
 	get_sidebar( 'bottom' );
 }
-add_action( 'r_before_closing_content', 'responsive_bottom_sidebar_display' );
+add_action( 'r_before_closing_container_inner', 'responsive_bottom_sidebar_display' );
 
 /**
  * Enqueue front-end scripts & styles.
