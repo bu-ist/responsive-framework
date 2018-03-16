@@ -35,6 +35,13 @@ function responsive_calendar_sidebar( $args = array() ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
+	/**
+	 * Filters the calendar sidebar arguments.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array $args Calendar sidebar arguments.
+	 */
 	$args = apply_filters( 'responsive_calendar_sidebar', $args );
 
 	$all_topics_url = add_query_arg( 'date', date( 'Ymd', $timestamp ), $args['calendar_uri'] );
@@ -261,9 +268,17 @@ function onYearDay( $ts ) {
  * @return array Filtered list of body classes.
  */
 function responsive_calendar_body_classes( $classes ) {
+	/**
+	 * Filters calendar page templates.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array Calendar page templates.
+	 */
 	$calendar_templates = apply_filters( 'responsive_calendar_templates', array(
 		'page-templates/calendar.php',
 	) );
+
 	$is_calendar_template = array_filter( $calendar_templates, 'is_page_template' );
 
 	// The current request is for one of our calendar templates.
