@@ -838,21 +838,39 @@ function r_get_archive_sidebar( $name = null ) {
 	$queried_object = get_queried_object();
 
 	if ( is_tag() || is_category() || is_tax() ) {
-		$templates[] = "sidebar-{$queried_object->taxonomy}-{$queried_object->slug}-{$name}.php";
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-{$queried_object->taxonomy}-{$queried_object->slug}-{$name}.php";
+		}
 		$templates[] = "sidebar-{$queried_object->taxonomy}-{$queried_object->slug}.php";
-		$templates[] = "sidebar-{$queried_object->taxonomy}-{$name}.php";
+
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-{$queried_object->taxonomy}-{$name}.php";
+		}
 		$templates[] = "sidebar-{$queried_object->taxonomy}.php";
-		$templates[] = "sidebar-taxonomy-{$name}.php";
+
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-taxonomy-{$name}.php";
+		}
 		$templates[] = 'sidebar-taxonomy.php';
 	} elseif ( is_post_type_archive() ) {
-		$templates[] = "sidebar-{$queried_object->name}-{$name}.php";
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-{$queried_object->name}-{$name}.php";
+		}
 		$templates[] = "sidebar-{$queried_object->name}.php";
-		$templates[] = "sidebar-post-type-{$name}.php";
+
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-post-type-{$name}.php";
+		}
 		$templates[] = 'sidebar-post-type.php';
 	} elseif ( is_author() ) {
-		$templates[] = "sidebar-{$queried_object->user_login}-{$name}.php";
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-{$queried_object->user_login}-{$name}.php";
+		}
 		$templates[] = "sidebar-{$queried_object->user_login}.php";
-		$templates[] = "sidebar-author-{$name}.php";
+
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-author-{$name}.php";
+		}
 		$templates[] = 'sidebar-author.php';
 	}
 
