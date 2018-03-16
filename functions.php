@@ -100,8 +100,7 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 			register_nav_menu( 'responsive-primary', __( 'Primary Navigation', 'responsive-framework' ) );
 		}
 
-		// Register supported templates for BU Profile plugin.
-		// @TODO: Need to require from BU_INCLUDES.
+		// Register supported news templates for the BU Post Lists plugin.
 		if ( class_exists( 'AllowedTemplates' ) ) {
 			global $news_templates;
 
