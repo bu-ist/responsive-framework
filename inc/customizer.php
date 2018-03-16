@@ -39,15 +39,21 @@ function responsive_layout() {
  * Returns layout options available via Customizer.
  */
 function responsive_layout_options() {
-	return apply_filters(
-		'responsive_layout_options',
-		array(
-			'default'  => __( 'Default', 'responsive-framework' ),
-			'top-nav'  => __( 'Top Navigation Bar', 'responsive-framework' ),
-			'side-nav' => __( 'Side Navigation Bar', 'responsive-framework' ),
-			'no-nav'   => __( 'No Navigation Bar', 'responsive-framework' ),
-		)
-	);
+	/**
+	 * Filters the available layout options.
+	 *
+	 * @since 1.0.3
+	 *
+	 * @param array List of layout options.
+	 */
+	$layout_options = apply_filters( 'responsive_layout_options', array(
+		'default'  => __( 'Default', 'responsive-framework' ),
+		'top-nav'  => __( 'Top Navigation Bar', 'responsive-framework' ),
+		'side-nav' => __( 'Side Navigation Bar', 'responsive-framework' ),
+		'no-nav'   => __( 'No Navigation Bar', 'responsive-framework' ),
+	) );
+
+	return $layout_options;
 }
 
 /**
@@ -836,6 +842,15 @@ input[type="submit"],
 .archive-link {
 	background: {$colors['button-color']};
 	color: {$colors['button-text-color']};
+}
+
+/* blockquotes */
+blockquote {
+	border-color: {$colors['content-link']};
+}
+
+blockquote:before {
+	color: {$colors['content-link']};
 }
 
 

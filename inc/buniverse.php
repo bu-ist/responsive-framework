@@ -47,9 +47,20 @@ if ( ! function_exists( 'buniverse_shortcode' ) ) {
 			$classes = implode( ' ', array_map( 'esc_attr', explode( ' ', $atts['class'] ) ) );
 		}
 
+		/**
+		 * Filters the BUniverse embed URL.
+		 *
+		 * Any filtered value should contain a %s placeholder for the video ID.
+		 *
+		 * @param string BUniverse URL.
+		 *
+		 * @since 1.1.0
+		 */
+		$source_url = apply_filters( 'buniverse_shortcode_src', 'https://www.bu.edu/buniverse/interface/embed/embed.html?v=%s' );
+
 		// Build <iframe> attributes.
 		$iframe = $iframe_atts = array();
-		$iframe['src'] = esc_url( sprintf( apply_filters( 'buniverse_shortcode_src', 'https://www.bu.edu/buniverse/interface/embed/embed.html?v=%s' ), $atts['vid'] ) );
+		$iframe['src'] = esc_url( sprintf( $source_url, $atts['vid'] ) );
 		$iframe['width'] = (int) $atts['width'];
 		$iframe['height'] = (int) $atts['height'];
 		$iframe['frameborder'] = 0;
@@ -79,6 +90,15 @@ if ( ! function_exists( 'buniverse_shortcode' ) ) {
 	</div>
 EMBED;
 
+		/**
+		 * Filters the BUniverse shortcut HTML.
+		 *
+		 * @param string $embed   Shortcode HTML.
+		 * @param array  $atts    Shortcode attributes.
+		 * @param string $content Shortcode content.
+		 *
+		 * @since 1.1.0
+		 */
 		return apply_filters( 'buniverse_shortcode', $embed, $atts, $content );
 	}
 

@@ -20,7 +20,16 @@ $topic = null;
 if ( array_key_exists( 'topic', $_GET ) ) {
 	$topic = intval( $_GET['topic'] );
 }
-$topic = apply_filters( 'bu_flexi_calendar_topic', $topic );
+
+/**
+ * Filters the current topic ID before retrieving events from BU Calendar.
+ *
+ * @since 0.9.0
+ * @since 2.0.0 Renamed from bu_flexi_calendar_topic to responsive_calendar_topic.
+ *
+ * @param int $topic Topic ID.
+ */
+$topic = apply_filters( 'responsive_calendar_topic', $topic );
 
 $eventID = array_key_exists( 'eid', $_GET ) ? intval( $_GET['eid'] ) : null;
 
@@ -203,10 +212,10 @@ endif; ?>
 									<span class="single-event-label">Starts: </span><?php printf( '<span class="single-event-time">%s</span><em class="event-time-make-sentence"> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['starts'] ) ), esc_html( date( 'l, F j, Y', $event['starts'] ) ) ); ?>
 								</li>
 								<?php if ( $event['ends'] > 0 ) { ?>
-									<li class="single-event-schedule-end"><span class="label single-event-label">Ends: </span><?php printf( '<span class="single-event-time">%s</span><em class="event-time-make-sentence"> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['ends'] ) ), esc_html( date( 'l, F j, Y', $event['ends'] ) ) ); ?></dd>
+									<li class="single-event-schedule-end"><span class="single-event-label">Ends: </span><?php printf( '<span class="single-event-time">%s</span><em class="event-time-make-sentence"> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['ends'] ) ), esc_html( date( 'l, F j, Y', $event['ends'] ) ) ); ?></dd>
 								<?php }
 } else {
-	printf( '<li class="single-event-schedule-allday"><span class="label single-event-label">All Day</span><em> on </em><span class="single-event-date">%s</span></li>', esc_html( date( 'l, F j, Y', $event['starts'] - intval( date( 'Z' ) ) ) ) );
+	printf( '<li class="single-event-schedule-allday"><span class="single-event-label">All Day</span><em> on </em><span class="single-event-date">%s</span></li>', esc_html( date( 'l, F j, Y', $event['starts'] - intval( date( 'Z' ) ) ) ) );
 }
 							?>
 						</ul>
