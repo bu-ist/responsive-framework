@@ -2,15 +2,20 @@
 /**
  * Default content template partial.
  *
- * Used to render individual profiles for mini profile listings.
+ * Renders individual profiles for mini profile listings.
  *
  * @package Responsive_Framework\BU_Profiles
  */
 
+$thumb_args = array(
+	'maxwidth' => 150,
+	'maxheight' => 150,
+	'size' => 'responsive_profile',
+);
 ?>
 
 <li <?php post_class( 'profile-item profile-item-mini' ); ?>>
-	<?php if ( function_exists( 'bu_thumbnail' ) ) : $thumb_args = array( 'maxwidth' => 150, 'maxheight' => 150 ); ?>
+	<?php if ( function_exists( 'bu_thumbnail' ) ) : ?>
 		<?php bu_thumbnail( '<figure class="profile-photo profile-photo-mini">', '</figure>', $thumb_args ); ?>
 	<?php endif; ?>
 	<div class="profile-details profile-details-mini">

@@ -664,6 +664,11 @@ require __DIR__ . '/inc/upgrade.php';
 require __DIR__ . '/inc/galleries.php';
 
 /**
+ * Plugin Support - BU Profiles
+ */
+require __DIR__ . '/inc/profiles.php';
+
+/**
  * WP-CLI commands.
  */
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
