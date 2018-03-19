@@ -13,7 +13,11 @@ get_header(); ?>
 
 		<?php
 		if ( function_exists( 'bu_thumbnail' ) ) {
-			$thumb_args = array( 'maxwidth' => 150, 'maxheight' => 150 );
+			$thumb_args = array(
+				'maxwidth'  => 150,
+				'maxheight' => 150,
+				'size'      => 'responsive_profile_large',
+			);
 			$profile_thumb = bu_get_thumbnail_src( get_the_ID(), $thumb_args );
 		} else {
 			$profile_thumb = false;
