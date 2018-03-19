@@ -125,6 +125,7 @@
  default behavior in BU-CMS.
 - Remove Content Banner support.
 - Add Grunt time reporting.
+- Rename `content-none.php` to `no-content.php`.
  
 ## 1.5.6
 
