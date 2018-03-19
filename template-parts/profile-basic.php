@@ -24,7 +24,7 @@ if ( bu_profile_detail( 'title', array( 'echo' => false ) ) ) {
 
 <li <?php post_class( $extra_classes ); ?>>
 	<a href="<?php the_permalink(); ?>" class="profile-link profile-link-basic">
-		<?php if ( function_exists( 'bu_thumbnail' ) ) : $thumb_args = array( 'maxwidth' => 60, 'maxheight' => 60 ); ?>
+		<?php if ( function_exists( 'bu_thumbnail' ) ) : $thumb_args = array( 'maxwidth' => 150, 'maxheight' => 150, 'size' => 'responsive_profile', ); ?>
 			<?php bu_thumbnail( '<figure class="profile-photo profile-photo-basic">', '</figure>', $thumb_args ); ?>
 		<?php endif; ?>
 		<h6 class="profile-name profile-name-basic"><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h6>
