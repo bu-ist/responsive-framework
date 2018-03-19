@@ -20,7 +20,7 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'template-parts/content', 'search' ); ?>
+				<?php r_get_template_part( get_post_type(), 'search' ); ?>
 
 			<?php endwhile; ?>
 
