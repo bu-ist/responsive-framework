@@ -14,8 +14,8 @@ get_header(); ?>
 		<?php
 		if ( function_exists( 'bu_thumbnail' ) ) {
 			$thumb_args = array(
-				'maxwidth'  => 150,
-				'maxheight' => 150,
+				'maxwidth'  => 300,
+				'maxheight' => 300,
 				'size'      => 'responsive_profile_large',
 			);
 			$profile_thumb = bu_get_thumbnail_src( get_the_ID(), $thumb_args );
