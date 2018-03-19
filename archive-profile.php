@@ -14,7 +14,7 @@ get_header(); ?>
 
 			<ul class="profile-listing profile-format-basic">
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'template-parts/profile' ); ?>
+					<?php get_template_part( 'template-parts/profile', 'archive' ); ?>
 				<?php endwhile; ?>
 			</ul>
 
