@@ -21,7 +21,7 @@ get_header(); ?>
 
 	<?php else : ?>
 
-		<?php get_template_part( 'template-parts/content', 'none' ); ?>
+		<?php get_template_part( 'template-parts/no-content', 'home' ); ?>
 
 	<?php endif; ?>
 
