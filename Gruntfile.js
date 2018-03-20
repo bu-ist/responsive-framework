@@ -336,4 +336,5 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail' ] );
 	grunt.registerTask( 'upgrade_modernizr',   [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
 	grunt.registerTask( 'build',               [ 'bower:install', 'clean', 'sass', 'scripts', 'i18n' ] );
+	grunt.registerTask( 'default',             [ 'bower:install', 'watch' ] );
 };
