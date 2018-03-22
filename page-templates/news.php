@@ -9,7 +9,8 @@
 include BU_NEWS_POST_LISTS_PATH . '/news-page-template.php';
 BU_News_Page_Template::init();
 
-get_header(); ?>
+get_header();
+?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
@@ -54,5 +55,6 @@ get_header(); ?>
 
 <?php endwhile; ?>
 
-<?php get_sidebar( 'posts' ); ?>
-<?php get_footer();
+<?php
+get_sidebar( 'posts' );
+get_footer();
