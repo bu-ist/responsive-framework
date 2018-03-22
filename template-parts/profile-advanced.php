@@ -7,13 +7,9 @@
  * @package Responsive_Framework\BU_Profiles
  */
 
-?>
-
-<?php
-
 $extra_classes = array(
 	'profile-item',
-	'profile-item-advanced'
+	'profile-item-advanced',
 );
 
 if ( bu_profile_detail( 'title', array( 'echo' => false ) ) ) {
