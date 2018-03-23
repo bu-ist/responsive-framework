@@ -16,7 +16,7 @@ $extra_classes = array(
 	'profile-item-default'
 );
 
-if ( bu_profile_detail( 'title', array( 'echo' => false ) ) ) {
+if ( bu_profile_has_detail( 'title' ) ) {
 	$extra_classes[] = 'has-title';
 }
 
