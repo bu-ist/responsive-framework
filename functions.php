@@ -91,7 +91,7 @@ function responsive_setup_constants() {
 	 *
 	 * Any site that wishes to support comments must enable them by setting the `_bu_supports_comments` option to '1'.
 	 *
-	 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
+	 * @see https://github.com/bu-ist/bu-comments
 	 */
 	if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
 		define( 'BU_SUPPORTS_COMMENTS', true );
