@@ -5,7 +5,6 @@
  * @package Responsive_Framework
  */
 
-
 if ( is_active_sidebar( 'posts' ) ) :
 
 	/**
