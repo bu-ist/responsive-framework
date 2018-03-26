@@ -136,6 +136,8 @@ add_action( 'after_setup_theme', 'responsive_setup_nav_menus' );
 
 /**
  * Setup miscellaneous filters.
+ *
+ * @codeCoverageIgnore
  */
 function responsive_setup_misc_filters() {
 	// Default flexi multi-line style doesn't need the extra <p> tags.
@@ -146,6 +148,8 @@ add_action( 'after_setup_theme', 'responsive_setup_misc_filters' );
 
 /**
  * Register News Post List templates.
+ * 
+ * @codeCoverageIgnore
  */
 function responsive_setup_news_templates() {
 	// Register supported news templates for the BU Post Lists plugin.

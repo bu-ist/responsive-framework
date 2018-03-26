@@ -17,8 +17,6 @@ class Tests_Responsive_Framework_Default_Constants extends WP_UnitTestCase {
 	 */
 	function setUp() {
 		parent::setUp();
-
-		responsive_setup();
 	}
 
 	/**
@@ -33,6 +31,8 @@ class Tests_Responsive_Framework_Default_Constants extends WP_UnitTestCase {
 	 * Comment support constants.
 	 */
 	function test_default_comment_support_constants() {
+		responsive_setup_constants();
+
 		$this->assertTrue( defined( 'BU_SUPPORTS_COMMENTS' ) );
 		$this->assertTrue( BU_SUPPORTS_COMMENTS );
 	}
@@ -41,6 +41,8 @@ class Tests_Responsive_Framework_Default_Constants extends WP_UnitTestCase {
 	 * BU SEO support constants.
 	 */
 	function test_default_seo_support_constants() {
+		responsive_setup_constants();
+
 		$this->assertTrue( defined( 'BU_SUPPORTS_SEO' ) );
 		$this->assertTrue( BU_SUPPORTS_SEO );
 	}
@@ -49,6 +51,8 @@ class Tests_Responsive_Framework_Default_Constants extends WP_UnitTestCase {
 	 * BU footer editor constants.
 	 */
 	function test_default_footer_editor_constants() {
+		responsive_setup_constants();
+
 		$this->assertTrue( defined( 'BU_DISABLE_FOOTER_EDITOR' ) );
 		$this->assertTrue( BU_DISABLE_FOOTER_EDITOR );
 	}
@@ -57,6 +61,8 @@ class Tests_Responsive_Framework_Default_Constants extends WP_UnitTestCase {
 	 * BU Navigation depth constants.
 	 */
 	function test_default_navigation_depth() {
+		responsive_setup_constants();
+
 		$this->assertTrue( defined( 'BU_NAVIGATION_SUPPORTED_DEPTH' ) );
 		$this->assertEquals( 1, BU_NAVIGATION_SUPPORTED_DEPTH );
 	}
