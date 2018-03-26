@@ -133,7 +133,8 @@ function responsive_category_links( $args = array() ) {
 		'separator' => ', ',
 		'parents'   => '',
 		'post_id'   => null,
-		);
+	);
+
 	$args = wp_parse_args( $args, $defaults );
 
 	$categories = get_the_category_list( $args['separator'], $args['parents'], $args['post_id'] );
@@ -195,11 +196,11 @@ function responsive_primary_nav() {
 			) );
 		} else {
 			wp_nav_menu( array(
-				'theme_location'  => 'responsive-primary',
-				'menu_id'    => 'primaryNav-menu',
-				'menu_class' => 'primaryNav-menu',
-				'container_tag'   => 'ul',
-				'depth'           => 2,
+				'theme_location' => 'responsive-primary',
+				'menu_id'        => 'primaryNav-menu',
+				'menu_class'     => 'primaryNav-menu',
+				'container_tag'  => 'ul',
+				'depth'          => 2,
 			) );
 		}
 	}
@@ -226,12 +227,12 @@ function responsive_utility_nav( $args = array() ) {
 	$defaults = array(
 		'before' => '<nav class="utility-nav" role="navigation">',
 		'after'  => '</nav>',
-		);
+	);
+
 	$args = wp_parse_args( $args, $defaults );
 	$menu = '';
 
-	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
-		false == BuAccessControlPlugin::is_site_403() ) {
+	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || false == BuAccessControlPlugin::is_site_403() ) {
 		$menu = wp_nav_menu( array(
 			'theme_location' => 'utility',
 			'menu_id'        => 'utility-nav-menu',
@@ -264,7 +265,8 @@ function responsive_footer_menu( $args = array() ) {
 	$defaults = array(
 		'before' => '<nav class="site-footer-links" role="navigation">',
 		'after'  => '</nav>',
-		);
+	);
+
 	$args = wp_parse_args( $args, $defaults );
 	$menu = '';
 
@@ -302,7 +304,8 @@ function responsive_social_menu( $args = array() ) {
 	$defaults = array(
 		'before' => '<nav class="site-footer-social" role="navigation">',
 		'after'  => '</nav>',
-		);
+	);
+
 	$args = wp_parse_args( $args, $defaults );
 	$menu = '';
 
@@ -371,7 +374,7 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 	$tmp_query = null;
 	if ( ! is_null( $query ) ) {
 		$tmp_query = $wp_query;
-		$wp_query = $query;
+		$wp_query  = $query;
 	}
 
 	// Don't print empty markup if there's only one page.
@@ -612,8 +615,8 @@ function responsive_posts_archive_link( $args = array() ) {
 		'class'  => 'archive-link posts-archive-link',
 		'echo'   => true,
 	);
-	$args = wp_parse_args( $args, $defaults );
 
+	$args       = wp_parse_args( $args, $defaults );
 	$link       = '';
 	$class_attr = '';
 
@@ -661,6 +664,7 @@ function responsive_profiles_archive_link( $args = array() ) {
 		'class'  => 'archive-link profiles-archive-link',
 		'echo'   => true,
 	);
+
 	$args = wp_parse_args( $args, $defaults );
 
 	if ( function_exists( 'bu_profile_archive_link' ) ) {
@@ -693,7 +697,7 @@ function responsive_get_widget_counts( $sidebar_id ) {
  */
 function responsive_sidebar_classes( $sidebar_id ) {
 	$widget_count = responsive_get_widget_counts( $sidebar_id );
-	$count = ( $widget_count > 0 ) ? $widget_count : 'none';
+	$count        = ( $widget_count > 0 ) ? $widget_count : 'none';
 
 	echo esc_attr( "widget-count-$count" );
 }
