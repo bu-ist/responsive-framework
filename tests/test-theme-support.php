@@ -23,6 +23,8 @@ class Tests_Responsive_Framework_Core_Feature_Support extends WP_UnitTestCase {
 	 * Theme support for core features.
 	 */
 	function test_theme_support() {
+		responsive_setup_theme_support();
+
 		$this->assertTrue( current_theme_supports( 'menus' ) );
 
 		$this->assertTrue( current_theme_supports( 'post-thumbnails' ) );
