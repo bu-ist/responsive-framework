@@ -5,9 +5,31 @@
  * @package Responsive_Framework\BU_Profiles
  */
 
-?>
-<?php if ( is_active_sidebar( 'profiles' ) ) : ?>
+if ( is_active_sidebar( 'profiles' ) ) :
+	/**
+	 * Fires immediately before the opening profiles sidebar container element.
+	 */
+	do_action( 'r_before_sidebar_profiles_opening' );
+	?>
 	<aside class="sidebar sidebar-profiles">
-		<?php dynamic_sidebar( 'profiles' ); ?>
+	<?php
+		/**
+		 * Fires immediately after the opening profiles sidebar container element.
+		 */
+		do_action( 'r_after_sidebar_profiles_opening' );
+
+		dynamic_sidebar( 'profiles' );
+
+		/**
+		 * Fires immediately before the closing profiles sidebar container element.
+		 */
+		do_action( 'r_before_sidebar_profiles_closing' );
+	?>
 	</aside>
-<?php endif;
+	<?php
+	/**
+	 * Fires immediately after the closing profiles sidebar container element.
+	 */
+	do_action( 'r_after_sidebar_profiles_closing' );
+
+endif;
