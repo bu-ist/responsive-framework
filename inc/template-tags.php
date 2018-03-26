@@ -349,62 +349,60 @@ function responsive_social_nav_menu_link_attributes( $atts, $item ) {
 	return $atts;
 }
 
-if ( ! function_exists( 'responsive_posts_navigation' ) ) :
+/**
+ * Display navigation to next/previous set of posts when applicable.
+ *
+ * @param array         $args {
+ *     The attributes used for formatting and displaying post navigation links.
+ *
+ *     @type string $prev_text  The previous link text.
+ *     @type string $next_text The next link text.
+ *     @type string $screen_reader_text The text to display for screen readers.
+ * }
+ * @param WP_Query|null $query WP_Query object to display post navigation for. Default is the global page query.
+ */
+function responsive_posts_navigation( $args = array(), WP_Query $query = null ) {
+	global $wp_query;
 
-	/**
-	 * Display navigation to next/previous set of posts when applicable.
-	 *
-	 * @param array         $args {
-	 *     The attributes used for formatting and displaying post navigation links.
-	 *
-	 *     @type string $prev_text  The previous link text.
-	 *     @type string $next_text The next link text.
-	 *     @type string $screen_reader_text The text to display for screen readers.
-	 * }
-	 * @param WP_Query|null $query WP_Query object to display post navigation for. Default is the global page query.
-	 */
-	function responsive_posts_navigation( $args = array(), WP_Query $query = null ) {
-		global $wp_query;
+	// By default the `*_posts_link` functions rely on the global
+	// WP_Query instance. We temporarily overwrite it here so that
+	// pagination can work for custom queries (e.g. for the News
+	// template).
+	$tmp_query = null;
+	if ( ! is_null( $query ) ) {
+		$tmp_query = $wp_query;
+		$wp_query = $query;
+	}
 
-		// By default the `*_posts_link` functions rely on the global
-		// WP_Query instance. We temporarily overwrite it here so that
-		// pagination can work for custom queries (e.g. for the News
-		// template).
-		$tmp_query = null;
-		if ( ! is_null( $query ) ) {
-			$tmp_query = $wp_query;
-			$wp_query = $query;
+	// Don't print empty markup if there's only one page.
+	if ( $wp_query->max_num_pages >= 2 ) :
+		$queried_object = get_queried_object();
+		if ( is_post_type_archive() ) {
+			$archive_type = $queried_object->labels->singular_name;
+		} elseif ( is_tax() || is_category() || is_tag() ) {
+			$taxonomy_object = get_taxonomy( $queried_object->taxonomy );
+
+			$post_type = get_post_type( $taxonomy_object->object_type[0] );
+
+			$archive_type = $post_type->labels->singular_name;
 		}
 
-		// Don't print empty markup if there's only one page.
-		if ( $wp_query->max_num_pages >= 2 ) :
-			$queried_object = get_queried_object();
-			if ( is_post_type_archive() ) {
-				$archive_type = $queried_object->labels->singular_name;
-			} elseif ( is_tax() || is_category() || is_tag() ) {
-				$taxonomy_object = get_taxonomy( $queried_object->taxonomy );
+		$defaults = array(
+			'prev_text'          => '<span class="meta-nav">&larr;</span> Previous',
+			'next_text'          => 'Next <span class="meta-nav">&rarr;</span>',
+			/* translators: %s: archive type singular name. */
+			'screen_reader_text' => sprintf( __( '%s navigation', 'responsive-framework' ), ucfirst( $archive_type ) ),
+		);
 
-				$post_type = get_post_type( $taxonomy_object->object_type[0] );
+			// Post archive labels are more specific.
+		if ( 'posts' === $archive_type ) {
+			$defaults['prev_text'] = sprintf( '<span class="meta-nav">&larr;</span> %s', esc_html__( 'Newer posts', 'responsive-framework' ) );
+			$defaults['next_text'] = sprintf( '%s <span class="meta-nav">&rarr;</span>', esc_html__( 'Older posts', 'responsive-framework' ) );
+		}
 
-				$archive_type = $post_type->labels->singular_name;
-			}
-
-			$defaults = array(
-				'prev_text'          => '<span class="meta-nav">&larr;</span> Previous',
-				'next_text'          => 'Next <span class="meta-nav">&rarr;</span>',
-				/* translators: %s: archive type singular name. */
-				'screen_reader_text' => sprintf( __( '%s navigation', 'responsive-framework' ), ucfirst( $archive_type ) ),
-			);
-
-				// Post archive labels are more specific.
-			if ( 'posts' === $archive_type ) {
-				$defaults['prev_text'] = sprintf( '<span class="meta-nav">&larr;</span> %s', esc_html__( 'Newer posts', 'responsive-framework' ) );
-				$defaults['next_text'] = sprintf( '%s <span class="meta-nav">&rarr;</span>', esc_html__( 'Older posts', 'responsive-framework' ) );
-			}
-
-			$args = wp_parse_args( $args, $defaults );
-		?>
-		<nav class="navigation posts-navigation paging-navigation" role="navigation">
+		$args = wp_parse_args( $args, $defaults );
+	?>
+	<nav class="navigation posts-navigation paging-navigation" role="navigation">
 		<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
 		<div class="nav-links">
 			<?php if ( get_previous_posts_link() ) : ?>
@@ -419,67 +417,59 @@ if ( ! function_exists( 'responsive_posts_navigation' ) ) :
 	<?php
 	endif;
 
-		// Restore the global WP_Query instance if we replaced it.
-		if ( ! is_null( $query ) && $tmp_query ) {
-			$wp_query = $tmp_query;
-		}
+	// Restore the global WP_Query instance if we replaced it.
+	if ( ! is_null( $query ) && $tmp_query ) {
+		$wp_query = $tmp_query;
 	}
+}
 
-endif;
+/**
+ * Display navigation to next/previous post when applicable.
+ *
+ * @param array $args {
+ *     The attributes used for formatting and displaying post navigation links.
+ *
+ *     @type string $prev_text  The previous link text.
+ *     @type string $next_text The next link text.
+ *     @type string $screen_reader_text The text to display for screen readers.
+ * }
+ */
+function responsive_post_navigation( $args = array() ) {
+	$args = wp_parse_args( $args, array(
+		'prev_text'          => '<span class="meta-nav">&larr;</span>&nbsp;%title',
+		'next_text'          => '%title&nbsp;<span class="meta-nav">&rarr;</span>',
+		'screen_reader_text' => __( 'Post navigation', 'responsive-framework' ),
+	) );
 
-if ( ! function_exists( 'responsive_post_navigation' ) ) :
+		$previous   = get_previous_post_link( '<div class="nav-previous">%link</div>', $args['prev_text'] );
+		$next       = get_next_post_link( '<div class="nav-next">%link</div>', $args['next_text'] );
 
-	/**
-	 * Display navigation to next/previous post when applicable.
-	 *
-	 * @param array $args {
-	 *     The attributes used for formatting and displaying post navigation links.
-	 *
-	 *     @type string $prev_text  The previous link text.
-	 *     @type string $next_text The next link text.
-	 *     @type string $screen_reader_text The text to display for screen readers.
-	 * }
-	 */
-	function responsive_post_navigation( $args = array() ) {
-		$args = wp_parse_args( $args, array(
-			'prev_text'          => '<span class="meta-nav">&larr;</span>&nbsp;%title',
-			'next_text'          => '%title&nbsp;<span class="meta-nav">&rarr;</span>',
-			'screen_reader_text' => __( 'Post navigation', 'responsive-framework' ),
-		) );
-
-			$previous   = get_previous_post_link( '<div class="nav-previous">%link</div>', $args['prev_text'] );
-			$next       = get_next_post_link( '<div class="nav-next">%link</div>', $args['next_text'] );
-
-		if ( $previous || $next ) :
-			?>
-			<nav class="navigation post-navigation" role="navigation">
-			<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
-			<div class="nav-links">
-			<?php echo $previous . $next; ?>
-			</div><!-- .nav-links -->
-		</nav><!-- .navigation -->
-		<?php
-		endif;
-	}
-
-endif;
-
-if ( ! function_exists( 'responsive_post_meta' ) ) :
-
-	/**
-	 * Render post meta entry HTML.
-	 */
-	function responsive_post_meta() {
+	if ( $previous || $next ) :
 		?>
-		<div class="meta post-meta">
+		<nav class="navigation post-navigation" role="navigation">
+		<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
+		<div class="nav-links">
+		<?php echo $previous . $next; ?>
+		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	<?php
+	endif;
+}
+
+/**
+ * Render post meta entry HTML.
+ */
+function responsive_post_meta() {
+	?>
+	<div class="meta post-meta">
 		<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
-		<span class="author">
-		<?php
-			/* translators: %s: author name linking to their archive page. */
-			printf( wp_kses( __( '<em>By </em>%s', 'responsive-framework' ), array(
-				'em' => array(),
-			) ), get_the_author_posts_link() );
-		?>
+			<span class="author">
+			<?php
+				/* translators: %s: author name linking to their archive page. */
+				printf( wp_kses( __( '<em>By </em>%s', 'responsive-framework' ), array(
+					'em' => array(),
+				) ), get_the_author_posts_link() );
+			?>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'date' ) ) : ?>
 			<span class="date"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ) ?>" pubdate><?php echo esc_html( get_the_date( 'F jS Y' ) ); ?></time></span>
@@ -502,9 +492,7 @@ if ( ! function_exists( 'responsive_post_meta' ) ) :
 		<?php endif; ?>
 	</div>
 	<?php
-	}
-
-endif;
+}
 
 /**
  * Returns one or more Customizer display option value.
