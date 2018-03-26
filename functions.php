@@ -29,37 +29,45 @@ if ( ! defined( 'RESPONSIVE_THEME_VERSION' ) ) {
 define( 'RESPONSIVE_MODERNIZR_VERSION', '3.5.0-304' );
 
 /**
- * Sets up theme defaults and registers various core and plugin features.
- *
- * Child themes can re-define this function to customize setup configuration.
+ * Fires the before_responsive_setup action hook before any theme setup occurs.
  */
-function responsive_setup() {
-	/**
-	 * Filter whether the function is being overridden.
-	 *
-	 * Returning a truthy value will short circuit the entire function.
-	 *
-	 * @since 2.0.0
-	 *
-	 * @param bool Whether to override the function. Default is false.
-	 */
-	$override = apply_filters( 'responsive_setup_override', false );
-
-	if ( $override ) {
-		return;
-	}
-
+function responsive_setup_before() {
 	/**
 	 * Fires immediately before any theme setup occurs.
 	 *
 	 * @since 2.0.0
 	 */
 	do_action( 'before_responsive_setup' );
+}
+add_action( 'after_setup_theme', 'responsive_setup_before', 9 );
 
-	// Expose navigation menu UI.
+/**
+ * Fires the after_responsive_setup action hook after theme setup occurs.
+ */
+function responsive_setup_after() {
+	/**
+	 * Fires immediately after theme setup occurs.
+	 *
+	 * @since 2.0.0
+	 */
+	do_action( 'after_responsive_setup' );
+}
+add_action( 'after_setup_theme', 'responsive_setup_after', 11 );
+
+/**
+ * Add default support for the following features:
+ *
+ * - Menus
+ * - HTML5 comment forms.
+ * - HTML5 comment lists.
+ * - HTML5 galleries.
+ * - HTML5 captions.
+ * - Post thumbnails
+ * - BU Branding
+ * - BU Profiles
+ */
+function responsive_setup_theme_support() {
 	add_theme_support( 'menus' );
-
-	// Use HTML5 markup for WP provided components where supported.
 	add_theme_support(
 		'html5', array(
 			'comment-form',
@@ -69,56 +77,47 @@ function responsive_setup() {
 		)
 	);
 	add_theme_support( 'post-thumbnails' );
-
-	// Add support for branding plugin.
 	add_theme_support( 'bu-branding' );
-
-	// Add support for the custom post type version of profile plugin.
 	add_theme_support( 'bu-profiles-post_type' );
+}
+add_action( 'after_setup_theme', 'responsive_setup_theme_support' );
 
-	// Default flexi multi-line style doesn't need the extra <p> tags.
-	remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
-	add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
-
+/**
+ * Ensure all needed constants are defined.
+ */
+function responsive_setup_constants() {
 	/**
-	 * Filters whether default constants should be registered.
+	 * By default, comments are disabled for BU sites.
 	 *
-	 * Returning a truthy value will register the default constants.
+	 * Any site that wishes to support comments must enable them by setting the `_bu_supports_comments` option to '1'.
 	 *
-	 * @since 2.0.0
-	 *
-	 * @param bool Whether default constants should be registered. Default is true, or yes.
+	 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
 	 */
-	$register_constants = apply_filters( 'responsive_register_constants', true );
-
-	if ( $register_constants ) {
-		/*
-		 * By default, comments are disabled for BU sites.
-		 *
-		 * Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
-		 *
-		 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
-		 */
-		if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
-			define( 'BU_SUPPORTS_COMMENTS', true );
-		}
-
-		// BU Post Details SEO support.
-		if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
-			define( 'BU_SUPPORTS_SEO', true );
-		}
-
-		// Disable BU Links Footer editor under Appearance menu.
-		if ( ! defined( 'BU_DISABLE_FOOTER_EDITOR' ) ) {
-			define( 'BU_DISABLE_FOOTER_EDITOR', true );
-		}
-
-		// Only support one level of dropdowns by default.
-		if ( ! defined( 'BU_NAVIGATION_SUPPORTED_DEPTH' ) ) {
-			define( 'BU_NAVIGATION_SUPPORTED_DEPTH', 1 );
-		}
+	if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
+		define( 'BU_SUPPORTS_COMMENTS', true );
 	}
 
+	// BU Post Details SEO support.
+	if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
+		define( 'BU_SUPPORTS_SEO', true );
+	}
+
+	// Disable BU Links Footer editor under Appearance menu.
+	if ( ! defined( 'BU_DISABLE_FOOTER_EDITOR' ) ) {
+		define( 'BU_DISABLE_FOOTER_EDITOR', true );
+	}
+
+	// Only support one level of dropdowns by default.
+	if ( ! defined( 'BU_NAVIGATION_SUPPORTED_DEPTH' ) ) {
+		define( 'BU_NAVIGATION_SUPPORTED_DEPTH', 1 );
+	}
+}
+add_action( 'after_setup_theme', 'responsive_setup_constants' );
+
+/**
+ * Register navigation menu locations.
+ */
+function responsive_setup_nav_menus() {
 	// Custom menu locations.
 	register_nav_menus(
 		array(
@@ -132,43 +131,53 @@ function responsive_setup() {
 	if ( ! function_exists( 'bu_navigation_display_primary' ) ) {
 		register_nav_menu( 'responsive-primary', __( 'Primary Navigation', 'responsive-framework' ) );
 	}
+}
+add_action( 'after_setup_theme', 'responsive_setup_nav_menus' );
 
+/**
+ * Setup miscellaneous filters.
+ */
+function responsive_setup_misc_filters() {
+	// Default flexi multi-line style doesn't need the extra <p> tags.
+	remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
+	add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
+}
+add_action( 'after_setup_theme', 'responsive_setup_misc_filters' );
+
+/**
+ * Register News Post List templates.
+ */
+function responsive_setup_news_templates() {
 	// Register supported news templates for the BU Post Lists plugin.
-	if ( class_exists( 'AllowedTemplates' ) ) {
-		global $news_templates;
+	if ( ! class_exists( 'AllowedTemplates' ) ) {
+		return;
+	}
 
-		if ( ! isset( $news_templates ) ) {
-			$news_templates = new AllowedTemplates();
-		}
+	global $news_templates;
 
-		/**
-		 * Filters page templates that allow news posts to be listed.
-		 *
-		 * @since 2.0.0
-		 *
-		 * @param array Page templates.
-		 */
-		$theme_news_templates = apply_filters( 'responsive_news_templates', array(
-			'page-templates/news.php',
-		) );
-
-		$news_templates->register( $theme_news_templates );
+	if ( ! isset( $news_templates ) ) {
+		$news_templates = new AllowedTemplates();
 	}
 
 	/**
-	 * Fires immediately after theme setup occurs.
+	 * Filters page templates that allow news posts to be listed.
 	 *
 	 * @since 2.0.0
+	 *
+	 * @param array Page templates.
 	 */
-	do_action( 'after_responsive_setup' );
+	$theme_news_templates = apply_filters( 'responsive_news_templates', array(
+		'page-templates/news.php',
+	) );
+
+	$news_templates->register( $theme_news_templates );
 }
-add_action( 'after_setup_theme', 'responsive_setup' );
+add_action( 'after_setup_theme', 'responsive_setup_news_templates' );
 
 /**
- * Theme-specific initialization logic
+ * Add support to pages for Dynamic footbars (e.g. alternate footbars).
  */
 function responsive_init() {
-	// Add support for dynamic footbars (e.g. alternate footbar).
 	add_post_type_support( 'page', 'bu-dynamic-footbars' );
 }
 add_action( 'init', 'responsive_init' );
