@@ -28,103 +28,97 @@ if ( ! defined( 'RESPONSIVE_THEME_VERSION' ) ) {
  */
 define( 'RESPONSIVE_MODERNIZR_VERSION', '3.5.0-304' );
 
-if ( ! function_exists( 'responsive_setup' ) ) :
+/**
+ * Sets up theme defaults and registers various core and plugin features.
+ *
+ * Child themes can re-define this function to customize setup configuration.
+ */
+function responsive_setup() {
+	// Expose navigation menu UI.
+	add_theme_support( 'menus' );
 
-	/**
-	 * Sets up theme defaults and registers various core and plugin features.
+	// Use HTML5 markup for WP provided components where supported.
+	add_theme_support(
+		'html5', array(
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		)
+	);
+	add_theme_support( 'post-thumbnails' );
+
+	// Add support for branding plugin.
+	add_theme_support( 'bu-branding' );
+
+	// Add support for the custom post type version of profile plugin.
+	add_theme_support( 'bu-profiles-post_type' );
+
+	// Default flexi multi-line style doesn't need the extra <p> tags.
+	remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
+	add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
+
+	/*
+	 * By default, comments are disabled for BU sites.
 	 *
-	 * Child themes can re-define this function to customize setup configuration.
+	 * Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
+	 *
+	 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
 	 */
-	function responsive_setup() {
-
-		// Expose navigation menu UI.
-		add_theme_support( 'menus' );
-
-		// Use HTML5 markup for WP provided components where supported.
-		add_theme_support(
-			'html5', array(
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
-			)
-		);
-		add_theme_support( 'post-thumbnails' );
-
-		// Add support for branding plugin.
-		add_theme_support( 'bu-branding' );
-
-		// Add support for the custom post type version of profile plugin.
-		add_theme_support( 'bu-profiles-post_type' );
-
-		// Default flexi multi-line style doesn't need the extra <p> tags.
-		remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
-		add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
-
-		/*
-		 * By default, comments are disabled for BU sites.
-		 *
-		 * Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
-		 *
-		 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
-		 */
-		if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
-			define( 'BU_SUPPORTS_COMMENTS', true );
-		}
-
-		// BU Post Details SEO support.
-		if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
-			define( 'BU_SUPPORTS_SEO', true );
-		}
-
-		// Disable BU Links Footer editor under Appearance menu.
-		if ( ! defined( 'BU_DISABLE_FOOTER_EDITOR' ) ) {
-			define( 'BU_DISABLE_FOOTER_EDITOR', true );
-		}
-
-		// Only support one level of dropdowns by default.
-		if ( ! defined( 'BU_NAVIGATION_SUPPORTED_DEPTH' ) ) {
-			define( 'BU_NAVIGATION_SUPPORTED_DEPTH', 1 );
-		}
-
-		// Custom menu locations.
-		register_nav_menus(
-			array(
-				'footer'  => __( 'Footer Links', 'responsive-framework' ),
-				'social'  => __( 'Social Links', 'responsive-framework' ),
-				'utility' => __( 'Utility Navigation', 'responsive-framework' ),
-			)
-		);
-
-		if ( ! function_exists( 'bu_navigation_display_primary' ) ) {
-			register_nav_menu( 'responsive-primary', __( 'Primary Navigation', 'responsive-framework' ) );
-		}
-
-		// Register supported news templates for the BU Post Lists plugin.
-		if ( class_exists( 'AllowedTemplates' ) ) {
-			global $news_templates;
-
-			if ( ! isset( $news_templates ) ) {
-				$news_templates = new AllowedTemplates();
-			}
-
-			/**
-			 * Filters page templates that allow news posts to be listed.
-			 *
-			 * @since 2.0.0
-			 *
-			 * @param array Page templates.
-			 */
-			$theme_news_templates = apply_filters( 'responsive_news_templates', array(
-				'page-templates/news.php',
-			) );
-
-			$news_templates->register( $theme_news_templates );
-		}
+	if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
+		define( 'BU_SUPPORTS_COMMENTS', true );
 	}
 
-endif;
+	// BU Post Details SEO support.
+	if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
+		define( 'BU_SUPPORTS_SEO', true );
+	}
 
+	// Disable BU Links Footer editor under Appearance menu.
+	if ( ! defined( 'BU_DISABLE_FOOTER_EDITOR' ) ) {
+		define( 'BU_DISABLE_FOOTER_EDITOR', true );
+	}
+
+	// Only support one level of dropdowns by default.
+	if ( ! defined( 'BU_NAVIGATION_SUPPORTED_DEPTH' ) ) {
+		define( 'BU_NAVIGATION_SUPPORTED_DEPTH', 1 );
+	}
+
+	// Custom menu locations.
+	register_nav_menus(
+		array(
+			'footer'  => __( 'Footer Links', 'responsive-framework' ),
+			'social'  => __( 'Social Links', 'responsive-framework' ),
+			'utility' => __( 'Utility Navigation', 'responsive-framework' ),
+		)
+	);
+
+	if ( ! function_exists( 'bu_navigation_display_primary' ) ) {
+		register_nav_menu( 'responsive-primary', __( 'Primary Navigation', 'responsive-framework' ) );
+	}
+
+	// Register supported news templates for the BU Post Lists plugin.
+	if ( class_exists( 'AllowedTemplates' ) ) {
+		global $news_templates;
+
+		if ( ! isset( $news_templates ) ) {
+			$news_templates = new AllowedTemplates();
+		}
+
+		/**
+		 * Filters page templates that allow news posts to be listed.
+		 *
+		 * @since 2.0.0
+		 *
+		 * @param array Page templates.
+		 */
+		$theme_news_templates = apply_filters( 'responsive_news_templates', array(
+			'page-templates/news.php',
+		) );
+
+		$news_templates->register( $theme_news_templates );
+	}
+}
 add_action( 'after_setup_theme', 'responsive_setup' );
 
 /**
