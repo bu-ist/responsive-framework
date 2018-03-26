@@ -34,6 +34,28 @@ define( 'RESPONSIVE_MODERNIZR_VERSION', '3.5.0-304' );
  * Child themes can re-define this function to customize setup configuration.
  */
 function responsive_setup() {
+	/**
+	 * Filter whether the function is being overridden.
+	 *
+	 * Returning a truthy value will short circuit the entire function.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param bool Whether to override the function. Default is false.
+	 */
+	$override = apply_filters( 'responsive_setup_override', false );
+
+	if ( $override ) {
+		return;
+	}
+
+	/**
+	 * Fires immediately before any theme setup occurs.
+	 *
+	 * @since 2.0.0
+	 */
+	do_action( 'before_responsive_setup' );
+
 	// Expose navigation menu UI.
 	add_theme_support( 'menus' );
 
@@ -58,30 +80,43 @@ function responsive_setup() {
 	remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
 	add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
 
-	/*
-	 * By default, comments are disabled for BU sites.
+	/**
+	 * Filters whether default constants should be registered.
 	 *
-	 * Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
+	 * Returning a truthy value will register the default constants.
 	 *
-	 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
+	 * @since 2.0.0
+	 *
+	 * @param bool Whether default constants should be registered. Default is true, or yes.
 	 */
-	if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
-		define( 'BU_SUPPORTS_COMMENTS', true );
-	}
+	$register_constants = apply_filters( 'responsive_register_constants', true );
 
-	// BU Post Details SEO support.
-	if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
-		define( 'BU_SUPPORTS_SEO', true );
-	}
+	if ( $register_constants ) {
+		/*
+		 * By default, comments are disabled for BU sites.
+		 *
+		 * Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
+		 *
+		 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
+		 */
+		if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
+			define( 'BU_SUPPORTS_COMMENTS', true );
+		}
 
-	// Disable BU Links Footer editor under Appearance menu.
-	if ( ! defined( 'BU_DISABLE_FOOTER_EDITOR' ) ) {
-		define( 'BU_DISABLE_FOOTER_EDITOR', true );
-	}
+		// BU Post Details SEO support.
+		if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
+			define( 'BU_SUPPORTS_SEO', true );
+		}
 
-	// Only support one level of dropdowns by default.
-	if ( ! defined( 'BU_NAVIGATION_SUPPORTED_DEPTH' ) ) {
-		define( 'BU_NAVIGATION_SUPPORTED_DEPTH', 1 );
+		// Disable BU Links Footer editor under Appearance menu.
+		if ( ! defined( 'BU_DISABLE_FOOTER_EDITOR' ) ) {
+			define( 'BU_DISABLE_FOOTER_EDITOR', true );
+		}
+
+		// Only support one level of dropdowns by default.
+		if ( ! defined( 'BU_NAVIGATION_SUPPORTED_DEPTH' ) ) {
+			define( 'BU_NAVIGATION_SUPPORTED_DEPTH', 1 );
+		}
 	}
 
 	// Custom menu locations.
@@ -93,6 +128,7 @@ function responsive_setup() {
 		)
 	);
 
+	// When BU Navigation is not active, register a default primary navigation menu location.
 	if ( ! function_exists( 'bu_navigation_display_primary' ) ) {
 		register_nav_menu( 'responsive-primary', __( 'Primary Navigation', 'responsive-framework' ) );
 	}
@@ -118,6 +154,13 @@ function responsive_setup() {
 
 		$news_templates->register( $theme_news_templates );
 	}
+
+	/**
+	 * Fires immediately after theme setup occurs.
+	 *
+	 * @since 2.0.0
+	 */
+	do_action( 'after_responsive_setup' );
 }
 add_action( 'after_setup_theme', 'responsive_setup' );
 
