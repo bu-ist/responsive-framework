@@ -441,17 +441,17 @@ function responsive_post_navigation( $args = array() ) {
 		'screen_reader_text' => __( 'Post navigation', 'responsive-framework' ),
 	) );
 
-		$previous   = get_previous_post_link( '<div class="nav-previous">%link</div>', $args['prev_text'] );
-		$next       = get_next_post_link( '<div class="nav-next">%link</div>', $args['next_text'] );
+	$previous = get_previous_post_link( '<div class="nav-previous">%link</div>', $args['prev_text'] );
+	$next     = get_next_post_link( '<div class="nav-next">%link</div>', $args['next_text'] );
 
 	if ( $previous || $next ) :
 		?>
 		<nav class="navigation post-navigation" role="navigation">
-		<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
-		<div class="nav-links">
-		<?php echo $previous . $next; ?>
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
+			<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
+			<div class="nav-links">
+			<?php echo $previous . $next; ?>
+			</div><!-- .nav-links -->
+		</nav><!-- .navigation -->
 	<?php
 	endif;
 }
@@ -472,15 +472,21 @@ function responsive_post_meta() {
 			?>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'date' ) ) : ?>
-			<span class="date"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ) ?>" pubdate><?php echo esc_html( get_the_date( 'F jS Y' ) ); ?></time></span>
+			<span class="date"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" pubdate><?php echo esc_html( get_the_date( 'F jS Y' ) ); ?></time></span>
 		<?php endif; ?>
-		<?php if ( responsive_posts_should_display( 'categories' ) && $category_list = get_the_category_list( ', ' ) ) : ?>
-			<span class="category">
+		<?php if ( responsive_posts_should_display( 'categories' ) ) : ?>
 			<?php
-				/* translators: %s: category list for the post. */
-				printf( wp_kses_post( __( '<em>in</em> %s', 'responsive-framework' ) ), $category_list ); // WPCS: XSS ok.
-			?>
-			</span>
+			$category_list = get_the_category_list( ', ' );
+
+			if ( ! empty( $category_list ) ) :
+				?>
+				<span class="category">
+				<?php
+					/* translators: %s: category list for the post. */
+					printf( wp_kses_post( __( '<em>in</em> %s', 'responsive-framework' ) ), $category_list ); // WPCS: XSS ok.
+				?>
+				</span>
+			<?php endif; ?>
 		<?php endif; ?>
 
 		<?php if ( function_exists( 'bu_supports_comments' ) && bu_supports_comments() ) : ?>
@@ -498,9 +504,10 @@ function responsive_post_meta() {
  * Returns one or more Customizer display option value.
  *
  * Site admin can configure display of the following post meta for single and archive post templates:
- * 	- Categories
- * 	- Tags
- * 	- Author
+ *
+ * - Categories
+ * - Tags
+ * - Author
  *
  * @return array $display_options Post display options array, or the specified option.
  */
@@ -604,11 +611,12 @@ function responsive_posts_archive_link( $args = array() ) {
 		'after'  => '</p>',
 		'class'  => 'archive-link posts-archive-link',
 		'echo'   => true,
-		);
+	);
 	$args = wp_parse_args( $args, $defaults );
 
-	$link = '';
+	$link       = '';
 	$class_attr = '';
+
 	if ( ! empty( $args['class'] ) ) {
 		$class_attr = ' class="' . esc_attr( $args['class'] ) . '"';
 	}
@@ -652,7 +660,7 @@ function responsive_profiles_archive_link( $args = array() ) {
 		'after'  => '</p>',
 		'class'  => 'archive-link profiles-archive-link',
 		'echo'   => true,
-		);
+	);
 	$args = wp_parse_args( $args, $defaults );
 
 	if ( function_exists( 'bu_profile_archive_link' ) ) {
@@ -702,10 +710,12 @@ function responsive_extra_footer_classes() {
 	if ( responsive_customizer_has_footer_info() ) {
 		$classes[] = 'has-footer-info';
 	}
+
 	// Is the custom footer links menu in use?
 	if ( has_nav_menu( 'footer' ) ) {
 		$classes[] = 'has-footer-links';
 	}
+
 	// Is the custom social menu in use?
 	if ( has_nav_menu( 'social' ) ) {
 		$classes[] = 'has-footer-social';
@@ -744,7 +754,6 @@ function responsive_is_archive_type( $type ) {
  * Whether or not the current theme supports alternate footbar registration.
  */
 function responsive_theme_supports_dynamic_footbars() {
-
 	// Check for theme constant.
 	if ( defined( 'BU_SUPPORTS_DYNAMIC_FOOTBARS' ) ) {
 		return BU_SUPPORTS_DYNAMIC_FOOTBARS;
@@ -765,7 +774,7 @@ function responsive_get_dynamic_footbars() {
 	return array(
 		'footbar'           => __( 'Footbar', 'responsive-framework' ),
 		'alternate-footbar' => __( 'Alternate Footbar', 'responsive-framework' ),
-		);
+	);
 }
 
 /**
@@ -776,7 +785,7 @@ function responsive_get_dynamic_footbars() {
  * @return string $footbar Selected footbar ID for the post.
  */
 function responsive_get_footbar_id( $post = null ) {
-	$post = get_post( $post );
+	$post    = get_post( $post );
 	$footbar = 'footbar';
 
 	if ( $post && responsive_theme_supports_dynamic_footbars() && post_type_supports( $post->post_type, 'bu-dynamic-footbars' ) ) {
@@ -799,7 +808,7 @@ function responsive_get_footbar_id( $post = null ) {
  */
 function r_get_template_part( $post_type, $name = null ) {
 	$templates = array();
-	$name = (string) $name;
+	$name      = (string) $name;
 
 	if ( '' !== $name ) {
 		$templates[] = "template-parts/{$post_type}-{$name}.php";
@@ -821,7 +830,7 @@ function r_get_template_part( $post_type, $name = null ) {
  */
 function r_get_archive_sidebar( $name = null ) {
 	$templates = array();
-	$name = (string) $name;
+	$name      = (string) $name;
 
 	$queried_object = get_queried_object();
 
