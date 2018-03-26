@@ -18,10 +18,9 @@
  *     @type int    $height Height attribute for <iframe>. Default 310.
  *     @type string $caption Caption content.
  * }
- *
  * @param string $content Shortcode content. Currently unused.
  *
- * @return mixed|void
+ * @return string Shortcode output.
  */
 function buniverse_shortcode( $atts, $content ) {
 	$atts = shortcode_atts( array(
