@@ -148,7 +148,7 @@ add_action( 'after_setup_theme', 'responsive_setup_misc_filters' );
 
 /**
  * Register News Post List templates.
- * 
+ *
  * @codeCoverageIgnore
  */
 function responsive_setup_news_templates() {
