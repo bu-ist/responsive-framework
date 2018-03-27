@@ -32,7 +32,8 @@ function responsive_layout() {
 	if ( defined( 'BU_RESPONSIVE_LAYOUT' ) && array_key_exists( BU_RESPONSIVE_LAYOUT, responsive_layout_options() ) ) {
 		return BU_RESPONSIVE_LAYOUT;
 	}
-	return get_option( 'burf_setting_layout', 'default' );
+
+	return get_option( 'burf_setting_layout', responsive_get_layout_default() );
 }
 
 /**

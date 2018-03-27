@@ -312,3 +312,26 @@ function responsive_oembed_output( $html, $url ) {
 	return $html;
 }
 add_filter( 'embed_oembed_html', 'responsive_oembed_output', 10, 2 );
+
+/**
+ * Get the default Responsive layout.
+ *
+ * @return string Default Responsive layout.
+ */
+function responsive_get_layout_default() {
+	$layout_options = responsive_layout_options();
+	$default        = 'default';
+
+	/**
+	 * Filters the default Responsive layout.
+	 *
+	 * @param string $default Responsive Layout. Default is `default`.
+	 */
+	$new_default = apply_filters( 'responsive_layout_default', $default );
+
+	if ( ! in_array( $new_default, $layout_options, true ) ) {
+		return $default;
+	}
+
+	return $new_default;
+}
