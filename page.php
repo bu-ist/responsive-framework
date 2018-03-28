@@ -5,7 +5,8 @@
  * @package Responsive_Framework
  */
 
-get_header(); ?>
+get_header();
+?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
@@ -32,5 +33,6 @@ get_header(); ?>
 
 	<?php endwhile; ?>
 
-<?php get_sidebar(); ?>
-<?php get_footer();
+<?php
+get_sidebar();
+get_footer();
