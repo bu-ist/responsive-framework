@@ -8,6 +8,8 @@
 if ( is_active_sidebar( 'profiles' ) ) :
 	/**
 	 * Fires immediately before the opening profiles sidebar container element.
+	 *
+	 * @since 2.0.0
 	 */
 	do_action( 'r_sidebar_profiles_opening_before' );
 	?>
@@ -15,6 +17,8 @@ if ( is_active_sidebar( 'profiles' ) ) :
 	<?php
 		/**
 		 * Fires immediately after the opening profiles sidebar container element.
+		 *
+		 * @since 2.0.0
 		 */
 		do_action( 'r_sidebar_profiles_opening_after' );
 
@@ -22,6 +26,8 @@ if ( is_active_sidebar( 'profiles' ) ) :
 
 		/**
 		 * Fires immediately before the closing profiles sidebar container element.
+		 *
+		 * @since 2.0.0
 		 */
 		do_action( 'r_sidebar_profiles_closing_before' );
 	?>
@@ -29,6 +35,8 @@ if ( is_active_sidebar( 'profiles' ) ) :
 	<?php
 	/**
 	 * Fires immediately after the closing profiles sidebar container element.
+	 *
+	 * @since 2.0.0
 	 */
 	do_action( 'r_sidebar_profiles_closing_after' );
 
