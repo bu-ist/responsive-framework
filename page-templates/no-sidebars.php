@@ -5,12 +5,12 @@
  * @package Responsive_Framework
  */
 
-get_header(); ?>
+get_header();
+?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
-
 			<?php the_title( '<h1>', '</h1>' ); ?>
 
 			<?php the_content(); ?>
@@ -27,9 +27,9 @@ get_header(); ?>
 			<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<span class="edit-link">', '</span>' ); ?>
 
 			<?php responsive_comments(); ?>
-
 		</article>
 
 	<?php endwhile; ?>
 
-<?php get_footer();
+<?php
+get_footer();
