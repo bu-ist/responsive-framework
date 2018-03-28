@@ -329,7 +329,7 @@ function responsive_get_layout_default() {
 	 */
 	$new_default = apply_filters( 'responsive_layout_default', $default );
 
-	if ( ! in_array( $new_default, $layout_options, true ) ) {
+	if ( empty( $layout_options[ $new_default ] ) ) {
 		return $default;
 	}
 
