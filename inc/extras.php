@@ -322,10 +322,19 @@ function responsive_get_layout_default() {
 	$layout_options = responsive_layout_options();
 	$default        = 'default';
 
+	if ( empty( $layout_options['default'] ) ) {
+		$default = key( $layout_options );
+	}
+
 	/**
 	 * Filters the default Responsive layout.
 	 *
-	 * @param string $default Responsive Layout. Default is `default`.
+	 * @since 2.0.0
+	 *
+	 * @param string $default Responsive Layout. Default is `default` if a valid
+	 *                        layout, or the first layout in the list returned
+	 *                        by responsive_layout_options() if `default` is
+	 *                        removed by a filter.
 	 */
 	$new_default = apply_filters( 'responsive_layout_default', $default );
 
