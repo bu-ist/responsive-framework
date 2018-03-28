@@ -49,7 +49,7 @@ function responsive_customize_register( $wp_customize ) {
 
 		$wp_customize->add_setting(
 			'burf_setting_layout', array(
-				'default'    => 'default',
+				'default'    => responsive_get_layout_default(),
 				'capability' => 'edit_theme_options',
 				'type'       => 'option',
 			)
