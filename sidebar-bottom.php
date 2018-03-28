@@ -10,6 +10,8 @@ $footbar = responsive_get_footbar_id();
 if ( is_active_sidebar( $footbar ) ) :
 	/**
 	 * Fires immediately before the opening footbar sidebar container element.
+	 *
+	 * @since 2.0.0
 	 */
 	do_action( 'r_sidebar_footbar_opening_before' );
 	?>
@@ -17,6 +19,8 @@ if ( is_active_sidebar( $footbar ) ) :
 		<?php
 			/**
 			 * Fires immediately after the opening footbar sidebar container element.
+			 *
+			 * @since 2.0.0
 			 */
 			do_action( 'r_sidebar_footbar_opening_after' );
 		?>
@@ -28,6 +32,8 @@ if ( is_active_sidebar( $footbar ) ) :
 		<?php
 			/**
 			 * Fires immediately before the closing footbar sidebar container element.
+			 *
+			 * @since 2.0.0
 			 */
 			do_action( 'r_sidebar_footbar_closing_before' );
 		?>
@@ -35,6 +41,8 @@ if ( is_active_sidebar( $footbar ) ) :
 	<?php
 	/**
 	 * Fires immediately after the closing footbar sidebar container element.
+	 *
+	 * @since 2.0.0
 	 */
 	do_action( 'r_sidebar_footbar_closing_after' );
 
