@@ -16,6 +16,8 @@ class Tests_Responsive_Framework_Navigation extends WP_UnitTestCase {
 	 * Default nav menu locations.
 	 */
 	function test_nav_menus() {
+		responsive_setup_nav_menus();
+
 		$nav_menus = get_registered_nav_menus();
 
 		$this->assertTrue( isset( $nav_menus['footer'] ) );
