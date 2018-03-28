@@ -7,16 +7,12 @@
  * @package Responsive_Framework\BU_Profiles
  */
 
-?>
-
-<?php
-
 $extra_classes = array(
 	'profile-item',
-	'profile-item-basic'
+	'profile-item-basic',
 );
 
-if ( bu_profile_detail( 'title', array( 'echo' => false ) ) ) {
+if ( bu_profile_has_detail( 'title' ) ) {
 	$extra_classes[] = 'has-title';
 }
 

@@ -5,9 +5,42 @@
  * @package Responsive_Framework
  */
 
-?>
-<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
+if ( is_active_sidebar( 'sidebar' ) ) :
+
+	/**
+	 * Fires immediately before the opening default sidebar container element.
+	 *
+	 * @since 2.0.0
+	 */
+	do_action( 'r_sidebar_opening_before' );
+	?>
 	<aside class="sidebar">
+		<?php
+			/**
+			 * Fires immediately after the opening default sidebar container element.
+			 *
+			 * @since 2.0.0
+			 */
+			do_action( 'r_sidebar_opening_after' );
+		?>
+
 		<?php dynamic_sidebar( 'sidebar' ); ?>
+
+		<?php
+			/**
+			 * Fires immediately before the closing default sidebar container element.
+			 *
+			 * @since 2.0.0
+			 */
+			do_action( 'r_sidebar_closing_before' );
+		?>
 	</aside>
-<?php endif;
+	<?php
+	/**
+	 * Fires immediately after the closing default sidebar container element.
+	 *
+	 * @since 2.0.0
+	 */
+	do_action( 'r_sidebar_closing_after' );
+
+endif;
