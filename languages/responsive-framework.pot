@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-03-26 18:10:49+00:00\n"
+"POT-Creation-Date: 2018-03-28 15:18:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,7 +45,7 @@ msgid "All page templates"
 msgstr ""
 
 #: admin/responsive-admin-page-template-filter.php:72 inc/calendar.php:90
-#: inc/customizer.php:50 inc/customizer.php:378
+#: inc/customizer.php:51 inc/customizer.php:379
 msgid "Default"
 msgstr ""
 
@@ -220,47 +220,47 @@ msgstr ""
 msgid "Primary Navigation"
 msgstr ""
 
-#: functions.php:191
+#: functions.php:195
 msgid "Main Sidebar"
 msgstr ""
 
-#: functions.php:193
+#: functions.php:197
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:203
+#: functions.php:207
 msgid "Posts Content Area"
 msgstr ""
 
-#: functions.php:205
+#: functions.php:209
 msgid ""
 "Add widgets here for display on posts and archives. Only the first 2 "
 "widgets will appear."
 msgstr ""
 
-#: functions.php:216
+#: functions.php:220
 msgid "Profiles Content Area"
 msgstr ""
 
-#: functions.php:218
+#: functions.php:222
 msgid ""
 "Add widgets here for display on profile pages and archives. Only the first "
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:229 inc/customizer.php:227 inc/template-tags.php:779
+#: functions.php:233 inc/customizer.php:228 inc/template-tags.php:779
 msgid "Footbar"
 msgstr ""
 
-#: functions.php:231 functions.php:245
+#: functions.php:235 functions.php:249
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:243 inc/template-tags.php:780
+#: functions.php:247 inc/template-tags.php:780
 msgid "Alternate Footbar"
 msgstr ""
 
-#: functions.php:388
+#: functions.php:392
 #. translators: %s: navigation label navigating to.
 msgid "Navigate to: %s"
 msgstr ""
@@ -296,107 +296,107 @@ msgstr ""
 msgid "Graphic"
 msgstr ""
 
-#: inc/customizer.php:51
+#: inc/customizer.php:52
 msgid "Top Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:52
+#: inc/customizer.php:53
 msgid "Side Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:53
+#: inc/customizer.php:54
 msgid "No Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:217
+#: inc/customizer.php:218
 msgid "Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:221
+#: inc/customizer.php:222
 msgid "Content Area"
 msgstr ""
 
-#: inc/customizer.php:224
+#: inc/customizer.php:225
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer.php:241
+#: inc/customizer.php:242
 msgid "Background Color"
 msgstr ""
 
-#: inc/customizer.php:246
+#: inc/customizer.php:247
 msgid "Border Color"
 msgstr ""
 
-#: inc/customizer.php:251
+#: inc/customizer.php:252
 msgid "Primary Nav Links"
 msgstr ""
 
-#: inc/customizer.php:256
+#: inc/customizer.php:257
 msgid "Utility Nav Links"
 msgstr ""
 
-#: inc/customizer.php:261
+#: inc/customizer.php:262
 msgid "Primary Nav Links Hover"
 msgstr ""
 
-#: inc/customizer.php:268
+#: inc/customizer.php:269
 msgid "Headings"
 msgstr ""
 
-#: inc/customizer.php:273 inc/customizer.php:326 inc/customizer.php:363
+#: inc/customizer.php:274 inc/customizer.php:327 inc/customizer.php:364
 msgid "Text Color"
 msgstr ""
 
-#: inc/customizer.php:278 inc/customizer.php:316 inc/customizer.php:353
+#: inc/customizer.php:279 inc/customizer.php:317 inc/customizer.php:354
 msgid "Link Color"
 msgstr ""
 
-#: inc/customizer.php:283 inc/customizer.php:321 inc/customizer.php:358
+#: inc/customizer.php:284 inc/customizer.php:322 inc/customizer.php:359
 msgid "Link Hover"
 msgstr ""
 
-#: inc/customizer.php:288
+#: inc/customizer.php:289
 msgid "Button Background"
 msgstr ""
 
-#: inc/customizer.php:293
+#: inc/customizer.php:294
 msgid "Button Text Color"
 msgstr ""
 
-#: inc/customizer.php:300
+#: inc/customizer.php:301
 msgid "Widget Background"
 msgstr ""
 
-#: inc/customizer.php:306 inc/customizer.php:343
+#: inc/customizer.php:307 inc/customizer.php:344
 msgid "Widget Title"
 msgstr ""
 
-#: inc/customizer.php:311 inc/customizer.php:348
+#: inc/customizer.php:312 inc/customizer.php:349
 msgid "Widget Title Border"
 msgstr ""
 
-#: inc/customizer.php:333
+#: inc/customizer.php:334
 msgid "Background"
 msgstr ""
 
-#: inc/customizer.php:338
+#: inc/customizer.php:339
 msgid "Top Border"
 msgstr ""
 
-#: inc/customizer.php:417
+#: inc/customizer.php:418
 msgid "Slacker"
 msgstr ""
 
-#: inc/customizer.php:456
+#: inc/customizer.php:457
 msgid "Extra Spectral"
 msgstr ""
 
-#: inc/customizer.php:495
+#: inc/customizer.php:496
 msgid "Rayleigh Scattering"
 msgstr ""
 
-#: inc/customizer.php:534
+#: inc/customizer.php:535
 msgid "Vinca Minor"
 msgstr ""
 
