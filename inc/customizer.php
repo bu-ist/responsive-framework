@@ -41,7 +41,7 @@ function responsive_layout() {
 		}
 	}
 
-	return $layout;
+	return get_option( 'burf_setting_layout', responsive_get_layout_default() );
 }
 
 /**
