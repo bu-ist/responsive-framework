@@ -11,14 +11,14 @@ if ( is_active_sidebar( $footbar ) ) :
 	/**
 	 * Fires immediately before the opening footbar sidebar container element.
 	 */
-	do_action( 'r_before_sidebar_footbar_opening' );
+	do_action( 'r_sidebar_footbar_opening_before' );
 	?>
 	<aside class="footbar <?php responsive_sidebar_classes( 'footbar' ); ?>">
 		<?php
 			/**
 			 * Fires immediately after the opening footbar sidebar container element.
 			 */
-			do_action( 'r_after_sidebar_footbar_opening' );
+			do_action( 'r_sidebar_footbar_opening_after' );
 		?>
 
 		<div class="footbar-container">
@@ -29,13 +29,13 @@ if ( is_active_sidebar( $footbar ) ) :
 			/**
 			 * Fires immediately before the closing footbar sidebar container element.
 			 */
-			do_action( 'r_before_sidebar_footbar_closing' );
+			do_action( 'r_sidebar_footbar_closing_before' );
 		?>
 	</aside>
 	<?php
 	/**
 	 * Fires immediately after the closing footbar sidebar container element.
 	 */
-	do_action( 'r_after_sidebar_footbar_closing' );
+	do_action( 'r_sidebar_footbar_closing_after' );
 
 endif;
