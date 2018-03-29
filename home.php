@@ -9,7 +9,7 @@ get_header(); ?>
 
 <article class="content-area">
 
-	<?php if ( ! empty( $title  ) ) : ?>
+	<?php if ( ! empty( $title ) ) : ?>
 
 		<h1><?php echo esc_html( $title ); ?></h1>
 
