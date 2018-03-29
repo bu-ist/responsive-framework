@@ -377,6 +377,8 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 		$wp_query  = $query;
 	}
 
+	$archive_type = 'posts';
+
 	// Don't print empty markup if there's only one page.
 	if ( $wp_query->max_num_pages >= 2 ) :
 		$queried_object = get_queried_object();
@@ -404,20 +406,20 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 		}
 
 		$args = wp_parse_args( $args, $defaults );
-	?>
-	<nav class="navigation posts-navigation paging-navigation" role="navigation">
-		<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
-		<div class="nav-links">
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-previous"><?php previous_posts_link( $args['prev_text'] ); ?></div>
-			<?php endif; ?>
+		?>
+		<nav class="navigation posts-navigation paging-navigation" role="navigation">
+			<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
+			<div class="nav-links">
+				<?php if ( get_previous_posts_link() ) : ?>
+				<div class="nav-previous"><?php previous_posts_link( $args['prev_text'] ); ?></div>
+				<?php endif; ?>
 
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-next"><?php next_posts_link( $args['next_text'] ); ?></div>
-			<?php endif; ?>
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
+				<?php if ( get_next_posts_link() ) : ?>
+				<div class="nav-next"><?php next_posts_link( $args['next_text'] ); ?></div>
+				<?php endif; ?>
+			</div><!-- .nav-links -->
+		</nav><!-- .navigation -->
+		<?php
 	endif;
 
 	// Restore the global WP_Query instance if we replaced it.
