@@ -11,7 +11,7 @@ get_header(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
 
-			<?php the_title( '<header><h1>', '</h1></header>' ); ?>
+			<?php the_title( '<header><h1 class="page-title">', '</h1></header>' ); ?>
 
 
 			<?php the_content(); ?>
