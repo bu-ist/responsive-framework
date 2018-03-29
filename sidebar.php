@@ -22,7 +22,12 @@ if ( is_active_sidebar( 'sidebar' ) ) :
 			 */
 			do_action( 'r_sidebar_opening_after' );
 		?>
-		<h2 class="visually-hidden">Related to <?php the_title(); ?></h2>
+		<h2 class="visually-hidden">
+		<?php
+			/* translators: %s: Title for the current post. */
+			printf( __( 'Related to %s', 'responsive-framework' ), get_the_title( get_queried_object_id() ) );
+		?>
+		</h2>
 
 		<?php dynamic_sidebar( 'sidebar' ); ?>
 

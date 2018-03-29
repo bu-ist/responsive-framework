@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-03-29 20:06:27+00:00\n"
+"POT-Creation-Date: 2018-03-29 20:51:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -550,6 +550,16 @@ msgstr ""
 
 #: searchform.php:14
 msgid "Search for:"
+msgstr ""
+
+#: sidebar-bottom.php:22
+#. translators: %s: Site name.
+msgid "More about %s"
+msgstr ""
+
+#: sidebar.php:28
+#. translators: %s: Title for the current post.
+msgid "Related to %s"
 msgstr ""
 
 #: single-profile.php:41
