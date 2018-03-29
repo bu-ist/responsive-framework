@@ -11,7 +11,7 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<h1>
+			<h1 class="page-title">
 			<?php
 				/* translators: %s: current search query. */
 				printf( esc_html__( 'Search Results for: %s', 'responsive-framework' ), '<span>' . esc_html( get_search_query() ) . '</span>' );
