@@ -19,7 +19,7 @@ if ( is_active_sidebar( $footbar ) ) :
 		<h2 class="visually-hidden">
 		<?php
 			/* translators: %s: Site name.  */
-			printf( __( 'More about %s', 'responsive-framework' ), get_bloginfo( 'name' ) );
+			printf( esc_html__( 'More about %s', 'responsive-framework' ), esc_html( get_bloginfo( 'name' ) ) );
 		?>
 		</h2>
 
