@@ -1,5 +1,8 @@
 module.exports = function(grunt) {
 
+	// Report execution time data.
+	require( 'time-grunt' )(grunt);
+
 	// 1. All configuration goes here
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -327,10 +330,11 @@ module.exports = function(grunt) {
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask( 'install',             [ 'copy:hooks', 'bower:install', 'build' ] );
-	grunt.registerTask( 'i18n',                [ 'addtextdomain', 'makepot' ] );
+	grunt.registerTask( 'i18n',                [ 'clean', 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'styles',              [ 'sass' ] );
 	grunt.registerTask( 'scripts',             [ 'phplint', 'concat', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail' ] );
 	grunt.registerTask( 'upgrade_modernizr',   [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
-	grunt.registerTask( 'build',               [ 'bower:install', 'clean', 'sass', 'scripts', 'i18n' ] );
+	grunt.registerTask( 'build',               [ 'bower:install', 'sass', 'scripts', 'i18n' ] );
+	grunt.registerTask( 'default',             [ 'bower:install', 'watch' ] );
 };
