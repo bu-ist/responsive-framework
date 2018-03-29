@@ -28,162 +28,162 @@ if ( ! defined( 'RESPONSIVE_THEME_VERSION' ) ) {
  */
 define( 'RESPONSIVE_MODERNIZR_VERSION', '3.5.0-304' );
 
-if ( ! function_exists( 'responsive_setup' ) ) :
-
+/**
+ * Fires the before_responsive_setup action hook before any theme setup occurs.
+ */
+function responsive_setup_before() {
 	/**
-	 * Sets up theme defaults and registers various core and plugin features.
+	 * Fires immediately before any theme setup occurs.
 	 *
-	 * Child themes can re-define this function to customize setup configuration.
+	 * @since 2.0.0
 	 */
-	function responsive_setup() {
-
-		// Expose navigation menu UI.
-		add_theme_support( 'menus' );
-
-		// Use HTML5 markup for WP provided components where supported.
-		add_theme_support(
-			'html5', array(
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
-			)
-		);
-		add_theme_support( 'post-thumbnails' );
-
-		// Add support for branding plugin.
-		add_theme_support( 'bu-branding' );
-
-		// Add support for the custom post type version of profile plugin.
-		add_theme_support( 'bu-profiles-post_type' );
-
-		// Default flexi multi-line style doesn't need the extra <p> tags.
-		remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
-		add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
-
-		/*
-		 * By default, comments are disabled for BU sites.
-		 *
-		 * Any site that wishes to support comments  must enable them by setting the `_bu_supports_comments` option to '1'.
-		 *
-		 * @see http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-comments
-		 */
-		if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
-			define( 'BU_SUPPORTS_COMMENTS', true );
-		}
-
-		// BU Post Details SEO support.
-		if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
-			define( 'BU_SUPPORTS_SEO', true );
-		}
-
-		// Disable BU Links Footer editor under Appearance menu.
-		if ( ! defined( 'BU_DISABLE_FOOTER_EDITOR' ) ) {
-			define( 'BU_DISABLE_FOOTER_EDITOR', true );
-		}
-
-		// Only support one level of dropdowns by default.
-		if ( ! defined( 'BU_NAVIGATION_SUPPORTED_DEPTH' ) ) {
-			define( 'BU_NAVIGATION_SUPPORTED_DEPTH', 1 );
-		}
-
-		// Custom menu locations.
-		register_nav_menus(
-			array(
-				'footer'  => __( 'Footer Links', 'responsive-framework' ),
-				'social'  => __( 'Social Links', 'responsive-framework' ),
-				'utility' => __( 'Utility Navigation', 'responsive-framework' ),
-			)
-		);
-
-		if ( ! function_exists( 'bu_navigation_display_primary' ) ) {
-			register_nav_menu( 'responsive-primary', __( 'Primary Navigation', 'responsive-framework' ) );
-		}
-
-		// Content banner locations.
-		if ( function_exists( 'bu_register_banner_position' ) ) {
-			bu_register_banner_position(
-				'window-width', array(
-					'label' => __( 'Full browser window width', 'responsive-framework' ),
-					'hint'  => __( 'Banner area will appear above the content and sidebars, for use with scalable media such as Flash.', 'responsive-framework' ),
-				)
-			);
-			bu_register_banner_position(
-				'page-width', array(
-					'label' => __( 'Page width', 'responsive-framework' ),
-					'hint'  => __( 'Banner will appear above the content and sidebars and should be 1130 pixels wide.', 'responsive-framework' ),
-				)
-			);
-			bu_register_banner_position(
-				'content-width', array(
-					'label'   => __( 'Content width', 'responsive-framework' ),
-					'hint'    => __( 'Banner will appear above the title in the content area and should be 760 pixels wide.', 'responsive-framework' ),
-					'default' => true,
-				)
-			);
-		}
-
-		// Register supported templates for Content Banner and BU Profile plugins.
-		// @TODO: Need to require from BU_INCLUDES.
-		if ( class_exists( 'AllowedTemplates' ) ) {
-			global $banner_templates, $profile_templates, $news_templates;
-
-			if ( ! isset( $banner_templates ) ) {
-				$banner_templates = new AllowedTemplates();
-			}
-
-			$banner_templates->register(
-				apply_filters(
-					'responsive_banner_templates', array(
-						'default',
-						'page-templates/calendar.php',
-						'page-templates/news.php',
-						'page-templates/no-sidebars.php',
-						'page-templates/profiles.php',
-						'single.php',
-					)
-				)
-			);
-
-			if ( ! isset( $profile_templates ) ) {
-				$profile_templates = new AllowedTemplates();
-			}
-
-			$profile_templates->register(
-				apply_filters(
-					'responsive_profile_templates', array(
-						'page-templates/profiles.php',
-					)
-				)
-			);
-
-			if ( ! isset( $news_templates ) ) {
-				$news_templates = new AllowedTemplates();
-			}
-
-			$news_templates->register(
-				apply_filters(
-					'responsive_news_templates', array(
-						'page-templates/news.php',
-					)
-				)
-			);
-		}
-
-	}
-
-endif;
-
-add_action( 'after_setup_theme', 'responsive_setup' );
+	do_action( 'before_responsive_setup' );
+}
+add_action( 'after_setup_theme', 'responsive_setup_before', 9 );
 
 /**
- * Theme-specific initialization logic
+ * Fires the after_responsive_setup action hook after theme setup occurs.
+ */
+function responsive_setup_after() {
+	/**
+	 * Fires immediately after theme setup occurs.
+	 *
+	 * @since 2.0.0
+	 */
+	do_action( 'after_responsive_setup' );
+}
+add_action( 'after_setup_theme', 'responsive_setup_after', 11 );
+
+/**
+ * Add default support for the following features:
+ *
+ * - Menus
+ * - HTML5 comment forms.
+ * - HTML5 comment lists.
+ * - HTML5 galleries.
+ * - HTML5 captions.
+ * - Post thumbnails
+ * - BU Branding
+ * - BU Profiles
+ */
+function responsive_setup_theme_support() {
+	add_theme_support( 'menus' );
+	add_theme_support(
+		'html5', array(
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		)
+	);
+	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'bu-branding' );
+	add_theme_support( 'bu-profiles-post_type' );
+}
+add_action( 'after_setup_theme', 'responsive_setup_theme_support' );
+
+/**
+ * Ensure all needed constants are defined.
+ */
+function responsive_setup_constants() {
+	/**
+	 * By default, comments are disabled for BU sites.
+	 *
+	 * Any site that wishes to support comments must enable them by setting the `_bu_supports_comments` option to '1'.
+	 *
+	 * @see https://github.com/bu-ist/bu-comments
+	 */
+	if ( ! defined( 'BU_SUPPORTS_COMMENTS' ) ) {
+		define( 'BU_SUPPORTS_COMMENTS', true );
+	}
+
+	// BU Post Details SEO support.
+	if ( ! defined( 'BU_SUPPORTS_SEO' ) ) {
+		define( 'BU_SUPPORTS_SEO', true );
+	}
+
+	// Disable BU Links Footer editor under Appearance menu.
+	if ( ! defined( 'BU_DISABLE_FOOTER_EDITOR' ) ) {
+		define( 'BU_DISABLE_FOOTER_EDITOR', true );
+	}
+
+	// Only support one level of dropdowns by default.
+	if ( ! defined( 'BU_NAVIGATION_SUPPORTED_DEPTH' ) ) {
+		define( 'BU_NAVIGATION_SUPPORTED_DEPTH', 1 );
+	}
+}
+add_action( 'after_setup_theme', 'responsive_setup_constants' );
+
+/**
+ * Register navigation menu locations.
+ */
+function responsive_setup_nav_menus() {
+	// Custom menu locations.
+	register_nav_menus(
+		array(
+			'footer'  => __( 'Footer Links', 'responsive-framework' ),
+			'social'  => __( 'Social Links', 'responsive-framework' ),
+			'utility' => __( 'Utility Navigation', 'responsive-framework' ),
+		)
+	);
+
+	// When BU Navigation is not active, register a default primary navigation menu location.
+	if ( ! function_exists( 'bu_navigation_display_primary' ) ) {
+		register_nav_menu( 'responsive-primary', __( 'Primary Navigation', 'responsive-framework' ) );
+	}
+}
+add_action( 'after_setup_theme', 'responsive_setup_nav_menus' );
+
+/**
+ * Setup miscellaneous filters.
+ *
+ * @codeCoverageIgnore
+ */
+function responsive_setup_misc_filters() {
+	// Default flexi multi-line style doesn't need the extra <p> tags.
+	remove_filter( 'bu_profile_detail_multi_line', 'wpautop' );
+	add_filter( 'bu_profile_detail_multi_line', 'nl2br' );
+}
+add_action( 'after_setup_theme', 'responsive_setup_misc_filters' );
+
+/**
+ * Register News Post List templates.
+ *
+ * @codeCoverageIgnore
+ */
+function responsive_setup_news_templates() {
+	// Register supported news templates for the BU Post Lists plugin.
+	if ( ! class_exists( 'AllowedTemplates' ) ) {
+		return;
+	}
+
+	global $news_templates;
+
+	if ( ! isset( $news_templates ) ) {
+		$news_templates = new AllowedTemplates();
+	}
+
+	/**
+	 * Filters page templates that allow news posts to be listed.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array Page templates.
+	 */
+	$theme_news_templates = apply_filters( 'responsive_news_templates', array(
+		'page-templates/news.php',
+	) );
+
+	$news_templates->register( $theme_news_templates );
+}
+add_action( 'after_setup_theme', 'responsive_setup_news_templates' );
+
+/**
+ * Add support to pages for Dynamic footbars (e.g. alternate footbars).
  */
 function responsive_init() {
-	// Add support for dynamic footbars (e.g. alternate footbar).
 	add_post_type_support( 'page', 'bu-dynamic-footbars' );
 }
-
 add_action( 'init', 'responsive_init' );
 
 /**
@@ -256,8 +256,15 @@ function responsive_sidebars() {
 	}
 
 }
-
 add_action( 'widgets_init', 'responsive_sidebars' );
+
+/**
+ * Display the bottom sidebar.
+ */
+function responsive_bottom_sidebar_display() {
+	get_sidebar( 'bottom' );
+}
+add_action( 'r_after_closing_container_inner', 'responsive_bottom_sidebar_display' );
 
 /**
  * Enqueue front-end scripts & styles.
@@ -265,8 +272,9 @@ add_action( 'widgets_init', 'responsive_sidebars' );
 function responsive_enqueue_scripts() {
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-	// Main script file (script.js) will load from child theme directory.
-	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", apply_filters( 'r_script_dependencies', array( 'jquery' ) ), RESPONSIVE_THEME_VERSION, apply_filters( 'r_script_location', true ) );
+	$dependencies = array(
+		'jquery',
+	);
 
 	/**
 	 * Filters whether Modernizr should be enqueued by the framework.
@@ -277,11 +285,49 @@ function responsive_enqueue_scripts() {
 	 *
 	 * @param bool Default is to enqueue Modernizr.
 	 */
-	$enqueue_modernizr = apply_filters( 'r_enqueue_modernizr', true );
+	$enqueue_modernizr = (bool) apply_filters( 'r_enqueue_modernizr', true );
 
-	if ( (bool) $enqueue_modernizr ) {
-		wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), RESPONSIVE_MODERNIZR_VERSION );
+	if ( $enqueue_modernizr ) {
+		$dependencies[] = 'modernizr';
+
+		/**
+		 * Filters whether the Modernizr should be loaded in the footer.
+		 *
+		 * Default is false (no).
+		 *
+		 * @link https://github.com/Modernizr/Modernizr/issues/878#issuecomment-41448059
+		 *
+		 * @since 2.0.0
+		 *
+		 * @param bool Whether to load the script in the footer.
+		 */
+		$modernizr_in_footer = (bool) apply_filters( 'r_modernizr_in_footer', false );
+
+		wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), RESPONSIVE_MODERNIZR_VERSION, $modernizr_in_footer );
 	}
+
+	/**
+	 * Filter the responsive-scripts script dependencies.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array Framework script dependencies.
+	 */
+	$dependencies = apply_filters( 'r_script_dependencies', $dependencies );
+
+	/**
+	 * Filters whether the main framework JavaScript file should be loaded in the footer.
+	 *
+	 * Default is true (yes).
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param bool Whether to load the script in the footer.
+	 */
+	$script_in_footer = (bool) apply_filters( 'r_script_in_footer', true );
+
+	// Main script file (script.js) will load from child theme directory.
+	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", $dependencies, RESPONSIVE_THEME_VERSION, $script_in_footer );
 
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
 	if ( is_singular() && responsive_has_comment_support() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -396,6 +442,8 @@ function r_is_narrow_template() {
 	/**
 	 * Filters whether the blog page (post type archive) should be considered narrow.
 	 *
+	 * Default is true, or yes.
+	 *
 	 * @since 2.0.0
 	 *
 	 * @param bool true Default for checking is_home() conditional.
@@ -473,13 +521,13 @@ function r_is_narrow_template() {
 }
 
 /**
- * Displays the classes for the main content container.
+ * Displays the classes for the inner content container.
  *
  * @since 2.0.0
  *
  * @param string|array $class One or more classes to add to the class list.
  */
-function r_content_container_class( $class = '' ) {
+function r_container_inner_class( $class = '' ) {
 	$classes = array();
 
 	if ( r_is_narrow_template() ) {
@@ -488,32 +536,77 @@ function r_content_container_class( $class = '' ) {
 		$classes[] = 'content-container';
 	}
 
-	if ( $class ) {
-		if ( ! is_array( $class ) ) {
-			$class = preg_split( '#\s+#', $class );
-		}
-		$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
-	} else {
-		// Ensure that we always coerce class to being an array.
-		$class = array();
-	}
+	$class = r_prepare_passed_classes( $class );
+	$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
 
 	/**
-	 * Filters the list of CSS classes for the content container.
+	 * Filters the list of CSS classes for the inner content container.
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param array $classes An array of post classes.
-	 * @param array $class   An array of additional classes added to the post.
+	 * @param array $classes Inner content container classes.
+	 * @param array $class   Additional classes added to the inner content container.
 	 */
-	$classes = apply_filters( 'r_content_container_class', $classes, $class );
+	$classes = apply_filters( 'r_container_inner_class', $classes, $class );
 
 	if ( empty( $classes ) ) {
 		return;
 	}
 
-	// Separates classes with a single space, collates classes for content container element.
+	// Separates classes with a single space, collates classes for the inner content container element.
 	echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
+}
+
+/**
+ * Displays the classes for the outer content container.
+ *
+ * @since 2.0.0
+ *
+ * @param string|array $class One or more classes to add to the class list.
+ */
+function r_container_outer_class( $class = '' ) {
+	$classes = array(
+		'content',
+	);
+
+	$class = r_prepare_passed_classes( $class );
+	$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
+
+	/**
+	 * Filters the list of CSS classes for the outer content container.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array $classes Outer content container classes.
+	 * @param array $class   Additional classes added to the outer content container.
+	 */
+	$classes = apply_filters( 'r_container_outer_class', $classes, $class );
+
+	if ( empty( $classes ) ) {
+		return;
+	}
+
+	// Separates classes with a single space, collates classes for the outer content container element.
+	echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
+}
+
+/**
+ * Ensure the class argument for class attribute functions is always an array.
+ *
+ * @param string|array $class Element classes.
+ *
+ * @return array Element classes.
+ */
+function r_prepare_passed_classes( $class ) {
+	if ( $class ) {
+		if ( ! is_array( $class ) ) {
+			$class = preg_split( '#\s+#', $class );
+		}
+	} else {
+		$class = array();
+	}
+
+	return $class;
 }
 
 /**
@@ -619,6 +712,11 @@ require __DIR__ . '/inc/upgrade.php';
  * WordPress galleries code.
  */
 require __DIR__ . '/inc/galleries.php';
+
+/**
+ * Plugin Support - BU Profiles
+ */
+require __DIR__ . '/inc/profiles.php';
 
 /**
  * WP-CLI commands.
