@@ -22,7 +22,7 @@ if ( is_active_sidebar( 'sidebar' ) ) :
 			 */
 			do_action( 'r_sidebar_opening_after' );
 		?>
-		<h2 class="visually-hidden">
+		<h2 class="u-visually-hidden">
 		<?php
 			/* translators: %s: Title for the current post. */
 			printf( esc_html__( 'Related to %s', 'responsive-framework' ), get_the_title( get_queried_object_id() ) );
