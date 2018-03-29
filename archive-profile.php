@@ -10,7 +10,7 @@ get_header(); ?>
 	<article class="content-area profiles-archive">
 		<?php if ( have_posts() ) : ?>
 
-			<h1><?php esc_html_e( 'Profile Directory', 'responsive-framework' ); ?></h1>
+			<h1 class="page-title"><?php esc_html_e( 'Profile Directory', 'responsive-framework' ); ?></h1>
 
 			<ul class="profile-listing profile-format-basic">
 				<?php while ( have_posts() ) : the_post(); ?>
