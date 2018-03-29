@@ -411,11 +411,11 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 			<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
 			<div class="nav-links">
 				<?php if ( get_previous_posts_link() ) : ?>
-				<div class="nav-previous"><?php previous_posts_link( $args['prev_text'] ); ?></div>
+					<div class="nav-previous"><?php previous_posts_link( $args['prev_text'] ); ?></div>
 				<?php endif; ?>
 
 				<?php if ( get_next_posts_link() ) : ?>
-				<div class="nav-next"><?php next_posts_link( $args['next_text'] ); ?></div>
+					<div class="nav-next"><?php next_posts_link( $args['next_text'] ); ?></div>
 				<?php endif; ?>
 			</div><!-- .nav-links -->
 		</nav><!-- .navigation -->
