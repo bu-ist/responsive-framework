@@ -16,7 +16,7 @@ if ( is_active_sidebar( $footbar ) ) :
 	do_action( 'r_sidebar_footbar_opening_before' );
 	?>
 	<aside class="footbar <?php responsive_sidebar_classes( 'footbar' ); ?>" role="complementary">
-		<h2 class="visually-hidden">
+		<h2 class="u-visually-hidden">
 		<?php
 			/* translators: %s: Site name.  */
 			printf( esc_html__( 'More about %s', 'responsive-framework' ), esc_html( get_bloginfo( 'name' ) ) );
