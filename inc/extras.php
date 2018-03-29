@@ -31,7 +31,7 @@ function responsive_body_class( $classes ) {
 	// If "Keep posts sidebar on bottom" is on, don't add classes to those pages.
 	if ( $sidebar_location ) {
 		if ( true === $posts_sidebar_bottom ) {
-			if ( is_page() && ! is_page_template( 'page-templates/news.php' ) && ! is_page_template( 'page-templates/profiles.php' ) ) {
+			if ( is_page() && ! is_page_template( 'page-templates/news.php' ) && ! is_page_template( 'profiles.php' ) ) {
 				$classes[] = "sidebar-location-$sidebar_location";
 			}
 		} else {
@@ -84,6 +84,8 @@ function responsive_filter_category_lists( $thelist, $separator = '' ) {
 	/**
 	 * Filters the categories to exclude from category lists.
 	 *
+	 * @since 1.0.0
+	 *
 	 * @param array List of categories to exclude. Default is one, Uncategorized.
 	 */
 	$categories_to_exclude = apply_filters( 'responsive_category_lists_exclusions', array( 'Uncategorized' ) );
@@ -99,7 +101,6 @@ function responsive_filter_category_lists( $thelist, $separator = '' ) {
 
 	return $thelist;
 }
-
 add_filter( 'the_category', 'responsive_filter_category_lists', 10, 2 );
 
 /**
@@ -194,15 +195,20 @@ add_filter( 'dynamic_sidebar_params', 'responsive_widget_counts', 1, 1 );
  * @return array $sidebars_widgets Filtered list of sidebars with widgets.
  */
 function responsive_limit_sidebars_widgets( $sidebars_widgets ) {
-
 	if ( ! is_admin() ) {
+		/**
+		 * Filters the maximum number of widgets in a sidebar.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param array Sidebars with widget limits.
+		 */
 		$sidebars_to_limit = apply_filters( 'responsive_limit_sidebars_widgets', array(
 			'posts'    => 2,
 			'profiles' => 2,
 		) );
 
 		foreach ( $sidebars_to_limit as $sidebar => $max_widget_count ) {
-
 			// Ignore unreasonable values.
 			if ( $max_widget_count < 1 || $max_widget_count > 10 ) {
 				continue;
@@ -306,3 +312,35 @@ function responsive_oembed_output( $html, $url ) {
 	return $html;
 }
 add_filter( 'embed_oembed_html', 'responsive_oembed_output', 10, 2 );
+
+/**
+ * Get the default Responsive layout.
+ *
+ * @return string Default Responsive layout.
+ */
+function responsive_get_layout_default() {
+	$layout_options = responsive_layout_options();
+	$default        = 'default';
+
+	if ( empty( $layout_options['default'] ) ) {
+		$default = key( $layout_options );
+	}
+
+	/**
+	 * Filters the default Responsive layout.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param string $default Responsive Layout. Default is `default` if a valid
+	 *                        layout, or the first layout in the list returned
+	 *                        by responsive_layout_options() if `default` is
+	 *                        removed by a filter.
+	 */
+	$new_default = apply_filters( 'responsive_layout_default', $default );
+
+	if ( empty( $layout_options[ $new_default ] ) ) {
+		return $default;
+	}
+
+	return $new_default;
+}
