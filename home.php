@@ -5,9 +5,15 @@
  * @package Responsive_Framework
  */
 
-get_header(); ?>
+get_header();
+
+$page_for_posts = get_option( 'page_for_posts', 0 );
+?>
 
 <article class="content-area">
+	<?php if ( ! is_front_page() && is_home() && ! empty( $page_for_posts ) ) : ?>
+		<h1 class="page-title"><?php echo get_the_title( $page_for_posts ); ?></h1>
+	<?php endif; ?>
 
 	<?php if ( have_posts() ) : ?>
 
@@ -27,5 +33,6 @@ get_header(); ?>
 
 </article>
 
-<?php get_sidebar( 'posts' ); ?>
-<?php get_footer();
+<?php
+get_sidebar( 'posts' );
+get_footer();
