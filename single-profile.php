@@ -33,7 +33,7 @@ get_header(); ?>
 			<h2 class="profile-single-title"><?php bu_profile_detail( 'title' ); ?></h2>
 
 			<?php if ( $has_details ) : ?>
-				<div class="profile-single-details">
+				<aside role="complementary" class="profile-single-details">
 					<ul class="profile-details-list">
 						<?php
 
@@ -73,7 +73,7 @@ get_header(); ?>
 
 						?>
 					</ul>
-				</div><!--/.profile-info-->
+				</aside><!--/.profile-info-->
 
 			<?php endif; ?>
 

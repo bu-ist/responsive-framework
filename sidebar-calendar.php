@@ -12,7 +12,7 @@
  */
 do_action( 'r_sidebar_calendar_opening_before' );
 ?>
-<aside class="sidebar sidebar-calendar">
+<aside class="sidebar sidebar-calendar" role="complementary">
 <?php
 	/**
 	 * Fires immediately after the opening calendar sidebar container element.
