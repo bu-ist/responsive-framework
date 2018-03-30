@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-03-30 14:48:02+00:00\n"
+"POT-Creation-Date: 2018-03-30 15:28:01+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,7 +45,7 @@ msgid "All page templates"
 msgstr ""
 
 #: admin/responsive-admin-page-template-filter.php:72 inc/calendar.php:90
-#: inc/customizer.php:51 inc/customizer.php:379
+#: inc/customizer.php:59 inc/customizer.php:387
 msgid "Default"
 msgstr ""
 
@@ -248,7 +248,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:233 inc/customizer.php:228 inc/template-tags.php:781
+#: functions.php:233 inc/customizer.php:236 inc/template-tags.php:781
 msgid "Footbar"
 msgstr ""
 
@@ -296,107 +296,107 @@ msgstr ""
 msgid "Graphic"
 msgstr ""
 
-#: inc/customizer.php:52
+#: inc/customizer.php:60
 msgid "Top Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:53
+#: inc/customizer.php:61
 msgid "Side Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:54
+#: inc/customizer.php:62
 msgid "No Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:218
+#: inc/customizer.php:226
 msgid "Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:222
+#: inc/customizer.php:230
 msgid "Content Area"
 msgstr ""
 
-#: inc/customizer.php:225
+#: inc/customizer.php:233
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer.php:242
+#: inc/customizer.php:250
 msgid "Background Color"
 msgstr ""
 
-#: inc/customizer.php:247
+#: inc/customizer.php:255
 msgid "Border Color"
 msgstr ""
 
-#: inc/customizer.php:252
+#: inc/customizer.php:260
 msgid "Primary Nav Links"
 msgstr ""
 
-#: inc/customizer.php:257
+#: inc/customizer.php:265
 msgid "Utility Nav Links"
 msgstr ""
 
-#: inc/customizer.php:262
+#: inc/customizer.php:270
 msgid "Primary Nav Links Hover"
 msgstr ""
 
-#: inc/customizer.php:269
+#: inc/customizer.php:277
 msgid "Headings"
 msgstr ""
 
-#: inc/customizer.php:274 inc/customizer.php:327 inc/customizer.php:364
+#: inc/customizer.php:282 inc/customizer.php:335 inc/customizer.php:372
 msgid "Text Color"
 msgstr ""
 
-#: inc/customizer.php:279 inc/customizer.php:317 inc/customizer.php:354
+#: inc/customizer.php:287 inc/customizer.php:325 inc/customizer.php:362
 msgid "Link Color"
 msgstr ""
 
-#: inc/customizer.php:284 inc/customizer.php:322 inc/customizer.php:359
+#: inc/customizer.php:292 inc/customizer.php:330 inc/customizer.php:367
 msgid "Link Hover"
 msgstr ""
 
-#: inc/customizer.php:289
+#: inc/customizer.php:297
 msgid "Button Background"
 msgstr ""
 
-#: inc/customizer.php:294
+#: inc/customizer.php:302
 msgid "Button Text Color"
 msgstr ""
 
-#: inc/customizer.php:301
+#: inc/customizer.php:309
 msgid "Widget Background"
 msgstr ""
 
-#: inc/customizer.php:307 inc/customizer.php:344
+#: inc/customizer.php:315 inc/customizer.php:352
 msgid "Widget Title"
 msgstr ""
 
-#: inc/customizer.php:312 inc/customizer.php:349
+#: inc/customizer.php:320 inc/customizer.php:357
 msgid "Widget Title Border"
 msgstr ""
 
-#: inc/customizer.php:334
+#: inc/customizer.php:342
 msgid "Background"
 msgstr ""
 
-#: inc/customizer.php:339
+#: inc/customizer.php:347
 msgid "Top Border"
 msgstr ""
 
-#: inc/customizer.php:418
+#: inc/customizer.php:426
 msgid "Slacker"
 msgstr ""
 
-#: inc/customizer.php:457
+#: inc/customizer.php:465
 msgid "Extra Spectral"
 msgstr ""
 
-#: inc/customizer.php:496
+#: inc/customizer.php:504
 msgid "Rayleigh Scattering"
 msgstr ""
 
-#: inc/customizer.php:535
+#: inc/customizer.php:543
 msgid "Vinca Minor"
 msgstr ""
 
