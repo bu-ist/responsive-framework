@@ -13,7 +13,7 @@ if ( is_active_sidebar( 'profiles' ) ) :
 	 */
 	do_action( 'r_sidebar_profiles_opening_before' );
 	?>
-	<aside class="sidebar sidebar-profiles">
+	<aside class="sidebar sidebar-profiles" role="complementary">
 	<?php
 		/**
 		 * Fires immediately after the opening profiles sidebar container element.

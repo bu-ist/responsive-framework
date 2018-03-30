@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-part' ); ?>>
+<article role="article" id="post-<?php the_ID(); ?>" <?php post_class( 'post-part' ); ?>>
 
 	<h2 class="post-headline">
 		<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
