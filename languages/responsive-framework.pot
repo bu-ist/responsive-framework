@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.0-RC1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-03-30 16:06:42+00:00\n"
+"POT-Creation-Date: 2018-04-02 21:13:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -204,63 +204,63 @@ msgstr ""
 msgid "Submit Comment"
 msgstr ""
 
-#: functions.php:124
+#: functions.php:142
 msgid "Footer Links"
 msgstr ""
 
-#: functions.php:125
+#: functions.php:143
 msgid "Social Links"
 msgstr ""
 
-#: functions.php:126
+#: functions.php:144
 msgid "Utility Navigation"
 msgstr ""
 
-#: functions.php:132
+#: functions.php:150
 msgid "Primary Navigation"
 msgstr ""
 
-#: functions.php:195
+#: functions.php:213
 msgid "Main Sidebar"
 msgstr ""
 
-#: functions.php:197
+#: functions.php:215
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:207
+#: functions.php:225
 msgid "Posts Content Area"
 msgstr ""
 
-#: functions.php:209
+#: functions.php:227
 msgid ""
 "Add widgets here for display on posts and archives. Only the first 2 "
 "widgets will appear."
 msgstr ""
 
-#: functions.php:220
+#: functions.php:238
 msgid "Profiles Content Area"
 msgstr ""
 
-#: functions.php:222
+#: functions.php:240
 msgid ""
 "Add widgets here for display on profile pages and archives. Only the first "
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:233 inc/customizer.php:236 inc/template-tags.php:781
+#: functions.php:251 inc/customizer.php:236 inc/template-tags.php:781
 msgid "Footbar"
 msgstr ""
 
-#: functions.php:235 functions.php:249
+#: functions.php:253 functions.php:267
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:247 inc/template-tags.php:782
+#: functions.php:265 inc/template-tags.php:782
 msgid "Alternate Footbar"
 msgstr ""
 
-#: functions.php:392
+#: functions.php:410
 #. translators: %s: navigation label navigating to.
 msgid "Navigate to: %s"
 msgstr ""
