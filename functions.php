@@ -26,7 +26,9 @@ if ( ! defined( 'RESPONSIVE_THEME_VERSION' ) ) {
  * This is automatically updated when Modernizr is upgraded using `grunt upgrade_modernizer`.
  * Used to version Modernizr assets.
  */
-define( 'RESPONSIVE_MODERNIZR_VERSION', '3.5.0-304' );
+if ( ! defined( 'RESPONSIVE_MODERNIZR_VERSION' ) ) {
+	define( 'RESPONSIVE_MODERNIZR_VERSION', '3.6.0' );
+}
 
 /**
  * Fires the before_responsive_setup action hook before any theme setup occurs.
