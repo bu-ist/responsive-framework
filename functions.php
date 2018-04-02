@@ -29,6 +29,22 @@ if ( ! defined( 'RESPONSIVE_THEME_VERSION' ) ) {
 define( 'RESPONSIVE_MODERNIZR_VERSION', '3.5.0-304' );
 
 /**
+ * lightGallery version.
+ *
+ * This is automatically updated when lightGallery is upgraded using `grunt update_lightgallery`.
+ * Used to version lightGallery assets.
+ */
+define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.8' );
+
+/**
+ * lg-thumbnail version.
+ *
+ * This is automatically updated when lg-thumbnail is upgraded using `grunt update_lightgallery`.
+ * Used to version lg-thumbnail assets.
+ */
+define( 'RESPONSIVE_LG_THUMBNAIL_VERSION', '1.1.0' );
+
+/**
  * Fires the before_responsive_setup action hook before any theme setup occurs.
  */
 function responsive_setup_before() {
