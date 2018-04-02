@@ -198,6 +198,20 @@ module.exports = function(grunt) {
 					prefix: '[\'"]RESPONSIVE_MODERNIZR_VERSION[\'"],\\s*\''
 				},
 				src: ['functions.php']
+			},
+			lightgallery: {
+				options: {
+					pkg: 'node_modules/lightgallery/package.json',
+					prefix: '[\'"]RESPONSIVE_LIGHTGALLERY_VERSION[\'"],\\s*\''
+				},
+				src: ['functions.php']
+			},
+			lg_thumbnail: {
+				options: {
+					pkg: 'node_modules/lg-thumbnail/package.json',
+					prefix: '[\'"]RESPONSIVE_LG_THUMBNAIL_VERSION[\'"],\\s*\''
+				},
+				src: ['functions.php']
 			}
 		},
 		copy: {
@@ -333,7 +347,7 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'i18n',                [ 'clean', 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'styles',              [ 'sass' ] );
 	grunt.registerTask( 'scripts',             [ 'phplint', 'concat', 'uglify' ] );
-	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail' ] );
+	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail', 'version:lightgallery', 'version:lg_thumbnail' ] );
 	grunt.registerTask( 'upgrade_modernizr',   [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
 	grunt.registerTask( 'build',               [ 'bower:install', 'sass', 'scripts', 'i18n' ] );
 	grunt.registerTask( 'default',             [ 'bower:install', 'watch' ] );
