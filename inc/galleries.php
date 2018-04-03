@@ -16,18 +16,18 @@ function after_setup_theme() {
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param int Default gallery image width, 420.
+	 * @param int Default gallery image width, 550.
 	 */
-	$width = (int) apply_filters( 'responsive_gallery_image_width', 420 );
+	$width = (int) apply_filters( 'responsive_gallery_image_width', 550 );
 
 	/**
 	 * Filters the default gallery thumbnail height.
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param int Default gallery image height, 420.
+	 * @param int Default gallery image height, 550.
 	 */
-	$height = (int) apply_filters( 'responsive_gallery_image_height', 420 );
+	$height = (int) apply_filters( 'responsive_gallery_image_height', 550 );
 
 	add_image_size( 'responsive_gallery', $width, $height, true );
 
@@ -58,7 +58,7 @@ function after_setup_theme() {
 	 *
 	 * @param int Default image width, 260.
 	 */
-	$width_5col = (int) apply_filters( 'responsive_gallery_5col_up_image_width', 260 );
+	$width_5col = (int) apply_filters( 'responsive_gallery_5col_up_image_width', 400 );
 
 	/**
 	 * Filters the image height for galleries with 5 columns or more.
@@ -67,7 +67,7 @@ function after_setup_theme() {
 	 *
 	 * @param int Default image width, 200.
 	 */
-	$height_5col = (int) apply_filters( 'responsive_gallery_5col_up_image_height', 200 );
+	$height_5col = (int) apply_filters( 'responsive_gallery_5col_up_image_height', 308 );
 
 	add_image_size( 'responsive_gallery_5col_up', $width_5col, $height_5col, true );
 }
