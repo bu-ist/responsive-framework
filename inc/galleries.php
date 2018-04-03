@@ -16,18 +16,18 @@ function after_setup_theme() {
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param int Default gallery image width, 420.
+	 * @param int Default gallery image width, 550.
 	 */
-	$width = (int) apply_filters( 'responsive_gallery_image_width', 420 );
+	$width = (int) apply_filters( 'responsive_gallery_image_width', 550 );
 
 	/**
 	 * Filters the default gallery thumbnail height.
 	 *
 	 * @since 2.0.0
 	 *
-	 * @param int Default gallery image height, 420.
+	 * @param int Default gallery image height, 550.
 	 */
-	$height = (int) apply_filters( 'responsive_gallery_image_height', 420 );
+	$height = (int) apply_filters( 'responsive_gallery_image_height', 550 );
 
 	add_image_size( 'responsive_gallery', $width, $height, true );
 
