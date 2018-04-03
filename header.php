@@ -17,7 +17,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta http-equiv="ClearType" content="true" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<?php if ( function_exists( 'bu_meta' ) ) : ?>
 		<?php bu_meta(); ?>
