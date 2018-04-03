@@ -17,9 +17,9 @@ module.exports = function(grunt) {
 			},
 			scripts: {
 				files: [
-				'bower_components/responsive-foundation/js-dev/*.js',
-				'js-dev/*.js',
-				'js/vendor/**/*.js'
+					'bower_components/responsive-foundation/js-dev/*.js',
+					'js-dev/*.js',
+					'js/vendor/**/*.js'
 				],
 				tasks: ['concat', 'uglify'],
 				options: {
@@ -140,11 +140,7 @@ module.exports = function(grunt) {
 		addtextdomain: {
 			options: {
 				textdomain: 'responsive-framework',
-				updateDomains: [
-					'YOUR-TEXTDOMAIN',
-					'cmb2',
-					'_s'
-				]
+				updateDomains: true
 			},
 			target: {
 				files: {
