@@ -6,7 +6,6 @@
  */
 
 if ( is_active_sidebar( 'sidebar' ) ) :
-
 	/**
 	 * Fires immediately before the opening default sidebar container element.
 	 *
@@ -14,7 +13,7 @@ if ( is_active_sidebar( 'sidebar' ) ) :
 	 */
 	do_action( 'r_sidebar_opening_before' );
 	?>
-	<aside class="sidebar">
+	<aside class="sidebar" role="complementary">
 		<?php
 			/**
 			 * Fires immediately after the opening default sidebar container element.
@@ -23,6 +22,12 @@ if ( is_active_sidebar( 'sidebar' ) ) :
 			 */
 			do_action( 'r_sidebar_opening_after' );
 		?>
+		<h2 class="u-visually-hidden">
+		<?php
+			/* translators: %s: Title for the current post. */
+			printf( esc_html__( 'Related to %s', 'responsive-framework' ), get_the_title( get_queried_object_id() ) );
+		?>
+		</h2>
 
 		<?php dynamic_sidebar( 'sidebar' ); ?>
 
