@@ -14,7 +14,7 @@ if ( is_active_sidebar( 'posts' ) ) :
 	 */
 	do_action( 'r_sidebar_posts_opening_before' );
 	?>
-	<aside class="sidebar sidebar-posts">
+	<aside class="sidebar sidebar-posts" role="complementary">
 	<?php
 		/**
 		 * Fires immediately after the opening posts sidebar container element.
