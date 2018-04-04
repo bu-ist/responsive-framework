@@ -17,7 +17,6 @@ class Tests_Responsive_Framework_Default_Constants extends WP_UnitTestCase {
 	 */
 	function test_default_theme_version_constants() {
 		$this->assertTrue( defined( 'RESPONSIVE_FRAMEWORK_VERSION' ) );
-		$this->assertTrue( defined( 'RESPONSIVE_THEME_VERSION' ) );
 	}
 
 	/**
