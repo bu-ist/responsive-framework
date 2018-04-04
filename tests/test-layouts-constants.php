@@ -16,6 +16,22 @@
 class Tests_Responsive_Framework_Layouts_Constants extends WP_UnitTestCase {
 
 	/**
+	 * Do not preserve global state between test methods.
+	 *
+	 * @var bool
+	 */
+	protected $preserveGlobalState = false;
+
+	/**
+	 * Run each test method in a separate, isolated process.
+	 *
+	 * This ensures constants are properly set and tested.
+	 *
+	 * @var bool
+	 */
+	protected $runTestInSeparateProcess = true;
+
+	/**
 	 * Setup each test method.
 	 *
 	 * - Make sure to load the admin.php file.
@@ -32,22 +48,6 @@ class Tests_Responsive_Framework_Layouts_Constants extends WP_UnitTestCase {
 		delete_option( 'burf_setting_layout' );
 		delete_transient( 'responsive_layout_setting_check' );
 	}
-
-	/**
-	 * Do not preserve global state between test methods.
-	 *
-	 * @var bool
-	 */
-	protected $preserveGlobalState = false;
-
-	/**
-	 * Run each test method in a separate, isolated process.
-	 *
-	 * This ensures constants are properly set and tested.
-	 *
-	 * @var bool
-	 */
-	protected $runTestInSeparateProcess = true;
 
 	/**
 	 * Test default responsive layout options.
