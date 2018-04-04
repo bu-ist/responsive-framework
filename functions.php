@@ -16,7 +16,9 @@ define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.0.0-RC1' );
  * This is automatically updated when Modernizr is upgraded using `grunt upgrade_modernizer`.
  * Used to version Modernizr assets.
  */
-define( 'RESPONSIVE_MODERNIZR_VERSION', '3.5.0-304' );
+if ( ! defined( 'RESPONSIVE_MODERNIZR_VERSION' ) ) {
+	define( 'RESPONSIVE_MODERNIZR_VERSION', '3.6.0' );
+}
 
 /**
  * Get the version of the current theme.
