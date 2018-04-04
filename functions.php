@@ -11,22 +11,33 @@
 define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.0.0-RC1' );
 
 /**
- * Theme version.
- *
- * Child themes should define this constant.
- * Used to version theme assets (style.css, production.js, etc.).
- */
-if ( ! defined( 'RESPONSIVE_THEME_VERSION' ) ) {
-	define( 'RESPONSIVE_THEME_VERSION', RESPONSIVE_FRAMEWORK_VERSION );
-}
-
-/**
  * Modernizr version.
  *
  * This is automatically updated when Modernizr is upgraded using `grunt upgrade_modernizer`.
  * Used to version Modernizr assets.
  */
-define( 'RESPONSIVE_MODERNIZR_VERSION', '3.5.0-304' );
+if ( ! defined( 'RESPONSIVE_MODERNIZR_VERSION' ) ) {
+	define( 'RESPONSIVE_MODERNIZR_VERSION', '3.6.0' );
+}
+
+/**
+ * Get the version of the current theme.
+ *
+ * When a child theme is active, the RESPONSIVE_CHILD_THEME_VERSION will be
+ * returned (if set in the child theme).
+ *
+ * When the RESPONSIVE_CHILD_THEME_VERSION constant is not set, the default
+ * RESPONSIVE_FRAMEWORK_VERSION version will be returned.
+ *
+ * @return string Active Responsi theme version.
+ */
+function get_responsive_theme_version() {
+	if ( defined( 'RESPONSIVE_CHILD_THEME_VERSION' ) && ! empty( RESPONSIVE_CHILD_THEME_VERSION ) ) {
+		return RESPONSIVE_CHILD_THEME_VERSION;
+	}
+
+	return RESPONSIVE_FRAMEWORK_VERSION;
+}
 
 /**
  * `lightGallery` version.
@@ -345,7 +356,7 @@ function responsive_enqueue_scripts() {
 	$script_in_footer = (bool) apply_filters( 'r_script_in_footer', true );
 
 	// Main script file (script.js) will load from child theme directory.
-	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", $dependencies, RESPONSIVE_THEME_VERSION, $script_in_footer );
+	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", $dependencies, get_responsive_theme_version(), $script_in_footer );
 
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
 	if ( is_singular() && responsive_has_comment_support() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -360,9 +371,9 @@ add_action( 'wp_enqueue_scripts', 'responsive_enqueue_scripts' );
 function responsive_enqueue_styles() {
 	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-	wp_enqueue_style( 'responsive-framework', get_stylesheet_directory_uri() . "/style$postfix.css", array(), RESPONSIVE_THEME_VERSION, 'all' );
+	wp_enqueue_style( 'responsive-framework', get_stylesheet_directory_uri() . "/style$postfix.css", array(), get_responsive_theme_version(), 'all' );
 
-	wp_enqueue_style( 'responsive-framework-ie', get_stylesheet_directory_uri() . "/ie$postfix.css", array(), RESPONSIVE_THEME_VERSION, 'all' );
+	wp_enqueue_style( 'responsive-framework-ie', get_stylesheet_directory_uri() . "/ie$postfix.css", array(), get_responsive_theme_version(), 'all' );
 	wp_style_add_data( 'responsive-framework-ie', 'conditional', '(lt IE 9) & (!IEMobile 7)' );
 }
 add_action( 'wp_enqueue_scripts', 'responsive_enqueue_styles' );
