@@ -14,7 +14,10 @@
     "Steve Rudolfi <srudolfi@bu.edu>",
     "Inderpreet Singh <isingh@bu.edu>",
     "Jonathan Desrosiers <jondes@bu.edu>",
-    "Ashley Kolodziej <kolodz10@bu.edu>"
+    "Ashley Kolodziej <kolodz10@bu.edu>",
+    "Adam Pieniazek <adamzp@bu.edu>",
+    "Carlos Silva <cedas@bu.edu>",
+    "Thomas Dodson <tdodson@bu.edu>"
   ],
   "devDependencies": {
     "grunt": "^1.0.2",
