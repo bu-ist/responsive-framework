@@ -571,6 +571,26 @@ template {
   font-weight: 700;
 }
 
+.icon-dropbox::before, .menu-item [href*="dropbox.com"]::before, .icon-dropbox-alt::before, .icon-facebook::before, .menu-item [href*="facebook.com"]::before, .icon-facebook-alt::before, .icon-flickr::before, .menu-item [href*="flickr.com"]::before, .icon-flickr-alt::before, .icon-foursquare::before, .menu-item [href*="foursquare.com"]::before, .icon-foursquare-alt::before, .icon-github::before, .menu-item [href*="github.com"]::before, .icon-github-alt::before, .icon-googleplus::before, .menu-item [href*="plus.google.com"]::before, .icon-googleplus-alt::before, .icon-instagram::before, .menu-item [href*="instagram.com"]::before, .icon-instagram-alt::before, .icon-kickstarter::before, .menu-item [href*="kickstarter.com"]::before, .icon-kickstarter-alt::before, .icon-linkedin::before, .menu-item [href*="linkedin.com"]::before, .icon-linkedin-alt::before, .icon-paypal::before, .icon-paypal-alt::before, .icon-pinterest::before, .menu-item [href*="pinterest.com"]::before, .icon-pinterest-alt::before, .icon-pocket::before, .menu-item [href*="getpocket.com"]::before, .icon-pocket-alt::before, .icon-reddit::before, .menu-item [href*="reddit.com"]::before, .icon-reddit-alt::before, .icon-renren::before, .icon-retweet::before, .icon-soundcloud::before, .icon-soundcloud-alt::before, .icon-spotify::before, .icon-stackexchange::before, .icon-stackexchange-alt::before, .icon-stackoverflow::before, .icon-stackoverflow-alt::before, .icon-stumbleupon::before, .icon-stumbleupon-alt::before, .icon-twitter::before, .menu-item [href*="twitter.com"]::before, .icon-twitter-alt::before, .icon-tumblr::before, .menu-item [href*="tumblr.com"]::before, .icon-tumblr-alt::before, .icon-vimeo::before, .menu-item [href*="vimeo.com"]::before, .icon-vimeo-alt::before, .icon-vine::before, .menu-item [href*="vine.co"]::before, .icon-vine-alt::before, .icon-weibo::before, .icon-weibo-alt::before, .icon-wordpress::before, .icon-youtube::before, .menu-item [href*="youtube.com"]::before, .icon-youtube-alt::before, .icon-action::before, .icon-ban::before, .icon-bookmark::before, .icon-close::before, .search-toggle.is-open::before, .icon-delete::before, .icon-download::before, .icon-downloadbox::before, .icon-like::before, .icon-like-alt::before, .icon-dislike::before, .icon-menu::before, .icon-plus::before, .bu_collapsible::before, .icon-hyphen::before, .bu_collapsible_open > .bu_collapsible::before, .icon-print::before, .icon-redirect::before, .icon-refresh::before, .icon-replay::before, .icon-share::before, .icon-search::before, .search-toggle::before, .icon-settings::before, .icon-sync::before, .icon-star::before, .icon-tag::before, .icon-upload::before, .icon-uploadcloud::before, .icon-contract::before, .icon-expand::before, .icon-scaledown::before, .icon-scaleup::before, .gallery-icon a::before, .icon-up::before, .icon-right::before, .icon-down::before, .icon-left::before, .icon-directup::before, .icon-directright::before, .icon-dropdown::before, .icon-directleft::before, .icon-navigateup::before, .icon-navigateright::before, .icon-navigatedown::before, .icon-navigateleft::before, .icon-calculator::before, .icon-barchart::before, .icon-piechart::before, .icon-stock::before, .icon-envelope::before, .icon-phone::before, .icon-rss::before, .icon-rss-alt::before, .icon-rotaryphone::before, .icon-link::before, .icon-link-alt::before, .icon-file::before, .icon-files::before, .icon-folder::before, .icon-index::before, .icon-storagebox::before, .icon-burst::before, .icon-cart::before, .icon-creditcard::before, .icon-emptycart::before, .icon-compose::before, .icon-grid::before, .icon-layers::before, .icon-layout::before, .icon-list::before, .icon-flag::before, .icon-reply::before, .icon-thumbnails::before, .icon-write::before, .icon-compass::before, .icon-crosshair::before, .icon-globe::before, .icon-location::before, .icon-map::before, .icon-navigate::before, .icon-signpost::before, .icon-play::before, .icon-pause::before, .icon-stop::before, .icon-rewind::before, .icon-fastforward::before, .icon-skipback::before, .icon-skipforward::before, .icon-record::before, .icon-volume::before, .icon-camera::before, .icon-headphones::before, .icon-mic::before, .icon-music::before, .icon-picture::before, .icon-video::before, .icon-book::before, .icon-box::before, .icon-briefcase::before, .icon-bug::before, .icon-chat::before, .icon-clipboard::before, .icon-code::before, .icon-contacts::before, .icon-dashboard::before, .icon-flask::before, .icon-heart::before, .icon-home::before, .icon-key::before, .icon-lightbulb::before, .icon-lightning::before, .icon-lock::before, .icon-unlock::before, .icon-notebook::before, .icon-notifications::before, .icon-pin::before, .icon-pinboard::before, .icon-planet::before, .icon-poo::before, .icon-puzzle::before, .icon-recycle::before, .icon-recycle-alt::before, .icon-screwdriver::before, .icon-thermometer::before, .icon-toolbox::before, .icon-user::before, .icon-users::before, .icon-utensils::before, .icon-view::before, .icon-wheelchair::before, .icon-wrench::before, .icon-alert::before, .icon-check::before, .icon-info::before, .icon-megaphone::before, .icon-android::before, .icon-appleinc::before, .icon-desktop::before, .icon-cloud::before, .icon-laptop::before, .icon-tablet::before, .icon-smartphone::before, .icon-tv::before, .icon-wifi::before, .icon-calendar::before, .icon-clock::before, .icon-watch::before, .icon-infinity::before, .icon-bike::before, .icon-car::before, .icon-plane::before, .icon-filter::before, .icon-checkbox-empty::before, .icon-checkbox-filled::before, .icon-radio-empty::before, .icon-radio-filled::before {
+  color: unset;
+  display: inline-block;
+  font-family: "bu-default-icons";
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  padding-bottom: 0.2em;
+  speak: none;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  margin-right: 0.5em;
+}
+
 @font-face {
   font-family: "bu-default-icons";
   src: url("//www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.eot?") format("embedded-opentype");
@@ -579,620 +599,2428 @@ template {
   font-style: normal;
 }
 
-.lt-ie9:hover .menu-item [href*="dropbox.com"], .menu-item .lt-ie9:hover [href*="dropbox.com"] {
+.lt-ie9:hover .icon-dropbox, .lt-ie9:hover .menu-item [href*="dropbox.com"], .menu-item .lt-ie9:hover [href*="dropbox.com"] {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="dropbox.com"] span {
+.icon-dropbox span, .menu-item [href*="dropbox.com"] span {
   display: none;
 }
 
-.menu-item [href*="dropbox.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-dropbox::before, .menu-item [href*="dropbox.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="facebook.com"], .menu-item .lt-ie9:hover [href*="facebook.com"] {
+.lt-ie9:hover .icon-dropbox-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="facebook.com"] span {
+.icon-dropbox-alt span {
   display: none;
 }
 
-.menu-item [href*="facebook.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-dropbox-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-facebook, .lt-ie9:hover .menu-item [href*="facebook.com"], .menu-item .lt-ie9:hover [href*="facebook.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-facebook span, .menu-item [href*="facebook.com"] span {
+  display: none;
+}
+
+.icon-facebook::before, .menu-item [href*="facebook.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="flickr.com"], .menu-item .lt-ie9:hover [href*="flickr.com"] {
+.lt-ie9:hover .icon-facebook-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="flickr.com"] span {
+.icon-facebook-alt span {
   display: none;
 }
 
-.menu-item [href*="flickr.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-facebook-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-flickr, .lt-ie9:hover .menu-item [href*="flickr.com"], .menu-item .lt-ie9:hover [href*="flickr.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-flickr span, .menu-item [href*="flickr.com"] span {
+  display: none;
+}
+
+.icon-flickr::before, .menu-item [href*="flickr.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="foursquare.com"], .menu-item .lt-ie9:hover [href*="foursquare.com"] {
+.lt-ie9:hover .icon-flickr-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="foursquare.com"] span {
+.icon-flickr-alt span {
   display: none;
 }
 
-.menu-item [href*="foursquare.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-flickr-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-foursquare, .lt-ie9:hover .menu-item [href*="foursquare.com"], .menu-item .lt-ie9:hover [href*="foursquare.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-foursquare span, .menu-item [href*="foursquare.com"] span {
+  display: none;
+}
+
+.icon-foursquare::before, .menu-item [href*="foursquare.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="github.com"], .menu-item .lt-ie9:hover [href*="github.com"] {
+.lt-ie9:hover .icon-foursquare-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="github.com"] span {
+.icon-foursquare-alt span {
   display: none;
 }
 
-.menu-item [href*="github.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-foursquare-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-github, .lt-ie9:hover .menu-item [href*="github.com"], .menu-item .lt-ie9:hover [href*="github.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-github span, .menu-item [href*="github.com"] span {
+  display: none;
+}
+
+.icon-github::before, .menu-item [href*="github.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="plus.google.com"], .menu-item .lt-ie9:hover [href*="plus.google.com"] {
+.lt-ie9:hover .icon-github-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="plus.google.com"] span {
+.icon-github-alt span {
   display: none;
 }
 
-.menu-item [href*="plus.google.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-github-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-googleplus, .lt-ie9:hover .menu-item [href*="plus.google.com"], .menu-item .lt-ie9:hover [href*="plus.google.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-googleplus span, .menu-item [href*="plus.google.com"] span {
+  display: none;
+}
+
+.icon-googleplus::before, .menu-item [href*="plus.google.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="instagram.com"], .menu-item .lt-ie9:hover [href*="instagram.com"] {
+.lt-ie9:hover .icon-googleplus-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="instagram.com"] span {
+.icon-googleplus-alt span {
   display: none;
 }
 
-.menu-item [href*="instagram.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-googleplus-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-instagram, .lt-ie9:hover .menu-item [href*="instagram.com"], .menu-item .lt-ie9:hover [href*="instagram.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-instagram span, .menu-item [href*="instagram.com"] span {
+  display: none;
+}
+
+.icon-instagram::before, .menu-item [href*="instagram.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="kickstarter.com"], .menu-item .lt-ie9:hover [href*="kickstarter.com"] {
+.lt-ie9:hover .icon-instagram-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="kickstarter.com"] span {
+.icon-instagram-alt span {
   display: none;
 }
 
-.menu-item [href*="kickstarter.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-instagram-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-kickstarter, .lt-ie9:hover .menu-item [href*="kickstarter.com"], .menu-item .lt-ie9:hover [href*="kickstarter.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-kickstarter span, .menu-item [href*="kickstarter.com"] span {
+  display: none;
+}
+
+.icon-kickstarter::before, .menu-item [href*="kickstarter.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="linkedin.com"], .menu-item .lt-ie9:hover [href*="linkedin.com"] {
+.lt-ie9:hover .icon-kickstarter-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="linkedin.com"] span {
+.icon-kickstarter-alt span {
   display: none;
 }
 
-.menu-item [href*="linkedin.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-kickstarter-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-linkedin, .lt-ie9:hover .menu-item [href*="linkedin.com"], .menu-item .lt-ie9:hover [href*="linkedin.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-linkedin span, .menu-item [href*="linkedin.com"] span {
+  display: none;
+}
+
+.icon-linkedin::before, .menu-item [href*="linkedin.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="pinterest.com"], .menu-item .lt-ie9:hover [href*="pinterest.com"] {
+.lt-ie9:hover .icon-linkedin-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="pinterest.com"] span {
+.icon-linkedin-alt span {
   display: none;
 }
 
-.menu-item [href*="pinterest.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-linkedin-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-paypal {
+  -ms-zoom: 1;
+}
+
+.icon-paypal span {
+  display: none;
+}
+
+.icon-paypal::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-paypal-alt {
+  -ms-zoom: 1;
+}
+
+.icon-paypal-alt span {
+  display: none;
+}
+
+.icon-paypal-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-pinterest, .lt-ie9:hover .menu-item [href*="pinterest.com"], .menu-item .lt-ie9:hover [href*="pinterest.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-pinterest span, .menu-item [href*="pinterest.com"] span {
+  display: none;
+}
+
+.icon-pinterest::before, .menu-item [href*="pinterest.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="getpocket.com"], .menu-item .lt-ie9:hover [href*="getpocket.com"] {
+.lt-ie9:hover .icon-pinterest-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="getpocket.com"] span {
+.icon-pinterest-alt span {
   display: none;
 }
 
-.menu-item [href*="getpocket.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-pinterest-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-pocket, .lt-ie9:hover .menu-item [href*="getpocket.com"], .menu-item .lt-ie9:hover [href*="getpocket.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-pocket span, .menu-item [href*="getpocket.com"] span {
+  display: none;
+}
+
+.icon-pocket::before, .menu-item [href*="getpocket.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="reddit.com"], .menu-item .lt-ie9:hover [href*="reddit.com"] {
+.lt-ie9:hover .icon-pocket-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="reddit.com"] span {
+.icon-pocket-alt span {
   display: none;
 }
 
-.menu-item [href*="reddit.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-pocket-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-reddit, .lt-ie9:hover .menu-item [href*="reddit.com"], .menu-item .lt-ie9:hover [href*="reddit.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-reddit span, .menu-item [href*="reddit.com"] span {
+  display: none;
+}
+
+.icon-reddit::before, .menu-item [href*="reddit.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="twitter.com"], .menu-item .lt-ie9:hover [href*="twitter.com"] {
+.lt-ie9:hover .icon-reddit-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="twitter.com"] span {
+.icon-reddit-alt span {
   display: none;
 }
 
-.menu-item [href*="twitter.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-reddit-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-renren {
+  -ms-zoom: 1;
+}
+
+.icon-renren span {
+  display: none;
+}
+
+.icon-renren::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-retweet {
+  -ms-zoom: 1;
+}
+
+.icon-retweet span {
+  display: none;
+}
+
+.icon-retweet::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-soundcloud {
+  -ms-zoom: 1;
+}
+
+.icon-soundcloud span {
+  display: none;
+}
+
+.icon-soundcloud::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-soundcloud-alt {
+  -ms-zoom: 1;
+}
+
+.icon-soundcloud-alt span {
+  display: none;
+}
+
+.icon-soundcloud-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-spotify {
+  -ms-zoom: 1;
+}
+
+.icon-spotify span {
+  display: none;
+}
+
+.icon-spotify::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-stackexchange {
+  -ms-zoom: 1;
+}
+
+.icon-stackexchange span {
+  display: none;
+}
+
+.icon-stackexchange::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-stackexchange-alt {
+  -ms-zoom: 1;
+}
+
+.icon-stackexchange-alt span {
+  display: none;
+}
+
+.icon-stackexchange-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-stackoverflow {
+  -ms-zoom: 1;
+}
+
+.icon-stackoverflow span {
+  display: none;
+}
+
+.icon-stackoverflow::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-stackoverflow-alt {
+  -ms-zoom: 1;
+}
+
+.icon-stackoverflow-alt span {
+  display: none;
+}
+
+.icon-stackoverflow-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-stumbleupon {
+  -ms-zoom: 1;
+}
+
+.icon-stumbleupon span {
+  display: none;
+}
+
+.icon-stumbleupon::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-stumbleupon-alt {
+  -ms-zoom: 1;
+}
+
+.icon-stumbleupon-alt span {
+  display: none;
+}
+
+.icon-stumbleupon-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-twitter, .lt-ie9:hover .menu-item [href*="twitter.com"], .menu-item .lt-ie9:hover [href*="twitter.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-twitter span, .menu-item [href*="twitter.com"] span {
+  display: none;
+}
+
+.icon-twitter::before, .menu-item [href*="twitter.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="tumblr.com"], .menu-item .lt-ie9:hover [href*="tumblr.com"] {
+.lt-ie9:hover .icon-twitter-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="tumblr.com"] span {
+.icon-twitter-alt span {
   display: none;
 }
 
-.menu-item [href*="tumblr.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-twitter-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-tumblr, .lt-ie9:hover .menu-item [href*="tumblr.com"], .menu-item .lt-ie9:hover [href*="tumblr.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-tumblr span, .menu-item [href*="tumblr.com"] span {
+  display: none;
+}
+
+.icon-tumblr::before, .menu-item [href*="tumblr.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="vimeo.com"], .menu-item .lt-ie9:hover [href*="vimeo.com"] {
+.lt-ie9:hover .icon-tumblr-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="vimeo.com"] span {
+.icon-tumblr-alt span {
   display: none;
 }
 
-.menu-item [href*="vimeo.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-tumblr-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-vimeo, .lt-ie9:hover .menu-item [href*="vimeo.com"], .menu-item .lt-ie9:hover [href*="vimeo.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-vimeo span, .menu-item [href*="vimeo.com"] span {
+  display: none;
+}
+
+.icon-vimeo::before, .menu-item [href*="vimeo.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="vine.co"], .menu-item .lt-ie9:hover [href*="vine.co"] {
+.lt-ie9:hover .icon-vimeo-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="vine.co"] span {
+.icon-vimeo-alt span {
   display: none;
 }
 
-.menu-item [href*="vine.co"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-vimeo-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-vine, .lt-ie9:hover .menu-item [href*="vine.co"], .menu-item .lt-ie9:hover [href*="vine.co"] {
+  -ms-zoom: 1;
+}
+
+.icon-vine span, .menu-item [href*="vine.co"] span {
+  display: none;
+}
+
+.icon-vine::before, .menu-item [href*="vine.co"]::before {
   content: "";
 }
 
-.lt-ie9:hover .menu-item [href*="youtube.com"], .menu-item .lt-ie9:hover [href*="youtube.com"] {
+.lt-ie9:hover .icon-vine-alt {
   -ms-zoom: 1;
 }
 
-.menu-item [href*="youtube.com"] span {
+.icon-vine-alt span {
   display: none;
 }
 
-.menu-item [href*="youtube.com"]::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-vine-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-weibo {
+  -ms-zoom: 1;
+}
+
+.icon-weibo span {
+  display: none;
+}
+
+.icon-weibo::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-weibo-alt {
+  -ms-zoom: 1;
+}
+
+.icon-weibo-alt span {
+  display: none;
+}
+
+.icon-weibo-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-wordpress {
+  -ms-zoom: 1;
+}
+
+.icon-wordpress span {
+  display: none;
+}
+
+.icon-wordpress::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-youtube, .lt-ie9:hover .menu-item [href*="youtube.com"], .menu-item .lt-ie9:hover [href*="youtube.com"] {
+  -ms-zoom: 1;
+}
+
+.icon-youtube span, .menu-item [href*="youtube.com"] span {
+  display: none;
+}
+
+.icon-youtube::before, .menu-item [href*="youtube.com"]::before {
   content: "";
 }
 
-.lt-ie9:hover .search-toggle.is-open {
+.lt-ie9:hover .icon-youtube-alt {
   -ms-zoom: 1;
 }
 
-.search-toggle.is-open span {
+.icon-youtube-alt span {
   display: none;
 }
 
-.search-toggle.is-open::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-youtube-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-action {
+  -ms-zoom: 1;
+}
+
+.icon-action span {
+  display: none;
+}
+
+.icon-action::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-ban {
+  -ms-zoom: 1;
+}
+
+.icon-ban span {
+  display: none;
+}
+
+.icon-ban::before {
+  content: "🚫";
+}
+
+.lt-ie9:hover .icon-bookmark {
+  -ms-zoom: 1;
+}
+
+.icon-bookmark span {
+  display: none;
+}
+
+.icon-bookmark::before {
+  content: "🔖";
+}
+
+.lt-ie9:hover .icon-close, .lt-ie9:hover .search-toggle.is-open {
+  -ms-zoom: 1;
+}
+
+.icon-close span, .search-toggle.is-open span {
+  display: none;
+}
+
+.icon-close::before, .search-toggle.is-open::before {
   content: "";
 }
 
-.lt-ie9:hover .bu_collapsible {
+.lt-ie9:hover .icon-delete {
   -ms-zoom: 1;
 }
 
-.bu_collapsible span {
+.icon-delete span {
   display: none;
 }
 
-.bu_collapsible::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-delete::before {
+  content: "␡";
+}
+
+.lt-ie9:hover .icon-download {
+  -ms-zoom: 1;
+}
+
+.icon-download span {
+  display: none;
+}
+
+.icon-download::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-downloadbox {
+  -ms-zoom: 1;
+}
+
+.icon-downloadbox span {
+  display: none;
+}
+
+.icon-downloadbox::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-like {
+  -ms-zoom: 1;
+}
+
+.icon-like span {
+  display: none;
+}
+
+.icon-like::before {
+  content: "👍";
+}
+
+.lt-ie9:hover .icon-like-alt {
+  -ms-zoom: 1;
+}
+
+.icon-like-alt span {
+  display: none;
+}
+
+.icon-like-alt::before {
+  content: "👋";
+}
+
+.lt-ie9:hover .icon-dislike {
+  -ms-zoom: 1;
+}
+
+.icon-dislike span {
+  display: none;
+}
+
+.icon-dislike::before {
+  content: "👎";
+}
+
+.lt-ie9:hover .icon-menu {
+  -ms-zoom: 1;
+}
+
+.icon-menu span {
+  display: none;
+}
+
+.icon-menu::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-plus, .lt-ie9:hover .bu_collapsible {
+  -ms-zoom: 1;
+}
+
+.icon-plus span, .bu_collapsible span {
+  display: none;
+}
+
+.icon-plus::before, .bu_collapsible::before {
   content: "+";
 }
 
-.lt-ie9:hover .bu_collapsible_open > .bu_collapsible {
+.lt-ie9:hover .icon-hyphen, .lt-ie9:hover .bu_collapsible_open > .bu_collapsible {
   -ms-zoom: 1;
 }
 
-.bu_collapsible_open > .bu_collapsible span {
+.icon-hyphen span, .bu_collapsible_open > .bu_collapsible span {
   display: none;
 }
 
-.bu_collapsible_open > .bu_collapsible::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-hyphen::before, .bu_collapsible_open > .bu_collapsible::before {
   content: "-";
 }
 
-.lt-ie9:hover .search-toggle {
+.lt-ie9:hover .icon-print {
   -ms-zoom: 1;
 }
 
-.search-toggle span {
+.icon-print span {
   display: none;
 }
 
-.search-toggle::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-print::before {
+  content: "⎙";
+}
+
+.lt-ie9:hover .icon-redirect {
+  -ms-zoom: 1;
+}
+
+.icon-redirect span {
+  display: none;
+}
+
+.icon-redirect::before {
+  content: "↪";
+}
+
+.lt-ie9:hover .icon-refresh {
+  -ms-zoom: 1;
+}
+
+.icon-refresh span {
+  display: none;
+}
+
+.icon-refresh::before {
+  content: "↻";
+}
+
+.lt-ie9:hover .icon-replay {
+  -ms-zoom: 1;
+}
+
+.icon-replay span {
+  display: none;
+}
+
+.icon-replay::before {
+  content: "↺";
+}
+
+.lt-ie9:hover .icon-share {
+  -ms-zoom: 1;
+}
+
+.icon-share span {
+  display: none;
+}
+
+.icon-share::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-search, .lt-ie9:hover .search-toggle {
+  -ms-zoom: 1;
+}
+
+.icon-search span, .search-toggle span {
+  display: none;
+}
+
+.icon-search::before, .search-toggle::before {
   content: "🔎";
 }
 
-.lt-ie9:hover .gallery-icon a, .gallery-icon .lt-ie9:hover a {
+.lt-ie9:hover .icon-settings {
   -ms-zoom: 1;
 }
 
-.gallery-icon a span {
+.icon-settings span {
   display: none;
 }
 
-.gallery-icon a::before {
-  color: unset;
-  display: inline-block;
-  font-family: "bu-default-icons";
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-bottom: 0.2em;
-  speak: none;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.icon-settings::before {
+  content: "⚙";
+}
+
+.lt-ie9:hover .icon-sync {
+  -ms-zoom: 1;
+}
+
+.icon-sync span {
+  display: none;
+}
+
+.icon-sync::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-star {
+  -ms-zoom: 1;
+}
+
+.icon-star span {
+  display: none;
+}
+
+.icon-star::before {
+  content: "⋆";
+}
+
+.lt-ie9:hover .icon-tag {
+  -ms-zoom: 1;
+}
+
+.icon-tag span {
+  display: none;
+}
+
+.icon-tag::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-upload {
+  -ms-zoom: 1;
+}
+
+.icon-upload span {
+  display: none;
+}
+
+.icon-upload::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-uploadcloud {
+  -ms-zoom: 1;
+}
+
+.icon-uploadcloud span {
+  display: none;
+}
+
+.icon-uploadcloud::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-contract {
+  -ms-zoom: 1;
+}
+
+.icon-contract span {
+  display: none;
+}
+
+.icon-contract::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-expand {
+  -ms-zoom: 1;
+}
+
+.icon-expand span {
+  display: none;
+}
+
+.icon-expand::before {
+  content: "⤢";
+}
+
+.lt-ie9:hover .icon-scaledown {
+  -ms-zoom: 1;
+}
+
+.icon-scaledown span {
+  display: none;
+}
+
+.icon-scaledown::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-scaleup, .lt-ie9:hover .gallery-icon a, .gallery-icon .lt-ie9:hover a {
+  -ms-zoom: 1;
+}
+
+.icon-scaleup span, .gallery-icon a span {
+  display: none;
+}
+
+.icon-scaleup::before, .gallery-icon a::before {
   content: "";
+}
+
+.lt-ie9:hover .icon-up {
+  -ms-zoom: 1;
+}
+
+.icon-up span {
+  display: none;
+}
+
+.icon-up::before {
+  content: "⠆";
+}
+
+.lt-ie9:hover .icon-right {
+  -ms-zoom: 1;
+}
+
+.icon-right span {
+  display: none;
+}
+
+.icon-right::before {
+  content: "➡";
+}
+
+.lt-ie9:hover .icon-down {
+  -ms-zoom: 1;
+}
+
+.icon-down span {
+  display: none;
+}
+
+.icon-down::before {
+  content: "⬇";
+}
+
+.lt-ie9:hover .icon-left {
+  -ms-zoom: 1;
+}
+
+.icon-left span {
+  display: none;
+}
+
+.icon-left::before {
+  content: "⬅";
+}
+
+.lt-ie9:hover .icon-directup {
+  -ms-zoom: 1;
+}
+
+.icon-directup span {
+  display: none;
+}
+
+.icon-directup::before {
+  content: "▴";
+}
+
+.lt-ie9:hover .icon-directright {
+  -ms-zoom: 1;
+}
+
+.icon-directright span {
+  display: none;
+}
+
+.icon-directright::before {
+  content: "▹";
+}
+
+.lt-ie9:hover .icon-dropdown {
+  -ms-zoom: 1;
+}
+
+.icon-dropdown span {
+  display: none;
+}
+
+.icon-dropdown::before {
+  content: "▾";
+}
+
+.lt-ie9:hover .icon-directleft {
+  -ms-zoom: 1;
+}
+
+.icon-directleft span {
+  display: none;
+}
+
+.icon-directleft::before {
+  content: "◃";
+}
+
+.lt-ie9:hover .icon-navigateup {
+  -ms-zoom: 1;
+}
+
+.icon-navigateup span {
+  display: none;
+}
+
+.icon-navigateup::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-navigateright {
+  -ms-zoom: 1;
+}
+
+.icon-navigateright span {
+  display: none;
+}
+
+.icon-navigateright::before {
+  content: "▻";
+}
+
+.lt-ie9:hover .icon-navigatedown {
+  -ms-zoom: 1;
+}
+
+.icon-navigatedown span {
+  display: none;
+}
+
+.icon-navigatedown::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-navigateleft {
+  -ms-zoom: 1;
+}
+
+.icon-navigateleft span {
+  display: none;
+}
+
+.icon-navigateleft::before {
+  content: "◅";
+}
+
+.lt-ie9:hover .icon-calculator {
+  -ms-zoom: 1;
+}
+
+.icon-calculator span {
+  display: none;
+}
+
+.icon-calculator::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-barchart {
+  -ms-zoom: 1;
+}
+
+.icon-barchart span {
+  display: none;
+}
+
+.icon-barchart::before {
+  content: "📊";
+}
+
+.lt-ie9:hover .icon-piechart {
+  -ms-zoom: 1;
+}
+
+.icon-piechart span {
+  display: none;
+}
+
+.icon-piechart::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-stock {
+  -ms-zoom: 1;
+}
+
+.icon-stock span {
+  display: none;
+}
+
+.icon-stock::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-envelope {
+  -ms-zoom: 1;
+}
+
+.icon-envelope span {
+  display: none;
+}
+
+.icon-envelope::before {
+  content: "✉";
+}
+
+.lt-ie9:hover .icon-phone {
+  -ms-zoom: 1;
+}
+
+.icon-phone span {
+  display: none;
+}
+
+.icon-phone::before {
+  content: "📞";
+}
+
+.lt-ie9:hover .icon-rss {
+  -ms-zoom: 1;
+}
+
+.icon-rss span {
+  display: none;
+}
+
+.icon-rss::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-rss-alt {
+  -ms-zoom: 1;
+}
+
+.icon-rss-alt span {
+  display: none;
+}
+
+.icon-rss-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-rotaryphone {
+  -ms-zoom: 1;
+}
+
+.icon-rotaryphone span {
+  display: none;
+}
+
+.icon-rotaryphone::before {
+  content: "☎";
+}
+
+.lt-ie9:hover .icon-link {
+  -ms-zoom: 1;
+}
+
+.icon-link span {
+  display: none;
+}
+
+.icon-link::before {
+  content: "🔛";
+}
+
+.lt-ie9:hover .icon-link-alt {
+  -ms-zoom: 1;
+}
+
+.icon-link-alt span {
+  display: none;
+}
+
+.icon-link-alt::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-file {
+  -ms-zoom: 1;
+}
+
+.icon-file span {
+  display: none;
+}
+
+.icon-file::before {
+  content: "📄";
+}
+
+.lt-ie9:hover .icon-files {
+  -ms-zoom: 1;
+}
+
+.icon-files span {
+  display: none;
+}
+
+.icon-files::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-folder {
+  -ms-zoom: 1;
+}
+
+.icon-folder span {
+  display: none;
+}
+
+.icon-folder::before {
+  content: "📁";
+}
+
+.lt-ie9:hover .icon-index {
+  -ms-zoom: 1;
+}
+
+.icon-index span {
+  display: none;
+}
+
+.icon-index::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-storagebox {
+  -ms-zoom: 1;
+}
+
+.icon-storagebox span {
+  display: none;
+}
+
+.icon-storagebox::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-burst {
+  -ms-zoom: 1;
+}
+
+.icon-burst span {
+  display: none;
+}
+
+.icon-burst::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-cart {
+  -ms-zoom: 1;
+}
+
+.icon-cart span {
+  display: none;
+}
+
+.icon-cart::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-creditcard {
+  -ms-zoom: 1;
+}
+
+.icon-creditcard span {
+  display: none;
+}
+
+.icon-creditcard::before {
+  content: "💳";
+}
+
+.lt-ie9:hover .icon-emptycart {
+  -ms-zoom: 1;
+}
+
+.icon-emptycart span {
+  display: none;
+}
+
+.icon-emptycart::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-compose {
+  -ms-zoom: 1;
+}
+
+.icon-compose span {
+  display: none;
+}
+
+.icon-compose::before {
+  content: "📝";
+}
+
+.lt-ie9:hover .icon-grid {
+  -ms-zoom: 1;
+}
+
+.icon-grid span {
+  display: none;
+}
+
+.icon-grid::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-layers {
+  -ms-zoom: 1;
+}
+
+.icon-layers span {
+  display: none;
+}
+
+.icon-layers::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-layout {
+  -ms-zoom: 1;
+}
+
+.icon-layout span {
+  display: none;
+}
+
+.icon-layout::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-list {
+  -ms-zoom: 1;
+}
+
+.icon-list span {
+  display: none;
+}
+
+.icon-list::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-flag {
+  -ms-zoom: 1;
+}
+
+.icon-flag span {
+  display: none;
+}
+
+.icon-flag::before {
+  content: "⚑";
+}
+
+.lt-ie9:hover .icon-reply {
+  -ms-zoom: 1;
+}
+
+.icon-reply span {
+  display: none;
+}
+
+.icon-reply::before {
+  content: "↩";
+}
+
+.lt-ie9:hover .icon-thumbnails {
+  -ms-zoom: 1;
+}
+
+.icon-thumbnails span {
+  display: none;
+}
+
+.icon-thumbnails::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-write {
+  -ms-zoom: 1;
+}
+
+.icon-write span {
+  display: none;
+}
+
+.icon-write::before {
+  content: "✎";
+}
+
+.lt-ie9:hover .icon-compass {
+  -ms-zoom: 1;
+}
+
+.icon-compass span {
+  display: none;
+}
+
+.icon-compass::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-crosshair {
+  -ms-zoom: 1;
+}
+
+.icon-crosshair span {
+  display: none;
+}
+
+.icon-crosshair::before {
+  content: "⌖";
+}
+
+.lt-ie9:hover .icon-globe {
+  -ms-zoom: 1;
+}
+
+.icon-globe span {
+  display: none;
+}
+
+.icon-globe::before {
+  content: "🌐";
+}
+
+.lt-ie9:hover .icon-location {
+  -ms-zoom: 1;
+}
+
+.icon-location span {
+  display: none;
+}
+
+.icon-location::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-map {
+  -ms-zoom: 1;
+}
+
+.icon-map span {
+  display: none;
+}
+
+.icon-map::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-navigate {
+  -ms-zoom: 1;
+}
+
+.icon-navigate span {
+  display: none;
+}
+
+.icon-navigate::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-signpost {
+  -ms-zoom: 1;
+}
+
+.icon-signpost span {
+  display: none;
+}
+
+.icon-signpost::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-play {
+  -ms-zoom: 1;
+}
+
+.icon-play span {
+  display: none;
+}
+
+.icon-play::before {
+  content: "▶";
+}
+
+.lt-ie9:hover .icon-pause {
+  -ms-zoom: 1;
+}
+
+.icon-pause span {
+  display: none;
+}
+
+.icon-pause::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-stop {
+  -ms-zoom: 1;
+}
+
+.icon-stop span {
+  display: none;
+}
+
+.icon-stop::before {
+  content: "■";
+}
+
+.lt-ie9:hover .icon-rewind {
+  -ms-zoom: 1;
+}
+
+.icon-rewind span {
+  display: none;
+}
+
+.icon-rewind::before {
+  content: "⏪";
+}
+
+.lt-ie9:hover .icon-fastforward {
+  -ms-zoom: 1;
+}
+
+.icon-fastforward span {
+  display: none;
+}
+
+.icon-fastforward::before {
+  content: "⧣";
+}
+
+.lt-ie9:hover .icon-skipback {
+  -ms-zoom: 1;
+}
+
+.icon-skipback span {
+  display: none;
+}
+
+.icon-skipback::before {
+  content: "⏮";
+}
+
+.lt-ie9:hover .icon-skipforward {
+  -ms-zoom: 1;
+}
+
+.icon-skipforward span {
+  display: none;
+}
+
+.icon-skipforward::before {
+  content: "⏭";
+}
+
+.lt-ie9:hover .icon-record {
+  -ms-zoom: 1;
+}
+
+.icon-record span {
+  display: none;
+}
+
+.icon-record::before {
+  content: "●";
+}
+
+.lt-ie9:hover .icon-volume {
+  -ms-zoom: 1;
+}
+
+.icon-volume span {
+  display: none;
+}
+
+.icon-volume::before {
+  content: "🔈";
+}
+
+.lt-ie9:hover .icon-camera {
+  -ms-zoom: 1;
+}
+
+.icon-camera span {
+  display: none;
+}
+
+.icon-camera::before {
+  content: "📷";
+}
+
+.lt-ie9:hover .icon-headphones {
+  -ms-zoom: 1;
+}
+
+.icon-headphones span {
+  display: none;
+}
+
+.icon-headphones::before {
+  content: "🎧";
+}
+
+.lt-ie9:hover .icon-mic {
+  -ms-zoom: 1;
+}
+
+.icon-mic span {
+  display: none;
+}
+
+.icon-mic::before {
+  content: "🎤";
+}
+
+.lt-ie9:hover .icon-music {
+  -ms-zoom: 1;
+}
+
+.icon-music span {
+  display: none;
+}
+
+.icon-music::before {
+  content: "♫";
+}
+
+.lt-ie9:hover .icon-picture {
+  -ms-zoom: 1;
+}
+
+.icon-picture span {
+  display: none;
+}
+
+.icon-picture::before {
+  content: "🌄";
+}
+
+.lt-ie9:hover .icon-video {
+  -ms-zoom: 1;
+}
+
+.icon-video span {
+  display: none;
+}
+
+.icon-video::before {
+  content: "📹";
+}
+
+.lt-ie9:hover .icon-book {
+  -ms-zoom: 1;
+}
+
+.icon-book span {
+  display: none;
+}
+
+.icon-book::before {
+  content: "📕";
+}
+
+.lt-ie9:hover .icon-box {
+  -ms-zoom: 1;
+}
+
+.icon-box span {
+  display: none;
+}
+
+.icon-box::before {
+  content: "📦";
+}
+
+.lt-ie9:hover .icon-briefcase {
+  -ms-zoom: 1;
+}
+
+.icon-briefcase span {
+  display: none;
+}
+
+.icon-briefcase::before {
+  content: "💼";
+}
+
+.lt-ie9:hover .icon-bug {
+  -ms-zoom: 1;
+}
+
+.icon-bug span {
+  display: none;
+}
+
+.icon-bug::before {
+  content: "🐛";
+}
+
+.lt-ie9:hover .icon-chat {
+  -ms-zoom: 1;
+}
+
+.icon-chat span {
+  display: none;
+}
+
+.icon-chat::before {
+  content: "💬";
+}
+
+.lt-ie9:hover .icon-clipboard {
+  -ms-zoom: 1;
+}
+
+.icon-clipboard span {
+  display: none;
+}
+
+.icon-clipboard::before {
+  content: "📋";
+}
+
+.lt-ie9:hover .icon-code {
+  -ms-zoom: 1;
+}
+
+.icon-code span {
+  display: none;
+}
+
+.icon-code::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-contacts {
+  -ms-zoom: 1;
+}
+
+.icon-contacts span {
+  display: none;
+}
+
+.icon-contacts::before {
+  content: "📇";
+}
+
+.lt-ie9:hover .icon-dashboard {
+  -ms-zoom: 1;
+}
+
+.icon-dashboard span {
+  display: none;
+}
+
+.icon-dashboard::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-flask {
+  -ms-zoom: 1;
+}
+
+.icon-flask span {
+  display: none;
+}
+
+.icon-flask::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-heart {
+  -ms-zoom: 1;
+}
+
+.icon-heart span {
+  display: none;
+}
+
+.icon-heart::before {
+  content: "♥";
+}
+
+.lt-ie9:hover .icon-home {
+  -ms-zoom: 1;
+}
+
+.icon-home span {
+  display: none;
+}
+
+.icon-home::before {
+  content: "⌂";
+}
+
+.lt-ie9:hover .icon-key {
+  -ms-zoom: 1;
+}
+
+.icon-key span {
+  display: none;
+}
+
+.icon-key::before {
+  content: "🔑";
+}
+
+.lt-ie9:hover .icon-lightbulb {
+  -ms-zoom: 1;
+}
+
+.icon-lightbulb span {
+  display: none;
+}
+
+.icon-lightbulb::before {
+  content: "💡";
+}
+
+.lt-ie9:hover .icon-lightning {
+  -ms-zoom: 1;
+}
+
+.icon-lightning span {
+  display: none;
+}
+
+.icon-lightning::before {
+  content: "☇";
+}
+
+.lt-ie9:hover .icon-lock {
+  -ms-zoom: 1;
+}
+
+.icon-lock span {
+  display: none;
+}
+
+.icon-lock::before {
+  content: "🔒";
+}
+
+.lt-ie9:hover .icon-unlock {
+  -ms-zoom: 1;
+}
+
+.icon-unlock span {
+  display: none;
+}
+
+.icon-unlock::before {
+  content: "🔓";
+}
+
+.lt-ie9:hover .icon-notebook {
+  -ms-zoom: 1;
+}
+
+.icon-notebook span {
+  display: none;
+}
+
+.icon-notebook::before {
+  content: "📓";
+}
+
+.lt-ie9:hover .icon-notifications {
+  -ms-zoom: 1;
+}
+
+.icon-notifications span {
+  display: none;
+}
+
+.icon-notifications::before {
+  content: "🔔";
+}
+
+.lt-ie9:hover .icon-pin {
+  -ms-zoom: 1;
+}
+
+.icon-pin span {
+  display: none;
+}
+
+.icon-pin::before {
+  content: "📍";
+}
+
+.lt-ie9:hover .icon-pinboard {
+  -ms-zoom: 1;
+}
+
+.icon-pinboard span {
+  display: none;
+}
+
+.icon-pinboard::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-planet {
+  -ms-zoom: 1;
+}
+
+.icon-planet span {
+  display: none;
+}
+
+.icon-planet::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-poo {
+  -ms-zoom: 1;
+}
+
+.icon-poo span {
+  display: none;
+}
+
+.icon-poo::before {
+  content: "💩";
+}
+
+.lt-ie9:hover .icon-puzzle {
+  -ms-zoom: 1;
+}
+
+.icon-puzzle span {
+  display: none;
+}
+
+.icon-puzzle::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-recycle {
+  -ms-zoom: 1;
+}
+
+.icon-recycle span {
+  display: none;
+}
+
+.icon-recycle::before {
+  content: "♻";
+}
+
+.lt-ie9:hover .icon-recycle-alt {
+  -ms-zoom: 1;
+}
+
+.icon-recycle-alt span {
+  display: none;
+}
+
+.icon-recycle-alt::before {
+  content: "♼";
+}
+
+.lt-ie9:hover .icon-screwdriver {
+  -ms-zoom: 1;
+}
+
+.icon-screwdriver span {
+  display: none;
+}
+
+.icon-screwdriver::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-thermometer {
+  -ms-zoom: 1;
+}
+
+.icon-thermometer span {
+  display: none;
+}
+
+.icon-thermometer::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-toolbox {
+  -ms-zoom: 1;
+}
+
+.icon-toolbox span {
+  display: none;
+}
+
+.icon-toolbox::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-user {
+  -ms-zoom: 1;
+}
+
+.icon-user span {
+  display: none;
+}
+
+.icon-user::before {
+  content: "👤";
+}
+
+.lt-ie9:hover .icon-users {
+  -ms-zoom: 1;
+}
+
+.icon-users span {
+  display: none;
+}
+
+.icon-users::before {
+  content: "👥";
+}
+
+.lt-ie9:hover .icon-utensils {
+  -ms-zoom: 1;
+}
+
+.icon-utensils span {
+  display: none;
+}
+
+.icon-utensils::before {
+  content: "🍴";
+}
+
+.lt-ie9:hover .icon-view {
+  -ms-zoom: 1;
+}
+
+.icon-view span {
+  display: none;
+}
+
+.icon-view::before {
+  content: "👀";
+}
+
+.lt-ie9:hover .icon-wheelchair {
+  -ms-zoom: 1;
+}
+
+.icon-wheelchair span {
+  display: none;
+}
+
+.icon-wheelchair::before {
+  content: "♿";
+}
+
+.lt-ie9:hover .icon-wrench {
+  -ms-zoom: 1;
+}
+
+.icon-wrench span {
+  display: none;
+}
+
+.icon-wrench::before {
+  content: "🔧";
+}
+
+.lt-ie9:hover .icon-alert {
+  -ms-zoom: 1;
+}
+
+.icon-alert span {
+  display: none;
+}
+
+.icon-alert::before {
+  content: "⚠";
+}
+
+.lt-ie9:hover .icon-check {
+  -ms-zoom: 1;
+}
+
+.icon-check span {
+  display: none;
+}
+
+.icon-check::before {
+  content: "✓";
+}
+
+.lt-ie9:hover .icon-info {
+  -ms-zoom: 1;
+}
+
+.icon-info span {
+  display: none;
+}
+
+.icon-info::before {
+  content: "ℹ";
+}
+
+.lt-ie9:hover .icon-megaphone {
+  -ms-zoom: 1;
+}
+
+.icon-megaphone span {
+  display: none;
+}
+
+.icon-megaphone::before {
+  content: "📢";
+}
+
+.lt-ie9:hover .icon-android {
+  -ms-zoom: 1;
+}
+
+.icon-android span {
+  display: none;
+}
+
+.icon-android::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-appleinc {
+  -ms-zoom: 1;
+}
+
+.icon-appleinc span {
+  display: none;
+}
+
+.icon-appleinc::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-desktop {
+  -ms-zoom: 1;
+}
+
+.icon-desktop span {
+  display: none;
+}
+
+.icon-desktop::before {
+  content: "💻";
+}
+
+.lt-ie9:hover .icon-cloud {
+  -ms-zoom: 1;
+}
+
+.icon-cloud span {
+  display: none;
+}
+
+.icon-cloud::before {
+  content: "☁";
+}
+
+.lt-ie9:hover .icon-laptop {
+  -ms-zoom: 1;
+}
+
+.icon-laptop span {
+  display: none;
+}
+
+.icon-laptop::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-tablet {
+  -ms-zoom: 1;
+}
+
+.icon-tablet span {
+  display: none;
+}
+
+.icon-tablet::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-smartphone {
+  -ms-zoom: 1;
+}
+
+.icon-smartphone span {
+  display: none;
+}
+
+.icon-smartphone::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-tv {
+  -ms-zoom: 1;
+}
+
+.icon-tv span {
+  display: none;
+}
+
+.icon-tv::before {
+  content: "📺";
+}
+
+.lt-ie9:hover .icon-wifi {
+  -ms-zoom: 1;
+}
+
+.icon-wifi span {
+  display: none;
+}
+
+.icon-wifi::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-calendar {
+  -ms-zoom: 1;
+}
+
+.icon-calendar span {
+  display: none;
+}
+
+.icon-calendar::before {
+  content: "📅";
+}
+
+.lt-ie9:hover .icon-clock {
+  -ms-zoom: 1;
+}
+
+.icon-clock span {
+  display: none;
+}
+
+.icon-clock::before {
+  content: "⏲";
+}
+
+.lt-ie9:hover .icon-watch {
+  -ms-zoom: 1;
+}
+
+.icon-watch span {
+  display: none;
+}
+
+.icon-watch::before {
+  content: "⌚";
+}
+
+.lt-ie9:hover .icon-infinity {
+  -ms-zoom: 1;
+}
+
+.icon-infinity span {
+  display: none;
+}
+
+.icon-infinity::before {
+  content: "∞";
+}
+
+.lt-ie9:hover .icon-bike {
+  -ms-zoom: 1;
+}
+
+.icon-bike span {
+  display: none;
+}
+
+.icon-bike::before {
+  content: "🚲";
+}
+
+.lt-ie9:hover .icon-car {
+  -ms-zoom: 1;
+}
+
+.icon-car span {
+  display: none;
+}
+
+.icon-car::before {
+  content: "🚘";
+}
+
+.lt-ie9:hover .icon-plane {
+  -ms-zoom: 1;
+}
+
+.icon-plane span {
+  display: none;
+}
+
+.icon-plane::before {
+  content: "✈";
+}
+
+.lt-ie9:hover .icon-filter {
+  -ms-zoom: 1;
+}
+
+.icon-filter span {
+  display: none;
+}
+
+.icon-filter::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-checkbox-empty {
+  -ms-zoom: 1;
+}
+
+.icon-checkbox-empty span {
+  display: none;
+}
+
+.icon-checkbox-empty::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-checkbox-filled {
+  -ms-zoom: 1;
+}
+
+.icon-checkbox-filled span {
+  display: none;
+}
+
+.icon-checkbox-filled::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-radio-empty {
+  -ms-zoom: 1;
+}
+
+.icon-radio-empty span {
+  display: none;
+}
+
+.icon-radio-empty::before {
+  content: "";
+}
+
+.lt-ie9:hover .icon-radio-filled {
+  -ms-zoom: 1;
+}
+
+.icon-radio-filled span {
+  display: none;
+}
+
+.icon-radio-filled::before {
+  content: "";
 }
 
 *,
@@ -5308,10 +7136,6 @@ body {
   -o-transition: color 200ms ease-in-out 0s;
   transition: color 200ms ease-in-out 0s;
   font-size: 21px;
-}
-
-.menu-item a::before {
-  margin-right: 0.5em;
 }
 
 .site-footer-brand-assets {
