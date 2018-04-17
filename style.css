@@ -588,6 +588,7 @@ template {
   text-transform: none;
   vertical-align: middle;
   white-space: nowrap;
+  margin-right: 0.5em;
 }
 
 @font-face {
@@ -7222,10 +7223,6 @@ body {
   -o-transition: color 200ms ease-in-out 0s;
   transition: color 200ms ease-in-out 0s;
   font-size: 21px;
-}
-
-.menu-item a::before {
-  margin-right: 0.5em;
 }
 
 .site-footer-brand-assets {
