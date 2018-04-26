@@ -5,6 +5,10 @@
  * @package Responsive_Framework
  */
 
+if ( ! class_exists( 'BU_News_Page_Template' ) ) {
+	get_template_part( 'content' );
+	return;
+}
 ?>
 <article role="article" id="post-<?php the_ID(); ?>" <?php post_class( 'post-part' ); ?>>
 
