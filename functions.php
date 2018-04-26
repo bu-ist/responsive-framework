@@ -656,6 +656,29 @@ function r_enqueue_fancy_gallery() {
 }
 
 /**
+ * Remove the news template when BU_News_Page_Template does not exist.
+ *
+ * @param string[]     $templates Array of page templates. Keys are filenames,
+ *                                values are translated names.
+ * @param WP_Theme     $theme     the theme object.
+ * @param WP_Post|null $post      The post being edited, provided for context, or null.
+ *
+ * @return array Page templates.
+ */
+function r_remove_news_template( $templates, $theme, $post ) {
+	if ( isset( $templates['page-templates/news.php'] ) && ! class_exists( 'BU_News_Page_Template' ) ) {
+		$template = get_page_template_slug( $post );
+
+		if ( 'page-templates/news.php' !== $template ) {
+			unset( $templates['page-templates/news.php'] );
+		}
+	}
+
+	return $templates;
+}
+add_filter( 'theme_page_templates', 'r_remove_news_template', 10, 3 );
+
+/**
  * Admin.
  */
 if ( is_admin() ) {
