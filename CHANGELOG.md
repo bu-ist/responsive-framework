@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.0.0
 
 - Added CONTRIBUTING.md file for contribution rules.
 - Removed use of `file_get_contents()` in the Customizer.
