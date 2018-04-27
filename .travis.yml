@@ -75,7 +75,7 @@ script:
     fi
   - |
     if [[ $TRAVIS_BRANCH == 'master' && ${TRAVIS_PHP_VERSION:0:3} == "7.1" && $WP_VERSION == 'latest' ]]; then
-      vendor/bin/apigen generate -s ./includes -d ./docs/
+      vendor/bin/apigen generate -s ./admin,./inc,./functions.php -d ./docs/
     fi
 
 after_script:
