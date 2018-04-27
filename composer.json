@@ -1,5 +1,6 @@
 {
     "require": {
+        "apigen/apigen": "^4.1",
         "cerdic/css-tidy": "^1.5.2"
     }
 }

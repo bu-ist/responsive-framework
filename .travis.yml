@@ -73,9 +73,23 @@ script:
       phpunit
       WP_MULTISITE=1 phpunit
     fi
+  - |
+    if [[ $TRAVIS_BRANCH == 'master' && ${TRAVIS_PHP_VERSION:0:3} == "7.1" && $WP_VERSION == 'latest' ]]; then
+      vendor/bin/apigen generate -s ./includes -d ./docs/
+    fi
 
 after_script:
   - |
     if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
       ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT;
     fi
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: docs
+  repo: bu-ist/responsive-framework
+  on:
+    branch: master
+    condition: ${TRAVIS_PHP_VERSION:0:3} == "7.1" && $WP_VERSION == 'latest'
