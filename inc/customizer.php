@@ -1,6 +1,8 @@
 <?php
 /**
  * Theme Settings API
+ *
+ * @package Responsive_Framework\Customizer
  */
 
 /**
@@ -22,27 +24,45 @@ add_action( 'init', 'responsive_enable_customizer', 12 );
  * Returns layout slug for currently active theme layout.
  *
  * Child themes can force a specific layout option by defining the BU_RESPONSIVE_LAYOUT
- * constant using one of the layout slugs (e.g. topNav, sideNav, etc.).
+ * constant using one of the layout slugs (e.g. top-nav, side-nav, etc.).
  *
  * @see  responsive_layout_options()
  */
 function responsive_layout() {
+	$layout = responsive_get_layout_default();
+
 	if ( defined( 'BU_RESPONSIVE_LAYOUT' ) && array_key_exists( BU_RESPONSIVE_LAYOUT, responsive_layout_options() ) ) {
-		return BU_RESPONSIVE_LAYOUT;
+		$layout = BU_RESPONSIVE_LAYOUT;
+	} else {
+		$saved_layout = get_option( 'burf_setting_layout', $layout );
+
+		if ( $saved_layout !== $layout && array_key_exists( $saved_layout, responsive_layout_options() ) ) {
+			$layout = $saved_layout;
+		}
 	}
-	return get_option( 'burf_setting_layout', 'default' );
+
+	return $layout;
 }
 
 /**
  * Returns layout options available via Customizer.
  */
 function responsive_layout_options() {
-	return apply_filters( 'responsive_layout_options', array(
-		'default' => 'Default',
-		'topNav'  => 'Top Navigation Bar',
-		'sideNav' => 'Side Navigation Bar',
-		'noNav'   => 'No Navigation Bar',
-		) );
+	/**
+	 * Filters the available layout options.
+	 *
+	 * @since 1.0.3
+	 *
+	 * @param array List of layout options.
+	 */
+	$layout_options = apply_filters( 'responsive_layout_options', array(
+		'default'  => __( 'Default', 'responsive-framework' ),
+		'top-nav'  => __( 'Top Navigation Bar', 'responsive-framework' ),
+		'side-nav' => __( 'Side Navigation Bar', 'responsive-framework' ),
+		'no-nav'   => __( 'No Navigation Bar', 'responsive-framework' ),
+	) );
+
+	return $layout_options;
 }
 
 /**
@@ -66,17 +86,21 @@ function responsive_font_options() {
 		'f3' => 'Benton,Capita',
 		'f4' => 'Pressura,Benton',
 		'f5' => 'Stag,Benton',
-		);
+	);
 }
 
 /**
  * Generate inline customizer style block.
+ *
+ * @param boolean $use_cache Whether to use styles cached in an option. Default is true.
+ *
+ * @return string $styles CSS Styles for use in the Customizer.
  */
 function responsive_get_customizer_styles( $use_cache = true ) {
 	$styles = array();
 	$is_script_debugging = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 
-	// Check cache first if requested and SCRIPT_DEBUG is off
+	// Check cache first if requested and SCRIPT_DEBUG is off.
 	if ( $use_cache && ! $is_script_debugging ) {
 		$styles = get_option( 'burf_customizer_styles' );
 		if ( $styles ) {
@@ -84,11 +108,11 @@ function responsive_get_customizer_styles( $use_cache = true ) {
 		}
 	}
 
-	// Fonts
+	// Fonts.
 	$fonts_css = responsive_get_fonts_css();
 	if ( $fonts_css ) {
 
-		// Minify font styles if SCRIPT_DEBUG is off
+		// Minify font styles if SCRIPT_DEBUG is off.
 		if ( ! $is_script_debugging ) {
 			$csstidy = responsive_css_tidy();
 			$csstidy->parse( $fonts_css );
@@ -99,11 +123,11 @@ function responsive_get_customizer_styles( $use_cache = true ) {
 		$styles[] = sprintf( '<style type="text/css" id="responsive-customizer-fonts">%s</style>', $fonts_css );
 	}
 
-	// Colors
+	// Colors.
 	$colors_css = responsive_get_color_scheme_css();
 	if ( $colors_css ) {
 
-		// Minify color styles if SCRIPT_DEBUG is off
+		// Minify color styles if SCRIPT_DEBUG is off.
 		if ( ! $is_script_debugging ) {
 			$csstidy = responsive_css_tidy();
 			$csstidy->parse( $colors_css );
@@ -114,10 +138,10 @@ function responsive_get_customizer_styles( $use_cache = true ) {
 		$styles[] = sprintf( '<style type="text/css" id="responsive-customizer-colors">%s</style>', $colors_css );
 	}
 
-	// Concatenate font and color styles
+	// Concatenate font and color styles.
 	$styles = implode( PHP_EOL, $styles );
 
-	// Only cache minified styles when script debugging is disabled
+	// Only cache minified styles when script debugging is disabled.
 	if ( $styles && $use_cache && ! $is_script_debugging ) {
 		update_option( 'burf_customizer_styles', $styles );
 	}
@@ -141,7 +165,7 @@ add_action( 'update_option_burf_setting_custom_colors',        'responsive_flush
 add_action( 'update_option_burf_setting_active_color_regions', 'responsive_flush_customizer_styles_cache' );
 add_action( 'update_option_burf_setting_fonts',                'responsive_flush_customizer_styles_cache' );
 
-// Flush cached Customizer styles whenever framework has been updated
+// Flush cached Customizer styles whenever framework has been updated.
 add_action( 'update_option__responsive_framework_version',     'responsive_flush_customizer_styles_cache' );
 
 /**
@@ -155,7 +179,7 @@ add_action( 'update_option__responsive_framework_version',     'responsive_flush
  */
 function responsive_css_tidy() {
 
-	// Load CSSTidy class using Composer autoloader
+	// Load CSSTidy class using Composer autoloader.
 	require_once get_template_directory() . '/vendor/autoload.php';
 
 	$csstidy = new csstidy();
@@ -176,12 +200,18 @@ function responsive_css_tidy() {
 
 /**
  * Return font palette CSS styles.
+ *
+ * @return string $css Contents of the CSS font palette file.
  */
 function responsive_get_fonts_css() {
 	$css = '';
 	$palette = responsive_get_font_palette();
-	if ( $palette ) {
-		$css = file_get_contents( get_template_directory() . "/css/$palette.css" );
+	if ( ! empty( $palette ) ) {
+		$request = wp_remote_get( get_template_directory_uri() . "/css/$palette.css" );
+
+		if ( ! is_wp_error( $request ) && 200 == wp_remote_retrieve_response_code( $request ) ) {
+			$css = wp_remote_retrieve_body( $request );
+		}
 	}
 
 	return $css;
@@ -193,19 +223,19 @@ function responsive_get_fonts_css() {
 function responsive_customizer_color_region_groups() {
 	return array(
 		'navbar'       => array(
-			'label' => 'Navigation Bar',
-			'layout_excludes' => array( 'noNav' ),
-			),
+			'label' => __( 'Navigation Bar', 'responsive-framework' ),
+			'layout_excludes' => array( 'no-nav' ),
+		),
 		'content-area' => array(
-			'label' => 'Content Area',
-			),
+			'label' => __( 'Content Area', 'responsive-framework' ),
+		),
 		'sidebar'      => array(
-			'label' => 'Sidebar',
-			),
+			'label' => __( 'Sidebar', 'responsive-framework' ),
+		),
 		'footbar'      => array(
-			'label' => 'Footbar',
-			),
-		);
+			'label' => __( 'Footbar', 'responsive-framework' ),
+		),
+	);
 }
 
 /**
@@ -215,134 +245,134 @@ function responsive_customizer_color_regions() {
 	$scheme = responsive_get_color_scheme();
 	return array(
 
-		// navigation bar
+		// navigation bar.
 		'primaryNav-bg' => array(
-				'label'       => 'Background Color',
-				'group'       => 'navbar',
-				'default'     => $scheme['colors'][0],
-			),
+			'label'       => __( 'Background Color', 'responsive-framework' ),
+			'group'       => 'navbar',
+			'default'     => $scheme['colors'][0],
+		),
 		'primaryNav-border' => array(
-				'label'       => 'Border Color',
-				'group'       => 'navbar',
-				'default'     => $scheme['colors'][1],
-			),
+			'label'       => __( 'Border Color', 'responsive-framework' ),
+			'group'       => 'navbar',
+			'default'     => $scheme['colors'][1],
+		),
 		'primaryNav-link' => array(
-				'label'       => 'Primary Nav Links',
-				'group'       => 'navbar',
-				'default'     => $scheme['colors'][2],
-			),
+			'label'       => __( 'Primary Nav Links', 'responsive-framework' ),
+			'group'       => 'navbar',
+			'default'     => $scheme['colors'][2],
+		),
 		'utilityNav-link' => array(
-				'label'       => 'Utility Nav Links',
-				'group'       => 'navbar',
-				'default'     => $scheme['colors'][3],
-			),
+			'label'       => __( 'Utility Nav Links', 'responsive-framework' ),
+			'group'       => 'navbar',
+			'default'     => $scheme['colors'][3],
+		),
 		'primaryNav-hover' => array(
-				'label'       => 'Primary Nav Links Hover',
-				'group'       => 'navbar',
-				'default'     => $scheme['colors'][4],
-			),
+			'label'       => __( 'Primary Nav Links Hover', 'responsive-framework' ),
+			'group'       => 'navbar',
+			'default'     => $scheme['colors'][4],
+		),
 
-		// content area
+		// content area.
 		'content-heading' => array(
-				'label'       => 'Headings',
-				'group'       => 'content-area',
-				'default'     => $scheme['colors'][5],
-			),
+			'label'       => __( 'Headings', 'responsive-framework' ),
+			'group'       => 'content-area',
+			'default'     => $scheme['colors'][5],
+		),
 		'content-base' => array(
-				'label'       => 'Text Color',
-				'group'       => 'content-area',
-				'default'     => $scheme['colors'][6],
-			),
+			'label'       => __( 'Text Color', 'responsive-framework' ),
+			'group'       => 'content-area',
+			'default'     => $scheme['colors'][6],
+		),
 		'content-link' => array(
-				'label'       => 'Link Color',
-				'group'       => 'content-area',
-				'default'     => $scheme['colors'][7],
-			),
+			'label'       => __( 'Link Color', 'responsive-framework' ),
+			'group'       => 'content-area',
+			'default'     => $scheme['colors'][7],
+		),
 		'content-link-hover' => array(
-				'label'       => 'Link Hover',
-				'group'       => 'content-area',
-				'default'     => $scheme['colors'][8],
-			),
+			'label'       => __( 'Link Hover', 'responsive-framework' ),
+			'group'       => 'content-area',
+			'default'     => $scheme['colors'][8],
+		),
 		'button-color' => array(
-				'label'       => 'Button Background',
-				'group'       => 'content-area',
-				'default'     => $scheme['colors'][9],
-			),
+			'label'       => __( 'Button Background', 'responsive-framework' ),
+			'group'       => 'content-area',
+			'default'     => $scheme['colors'][9],
+		),
 		'button-text-color' => array(
-				'label'       => 'Button Text Color',
-				'group'       => 'content-area',
-				'default'     => $scheme['colors'][10],
-			),
+			'label'       => __( 'Button Text Color', 'responsive-framework' ),
+			'group'       => 'content-area',
+			'default'     => $scheme['colors'][10],
+		),
 
-		// sidebar
+		// sidebar.
 		'sidebar-bg' => array(
-				'label'       => 'Widget Background',
-				'group'       => 'sidebar',
-				'optional'    => true,
-				'default'     => $scheme['colors'][11],
-			),
+			'label'       => __( 'Widget Background', 'responsive-framework' ),
+			'group'       => 'sidebar',
+			'optional'    => true,
+			'default'     => $scheme['colors'][11],
+		),
 		'sidebar-widgetTitle' => array(
-				'label'       => 'Widget Title',
-				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][12],
-			),
+			'label'       => __( 'Widget Title', 'responsive-framework' ),
+			'group'       => 'sidebar',
+			'default'     => $scheme['colors'][12],
+		),
 		'sidebar-widgetTitle-border' => array(
-				'label'       => 'Widget Title Border',
-				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][13],
-			),
+			'label'       => __( 'Widget Title Border', 'responsive-framework' ),
+			'group'       => 'sidebar',
+			'default'     => $scheme['colors'][13],
+		),
 		'sidebar-link' => array(
-				'label'       => 'Link Color',
-				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][14],
-			),
+			'label'       => __( 'Link Color', 'responsive-framework' ),
+			'group'       => 'sidebar',
+			'default'     => $scheme['colors'][14],
+		),
 		'sidebar-link-hover' => array(
-				'label'       => 'Link Hover',
-				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][15],
-			),
+			'label'       => __( 'Link Hover', 'responsive-framework' ),
+			'group'       => 'sidebar',
+			'default'     => $scheme['colors'][15],
+		),
 		'sidebar-base' => array(
-				'label'       => 'Text Color',
-				'group'       => 'sidebar',
-				'default'     => $scheme['colors'][16],
-			),
+			'label'       => __( 'Text Color', 'responsive-framework' ),
+			'group'       => 'sidebar',
+			'default'     => $scheme['colors'][16],
+		),
 
-		// footbar
+		// footbar.
 		'footbar-bg' => array(
-				'label'       => 'Background',
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][17],
-			),
+			'label'       => __( 'Background', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][17],
+		),
 		'footbar-topBorder' => array(
-				'label'       => 'Top Border',
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][18],
-			),
+			'label'       => __( 'Top Border', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][18],
+		),
 		'footbar-widgetTitle' => array(
-				'label'       => 'Widget Title',
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][19],
-			),
+			'label'       => __( 'Widget Title', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][19],
+		),
 		'footbar-widgetTitle-border' => array(
-				'label'       => 'Widget Title Border',
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][20],
-			),
+			'label'       => __( 'Widget Title Border', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][20],
+		),
 		'footbar-link' => array(
-				'label'       => 'Link Color',
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][21],
-			),
+			'label'       => __( 'Link Color', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][21],
+		),
 		'footbar-link-hover' => array(
-				'label'       => 'Link Hover',
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][22],
-			),
+			'label'       => __( 'Link Hover', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][22],
+		),
 		'footbar-base' => array(
-				'label'       => 'Text Color',
-				'group'       => 'footbar',
-				'default'     => $scheme['colors'][23],
-			),
+			'label'       => __( 'Text Color', 'responsive-framework' ),
+			'group'       => 'footbar',
+			'default'     => $scheme['colors'][23],
+		),
 	);
 }
 
@@ -354,198 +384,198 @@ function responsive_customizer_color_regions() {
 function responsive_get_color_schemes() {
 	return array(
 		'default' => array(
-			'label'  => 'Default',
+			'label'  => __( 'Default', 'responsive-framework' ),
 			'colors' => array(
-				// navigation
-				'#000000', // background
-				'#333333', // border color
-				'#ffffff', // primary nav links
-				'#aaaaaa', // utility nav links
-				'#aaaaaa', // primary links hover
+				// navigation.
+				'#000000', // background.
+				'#333333', // border color.
+				'#ffffff', // primary nav links.
+				'#aaaaaa', // utility nav links.
+				'#aaaaaa', // primary links hover.
 
-				// content area
-				'#000000', // headings
-				'#555555', // text color
-				'#0f69d7', // link color
-				'#0f69d7', // link hovers
-				'#0f69d7', // button color
-				'#ffffff', // button text color
+				// content area.
+				'#000000', // headings.
+				'#555555', // text color.
+				'#0f69d7', // link color.
+				'#0f69d7', // link hovers.
+				'#0f69d7', // button color.
+				'#ffffff', // button text color.
 
-				// sidebar
-				'#ffffff', // widget bg
-				'#000000', // widget title
-				'#000000', // widget title border
-				'#0f69d7', // links
-				'#0f69d7', // link hovers
-				'#555555', // text color
+				// sidebar.
+				'#ffffff', // widget bg.
+				'#000000', // widget title.
+				'#000000', // widget title border.
+				'#0f69d7', // links.
+				'#0f69d7', // link hovers.
+				'#555555', // text color.
 
-				// footbar
-				'#f5f5f5', // background
-				'#cccccc', // top border
-				'#000000', // widget title
-				'#000000', // widget title border
-				'#0f69d7', // link colors
-				'#0f69d7', // link hover colors
-				'#555555', // text color
+				// footbar.
+				'#f5f5f5', // background.
+				'#cccccc', // top border.
+				'#000000', // widget title.
+				'#000000', // widget title border.
+				'#0f69d7', // link colors.
+				'#0f69d7', // link hover colors.
+				'#555555', // text color.
 			),
 			'active' => array(
-				'sidebar-bg' => false
+				'sidebar-bg' => false,
 			),
 		),
 		'slacker' => array(
-			'label'  => 'Slacker',
+			'label'  => __( 'Slacker', 'responsive-framework' ),
 			'colors' => array(
-				// navigation
-				'#24243a', // background
-				'#3c3c50', // border color
-				'#ffffff', // primary nav links
-				'#7c7c9d', // utility nav links
-				'#9f9fec', // primary links hover
+				// navigation.
+				'#24243a', // background.
+				'#3c3c50', // border color.
+				'#ffffff', // primary nav links.
+				'#7c7c9d', // utility nav links.
+				'#9f9fec', // primary links hover.
 
-				// content area
-				'#24243a', // headings
-				'#24243a', // text color
-				'#dd982b', // link color
-				'#000000', // link hovers
-				'#4fc3a0', // button color
-				'#ffffff', // button text color
+				// content area.
+				'#24243a', // headings.
+				'#24243a', // text color.
+				'#dd982b', // link color.
+				'#000000', // link hovers.
+				'#4fc3a0', // button color.
+				'#ffffff', // button text color.
 
-				// sidebar
-				'#52527e', // widget bg
-				'#ffffff', // widget title
-				'#6a6a9d', // widget title border
-				'#ecb438', // links
-				'#ffffff', // link hovers
-				'#ffffff', // text color
+				// sidebar.
+				'#52527e', // widget bg.
+				'#ffffff', // widget title.
+				'#6a6a9d', // widget title border.
+				'#ecb438', // links.
+				'#ffffff', // link hovers.
+				'#ffffff', // text color.
 
-				// footbar
-				'#1a1a22', // background
-				'#1a1a22', // top border
-				'#ffffff', // widget title
-				'#323242', // widget title border
-				'#ecb438', // link colors
-				'#ffffff', // link hover colors
-				'#8080a2', // text color
+				// footbar.
+				'#1a1a22', // background.
+				'#1a1a22', // top border.
+				'#ffffff', // widget title.
+				'#323242', // widget title border.
+				'#ecb438', // link colors.
+				'#ffffff', // link hover colors.
+				'#8080a2', // text color.
 			),
 			'active' => array(
-				'sidebar-bg' => true
+				'sidebar-bg' => true,
 			),
 		),
 		'extra-spectral' => array(
-			'label'  => 'Extra Spectral',
+			'label'  => __( 'Extra Spectral', 'responsive-framework' ),
 			'colors' => array(
-				// navigation
-				'#c2185b', // background
-				'#cd4279', // border color
-				'#ffffff', // primary nav links
-				'#ff9fc5', // utility nav links
-				'#000000', // primary links hover
+				// navigation.
+				'#c2185b', // background.
+				'#cd4279', // border color.
+				'#ffffff', // primary nav links.
+				'#ff9fc5', // utility nav links.
+				'#000000', // primary links hover.
 
-				// content area
-				'#000000', // headings
-				'#000000', // text color
-				'#e82a75', // link color
-				'#000000', // link hovers
-				'#e82a75', // button color
-				'#ffffff', // button text color
+				// content area.
+				'#000000', // headings.
+				'#000000', // text color.
+				'#e82a75', // link color.
+				'#000000', // link hovers.
+				'#e82a75', // button color.
+				'#ffffff', // button text color.
 
-				// sidebar
-				'#7f2247', // widget bg
-				'#ffffff', // widget title
-				'#924362', // widget title border
-				'#ffffff', // links
-				'#ffffff', // link hovers
-				'#e4abc1', // text color
+				// sidebar.
+				'#7f2247', // widget bg.
+				'#ffffff', // widget title.
+				'#924362', // widget title border.
+				'#ffffff', // links.
+				'#ffffff', // link hovers.
+				'#e4abc1', // text color.
 
-				// footbar
-				'#222222', // background
-				'#222222', // top border
-				'#ffffff', // widget title
-				'#3d3d3d', // widget title border
-				'#e82a75', // link colors
-				'#ffffff', // link hover colors
-				'#bdbdbd', // text color
+				// footbar.
+				'#222222', // background.
+				'#222222', // top border.
+				'#ffffff', // widget title.
+				'#3d3d3d', // widget title border.
+				'#e82a75', // link colors.
+				'#ffffff', // link hover colors.
+				'#bdbdbd', // text color.
 			),
 			'active' => array(
-				'sidebar-bg' => true
+				'sidebar-bg' => true,
 			),
 		),
 		'rayleigh-scattering' => array(
-			'label'  => 'Rayleigh Scattering',
+			'label'  => __( 'Rayleigh Scattering', 'responsive-framework' ),
 			'colors' => array(
-				// navigation
-				'#04a9f4', // background
-				'#31b9f6', // border color
-				'#ffffff', // primary nav links
-				'#b4ddfa', // utility nav links
-				'#000000', // primary links hover
+				// navigation.
+				'#04a9f4', // background.
+				'#31b9f6', // border color.
+				'#ffffff', // primary nav links.
+				'#b4ddfa', // utility nav links.
+				'#000000', // primary links hover.
 
-				// content area
-				'#222222', // headings
-				'#000000', // text color
-				'#fa5707', // link color
-				'#000000', // link hovers
-				'#fa5707', // button color
-				'#ffffff', // button text color
+				// content area.
+				'#222222', // headings.
+				'#000000', // text color.
+				'#fa5707', // link color.
+				'#000000', // link hovers.
+				'#fa5707', // button color.
+				'#ffffff', // button text color.
 
-				// sidebar
-				'#e1f0f5', // widget bg
-				'#000000', // widget title
-				'#cad7db', // widget title border
-				'#000000', // links
-				'#000000', // link hovers
-				'#6f7b7f', // text color
+				// sidebar.
+				'#e1f0f5', // widget bg.
+				'#000000', // widget title.
+				'#cad7db', // widget title border.
+				'#000000', // links.
+				'#000000', // link hovers.
+				'#6f7b7f', // text color.
 
-				// footbar
-				'#222222', // background
-				'#222222', // top border
-				'#ffffff', // widget title
-				'#3d3d3d', // widget title border
-				'#fa5707', // link colors
-				'#dcdcdc', // link hover colors
-				'#dcdcdc', // text color
+				// footbar.
+				'#222222', // background.
+				'#222222', // top border.
+				'#ffffff', // widget title.
+				'#3d3d3d', // widget title border.
+				'#fa5707', // link colors.
+				'#dcdcdc', // link hover colors.
+				'#dcdcdc', // text color.
 			),
 			'active' => array(
-				'sidebar-bg' => true
+				'sidebar-bg' => true,
 			),
 		),
 		'vinca-minor' => array(
-			'label'  => 'Vinca Minor',
+			'label'  => __( 'Vinca Minor', 'responsive-framework' ),
 			'colors' => array(
-				// navigation
-				'#3f51b5', // background
-				'#6270c2', // border color
-				'#ffffff', // primary nav links
-				'#bec8ff', // utility nav links
-				'#000000', // primary links hover
+				// navigation.
+				'#3f51b5', // background.
+				'#6270c2', // border color.
+				'#ffffff', // primary nav links.
+				'#bec8ff', // utility nav links.
+				'#000000', // primary links hover.
 
-				// content area
-				'#000000', // headings
-				'#000000', // text color
-				'#fb8007', // link color
-				'#000000', // link hovers
-				'#6c7dff', // button color
-				'#ffffff', // button text color
+				// content area.
+				'#000000', // headings.
+				'#000000', // text color.
+				'#fb8007', // link color.
+				'#000000', // link hovers.
+				'#6c7dff', // button color.
+				'#ffffff', // button text color.
 
-				// sidebar
-				'#ffffff', // widget bg
-				'#000000', // widget title
-				'#e8eaf6', // widget title border
-				'#fb8007', // links
-				'#989bad', // link hovers
-				'#989bad', // text color
+				// sidebar.
+				'#ffffff', // widget bg.
+				'#000000', // widget title.
+				'#e8eaf6', // widget title border.
+				'#fb8007', // links.
+				'#989bad', // link hovers.
+				'#989bad', // text color.
 
-				// footbar
-				'#1a1d2b', // background
-				'#1a1a22', // top border
-				'#ffffff', // widget title
-				'#363845', // widget title border
-				'#fb8007', // link colors
-				'#ffffff', // link hover colors
-				'#dcdcdc', // text color
+				// footbar.
+				'#1a1d2b', // background.
+				'#1a1a22', // top border.
+				'#ffffff', // widget title.
+				'#363845', // widget title border.
+				'#fb8007', // link colors.
+				'#ffffff', // link hover colors.
+				'#dcdcdc', // text color.
 			),
 			'active' => array(
-				'sidebar-bg' => false
+				'sidebar-bg' => false,
 			),
 		),
 	);
@@ -556,7 +586,13 @@ function responsive_get_color_schemes() {
  */
 function responsive_get_optional_color_regions() {
 	$regions = responsive_customizer_color_regions();
-	return array_keys( wp_filter_object_list( $regions, array( 'optional' => true ) ) );
+	return array_keys(
+		wp_filter_object_list(
+			$regions, array(
+				'optional' => true,
+			)
+		)
+	);
 }
 
 /**
@@ -582,7 +618,7 @@ function responsive_sanitize_color_scheme( $value ) {
  */
 function responsive_get_color_scheme_choices() {
 	$schemes = responsive_get_color_schemes();
-	$choices = array();
+
 	foreach ( $schemes as $slug => $scheme ) {
 		$schemes[ $slug ] = $scheme['label'];
 	}
@@ -593,21 +629,23 @@ function responsive_get_color_scheme_choices() {
 /**
  * Get the current color scheme.
  *
- * @return array An associative array of either the current or default color scheme values.
+ * @param null|string $scheme Color scheme to retrieve.
+ *
+ * @return array An associative array representing a color scheme.
  */
 function responsive_get_color_scheme( $scheme = null ) {
-	// Load the current color scheme if none was passed
+	// Load the current color scheme if none was passed.
 	if ( ! is_scalar( $scheme ) ) {
 		$scheme = get_option( 'burf_setting_color_scheme', 'default' );
 	}
 
-	// Return requested theme if found
+	// Return requested theme if found.
 	$schemes = responsive_get_color_schemes();
 	if ( array_key_exists( $scheme, $schemes ) ) {
 		return $schemes[ $scheme ];
 	}
 
-	// Return default otherwise
+	// Return default otherwise.
 	return $schemes['default'];
 }
 
@@ -616,13 +654,14 @@ function responsive_get_color_scheme( $scheme = null ) {
  *
  * If no $scheme is passed, the currently active scheme is used.
  *
- * @param  string $scheme A color scheme to retrieve colors for. Optional.
- * @return array          Color scheme colors, indexed by region name.
+ * @param string $scheme A color scheme to retrieve colors for. Optional.
+ *
+ * @return array $colors Color scheme colors, indexed by region name.
  */
 function responsive_get_color_scheme_colors( $scheme = null ) {
 	$scheme = responsive_get_color_scheme( $scheme );
 
-	// Combine region names and color values into associative array
+	// Combine region names and color values into associative array.
 	$region_names = array_keys( responsive_customizer_color_regions() );
 	$colors = array_combine( $region_names, $scheme['colors'] );
 	return $colors;
@@ -643,10 +682,10 @@ function responsive_get_custom_colors() {
  * @return array A list of color region keys with current state.
  */
 function responsive_get_active_color_regions() {
-	// Get defaults from currently active scheme
+	// Get defaults from currently active scheme.
 	$scheme = responsive_get_color_scheme();
 
-	// Merge with current values
+	// Merge with current values.
 	$active_regions = get_option( 'burf_setting_active_color_regions', array() );
 	return array_merge( $scheme['active'], $active_regions );
 }
@@ -658,17 +697,17 @@ function responsive_get_active_color_regions() {
  */
 function responsive_get_color_scheme_css() {
 
-	// Get colors from current scheme
+	// Get colors from current scheme.
 	$scheme_colors = responsive_get_color_scheme_colors();
 
-	// Get custom selected colors
+	// Get custom selected colors.
 	$custom_colors = responsive_get_custom_colors();
 
-	// Merge, giving preference to custom colors
+	// Merge, giving preference to custom colors.
 	$colors = array_merge( $scheme_colors, $custom_colors );
 
 	// Default color scheme without custom colors. Bail.
-	if ( $colors == responsive_get_color_scheme_colors( 'default' ) ) {
+	if ( responsive_get_color_scheme_colors( 'default' ) === $colors ) {
 		return '';
 	}
 
@@ -678,32 +717,37 @@ function responsive_get_color_scheme_css() {
 /**
  * Generates CSS snippet for customizer color scheme.
  *
- * @param  array $colors Hex color values, keyed on region slugs.
+ * @param array  $colors  Hex color values, keyed on region slugs.
+ * @param string $context Context for the styles.
+ *
  * @return string        Color scheme CSS rules.
  */
 function responsive_framework_get_color_regions_css( $colors, $context = 'default' ) {
 
-		$sidebar_widget_styles =<<<CSS
+		$sidebar_widget_styles = <<<CSS
 /* sidebar widget background color
 ----------------------------------------------------------------- */
 
-.sidebar .widget,
-.sidebarPosts .widget,
-.sidebarProfiles .widget {
+.widget {
 	background: {$colors['sidebar-bg']};
-	padding:24px;
+	padding: 24px;
+}
+
+.footbar .widget {
+	background: transparent;
+	padding: 0;
 }
 CSS;
 
-	// Underscore template gets special logic
+	// Underscore template gets special logic.
 	if ( 'template' === $context ) {
-		$sidebar_widget_styles =<<<CSS
+		$sidebar_widget_styles = <<<CSS
 <# if ( data.active['sidebar-bg'] ) { #>
 {$sidebar_widget_styles}
 <# } #>
 CSS;
 	} else {
-		// Check currently active colors
+		// Check currently active colors.
 		$active_regions = responsive_get_active_color_regions();
 		if ( ! $active_regions['sidebar-bg'] ) {
 			$sidebar_widget_styles = '';
@@ -715,39 +759,46 @@ CSS;
 ----------------------------------------------------------------- */
 
 /* navbar bg color */
-.l-sideNav .wrapper,
-.primaryNav,
-.primaryNav-menu ul {
+.l-side-nav .wrapper,
+.primary-nav,
+.primary-nav-menu ul,
+.l-side-nav {
 	background: {$colors['primaryNav-bg']};
 }
 
-/* main nav and nav border color */
-.primaryNav-menu a,
-.searchToggle::before,
-.l-sideNav .primaryNav-menu a {
+.primary-nav,
+.primary-nav-menu ul {
+.search-toggle::before {
 	color: {$colors['primaryNav-link']};
+}
+
+/* main nav and nav border color */
+.primary-nav-menu a,
+.l-side-nav .primary-nav-menu a {
 	border-color: {$colors['primaryNav-border']};
 }
 
 /* main nav and nav border color */
-.navToggle span,
-.navToggle span::before,
-.navToggle span::after {
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
 	background-color: {$colors['primaryNav-link']};
 }
 
 /* utility nav color */
-.l-sideNav .utilityNav a {
+.l-side-nav .utility-nav a {
 	color: {$colors['utilityNav-link']};
 }
 
 /* main nav and utility nav hover color */
-.primaryNav-menu a:hover,
-.l-sideNav .utilityNav a:hover,
-.primaryNav-menu li a.active,
-.primaryNav-menu li a.active_section,
-.primaryNav-menu li li a:hover,
-.primaryNav-menu li li a:focus {
+.primary-nav-menu a:hover,
+.primary-nav-menu a:focus,
+.l-side-nav .utility-nav a:hover,
+.l-side-nav .utility-nav a:focus,
+.primary-nav-menu li a.active,
+.primary-nav-menu li a.active_section,
+.primary-nav-menu li li a:hover,
+.primary-nav-menu li li a:focus {
 	color: {$colors['primaryNav-hover']};
 }
 
@@ -755,18 +806,12 @@ CSS;
 ----------------------------------------------------------------- */
 
 /* heading color */
-.wrapper h1,
-.wrapper h2,
-.wrapper h3,
-.wrapper h4,
-.wrapper h5,
-.wrapper h6,
-.wrapper h1 a,
-.wrapper h2 a,
-.wrapper h3 a,
-.wrapper h4 a,
-.wrapper h5 a,
-.wrapper h6 a {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	color: {$colors['content-heading']};
 }
 
@@ -776,30 +821,23 @@ body {
 }
 
 /* link color */
-article a,
-article a:visited,
+a,
 .widget a,
 .widget a:hover,
 .widget a:focus,
-.event-list .event-link a,
-.event-list .event-link a:hover,
-.event-list .event-link a:focus,
-.monthCalendar td a,
-.monthCalendar td a:hover,
-.monthCalendar td,
-.bu_collapsible:hover:after,
-.bu_collapsible:focus:after,
-.bu_collapsible_open .bu_collapsible:hover:after,
-.bu_collapsible_open .bu_collapsible:focus:after,
-.profile-listing a .profile-name {
+.calendar-list-event-link,
+.calendar-list-event-link:focus,
+.bu_collapsible::before,
+.profile-name {
 	color: {$colors['content-link']};
 }
 
 /* link hover color */
-article a:hover,
-.widget a:hover,
-.event-list .event-link a:hover,
-.monthCalendar td a:hover, {
+a:hover,
+.calendar-list-event-link:hover,
+.bu_collapsible:hover::before,
+.bu_collapsible:focus::before,
+.month td a:hover {
 	color: {$colors['content-link-hover']};
 }
 
@@ -810,9 +848,18 @@ input[type="submit"],
 .button-selected,
 #quicksearch .button,
 .paging-navigation a,
-.archiveLink {
+.archive-link {
 	background: {$colors['button-color']};
 	color: {$colors['button-text-color']};
+}
+
+/* blockquotes */
+blockquote {
+	border-color: {$colors['content-link']};
+}
+
+blockquote:before {
+	color: {$colors['content-link']};
 }
 
 
@@ -822,80 +869,42 @@ input[type="submit"],
 ----------------------------------------------------------------- */
 
 /* widget border color */
-.sidebar .widgetTitle,
-.sidebar #contentnav ul,
-.sidebar .widget_nav_menu ul,
-.sidebar #contentnav li,
-.sidebar .widget_nav_menu li,
-.sidebar .widget-bu-calendar li,
-.sidebarPosts .widgetTitle,
-.sidebarPosts #contentnav ul,
-.sidebarPosts .widget_nav_menu ul,
-.sidebarPosts #contentnav li,
-.sidebarPosts .widget_nav_menu li,
-.sidebarPosts .widget-bu-calendar li,
-.sidebarProfiles .widgetTitle,
-.sidebarProfiles #contentnav ul,
-.sidebarProfiles .widget_nav_menu ul,
-.sidebarProfiles #contentnav li,
-.sidebarProfiles .widget_nav_menu li,
-.sidebarProfiles .widget-bu-calendar li,
-.monthCalendar,
-.monthCalendar th,
-.monthCalendar td {
+.widget-title,
+#contentnav ul,
+#contentnav li,
+.widget_nav_menu ul,
+.widget_nav_menu li,
+.widget-calendar-event,
+.month,
+.widget-calendar-picker th,
+.widget-calendar-picker td {
 	border-color: {$colors['sidebar-widgetTitle-border']};
 }
 
-.sidebar .widgetTitle,
-.sidebar .widget .widgetTitle a,
-.sidebarPosts .widget .widgetTitle a,
-.sidebarProfiles .widget .widgetTitle a,
-.sidebar .widgetTitle a:after,
-.sidebarPosts .widgetTitle,
-.sidebarPosts .widgetTitle a:after,
-.sidebarProfiles .widgetTitle,
-.sidebarProfiles .widgetTitle a:after {
+.widget-title {
 	color: {$colors['sidebar-widgetTitle']};
 }
 
 /* text color */
-.sidebar .widget,
-.sidebarPosts .widget,
-.sidebarProfiles .widget,
-.monthCalendar th,
-.monthCalendar caption {
+.widget,
+.widget-calendar-picker th,
+.widget-calendar-picker caption {
 	color: {$colors['sidebar-base']};
 }
 
 /* link color */
-.sidebar .widget a,
-.sidebar #contentnav li a,
-.sidebar .widget_nav_menu li a,
-.sidebarPosts .widget a,
-.sidebarPosts #contentnav li a,
-.sidebarPosts .widget_nav_menu li a,
-.sidebarProfiles .widget a,
-.sidebarProfiles #contentnav li a,
-.sidebarProfiles .widget_nav_menu li a {
+.widget a,
+#contentnav li a,
+.widget_nav_menu li a {
 	color: {$colors['sidebar-link']};
 }
 
 /* link hover color */
-.sidebar .widget a:hover,
-.sidebar #contentnav li a:hover,
-.sidebar .widget_nav_menu li a:hover,
-.sidebar #contentnav li.current_page_item > a,
-.sidebar .widget_nav_menu li.current_page_item > a,
-.sidebarPosts .widget a:hover,
-.sidebarPosts #contentnav li a:hover,
-.sidebarPosts .widget_nav_menu li a:hover,
-.sidebarPosts #contentnav li.current_page_item > a,
-.sidebarPosts .widget_nav_menu li.current_page_item > a,
-.sidebarProfiles .widget a:hover,
-.sidebarProfiles #contentnav li a:hover,
-.sidebarProfiles .widget_nav_menu li a:hover,
-.sidebarProfiles #contentnav li.current_page_item > a,
-.sidebarProfiles .widget_nav_menu li.current_page_item > a {
+.widget a:hover,
+#contentnav li a:hover,
+.widget_nav_menu li a:hover,
+#contentnav li.current_page_item > a,
+.widget_nav_menu li.current_page_item > a{
 	color: {$colors['sidebar-link-hover']};
 }
 
@@ -904,8 +913,8 @@ input[type="submit"],
 
 /* background color */
 .footbar,
-.footbar .footbar-container,
-.bannerContainer-windowWidth {
+.footbar-container,
+.banner-container-window-width {
 	background: {$colors['footbar-bg']};
 }
 
@@ -914,31 +923,28 @@ input[type="submit"],
 	border-color: {$colors['footbar-topBorder']};
 }
 
-/* widget title color */
-.footbar .widgetTitle,
-.footbar .widgetTitle a:after,
-.footbar h3.widgetTitle a,
-.footbar .widget-bu-calendar .default a .date,
-.footbar .widget-bu-calendar .graphic .day,
-.footbar .widget-bu-calendar .date {
-	color: {$colors['footbar-widgetTitle']};
-}
-
-/* border color */
-.footbar .widgetTitle,
-.footbar #contentnav ul,
-.footbar .widget_nav_menu ul,
-.footbar #contentnav li,
-.footbar .widget_nav_menu li,
-.footbar .widget-bu-calendar li {
-	border-color: {$colors['footbar-widgetTitle-border']};
-}
-
 /* link color */
+.footbar a,
 .footbar .widget a,
 .footbar #contentnav li a,
 .footbar .widget_nav_menu li a {
 	color: {$colors['footbar-link']};
+}
+
+/* widget title color */
+.footbar .widget-title,
+.footbar .widget-calendar-date {
+	color: {$colors['footbar-widgetTitle']};
+}
+
+/* border color */
+.footbar .widget-title,
+.footbar #contentnav ul,
+.footbar #contentnav li,
+.footbar .widget_nav_menu ul,
+.footbar .widget_nav_menu li,
+.footbar .widget-calendar-event {
+	border-color: {$colors['footbar-widgetTitle-border']};
 }
 
 /* link hover color */
@@ -950,8 +956,8 @@ input[type="submit"],
 
 /* text color */
 .footbar .widget,
-.widget-bu-calendar .graphic .month,
-.widget-bu-posts .meta {
+.footbar .widget-calendar-day-graphic,
+.footbar .widget-bu-posts .meta {
 	color: {$colors['footbar-base']};
 }
 
@@ -960,21 +966,29 @@ input[type="submit"],
 
 .comment-respond,
 #quicksearch,
-.l-sideNav #quicksearch,
+.l-side-nav #quicksearch,
 .message,
-.single article[role=main] .meta,
-.singleEvent .dateSummary,
+.single .content-area .meta,
+.single-event-schedule,
 .single-profile .profile-info {
 	background: #f5f8ff;
 	border-color: #dfdfea;
 }
 
 /* calendar table */
-.monthCalendar thead,
-.monthCalendar th,
-.monthCalendar .out,
-.monthCalendar .today {
+.widget-calendar-picker thead,
+.widget-calendar-picker th,
+.widget-calendar-picker .out,
+.widget-calendar-picker .today {
 	background: rgba(0,0,0,0.15);
+}
+
+.utility-nav a,
+a:active,
+a:visited,
+.widget-title a,
+.widget-post-meta {
+	color: inherit;
 }
 
 CSS;
@@ -1000,13 +1014,23 @@ function responsive_get_customizer_footer_info() {
 
 /**
  * Prints out additional footer info content.
+ *
+ * @param array $args {
+ *     An array of widget display arguments.
+ *
+ *     @type string $before Text or markup to go before the widget.
+ *     @type string $after  Text or markup to go after the widget.
+ *     @type string $echo   Whether to echo or return the HTML output.
+ * }
+ *
+ * @return string $output HTML output for footer info.
  */
 function responsive_customizer_footer_info( $args = array() ) {
 	$defaults = array(
-		'before' => '<div class="siteFooter-info">',
+		'before' => '<div class="site-footer-info">',
 		'after'  => '</div>',
 		'echo'   => true,
-		);
+	);
 	$args = wp_parse_args( $args, $defaults );
 	$output = '';
 

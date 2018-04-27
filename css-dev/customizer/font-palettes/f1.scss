@@ -1,88 +1,23 @@
-@import 'fonts/benton';
+$font-heading: "Benton-Sans", sans-serif;
+$font-body: "Benton-Sans", sans-serif;
 
-body {
-	font-family: 'Benton';
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 28px;
-}
+@import "fonts/benton";
+@import "fonts/shared";
 
-p {
-	font-family: 'Benton';
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 28px;
-	margin-bottom: 24px;
-}
+blockquote {
+	background-color: #f0f0f0; // color contrast with text (#24243a) = 13.27:1, passes WCAG AAA;
+	border-color: #666; // Default grey will be overwritten by inc/customizer.php if colors customized
+	border-left: 0.45em solid;
+	padding: 18px;
+	position: relative;
 
-h1 {
-	font-family: 'Benton';
-	font-weight: 700;
-	font-size: 48px;
-	line-height: 51px;
-	margin-bottom: 22px;
-}
+	&::before {
+		left: 14px;
+		position: absolute;
+		top: 2px;
+	}
 
-h2 {
-	font-family: 'Benton';
-	font-weight: 700;
-	font-size: 40px;
-	line-height: 43px;
-	margin-bottom: 22px;
-}
-
-h3 {
-	font-family: 'Benton';
-	font-weight: 700;
-	font-size: 33px;
-	line-height: 36px;
-	margin-bottom: 22px;
-}
-
-.widget h3 {
-	font-family: 'Benton';
-	font-weight: 700;
-	font-size: 28px;
-	line-height: 31px;
-}
-
-h4 {
-	font-family: 'Benton';
-	font-weight: 700;
-	font-size: 22px;
-	line-height: 25px;
-	margin-bottom: 22px;
-}
-
-h5 {
-	font-family: 'Benton';
-	font-weight: 700;
-	font-size: 18px;
-	line-height: 21px;
-	margin-bottom: 22px;
-}
-
-h6 {
-	font-family: 'Benton';
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 19px;
-	margin-bottom: 22px;
-}
-
-#q {
-	font-family: 'Benton';
-	font-size: 18px;
-}
-
-.primaryNav-menu li a {
-	font-family: 'Benton';
-	font-weight: 700;
-	font-size: 16px;
-}
-
-.utilityNav li a {
-	font-family: 'Benton';
-	font-weight: 400;
-	font-size: 16px;
+	>p:last-of-type {
+		margin-bottom: 0; // Provides bottom padding for last paragraph of blockquote to fill out gray box.
+	}
 }

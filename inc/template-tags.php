@@ -1,6 +1,8 @@
 <?php
 /**
- * Custom template tags for this framework
+ * Custom template tags for this framework.
+ *
+ * @package Responsive_Framework
  */
 
 /**
@@ -13,34 +15,25 @@ function responsive_get_title() {
 
 	$site_description = get_bloginfo( 'description', 'display' );
 	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		echo " | $site_description";
+		echo esc_html( " | $site_description" );
 	}
 	if ( $paged >= 2 || $page >= 2 ) {
-		echo ' | ' . sprintf( __( 'Page %s' ), max( $paged, $page ) );
-	}
-}
-
-/**
- * Print the site's description.
- *
- * TODO: Remove once child themes have migrated to 1.0.0.
- */
-function responsive_get_description() {
-	if ( is_single() ) {
-		single_post_title( '', true );
-	} else {
-		bloginfo( 'name' ); echo ' - '; bloginfo( 'description' );
+		/* translators: %d: number of pages. */
+		echo esc_html( ' | ' . sprintf( __( 'Page %d', 'responsive-framework' ), max( $paged, $page ) ) );
 	}
 }
 
 /**
  * Whether or not the current network is a bu.edu domain.
  *
- * @return bool
+ * @param int $blog_id Blog ID to check. Default is current site.
+ * @return bool true if the blog is a BU domain, false if it is not or returns
+ *              an error.
  */
-function responsive_is_bu_domain() {
-	$current_site = get_current_site();
-	return preg_match( '#bu.edu$#', $current_site->domain );
+function responsive_is_bu_domain( $blog_id = 0 ) {
+	$site_url = get_site_url( $blog_id );
+
+	return (bool) preg_match( '#bu.edu$#', $site_url );
 }
 
 /**
@@ -89,7 +82,7 @@ function responsive_search_is_enabled() {
 function responsive_search_form() {
 	$bu_search = false;
 
-	// Check that search form is enabled
+	// Check that search form is enabled.
 	if ( function_exists( 'bu_search_form' ) ) {
 		if ( responsive_search_is_enabled() ) {
 			$bu_search = true;
@@ -98,7 +91,7 @@ function responsive_search_form() {
 		}
 	}
 
-	// Check for site restrictions through the ACL plugin
+	// Check for site restrictions through the ACL plugin.
 	if ( function_exists( 'bu_acl_get_site_acl' ) ) {
 		$site_acl = bu_acl_get_site_acl();
 
@@ -109,11 +102,11 @@ function responsive_search_form() {
 		}
 	}
 
-	// Display search form based on whether or not site wide restriction is in place
+	// Display search form based on whether or not site wide restriction is in place.
 	if ( $bu_search && ! $site_restricted ) {
 		bu_search_form( '', '', array( 'responsive' => true ) );
 	} else {
-		// If bu_search_form doesn't exist or the site is restricted, use default WP Search
+		// If bu_search_form doesn't exist or the site is restricted, use default WP Search.
 		get_search_form();
 	}
 }
@@ -135,12 +128,13 @@ function responsive_search_form() {
  */
 function responsive_category_links( $args = array() ) {
 	$defaults = array(
-		'before'    => '<span class="categories">Categories: ',
+		'before'    => sprintf( '<span class="categories">%s: ', esc_html__( 'Categories', 'responsive-framework' ) ),
 		'after'     => '</span>',
 		'separator' => ', ',
 		'parents'   => '',
 		'post_id'   => null,
-		);
+	);
+
 	$args = wp_parse_args( $args, $defaults );
 
 	$categories = get_the_category_list( $args['separator'], $args['parents'], $args['post_id'] );
@@ -150,73 +144,38 @@ function responsive_category_links( $args = array() ) {
 }
 
 /**
- * Generates a list of term links (excluding categories and tags) for the given post.
- */
-function responsive_term_links( $post = null ) {
-	$post = get_post( $post );
-
-	if ( ! $post ) {
-		return '';
-	}
-
-	// Get taxonomies registered for the current post type
-	$taxonomies = get_object_taxonomies( $post->post_type, 'objects' );
-
-	$out = array();
-	foreach ( $taxonomies as $taxonomy_slug => $taxonomy ) {
-		if ( 'category' !== $taxonomy_slug && 'post_tag' !== $taxonomy_slug ) {
-
-			$terms = get_the_terms( $post->ID, $taxonomy_slug );
-
-			if ( ! empty( $terms ) ) {
-				$out[] = $taxonomy->label . ': ';
-				foreach ( $terms as $term ) {
-					$out[] =
-						'  <a href="'
-						.    get_term_link( $term->slug, $taxonomy_slug ) .'">'
-						.    $term->name
-						. '</a>';
-				}
-			}
-		}
-	}
-
-	return implode( '', $out );
-}
-
-/**
- * A wrapper around `bu_content_banner` to keep templates clean.
+ * Generates a list of term links for each taxonomy registered to the post's type, excluding categories and tags.
  *
- * @param  string $position A registered content banner position.
+ * @param int|WP_Post|null $post Optional.   Post ID or post object. Defaults to global $post.
+ * @param string           $before Optional. Before list.
+ * @param string           $sep Optional.    Separate items using this.
+ * @param string           $after Optional.  After list.
+ *
+ * @return string A list of term links.
  */
-function responsive_content_banner( $position ) {
-	if ( ! function_exists( 'bu_content_banner' ) ) {
+function responsive_term_links( $post = null, $before = '', $sep = '', $after = '' ) {
+	if ( ! $post = get_post( $post ) ) {
 		return;
 	}
 
-	/*
-	 * Only use current post ID for singular requests. Avoids
-	 * banner display for first post in archive requests. We still
-	 * pass a false value to `bu_content_banner` in this case so
-	 * that site-wide content banners are displayed if set.
-	 */
-	$post_id = false;
-	if ( is_singular() ) {
-		// Returns the current post ID
-		$post_id = get_post()->ID;
+	// Get taxonomies registered for the current post type.
+	$taxonomies = get_object_taxonomies( $post->post_type );
+
+	if ( empty( $taxonomies ) || is_wp_error( $taxonomies ) ) {
+		return;
 	}
 
-	$banner_args = array(
-		'before'   => sprintf( '<div class="bannerContainer bannerContainer-%s">', $position ),
-		'after'    => '</div>',
-		'class'    => 'banner',
-		'position' => $position,
-		'echo'     => false,
-		);
+	$output = '';
 
-	//allows themes to add to the bu_content_banner output
-	echo apply_filters('responsive_content_banner_output', bu_content_banner( $post_id, $banner_args ), $post_id, $position );
+	foreach ( $taxonomies as $taxonomy ) {
+		if ( 'category' === $taxonomy && 'post_tag' === $taxonomy ) {
+			continue;
+		}
 
+		$output .= get_the_term_list( $post->ID, $taxonomy, $before, $sep, $after );
+	}
+
+	return $output;
 }
 
 /**
@@ -229,10 +188,21 @@ function responsive_content_banner( $position ) {
 function responsive_primary_nav() {
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
 		false == BuAccessControlPlugin::is_site_403() ) {
-		bu_navigation_display_primary( array(
-					'container_id'    => 'primaryNav-menu',
-					'container_class' => 'primaryNav-menu',
-					) );
+
+		if ( function_exists( 'bu_navigation_display_primary' ) ) {
+			bu_navigation_display_primary( array(
+				'container_id'    => 'primary-nav-menu',
+				'container_class' => 'primary-nav-menu',
+			) );
+		} else {
+			wp_nav_menu( array(
+				'theme_location' => 'responsive-primary',
+				'menu_id'        => 'primaryNav-menu',
+				'menu_class'     => 'primaryNav-menu',
+				'container_tag'  => 'ul',
+				'depth'          => 2,
+			) );
+		}
 	}
 }
 
@@ -255,18 +225,18 @@ function responsive_utility_nav( $args = array() ) {
 	}
 
 	$defaults = array(
-		'before' => '<nav class="utilityNav" role="navigation">',
+		'before' => '<nav class="utility-nav" role="navigation">',
 		'after'  => '</nav>',
-		);
+	);
+
 	$args = wp_parse_args( $args, $defaults );
 	$menu = '';
 
-	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
-		false == BuAccessControlPlugin::is_site_403() ) {
+	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || false == BuAccessControlPlugin::is_site_403() ) {
 		$menu = wp_nav_menu( array(
 			'theme_location' => 'utility',
-			'menu_id'        => 'utilityNav-menu',
-			'menu_class'     => 'utilityNav-menu',
+			'menu_id'        => 'utility-nav-menu',
+			'menu_class'     => 'utility-nav-menu',
 			'container'      => false,
 			'echo'           => false,
 		) );
@@ -293,17 +263,18 @@ function responsive_footer_menu( $args = array() ) {
 	}
 
 	$defaults = array(
-		'before' => '<nav class="siteFooter-links" role="navigation">',
+		'before' => '<nav class="site-footer-links" role="navigation">',
 		'after'  => '</nav>',
-		);
+	);
+
 	$args = wp_parse_args( $args, $defaults );
 	$menu = '';
 
 	$menu = wp_nav_menu( array(
 		'theme_location' => 'footer',
 		'depth'          => 1,
-		'menu_id'        => 'siteFooter-links-menu',
-		'menu_class'     => 'siteFooter-links-menu',
+		'menu_id'        => 'site-footer-links-menu',
+		'menu_class'     => 'site-footer-links-menu',
 		'container'      => false,
 		'echo'           => false,
 	) );
@@ -331,9 +302,10 @@ function responsive_social_menu( $args = array() ) {
 	}
 
 	$defaults = array(
-		'before' => '<nav class="siteFooter-social" role="navigation">',
+		'before' => '<nav class="site-footer-social" role="navigation">',
 		'after'  => '</nav>',
-		);
+	);
+
 	$args = wp_parse_args( $args, $defaults );
 	$menu = '';
 
@@ -342,10 +314,10 @@ function responsive_social_menu( $args = array() ) {
 	$menu = wp_nav_menu( array(
 		'theme_location' => 'social',
 		'depth'          => 1,
-		'link_before'    => '<i aria-hidden="true"></i><span>',
+		'link_before'    => '<span>',
 		'link_after'     => '</span>',
-		'menu_id'        => 'siteFooter-social-menu',
-		'menu_class'     => 'siteFooter-social-menu',
+		'menu_id'        => 'site-footer-social-menu',
+		'menu_class'     => 'site-footer-social-menu',
 		'container'      => false,
 		'echo'           => false,
 	) );
@@ -359,6 +331,18 @@ function responsive_social_menu( $args = array() ) {
 
 /**
  * Sets <a> tags title attribute to the item title if none is set.
+ *
+ * @param array   $atts {
+ *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
+ *
+ *     @type string $title  Title attribute.
+ *     @type string $target Target attribute.
+ *     @type string $rel    The rel attribute.
+ *     @type string $href   The href attribute.
+ * }
+ * @param WP_Post $item  The current menu item.
+ *
+ * @return array $atts
  */
 function responsive_social_nav_menu_link_attributes( $atts, $item ) {
 	if ( empty( $atts['title'] ) ) {
@@ -368,12 +352,17 @@ function responsive_social_nav_menu_link_attributes( $atts, $item ) {
 	return $atts;
 }
 
-if ( ! function_exists( 'responsive_posts_navigation' ) ) :
-
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
- * @param  WP_Query $query [description]
+ * @param array         $args {
+ *     The attributes used for formatting and displaying post navigation links.
+ *
+ *     @type string $prev_text  The previous link text.
+ *     @type string $next_text The next link text.
+ *     @type string $screen_reader_text The text to display for screen readers.
+ * }
+ * @param WP_Query|null $query WP_Query object to display post navigation for. Default is the global page query.
  */
 function responsive_posts_navigation( $args = array(), WP_Query $query = null ) {
 	global $wp_query;
@@ -385,39 +374,52 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 	$tmp_query = null;
 	if ( ! is_null( $query ) ) {
 		$tmp_query = $wp_query;
-		$wp_query = $query;
+		$wp_query  = $query;
 	}
+
+	$archive_type = 'posts';
 
 	// Don't print empty markup if there's only one page.
 	if ( $wp_query->max_num_pages >= 2 ) :
-		$archive_type = responsive_archive_type( $wp_query );
-		$defaults = array(
-				'prev_text'          => '<span class="meta-nav">&larr;</span> Previous',
-				'next_text'          => 'Next <span class="meta-nav">&rarr;</span>',
-				'screen_reader_text' => ucfirst( $archive_type ) . ' navigation',
-			);
+		$queried_object = get_queried_object();
+		if ( is_post_type_archive() ) {
+			$archive_type = $queried_object->labels->singular_name;
+		} elseif ( is_tax() || is_category() || is_tag() ) {
+			$taxonomy_object = get_taxonomy( $queried_object->taxonomy );
 
-		// Post archive labels are more specifc
-		if ( 'posts' == $archive_type ) {
-			$defaults['prev_text'] = '<span class="meta-nav">&larr;</span> Newer posts';
-			$defaults['next_text'] = 'Older posts <span class="meta-nav">&rarr;</span>';
+			$post_type = get_post_type( $taxonomy_object->object_type[0] );
+
+			$archive_type = $post_type->labels->singular_name;
+		}
+
+		$defaults = array(
+			'prev_text'          => '<span class="meta-nav">&larr;</span> Previous',
+			'next_text'          => 'Next <span class="meta-nav">&rarr;</span>',
+			/* translators: %s: archive type singular name. */
+			'screen_reader_text' => sprintf( __( '%s navigation', 'responsive-framework' ), ucfirst( $archive_type ) ),
+		);
+
+			// Post archive labels are more specific.
+		if ( 'posts' === $archive_type ) {
+			$defaults['prev_text'] = sprintf( '<span class="meta-nav">&larr;</span> %s', esc_html__( 'Newer posts', 'responsive-framework' ) );
+			$defaults['next_text'] = sprintf( '%s <span class="meta-nav">&rarr;</span>', esc_html__( 'Older posts', 'responsive-framework' ) );
 		}
 
 		$args = wp_parse_args( $args, $defaults );
-	?>
-	<nav class="navigation posts-navigation paging-navigation" role="navigation">
-		<h3 class="screen-reader-text"><?php echo $args['screen_reader_text'] ?></h3>
-		<div class="nav-links">
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-previous"><?php previous_posts_link( $args['prev_text'] ); ?></div>
-			<?php endif; ?>
+		?>
+		<nav class="navigation posts-navigation paging-navigation" role="navigation">
+			<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
+			<div class="nav-links">
+				<?php if ( get_previous_posts_link() ) : ?>
+					<div class="nav-previous"><?php previous_posts_link( $args['prev_text'] ); ?></div>
+				<?php endif; ?>
 
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-next"><?php next_posts_link( $args['next_text'] ); ?></div>
-			<?php endif; ?>
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
+				<?php if ( get_next_posts_link() ) : ?>
+					<div class="nav-next"><?php next_posts_link( $args['next_text'] ); ?></div>
+				<?php endif; ?>
+			</div><!-- .nav-links -->
+		</nav><!-- .navigation -->
+		<?php
 	endif;
 
 	// Restore the global WP_Query instance if we replaced it.
@@ -426,83 +428,102 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 	}
 }
 
-endif;
-
-if ( ! function_exists( 'responsive_post_navigation' ) ) :
-
 /**
  * Display navigation to next/previous post when applicable.
+ *
+ * @param array $args {
+ *     The attributes used for formatting and displaying post navigation links.
+ *
+ *     @type string $prev_text  The previous link text.
+ *     @type string $next_text The next link text.
+ *     @type string $screen_reader_text The text to display for screen readers.
+ * }
  */
 function responsive_post_navigation( $args = array() ) {
 	$args = wp_parse_args( $args, array(
 		'prev_text'          => '<span class="meta-nav">&larr;</span>&nbsp;%title',
 		'next_text'          => '%title&nbsp;<span class="meta-nav">&rarr;</span>',
-		'screen_reader_text' => 'Post navigation',
-		) );
+		'screen_reader_text' => __( 'Post navigation', 'responsive-framework' ),
+	) );
 
-	$previous   = get_previous_post_link( '<div class="nav-previous">%link</div>', $args['prev_text'] );
-	$next       = get_next_post_link( '<div class="nav-next">%link</div>', $args['next_text'] );
+	$previous = get_previous_post_link( '<div class="nav-previous">%link</div>', $args['prev_text'] );
+	$next     = get_next_post_link( '<div class="nav-next">%link</div>', $args['next_text'] );
 
 	if ( $previous || $next ) :
-	?>
-	<nav class="navigation post-navigation" role="navigation">
-		<h3 class="screen-reader-text"><?php echo $args['screen_reader_text']; ?></h3>
-		<div class="nav-links">
+		?>
+		<nav class="navigation post-navigation" role="navigation">
+			<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
+			<div class="nav-links">
 			<?php echo $previous . $next; ?>
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
+			</div><!-- .nav-links -->
+		</nav><!-- .navigation -->
 	<?php
 	endif;
 }
-
-endif;
-
-if ( ! function_exists( 'responsive_post_meta' ) ) :
 
 /**
  * Render post meta entry HTML.
  */
 function responsive_post_meta() {
-?>
-	<div class="entry-meta">
+	?>
+	<div class="meta post-meta">
 		<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
-		<span class="author"><em>By</em> <?php the_author_posts_link(); ?></span>
+			<span class="author">
+			<?php
+				/* translators: %s: author name linking to their archive page. */
+				printf( wp_kses( __( '<em>By </em>%s', 'responsive-framework' ), array(
+					'em' => array(),
+				) ), get_the_author_posts_link() );
+			?>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'date' ) ) : ?>
-		<span class="date"><time datetime="<?php esc_attr_e( get_the_date( 'c' ) ) ?>" pubdate><?php echo get_the_date( 'F jS Y' ) ?></time></span>
+			<span class="date"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" pubdate><?php echo esc_html( get_the_date( 'F jS Y' ) ); ?></time></span>
 		<?php endif; ?>
-		<?php if ( responsive_posts_should_display( 'categories' ) && $category_list = get_the_category_list( ', ' ) ) : ?>
-		<span class="category"><em>in</em> <?php echo $category_list; ?></span>
+		<?php if ( responsive_posts_should_display( 'categories' ) ) : ?>
+			<?php
+			$category_list = get_the_category_list( ', ' );
+
+			if ( ! empty( $category_list ) ) :
+				?>
+				<span class="category">
+				<?php
+					/* translators: %s: category list for the post. */
+					printf( wp_kses_post( __( '<em>in</em> %s', 'responsive-framework' ) ), $category_list ); // WPCS: XSS ok.
+				?>
+				</span>
+			<?php endif; ?>
 		<?php endif; ?>
-		<?php if ( bu_supports_comments() ) : ?>
-		<span class="comment-counter"><a href="<?php comments_link(); ?>" rel="nofollow"><?php comments_number( '<strong>0</strong> comments', '<strong>1</strong> comment', '<strong>%</strong> comments' ); ?></a></span>
+
+		<?php if ( function_exists( 'bu_supports_comments' ) && bu_supports_comments() ) : ?>
+			<span class="comment-counter">
+				<a href="<?php comments_link(); ?>" rel="nofollow">
+					<?php comments_number( wp_kses_post( __( '<strong>0</strong> comments', 'responsive-framework' ) ), wp_kses_post( __( '<strong>1</strong> comment', 'responsive-framework' ) ), wp_kses_post( __( '<strong>%</strong> comments', 'responsive-framework' ) ) ); ?>
+				</a>
+			</span>
 		<?php endif; ?>
 	</div>
-<?php
+	<?php
 }
-
-endif;
 
 /**
  * Returns one or more Customizer display option value.
  *
  * Site admin can configure display of the following post meta for single and archive post templates:
- * 	- Categories
- * 	- Tags
- * 	- Author
  *
- * @param  string $option Specific option value to return ('categories', 'tags', or 'author'). Optional.
- * @return mixed          Post display options array, or the specified option.
+ * - Categories
+ * - Tags
+ * - Author
+ *
+ * @return array $display_options Post display options array, or the specified option.
  */
-
 function responsive_get_post_display_options() {
 	$display_options = get_option( 'burf_setting_post_display_options' );
 
-	// First time load -- default to "Categories" and "Tags"
+	// First time load -- default to "Categories" and "Tags".
 	if ( false === $display_options ) {
 		$display_options = array( 'categories', 'tags' );
 	} else {
-		if( ! is_array( $display_options ) ){
+		if ( ! is_array( $display_options ) ) {
 			$display_options = explode( ',', $display_options );
 		}
 	}
@@ -512,6 +533,10 @@ function responsive_get_post_display_options() {
 
 /**
  * Whether or not the given post field should be displayed.
+ *
+ * @param string $field Field to check should display.
+ *
+ * @return boolean Whether to display the field.
  */
 function responsive_posts_should_display( $field ) {
 	return in_array( $field, responsive_get_post_display_options() );
@@ -534,34 +559,41 @@ function responsive_posts_should_display( $field ) {
 function responsive_get_posts_archive_link() {
 	$archive_link = false;
 
-	// Look first for pages with the News template applied
+	// Look first for pages with the News template applied.
 	$news_pages = get_pages( array(
 		'meta_key'   => '_wp_page_template',
 		'meta_value' => 'page-templates/news.php',
-		) );
+	) );
 
-	// Find the first news page set to display "All Categories"
+	// Find the first news page set to display "All Categories".
 	foreach ( $news_pages as $page ) {
 		$categories = get_post_meta( $page->ID, '_bu_list_news_category', true );
-		if ( 0 == $categories ) {
+		if ( empty( $categories ) ) {
 			$archive_link = get_permalink( $page );
 			break;
 		}
 	}
 
 	if ( ! $archive_link ) {
-		// If current site has Settings > Reading set to display Posts on a page use that
-		if ( 'page' == get_option( 'show_on_front' ) ) {
+		// If current site has Settings > Reading set to display Posts on a page use that.
+		if ( 'page' === get_option( 'show_on_front' ) ) {
 			$posts_page = get_option( 'page_for_posts' );
 			if ( $posts_page ) {
 				$archive_link = get_permalink( $posts_page );
 			}
-		// Use home page link if Settings > Reading is set to display latest posts
+			// Use home page link if Settings > Reading is set to display latest posts.
 		} else {
 			$archive_link = home_url();
 		}
 	}
 
+	/**
+	 * Filters the post archive link.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string Post archive link.
+	 */
 	return apply_filters( 'responsive_get_posts_archive_link', $archive_link );
 }
 
@@ -579,16 +611,17 @@ function responsive_get_posts_archive_link() {
  */
 function responsive_posts_archive_link( $args = array() ) {
 	$defaults = array(
-		'label'  => 'View all posts',
-		'before' => '<p>',
+		'label'  => __( 'View all posts', 'responsive-framework' ),
+		'before' => '<p class="archive-link-container">',
 		'after'  => '</p>',
-		'class'  => 'archiveLink postsArchiveLink',
+		'class'  => 'archive-link posts-archive-link',
 		'echo'   => true,
-		);
-	$args = wp_parse_args( $args, $defaults );
+	);
 
-	$link = '';
+	$args       = wp_parse_args( $args, $defaults );
+	$link       = '';
 	$class_attr = '';
+
 	if ( ! empty( $args['class'] ) ) {
 		$class_attr = ' class="' . esc_attr( $args['class'] ) . '"';
 	}
@@ -602,7 +635,7 @@ function responsive_posts_archive_link( $args = array() ) {
 			$class_attr,
 			$args['label'],
 			$args['after']
-			);
+		);
 	}
 
 	if ( $args['echo'] ) {
@@ -628,11 +661,12 @@ function responsive_posts_archive_link( $args = array() ) {
  */
 function responsive_profiles_archive_link( $args = array() ) {
 	$defaults = array(
-		'before' => '<p>',
+		'before' => '<p class="archive-link-container">',
 		'after'  => '</p>',
-		'class'  => 'archiveLink profilesArchiveLink',
+		'class'  => 'archive-link profiles-archive-link',
 		'echo'   => true,
-		);
+	);
+
 	$args = wp_parse_args( $args, $defaults );
 
 	if ( function_exists( 'bu_profile_archive_link' ) ) {
@@ -643,7 +677,8 @@ function responsive_profiles_archive_link( $args = array() ) {
 /**
  * Returns the number of widgets contained in the given sidebar.
  *
- * @param  string $sidebar_id  The sidebar to check
+ * @param  string $sidebar_id  The sidebar to check.
+ *
  * @return int|bool            Number of widgets, or false if the sidebar is not registered.
  */
 function responsive_get_widget_counts( $sidebar_id ) {
@@ -659,12 +694,14 @@ function responsive_get_widget_counts( $sidebar_id ) {
  * Prints out contextual classes for sidebar containers.
  *
  * Used to included widget counts.
+ *
+ * @param string $sidebar_id Sidebar ID to retrieve class for.
  */
 function responsive_sidebar_classes( $sidebar_id ) {
 	$widget_count = responsive_get_widget_counts( $sidebar_id );
-	$count = ( $widget_count > 0 ) ? $widget_count : 'none';
+	$count        = ( $widget_count > 0 ) ? $widget_count : 'none';
 
-	echo "widgetCount-$count";
+	echo esc_attr( "widget-count-$count" );
 }
 
 /**
@@ -675,113 +712,58 @@ function responsive_sidebar_classes( $sidebar_id ) {
 function responsive_extra_footer_classes() {
 	$classes = array();
 
-	// Build an array to capture current footer content permutation
-	$footer_components = array();
-
 	// Is the Customizer-provided footer info in use?
 	if ( responsive_customizer_has_footer_info() ) {
-		$footer_components[] = 'info';
+		$classes[] = 'has-footer-info';
 	}
+
 	// Is the custom footer links menu in use?
 	if ( has_nav_menu( 'footer' ) ) {
-		$footer_components[] = 'links';
+		$classes[] = 'has-footer-links';
 	}
+
 	// Is the custom social menu in use?
 	if ( has_nav_menu( 'social' ) ) {
-		$footer_components[] = 'social';
+		$classes[] = 'has-footer-social';
 	}
 
-	// Combine all components in to one stateful class
-	if ( ! empty( $footer_components ) ) {
-		$classes[] = 'has-' . implode( '-', $footer_components );
-	}
-
+	/**
+	 * Filters extra footer classes.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array Extra classes for the footer.
+	 */
 	$classes = apply_filters( 'responsive_extra_footer_classes', $classes );
+
 	$classes = array_unique( array_map( 'esc_attr', $classes ) );
 
-	echo implode( ' ', $classes );
-}
-
-/**
- * Get list of all post types included for the given query
- *
- * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
- * @return array  Array of post type names
- */
-function responsive_queried_post_types( WP_Query $query = null ) {
-	if ( is_null( $query ) ) {
-		$query = $GLOBALS['wp_query'];
-	}
-
-	$queried_object = $query->get_queried_object();
-
-	// Post = post object
-	if ( $query->is_single() || $query->is_page() ) {
-		$post_types = array( $queried_object->post_type );
-	}
-
-	// Post type archive = post type object
-	else if ( $query->is_post_type_archive() ) {
-		$post_types = array( $queried_object->name );
-	}
-
-	// Taxonomy archive = taxonomy object
-	else if ( $query->is_tax() || $query->is_category() || $query->is_tag() ) {
-		$tax = get_taxonomy( $queried_object->taxonomy );
-		$post_types = $tax->object_type;
-	}
-
-	// All other requests default to posts (author archives, date archives, etc.)
-	else {
-		$post_types = array( 'post' );
-	}
-
-	return apply_filters( 'responsive_queried_post_types', $post_types, $query );
-}
-
-/**
- * Determine primary post type of archive query
- *
- * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
- * @return string Post type name. Uses lowercase version of plural (name) label.
- */
-function responsive_archive_type( WP_Query $query = null ) {
-	$post_types = responsive_queried_post_types( $query );
-
-	// Default type
-	$archive_type = 'posts';
-
-	// Use plural label
-	if ( is_array( $post_types ) && 1 == count( $post_types ) ) {
-		$pto = get_post_type_object( reset( $post_types ) );
-		if ( $pto ) {
-			$archive_type = strtolower( $pto->label );
-		}
-	}
-
-	return apply_filters( 'responsive_archive_type', $archive_type, $post_types );
+	echo esc_attr( implode( ' ', $classes ) );
 }
 
 /**
  * Is the archive query for the given post type?
  *
- * @param  string $type Plural post type name for comparison.
- * @param  WP_Query $query Query object to check. Optional. Defaults to current global query.
+ * @deprecated 2.0.0 Use is_post_type_archive()
+ *
+ * @param string $type Plural post type name for comparison.
+ *
  * @return bool
  */
-function responsive_is_archive_type( $type, WP_Query $query = null ) {
-	return ( strtolower( $type ) == responsive_archive_type( $query ) );
+function responsive_is_archive_type( $type ) {
+	_deprecated_function( __FUNCTION__, '2.0.0', 'is_post_type_archive()' );
+
+	return is_post_type_archive( $type );
 }
 
 /**
  * Whether or not the current theme supports alternate footbar registration.
  */
 function responsive_theme_supports_dynamic_footbars() {
-
-	// Check for theme constant
+	// Check for theme constant.
 	if ( defined( 'BU_SUPPORTS_DYNAMIC_FOOTBARS' ) ) {
 		return BU_SUPPORTS_DYNAMIC_FOOTBARS;
-	// Check for site option
+		// Check for site option.
 	} else {
 		$sidebar_options = get_option( 'burf_setting_sidebar_options', array() );
 		if ( ! is_array( $sidebar_options ) ) {
@@ -796,18 +778,20 @@ function responsive_theme_supports_dynamic_footbars() {
  */
 function responsive_get_dynamic_footbars() {
 	return array(
-		'footbar'           => 'Footbar',
-		'alternate-footbar' => 'Alternate Footbar'
-		);
+		'footbar'           => __( 'Footbar', 'responsive-framework' ),
+		'alternate-footbar' => __( 'Alternate Footbar', 'responsive-framework' ),
+	);
 }
 
 /**
- * Get the footbar selected for the given post.
+ * Retrieve the footbar selected for the given post.
  *
- * @param  mixed  $post A post ID or WP_Post instance. Optional. Default current post.
+ * @param null|WP_Post|int $post Null to use the global post object, WP_Post or post ID to use a specific post.
+ *
+ * @return string $footbar Selected footbar ID for the post.
  */
 function responsive_get_footbar_id( $post = null ) {
-	$post = get_post( $post );
+	$post    = get_post( $post );
 	$footbar = 'footbar';
 
 	if ( $post && responsive_theme_supports_dynamic_footbars() && post_type_supports( $post->post_type, 'bu-dynamic-footbars' ) ) {
@@ -818,4 +802,83 @@ function responsive_get_footbar_id( $post = null ) {
 	}
 
 	return $footbar;
+}
+
+/**
+ * Check a theme for a generic template part, or specialised template for a post type.
+ *
+ * If no template part exists for the given post type.
+ *
+ * @param string $post_type The slug name for the post type.
+ * @param string $name      The name of the specialised template.
+ */
+function r_get_template_part( $post_type, $name = null ) {
+	$templates = array();
+	$name      = (string) $name;
+
+	if ( '' !== $name ) {
+		$templates[] = "template-parts/{$post_type}-{$name}.php";
+	}
+
+	$templates[] = "template-parts/{$post_type}.php";
+
+	if ( ! locate_template( $templates, true, false ) ) {
+		get_template_part( 'template-parts/content', $name );
+	}
+}
+
+/**
+ * Load sidebar template for an archive page.
+ *
+ * Templates will be searched for from most specific to least specific.
+ *
+ * @param string $name The name of the specialised sidebar.
+ */
+function r_get_archive_sidebar( $name = null ) {
+	$templates = array();
+	$name      = (string) $name;
+
+	$queried_object = get_queried_object();
+
+	if ( is_tag() || is_category() || is_tax() ) {
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-{$queried_object->taxonomy}-{$queried_object->slug}-{$name}.php";
+		}
+		$templates[] = "sidebar-{$queried_object->taxonomy}-{$queried_object->slug}.php";
+
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-{$queried_object->taxonomy}-{$name}.php";
+		}
+		$templates[] = "sidebar-{$queried_object->taxonomy}.php";
+
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-taxonomy-{$name}.php";
+		}
+		$templates[] = 'sidebar-taxonomy.php';
+	} elseif ( is_post_type_archive() ) {
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-{$queried_object->name}-{$name}.php";
+		}
+		$templates[] = "sidebar-{$queried_object->name}.php";
+
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-post-type-{$name}.php";
+		}
+		$templates[] = 'sidebar-post-type.php';
+	} elseif ( is_author() ) {
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-{$queried_object->user_login}-{$name}.php";
+		}
+		$templates[] = "sidebar-{$queried_object->user_login}.php";
+
+		if ( ! empty( $name ) ) {
+			$templates[] = "sidebar-author-{$name}.php";
+		}
+		$templates[] = 'sidebar-author.php';
+	}
+
+	$templates[] = "sidebar-{$name}.php";
+	$templates[] = 'sidebar.php';
+
+	locate_template( $templates, true );
 }

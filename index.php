@@ -1,25 +1,32 @@
 <?php
 /**
  * The main template file.
+ *
+ * @package Responsive_Framework
  */
 
 get_header(); ?>
 
-		<?php if ( have_posts() ) : ?>
+<article class="content-area">
 
-			<?php while ( have_posts() ) : the_post(); ?>
+	<?php if ( have_posts() ) : ?>
 
-				<?php get_template_part( 'template-parts/content' ); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php endwhile; ?>
+			<?php r_get_template_part( get_post_type(), 'index' ); ?>
 
-			<?php responsive_posts_navigation(); ?>
+		<?php endwhile; ?>
 
-		<?php else : ?>
+		<?php responsive_posts_navigation(); ?>
 
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
+	<?php else : ?>
 
-		<?php endif; ?>
+		<?php get_template_part( 'template-parts/no-content', 'index' ); ?>
 
-<?php get_sidebar(); ?>
+	<?php endif; ?>
+
+	<?php get_sidebar(); ?>
+
+</article>
+
 <?php get_footer();

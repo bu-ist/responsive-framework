@@ -1,17 +1,19 @@
 <?php
 /**
- * BU Sharing integration
+ * BU Sharing integration.
+ *
+ * @package Responsive_Framework\bu-sharing
  */
 
 /**
  * Modify default share tools configuration.
  */
 function responsive_sharing_setup() {
-	// Disable default display location
+	// Disable default display location.
 	remove_filter( 'the_content', 'sharing_display', 19 );
 	remove_filter( 'the_excerpt', 'sharing_display', 19 );
 
-	// Disable share counts by default
+	// Disable share counts by default.
 	add_filter( 'bu_sharing_counts', '__return_false' );
 }
 
@@ -33,8 +35,10 @@ add_action( 'wp_head', 'responsive_dequeue_sharing_fonts', 2 );
  *
  * If the BU Sharing plugin is not activated this function will do nothing.
  *
- * @param  string $text  Content to display before share tools. Will precede user-provided sharing label.
- * @param  boolean       Whether or not to immediately echo or return the output. Default true.
+ * @param  string  $text  Content to display before share tools. Will precede user-provided sharing label.
+ * @param  boolean $echo Whether or not to immediately echo or return the output. Default true.
+ *
+ * @return string Sharing tools markup if $echo is false.
  */
 function responsive_share_tools( $text = '', $echo = true ) {
 	if ( function_exists( 'sharing_display' ) ) {

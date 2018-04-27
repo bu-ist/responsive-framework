@@ -1,29 +1,38 @@
 <?php
 /**
  * Template file used to render the Blog Posts Index, whether on the site front page or on a static page.
+ *
+ * @package Responsive_Framework
  */
 
-get_header(); ?>
+get_header();
 
-<div class="content-area">
+$page_for_posts = get_option( 'page_for_posts', 0 );
+?>
+
+<article class="content-area">
+	<?php if ( ! is_front_page() && is_home() && ! empty( $page_for_posts ) ) : ?>
+		<h1 class="page-title"><?php echo get_the_title( $page_for_posts ); ?></h1>
+	<?php endif; ?>
 
 	<?php if ( have_posts() ) : ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php get_template_part( 'template-parts/content' ); ?>
+			<?php r_get_template_part( get_post_type(), 'home' ); ?>
 
-	<?php endwhile; ?>
+		<?php endwhile; ?>
 
-	<?php responsive_posts_navigation(); ?>
+		<?php responsive_posts_navigation(); ?>
 
 	<?php else : ?>
 
-		<?php get_template_part( 'template-parts/content', 'none' ); ?>
+		<?php get_template_part( 'template-parts/no-content', 'home' ); ?>
 
 	<?php endif; ?>
 
-</div>
+</article>
 
-<?php get_sidebar( 'posts' ); ?>
-<?php get_footer();
+<?php
+get_sidebar( 'posts' );
+get_footer();

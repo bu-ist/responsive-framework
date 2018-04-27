@@ -1,34 +1,30 @@
 <?php
 /**
  * Template used to display Profile archive.
+ *
+ * @package Responsive_Framework\BU_Profiles
  */
 
 get_header(); ?>
 
-	<article role="main" class="profiles-archive">
-	<?php if ( have_posts() ) : ?>
+	<article class="content-area profiles-archive">
+		<?php if ( have_posts() ) : ?>
 
-		<h1>Profile Directory</h1>
+			<h1 class="page-title"><?php esc_html_e( 'Profile Directory', 'responsive-framework' ); ?></h1>
 
-		<div class="profile-listing">
-			<ul class="basic">
-
-		<?php while ( have_posts() ): the_post();
-
-			get_template_part( 'template-parts/content', 'profiles' );
-
-		endwhile; ?>
-
+			<ul class="profile-listing profile-format-basic">
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php get_template_part( 'template-parts/profile', 'archive' ); ?>
+				<?php endwhile; ?>
 			</ul>
-		</div>
 
-		<?php responsive_posts_navigation(); ?>
+			<?php responsive_posts_navigation(); ?>
 
-	<?php else : ?>
+		<?php else : ?>
 
-		<?php get_template_part( 'template-parts/content', 'none' ); ?>
+			<?php get_template_part( 'template-parts/no-content', 'profiles' ); ?>
 
-	<?php endif; ?>
+		<?php endif; ?>
 	</article>
 
 <?php get_sidebar( 'profiles' ); ?>

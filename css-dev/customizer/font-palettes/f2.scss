@@ -1,90 +1,25 @@
-@import 'fonts/benton';
-@import 'fonts/capita-bold';
+$font-heading: "Capita", serif;
+$font-body: "Benton-Sans", sans-serif;
 
-body {
-	font-family: 'Benton';
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 28px;
-}
+@import "fonts/benton";
+@import "fonts/capita-bold";
+@import "fonts/shared";
 
-p {
-	font-family: 'Benton';
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 28px;
-	margin-bottom: 24px;
-}
-
-h1 {
-	font-family: 'Capita';
-	font-weight: 700;
-	font-size: 48px;
-	line-height: 51px;
-	margin-bottom: 22px;
-}
-
-h2 {
-	font-family: 'Capita';
-	font-weight: 700;
-	font-size: 40px;
-	line-height: 43px;
-	margin-bottom: 22px;
-}
-
-h3 {
-	font-family: 'Capita';
-	font-weight: 700;
-	font-size: 33px;
-	line-height: 36px;
-	margin-bottom: 22px;
-}
-
-.widget h3 {
-	font-family: 'Capita';
-	font-weight: 700;
-	font-size: 28px;
-	line-height: 31px;
-}
-
-h4 {
-	font-family: 'Capita';
-	font-weight: 700;
-	font-size: 22px;
-	line-height: 25px;
-	margin-bottom: 22px;
-}
-
-h5 {
-	font-family: 'Capita';
-	font-weight: 700;
-	font-size: 18px;
-	line-height: 21px;
-	margin-bottom: 22px;
-}
-
-h6 {
-	font-family: 'Capita';
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 19px;
-	margin-bottom: 22px;
-}
-
-#q {
-	font-family: 'Capita';
-	font-size: 18px;
-}
-
-.primaryNav-menu li a {
-	font-family: 'Capita';
+.primary-nav-menu li a {
 	font-weight: 500;
 	font-size: 17px;
 }
 
-.utilityNav li a {
-	font-family: 'Capita';
-	font-weight: 400;
-	font-size: 16px;
+.utility-nav li a {
 	font-style: italic;
+}
+
+blockquote {
+	border-color: #0f69d7; // Default blue will be overwritten by inc/customizer.php if colors customized
+	border-left: 0.125em solid;
+	padding: 5px 15px;
+
+	>p:last-of-type {
+		margin-bottom: 0; // Provides bottom padding for last paragraph of blockquote to fill out gray box.
+	}
 }

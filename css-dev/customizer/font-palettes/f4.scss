@@ -1,91 +1,51 @@
-@import 'fonts/benton';
-@import 'fonts/tiempos';
+$font-heading: "TiemposHeadline", serif;
+$font-body: "Benton-Sans", sans-serif;
+$font-body-accent: "TiemposText", serif;
 
-body {
-	font-family: 'Benton';
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 28px;
-}
-
-p {
-	font-family: 'Benton';
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 28px;
-	margin-bottom: 24px;
-}
-
-h1 {
-	font-family: 'TiemposHeadline';
-	font-weight: 700;
-	font-size: 48px;
-	line-height: 51px;
-	margin-bottom: 22px;
-}
-
-h2 {
-	font-family: 'TiemposHeadline';
-	font-weight: 700;
-	font-size: 40px;
-	line-height: 43px;
-	margin-bottom: 22px;
-}
-
-h3 {
-	font-family: 'TiemposHeadline';
-	font-weight: 700;
-	font-size: 33px;
-	line-height: 36px;
-	margin-bottom: 22px;
-}
-
-.widget h3 {
-	font-family: 'TiemposHeadline';
-	font-weight: 700;
-	font-size: 28px;
-	line-height: 31px;
-}
-
-h4 {
-	font-family: 'TiemposHeadline';
-	font-weight: 700;
-	font-size: 22px;
-	line-height: 25px;
-	margin-bottom: 22px;
-}
-
-h5 {
-	font-family: 'TiemposHeadlinen';
-	font-weight: 700;
-	font-size: 18px;
-	line-height: 21px;
-	margin-bottom: 22px;
-}
-
-h6 {
-	font-family: 'TiemposHeadline';
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 19px;
-	margin-bottom: 22px;
-}
+@import "fonts/benton";
+@import "fonts/tiempos";
+@import "fonts/shared";
 
 #q {
-	font-family: 'TiemposText';
-	font-size: 18px;
+	font-family: $font-body-accent;
 	text-transform: uppercase;
 }
 
-.primaryNav-menu li a {
-	font-family: 'TiemposText';
+.primary-nav-menu li a {
+	font-family: $font-body-accent;
 	font-weight: 400;
 	font-size: 18px;
 }
 
-.utilityNav li a {
-	font-family: 'TiemposText';
-	font-weight: 400;
-	font-size: 16px;
+.utility-nav li a {
+	font-family: $font-body-accent;
 	font-style: italic;
+}
+
+blockquote {
+	border-color: #eee; // Default light grey will be overwritten by inc/customizer.php if colors customized
+	border-style: solid;
+	border-width: 2px 0;
+	padding: 1.25em 0; // top padding ensures white backround doesn't overlay ascenders in bquote text first p
+	position: relative;
+
+	&::before {
+		background: #fff;
+		content: "\201C";
+		font-family: $font-heading;
+		font-size: 3em;
+		font-weight: 700;
+		left: 50%;
+		line-height: 30px; // ensures white backround doesn't overlay bquote text
+		position: absolute;
+		text-align: center;
+		top: 12px;
+		transform: translate( -50%, -50% );
+		width: 40px;
+		// quote color will be set by inc/customizer.php if colors customized
+	}
+
+	>p:last-of-type {
+		margin-bottom: 0; // equalizes top and bottom space between bquote and horizontal lines
+	}
 }
