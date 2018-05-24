@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 			},
 			scripts: {
 				files: [
-					'bower_components/responsive-foundation/js-dev/*.js',
+					'node_modules/responsive-foundation/js-dev/*.js',
 					'js-dev/*.js',
 					'js/vendor/**/*.js'
 				],
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 			},
 			styles: {
 				files: [
-					'bower_components/responsive-foundation/css-dev/**/*.scss',
+					'node_modules/responsive-foundation/css-dev/**/*.scss',
 					'!css-dev/customizer/**/*.scss',
 					'!css-dev/admin.scss',
 					'css-dev/*.scss'
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
 		concat: {
 			scripts: {
 				src: [
-					'bower_components/responsive-foundation/js-dev/*.js',
+					'node_modules/responsive-foundation/js-dev/*.js',
 					'js-dev/*.js'
 				],
 				dest: 'js/script.js'
@@ -97,9 +97,9 @@ module.exports = function(grunt) {
 				indentWidth: 2,
 				precision: '5',
 				includePaths: [
-					'bower_components/normalize.scss/sass',
-					'bower_components/mathsass/dist/',
-					'bower_components/responsive-foundation/css-dev'
+					'node_modules/normalize-scss/sass',
+					'node_modules/mathsass/dist/',
+					'node_modules/responsive-foundation/css-dev'
 				],
 				bundleExec: true
 			},
@@ -148,7 +148,7 @@ module.exports = function(grunt) {
 						'*.php',
 						'**/*.php',
 						'!bin/**',
-						'!bower_components/**',
+						'!node_modules/**',
 						'!node_modules/**',
 						'!tests/**',
 						'!vendor/**'
@@ -252,13 +252,6 @@ module.exports = function(grunt) {
 				]
 			}
 		},
-		bower: {
-			install: {
-				options: {
-					targetDir: 'bower_components'
-				}
-			}
- 		},
 		modernizr: {
 			dist: {
 				'parseFiles': false,
@@ -339,12 +332,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-modernizr' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-	grunt.registerTask( 'install',             [ 'copy:hooks', 'bower:install', 'build' ] );
+	grunt.registerTask( 'install',             [ 'copy:hooks', 'build' ] );
 	grunt.registerTask( 'i18n',                [ 'clean', 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'styles',              [ 'sass' ] );
 	grunt.registerTask( 'scripts',             [ 'phplint', 'concat', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail', 'version:lightgallery', 'version:lg_thumbnail' ] );
 	grunt.registerTask( 'upgrade_modernizr',   [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
-	grunt.registerTask( 'build',               [ 'bower:install', 'sass', 'scripts', 'i18n' ] );
-	grunt.registerTask( 'default',             [ 'bower:install', 'watch' ] );
+	grunt.registerTask( 'build',               [ 'sass', 'scripts', 'i18n' ] );
+	grunt.registerTask( 'default',             [ 'watch' ] );
 };
