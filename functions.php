@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.0.0-RC1' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.0.1-RC1' );
 
 /**
  * Modernizr version.
@@ -46,7 +46,7 @@ function get_responsive_theme_version() {
  *
  * Used to version `lightGallery` assets.
  */
-define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.8' );
+define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.10' );
 
 /**
  * `lg-thumbnail` version.
