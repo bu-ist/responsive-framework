@@ -5550,9 +5550,9 @@ textarea {
 
 .cf-course {
   border-top: 1px solid #ddd;
+  clear: right;
   margin-top: 30px;
   padding-top: 30px;
-  clear: right;
 }
 
 .cf-course:first-child {
