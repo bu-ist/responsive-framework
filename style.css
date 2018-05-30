@@ -572,9 +572,9 @@ template {
 }
 
 @font-face {
-  font-family: "BU-Default-Icons";
-  src: url("https://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.eot");
-  src: url("https://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.eot?#iefix") format("embedded-opentype"), url("https://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.woff") format("woff"), url("https://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.ttf") format("truetype"), url("https://www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.svg#bu-default-icons") format("svg");
+  font-family: 'BU-Default-Icons';
+  src: url("//www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.eot");
+  src: url("//www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.eot?#iefix") format("embedded-opentype"), url("//www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.woff") format("woff"), url("//www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.ttf") format("truetype"), url("//www.bu.edu/cdn/fonts/icons/bu-default-icons/bu-default-icons.svg#bu-default-icons") format("svg");
   font-style: normal;
   font-weight: 400;
 }
@@ -5457,10 +5457,10 @@ textarea {
 
 .cf-hub-ind {
   display: block;
+  float: unset;
+  margin: 0 0 20px 20px;
   max-width: 305px;
   width: 100%;
-  margin: 0px 0px 20px 20px;
-  float: unset;
 }
 
 .cf-hub-head {
@@ -5470,50 +5470,51 @@ textarea {
 .bu-hub-iconstyles {
   display: inline-block;
   height: 25px;
+  margin: 5px 0;
   overflow: hidden;
-  margin: 5px 0px;
 }
 
-.bu-hub-iconstyles:before {
-  height: 25px;
-  width: 90px;
-  font-family: "BU-Default-Icons";
-  font-size: 65px;
-  overflow: hidden;
+.bu-hub-iconstyles::before {
+  color: #555;
   content: attr(data-icon);
-  speak: none;
-  color: #555555;
+  font-family: 'BU-Default-Icons';
+  font-size: 65px;
+  height: 25px;
   line-height: 16px;
+  overflow: hidden;
+  speak: none;
+  width: 90px;
 }
 
-.icon-buhub:before {
-  content: "\F700";
+.icon-buhub::before {
+  content: '\F700';
   width: 70px;
 }
 
-.icon-questionmark:before {
-  content: "\2753";
+.icon-questionmark::before {
+  content: '\2753';
   font-size: 16px;
   line-height: 17px;
 }
 
-.icon-buhub:before, .icon-questionmark:before {
+.icon-buhub::before,
+.icon-questionmark::before {
   display: block;
 }
 
-a:hover .icon-buhub:before, a:hover .icon-questionmark:before {
+a:hover .icon-buhub::before, a:hover
+.icon-questionmark::before {
   color: #767676;
 }
 
 .cf-hub-offerings {
-  list-style-type: none;
-  margin: 5px 0px 10px 0px;
+  color: #767676;
+  font-family: "Benton-Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 300;
-  font-family: "Benton-Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
-  color: #767676;
-  padding: 0px;
-  margin: -5px 0px 10px;
+  list-style-type: none;
+  margin: -5px 0 10px;
+  padding: 0;
 }
 
 .cf-hub-offerings li {
