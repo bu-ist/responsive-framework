@@ -676,7 +676,7 @@ function r_remove_news_template( $templates, $theme, $post ) {
 
 	return $templates;
 }
-add_filter( 'theme_page_templates', 'r_remove_news_template', 10, 3 );
+//add_filter( 'theme_page_templates', 'r_remove_news_template', 10, 3 );
 
 /**
  * Admin.
