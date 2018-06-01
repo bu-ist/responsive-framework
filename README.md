@@ -9,8 +9,11 @@ A responsive WordPress theme framework. Uses the [Responsive Foundation](https:/
 
 ## Development Requirements
 
-- [Node](http://nodejs.org/) and [Node Package Manager](https://github.com/npm/npm)
-- [Grunt](http://gruntjs.com/)
+These are the latest versions verified to work with our development setup. Upgrade past these at your own risk.
+
+- [Node 8.11.2 LTS](http://nodejs.org/) *Important: Node 10 is not yet supported by node-sass, and your Sass will fail to compile if you upgrade past version 8 at this time.*
+- [Node Package Manager 5.6.0](https://github.com/npm/npm) *The latest version, 6.1.0, requires Node 10.*
+- [Grunt 1.0.2](http://gruntjs.com/)
 - [Bower](http://bower.io/)
 
 ## Quick Start
