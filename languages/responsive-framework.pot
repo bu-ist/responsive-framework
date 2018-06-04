@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.1-RC1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-05-30 20:33:11+00:00\n"
+"POT-Creation-Date: 2018-06-01 19:47:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -510,21 +510,21 @@ msgid ""
 "University community.  For further assistance, please see:"
 msgstr ""
 
-#: page-templates/news.php:27 page-templates/no-sidebars.php:22 page.php:23
+#: page-templates/news.php:29 page-templates/no-sidebars.php:22 page.php:23
 #: single.php:23
 msgid "Pages:"
 msgstr ""
 
-#: page-templates/news.php:32 page-templates/no-sidebars.php:27 page.php:28
+#: page-templates/news.php:34 page-templates/no-sidebars.php:27 page.php:28
 #: single-profile.php:90 single.php:70 template-parts/content.php:26
 msgid "Edit"
 msgstr ""
 
-#: page-templates/news.php:51
+#: page-templates/news.php:53
 msgid "No Posts Found"
 msgstr ""
 
-#: page-templates/news.php:52
+#: page-templates/news.php:54
 msgid "This site does not currently have any posts. Please check back later."
 msgstr ""
 

@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.0.1-RC1' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.1-RC1' );
 
 /**
  * Modernizr version.
@@ -46,7 +46,7 @@ function get_responsive_theme_version() {
  *
  * Used to version `lightGallery` assets.
  */
-define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.10' );
+define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.11' );
 
 /**
  * `lg-thumbnail` version.
@@ -676,7 +676,7 @@ function r_remove_news_template( $templates, $theme, $post ) {
 
 	return $templates;
 }
-add_filter( 'theme_page_templates', 'r_remove_news_template', 10, 3 );
+//add_filter( 'theme_page_templates', 'r_remove_news_template', 10, 3 );
 
 /**
  * Admin.
