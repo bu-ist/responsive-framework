@@ -5,9 +5,11 @@
  * @package Responsive_Framework
  */
 
+
+// Setup for secondary query that lists posts based on the page's metadata.
+include BU_NEWS_POST_LISTS_PATH . '/news-page-template.php';
+
 if ( class_exists( 'BU_News_Page_Template' ) ) {
-	// Setup for secondary query that lists posts based on the page's metadata.
-	include BU_NEWS_POST_LISTS_PATH . '/news-page-template.php';
 	BU_News_Page_Template::init();
 }
 
