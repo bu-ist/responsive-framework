@@ -153,7 +153,7 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 		$current_site->domain = 'bu.edu';
 		$this->assertTrue( responsive_is_bu_domain() );
 
-		$current_site->domain = 'siteurl', 'www-staging.bu.edu';
+		$current_site->domain = 'www-staging.bu.edu';
 		$this->assertTrue( responsive_is_bu_domain() );
 
 		$current_site->domain = 'www-test.bu.edu';
