@@ -622,13 +622,16 @@ function r_container_outer_class( $class = '' ) {
 }
 
 /**
- * Displays the classes for the page title.
+ * Returns or displays the classes for the page title.
  *
  * @since 2.1.1
  *
  * @param string|array $class One or more classes to add to the class list.
+ * @param bool         $display Return or Echo classes. Set to true to echo.
+ *
+ * @return none | string $page_title_class The class attribute and list of classes.
  */
-function r_page_title_class( $class = '' ) {
+function r_page_title_class( $class = '', $display = false ) {
 
 	if ( is_page_template( 'single-profile.php' ) ) {
 		$classes[] = 'profile-single-name page-title';
@@ -654,7 +657,13 @@ function r_page_title_class( $class = '' ) {
 	}
 
 	// Separates classes with a single space, collates classes for the page title element.
-	return 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
+	$page_title_class = 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
+
+	if ( $display ) {
+		echo $page_title_class; // WPCS: XSS OK.
+	} else {
+		return $page_title_class;
+	}
 }
 
 /**
