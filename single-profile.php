@@ -29,7 +29,7 @@ get_header(); ?>
 				<figure class="profile-photo profile-single-photo"><?php echo wp_kses_post( $profile_thumb ); ?></figure>
 			<?php endif; ?>
 
-			<h1 <?php echo r_page_title_class(); ?>><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h1>
+			<h1 <?php r_page_title_class( '', true ); ?>><?php bu_profile_detail( 'first_name' ); ?> <?php bu_profile_detail( 'last_name' ); ?></h1>
 			<h2 class="profile-single-title"><?php bu_profile_detail( 'title' ); ?></h2>
 
 			<?php if ( $has_details ) : ?>

@@ -12,7 +12,7 @@ $page_for_posts = get_option( 'page_for_posts', 0 );
 
 <article class="content-area">
 	<?php if ( ! is_front_page() && is_home() && ! empty( $page_for_posts ) ) : ?>
-		<h1 <?php echo r_page_title_class(); ?>><?php echo get_the_title( $page_for_posts ); ?></h1>
+		<h1 <?php r_page_title_class( '', true ); ?>><?php echo get_the_title( $page_for_posts ); ?></h1>
 	<?php endif; ?>
 
 	<?php if ( have_posts() ) : ?>
