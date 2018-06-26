@@ -10,7 +10,7 @@ get_header(); ?>
 <div class="error-404 not-found content-area">
 
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( "Yikes! We couldn't find that.", 'responsive-framework' ); ?></h1>
+		<h1 <?php r_page_title_class( '', true ); ?>><?php esc_html_e( "Yikes! We couldn't find that.", 'responsive-framework' ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">

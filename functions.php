@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.1-RC1' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.2' );
 
 /**
  * Modernizr version.
@@ -199,9 +199,11 @@ function responsive_setup_news_templates() {
 	 *
 	 * @param array Page templates.
 	 */
-	$theme_news_templates = apply_filters( 'responsive_news_templates', array(
-		'page-templates/news.php',
-	) );
+	$theme_news_templates = apply_filters(
+		'responsive_news_templates', array(
+			'page-templates/news.php',
+		)
+	);
 
 	$news_templates->register( $theme_news_templates );
 }
@@ -399,7 +401,7 @@ function responsive_style_loader_tag( $html, $handle ) {
 		return $html;
 	}
 
-	$new_html = "<!--[if gt IE 8]><!-->\n";
+	$new_html  = "<!--[if gt IE 8]><!-->\n";
 	$new_html .= $html;
 	$new_html .= "<![endif]-->\n";
 
@@ -565,7 +567,7 @@ function r_container_inner_class( $class = '' ) {
 		$classes[] = 'content-container';
 	}
 
-	$class = r_prepare_passed_classes( $class );
+	$class   = r_prepare_passed_classes( $class );
 	$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
 
 	/**
@@ -598,7 +600,7 @@ function r_container_outer_class( $class = '' ) {
 		'content',
 	);
 
-	$class = r_prepare_passed_classes( $class );
+	$class   = r_prepare_passed_classes( $class );
 	$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
 
 	/**
@@ -617,6 +619,51 @@ function r_container_outer_class( $class = '' ) {
 
 	// Separates classes with a single space, collates classes for the outer content container element.
 	echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
+}
+
+/**
+ * Returns or displays the classes for the page title.
+ *
+ * @since 2.1.1
+ *
+ * @param string|array $class One or more classes to add to the class list.
+ * @param bool         $display Return or Echo classes. Set to true to echo.
+ *
+ * @return none | string $page_title_class The class attribute and list of classes.
+ */
+function r_page_title_class( $class = '', $display = false ) {
+
+	if ( is_page_template( 'single-profile.php' ) ) {
+		$classes[] = 'profile-single-name page-title';
+	} else {
+		$classes[] = 'page-title';
+	}
+
+	$class   = r_prepare_passed_classes( $class );
+	$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
+
+	/**
+	 * Filters the list of CSS classes for the page title.
+	 *
+	 * @since 2.1.1
+	 *
+	 * @param array $classes Page title classes.
+	 * @param array $class   Additional classes added to the page title.
+	 */
+	$classes = apply_filters( 'r_page_title_class', $classes, $class );
+
+	if ( empty( $classes ) ) {
+		return;
+	}
+
+	// Separates classes with a single space, collates classes for the page title element.
+	$page_title_class = 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
+
+	if ( $display ) {
+		echo $page_title_class; // WPCS: XSS OK.
+	} else {
+		return $page_title_class;
+	}
 }
 
 /**
@@ -676,8 +723,7 @@ function r_remove_news_template( $templates, $theme, $post ) {
 
 	return $templates;
 }
-//add_filter( 'theme_page_templates', 'r_remove_news_template', 10, 3 );
-
+// add_filter( 'theme_page_templates', 'r_remove_news_template', 10, 3 );
 /**
  * Admin.
  */
