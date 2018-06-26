@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Responsive Framework 2.x (BETA) package.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive Framework 2.x (BETA) 2.0.1-RC1\n"
+"Project-Id-Version: Responsive Framework 2.x (BETA) 2.1.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-06-01 19:47:26+00:00\n"
+"POT-Creation-Date: 2018-06-22 15:09:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -88,7 +88,7 @@ msgid ""
 "has its own display options."
 msgstr ""
 
-#: admin/theme-customizer.php:234 inc/template-tags.php:131
+#: admin/theme-customizer.php:234 inc/template-tags.php:129
 msgid "Categories"
 msgstr ""
 
@@ -220,47 +220,47 @@ msgstr ""
 msgid "Primary Navigation"
 msgstr ""
 
-#: functions.php:224
+#: functions.php:226
 msgid "Main Sidebar"
 msgstr ""
 
-#: functions.php:226
+#: functions.php:228
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:236
+#: functions.php:238
 msgid "Posts Content Area"
 msgstr ""
 
-#: functions.php:238
+#: functions.php:240
 msgid ""
 "Add widgets here for display on posts and archives. Only the first 2 "
 "widgets will appear."
 msgstr ""
 
-#: functions.php:249
+#: functions.php:251
 msgid "Profiles Content Area"
 msgstr ""
 
-#: functions.php:251
+#: functions.php:253
 msgid ""
 "Add widgets here for display on profile pages and archives. Only the first "
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:262 inc/customizer.php:236 inc/template-tags.php:781
+#: functions.php:264 inc/customizer.php:236 inc/template-tags.php:779
 msgid "Footbar"
 msgstr ""
 
-#: functions.php:264 functions.php:278
+#: functions.php:266 functions.php:280
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:276 inc/template-tags.php:782
+#: functions.php:278 inc/template-tags.php:780
 msgid "Alternate Footbar"
 msgstr ""
 
-#: functions.php:421
+#: functions.php:423
 #. translators: %s: navigation label navigating to.
 msgid "Navigate to: %s"
 msgstr ""
@@ -442,47 +442,47 @@ msgstr ""
 msgid "Page %d"
 msgstr ""
 
-#: inc/template-tags.php:399
+#: inc/template-tags.php:397
 #. translators: %s: archive type singular name.
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:404
+#: inc/template-tags.php:402
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:405
+#: inc/template-tags.php:403
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:446
+#: inc/template-tags.php:444
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:474 single.php:34
+#: inc/template-tags.php:472 single.php:34
 #. translators: %s: author name linking to their archive page.
 #. translators: %s: author name
 msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:491
+#: inc/template-tags.php:489
 #. translators: %s: category list for the post.
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:500
+#: inc/template-tags.php:498
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:500
+#: inc/template-tags.php:498
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:500
+#: inc/template-tags.php:498
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:614
+#: inc/template-tags.php:612
 msgid "View all posts"
 msgstr ""
 
@@ -510,12 +510,12 @@ msgid ""
 "University community.  For further assistance, please see:"
 msgstr ""
 
-#: page-templates/news.php:29 page-templates/no-sidebars.php:22 page.php:23
+#: page-templates/news.php:29 page-templates/no-sidebars.php:22 page.php:27
 #: single.php:23
 msgid "Pages:"
 msgstr ""
 
-#: page-templates/news.php:34 page-templates/no-sidebars.php:27 page.php:28
+#: page-templates/news.php:34 page-templates/no-sidebars.php:27 page.php:33
 #: single-profile.php:90 single.php:70 template-parts/content.php:26
 msgid "Edit"
 msgstr ""
