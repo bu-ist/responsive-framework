@@ -1,0 +1,81 @@
+language: php
+
+sudo: false
+
+notifications:
+  slack:
+    rooms:
+      - buweb:bIGlWDOUDD2pIqKDfTEmRxce #responsi
+    on_failure: change
+    on_success: always
+
+  email:
+    on_success: change
+    on_failure: change
+
+env:
+  global:
+    - WP_TRAVISCI=travis:phpunit
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.0
+      env: WP_VERSION=trunk
+    - php: 7.0
+      env: WP_VERSION=latest
+    - php: 7.0
+      env: WP_VERSION=4.6
+    - php: 7.1
+      env: WP_VERSION=trunk
+    - php: 7.1
+      env: WP_VERSION=latest
+    - php: 7.2
+      env: WP_VERION=trunk
+    - php: 7.2
+      env: WP_VERION=latest
+
+cache:
+  apt: true
+  directories:
+    - "$HOME/.composer/cache"
+
+before_install:
+  - composer self-update
+  - bundle install
+
+before_script:
+  - |
+    if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      chmod +x ./cc-test-reporter
+      ./cc-test-reporter before-build
+    fi
+
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - |
+    if [[ "$WP_TRAVISCI" == "travis:phpunit" ]]; then
+      if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
+        composer global require "phpunit/phpunit=5.7.*"
+      else
+        composer global require "phpunit/phpunit=4.8.*"
+      fi
+      bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+    fi
+
+script:
+  - |
+    if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      bundle exec rspec
+    fi
+  - |
+    if [[ ! -z "$WP_VERSION" ]] ; then
+      phpunit
+      WP_MULTISITE=1 phpunit
+    fi
+
+after_script:
+  - |
+    if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT;
+    fi

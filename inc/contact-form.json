@@ -1,0 +1,201 @@
+{
+  "id": "1",
+  "title": "Contact Form",
+  "description": "We would love to hear from you! Please fill out this form and we will get in touch with you shortly.",
+  "labelPlacement": "top_label",
+  "maxEntriesAllowed": 0,
+  "maxEntriesMessage": "",
+  "oneEntryPerIP": false,
+  "confirmation": {
+    "type": "message",
+    "message": "Thanks for contacting us! We will get in touch with you shortly.",
+    "url": "",
+    "pageId": 0,
+    "queryString": ""
+  },
+  "button": {
+    "type": "text",
+    "text": "Submit",
+    "imageUrl": ""
+  },
+  "fields": [
+    {
+      "type": "name",
+      "id": 1,
+      "label": "Name",
+      "adminLabel": "",
+      "isRequired": true,
+      "size": "medium",
+      "errorMessage": "",
+      "inputs": [
+        {
+          "id": 1.3,
+          "label": "First",
+          "name": ""
+        },
+        {
+          "id": 1.6,
+          "label": "Last",
+          "name": ""
+        }
+      ],
+      "defaultState": "",
+      "defaultProvince": "",
+      "defaultCountry": "",
+      "hideCountry": false,
+      "hideAddress2": false,
+      "displayAllCategories": false,
+      "calendarIconUrl": "",
+      "allowsPrepopulate": false,
+      "formId": "2",
+      "inputType": ""
+    },
+    {
+      "type": "email",
+      "id": 2,
+      "label": "Email",
+      "adminLabel": "",
+      "isRequired": true,
+      "size": "medium",
+      "errorMessage": "",
+      "inputs": null,
+      "defaultState": "",
+      "defaultProvince": "",
+      "defaultCountry": "",
+      "hideCountry": false,
+      "hideAddress2": false,
+      "displayAllCategories": false,
+      "calendarIconUrl": "",
+      "allowsPrepopulate": false,
+      "formId": "2",
+      "inputType": ""
+    },
+    {
+      "type": "radio",
+      "id": 3,
+      "label": "You Are",
+      "adminLabel": "",
+      "isRequired": true,
+      "size": "medium",
+      "errorMessage": "",
+      "inputs": null,
+      "choices": [
+        {
+          "text": "Student",
+          "value": "Student",
+          "isSelected": false
+        },
+        {
+          "text": "Faculty",
+          "value": "Faculty",
+          "isSelected": false
+        },
+        {
+          "text": "Staff",
+          "value": "Staff",
+          "isSelected": false
+        },
+        {
+          "text": "Alumnus",
+          "value": "Alumnus",
+          "isSelected": false
+        },
+        {
+          "text": "Other",
+          "value": "Other",
+          "isSelected": false
+        }
+      ],
+      "defaultState": "",
+      "defaultProvince": "",
+      "defaultCountry": "",
+      "hideCountry": false,
+      "hideAddress2": false,
+      "displayAllCategories": false,
+      "calendarIconUrl": "",
+      "allowsPrepopulate": false,
+      "formId": "2",
+      "inputType": ""
+    },
+    {
+      "type": "textarea",
+      "id": 4,
+      "label": "Question/Comment",
+      "adminLabel": "",
+      "isRequired": true,
+      "size": "medium",
+      "errorMessage": "",
+      "inputs": null,
+      "defaultState": "",
+      "defaultProvince": "",
+      "defaultCountry": "",
+      "hideCountry": false,
+      "hideAddress2": false,
+      "displayAllCategories": false,
+      "calendarIconUrl": "",
+      "allowsPrepopulate": false,
+      "formId": "2",
+      "inputType": ""
+    }
+  ],
+  "nextFieldId": 5,
+  "useCurrentUserAsAuthor": true,
+  "cssClass": "",
+  "postAuthor": "1497",
+  "postCategory": "1512",
+  "postStatus": "draft",
+  "limitEntries": false,
+  "limitEntriesCount": "",
+  "limitEntriesMessage": "",
+  "scheduleForm": false,
+  "scheduleStart": "",
+  "scheduleStartHour": "",
+  "scheduleStartMinute": "",
+  "scheduleStartAmpm": "",
+  "scheduleEnd": "",
+  "scheduleEndHour": "",
+  "scheduleEndMinute": "",
+  "scheduleEndAmpm": "",
+  "scheduleMessage": "",
+  "autoResponder": {
+    "toField": "",
+    "bcc": "",
+    "fromName": "",
+    "from": "{admin_email}",
+    "replyTo": "",
+    "subject": "",
+    "message": "",
+    "disableAutoformat": ""
+  },
+  "confirmations": [
+    {
+      "type": "message",
+      "message": "Thanks for contacting us! We will get in touch with you shortly.",
+      "url": "",
+      "pageId": 0,
+      "queryString": "",
+      "id": "53bab1c0435a3",
+      "name": "Default Confirmation",
+      "isDefault": true
+    }
+  ],
+  "notifications": [
+    {
+      "isActive": true,
+      "id": "53bab1c045caf",
+      "name": "Admin Notification",
+      "event": "form_submission",
+      "to": "{admin_email}",
+      "toType": "email",
+      "bcc": "",
+      "subject": "{form_title} Submission",
+      "message": "{all_fields}",
+      "from": "{admin_email}",
+      "fromName": "",
+      "replyTo": "",
+      "routing": null,
+      "conditionalLogic": null,
+      "disableAutoformat": ""
+    }
+  ]
+}

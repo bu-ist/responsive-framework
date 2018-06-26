@@ -1,0 +1,45 @@
+$font-heading: "Benton-Sans", sans-serif;
+$font-body: "Capita", serif;
+
+@import "fonts/capita";
+@import "fonts/benton";
+@import "fonts/shared";
+
+body {
+	font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 400;
+}
+
+.widget h3 {
+	font-weight: 400;
+}
+
+.primary-nav-menu li a {
+	font-weight: 400;
+}
+
+.utility-nav li a {
+	font-family: $font-body;
+	font-style: italic;
+}
+
+blockquote {
+	position: relative;
+
+	&::before {
+		content: "\201C"; // Unicode for Left Double Quote
+		font-size: 3em;
+		left: -25px;
+		position: absolute;
+		top: -25px;
+	  	// quote color will be set by inc/customizer.php if colors customized
+	}
+}

@@ -1,0 +1,44 @@
+$font-heading: "Pressura", sans-serif;
+$font-body: "Benton-Sans", sans-serif;
+
+@import "fonts/benton";
+@import "fonts/pressura";
+@import "fonts/shared";
+
+h1,
+h2,
+h3,
+.widget h3,
+h4,
+h5,
+h6,
+#q {
+	text-transform: uppercase;
+}
+
+.primary-nav-menu li a {
+	font-size: 18px;
+	text-transform: uppercase;
+}
+
+.utility-nav li a {
+	font-family: $font-body;
+	font-style: italic;
+}
+
+blockquote {
+
+	&::before {
+		content: "\201C"; // Unicode for Left Double Quote
+		display: block;
+		font-family: $font-heading;
+		font-size: 4em;
+		font-weight: 700;
+		margin-top: -36px;
+
+	}
+
+	>p:first-of-type {
+		margin: -45px 0 25px; // Lifts up first paragraph of blockquote to be close to dquote mark
+	}
+}

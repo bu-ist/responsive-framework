@@ -1,0 +1,27 @@
+$font-heading: sans-serif !default;
+$font-body: serif !default;
+
+body {
+	font-family: $font-body;
+}
+
+h1,
+h2,
+h3,
+.widget h3,
+h4,
+h5,
+h6,
+#q {
+	font-family: $font-heading;
+}
+
+.primary-nav-menu li a {
+	font-family: $font-heading;
+	font-weight: 700;
+}
+
+.utility-nav li a {
+	font-family: $font-heading;
+	font-weight: 400;
+}
