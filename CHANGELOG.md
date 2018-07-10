@@ -5,7 +5,9 @@
 - Move 2.1.2 to a new repo for a fresh start in prepartion to begin the open source process.
 
 ## Unreleased
-
+- Resolved fatal error in single-site installs by replacing `get_current_site`
+ with `network_home_url` in the `responsive_is_bu_domain` function defined in
+ `inc/template-tags.php:33`.
 - Added CONTRIBUTING.md file for contribution rules.
 - Removed use of `file_get_contents()` in the Customizer.
 - Responsive Framework "header" templates are now renamed to "masthead"
