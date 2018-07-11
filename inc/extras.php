@@ -347,7 +347,7 @@ function responsive_get_layout_default() {
 
 function responsive_is_wpdocs() {
 	$subdomain = explode( '.', $_SERVER['HTTP_HOST'] )[0];
-	if ( $subdomain && 'wpdocs' == $subdomain ) {
+	if ( $subdomain && 'wpdocs' === $subdomain ) {
 		return true;
 	}
 	return false;
