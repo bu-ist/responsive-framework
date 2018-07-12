@@ -5662,9 +5662,9 @@ a:hover .bu-hub-iconstyles::before {
 }
 
 .bu-hub-iconstyles.icon-buhub::before {
+  line-height: 8px;
   margin-right: 0;
   width: 70px;
-  line-height: 8px;
 }
 
 .bu-hub-iconstyles.icon-questionmark::before {
@@ -5686,8 +5686,8 @@ a:hover .bu-hub-iconstyles::before {
   margin-bottom: 7px;
 }
 
-article[role="main"] .course-feed .cf-course .cf-hub-ind a {
-  border-bottom: 0px solid #fff;
+article .course-feed .cf-course .cf-hub-ind a {
+  border-bottom: 0 solid #fff;
 }
 
 .gallery {
