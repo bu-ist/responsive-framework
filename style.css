@@ -3,7 +3,7 @@
 Theme Name: Responsive Framework 2.x (BETA)
 Author: Boston University Interactive Design
 Website: http://www.bu.edu/interactive-design/
-Version: 2.1.2
+Version: 2.1.3
 Description: THIS IS A BETA THEME. Do not activate this version of Responsive Framework unless you are sure that you want to use version 2.x.
 Theme Groups: Responsive Framework
 */
@@ -5521,6 +5521,7 @@ a:hover .bu-hub-iconstyles::before {
 .bu-hub-iconstyles.icon-buhub::before {
   margin-right: 0;
   width: 70px;
+  line-height: 8px;
 }
 
 .bu-hub-iconstyles.icon-questionmark::before {
@@ -5540,6 +5541,10 @@ a:hover .bu-hub-iconstyles::before {
 
 .cf-hub-offerings li {
   margin-bottom: 7px;
+}
+
+article[role="main"] .course-feed .cf-course .cf-hub-ind a {
+  border-bottom: 0px solid #fff;
 }
 
 .gallery {
