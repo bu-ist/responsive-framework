@@ -37,6 +37,7 @@
 
 	<?php wp_head(); ?>
 </head>
+
 <body id="top" <?php body_class(); ?>>
 	<?php
 		/**
@@ -57,6 +58,7 @@
 	?>
 	<header class="masthead" role="banner">
 		<div class="masthead-container">
+				<a class="skip-link" href="#main">Skip to Main Content</a>
 			<?php get_template_part( 'template-parts/masthead', responsive_layout() ); ?>
 		</div>
 	</header>
