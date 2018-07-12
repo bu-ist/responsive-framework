@@ -5686,10 +5686,6 @@ a:hover .bu-hub-iconstyles::before {
   margin-bottom: 7px;
 }
 
-article .course-feed .cf-course .cf-hub-ind a {
-  border-bottom: 0 solid #fff;
-}
-
 .gallery {
   display: flex;
   flex-wrap: wrap;

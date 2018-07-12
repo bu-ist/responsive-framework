@@ -2,7 +2,7 @@
 
 # 2.1.3
 
-- Added BU Hub Indicator. Incorporated adjustments to line height and added a safeguard to prevent any custom theme styling of a bottom border under either the BU Hub wordmark or the question mark icon.
+- Added BU Hub Indicator. Incorporated adjustments to line height.
 
 # 2.1.2
 
