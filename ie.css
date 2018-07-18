@@ -6590,7 +6590,7 @@ nav a {
 }
 
 #quicksearch label {
-  display: initial;
+  display: inline;
 }
 
 .search-field {
@@ -6603,7 +6603,7 @@ nav a {
   padding-left: 15px;
   padding-right: 15px;
   width: 75%;
-  width: 85%;
+  width: 80%;
 }
 
 .search-submit {
@@ -6615,7 +6615,7 @@ nav a {
   height: 40px;
   margin: 0;
   width: 25%;
-  width: 15%;
+  width: 20%;
 }
 
 .search-toggle {
@@ -6951,12 +6951,13 @@ nav a {
   color: #000;
 }
 
-.search-open.l-side-nav .primary-nav {
-  top: 103px;
+.search-open.l-side-nav .primary-nav,
+.search-open.l-side-nav .bu-banner {
+  top: 115px;
 }
 
 .search-open.l-side-nav .content {
-  margin-top: 103px;
+  margin-top: 115px;
 }
 
 .l-side-nav #quicksearch {
@@ -6983,6 +6984,7 @@ nav a {
   padding-left: 0;
 }
 
+.l-side-nav.nav-open .bu-banner,
 .l-side-nav.nav-open .content {
   left: 180px;
 }
@@ -7058,6 +7060,33 @@ nav a {
   position: absolute;
   right: 80px;
   top: 48px;
+}
+
+a.skip-link {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  padding: 5px;
+  padding: 0.5rem;
+  font-size: 20px;
+  font-size: 2rem;
+}
+
+a.skip-link:focus, a.skip-link:active {
+  color: #fff;
+  background-color: #000;
+  top: auto;
+  left: 0;
+  right: 0;
+  width: 10%;
+  height: auto;
+  overflow: auto;
+  margin: 30px auto;
+  padding: 5px;
+  border: 5px solid #d00000;
+  text-align: center;
+  font-size: 1.2em;
+  z-index: 99999;
 }
 
 .banner-container {
@@ -7710,6 +7739,7 @@ body {
 }
 
 .profile-single-photo {
+  height: 300px;
   margin: 0 auto 30px;
   width: 300px;
 }

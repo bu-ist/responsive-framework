@@ -95,7 +95,7 @@
 			 */
 			do_action( 'r_before_opening_container_outer' );
 		?>
-		<main role="main" <?php r_container_outer_class(); ?>>
+		<main id="main" role="main" <?php r_container_outer_class(); ?>>
 			<?php
 				/**
 				 * Fires immediately after the outer opening content container.

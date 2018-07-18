@@ -6483,7 +6483,7 @@ nav a {
 }
 
 #quicksearch label {
-  display: initial;
+  display: inline;
 }
 
 .search-field {
@@ -6500,7 +6500,7 @@ nav a {
 
 @media screen and (min-width: 768px) {
   .search-field {
-    width: 85%;
+    width: 80%;
   }
 }
 
@@ -6517,7 +6517,7 @@ nav a {
 
 @media screen and (min-width: 768px) {
   .search-submit {
-    width: 15%;
+    width: 20%;
   }
 }
 
@@ -6951,14 +6951,15 @@ nav a {
 }
 
 @media screen and (min-width: 768px) {
-  .search-open.l-side-nav .primary-nav {
-    top: 103px;
+  .search-open.l-side-nav .primary-nav,
+  .search-open.l-side-nav .bu-banner {
+    top: 115px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .search-open.l-side-nav .content {
-    margin-top: 103px;
+    margin-top: 115px;
   }
 }
 
@@ -7006,12 +7007,14 @@ nav a {
 }
 
 @media screen and (min-width: 768px) {
+  .l-side-nav.nav-open .bu-banner,
   .l-side-nav.nav-open .content {
     left: 180px;
   }
 }
 
 @media screen and (min-width: 1200px) {
+  .l-side-nav.nav-open .bu-banner,
   .l-side-nav.nav-open .content {
     left: 0;
   }
@@ -7103,6 +7106,33 @@ nav a {
     right: 80px;
     top: 48px;
   }
+}
+
+a.skip-link {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  padding: 5px;
+  padding: 0.5rem;
+  font-size: 20px;
+  font-size: 2rem;
+}
+
+a.skip-link:focus, a.skip-link:active {
+  color: #fff;
+  background-color: #000;
+  top: auto;
+  left: 0;
+  right: 0;
+  width: 10%;
+  height: auto;
+  overflow: auto;
+  margin: 30px auto;
+  padding: 5px;
+  border: 5px solid #d00000;
+  text-align: center;
+  font-size: 1.2em;
+  z-index: 99999;
 }
 
 .banner-container {
@@ -7904,6 +7934,7 @@ body {
 }
 
 .profile-single-photo {
+  height: 300px;
   margin: 0 auto 30px;
   width: 300px;
 }
