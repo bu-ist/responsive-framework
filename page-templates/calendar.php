@@ -15,9 +15,9 @@ get_header();
 	<?php
 	// Retrieves calendar or single-event partial.
 	if ( is_null( $event_id ) ) {
-		get_template_part( 'template-parts/calendar/calendar.php' );
+		get_template_part( 'template-parts/calendar/calendar' );
 	} else {
-		get_template_part( 'template-parts/calendar/single-event.php' );
+		get_template_part( 'template-parts/calendar/single-event' );
 	}
 	?>
 </article>
