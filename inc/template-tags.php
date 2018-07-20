@@ -24,6 +24,54 @@ function responsive_get_title() {
 }
 
 /**
+ * Displays the current page title.
+ *
+ * Functions like `the_title()`, but can be filtered to prevent or change the output
+ * intended for the main page title. Accepts the same arguments as `the_title()`, with
+ * an additional argument for $post->ID.
+ *
+ * Note: Intended only to be used where the main page title is.
+ *       Not intended to be used for things like a listing of posts.
+ *
+ * @since    2.1.4
+ *
+ * @link     https://codex.wordpress.org/Function_Reference/the_title
+ * @link     https://developer.wordpress.org/reference/hooks/the_title/
+ *
+ * @param    string $before Text to insert before the title, such as an opening h1 tag.
+ * @param    string $after  Text to insert after the title, such as a closing h1 tag.
+ * @param    bool   $echo   Prints the title to the screen when called. Defaults to true.
+ * @param    int    $id     Retrieves the title for a given post id.
+ */
+function responsive_the_title( $before = '', $after = '', $echo = true, $id = false ) {
+
+	/**
+	 * Filters the current page title.
+	 *
+	 * Useful for when something besides `get_the_title()` for the current query
+	 * should be used.
+	 *
+	 * @since    2.1.4
+	 */
+	$title = apply_filters( 'responsive_filter_page_title', get_the_title( $id ) );
+
+	// Only continues if a title exists and wasn't removed by the filter.
+	if ( ! empty( $title ) ) {
+
+		// Apply the normal `the_title` filters.
+		$title = apply_filters( 'the_title', $before . $title . $after );
+
+		// Echoes or returns the title.
+		if ( $echo ) {
+			// Only allows html that can be used inside `the_content`.
+			echo wp_kses_post( $title );
+		} else {
+			return $title;
+		}
+	}
+}
+
+/**
  * Whether or not the current network is a bu.edu domain.
  *
  * @return bool true if the blog is a BU domain, false if it is not or returns

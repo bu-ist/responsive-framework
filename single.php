@@ -11,7 +11,7 @@ get_header(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
 
-			<?php the_title( '<header><h1 ' . r_page_title_class() . '>', '</h1></header>' ); ?>
+			<?php responsive_the_title( '<header><h1 ' . r_page_title_class() . '>', '</h1></header>' ); ?>
 
 
 			<?php the_content(); ?>

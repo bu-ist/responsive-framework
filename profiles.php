@@ -11,7 +11,7 @@ get_header(); ?>
 
 		<article id="post-<?php the_ID(); ?>" class="content-area">
 
-			<?php the_title( '<h1 ' . r_page_title_class() . '>', '</h1>' ); ?>
+			<?php responsive_the_title( '<h1 ' . r_page_title_class() . '>', '</h1>' ); ?>
 
 			<?php the_content( '<p class="serif">' . esc_html__( 'Read the rest of this profile &raquo;', 'responsive-framework' ) . '</p>' ); ?>
 
