@@ -6,7 +6,7 @@
  */
 
 /**
- * Print the site's title.
+ * Print the site's title tag for `<head />` element.
  */
 function responsive_get_title() {
 	global $page, $paged;
