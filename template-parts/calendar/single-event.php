@@ -54,15 +54,19 @@ $event = $buCalendar->getEvent( $calendar_id, $event_id, $oid );
 					<?php if ( ( $event['ends'] > 0 ) && ! empty( $words['ends'] ) ) : ?>
 						<li class="single-event-schedule-end">
 							<span class="single-event-label"><?php echo esc_html( $words['ends'] ); ?> </span>
-							<?php printf( '<span class="single-event-time">%s</span><em class="event-time-make-sentence"> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['ends'] ) ), esc_html( date( 'l, F j, Y', $event['ends'] ) ) ); ?></dd>
+							<?php printf( '<span class="single-event-time">%s</span><em class="event-time-make-sentence"> on </em><span class="single-event-date">%s</span>', esc_html( date( 'g:i a', $event['ends'] ) ), esc_html( date( 'l, F j, Y', $event['ends'] ) ) ); ?>
+						</li>
 					<?php endif; ?>
 				<?php else : ?>
 					<?php printf( '<li class="single-event-schedule-allday"><span class="single-event-label">All Day</span><em> on </em><span class="single-event-date">%s</span></li>', esc_html( date( 'l, F j, Y', $event['starts'] - intval( date( 'Z' ) ) ) ) ); ?>
 				<?php endif; ?>
 			</ul>
-		</div> <!-- /.dateSummary -->
-		<div class="single-event-description"><?php echo wp_kses_post( html_entity_decode( $event['description'] ) ); ?></div>
+		</div> <!-- /.single-event-schedule -->
 	</div> <!-- /.eventSummary -->
+
+	<div class="single-event-description">
+		<?php echo wp_kses_post( html_entity_decode( $event['description'] ) ); ?>
+	</div>
 
 	<div class="single-event-additional-details">
 		<dl class="tabular">
