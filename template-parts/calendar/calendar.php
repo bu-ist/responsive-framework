@@ -31,8 +31,28 @@ if ( ! $calendar_id ) {
 		<p>This site does not have any calendar associated with it.</p>
 	<?php
 } else {
-	// If date parameter exists, set a timestamp variable used for 2nd parameter of strtotime().
+
+	// Get initial values.
+	$yyymmdd   = responsive_calendar_get_yyyymmdd();
 	$timestamp = responsive_calendar_get_timestamp();
+
+	/*
+	* Check that date falls between:
+	* The year 2000 (http://www.nbc.com/nbc/Late_Night_with_Conan_OBrien/intheyear2000/)
+	* Ten years in the future from the current date
+	*/
+	$boundary_past = strtotime( '2000-01-01 00:00:00', 0 );
+	$boundary_future = strtotime( '+10 years', $now );
+	if ( $timestamp < $boundary_past ) {
+		$timestamp = $boundary_past;
+		$yyyymmdd = date( 'Ymd', $timestamp );
+	}
+	if ( $timestamp > $boundary_future ) {
+		$timestamp = $boundary_future;
+		$yyyymmdd = date( 'Ymd', $timestamp );
+	}
+
+	// Conditionally overwrite timestamp.
 	if ( array_key_exists( 'date', $_GET ) ) {
 		$timestamp = strtotime( $_GET['date'], 0 );
 	}

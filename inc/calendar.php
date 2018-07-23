@@ -399,16 +399,6 @@ if ( ! function_exists( 'responsive_calendar_get_timestamp' ) ) {
 
 		$timestamp = strtotime( '00:00', $timestamp );
 
-		// Modifies value depending on timestamp and boundaries.
-		$boundary_past   = responsive_calendar_get_boundary_past();
-		$boundary_future = responsive_calendar_get_boundary_future();
-		if ( $timestamp < $boundary_past ) {
-			$timestamp = $boundary_past;
-		}
-		if ( $timestamp > $boundary_future ) {
-			$timestamp = $boundary_future;
-		}
-
 		return $timestamp;
 	}
 }
@@ -433,17 +423,6 @@ if ( ! function_exists( 'responsive_calendar_get_yyyymmdd' ) ) {
 		if ( ! is_null( $event_id ) ) {
 			$event    = $buCalendar->getEvent( responsive_calendar_get_calendar_id(), $event_id, responsive_calendar_get_oid() );
 			$yyyymmdd = date( 'Ymd', $event['starts'] );
-		}
-
-		// Modifies value depending on timestamp and boundaries.
-		$timestamp       = responsive_calendar_get_timestamp();
-		$boundary_past   = responsive_calendar_get_boundary_past();
-		$boundary_future = responsive_calendar_get_boundary_future();
-		if ( $timestamp < $boundary_past ) {
-			$yyyymmdd = date( 'Ymd', $timestamp );
-		}
-		if ( $timestamp > $boundary_future ) {
-			$yyyymmdd = date( 'Ymd', $timestamp );
 		}
 
 		return $yyyymmdd;
