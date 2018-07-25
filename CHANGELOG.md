@@ -1,5 +1,10 @@
 # Changelog
 
+# 2.1.4
+
+- Color contrast accessibility fixes to comply with MWAS
+- Added skip-link feature for keyboard navigation
+
 # 2.1.3
 
 - Added BU Hub Indicator. Incorporated adjustments to line height.
@@ -7,11 +12,6 @@
 # 2.1.2
 
 - Move 2.1.2 to a new repo for a fresh start in prepartion to begin the open source process.
-
-# 2.1.0
-
-- Color contrast accessibility fixes to comply with MWAS
-- Added skip-link feature for keyboard navigation
 
 ## Unreleased
 
