@@ -1,6 +1,6 @@
 {
   "name": "responsive-framework",
   "dependencies": {
-  	"responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#2.1.0"
+  	"responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#2.0.2"
   }
 }
