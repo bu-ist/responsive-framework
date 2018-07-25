@@ -3,7 +3,7 @@
 Theme Name: Responsive Framework 2.x (BETA)
 Author: Boston University Interactive Design
 Website: http://www.bu.edu/interactive-design/
-Version: 2.1.3
+Version: 2.1.0
 Description: THIS IS A BETA THEME. Do not activate this version of Responsive Framework unless you are sure that you want to use version 2.x.
 Theme Groups: Responsive Framework
 */
@@ -597,6 +597,26 @@ template {
   vertical-align: middle;
   white-space: nowrap;
   margin-right: 0.5em;
+}
+
+a[target="_blank"]::after, a[target="_new"]::after {
+  color: unset;
+  display: inline-block;
+  font-family: "bu-default-icons";
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  padding-bottom: 0.2em;
+  speak: none;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  margin-left: 0.5em;
 }
 
 @font-face {
@@ -3113,6 +3133,23 @@ embed,
 figure {
   height: auto;
   max-width: 100%;
+}
+
+.lt-ie9:hover a[target="_blank"], .lt-ie9:hover a[target="_new"] {
+  -ms-zoom: 1;
+}
+
+a[target="_blank"] span, a[target="_new"] span {
+  display: none;
+}
+
+a[target="_blank"]::after, a[target="_new"]::after {
+  content: "↪";
+}
+
+a[target="_blank"]:after, a[target="_new"]:after {
+  font-size: 0.6em;
+  vertical-align: text-top;
 }
 
 .wrapper {
@@ -6729,7 +6766,8 @@ nav a {
 }
 
 .primary-nav-menu li:hover ul,
-.primary-nav-menu li:focus ul {
+.primary-nav-menu li:focus ul,
+.primary-nav-menu li:focus-within ul {
   left: auto;
 }
 
@@ -7134,6 +7172,37 @@ nav a {
     right: 80px;
     top: 48px;
   }
+}
+
+.skip-link {
+  background-color: #f1f1f1;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  color: #21759b;
+  display: block;
+  font-family: "Open Sans",sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  height: auto;
+  left: 6px;
+  line-height: normal;
+  margin: 30px 45%;
+  padding: 15px 23px 14px;
+  position: absolute;
+  text-decoration: none;
+  top: -100px;
+  -webkit-transition: top 0.75s ease-out;
+  transition: top 0.75s ease-out;
+  width: auto;
+  z-index: 100000;
+}
+
+.skip-link:focus,
+.skip-link:active {
+  color: #21759b;
+  top: 7px;
+  -webkit-transition: top 0s;
+  transition: top 0s;
 }
 
 .banner-container {
