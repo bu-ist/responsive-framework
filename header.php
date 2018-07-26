@@ -37,6 +37,7 @@
 
 	<?php wp_head(); ?>
 </head>
+
 <body id="top" <?php body_class(); ?>>
 	<?php
 		/**
@@ -57,6 +58,7 @@
 	?>
 	<header class="masthead" role="banner">
 		<div class="masthead-container">
+				<a class="skip-link" href="#main">Skip to Main Content</a>
 			<?php get_template_part( 'template-parts/masthead', responsive_layout() ); ?>
 		</div>
 	</header>
@@ -93,7 +95,7 @@
 			 */
 			do_action( 'r_before_opening_container_outer' );
 		?>
-		<main role="main" <?php r_container_outer_class(); ?>>
+		<main id="main" role="main" <?php r_container_outer_class(); ?>>
 			<?php
 				/**
 				 * Fires immediately after the outer opening content container.
