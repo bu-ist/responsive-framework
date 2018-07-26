@@ -56,13 +56,17 @@ function responsive_the_title( $before = '', $after = '', $echo = true, $id = fa
 	 *
 	 * @since    2.1.4
 	 */
-	$title = apply_filters( 'responsive_filter_page_title', get_the_title( $id ) );
+	$args = apply_filters( 'responsive_filter_the_title', array(
+		'before' => $before,
+		'after'  => $after,
+		'title'  => get_the_title( $id ),
+	) );
 
 	// Only continues if a title exists and wasn't removed by the filter.
-	if ( ! empty( $title ) ) {
+	if ( ! empty( $args['title'] ) ) {
 
 		// Apply the normal `the_title` filters.
-		$title = apply_filters( 'the_title', $before . $title . $after );
+		$title = apply_filters( 'the_title', $args['before'] . $args['title'] . $args['after'] );
 
 		// Echoes or returns the title.
 		if ( $echo ) {
