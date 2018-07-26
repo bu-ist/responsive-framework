@@ -38,18 +38,21 @@ function responsive_get_title() {
  * @link     https://codex.wordpress.org/Function_Reference/the_title
  * @link     https://developer.wordpress.org/reference/hooks/the_title/
  *
- * @param    string $before Text to insert before the title, such as an opening h1 tag.
- * @param    string $after  Text to insert after the title, such as a closing h1 tag.
- * @param    bool   $echo   Prints the title to the screen when called. Defaults to true.
- * @param    int    $id     Retrieves the title for a given post id.
+ * @param    string $before Optional. Markup to prepend to the title. Default empty.
+ * @param    string $after  Optional. Markup to append to the title. Default empty.
+ * @param    bool   $echo   Optional. Whether to echo or return the title. Default true for echo.
+ * @param    int    $id     Optional. Retrieves the title for a given post id.
+ * @return   string|void Current post title if $echo is false.
  */
 function responsive_the_title( $before = '', $after = '', $echo = true, $id = false ) {
 
 	/**
-	 * Filters the current page title.
+	 * Filters the current page title and its supplied arguments for before, after HTML.
 	 *
 	 * Useful for when something besides `get_the_title()` for the current query
-	 * should be used.
+	 * should be used, or the $before and $after parameters need to be modified
+	 * on the fly. This filter can also be used to turn off the page title by setting
+	 * title to an empty string.
 	 *
 	 * @since    2.1.4
 	 */
