@@ -349,6 +349,9 @@ if ( ! function_exists( 'responsive_calendar_get_oid' ) ) {
 	/**
 	 * Retrieve the oid for the calendar template.
 	 *
+	 * The 'oid' value is the Occurrence ID. A BU Calendar event can be recurring,
+	 * so the `oid` tracks which particular occurrence of the event this is.
+	 *
 	 * @return int|null $oid.
 	 */
 	function responsive_calendar_get_oid() {
