@@ -8,6 +8,12 @@
     which can be used to modify/prevent the output of page titles in responsive-framework.
 -   Added additional support feature for bu-banners plugin by changing its banner title markup
     to use an h1 element with the current page title if the banner title is left empty.
+-   Refactored `page-templates/calendar.php` for easier child-theming by separating logic
+    into functions that now live in the existing `/inc/calendar.php` functions file, and
+    moving templating chunks into `template-parts/calendar/calendar.php` and
+    `template-parts/calendar/single-event.php`.
+-   Added new filter for calendar template for changing hardcoded labels on the
+    `template-parts/calendar/single-event.php` partial, named `responsive_calendar_event_labels`.
 
 # 2.1.4
 
