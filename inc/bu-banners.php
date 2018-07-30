@@ -26,7 +26,7 @@ function responsive_bu_banner_title() {
 	$banner_content = get_post_meta( get_the_id(), '_bu_banner_content', true );
 
 	// Only continues if we have a bu banner, its content is not empty, and there is no title field supplied.
-	if ( bu_has_banner() && ! empty( $banner_content ) && empty( $banner_content['title'] ) ) {
+	if ( bu_has_banner() && ! empty( $banner_content[0] ) && empty( $banner_content[0]['title'] ) ) {
 
 		// Adds the H1 and current page title to banner.
 		add_filter( 'bu_banners_banner_info', function( $banner_info ) {
