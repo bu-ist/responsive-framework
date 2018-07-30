@@ -41,8 +41,8 @@ if ( ! $calendar_id ) {
 	* The year 2000 (http://www.nbc.com/nbc/Late_Night_with_Conan_OBrien/intheyear2000/)
 	* Ten years in the future from the current date
 	*/
-	$boundary_past = strtotime( '2000-01-01 00:00:00', 0 );
-	$boundary_future = strtotime( '+10 years', $now );
+	$boundary_past   = responsive_calendar_get_boundary_past();
+	$boundary_future = responsive_calendar_get_boundary_future();
 	if ( $timestamp < $boundary_past ) {
 		$timestamp = $boundary_past;
 		$yyyymmdd = date( 'Ymd', $timestamp );
