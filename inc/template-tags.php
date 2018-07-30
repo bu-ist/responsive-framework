@@ -65,7 +65,7 @@ function responsive_the_title( $before = '', $after = '', $echo = true, $id = fa
 	// Only continues if a title exists and wasn't removed by the filter.
 	if ( ! empty( $args['title'] ) ) {
 
-		// Apply the normal `the_title` filters.
+		// Apply the normal `the_title` filters, in case $args['title'] was modified.
 		$title = apply_filters( 'the_title', $args['before'] . $args['title'] . $args['after'] );
 
 		// Echoes or returns the title.
