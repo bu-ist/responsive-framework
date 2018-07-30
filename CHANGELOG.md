@@ -2,9 +2,17 @@
 
 # Unreleased
 
--   Added new template tag, `responsive_the_title()`, intended to output the page title for each single post/page template.
--   Added new filter to the new `responsive_the_title()` template_tag, named `responsive_filter_page_title` which can be used to
-    modify/prevent the output of page titles in responsive-framework.
+-   Added new template tag, `responsive_the_title()`, intended to output the page title
+    for each single post/page template.
+-   Added new filter to the new `responsive_the_title()` template_tag, named `responsive_filter_page_title`
+    which can be used to modify/prevent the output of page titles in responsive-framework.
+-   Added additional support feature for bu-banners plugin by changing its banner title markup
+    to use an h1 element with the current page title if the banner title is left empty.
+
+# 2.1.4
+
+-   Color contrast accessibility fixes to comply with MWAS
+-   Added skip-link feature for keyboard navigation
 
 # 2.1.3
 
