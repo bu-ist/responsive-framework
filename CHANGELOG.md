@@ -4,9 +4,15 @@
 
 -   Refactored `page-templates/calendar.php` for easier child-theming by separating logic
     into functions that now live in the existing `/inc/calendar.php` functions file, and
-    moving templating chunks into template-parts.
--   Added new filter for calendar template for changing hardcoded words on the `single-event.php
-    template partial.
+    moving templating chunks into `template-parts/calendar/calendar.php` and
+    `template-parts/calendar/single-event.php`.
+-   Added new filter for calendar template for changing hardcoded labels on the
+    `template-parts/calendar/single-event.php` partial, named `responsive_calendar_event_labels`.
+
+# 2.1.4
+
+-   Color contrast accessibility fixes to comply with MWAS
+-   Added skip-link feature for keyboard navigation
 
 # 2.1.3
 
