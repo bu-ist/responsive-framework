@@ -747,6 +747,11 @@ require __DIR__ . '/inc/activation.php';
 require __DIR__ . '/inc/branding.php';
 
 /**
+ * BU Banners support.
+ */
+require __DIR__ . '/inc/bu-banners.php';
+
+/**
  * BUniverse support.
  */
 require __DIR__ . '/inc/buniverse.php';
