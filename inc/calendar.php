@@ -22,7 +22,7 @@
  * }
  */
 function responsive_calendar_sidebar( $args = array() ) {
-	global $post, $buCalendar;
+	global $buCalendar;
 
 	$topics    = responsive_calendar_get_topics();
 	$timestamp = responsive_calendar_get_timestamp();
@@ -317,17 +317,20 @@ if ( ! function_exists( 'responsive_calendar_get_calendar_url' ) ) {
 	/**
 	 * Retrieve the calendar url for the calendar template.
 	 *
-	 * NOTE: This function may not be necessary. Seems like you could just call `get_permalink()`
-	 *       on its own, without the need for declaring global $post.
+	 * This permalnk is used to do two things:
+	 * - Create a URL back to the calendar page.
+	 * - Create event URLs by adding query parameters to this permalink.
 	 *
-	 * @global WP_POST $post The global WordPress post object.
+	 * NOTE: For now, this just returns the current page permalink.
+	 *       In the future, this may need to be refactored to grab a
+	 *       site option if you wanted to link to the calendar template
+	 *       page id from another page. In the meantime, just use the
+	 *       current page permalink until a need to refactor comes up.
 	 *
 	 * @return int $calendar_id Set from URL parameter if exists, else a site option.
 	 */
 	function responsive_calendar_get_calendar_url() {
-		global $post;
-
-		return get_permalink( $post );
+		return get_permalink();
 	}
 }
 
