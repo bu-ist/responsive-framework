@@ -481,7 +481,7 @@ if ( ! function_exists( 'responsive_calendar_get_topics' ) ) {
 	 *
 	 * @global $buCalendar
 	 *
-	 * @return void
+	 * @return array
 	 */
 	function responsive_calendar_get_topics() {
 		global $buCalendar;
