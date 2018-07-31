@@ -72,3 +72,31 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 	}
 }
 add_action( 'wp', 'responsive_bu_banner_title' );
+
+if ( ! function_exists( 'responsive_bu_banners_metabox' ) ) {
+
+	/**
+	 * Modifies the BU Banners metabox.
+	 *
+	 * Adds a description to the title field, indicating to the user that its
+	 * an optional field that may be left blank to use the post_title field instead.
+	 *
+	 * @since 2.1.5
+	 *
+	 * @param int    $post_id The ID of the current object.
+	 * @param object $cmb     This CMB2 object.
+	 */
+	function responsive_bu_banners_metabox( $post_id, $cmb ) {
+
+		// Retrieve all the fields associated with the metabox.
+		$fields = $cmb->prop( 'fields' );
+
+		// Add a description to the bu banner title field.
+		$fields['_bu_banner_content']['fields']['title']['desc'] = __( 'Leave blank to use the page title.', 'responsive-framework' );
+
+		// Overwrite the existing metabox fields with this new modified fields.
+		$cmb->set_prop( 'fields', $fields );
+
+	}
+}
+add_action( 'cmb2_before_post_form_bu_banner_info', 'responsive_bu_banners_metabox', 10, 2 );
