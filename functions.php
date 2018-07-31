@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.2' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.0' );
 
 /**
  * Modernizr version.
