@@ -8,6 +8,9 @@
     `template-parts/calendar/single-event.php`.
 -   Added new filter for calendar template for changing hardcoded labels on the
     `template-parts/calendar/single-event.php` partial, named `responsive_calendar_event_labels`.
+-   Resolved fatal error in single-site installs by replacing `get_current_site`
+    with `network_home_url` in the `responsive_is_bu_domain` function defined in
+    `inc/template-tags.php:33`.
 
 # 2.1.4
 
