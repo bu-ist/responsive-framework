@@ -30,8 +30,7 @@ function responsive_get_title() {
  *              an error.
  */
 function responsive_is_bu_domain() {
-	$current_site = get_current_site();
-	return (bool) preg_match( '#bu.edu$#', $current_site->domain );
+	return (bool) preg_match( '#\bbu\.edu\b#', network_home_url() );
 }
 
 /**
