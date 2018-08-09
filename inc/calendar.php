@@ -22,14 +22,18 @@
  * }
  */
 function responsive_calendar_sidebar( $args = array() ) {
-	global $post, $buCalendar, $topics, $timestamp, $yyyymmdd;
+	global $buCalendar;
+
+	$topics    = responsive_calendar_get_topics();
+	$timestamp = responsive_calendar_get_timestamp();
+	$yyyymmdd  = responsive_calendar_get_yyyymmdd();
 
 	$defaults = array(
-		'calendar_id'   => array_key_exists( 'cid', $_GET ) ? intval( $_GET['cid'] ) : get_option( 'bu_calendar_id' ),
-		'show_topics'   => true,
-		'calendar_uri'  => get_permalink( $post ),
-		'page_template' => 'page-templates/calendar.php',
-		'topic_heading' => __( 'Topics', 'responsive-framework' ),
+		'calendar_id'      => responsive_calendar_get_calendar_id(),
+		'show_topics'      => true,
+		'calendar_uri'     => responsive_calendar_get_calendar_url(),
+		'page_template'    => 'page-templates/calendar.php',
+		'topic_heading'    => __( 'Topics', 'responsive-framework' ),
 		'monthly_dropdown' => false,
 	);
 
@@ -109,9 +113,9 @@ add_filter( 'bu_calendar_widget_formats', 'responsive_calendar_widget_formats', 
 /**
  * Helper function to determine URL for widget format display callbacks.
  *
- * @param  int $event 		 	An event.
- * @param  int $base_url 		Calendar URL.
- * @param  int $calendar_id 	Calendar ID.
+ * @param int $event       An event.
+ * @param int $base_url    Calendar URL.
+ * @param int $calendar_id Calendar ID.
  *
  * @return string $url         The URL to the event.
  */
@@ -248,7 +252,7 @@ function responsive_calendar_format_graphic( $events, $base_url, $calendar_id = 
 function onYearDay( $ts ) {
 	global $buCalendar, $events;
 
-	$day = date( 'Y-m-d', $ts );
+	$day      = date( 'Y-m-d', $ts );
 	$contents = null;
 
 	if ( $buCalendar->hasEventsOnDay( $day, $events ) ) {
@@ -297,3 +301,214 @@ function responsive_calendar_body_classes( $classes ) {
 }
 
 add_filter( 'body_class', 'responsive_calendar_body_classes' );
+
+if ( ! function_exists( 'responsive_calendar_get_calendar_id' ) ) {
+	/**
+	 * Retrieve the calendar ID for the calendar template.
+	 *
+	 * @return int $calendar_id Set from URL parameter if exists, else a site option.
+	 */
+	function responsive_calendar_get_calendar_id() {
+		return array_key_exists( 'cid', $_GET ) ? intval( $_GET['cid'] ) : get_option( 'bu_calendar_id' );
+	}
+}
+
+if ( ! function_exists( 'responsive_calendar_get_calendar_url' ) ) {
+	/**
+	 * Retrieve the calendar url for the calendar template.
+	 *
+	 * This permalnk is used to do two things:
+	 * - Create a URL back to the calendar page.
+	 * - Create event URLs by adding query parameters to this permalink.
+	 *
+	 * NOTE: For now, this just returns the current page permalink.
+	 *       In the future, this may need to be refactored to grab a
+	 *       site option if you wanted to link to the calendar template
+	 *       page id from another page. In the meantime, just use the
+	 *       current page permalink until a need to refactor comes up.
+	 *
+	 * @return int $calendar_id Set from URL parameter if exists, else a site option.
+	 */
+	function responsive_calendar_get_calendar_url() {
+		return get_permalink();
+	}
+}
+
+if ( ! function_exists( 'responsive_calendar_get_event_id' ) ) {
+	/**
+	 * Retrieve the event ID for the calendar template.
+	 *
+	 * @return int|null $event_id.
+	 */
+	function responsive_calendar_get_event_id() {
+		return array_key_exists( 'eid', $_GET ) ? intval( $_GET['eid'] ) : null;
+	}
+}
+
+if ( ! function_exists( 'responsive_calendar_get_oid' ) ) {
+	/**
+	 * Retrieve the oid for the calendar template.
+	 *
+	 * The 'oid' value is the Occurrence ID. A BU Calendar event can be recurring,
+	 * so the `oid` tracks which particular occurrence of the event this is.
+	 *
+	 * @return int|null $oid.
+	 */
+	function responsive_calendar_get_oid() {
+		return array_key_exists( 'oid', $_GET ) ? intval( $_GET['oid'] ) : 0;
+	}
+}
+
+if ( ! function_exists( 'responsive_calendar_article_classes' ) ) {
+	/**
+	 * Add classes to the `<article />` element on calendar template.
+	 *
+	 * @return array $extra_classes
+	 */
+	function responsive_calendar_article_classes() {
+
+		// Define extra classes to be added to `<article />` element.
+		$extra_classes = array( 'content-area' );
+
+		// Get the event ID if exists.
+		$event_id = responsive_calendar_get_event_id();
+
+		// If event ID does not exist, add listing class. If it does exist, add single class.
+		if ( is_null( $event_id ) ) {
+			$extra_classes[] = 'calendar-list';
+		} else {
+			$extra_classes[] = 'calendar-single';
+		}
+
+		return $extra_classes;
+	}
+}
+
+if ( ! function_exists( 'responsive_calendar_get_timestamp' ) ) {
+	/**
+	 * Retrieves the timestamp.
+	 *
+	 * @return time $timestamp.
+	 */
+	function responsive_calendar_get_timestamp() {
+
+		// Sets initial timestamp to now.
+		$timestamp = time();
+
+		// Retrieves parameter for date, if exists.
+		$yyyymmdd = responsive_calendar_get_yyyymmdd();
+
+		// Modify timestamp based on date parameter, if exists.
+		if ( $yyyymmdd ) {
+			$timestamp = strtotime( $yyyymmdd, 0 );
+		}
+
+		$timestamp = strtotime( '00:00', $timestamp );
+
+		return $timestamp;
+	}
+}
+
+if ( ! function_exists( 'responsive_calendar_get_yyyymmdd' ) ) {
+	/**
+	 * Retrieves the timestamp.
+	 *
+	 * @global $buCalendar
+	 *
+	 * @return string|null $timestamp The query parameter of date if exists; null on failure.
+	 *                                If event ID exists, the event's start date will be returned.
+	 */
+	function responsive_calendar_get_yyyymmdd() {
+		global $buCalendar;
+
+		// Sets initial value based on if date parameter exists or not.
+		$yyyymmdd = array_key_exists( 'date', $_GET ) ? $_GET['date'] : null;
+
+		// Modifies value if an event ID exists and is being queried.
+		$event_id = responsive_calendar_get_event_id();
+		if ( ! is_null( $event_id ) ) {
+			$event    = $buCalendar->getEvent( responsive_calendar_get_calendar_id(), $event_id, responsive_calendar_get_oid() );
+			$yyyymmdd = date( 'Ymd', $event['starts'] );
+		}
+
+		return $yyyymmdd;
+	}
+}
+
+if ( ! function_exists( 'responsive_calendar_get_boundary_past' ) ) {
+	/**
+	 * Retrieve calendar template event boundary past.
+	 *
+	 * @return time results from strtotime.
+	 */
+	function responsive_calendar_get_boundary_past() {
+		return strtotime( '2000-01-01 00:00:00', 0 );
+	}
+}
+
+if ( ! function_exists( 'responsive_calendar_get_boundary_future' ) ) {
+	/**
+	 * Retrieve calendar template event boundary future.
+	 *
+	 * @return time results from strtotime.
+	 */
+	function responsive_calendar_get_boundary_future() {
+		return strtotime( '+10 years', time() );
+	}
+}
+
+if ( ! function_exists( 'responsive_calendar_get_topic_detail' ) ) {
+	/**
+	 * Retrieve the topic detail.
+	 *
+	 * @global $buCalendar
+	 *
+	 * @return array
+	 */
+	function responsive_calendar_get_topic_detail() {
+		global $buCalendar;
+
+		$topic  = responsive_calendar_get_topic();
+		$topics = responsive_calendar_get_topics();
+		return ( $topic ) ? $buCalendar->pullTopicDetail( $topic, $topics ) : array( 'name' => 'All Topics' );
+	}
+}
+
+
+if ( ! function_exists( 'responsive_calendar_get_topics' ) ) {
+	/**
+	 * Retrieve calendar template topics.
+	 *
+	 * @global $buCalendar
+	 *
+	 * @return array
+	 */
+	function responsive_calendar_get_topics() {
+		global $buCalendar;
+
+		return $buCalendar->getTopics( responsive_calendar_get_calendar_id() );
+	}
+}
+
+if ( ! function_exists( 'responsive_calendar_get_topic' ) ) {
+	/**
+	 * Retrieve calendar template topic query parameter from URL.
+	 *
+	 * NOTE: This may be filtered by developers after retrieving the $_GET parameter.
+	 *
+	 * @return int|null Topic ID if exists in query parameter in URL. Null on false.
+	 */
+	function responsive_calendar_get_topic() {
+		$topic = array_key_exists( 'topic', $_GET ) ? intval( $_GET['topic'] ) : null;
+
+		/**
+		 * Filters the current topic ID before retrieving events from BU Calendar.
+		 *
+		 * @since 0.9.0
+		 * @since 2.0.0 Renamed from bu_flexi_calendar_topic to responsive_calendar_topic.
+		 *
+		 * @param int $topic Topic ID.
+		 */
+		return apply_filters( 'responsive_calendar_topic', $topic );
+	}
+}
