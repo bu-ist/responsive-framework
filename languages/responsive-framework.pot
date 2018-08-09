@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Framework 2.x (BETA) 2.1.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-07-26 14:03:41+00:00\n"
+"POT-Creation-Date: 2018-08-09 15:06:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "All page templates"
 msgstr ""
 
-#: admin/responsive-admin-page-template-filter.php:72 inc/calendar.php:90
+#: admin/responsive-admin-page-template-filter.php:72 inc/calendar.php:94
 #: inc/customizer.php:59 inc/customizer.php:387
 msgid "Default"
 msgstr ""
@@ -88,7 +88,7 @@ msgid ""
 "has its own display options."
 msgstr ""
 
-#: admin/theme-customizer.php:234 inc/template-tags.php:129
+#: admin/theme-customizer.php:234 inc/template-tags.php:128
 msgid "Categories"
 msgstr ""
 
@@ -248,7 +248,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:264 inc/customizer.php:236 inc/template-tags.php:779
+#: functions.php:264 inc/customizer.php:236 inc/template-tags.php:778
 msgid "Footbar"
 msgstr ""
 
@@ -256,7 +256,7 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:278 inc/template-tags.php:780
+#: functions.php:278 inc/template-tags.php:779
 msgid "Alternate Footbar"
 msgstr ""
 
@@ -271,28 +271,28 @@ msgid ""
 "primary campuses in the heart of Boston and programs around the world."
 msgstr ""
 
-#: inc/calendar.php:32
+#: inc/calendar.php:36
 msgid "Topics"
 msgstr ""
 
-#: inc/calendar.php:56
+#: inc/calendar.php:60
 msgid "Event Calendar"
 msgstr ""
 
-#: inc/calendar.php:62
+#: inc/calendar.php:66
 msgid "Event"
 msgstr ""
 
-#: inc/calendar.php:67
+#: inc/calendar.php:71
 #. translators: %s: topic name.
 msgid "All %s"
 msgstr ""
 
-#: inc/calendar.php:95
+#: inc/calendar.php:99
 msgid "Full Date"
 msgstr ""
 
-#: inc/calendar.php:100
+#: inc/calendar.php:104
 msgid "Graphic"
 msgstr ""
 
@@ -442,47 +442,47 @@ msgstr ""
 msgid "Page %d"
 msgstr ""
 
-#: inc/template-tags.php:397
+#: inc/template-tags.php:396
 #. translators: %s: archive type singular name.
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:402
+#: inc/template-tags.php:401
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:403
+#: inc/template-tags.php:402
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:444
+#: inc/template-tags.php:443
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:472 single.php:34
+#: inc/template-tags.php:471 single.php:34
 #. translators: %s: author name linking to their archive page.
 #. translators: %s: author name
 msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:489
+#: inc/template-tags.php:488
 #. translators: %s: category list for the post.
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:498
+#: inc/template-tags.php:497
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:498
+#: inc/template-tags.php:497
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:498
+#: inc/template-tags.php:497
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:612
+#: inc/template-tags.php:611
 msgid "View all posts"
 msgstr ""
 
@@ -580,6 +580,95 @@ msgstr ""
 
 #: single.php:64
 msgid "Tagged"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:11
+msgid "Address"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:12
+msgid "Audience"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:13
+msgid "Back to Calendar"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:14
+msgid "Contact Email"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:15
+msgid "Contact Name"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:16
+msgid "Contact Organization"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:17
+msgid "Contact Phone"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:18
+msgid "Deadline"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:19
+msgid "Departments"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:20
+msgid "Ends"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:21
+#: template-parts/calendar/single-event.php:28
+msgid "Fees"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:22
+msgid "Fee (General)"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:23
+msgid "Fee (Public)"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:24
+msgid "Fee (Seniors)"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:25
+msgid "Fee (Staff)"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:26
+msgid "Fee (Students)"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:27
+msgid "Fee (BU Students)"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:29
+msgid "Location"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:30
+msgid "Registration"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:31
+msgid "Room"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:32
+msgid "Speakers"
+msgstr ""
+
+#: template-parts/calendar/single-event.php:33
+msgid "Starts"
 msgstr ""
 
 #: template-parts/content.php:23 template-parts/news.php:39
