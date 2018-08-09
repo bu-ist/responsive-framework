@@ -1,9 +1,6 @@
 # Changelog
-# 2.1.3
-- Added `responsive_is_wpdocs()`, to check for the wpdocs subdomain.
 
-# Unreleased
-
+# 2.1.5
 -   Refactored `page-templates/calendar.php` for easier child-theming by separating logic
     into functions that now live in the existing `/inc/calendar.php` functions file, and
     moving templating chunks into `template-parts/calendar/calendar.php` and
@@ -13,6 +10,12 @@
 -   Resolved fatal error in single-site installs by replacing `get_current_site`
     with `network_home_url` in the `responsive_is_bu_domain` function defined in
     `inc/template-tags.php:33`.
+
+# 2.1.4
+-   Adds skip link support.
+
+# 2.1.3
+-   Added `responsive_is_wpdocs()`, to check for the wpdocs subdomain.
 
 # 2.1.4
 
