@@ -1,4 +1,6 @@
 # Changelog
+# 2.1.3
+- Added `responsive_is_wpdocs()`, to check for the wpdocs subdomain.
 
 # Unreleased
 
