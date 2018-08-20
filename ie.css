@@ -3,7 +3,7 @@
 Theme Name: Responsive Framework 2.x (BETA)
 Author: Boston University Interactive Design
 Website: http://www.bu.edu/interactive-design/
-Version: 2.1.4
+Version: 2.1.51
 Description: THIS IS A BETA THEME. Do not activate this version of Responsive Framework unless you are sure that you want to use version 2.x.
 Theme Groups: Responsive Framework
 */
@@ -3115,6 +3115,17 @@ figure {
   max-width: 100%;
 }
 
+/*a {
+	&[target="_blank"],
+	&[target="_new"] {
+		@include icon( 'redirect', 'after' );
+
+		&:after {
+			font-size: 0.6em;
+			vertical-align: text-top;
+		}
+	}
+}*/
 .wrapper {
   overflow: hidden;
 }
@@ -6802,7 +6813,8 @@ nav a {
 }
 
 .primary-nav-menu li:hover ul,
-.primary-nav-menu li:focus ul {
+.primary-nav-menu li:focus ul,
+.primary-nav-menu li:focus-within ul {
   left: auto;
 }
 
@@ -7088,6 +7100,37 @@ nav a {
   position: absolute;
   right: 80px;
   top: 48px;
+}
+
+.skip-link {
+  background-color: #f1f1f1;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  color: #21759b;
+  display: block;
+  font-family: "Open Sans",sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  height: auto;
+  left: 6px;
+  line-height: normal;
+  margin: 30px 45%;
+  padding: 15px 23px 14px;
+  position: absolute;
+  text-decoration: none;
+  top: -100px;
+  -webkit-transition: top 0.75s ease-out;
+  transition: top 0.75s ease-out;
+  width: auto;
+  z-index: 100000;
+}
+
+.skip-link:focus,
+.skip-link:active {
+  color: #21759b;
+  top: 7px;
+  -webkit-transition: top 0s;
+  transition: top 0s;
 }
 
 .banner-container {

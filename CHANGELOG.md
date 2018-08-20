@@ -10,12 +10,23 @@
     plugin. Currently adds the h1 page title to banner if exists and title field is empty, and suppresses
     the responsive-framework page title.
     to use an h1 element with the current page title if the banner title is left empty.
+
+# 2.1.5
 -   Refactored `page-templates/calendar.php` for easier child-theming by separating logic
     into functions that now live in the existing `/inc/calendar.php` functions file, and
     moving templating chunks into `template-parts/calendar/calendar.php` and
     `template-parts/calendar/single-event.php`.
 -   Added new filter for calendar template for changing hardcoded labels on the
     `template-parts/calendar/single-event.php` partial, named `responsive_calendar_event_labels`.
+-   Resolved fatal error in single-site installs by replacing `get_current_site`
+    with `network_home_url` in the `responsive_is_bu_domain` function defined in
+    `inc/template-tags.php:33`.
+
+# 2.1.4
+-   Adds skip link support.
+
+# 2.1.3
+-   Added `responsive_is_wpdocs()`, to check for the wpdocs subdomain.
 
 # 2.1.4
 
