@@ -563,7 +563,7 @@ function responsive_get_posts_archive_link() {
 		'meta_value' => 'page-templates/news.php',
 	) );
 
-	$post_cats = get_the_terms( $get_post(), 'category' );
+	$post_cats = get_the_terms( get_post(), 'category' );
 	$post_cat_ids = wp_list_pluck( $post_cats, 'term_id' );
 	$all_cats = false;
 
