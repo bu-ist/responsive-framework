@@ -563,22 +563,21 @@ function responsive_get_posts_archive_link() {
 		'meta_value' => 'page-templates/news.php',
 	) );
 
-	$_post = get_post();
-	$post_cats = get_the_terms( $_post, 'category' );
-	$meow = wp_list_pluck( $post_cats, 'term_id' );
+	$post_cats = get_the_terms( $get_queried_object_id(), 'category' );
+	$post_cat_ids = wp_list_pluck( $post_cats, 'term_id' );
 	$all_cats = false;
 
 	foreach ( $news_pages as $page ) {
-		$cat = get_post_meta( $page->ID, '_bu_list_news_category', true );
+		$page_cat_id = get_post_meta( $page->ID, '_bu_list_news_category', true );
 
-		if ( in_array( $cat, $meow ) ) {
+		if ( in_array( $page_cat_id, $post_cat_ids ) ) {
 			$archive_link = get_permalink( $page );
 			break;
 		}
 
 		// Find the first news page set to display "All Categories".
 		// Hold onto it in case we can't find a page that matches the category.
-		if ( empty( $cat ) && ! $all_cats ) {
+		if ( empty( $page_cat_id ) && ! $all_cats ) {
 			$all_cats = get_permalink( $page );
 			continue;
 		}
