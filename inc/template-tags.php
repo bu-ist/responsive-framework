@@ -542,9 +542,10 @@ function responsive_posts_should_display( $field ) {
 /**
  * Attempts to find a suitable post archive link for this site.
  *
- * 1. First page with news template applied set to "All Categories"
- * 2. Permalink for page set as "Posts page" via Settings > Reading
- * 3. Home page if front page displays latest posts
+ * 1. First page with news template applied to post's first category.
+ * 2. First page with news template applied set to "All Categories"
+ * 3. Permalink for page set as "Posts page" via Settings > Reading
+ * 4. Home page if front page displays latest posts
  *
  * Child themes can override if they're doing something crazy by hooking
  * in to the `responsive_get_posts_archive_link` filter.
@@ -562,13 +563,30 @@ function responsive_get_posts_archive_link() {
 		'meta_value' => 'page-templates/news.php',
 	) );
 
-	// Find the first news page set to display "All Categories".
+	$_post = get_post();
+	$post_cats = get_the_terms( $_post, 'category' );
+	$meow = wp_list_pluck( $post_cats, 'term_id' );
+	$all_cats = false;
+
 	foreach ( $news_pages as $page ) {
-		$categories = get_post_meta( $page->ID, '_bu_list_news_category', true );
-		if ( empty( $categories ) ) {
+		$cat = get_post_meta( $page->ID, '_bu_list_news_category', true );
+
+		if ( in_array( $cat, $meow ) ) {
 			$archive_link = get_permalink( $page );
 			break;
 		}
+
+		// Find the first news page set to display "All Categories".
+		// Hold onto it in case we can't find a page that matches the category.
+		if ( empty( $cat ) && ! $all_cats ) {
+			$all_cats = get_permalink( $page );
+			continue;
+		}
+	}
+
+	// If we don't have a category match, but we have an all categories page, use that.
+	if ( ! $archive_link && $all_cats ) {
+			$archive_link = $all_cats;
 	}
 
 	if ( ! $archive_link ) {
