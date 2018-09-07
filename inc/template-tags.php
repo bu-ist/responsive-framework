@@ -556,31 +556,29 @@ function responsive_posts_should_display( $field ) {
  */
 function responsive_get_posts_archive_link() {
 	$archive_link = false;
-
-	$news_pages = new WP_Query( array(
-		'post_type' => 'page',
-		'post_status' => 'publish',
-		'meta_key'     => '_wp_page_template',
-		'meta_value'   => 'page-templates/news.php',
-	) );
-
 	$post_cats = get_the_terms( get_post(), 'category' );
 	$post_cat_ids = wp_list_pluck( $post_cats, 'term_id' );
 	$all_cats = false;
 
-	while ( $news_pages->have_posts() ) {
-		$news_pages->the_post();
-		$page_cat_id = get_post_meta( get_the_ID(), '_bu_list_news_category', true );
+	$news_pages = get_pages( array(
+		'hierarchical' => 0,
+		'parent' => -1,
+		'meta_key'     => '_wp_page_template',
+		'meta_value'   => 'page-templates/news.php',
+	) );
+
+	foreach( $news_pages as $page ) {
+		$page_cat_id = get_post_meta( $page->ID, '_bu_list_news_category', true );
 
 		if ( in_array( $page_cat_id, $post_cat_ids ) ) {
-			$archive_link = get_permalink( get_the_ID() );
+			$archive_link = get_permalink( $page->ID );
 			break;
 		}
 
 		// Find the first news page set to display "All Categories".
 		// Hold onto it in case we can't find a page that matches the category.
 		if ( empty( $page_cat_id ) && ! $all_cats ) {
-			$all_cats = get_permalink( get_the_ID() );
+			$all_cats = get_permalink( $page->ID );
 			continue;
 		}
 	}
