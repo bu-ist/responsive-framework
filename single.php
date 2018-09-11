@@ -10,9 +10,9 @@ get_header(); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
-
-			<?php responsive_the_title( '<header><h1 ' . r_page_title_class() . '>', '</h1></header>' ); ?>
-
+			<header>
+				<?php responsive_the_title(); ?>
+			</header>
 
 			<?php the_content(); ?>
 

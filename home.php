@@ -7,16 +7,10 @@
 
 get_header();
 
-$page_for_posts = get_option( 'page_for_posts', 0 );
 ?>
 
 <article class="content-area">
-	<?php
-	// Output the posts page's title if this is a blog listings page.
-	if ( ! is_front_page() && is_home() && ! empty( $page_for_posts ) ) {
-		responsive_the_title( '<h1 ' . r_page_title_class() . '>', '</h1>', true, $page_for_posts );
-	}
-	?>
+	<?php responsive_the_title(); ?>
 
 	<?php if ( have_posts() ) : ?>
 
