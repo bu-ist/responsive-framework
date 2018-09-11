@@ -9,7 +9,7 @@
 
 <article role="article">
 
-	<h1><?php esc_html_e( 'Nothing Found', 'responsive-framework' ); ?></h1>
+	<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'responsive-framework' ); ?></h1>
 
 	<?php if ( is_search() ) : ?>
 
