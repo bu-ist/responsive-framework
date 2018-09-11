@@ -52,7 +52,7 @@ if ( ! function_exists( 'responsive_the_title' ) ) {
 		 * @since 2.1.5
 		 * @return bool False by default. Set to true to return immediately.
 		 */
-		if ( apply_filters( 'responsive_the_title_is_hidden', '__return_false' ) ) {
+		if ( apply_filters( 'responsive_the_title_is_hidden', false ) ) {
 			return;
 		}
 
