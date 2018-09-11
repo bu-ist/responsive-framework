@@ -86,8 +86,8 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 			 * @return string $class
 			 */
 			add_filter( 'responsive_the_title_class', function( $class ){
-				if ( ! empty( $class ) && strpos( $class, 'u-visually-hidden' ) !== false ) {
-					$class .= 'u-visually-hidden';
+				if ( ! empty( $class ) && strpos( $class, 'u-visually-hidden' ) === false ) {
+					$class .= ' u-visually-hidden';
 				} elseif ( empty( $class ) ) {
 					$class = 'u-visually-hidden';
 				}
