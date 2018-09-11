@@ -91,6 +91,8 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 				} elseif ( empty( $class ) ) {
 					$class = 'u-visually-hidden';
 				}
+
+				return $class;
 			} );
 		}
 
