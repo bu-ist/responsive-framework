@@ -53,20 +53,36 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 			} );
 
 			/**
-			 * Filters Responsive Framework page title.
+			 * Filters Responsive Framework page title output.
 			 *
-			 * Removes the H1 that would normally appear and current page title from theme.
+			 * Prevents duplicate output of page H1 that would normally appear,
+			 * since it already is being used in BU Banners.
 			 *
 			 * @since 2.1.5
 			 *
-			 * @param  array $title_args Page title arguments, same as `the_title()`.
-			 * @return array $title_args
+			 * @return array True (skips the page title and prevents any output of page title).
 			 */
-			add_filter( 'responsive_filter_the_title', function( $title_args ) {
-				$title_args['title'] = false;
-				return $title_args;
-			} );
+			add_filter( 'responsive_the_title_is_hidden', '__return_true' );
 
+			// Else, add classes if we have a bu banner, its content is not empty, and there is a title field supplied.
+		} elseif ( bu_has_banner() && ! empty( $banner_content[0] ) && ! empty( $banner_content[0]['title'] ) ) {
+
+			/**
+			 * Filters Responsive Framework page title classes, to make the generic H1 visually hidden,
+			 * but still accessible to screen readers.
+			 *
+			 * @since 2.1.5
+			 *
+			 * @param  string $class Class to be applied to the H1.
+			 * @return string $class
+			 */
+			add_filter( 'responsive_the_title_class', function( $class ){
+				if ( ! empty( $class ) && strpos( $class, 'u-visually-hidden' ) !== false ) {
+					$class .= 'u-visually-hidden';
+				} elseif ( empty( $class ) ) {
+					$class = 'u-visually-hidden';
+				}
+			} );
 		}
 
 	}
