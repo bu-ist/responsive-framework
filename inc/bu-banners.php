@@ -24,7 +24,16 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 	function responsive_bu_banner_title() {
 
 		// Returns immediately if this is the admin, or if there is no `bu_has_banner` function.
-		if ( is_admin() || ! function_exists( 'bu_has_banner' ) ) {
+		if ( is_admin() || ! function_exists( 'bu_has_banner' ) || ! function_exists( 'bu_banners_layout_supports_text' ) ) {
+			return;
+		}
+
+		// Stores the post id.
+		$post_id = get_queried_object_id();
+
+		// Only target text layouts.
+		$layout = get_post_meta( $post_id, '_bu_banner_layout', true );
+		if ( ! bu_banners_layout_supports_text( $layout ) ) {
 			return;
 		}
 
