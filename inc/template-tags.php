@@ -23,58 +23,139 @@ function responsive_get_title() {
 	}
 }
 
-/**
- * Displays the current page title.
- *
- * Functions like `the_title()`, but can be filtered to prevent or change the output
- * intended for the main page title. Accepts the same arguments as `the_title()`, with
- * an additional argument for $post->ID.
- *
- * Note: Intended only to be used where the main page title is.
- *       Not intended to be used for things like a listing of posts.
- *
- * @since    2.1.4
- *
- * @link     https://codex.wordpress.org/Function_Reference/the_title
- * @link     https://developer.wordpress.org/reference/hooks/the_title/
- *
- * @param    string $before Optional. Markup to prepend to the title. Default empty.
- * @param    string $after  Optional. Markup to append to the title. Default empty.
- * @param    bool   $echo   Optional. Whether to echo or return the title. Default true for echo.
- * @param    int    $id     Optional. Retrieves the title for a given post id.
- * @return   string|void Current post title if $echo is false.
- */
-function responsive_the_title( $before = '', $after = '', $echo = true, $id = false ) {
+if ( ! function_exists( 'responsive_the_title' ) ) {
 
 	/**
-	 * Filters the current page title and its supplied arguments for before, after HTML.
-	 *
-	 * Useful for when something besides `get_the_title()` for the current query
-	 * should be used, or the $before and $after parameters need to be modified
-	 * on the fly. This filter can also be used to turn off the page title by setting
-	 * title to an empty string.
+	 * Outputs the title for the current query with h1 tag.
 	 *
 	 * @since    2.1.4
+	 *
+	 * @see      responsive_get_the_title
+	 *
+	 * @param array $args {
+	 *     Optional. An array of arguments.
+	 *
+	 *     @type string $class Class to be applied to h1 element. Default 'page-title'.
+	 *     @type bool   $echo  Whether to echo or return the title. Default true for echo.
+	 * }
+	 *
+	 * @return   string $html The current query's title with h1 tag.
 	 */
-	$args = apply_filters( 'responsive_filter_the_title', array(
-		'before' => $before,
-		'after'  => $after,
-		'title'  => get_the_title( $id ),
-	) );
+	function responsive_the_title( $args = array() ) {
 
-	// Only continues if a title exists and wasn't removed by the filter.
-	if ( ! empty( $args['title'] ) ) {
-
-		// Apply the normal `the_title` filters, in case $args['title'] was modified.
-		$title = apply_filters( 'the_title', $args['before'] . $args['title'] . $args['after'] );
-
-		// Echoes or returns the title.
-		if ( $echo ) {
-			// Only allows html that can be used inside `the_content`.
-			echo wp_kses_post( $title );
-		} else {
-			return $title;
+		/**
+		 * Theme filter for preventing any output of page title.
+		 *
+		 * Useful in contexts for turning off the page title, such as
+		 * when it already exists in BU Banners.
+		 *
+		 * @since 2.1.5
+		 * @return bool False by default. Set to true to return immediately.
+		 */
+		if ( apply_filters( 'responsive_the_title_is_hidden', '__return_false' ) ) {
+			return;
 		}
+
+		// Declares default arguments.
+		$defaults = array(
+			'class' => 'page-title',
+			'echo'  => true,
+		);
+
+		// Merges supplied arguments with defaults.
+		$args = wp_parse_args( $args, $defaults );
+
+		// Allows class to be filtered.
+		$args['class'] = (string) apply_filters( 'responsive_the_title_class', $args['class'] );
+
+		// Builds the h1 tag.
+		if ( ! empty( $args['class'] ) ) {
+			$html = '<h1 class="' . esc_attr( $args['class'] ) . '">' . responsive_get_the_title() . '</h1>';
+		} else {
+			$html = '<h1>' . responsive_get_the_title() . '</h1>';
+		}
+
+		// Echoes or returns the html.
+		if ( $args['echo'] ) {
+			echo wp_kses( $html, array(
+				'h1' => array(
+					'class' => array(),
+				),
+			) );
+		} else {
+			return $html;
+		}
+	}
+}
+
+if ( ! function_exists( 'responsive_get_the_title' ) ) {
+
+	/**
+	 * Returns the title for the current query.
+	 *
+	 * - For pages and posts, `the_title` will be used.
+	 * - For taxonomy term queries, `single_term_title` will be used.
+	 * - For post-type or date-based archives, `get_the_archive_title` will be used.
+	 *
+	 * Note: Intended only to be used once, where the main page title is.
+	 *
+	 * @since    2.1.4
+	 *
+	 * @link     https://developer.wordpress.org/reference/functions/single_term_title/
+	 * @link     https://developer.wordpress.org/reference/functions/get_the_archive_title/
+	 *
+	 * @return   string $title The current query's title.
+	 */
+	function responsive_get_the_title() {
+
+		// Search query title.
+		if ( is_search() ) :
+			/* translators: %s: current search query. */
+			$title = sprintf( __( 'Search Results for: %s', 'responsive-framework' ), '<span>' . get_search_query() . '</span>' );
+			// Error 404 page title.
+		elseif ( is_404() ) :
+			$title = __( 'Yikes! We couldn\'t find that.', 'responsive-framework' );
+			// Blog home.
+		elseif ( is_home() ) :
+			// If Settings > Reading > Front page set to a specific posts page, use that page title.
+			$posts_page_id = get_option( 'page_for_posts' );
+			if ( ! empty( $posts_page_id ) ) :
+				$title = get_the_title( $posts_page_id );
+				// Else, if Settings > Reading > Front page is using default settings, use blog title and description from Settings > General.
+			elseif ( is_home() && is_front_page() ) :
+				$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
+			endif;
+			// Archives.
+		elseif ( is_archive() ) :
+			// BU Profles archive.
+			if ( is_post_type_archive( 'profile' ) ) {
+				$title = __( 'Profile Directory', 'responsive-framework' );
+				// Custom taxonomies, categories, and tags.
+			} elseif ( is_tax() || is_category() || is_tag() ) {
+				$title = single_term_title( '', false );
+				// All other archives (custom post-types, date-based).
+			} else {
+				$title = get_the_archive_title();
+			}
+			// Singular profile.
+		elseif ( is_singular( 'profile' ) && function_exists( 'bu_profile_detail' ) ) :
+			// @see bu-profiles plugin: bu-profiles/bu-profile-template-tags.php.
+			$first_name = bu_profile_detail( 'first_name', array( 'echo' => false ) );
+			$last_name  = bu_profile_detail( 'last_name', array( 'echo' => false ) );
+			if ( ! empty( $first_name ) && ! empty( $last_name ) ) {
+				$title = $first_name . ' ' . $last_name;
+			} else {
+				$title = get_the_title();
+			}
+		else :
+			// Default: A single post/page.
+			$title = get_the_title();
+		endif;
+
+		// Allow the current title to be filtered.
+		$title = apply_filters( 'responsive_filter_get_the_title', $title );
+
+		return $title;
 	}
 }
 
