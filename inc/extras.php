@@ -257,23 +257,28 @@ add_filter( 'admin_init', 'responsive_image_default_link_type' );
 
 
 /**
- * Hides the H1 for homepage if option is set.
+ * Visually hides the H1 for homepage if option is set.
  *
- * @param string $title   Post title.
- * @param int    $post_id Post ID to filter title for.
+ * @param string $class Classname to be added to the h1.
  *
- * @return string New title to use.
+ * @return string $class.
  */
-function responsive_maybe_hide_homepage_h1( $title, $post_id ) {
-	$hide_front_h1 = get_option( 'burf_setting_hide_front_h1' );
+function responsive_maybe_hide_homepage_h1( $class ) {
+	$hide_front_h1 = (boolean) get_option( 'burf_setting_hide_front_h1' );
 
-	if ( true === (boolean) $hide_front_h1 && is_front_page() && (int) get_option( 'page_on_front' ) === $post_id ) {
-		return '';
+	if ( true === $hide_front_h1 && is_front_page() ) {
+		if ( ! empty( $class ) ) {
+			// Append the visually hidden class to current class.
+			$class .= ' u-visually-hidden';
+		} else {
+			// Set the visually hidden class to the empty class.
+			$class = 'u-visually-hidden';
+		}
 	}
 
-	return $title;
+	return $class;
 }
-add_filter( 'the_title', 'responsive_maybe_hide_homepage_h1', 10, 2 );
+add_filter( 'responsive_the_title_classes', 'responsive_maybe_hide_homepage_h1', 10, 2 );
 
 
 /**
@@ -352,4 +357,3 @@ function responsive_is_wpdocs() {
 	}
 	return false;
 }
-
