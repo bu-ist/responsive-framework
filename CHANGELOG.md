@@ -1,6 +1,7 @@
 # Changelog
 
 # 2.1.6
+
 -	Fixes count of widgets on alternative footbar.
 
 # 2.1.5
