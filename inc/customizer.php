@@ -96,7 +96,7 @@ function responsive_font_options() {
  *
  * @return string $styles CSS Styles for use in the Customizer.
  */
-function responsive_get_customizer_styles( $use_cache = true ) {
+function responsive_get_customizer_styles( $use_cache = false ) {
 	$styles = array();
 	$is_script_debugging = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 
@@ -435,13 +435,13 @@ function responsive_get_color_schemes() {
 				// content area.
 				'#24243a', // headings.
 				'#24243a', // text color.
-				'#dd982b', // link color.
+				'#A06C1A', // link color.
 				'#000000', // link hovers.
 				'#4fc3a0', // button color.
 				'#ffffff', // button text color.
 
 				// sidebar.
-				'#52527e', // widget bg.
+				'#494971', // widget bg.
 				'#ffffff', // widget title.
 				'#6a6a9d', // widget title border.
 				'#ecb438', // links.
@@ -767,7 +767,8 @@ CSS;
 }
 
 .primary-nav,
-.primary-nav-menu ul {
+.primary-nav-menu ul,
+.primary-nav-menu a,
 .search-toggle::before {
 	color: {$colors['primaryNav-link']};
 }
