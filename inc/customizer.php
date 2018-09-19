@@ -96,7 +96,7 @@ function responsive_font_options() {
  *
  * @return string $styles CSS Styles for use in the Customizer.
  */
-function responsive_get_customizer_styles( $use_cache = false ) {
+function responsive_get_customizer_styles( $use_cache = true ) {
 	$styles = array();
 	$is_script_debugging = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 
