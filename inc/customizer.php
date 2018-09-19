@@ -617,6 +617,46 @@ function responsive_get_color_schemes() {
 				'sidebar-bg' => true,
 			),
 		),
+		'comm_ave' => array(
+			'label'  => __( 'Comm Ave', 'responsive-framework' ),
+			'colors' => array(
+				// navigation.
+				'#303437', // background.
+				'#535860', // border color.
+				'#ffffff', // primary nav links.
+				'#b2b2b2', // utility nav links.
+				'#48b4f4', // primary links hover.
+
+				// content area.
+				'#48b4f4', // headings.
+				'#001f2c', // text color.
+				'#7ba11b', // link color.
+				'#4f6d04', // link hovers.
+				'#7ba11b', // button color.
+				'#ffffff', // button text color.
+
+				// sidebar.
+				'#7ba11b', // widget bg.
+				'#ffffff', // widget title.
+				'#87b71f', // widget title border.
+				'#eaedeb', // links.
+				'#ffffff', // link hovers.
+				'#ffffff', // text color.
+
+				// footbar.
+				'#53575b', // background.
+				'#b4e145', // top border.
+				'#f6f7f9', // widget title.
+				'#6f7378', // widget title border.
+				'#b4e145', // link colors.
+				'#86b304', // link hover colors.
+				'#ffffff', // text color.
+			),
+			'active' => array(
+				'sidebar-bg' => true,
+			),
+		),
+
 
 	);
 }
