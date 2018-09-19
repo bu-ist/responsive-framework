@@ -1,5 +1,9 @@
 # Changelog
 
+# 2.1.6
+
+-	Fixes count of widgets on alternative footbar.
+
 # 2.1.5
 -   Refactored `page-templates/calendar.php` for easier child-theming by separating logic
     into functions that now live in the existing `/inc/calendar.php` functions file, and
