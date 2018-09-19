@@ -578,6 +578,46 @@ function responsive_get_color_schemes() {
 				'sidebar-bg' => false,
 			),
 		),
+		'eiffel' => array(
+			'label'  => __( 'Eiffel', 'responsive-framework' ),
+			'colors' => array(
+				// navigation.
+				'#00343a', // background.
+				'#3f6270', // border color.
+				'#ffffff', // primary nav links.
+				'#c9b28f', // utility nav links.
+				'#c4c7c7', // primary links hover.
+
+				// content area.
+				'#c58700', // headings.
+				'#2a3239', // text color.
+				'#447375', // link color.
+				'#005653', // link hovers.
+				'#447375', // button color.
+				'#ffffff', // button text color.
+
+				// sidebar.
+				'#f4f7f7', // widget bg.
+				'#34595b', // widget title.
+				'#e5e7e7', // widget title border.
+				'#447375', // links.
+				'#005653', // link hovers.
+				'#2a3239', // text color.
+
+				// footbar.
+				'#f4f7f7', // background.
+				'#b4b7b7', // top border.
+				'#34595b', // widget title.
+				'#e5e7e7', // widget title border.
+				'#447375', // link colors.
+				'#005653', // link hover colors.
+				'#2a3239', // text color.
+			),
+			'active' => array(
+				'sidebar-bg' => true,
+			),
+		),
+
 	);
 }
 
@@ -851,6 +891,16 @@ input[type="submit"],
 .paging-navigation a,
 .archive-link {
 	background: {$colors['button-color']};
+	color: {$colors['button-text-color']};
+}
+
+input[type="submit"]:hover,
+.button:hover,
+.button-primary:hover,
+.button-selected:hover,
+#quicksearch .button:hover,
+.paging-navigation a:hover,
+.archive-link:hover {
 	color: {$colors['button-text-color']};
 }
 
