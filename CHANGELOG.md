@@ -1,5 +1,9 @@
 # Changelog
 
+# Unreleased 
+
+-	Add "Eiffel" and "Comm Ave" color themes to customizer.
+
 # 2.1.6
 
 -	Fixes count of widgets on alternative footbar.
