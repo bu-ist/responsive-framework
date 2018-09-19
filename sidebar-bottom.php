@@ -15,7 +15,7 @@ if ( is_active_sidebar( $footbar ) ) :
 	 */
 	do_action( 'r_sidebar_footbar_opening_before' );
 	?>
-	<aside class="footbar <?php responsive_sidebar_classes( 'footbar' ); ?>" role="complementary">
+	<aside class="footbar <?php responsive_sidebar_classes( $footbar ); ?>" role="complementary">
 		<h2 class="u-visually-hidden">
 		<?php
 			/* translators: %s: Site name.  */
