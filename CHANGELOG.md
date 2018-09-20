@@ -1,6 +1,6 @@
 # Changelog
 
-# Unreleased 
+# 2.1.7
 
 -	Add "Eiffel" and "Comm Ave" color themes to customizer.
 
