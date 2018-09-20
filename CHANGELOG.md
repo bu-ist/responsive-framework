@@ -1,5 +1,16 @@
 # Changelog
 
+# Unreleased
+
+-   Added new template tag, `responsive_the_title()`, intended to output the page title
+    for each single post/page template.
+-   Added new filter to the new `responsive_the_title()` template_tag, named `responsive_filter_the_title`
+    which can be used to modify/prevent the output of page titles in responsive-framework.
+-   Added new functions partial `/inc/bu-banners.php` to provide additional support features for bu-banners
+    plugin. Currently adds the h1 page title to banner if exists and title field is empty, and suppresses
+    the responsive-framework page title.
+    to use an h1 element with the current page title if the banner title is left empty.
+
 # 2.1.7
 
 -	Add "Eiffel" and "Comm Ave" color themes to customizer.

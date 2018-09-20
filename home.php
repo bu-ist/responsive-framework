@@ -7,13 +7,10 @@
 
 get_header();
 
-$page_for_posts = get_option( 'page_for_posts', 0 );
 ?>
 
 <article class="content-area">
-	<?php if ( ! is_front_page() && is_home() && ! empty( $page_for_posts ) ) : ?>
-		<h1 <?php r_page_title_class( '', true ); ?>><?php echo get_the_title( $page_for_posts ); ?></h1>
-	<?php endif; ?>
+	<?php responsive_the_title(); ?>
 
 	<?php if ( have_posts() ) : ?>
 

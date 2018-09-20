@@ -11,7 +11,7 @@ global $buCalendar;
 if ( have_posts() ) {
 	while ( have_posts() ) :
 		the_post();
-		the_title( '<h1 ' . r_page_title_class() . '>', '</h1>' );
+		responsive_the_title();
 		the_content( '<p class="serif">Read the rest of this page &raquo;</p>' );
 		wp_link_pages( array(
 			'before'         => '<p><strong>Pages:</strong> ',
