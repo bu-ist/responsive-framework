@@ -95,6 +95,8 @@ class Tests_Responsive_Framework_Customizer extends WP_UnitTestCase {
 			'extra-spectral' => 'Extra Spectral',
 			'rayleigh-scattering' => 'Rayleigh Scattering',
 			'vinca-minor' => 'Vinca Minor',
+			'eiffel' => 'Eiffel',
+			'comm_ave' => 'Comm Ave',
 		) );
 	}
 

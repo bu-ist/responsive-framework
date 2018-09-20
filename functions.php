@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.51' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.7' );
 
 /**
  * Modernizr version.
@@ -98,7 +98,8 @@ add_action( 'after_setup_theme', 'responsive_setup_after', 11 );
 function responsive_setup_theme_support() {
 	add_theme_support( 'menus' );
 	add_theme_support(
-		'html5', array(
+		'html5',
+		array(
 			'comment-form',
 			'comment-list',
 			'gallery',
@@ -200,7 +201,8 @@ function responsive_setup_news_templates() {
 	 * @param array Page templates.
 	 */
 	$theme_news_templates = apply_filters(
-		'responsive_news_templates', array(
+		'responsive_news_templates',
+		array(
 			'page-templates/news.php',
 		)
 	);

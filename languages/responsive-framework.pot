@@ -1,10 +1,11 @@
-# <!=Copyright (C) 2018 Boston University Interactive Design
-# This file is distributed under the same license as the Responsive Framework 2.x (BETA) package.=!>
+# <!=Copyright (C) 2018
+# This file is distributed under the same license as the  package.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive Framework 2.x (BETA) 2.1.51\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
-"POT-Creation-Date: 2018-08-10 17:55:49+00:00\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/theme/responsive-framework\n"
+"POT-Creation-Date: 2018-09-20 14:47:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -248,7 +249,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:264 inc/customizer.php:236 inc/template-tags.php:778
+#: functions.php:264 inc/customizer.php:236 inc/template-tags.php:797
 msgid "Footbar"
 msgstr ""
 
@@ -256,7 +257,7 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:278 inc/template-tags.php:779
+#: functions.php:278 inc/template-tags.php:798
 msgid "Alternate Footbar"
 msgstr ""
 
@@ -400,6 +401,14 @@ msgstr ""
 msgid "Vinca Minor"
 msgstr ""
 
+#: inc/customizer.php:582
+msgid "Eiffel"
+msgstr ""
+
+#: inc/customizer.php:621
+msgid "Comm Ave"
+msgstr ""
+
 #: inc/post-lists.php:19
 msgid "title only (no thumbnail)"
 msgstr ""
@@ -482,7 +491,7 @@ msgstr ""
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:611
+#: inc/template-tags.php:630
 msgid "View all posts"
 msgstr ""
 
@@ -705,20 +714,6 @@ msgstr ""
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
-msgstr ""
-
-#. Theme Name of the plugin/theme
-msgid "Responsive Framework 2.x (BETA)"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid ""
-"THIS IS A BETA THEME. Do not activate this version of Responsive Framework "
-"unless you are sure that you want to use version 2.x."
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "Boston University Interactive Design"
 msgstr ""
 
 #. Template Name of the plugin/theme

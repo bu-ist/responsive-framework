@@ -11,6 +11,14 @@
     the responsive-framework page title.
     to use an h1 element with the current page title if the banner title is left empty.
 
+# 2.1.7
+
+-	Add "Eiffel" and "Comm Ave" color themes to customizer.
+
+# 2.1.6
+
+-	Fixes count of widgets on alternative footbar.
+
 # 2.1.5
 -   Refactored `page-templates/calendar.php` for easier child-theming by separating logic
     into functions that now live in the existing `/inc/calendar.php` functions file, and
