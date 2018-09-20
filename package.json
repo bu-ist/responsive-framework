@@ -19,7 +19,8 @@
     "Carlos Silva <cedas@bu.edu>",
     "Thomas Dodson <tdodson@bu.edu>",
     "RJ Foley IV <rjfoley@bu.edu>",
-    "Alana Martin <alanam@bu.edu>"
+    "Alana Martin <alanam@bu.edu>",
+    "Tim Spears <tspears1@bu.edu>"
   ],
   "devDependencies": {
     "grunt": "^1.0.2",
