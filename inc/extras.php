@@ -156,6 +156,18 @@ add_filter( 'shortcode_atts_caption', 'responsive_caption_attributes' );
  * @return array $params Filtered array of parameters.
  */
 function responsive_widget_counts( $params ) {
+
+	$widget_name = $params[0]['widget_name'];
+
+	if ( 'BU Text' === $widget_name ) {
+		$widget_instance = $params[1]['number'];
+		$meta_key        = '_bu_text_widget_' . $widget_instance;
+
+		if ( is_bu_text_widget_empty( get_the_ID(), $meta_key ) ) {
+			return $params;
+		}
+	}
+
 	static $widget_counter = array();
 
 	$current_sidebar = $params[0]['id'];
@@ -353,3 +365,18 @@ function responsive_is_wpdocs() {
 	return false;
 }
 
+/**
+ * Returns True if the content is empty for the supplied instance of the BU Text Widget.
+ *
+ * @param integer $post_id The Post ID.
+ * @param string  $meta_key The meta key to check.
+ *
+ * @return bool
+ */
+function is_bu_text_widget_empty( $post_id, $meta_key ) {
+	$meta = get_post_meta( $post_id, $meta_key, true );
+	if ( empty( $meta['content'] ) ) {
+		return true;
+	}
+	return false;
+};
