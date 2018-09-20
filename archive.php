@@ -13,7 +13,7 @@ get_header();
 	<?php if ( have_posts() ) : ?>
 
 		<?php
-			the_archive_title( '<h1 ' . r_page_title_class() . '>', '</h1>' );
+			responsive_the_title();
 			the_archive_description( '<div class="taxonomy-description">', '</div>' );
 		?>
 

@@ -11,12 +11,7 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<h1 <?php r_page_title_class( '', true ); ?>>
-			<?php
-				/* translators: %s: current search query. */
-				printf( esc_html__( 'Search Results for: %s', 'responsive-framework' ), '<span>' . esc_html( get_search_query() ) . '</span>' );
-			?>
-			</h1>
+			<?php responsive_the_title(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 

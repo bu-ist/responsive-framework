@@ -43,7 +43,7 @@ $event = $buCalendar->getEvent( $calendar_id, $event_id, $oid );
 ?>
 <div class="single-event">
 	<div class="single-event-summary">
-		<h1><?php echo wp_kses_post( $event['summary'] ); ?></h1>
+		<h1 class="page-title"><?php echo wp_kses_post( $event['summary'] ); ?></h1>
 		<div class="single-event-schedule">
 			<ul class="single-event-schedule-list">
 				<?php if ( ! empty( $event['start_time'] ) && ! empty( $labels['starts'] ) ) : ?>
