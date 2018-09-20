@@ -54,12 +54,15 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 			 * @param  array $banner_info Banner content values.
 			 * @return array $banner_info
 			 */
-			add_filter( 'bu_banners_banner_info', function( $banner_info ) {
-				$banner_info['title']        = get_the_title();
-				$banner_info['title_before'] = '<h1 class="page-title bu-banner-title">';
-				$banner_info['title_after']  = '</h1>';
-				return $banner_info;
-			} );
+			add_filter(
+				'bu_banners_banner_info',
+				function( $banner_info ) {
+					$banner_info['title']        = get_the_title();
+					$banner_info['title_before'] = '<h1 class="page-title bu-banner-title">';
+					$banner_info['title_after']  = '</h1>';
+					return $banner_info;
+				}
+			);
 
 			/**
 			 * Filters Responsive Framework page title output.
@@ -85,15 +88,18 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 			 * @param  string $class Class to be applied to the H1.
 			 * @return string $class
 			 */
-			add_filter( 'responsive_the_title_class', function( $class ){
-				if ( ! empty( $class ) && strpos( $class, 'u-visually-hidden' ) === false ) {
-					$class .= ' u-visually-hidden';
-				} elseif ( empty( $class ) ) {
-					$class = 'u-visually-hidden';
-				}
+			add_filter(
+				'responsive_the_title_class',
+				function( $class ) {
+					if ( ! empty( $class ) && strpos( $class, 'u-visually-hidden' ) === false ) {
+						$class .= ' u-visually-hidden';
+					} elseif ( empty( $class ) ) {
+						$class = 'u-visually-hidden';
+					}
 
-				return $class;
-			} );
+					return $class;
+				}
+			);
 		}
 
 	}
