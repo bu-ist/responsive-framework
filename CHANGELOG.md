@@ -1,6 +1,6 @@
 # Changelog
 
-# Unreleased
+# 2.1.8
 
 -   Added new template tag, `responsive_the_title()`, intended to output the page title
     for each single post/page template.
