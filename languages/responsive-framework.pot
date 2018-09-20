@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/theme/responsive-framework\n"
-"POT-Creation-Date: 2018-09-20 14:47:08+00:00\n"
+"POT-Creation-Date: 2018-09-20 18:29:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,10 +24,6 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n1.0.2\n"
-
-#: 404.php:13
-msgid "Yikes! We couldn't find that."
-msgstr ""
 
 #: 404.php:17
 msgid "Looks like that page might not be here anymore. Want to give search a try?"
@@ -89,7 +85,7 @@ msgid ""
 "has its own display options."
 msgstr ""
 
-#: admin/theme-customizer.php:234 inc/template-tags.php:128
+#: admin/theme-customizer.php:234 inc/template-tags.php:264
 msgid "Categories"
 msgstr ""
 
@@ -160,10 +156,6 @@ msgstr ""
 msgid "Keep the posts sidebar on bottom"
 msgstr ""
 
-#: archive-profile.php:13
-msgid "Profile Directory"
-msgstr ""
-
 #: comments.php:37
 msgid "&larr; Older Comments"
 msgstr ""
@@ -205,63 +197,63 @@ msgstr ""
 msgid "Submit Comment"
 msgstr ""
 
-#: functions.php:153
+#: functions.php:154
 msgid "Footer Links"
 msgstr ""
 
-#: functions.php:154
+#: functions.php:155
 msgid "Social Links"
 msgstr ""
 
-#: functions.php:155
+#: functions.php:156
 msgid "Utility Navigation"
 msgstr ""
 
-#: functions.php:161
+#: functions.php:162
 msgid "Primary Navigation"
 msgstr ""
 
-#: functions.php:226
+#: functions.php:228
 msgid "Main Sidebar"
 msgstr ""
 
-#: functions.php:228
+#: functions.php:230
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:238
+#: functions.php:240
 msgid "Posts Content Area"
 msgstr ""
 
-#: functions.php:240
+#: functions.php:242
 msgid ""
 "Add widgets here for display on posts and archives. Only the first 2 "
 "widgets will appear."
 msgstr ""
 
-#: functions.php:251
+#: functions.php:253
 msgid "Profiles Content Area"
 msgstr ""
 
-#: functions.php:253
+#: functions.php:255
 msgid ""
 "Add widgets here for display on profile pages and archives. Only the first "
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:264 inc/customizer.php:236 inc/template-tags.php:797
+#: functions.php:266 inc/customizer.php:236 inc/template-tags.php:933
 msgid "Footbar"
 msgstr ""
 
-#: functions.php:266 functions.php:280
+#: functions.php:268 functions.php:282
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:278 inc/template-tags.php:798
+#: functions.php:280 inc/template-tags.php:934
 msgid "Alternate Footbar"
 msgstr ""
 
-#: functions.php:423
+#: functions.php:425
 #. translators: %s: navigation label navigating to.
 msgid "Navigate to: %s"
 msgstr ""
@@ -270,6 +262,10 @@ msgstr ""
 msgid ""
 "Boston University is a leading private research institution with two "
 "primary campuses in the heart of Boston and programs around the world."
+msgstr ""
+
+#: inc/bu-banners.php:122
+msgid "Leave blank to use the page title."
 msgstr ""
 
 #: inc/calendar.php:36
@@ -451,47 +447,60 @@ msgstr ""
 msgid "Page %d"
 msgstr ""
 
-#: inc/template-tags.php:396
+#: inc/template-tags.php:114
+#. translators: %s: current search query.
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/template-tags.php:117
+msgid "Yikes! We couldn't find that."
+msgstr ""
+
+#: inc/template-tags.php:132
+msgid "Profile Directory"
+msgstr ""
+
+#: inc/template-tags.php:532
 #. translators: %s: archive type singular name.
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:401
+#: inc/template-tags.php:537
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:402
+#: inc/template-tags.php:538
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:443
+#: inc/template-tags.php:579
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:471 single.php:34
+#: inc/template-tags.php:607 single.php:34
 #. translators: %s: author name linking to their archive page.
 #. translators: %s: author name
 msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:488
+#: inc/template-tags.php:624
 #. translators: %s: category list for the post.
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:497
+#: inc/template-tags.php:633
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:497
+#: inc/template-tags.php:633
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:497
+#: inc/template-tags.php:633
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:630
+#: inc/template-tags.php:766
 msgid "View all posts"
 msgstr ""
 
@@ -539,11 +548,6 @@ msgstr ""
 
 #: profiles.php:16
 msgid "Read the rest of this profile &raquo;"
-msgstr ""
-
-#: search.php:17
-#. translators: %s: current search query.
-msgid "Search Results for: %s"
 msgstr ""
 
 #: searchform.php:11 searchform.php:14 searchform.php:16
