@@ -705,6 +705,43 @@ function r_enqueue_fancy_gallery() {
 }
 
 /**
+ * Filter used to prevent incrementing CSS widget class count if a BU Text Widget is empty.
+ *
+ * @since 2.1.9
+ *
+ * @param bool  $is_widget_empty Defaults to false, assumes widget has content.
+ * @param array $params An array of Widget options info.
+ *
+ * @return bool $is_widget_empty The status of content for the widget.
+ */
+function r_is_bu_text_widget_empty( $is_widget_empty, $params ) {
+	$widget_name = $params[0]['widget_name'];
+
+	if ( 'BU Text' === $widget_name ) {
+		$widget_instance = $params[1]['number'];
+		$meta_key        = '_bu_text_widget_' . $widget_instance;
+		$widget_meta     = get_post_meta( get_the_ID(), $meta_key, true );
+
+		if ( empty( $widget_meta['content'] ) ) {
+			$is_widget_empty = true;
+		}
+	}
+	return $is_widget_empty;
+}
+
+/**
+ * Adds the empty widget check filter if the BU Text Widget plugin is active.
+ *
+ * @since 2.1.9
+ */
+function r_bu_text_widget_loaded() {
+	if ( is_plugin_active( 'bu-text-widget/bu-text-widget.php' ) ) {
+		add_filter( 'responsive_is_widget_empty', 'r_is_bu_text_widget_empty', 10, 2 );
+	}
+}
+add_action( 'after_setup_theme', 'r_bu_text_widget_loaded' );
+
+/**
  * Remove the news template when BU_News_Page_Template does not exist.
  *
  * @param string[]     $templates Array of page templates. Keys are filenames,
