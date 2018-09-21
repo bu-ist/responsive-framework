@@ -730,7 +730,7 @@ function r_is_bu_text_widget_empty( $is_widget_empty, $params ) {
 }
 
 /**
- * Adds the empty widget check filter if the BU Text Widget plugin is active.
+ * Adds an empty widget check filter if the BU Text Widget plugin is active.
  *
  * @since 2.1.9
  */
@@ -740,6 +740,43 @@ function r_bu_text_widget_loaded() {
 	}
 }
 add_action( 'after_setup_theme', 'r_bu_text_widget_loaded' );
+
+/**
+ * Filter used to prevent incrementing CSS widget class count if a BU Links Widget is empty.
+ *
+ * @since 2.1.9
+ *
+ * @param bool  $is_widget_empty Defaults to false, assumes widget has content.
+ * @param array $params An array of Widget options info.
+ *
+ * @return bool $is_widget_empty The status of content for the widget.
+ */
+function r_is_bu_links_widget_empty( $is_widget_empty, $params ) {
+	$widget_name = $params[0]['widget_name'];
+
+	if ( 'BU Links' === $widget_name ) {
+		$widget_instance = $params[1]['number'];
+		$meta_key        = '_bu_links_' . $widget_instance;
+		$widget_meta     = get_post_meta( get_the_ID(), $meta_key, true );
+
+		if ( ! is_array( $widget_meta ) ) {
+			$is_widget_empty = true;
+		}
+	}
+	return $is_widget_empty;
+}
+
+/**
+ * Adds an empty widget check filter if the BU Link plugin is active.
+ *
+ * @since 2.1.9
+ */
+function r_bu_link_widget_loaded() {
+	if ( is_plugin_active( 'link-lists/link-lists.php' ) ) {
+		add_filter( 'responsive_is_widget_empty', 'r_is_bu_links_widget_empty', 10, 2 );
+	}
+}
+add_action( 'after_setup_theme', 'r_bu_link_widget_loaded' );
 
 /**
  * Remove the news template when BU_News_Page_Template does not exist.
