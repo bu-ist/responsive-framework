@@ -1,6 +1,7 @@
 # Changelog
 
 # unreleased
+
 -	Fixes #45 New filters added to correct widget count classes for each widget.
 -	Created filter `responsive_is_widget_empty` to help check for empty widgets.
 -	Added `r_is_bu_text_widget_empty()` using is `responsive_is_widget_empty`
