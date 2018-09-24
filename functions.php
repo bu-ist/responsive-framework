@@ -772,6 +772,7 @@ function r_is_bu_links_widget_empty( $is_widget_empty, $params ) {
  * @since 2.1.9
  */
 function r_bu_link_widget_loaded() {
+	require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 	if ( is_plugin_active( 'link-lists/link-lists.php' ) ) {
 		add_filter( 'responsive_is_widget_empty', 'r_is_bu_links_widget_empty', 10, 2 );
 	}
