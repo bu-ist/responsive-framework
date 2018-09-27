@@ -715,15 +715,34 @@ function r_enqueue_fancy_gallery() {
  * @return bool $is_widget_empty The status of content for the widget.
  */
 function r_is_bu_text_widget_empty( $is_widget_empty, $params ) {
-	$widget_name = $params[0]['widget_name'];
+	$widget_name  = $params[0]['widget_name'];
+	$ancestor_ids = get_post_ancestors( get_the_ID() );
 
 	if ( 'BU Text' === $widget_name ) {
-		$widget_instance = $params[1]['number'];
-		$meta_key        = '_bu_text_widget_' . $widget_instance;
-		$widget_meta     = get_post_meta( get_the_ID(), $meta_key, true );
+		$widget_instance  = $params[1]['number'];
+		$meta_key         = '_bu_text_widget_' . $widget_instance;
+		$widget_meta      = get_post_meta( get_the_ID(), $meta_key, true );
+		$show_on_children = '_bu_text_widget_show_on_children_' . $widget_instance;
 
 		if ( empty( $widget_meta['content'] ) ) {
-			$is_widget_empty = true;
+			$is_widget_empty = true; // Assume the widget is empty unless we prove otherwise.
+
+			if ( ! empty( $ancestor_ids ) ) {
+				foreach ( $ancestor_ids as $key => $ancestor_id ) {
+					// Check to see if widget exists on ancestors and is set to show children.
+					$parent_widget_meta    = get_post_meta( $ancestor_id, $meta_key, true );
+					$parent_widget_show_on = get_post_meta( $ancestor_id, $show_on_children, true );
+					if ( 'Yes' === $parent_widget_show_on ) {
+						if ( ! empty( $parent_widget_meta['content'] ) ) {
+							// This matches the way the plugin currently works.
+							// We only go to the 1st parent that says `Yes` show
+							// on children, regardless if content is available.
+							$is_widget_empty = false;
+							break;
+						}
+					}
+				}
+			}
 		}
 	}
 	return $is_widget_empty;
