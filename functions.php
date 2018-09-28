@@ -735,13 +735,19 @@ function r_is_bu_text_widget_empty( $is_widget_empty, $params ) {
 					$parent_widget_meta = get_post_meta( $ancestor_id, $meta_key, true );
 					$show_on_children   = get_post_meta( $ancestor_id, $show_children_meta_key, true );
 					if ( 'Yes' === $show_on_children ) {
-						if ( ! empty( $parent_widget_meta['content'] ) ) {
+						if ( empty( $parent_widget_meta['content'] ) ) {
 							// This matches the way the plugin currently works.
 							// We only go to the 1st parent that says `Yes` show
 							// on children, regardless if content is empty.
+							// Here content is empty so we just break and
+							// keep the widget empty status as true.
+							break;
+						} else {
+							// This parent is set to show & has content.
 							$is_widget_empty = false;
 							break;
 						}
+
 					}
 				}
 			}
