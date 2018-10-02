@@ -5,7 +5,6 @@
 -	Update WordPress version in Travis tests to our current install version 4.9.7
 -	Update Unit Tests for `test_responsive_is_bu_domain_true()` to work with single
 	or multi-site installations.
--	Remove outdated code from the Unit Tests bootstrap.php file.
 
 # 2.1.8
 
