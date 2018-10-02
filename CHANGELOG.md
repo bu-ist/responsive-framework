@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+-   Bugfix: Prevented empty post title from rendering in `responsive_the_title()` template tag.
+-   Bugfix: Fixed typo in name of filter used to visually hide home page title. Was `responsive_the_title_classes` and is now `responsive_the_title_class`.
+
 ## 2.1.8
 
 -   Added new template tag, `responsive_the_title()`, intended to output the page title
