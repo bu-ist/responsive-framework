@@ -1,6 +1,6 @@
 # Changelog
 
-# 2.1.8
+## 2.1.8
 
 -   Added new template tag, `responsive_the_title()`, intended to output the page title
     for each single post/page template.
@@ -11,15 +11,15 @@
     the responsive-framework page title.
     to use an h1 element with the current page title if the banner title is left empty.
 
-# 2.1.7
+## 2.1.7
 
 -	Add "Eiffel" and "Comm Ave" color themes to customizer.
 
-# 2.1.6
+## 2.1.6
 
 -	Fixes count of widgets on alternative footbar.
 
-# 2.1.5
+## 2.1.5
 -   Refactored `page-templates/calendar.php` for easier child-theming by separating logic
     into functions that now live in the existing `/inc/calendar.php` functions file, and
     moving templating chunks into `template-parts/calendar/calendar.php` and
@@ -30,26 +30,26 @@
     with `network_home_url` in the `responsive_is_bu_domain` function defined in
     `inc/template-tags.php:33`.
 
-# 2.1.4
+## 2.1.4
 -   Adds skip link support.
 
-# 2.1.3
+## 2.1.3
 -   Added `responsive_is_wpdocs()`, to check for the wpdocs subdomain.
 
-# 2.1.4
+## 2.1.4
 
 -   Color contrast accessibility fixes to comply with MWAS
 -   Added skip-link feature for keyboard navigation
 
-# 2.1.3
+## 2.1.3
 
 -   Added BU Hub Indicator. Incorporated adjustments to line height.
 
-# 2.1.2
+## 2.1.2
 
 -   Move 2.1.2 to a new repo for a fresh start in prepartion to begin the open source process.
 
-# 2.0.0
+## 2.0.0
 
 -   Added CONTRIBUTING.md file for contribution rules.
 -   Removed use of `file_get_contents()` in the Customizer.
