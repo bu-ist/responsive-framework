@@ -40,7 +40,8 @@
     "grunt-wp-i18n": "^1.0.2",
     "lg-thumbnail": "^1.1.0",
     "lightgallery": "^1.6.8",
-    "time-grunt": "^1.4.0"
+    "time-grunt": "^1.4.0",
+    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#migrate-off-bower"
   },
   "scripts": {
     "postinstall": "bundle install && grunt install"
