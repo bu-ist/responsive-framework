@@ -19,8 +19,8 @@
 <nav class="primary-nav" role="navigation">
 	<button type="button" class="nav-toggle js-nav-toggle" aria-label="<?php esc_attr_e( 'Open menu', 'responsive-framework' ); ?>" aria-expanded="true"><span><?php esc_html_e( 'Menu', 'responsive-framework' ); ?></span></button>
 
-	<?php responsive_primary_nav(); ?>
-	<?php responsive_utility_nav(); ?>
+	<?php responsive_primary_nav( 'primary-nav-menu-sidenav' ); ?>
+	<?php responsive_utility_nav( 'utility-nav-sidenav' ); ?>
 </nav>
 
 <?php

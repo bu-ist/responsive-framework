@@ -13,9 +13,9 @@
 		<button type="button" class="search-toggle js-search-toggle" aria-label="<?php esc_attr_e( 'Open search', 'responsive-framework' ); ?>" aria-expanded="true"><span><?php esc_html_e( 'Search', 'responsive-framework' ); ?></span></button>
 	<?php endif; ?>
 
-	<?php responsive_primary_nav(); ?>
+	<?php responsive_primary_nav( 'primary-nav-menu-topnav' ); ?>
 
-	<?php responsive_utility_nav(); ?>
+	<?php responsive_utility_nav( 'utility-nav-topnav' ); ?>
 </nav>
 
 <?php responsive_search_form(); ?>
