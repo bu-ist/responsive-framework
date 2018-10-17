@@ -168,7 +168,8 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 		error_log( sprintf( '[%s] Creating contact form...', __FUNCTION__ ) );
 
 		// Install GF tables if they don't already exist.
-		GFForms::setup();
+		$current_gf_version = get_option( 'rg_form_version' );
+		gf_upgrade()->upgrade( $current_gf_version, true );
 
 		// Import template form.
 		$contact_form = json_decode( file_get_contents( get_template_directory() . '/inc/contact-form.json' ), true );
