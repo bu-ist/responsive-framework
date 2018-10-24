@@ -6,6 +6,7 @@
   template tag.
 - Bugfix: Fixed typo in name of filter used to visually hide home page title.
   Was `responsive_the_title_classes` and is now `responsive_the_title_class`.
+  Change 404.php to make fun
 
 ## 2.1.8
 
