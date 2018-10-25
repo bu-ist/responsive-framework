@@ -5,7 +5,8 @@
  * @package Responsive_Framework\BU_Profiles
  */
 
-get_header(); ?>
+get_header();
+?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
@@ -15,11 +16,13 @@ get_header(); ?>
 
 			<?php the_content( '<p class="serif">' . esc_html__( 'Read the rest of this profile &raquo;', 'responsive-framework' ) . '</p>' ); ?>
 
-			<?php if ( defined( 'BU_PROFILES_PLUGIN_ACTIVE' ) && BU_PROFILES_PLUGIN_ACTIVE ) : ?>
-			<?php $format = bu_profile_get_format_for_post(); ?>
-			<?php $query = bu_profile_get_query();?>
-			<?php bu_profile_get_template_part( $format, $query ); ?>
-			<?php endif; ?>
+			<?php
+			if ( defined( 'BU_PROFILES_PLUGIN_ACTIVE' ) && BU_PROFILES_PLUGIN_ACTIVE ) {
+				$format = bu_profile_get_format_for_post();
+				$query  = bu_profile_get_query();
+				bu_profile_get_template_part( $format, $query );
+			}
+			?>
 
 			<?php responsive_comments(); ?>
 
@@ -27,5 +30,7 @@ get_header(); ?>
 
 	<?php endwhile; ?>
 
-<?php get_sidebar( 'profiles' ); ?>
-<?php get_footer();
+<?php
+get_sidebar( 'profiles' );
+get_footer();
+
