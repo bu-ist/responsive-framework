@@ -450,7 +450,7 @@ function r_is_narrow_template() {
 			$narrow_enabled = true;
 		}
 	} else {
-		$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom', false );
+		$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom' );
 	}
 
 	if ( defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ) {

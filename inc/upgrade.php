@@ -65,6 +65,24 @@ function responsive_framework_upgrade( $verbose = true ) {
 add_action( 'init', 'responsive_framework_upgrade' );
 
 /**
+ * Ensures that the default options are saved in the database.
+ */
+function responsive_upgrade_ensure_theme_options() {
+	// Ensure customizer options have default values saved.
+	$show_on_bottom = get_option( 'burf_setting_posts_sidebar_bottom' );
+
+	if ( empty( $show_on_bottom ) ) {
+		add_option( 'burf_setting_posts_sidebar_bottom', true );
+	}
+
+	$sidebar_location = get_option( 'burf_setting_sidebar_location' );
+
+	if ( empty( $sidebar_location ) ) {
+		update_option( 'burf_setting_sidebar_location', 'right' );
+	}
+}
+
+/**
  * Upgrade for 0.9.1.
  *
  * - Page template renaming
@@ -175,10 +193,8 @@ function responsive_upgrade_2_0( $verbose = true ) {
 		'page-templates/profiles.php' => 'profiles.php',
 	) );
 
-	$template_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
-		$wpdb->postmeta, implode( '","', array_keys( $template_map ) )
-	);
-	$results = $wpdb->get_results( $template_query );
+	$template_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")', $wpdb->postmeta, implode( '","', array_keys( $template_map ) ) );
+	$results        = $wpdb->get_results( $template_query );
 
 	if ( $verbose ) {
 		error_log( __FUNCTION__ . ' - Posts to migrate: ' . count( $results ) );
@@ -199,9 +215,7 @@ function responsive_upgrade_2_0( $verbose = true ) {
 		'windowWidth'  => 'window-width',
 	) );
 
-	$results = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'",
-		$wpdb->postmeta
-	) );
+	$results = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'", $wpdb->postmeta ) );
 
 	foreach ( $results as $result ) {
 		$banner = maybe_unserialize( $result->meta_value );
@@ -224,8 +238,8 @@ function responsive_upgrade_2_0( $verbose = true ) {
 	// Upgrade layout names and ensure a value is saved to the option in the database.
 	$names = array(
 		'sideNav' => 'side-nav',
-		'topNav' => 'top-nav',
-		'noNav' => 'no-nav',
+		'topNav'  => 'top-nav',
+		'noNav'   => 'no-nav',
 	);
 
 	if ( $verbose ) {
@@ -252,4 +266,6 @@ function responsive_upgrade_2_0( $verbose = true ) {
 	if ( $new_layout !== $old_layout ) {
 		update_option( 'burf_setting_layout', $new_layout );
 	}
+
+	responsive_upgrade_ensure_theme_options();
 }
