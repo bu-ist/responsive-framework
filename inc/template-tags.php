@@ -328,14 +328,15 @@ function responsive_term_links( $post = null, $before = '', $sep = '', $after = 
  * If the current site has a site-wide ACL applied nothing will be displayed.
  *
  * @uses  BU Navigation plugin
+ * @param string $nav_id Allow override of the default primary nav id.
  */
-function responsive_primary_nav() {
+function responsive_primary_nav( $nav_id = 'primary-nav-menu' ) {
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
 		false == BuAccessControlPlugin::is_site_403() ) {
 
 		if ( function_exists( 'bu_navigation_display_primary' ) ) {
 			bu_navigation_display_primary( array(
-				'container_id'    => 'primary-nav-menu',
+				'container_id'    => $nav_id,
 				'container_class' => 'primary-nav-menu',
 			) );
 		} else {
@@ -356,6 +357,7 @@ function responsive_primary_nav() {
  * If the current site has a site-wide ACL applied or the utility menu has
  * no items nothing will be displayed.
  *
+ * @param string $extra_classes Optional. Extra classes for the menu markup.
  * @param array $args {
  *     Optional. Arguments to configure menu markup.
  *
@@ -363,13 +365,18 @@ function responsive_primary_nav() {
  *     @type  string $after  HTML markup to display after menu.
  * }
  */
-function responsive_utility_nav( $args = array() ) {
+function responsive_utility_nav( $extra_classes = NULL, $args = array()) {
 	if ( ! has_nav_menu( 'utility' ) ) {
 		return;
 	}
 
+	$classes = 'utility-nav';
+	if ( $extra_classes ) {
+		$classes .= ' ' . $extra_classes;
+	}
+
 	$defaults = array(
-		'before' => '<nav class="utility-nav" role="navigation">',
+		'before' => '<nav class="' . $classes . '" role="navigation">',
 		'after'  => '</nav>',
 	);
 
