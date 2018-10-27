@@ -6,7 +6,10 @@ services:
     ports:
       - "8081:3306"
     environment:
+      MYSQL_DATABASE: wordpress
       MYSQL_ROOT_PASSWORD: ChangeMeIfYouWant
+    volumes:
+      - ./wp-db:/docker-entrypoint-initdb.d
 
   wp:
     build: .
