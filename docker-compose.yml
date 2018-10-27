@@ -19,6 +19,7 @@ services:
       WORDPRESS_DB_PASSWORD: ChangeMeIfYouWant
     volumes:
       - .:/var/www/html/wp-content/themes/responsive-framework-2-x
+      - ./wp-media:/var/www/html/wp-content/uploads
 
   wordpress.local:
     image: bostonuniversity/elb-simulator:latest
