@@ -1,3 +1,7 @@
+backstop_data/*
+!backstop_data/engine_scripts
+!backstop_data/bitmaps_reference
+
 npm-debug.log
 node_modules
 .sass-cache

@@ -11,13 +11,19 @@ services:
     volumes:
       - ./wp-db:/docker-entrypoint-initdb.d
 
-  wp:
+  wordpress.local:
     build: .
     ports:
-      - "8080:80"
+      - "80:80"
     links:
       - wp-db:mysql
     environment:
       WORDPRESS_DB_PASSWORD: ChangeMeIfYouWant
     volumes:
       - .:/var/www/html/wp-content/themes/responsive-framework-2-x
+
+  backstopjs:
+    image: backstopjs/backstopjs
+    volumes:
+      - .:/src
+    command: ["--version"]
