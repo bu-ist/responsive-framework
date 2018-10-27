@@ -11,16 +11,27 @@ services:
     volumes:
       - ./wp-db:/docker-entrypoint-initdb.d
 
-  wordpress.local:
+  wordpress-backend:
     build: .
-    ports:
-      - "80:80"
     links:
       - wp-db:mysql
     environment:
       WORDPRESS_DB_PASSWORD: ChangeMeIfYouWant
     volumes:
       - .:/var/www/html/wp-content/themes/responsive-framework-2-x
+
+  wordpress.local:
+    image: bostonuniversity/elb-simulator:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      REMOTE_URL: "http://wordpress-backend"
+      CERT_CN: wordpress.local
+    depends_on:
+      - "wordpress-backend"
+    volumes:
+      - ./ssl:/ssl
 
   backstopjs:
     image: backstopjs/backstopjs
