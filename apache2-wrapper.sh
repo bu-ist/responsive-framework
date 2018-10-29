@@ -2,7 +2,7 @@
 
 wp --allow-root core is-installed
 if [ $? -eq 1 ]; then
-	wp --allow-root core install --url=http://localhost:8080 --title="Visual Regression Site" --admin_user=admin --admin_password=password --admin_email=admin@wp.localhost --skip-email;
+	wp --allow-root core install --url=https://wordpress.local --title="Visual Regression Site" --admin_user=admin --admin_password=password --admin_email=admin@wordpress.local --skip-email;
 fi
 
 wp --allow-root plugin is-installed bu-navigation
