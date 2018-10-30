@@ -2,6 +2,7 @@ backstop_data/*
 !backstop_data/engine_scripts
 !backstop_data/bitmaps_reference
 docker-compose.override.yml
+ssl/
 
 npm-debug.log
 node_modules
