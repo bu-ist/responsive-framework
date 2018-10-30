@@ -26,27 +26,6 @@ INSERT INTO `wp_options` VALUES (1,'siteurl','https://wordpress.local','yes'),(2
 UNLOCK TABLES;
 
 --
--- Dumping data for table `wp_users`
---
-
-LOCK TABLES `wp_users` WRITE;
-/*!40000 ALTER TABLE `wp_users` DISABLE KEYS */;
-INSERT INTO `wp_users` VALUES (1,'admin','$P$BmCfY8MmQ44nnbcNjq8KuELAN84jw6.','admin','admin@wordpress.local','','2018-10-29 20:36:03','',0,'admin');
-/*!40000 ALTER TABLE `wp_users` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2018-10-29 21:04:02
-
---
 -- Table structure for table `wp_users`
 --
 
@@ -70,6 +49,28 @@ CREATE TABLE `wp_users` (
   KEY `user_email` (`user_email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Dumping data for table `wp_users`
+--
+
+LOCK TABLES `wp_users` WRITE;
+/*!40000 ALTER TABLE `wp_users` DISABLE KEYS */;
+INSERT INTO `wp_users` VALUES (1,'admin','$P$BmCfY8MmQ44nnbcNjq8KuELAN84jw6.','admin','admin@wordpress.local','','2018-10-29 20:36:03','',0,'admin');
+/*!40000 ALTER TABLE `wp_users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-10-29 21:04:02
 
 --
 -- Table structure for table `wp_usermeta`
