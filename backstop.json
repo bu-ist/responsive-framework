@@ -19,7 +19,7 @@
   "scenarios": [
     {"url": "http://wordpress.local/", "label": "homepage"},
     {"url": "http://wordpress.local/sample-page/", "label": "sample-page"},
-    {"url": "http://wordpress.local/hello-world/", "label": "hello-world"}
+    {"url": "http://wordpress.local/hello-world/", "label": "hello-world", "hideSelectors": [".date-offset"]}
   ],
   "paths": {
     "bitmaps_reference": "backstop_data/bitmaps_reference",
