@@ -15,6 +15,7 @@ These are the latest versions verified to work with our development setup. Upgra
 - [Node Package Manager 5.6.0](https://github.com/npm/npm) *The latest version, 6.1.0, requires Node 10.*
 - [Grunt 1.0.2](http://gruntjs.com/)
 - [Bower](http://bower.io/)
+- [Docker and Docker Compose](https://www.docker.com/get-started)
 
 ## Quick Start
 
@@ -25,6 +26,14 @@ These instructions assume that you have installed Node and Node Package Manager,
 1. Run `grunt` to watch your files as you work.
 
 Be sure to commit changes to the generated output files (`style.css`, `js/script.js`, etc.) along with changes to source files!
+
+## Visual Regression Testing
+
+1. Add `127.0.0.1 wordpress.local` to `/etc/hosts`.
+1. Run `npm run dev` to start a local webserver with WordPress at https://wordpress.local.
+Credentials for [Admin Dashboard](https://wordpress.local/wp-admin) are `admin`, `password`.
+1. Use `npm run backstop test` to run visual tests.
+1. If you see any diffs that are acceptable and should be saved, run `npm run backstop reference`.
 
 ## Composer Dependencies
 
