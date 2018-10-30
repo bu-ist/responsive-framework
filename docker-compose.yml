@@ -12,7 +12,7 @@ services:
       - ./wp-db:/docker-entrypoint-initdb.d
 
   wordpress-backend:
-    build: .
+    build: ./wp-local
     links:
       - wp-db:mysql
     environment:
