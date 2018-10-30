@@ -20,3 +20,6 @@ wp-cli.local.yml
 tests
 vendor
 node_modules
+backstop_data
+wp-db
+wp-media
