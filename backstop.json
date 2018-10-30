@@ -14,26 +14,12 @@
   ],
   "onBeforeScript": "puppet/onBefore.js",
   "onReadyScript": "puppet/onReady.js",
+  "delay": 0,
+  "misMatchThreshold": 0,
   "scenarios": [
-    {
-      "label": "BackstopJS Homepage",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://wordpress.local",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": 0,
-      "selectors": [],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true
-    }
+    {"url": "http://wordpress.local/", "label": "homepage"},
+    {"url": "http://wordpress.local/sample-page/", "label": "sample-page"},
+    {"url": "http://wordpress.local/hello-world/", "label": "hello-world"}
   ],
   "paths": {
     "bitmaps_reference": "backstop_data/bitmaps_reference",
@@ -43,11 +29,11 @@
     "ci_report": "backstop_data/ci_report"
   },
   "report": ["browser"],
-  "engine": "puppeteer",
+  "engine": "chromy",
   "engineOptions": {
     "args": ["--no-sandbox"]
   },
-  "asyncCaptureLimit": 5,
+  "asyncCaptureLimit": 10,
   "asyncCompareLimit": 50,
   "debug": false,
   "debugWindow": false

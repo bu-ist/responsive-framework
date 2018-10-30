@@ -45,6 +45,7 @@
   "scripts": {
     "postinstall": "bundle install && grunt install",
     "dev": "bin/dev.sh",
-    "export": "bin/export.sh"
+    "export": "bin/export.sh",
+    "backstop": "bin/backstop.sh"
   }
 }
