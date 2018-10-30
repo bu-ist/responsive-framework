@@ -36,6 +36,7 @@ services:
 
   backstopjs:
     image: backstopjs/backstopjs
+    shm_size: '2gb'
     volumes:
       - .:/src
     command: ["--version"]
