@@ -1,11 +1,13 @@
 # Changelog
 
-## Unreleased
+## 2.1.9
 
 - Bugfix: Prevented empty post title from rendering in `responsive_the_title()`
   template tag.
 - Bugfix: Fixed typo in name of filter used to visually hide home page title.
   Was `responsive_the_title_classes` and is now `responsive_the_title_class`.
+- Merged commits from responsive-framework-1x/develop to backfill history of
+  project. Cleaned the history of protected branding assets.
 
 ## 2.1.8
 
