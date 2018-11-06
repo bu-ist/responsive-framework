@@ -68,20 +68,31 @@ if ( ! function_exists( 'responsive_the_title' ) ) {
 		// Allows class to be filtered.
 		$args['class'] = (string) apply_filters( 'responsive_the_title_class', $args['class'] );
 
+		// Stores the title.
+		$title = responsive_get_the_title();
+
+		// Returns immediately if no title.
+		if ( empty( $title ) ) {
+			return;
+		}
+
 		// Builds the h1 tag.
 		if ( ! empty( $args['class'] ) ) {
-			$html = '<h1 class="' . esc_attr( $args['class'] ) . '">' . responsive_get_the_title() . '</h1>';
+			$html = '<h1 class="' . esc_attr( $args['class'] ) . '">' . $title . '</h1>';
 		} else {
-			$html = '<h1>' . responsive_get_the_title() . '</h1>';
+			$html = '<h1>' . $title . '</h1>';
 		}
 
 		// Echoes or returns the html.
 		if ( $args['echo'] ) {
-			echo wp_kses( $html, array(
-				'h1' => array(
-					'class' => array(),
-				),
-			) );
+			echo wp_kses(
+				$html,
+				array(
+					'h1' => array(
+						'class' => array(),
+					),
+				)
+			);
 		} else {
 			return $html;
 		}
