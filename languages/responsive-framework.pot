@@ -1,11 +1,10 @@
-# <!=Copyright (C) 2018
-# This file is distributed under the same license as the  package.=!>
+# <!=Copyright (C) 2018 Boston University Interactive Design
+# This file is distributed under the same license as the Responsive Framework 2.x (BETA) package.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/theme/responsive-framework\n"
-"POT-Creation-Date: 2018-09-20 18:29:37+00:00\n"
+"Project-Id-Version: Responsive Framework 2.x (BETA) 2.1.9\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/functions\n"
+"POT-Creation-Date: 2018-11-06 19:28:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,7 +84,7 @@ msgid ""
 "has its own display options."
 msgstr ""
 
-#: admin/theme-customizer.php:234 inc/template-tags.php:264
+#: admin/theme-customizer.php:234 inc/template-tags.php:275
 msgid "Categories"
 msgstr ""
 
@@ -241,7 +240,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:266 inc/customizer.php:236 inc/template-tags.php:933
+#: functions.php:266 inc/customizer.php:236 inc/template-tags.php:944
 msgid "Footbar"
 msgstr ""
 
@@ -249,7 +248,7 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:280 inc/template-tags.php:934
+#: functions.php:280 inc/template-tags.php:945
 msgid "Alternate Footbar"
 msgstr ""
 
@@ -264,7 +263,7 @@ msgid ""
 "primary campuses in the heart of Boston and programs around the world."
 msgstr ""
 
-#: inc/bu-banners.php:122
+#: inc/bu-banners.php:128
 msgid "Leave blank to use the page title."
 msgstr ""
 
@@ -447,60 +446,60 @@ msgstr ""
 msgid "Page %d"
 msgstr ""
 
-#: inc/template-tags.php:114
+#: inc/template-tags.php:125
 #. translators: %s: current search query.
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:117
+#: inc/template-tags.php:128
 msgid "Yikes! We couldn't find that."
 msgstr ""
 
-#: inc/template-tags.php:132
+#: inc/template-tags.php:143
 msgid "Profile Directory"
 msgstr ""
 
-#: inc/template-tags.php:532
+#: inc/template-tags.php:543
 #. translators: %s: archive type singular name.
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:537
+#: inc/template-tags.php:548
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:538
+#: inc/template-tags.php:549
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:579
+#: inc/template-tags.php:590
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:607 single.php:34
+#: inc/template-tags.php:618 single.php:34
 #. translators: %s: author name linking to their archive page.
 #. translators: %s: author name
 msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:624
+#: inc/template-tags.php:635
 #. translators: %s: category list for the post.
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:633
+#: inc/template-tags.php:644
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:633
+#: inc/template-tags.php:644
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:633
+#: inc/template-tags.php:644
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:766
+#: inc/template-tags.php:777
 msgid "View all posts"
 msgstr ""
 
@@ -718,6 +717,20 @@ msgstr ""
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Responsive Framework 2.x (BETA)"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"THIS IS A BETA THEME. Do not activate this version of Responsive Framework "
+"unless you are sure that you want to use version 2.x."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Boston University Interactive Design"
 msgstr ""
 
 #. Template Name of the plugin/theme
