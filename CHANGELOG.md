@@ -1,5 +1,11 @@
 # Changelog
 
+## unreleased
+
+-	Update WordPress version in Travis tests to our current install version 4.9.7
+-	Update Unit Tests for `test_responsive_is_bu_domain_true()` to work with single
+	or multi-site installations.
+
 ## 2.1.9
 
 - Bugfix: Prevented empty post title from rendering in `responsive_the_title()`
@@ -350,3 +356,4 @@
 - Pre-release version of Responsi.
 - Child themes based on 0.9.1 include: r-cfa, r-hr, r-pardeeschool, r-research,
   and r-school.
+
