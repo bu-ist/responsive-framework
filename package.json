@@ -26,20 +26,19 @@
   "devDependencies": {
     "grunt": "^1.0.2",
     "grunt-bower-task": "^0.5.0",
-    "grunt-bowercopy": "^1.2.4",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-uglify": "^3.3.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-modernizr": "^1.0.2",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-modernizr": "^1.0.3",
     "grunt-notify": "^0.4.1",
     "grunt-phplint": "~0.1.0",
     "grunt-sass": "^2.0.0",
     "grunt-version": "^1.2.1",
     "grunt-wp-i18n": "^1.0.2",
     "lg-thumbnail": "^1.1.0",
-    "lightgallery": "^1.6.8",
+    "lightgallery": "^1.6.11",
     "time-grunt": "^1.4.0"
   },
   "scripts": {
