@@ -6,6 +6,8 @@
 -	Update Unit Tests for `test_responsive_is_bu_domain_true()` to work with single
 	or multi-site installations.
 -	Update deprecated Gravity Form call `GFForms::setup()` 
+-	NPM Packages Removed grunt-bowercopy
+-	NPM Packages Updated remove grunt-contrib-watch, grunt-modernizr, lightgallery
 
 ## 2.1.9
 
