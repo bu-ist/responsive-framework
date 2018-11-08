@@ -67,39 +67,47 @@ $_customizer-description-color: #999;
 
 // Customizer: Fonts
 #burf_setting_fonts {
-	@extend %admin-sprite-input;
 
-	// Styles for the layout selector images
-	label {
-		@extend %admin-sprite-label;
-
-		// For everyone
-		&::after {
-			@extend %admin-sprite-background;
-			height: 82px;
-			width: 245px;
-		}
-
-		// For specific layouts
-		&[for="burf_setting_fonts_f1"]::after {
-			background-position: 0 -750px;
-		}
-
-		&[for="burf_setting_fonts_f2"]::after {
-			background-position: 0 -850px;
-		}
-
-		&[for="burf_setting_fonts_f3"]::after {
-			background-position: 0 -950px;
-		}
-
-		&[for="burf_setting_fonts_f4"]::after {
-			background-position: 0 -1050px;
-		}
-
-		&[for="burf_setting_fonts_f5"]::after {
-			background-position: 0 -1150px;
-		}
+	// For specific layouts
+	.f1-font-title {
+		font-size : 20px;
+		display: block;
+	}
+	.f1-font-body {
+		font-size: 14px;
+		display: block;
+	}
+	.f2-font-title {
+		font-size : 20px;
+		display: block;
+	}
+	.f2-font-body {
+		font-size: 14px;
+		display: block;
+	}
+	.f3-font-title {
+		font-size : 20px;
+		display: block;
+	}
+	.f3-font-body {
+		font-size: 14px;
+		display: block;
+	}
+	.f4-font-title {
+		font-size : 20px;
+		display: block;
+	}
+	.f4-font-body {
+		font-size: 14px;
+		display: block;
+	}
+	.f5-font-title {
+		font-size : 20px;
+		display: block;
+	}
+	.f5-font-body {
+		font-size: 14px;
+		display: block;
 	}
 }
 

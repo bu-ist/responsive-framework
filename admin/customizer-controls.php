@@ -62,12 +62,17 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 		 * Render a radio button control for the Customizer.
 		 */
 		public function render_content() {
+			$allowed_html = array(
+				'span' => array(
+					'class' => array(),
+				),
+			);
 			?>
 			<ul id="<?php echo esc_attr( $this->id ); ?>">
 		<?php foreach ( $this->choices as $key => $choice ) { ?>
 			<li>
 				<input <?php esc_attr( $this->link() ); ?> id="<?php echo esc_attr( $this->id . '_' . $key ); ?>" type="radio" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $key ); ?>">
-				<label for="<?php echo esc_attr( $this->id . '_' . $key ); ?>"> <?php echo esc_html( $choice ); ?></label>
+				<label for="<?php echo esc_attr( $this->id . '_' . $key ); ?>"> <?php echo wp_kses( $choice, $allowed_html ); ?></label>
 			</li>
 		<?php } ?>
 		</ul>
