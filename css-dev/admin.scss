@@ -67,40 +67,90 @@ $_customizer-description-color: #999;
 
 // Customizer: Fonts
 #burf_setting_fonts {
-	@extend %admin-sprite-input;
 
-	// Styles for the layout selector images
-	label {
-		@extend %admin-sprite-label;
-
-		// For everyone
-		&::after {
-			@extend %admin-sprite-background;
-			height: 82px;
-			width: 245px;
+		& label {
+			color: #eeeeee;
 		}
 
 		// For specific layouts
-		&[for="burf_setting_fonts_f1"]::after {
-			background-position: 0 -750px;
+		& label[for="burf_setting_fonts_f1"]::before {
+			color: black;
+			content:"Benton";
+			display: block;
+			font-family: "Benton-Sans", sans-serif;
+			font-size : 20px;
 		}
 
-		&[for="burf_setting_fonts_f2"]::after {
-			background-position: 0 -850px;
+		& label[for="burf_setting_fonts_f1"]::after {
+			color: black;
+			content: "Benton Sans Regular is the font your body copy will appear in.";
+			display: block;
+			font-family: sans-serif;
+			font-size: 14px;
 		}
 
-		&[for="burf_setting_fonts_f3"]::after {
-			background-position: 0 -950px;
+		& label[for="burf_setting_fonts_f2"]::before {
+			color: black;
+			content:"Capita Bold";
+			display: block;
+			font-family: "Capita";
+			font-size : 20px;
 		}
 
-		&[for="burf_setting_fonts_f4"]::after {
-			background-position: 0 -1050px;
+		& label[for="burf_setting_fonts_f2"]::after {
+			color: black;
+			content: "Benton Sans Regular is the font your body copy will appear in.";
+			display: block;
+			font-family: Georgia, serif;
+			font-size: 14px;
 		}
 
-		&[for="burf_setting_fonts_f5"]::after {
-			background-position: 0 -1150px;
+		& label[for="burf_setting_fonts_f3"]::before {
+			color: black;
+			content:"Benton Light";
+			display: block;
+			font-family: "Benton-Sans";
+			font-size : 20px;
 		}
-	}
+
+		& label[for="burf_setting_fonts_f3"]::after {
+			color: black;
+			content: "Capita Regular is the font your body copy will appear in.";
+			display: block;
+			font-size: 14px;
+		}
+
+		& label[for="burf_setting_fonts_f4"]::before {
+			color: black;
+			content:"Tiempos Bold";
+			display: block;
+			font-family: "Tiempos";
+			font-size : 20px;
+		}
+
+		& label[for="burf_setting_fonts_f4"]::after {
+			color: black;
+			content: "Tiempos Regular is the font your body copy will appear in.";
+			display: block;
+			font-family: "Tiempos";
+			font-size: 14px;
+		}
+
+		& label[for="burf_setting_fonts_f5"]::before {
+			color: black;
+			content:"Pressurea Heading";
+			display: block;
+			font-family: "Pressurea";
+			font-size : 20px;
+		}
+
+		& label[for="burf_setting_fonts_f5"]::after {
+			color: black;
+			content: "Benton Sans Regular is the font your body copy will appear in.";
+			display: block;
+			font-family: sans-serif;
+			font-size: 14px;
+		}
 }
 
 // Customizer: Other
