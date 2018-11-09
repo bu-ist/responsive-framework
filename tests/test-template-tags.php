@@ -148,18 +148,39 @@ class Tests_Responsive_Framework_Template_Tags extends WP_UnitTestCase {
 	 * Test that BU domains correctly match.
 	 */
 	function test_responsive_is_bu_domain_true() {
-		$current_site = get_current_site();
 
-		$current_site->domain = 'bu.edu';
-		$this->assertTrue( responsive_is_bu_domain() );
+		if ( is_multisite() ) {
 
-		$current_site->domain = 'www-staging.bu.edu';
-		$this->assertTrue( responsive_is_bu_domain() );
+			$current_site = get_current_site();
 
-		$current_site->domain = 'www-test.bu.edu';
-		$this->assertTrue( responsive_is_bu_domain() );
+			$current_site->domain = 'bu.edu';
+			$this->assertTrue( responsive_is_bu_domain() );
 
-		$current_site->domain = 'cms-devl.bu.edu';
-		$this->assertTrue( responsive_is_bu_domain() );
+			$current_site->domain = 'www-staging.bu.edu';
+			$this->assertTrue( responsive_is_bu_domain() );
+
+			$current_site->domain = 'www-test.bu.edu';
+			$this->assertTrue( responsive_is_bu_domain() );
+
+			$current_site->domain = 'cms-devl.bu.edu';
+			$this->assertTrue( responsive_is_bu_domain() );
+		} else {
+
+			update_option( 'siteurl', 'http://www.bu.edu' );
+			update_option( 'home', 'http://www.bu.edu' );
+			$this->assertTrue( responsive_is_bu_domain() );
+
+			update_option( 'siteurl', 'www-staging.bu.edu' );
+			update_option( 'home', 'www-staging.bu.edu' );
+			$this->assertTrue( responsive_is_bu_domain() );
+
+			update_option( 'siteurl', 'www-test.bu.edu' );
+			update_option( 'home', 'www-test.bu.edu' );
+			$this->assertTrue( responsive_is_bu_domain() );
+
+			update_option( 'siteurl', 'cms-devl.bu.edu' );
+			update_option( 'home', 'cms-devl.bu.edu' );
+			$this->assertTrue( responsive_is_bu_domain() );
+		}
 	}
 }

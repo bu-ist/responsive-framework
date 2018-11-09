@@ -294,7 +294,7 @@ function responsive_maybe_hide_homepage_h1( $class ) {
 
 	return $class;
 }
-add_filter( 'responsive_the_title_classes', 'responsive_maybe_hide_homepage_h1', 10, 2 );
+add_filter( 'responsive_the_title_class', 'responsive_maybe_hide_homepage_h1', 10, 2 );
 
 
 /**
