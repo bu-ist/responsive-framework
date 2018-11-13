@@ -3,7 +3,7 @@
 Theme Name: Responsive Framework 2.x (BETA)
 Author: Boston University Interactive Design
 Website: http://www.bu.edu/interactive-design/
-Version: 2.1.9
+Version: 2.1.10
 Description: THIS IS A BETA THEME. Do not activate this version of Responsive Framework unless you are sure that you want to use version 2.x.
 Theme Groups: Responsive Framework
 */
@@ -7149,32 +7149,43 @@ nav a {
 }
 
 .skip-link {
-  background-color: #f1f1f1;
   -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  -ms-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  background-color: #f1f1f1;
   color: #21759b;
   display: block;
   font-family: "Open Sans",sans-serif;
   font-size: 14px;
   font-weight: 700;
   height: auto;
-  left: 6px;
+  left: 50%;
   line-height: normal;
-  margin: 30px 45%;
+  margin: 0;
   padding: 15px 23px 14px;
   position: absolute;
+  right: 50%;
+  text-align: center;
   text-decoration: none;
-  top: -100px;
+  top: -130px;
+  transform: translateX(-50%);
   -webkit-transition: top 0.75s ease-out;
   transition: top 0.75s ease-out;
-  width: auto;
+  width: 90%;
   z-index: 100000;
 }
 
-.skip-link:focus,
-.skip-link:active {
+@media screen and (min-width: 500px) {
+  .skip-link {
+    width: 190px;
+  }
+}
+
+.skip-link:focus, .skip-link:active {
   color: #21759b;
-  top: 7px;
+  top: 37px;
   -webkit-transition: top 0s;
   transition: top 0s;
 }
