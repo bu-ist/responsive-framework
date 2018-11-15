@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- bower cleanup.
+
 ## 2.1.10
 
 -	Update WordPress version in Travis tests to our current install version 4.9.7
