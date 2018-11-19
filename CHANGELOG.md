@@ -1,6 +1,10 @@
 # Changelog
 
-## unreleased
+## Unreleased
+
+- bower cleanup.
+
+## 2.1.10
 
 -	Update WordPress version in Travis tests to our current install version 4.9.7
 -	Update Unit Tests for `test_responsive_is_bu_domain_true()` to work with single
