@@ -791,32 +791,42 @@ add_action( 'after_setup_theme', 'r_bu_text_widget_loaded' );
 function r_is_bu_links_widget_empty( $is_widget_empty, $params ) {
 	$widget_name = $params[0]['widget_name'];
 
-	if ( 'BU Links' === $widget_name ) {
-		$widget_instance = $params[1]['number'];
-		$meta_key        = '_bu_links_' . $widget_instance;
-		$widget_meta     = get_post_meta( get_the_ID(), $meta_key, true );
-		$ancestor_ids    = get_post_ancestors( get_the_ID() );
+	if ( 'BU Links' !== $widget_name && 'BU Links Reprint' !== $widget_name ) {
+		return $is_widget_empty;
+	}
 
-		if ( ! is_array( $widget_meta ) ) {
-			if ( empty( $ancestor_ids ) ) {
-				// The post has no parents so we can safely say the widget is empty.
-				$is_widget_empty = true;
-			} else {
-				// Assume no parent widgets to display unless we prove otherwise.
-				$is_widget_empty = true;
-				foreach ( $ancestor_ids as $ancestor_id ) {
-					// Check to see if widget exists on each parent and is set to show children.
-					$parent_widget_meta = get_post_meta( $ancestor_id, $meta_key, true );
-					if ( is_array( $parent_widget_meta ) && array_key_exists( 'show', $parent_widget_meta ) ) {
-						if ( 'Yes' === $parent_widget_meta['show'] ) {
-							$is_widget_empty = false;
-							break;
-						}
+	if ( 'BU Links Reprint' === $widget_name ) {
+		$widget_instance = $params[1]['number'];
+		$reprint_option  = get_option( 'widget_bu-links-reprint' );
+		$widget_instance = $reprint_option[ $widget_instance ]['source_id'];
+	} else {
+		$widget_instance = $params[1]['number'];
+	}
+
+	$meta_key     = '_bu_links_' . $widget_instance;
+	$widget_meta  = get_post_meta( get_the_ID(), $meta_key, true );
+	$ancestor_ids = get_post_ancestors( get_the_ID() );
+
+	if ( ! is_array( $widget_meta ) ) {
+		if ( empty( $ancestor_ids ) ) {
+			// The post has no parents so we can safely say the widget is empty.
+			$is_widget_empty = true;
+		} else {
+			// Assume no parent widgets to display unless we prove otherwise.
+			$is_widget_empty = true;
+			foreach ( $ancestor_ids as $ancestor_id ) {
+				// Check to see if widget exists on each parent and is set to show children.
+				$parent_widget_meta = get_post_meta( $ancestor_id, $meta_key, true );
+				if ( is_array( $parent_widget_meta ) && array_key_exists( 'show', $parent_widget_meta ) ) {
+					if ( 'Yes' === $parent_widget_meta['show'] ) {
+						$is_widget_empty = false;
+						break;
 					}
 				}
 			}
 		}
 	}
+
 	return $is_widget_empty;
 }
 
