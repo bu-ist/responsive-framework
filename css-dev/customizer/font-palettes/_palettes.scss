@@ -1,0 +1,34 @@
+$font-palettes: (
+	f1: (
+		heading: "Benton-Sans",
+		heading-fallback: sans-serif,
+		body: "Benton-Sans",
+		body-fallback: sans-serif,
+	),
+	f2: (
+		heading: "Capita",
+		heading-fallback: serif,
+		body: "Benton-Sans",
+		body-fallback: sans-serif,
+	),
+	f3: (
+		heading: "Benton-Sans",
+		heading-fallback: sans-serif,
+		heading-weight: 400,
+		body: "Capita",
+		body-fallback: serif,
+	),
+	f4: (
+		heading: "TiemposHeadline",
+		heading-fallback: serif,
+		body: "Benton-Sans",
+		body-fallback: sans-serif,
+	),
+	f5: (
+		heading: "Pressura",
+		heading-fallback: sans-serif,
+		heading-case: uppercase,
+		body: "Benton-Sans",
+		body-fallback: sans-serif,
+	)
+);

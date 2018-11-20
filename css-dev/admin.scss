@@ -65,59 +65,60 @@ $_customizer-description-color: #999;
 	}
 }
 
+// Customizer: Fonts Import
+
+@import "customizer/font-palettes/fonts/benton";
+@import "customizer/font-palettes/fonts/capita-bold";
+@import "customizer/font-palettes/fonts/capita";
+@import "customizer/font-palettes/fonts/pressura";
+@import "customizer/font-palettes/fonts/tiempos";
+@import "customizer/font-palettes/palettes";
+
 // Customizer: Fonts
 #burf_setting_fonts {
+	@extend %admin-sprite-input;
 
-	// For specific layouts
-	.f1-font-title {
-		font-family: "Benton-Sans", sans-serif;
-		font-size : 20px;
-		display: block;
+	li {
+		border-bottom: 1px solid #ccc;
 	}
-	.f1-font-body {
-		font-family: sans-serif;
-		font-size: 14px;
-		display: block;
+
+	label {
+		color: #000;
+		padding: 0.5em;
 	}
-	.f2-font-title {
-		font-family: "Capita";
-		font-size : 20px;
+
+	span {
 		display: block;
+
+		& + span {
+			font-size : 14px;
+		}
 	}
-	.f2-font-body {
-		font-family: Georgia, serif;
-		font-size: 14px;
-		display: block;
+}
+
+@each $palette, $map in $font-palettes {
+	.#{$palette}-font-title {
+		font-family: map-get( $map, 'heading' ), map-get( $map, 'heading-fallback' );
+		font-size: 1.9em;
+		margin-bottom: 0.25em;
+		text-transform: map-get( $map, 'heading-case' );
+
+		@if map-get( $map, 'heading-weight' ) {
+			font-weight: map-get( $map, 'heading-weight' );
+		} @else {
+			font-weight: 700;
+		}
 	}
-	.f3-font-title {
-		font-family: "Benton-Sans";
-		font-size : 20px;
-		display: block;
-	}
-	.f3-font-body {
-		font-family: "Capita";
-		font-size: 14px;
-		display: block;
-	}
-	.f4-font-title {
-		font-family: "Tiempos";
-		font-size : 20px;
-		display: block;
-	}
-	.f4-font-body {
-		font-family: "Tiempos";
-		font-size: 14px;
-		display: block;
-	}
-	.f5-font-title {
-		font-family: "Pressura";
-		font-size : 20px;
-		display: block;
-	}
-	.f5-font-body {
-		font-family: sans-serif;
-		font-size: 14px;
-		display: block;
+
+	.#{$palette}-font-body {
+		font-family: map-get( $map, 'body' ), map-get( $map, 'body-fallback' );
+		text-transform: map-get( $map, 'body-case' );
+
+		@if map-get( $map, 'body-weight' ) {
+			font-weight: map-get( $map, 'body-weight' );
+		} @else {
+			font-weight: 400;
+		}
 	}
 }
 

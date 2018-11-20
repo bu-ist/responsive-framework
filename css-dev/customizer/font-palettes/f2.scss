@@ -1,12 +1,11 @@
-$font-heading: "Capita", serif;
-$font-body: "Benton-Sans", sans-serif;
+$palette-id: 'f2';
 
 @import "fonts/benton";
 @import "fonts/capita-bold";
+@import "palettes";
 @import "fonts/shared";
 
 .primary-nav-menu li a {
-	font-weight: 500;
 	font-size: 17px;
 }
 

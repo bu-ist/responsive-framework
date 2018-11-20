@@ -1,33 +1,16 @@
-$font-heading: "Benton-Sans", sans-serif;
-$font-body: "Capita", serif;
+$palette-id: 'f3';
 
 @import "fonts/capita";
 @import "fonts/benton";
+@import "palettes";
 @import "fonts/shared";
 
 body {
 	font-size: 18px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-weight: 400;
-}
-
-.widget h3 {
-	font-weight: 400;
-}
-
-.primary-nav-menu li a {
-	font-weight: 400;
-}
-
 .utility-nav li a {
-	font-family: $font-body;
+	font-family: $body-stack;
 	font-style: italic;
 }
 

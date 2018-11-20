@@ -1,7 +1,7 @@
-$font-heading: "Benton-Sans", sans-serif;
-$font-body: "Benton-Sans", sans-serif;
+$palette-id: 'f1';
 
 @import "fonts/benton";
+@import "palettes";
 @import "fonts/shared";
 
 blockquote {
