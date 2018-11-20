@@ -715,39 +715,48 @@ function r_enqueue_fancy_gallery() {
  * @return bool $is_widget_empty The status of content for the widget.
  */
 function r_is_bu_text_widget_empty( $is_widget_empty, $params ) {
-	$widget_name  = $params[0]['widget_name'];
-	$ancestor_ids = get_post_ancestors( get_the_ID() );
 
-	if ( 'BU Text' === $widget_name ) {
-		$widget_instance        = $params[1]['number'];
-		$meta_key               = '_bu_text_widget_' . $widget_instance;
-		$widget_meta            = get_post_meta( get_the_ID(), $meta_key, true );
-		$show_children_meta_key = '_bu_text_widget_show_on_children_' . $widget_instance;
+	$widget_name = $params[0]['widget_name'];
 
-		if ( empty( $widget_meta['content'] ) ) {
-			// The widget is empty. Assume we don't have ancestor widgets to
-			// show unless we prove otherwise.
-			$is_widget_empty = true;
+	if ( 'BU Text Reprint' !== $widget_name && 'BU Text' !== $widget_name ) {
+		return $is_widget_empty;
+	}
 
-			if ( ! empty( $ancestor_ids ) ) {
-				foreach ( $ancestor_ids as $ancestor_id ) {
-					// Check to see if widget exists on ancestors and is set to show children.
-					$parent_widget_meta = get_post_meta( $ancestor_id, $meta_key, true );
-					$show_on_children   = get_post_meta( $ancestor_id, $show_children_meta_key, true );
-					if ( 'Yes' === $show_on_children ) {
-						if ( empty( $parent_widget_meta['content'] ) ) {
-							// This matches the way the plugin currently works.
-							// We only go to the 1st parent that says `Yes` show
-							// on children, regardless if content is empty.
-							// Here content is empty so we just break and
-							// keep the widget empty status as true.
-							break;
-						} else {
-							// This parent is set to show & has content.
-							$is_widget_empty = false;
-							break;
-						}
+	if ( 'BU Text Reprint' === $widget_name ) {
+		$widget_instance = $params[1]['number'];
+		$reprint_option  = get_option( 'widget_bu-text-reprint' );
+		$widget_instance = $reprint_option[ $widget_instance ]['source_id'];
+	} else {
+		$widget_instance = $params[1]['number'];
+	}
 
+	$meta_key               = '_bu_text_widget_' . $widget_instance;
+	$widget_meta            = get_post_meta( get_the_ID(), $meta_key, true );
+	$ancestor_ids           = get_post_ancestors( get_the_ID() );
+	$show_children_meta_key = '_bu_text_widget_show_on_children_' . $widget_instance;
+
+	if ( empty( $widget_meta['content'] ) ) {
+		// The widget is empty. Assume we don't have ancestor widgets to
+		// show unless we prove otherwise.
+		$is_widget_empty = true;
+
+		if ( ! empty( $ancestor_ids ) ) {
+			foreach ( $ancestor_ids as $ancestor_id ) {
+				// Check to see if widget exists on ancestors and is set to show children.
+				$parent_widget_meta = get_post_meta( $ancestor_id, $meta_key, true );
+				$show_on_children   = get_post_meta( $ancestor_id, $show_children_meta_key, true );
+				if ( 'Yes' === $show_on_children ) {
+					if ( empty( $parent_widget_meta['content'] ) ) {
+						// This matches the way the plugin currently works.
+						// We only go to the 1st parent that says `Yes` show
+						// on children, regardless if content is empty.
+						// Here content is empty so we just break and
+						// keep the widget empty status as true.
+						break;
+					} else {
+						// This parent is set to show & has content.
+						$is_widget_empty = false;
+						break;
 					}
 				}
 			}
