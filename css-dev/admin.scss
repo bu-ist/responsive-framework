@@ -90,6 +90,11 @@ $_customizer-description-color: #999;
 	span {
 		display: block;
 
+		&:first-child {
+			font-size: 1.9em;
+			margin-bottom: 0.25em;
+		}
+
 		& + span {
 			font-size : 14px;
 		}
@@ -99,8 +104,6 @@ $_customizer-description-color: #999;
 @each $palette, $map in $font-palettes {
 	.#{$palette}-font-title {
 		font-family: map-get( $map, 'heading' ), map-get( $map, 'heading-fallback' );
-		font-size: 1.9em;
-		margin-bottom: 0.25em;
 		text-transform: map-get( $map, 'heading-case' );
 
 		@if map-get( $map, 'heading-weight' ) {
