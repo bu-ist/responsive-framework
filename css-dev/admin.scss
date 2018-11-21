@@ -67,18 +67,18 @@ $_customizer-description-color: #999;
 
 // Customizer: Fonts Import
 
-@import "customizer/font-palettes/fonts/benton";
-@import "customizer/font-palettes/fonts/capita-bold";
-@import "customizer/font-palettes/fonts/capita";
-@import "customizer/font-palettes/fonts/pressura";
-@import "customizer/font-palettes/fonts/tiempos";
-@import "customizer/font-palettes/palettes";
+@import 'customizer/font-palettes/fonts/benton';
+@import 'customizer/font-palettes/fonts/capita-bold';
+@import 'customizer/font-palettes/fonts/capita';
+@import 'customizer/font-palettes/fonts/pressura';
+@import 'customizer/font-palettes/fonts/tiempos';
+@import 'customizer/font-palettes/palettes';
 
 // Customizer: Fonts
 #burf_setting_fonts {
 	label {
-		display: block;
 		color: #000;
+		display: block;
 		padding: 1em 0.5em;
 	}
 
@@ -100,7 +100,7 @@ $_customizer-description-color: #999;
 		}
 
 		& + span {
-			font-size : 14px;
+			font-size: 14px;
 		}
 	}
 }

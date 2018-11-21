@@ -2,10 +2,10 @@ $palette-id: 'f4';
 
 $font-body-accent: "TiemposText", serif;
 
-@import "fonts/benton";
-@import "fonts/tiempos";
-@import "palettes";
-@import "fonts/shared";
+@import 'fonts/benton';
+@import 'fonts/tiempos';
+@import 'palettes';
+@import 'fonts/shared';
 
 #q {
 	font-family: $font-body-accent;

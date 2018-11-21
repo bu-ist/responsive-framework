@@ -31,7 +31,7 @@ class Tests_Responsive_Framework_Customizer extends WP_UnitTestCase {
 			'f2' => '<span class="f2-font-title">Capita Bold</span><span class="f2-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
 			'f3' => '<span class="f3-font-title">Benton Light</span><span class="f3-font-body">Capita Regular is the font your body copy will appear in.</span>',
 			'f4' => '<span class="f4-font-title">Tiempos Bold</span><span class="f4-font-body">Tiempos Regular is the font your body copy will appear in.</span>',
-			'f5' => '<span class="f5-font-title">Pressurea Heading</span><span class="f5-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
+			'f5' => '<span class="f5-font-title">Pressura Heading</span><span class="f5-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
 		);
 
 		$this->assertEquals( $font_options, responsive_font_options() );
