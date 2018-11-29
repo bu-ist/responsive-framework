@@ -1,9 +1,9 @@
-$font-heading: "Pressura", sans-serif;
-$font-body: "Benton-Sans", sans-serif;
+$palette-id: 'f5';
 
-@import "fonts/benton";
-@import "fonts/pressura";
-@import "fonts/shared";
+@import 'fonts/benton';
+@import 'fonts/pressura';
+@import 'palettes';
+@import 'fonts/shared';
 
 h1,
 h2,
@@ -22,7 +22,7 @@ h6,
 }
 
 .utility-nav li a {
-	font-family: $font-body;
+	font-family: $body-stack;
 	font-style: italic;
 }
 
@@ -31,7 +31,7 @@ blockquote {
 	&::before {
 		content: "\201C"; // Unicode for Left Double Quote
 		display: block;
-		font-family: $font-heading;
+		font-family: $heading-stack;
 		font-size: 4em;
 		font-weight: 700;
 		margin-top: -36px;

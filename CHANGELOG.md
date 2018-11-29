@@ -2,7 +2,8 @@
 
 ## Unreleased
 
-- bower cleanup.
+- Bower cleanup.
+- Fix font labeling in the customizer to match actual fonts.
 
 ## 2.1.10
 
