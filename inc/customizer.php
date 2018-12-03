@@ -59,6 +59,7 @@ function responsive_layout_options() {
 		'default'  => __( 'Default', 'responsive-framework' ),
 		'top-nav'  => __( 'Top Navigation Bar', 'responsive-framework' ),
 		'side-nav' => __( 'Side Navigation Bar', 'responsive-framework' ),
+		'mega-nav' => __( 'Mega Navigation Bar', 'responsive-framework' ),
 		'no-nav'   => __( 'No Navigation Bar', 'responsive-framework' ),
 	) );
 

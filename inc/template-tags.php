@@ -392,6 +392,56 @@ function responsive_utility_nav( $args = array() ) {
 }
 
 /**
+ * Renders short navigation menu.
+ *
+ * If the current site has a site-wide ACL applied or the short menu has
+ * no items nothing will be displayed.
+ *
+ * @param array $args {
+ *     Optional. Arguments to configure menu markup.
+ *
+ *     @type  string $before HTML markup to display before menu.
+ *     @type  string $after  HTML markup to display after menu.
+ * }
+ */
+function responsive_short_nav( $args = array() ) {
+	if ( ! has_nav_menu( 'short' ) ) {
+		return;
+	}
+
+	$after = '<div class="menu-bar">';
+	$after .= '<button type="button" class="nav-toggle js-nav-toggle" aria-label="' . __( 'Open menu', 'responsive-framework' ) . '" aria-expanded="true">';
+	$after .= '<div class="nav-toggle-label-closed">' . apply_filters( 'responsive_mega_menu_closed', __( 'Full Menu', 'responsive-framework' ) ) . '</div>';
+	$after .= '<div class="nav-toggle-label-open">' . apply_filters( 'responsive_mega_menu_opened', __( 'Close Menu', 'responsive-framework' ) ) . '</div>';
+	$after .= '<span></span>';
+	$after .= '</button>';
+	$after .= '</div>';
+	$after .= '</nav>';
+
+	$defaults = array(
+		'before' => '<nav class="short-nav" role="navigation">',
+		'after'  => $after,
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+	$menu = '';
+
+	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || false == BuAccessControlPlugin::is_site_403() ) {
+		$menu = wp_nav_menu( array(
+			'theme_location' => 'short',
+			'menu_id'        => 'short-nav-menu',
+			'menu_class'     => 'short-nav-menu',
+			'container'      => false,
+			'echo'           => false,
+		) );
+	}
+
+	if ( $menu ) {
+		echo $args['before'] . $menu . $args['after'];
+	}
+}
+
+/**
  * Renders footer links custom menu.
  *
  * @param array $args {
