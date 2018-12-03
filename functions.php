@@ -154,6 +154,8 @@ function responsive_setup_nav_menus() {
 			'footer'  => __( 'Footer Links', 'responsive-framework' ),
 			'social'  => __( 'Social Links', 'responsive-framework' ),
 			'utility' => __( 'Utility Navigation', 'responsive-framework' ),
+			'short'   => __( 'Short Navigation', 'responsive-framework' ),
+			'extra'   => __( 'Extra Navigation', 'responsive-framework' ),
 		)
 	);
 
