@@ -7,7 +7,6 @@
  */
 
 ?>
-<div class="utility-up"><?php responsive_utility_nav(); ?></div>
 
 <div class="brand">
 	<?php responsive_branding(); ?>
@@ -19,6 +18,6 @@
 	<?php do_action( 'responsive_before_mega_nav', '' ); ?>
 	<div class="search-bar"><?php responsive_search_form(); ?></div>
 	<?php responsive_primary_nav(); ?>
-	<div class="utility-down"><?php responsive_utility_nav(); ?></div>
+	<?php responsive_utility_nav(); ?>
 	<?php do_action( 'responsive_after_mega_nav', '' ); ?>
 </nav>
