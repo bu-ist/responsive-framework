@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Masthead layout with larger, expanded menu.
