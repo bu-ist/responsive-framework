@@ -1,11 +1,17 @@
 # Changelog
 
+## 2.1.11
+
+-	Added mega navigation menu to customizer
+-	Added new masthead markup for mega nav
+-	Added new menu location for "short" nav
+
 ## 2.1.10
 
 -	Update WordPress version in Travis tests to our current install version 4.9.7
 -	Update Unit Tests for `test_responsive_is_bu_domain_true()` to work with single
 	or multi-site installations.
--	Update deprecated Gravity Form call `GFForms::setup()` 
+-	Update deprecated Gravity Form call `GFForms::setup()`
 -	NPM Packages removed grunt-bowercopy.
 -	NPM Packages updated grunt-contrib-watch, grunt-modernizr, & lightgallery.
 -	Remove Ruby Sass gem.
