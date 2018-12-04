@@ -350,6 +350,12 @@ function responsive_get_layout_default() {
 	return $new_default;
 }
 
+/**
+ * Check if the site being accessed is the wpdocs subdomain
+ *
+ * @return boolean
+ *
+ */
 function responsive_is_wpdocs() {
 	$subdomain = explode( '.', $_SERVER['HTTP_HOST'] )[0];
 	if ( $subdomain && 'wpdocs' === $subdomain ) {
@@ -357,3 +363,22 @@ function responsive_is_wpdocs() {
 	}
 	return false;
 }
+
+
+/**
+ * Hook into admin notices, reminding to set up
+ * the short menu if mega nav has been selected
+ *
+ */
+function responsive_short_nav_notice() {
+	$layout = responsive_layout();
+
+	if ( 'mega-nav' === $layout && ! has_nav_menu( 'short' ) ) {
+	?>
+		<div class="notice notice-warning is-dismissible">
+			<p>You chose the Mega Navigation in the Customizer. Please set up a menu with the most important items and assign it to the <b>Short Navigation</b> location.</p>
+		</div>
+	<?php
+	}
+}
+add_action( 'admin_notices', 'responsive_short_nav_notice' );
