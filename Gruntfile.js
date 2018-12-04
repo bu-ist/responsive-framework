@@ -3,6 +3,9 @@ module.exports = function(grunt) {
 	// Report execution time data.
 	require( 'time-grunt' )(grunt);
 
+	// Require external packages.
+	const sass = require('node-sass');
+
 	// 1. All configuration goes here
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -92,6 +95,7 @@ module.exports = function(grunt) {
 		sass: {
 			options: {
 				outputStyle: 'compressed',
+				implementation: sass,
 				sourceMap: true,
 				indentType: 'space',
 				indentWidth: 2,
