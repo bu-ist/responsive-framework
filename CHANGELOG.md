@@ -6,6 +6,10 @@
 - Fix font labeling in the customizer to match actual fonts.
 - Remove `bundle install` from package.json postinstall scripts.
 
+## 2.1.11
+
+- Bugfix: Fixed buttons inside of widgets to have white text
+
 ## 2.1.10
 
 -	Update WordPress version in Travis tests to our current install version 4.9.7
