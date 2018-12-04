@@ -4989,7 +4989,7 @@ button,
   background-color: #eee;
   border: 0;
   border-radius: 2px;
-  color: #444;
+  color: #fff;
   display: inline-block;
   font-family: "Benton-Sans", "Helvetica", sans-serif;
   font-size: inherit;
@@ -6159,6 +6159,10 @@ a:hover .bu-hub-iconstyles::before {
 
 .widget a:hover, .widget a:focus {
   color: #0f69d7;
+}
+
+.widget a.button, .widget a.button:hover, .widget a.button:focus {
+  color: #fff;
 }
 
 .widget a.button-primary, .widget a.button-primary:hover, .widget a.button-primary:focus {
