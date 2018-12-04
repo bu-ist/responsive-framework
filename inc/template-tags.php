@@ -425,12 +425,14 @@ function responsive_short_nav( $args = array() ) {
 	$menu = '';
 
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || false == BuAccessControlPlugin::is_site_403() ) {
+		// Depth of -1 will force the menu to be single level, even if sub-menus are created in the admin
 		$menu = wp_nav_menu( array(
 			'theme_location' => 'short',
 			'menu_id'        => 'short-nav-menu',
 			'menu_class'     => 'short-nav-menu',
 			'container'      => false,
 			'echo'           => false,
+			'depth'          => -1,
 		) );
 	}
 
