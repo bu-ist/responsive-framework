@@ -808,15 +808,15 @@ function responsive_framework_get_color_regions_css( $colors, $context = 'defaul
 /* sidebar widget background color
 ----------------------------------------------------------------- */
 
-.widget {
-	background: {$colors['sidebar-bg']};
-	padding: 24px;
-}
+	.widget {
+		background: {$colors['sidebar-bg']};
+		padding: 24px;
+	}
 
-.footbar .widget {
-	background: transparent;
-	padding: 0;
-}
+	.footbar .widget {
+		background: transparent;
+		padding: 0;
+	}
 CSS;
 
 	// Underscore template gets special logic.
@@ -835,124 +835,123 @@ CSS;
 	}
 
 	return <<<CSS
-/* navigation bar and links
------------------------------------------------------------------ */
+	/* navigation bar and links
+	----------------------------------------------------------------- */
 
-/* navbar bg color */
-.l-side-nav .wrapper,
-.primary-nav,
-.primary-nav-menu ul,
-.l-side-nav {
-	background: {$colors['primaryNav-bg']};
-}
+	/* navbar bg color */
+	.l-side-nav .wrapper,
+	.primary-nav,
+	.primary-nav-menu ul,
+	.l-side-nav {
+		background: {$colors['primaryNav-bg']};
+	}
 
-.primary-nav,
-.primary-nav-menu ul,
-.primary-nav-menu a,
-.search-toggle::before {
-	color: {$colors['primaryNav-link']};
-}
+	.primary-nav,
+	.primary-nav-menu ul,
+	.primary-nav-menu a,
+	.search-toggle::before {
+		color: {$colors['primaryNav-link']};
+	}
 
-/* main nav and nav border color */
-.primary-nav-menu a,
-.l-side-nav .primary-nav-menu a {
-	border-color: {$colors['primaryNav-border']};
-}
+	/* main nav and nav border color */
+	.primary-nav-menu a,
+	.l-side-nav .primary-nav-menu a {
+		border-color: {$colors['primaryNav-border']};
+	}
 
-/* main nav and nav border color */
-.nav-toggle span,
-.nav-toggle span::before,
-.nav-toggle span::after {
-	background-color: {$colors['primaryNav-link']};
-}
+	/* main nav and nav border color */
+	.nav-toggle span,
+	.nav-toggle span::before,
+	.nav-toggle span::after {
+		background-color: {$colors['primaryNav-link']};
+	}
 
-/* utility nav color */
-.l-side-nav .utility-nav a {
-	color: {$colors['utilityNav-link']};
-}
+	/* utility nav color */
+	.l-side-nav .utility-nav a {
+		color: {$colors['utilityNav-link']};
+	}
 
-/* main nav and utility nav hover color */
-.primary-nav-menu a:hover,
-.primary-nav-menu a:focus,
-.l-side-nav .utility-nav a:hover,
-.l-side-nav .utility-nav a:focus,
-.primary-nav-menu li a.active,
-.primary-nav-menu li a.active_section,
-.primary-nav-menu li li a:hover,
-.primary-nav-menu li li a:focus {
-	color: {$colors['primaryNav-hover']};
-}
+	/* main nav and utility nav hover color */
+	.primary-nav-menu a:hover,
+	.primary-nav-menu a:focus,
+	.l-side-nav .utility-nav a:hover,
+	.l-side-nav .utility-nav a:focus,
+	.primary-nav-menu li a.active,
+	.primary-nav-menu li a.active_section,
+	.primary-nav-menu li li a:hover,
+	.primary-nav-menu li li a:focus {
+		color: {$colors['primaryNav-hover']};
+	}
 
-/* content area
------------------------------------------------------------------ */
+	/* content area
+	----------------------------------------------------------------- */
 
-/* heading color */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	color: {$colors['content-heading']};
-}
+	/* heading color */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: {$colors['content-heading']};
+	}
 
-/* text color */
-body {
-	color: {$colors['content-base']};
-}
+	/* text color */
+	body {
+		color: {$colors['content-base']};
+	}
 
-/* link color */
-a,
-.widget a,
-.widget a:hover,
-.widget a:focus,
-.calendar-list-event-link,
-.calendar-list-event-link:focus,
-.bu_collapsible::before,
-.profile-name {
-	color: {$colors['content-link']};
-}
+	/* link color */
+	a,
+	.widget a,
+	.widget a:hover,
+	.widget a:focus,
+	.calendar-list-event-link,
+	.calendar-list-event-link:focus,
+	.bu_collapsible::before,
+	.profile-name {
+		color: {$colors['content-link']};
+	}
 
-/* link hover color */
-a:hover,
-.calendar-list-event-link:hover,
-.bu_collapsible:hover::before,
-.bu_collapsible:focus::before,
-.month td a:hover {
-	color: {$colors['content-link-hover']};
-}
+	/* link hover color */
+	a:hover,
+	.calendar-list-event-link:hover,
+	.bu_collapsible:hover::before,
+	.bu_collapsible:focus::before,
+	.month td a:hover {
+		color: {$colors['content-link-hover']};
+	}
 
-/* buttons */
-input[type="submit"],
-.button,
-.button-primary,
-.button-selected,
-#quicksearch .button,
-.paging-navigation a,
-.archive-link {
-	background: {$colors['button-color']};
-	color: {$colors['button-text-color']};
-}
+	/* buttons */
+	input[type="submit"],
+	.button,
+	.button-primary,
+	.button-selected,
+	#quicksearch .button,
+	.paging-navigation a,
+	.archive-link {
+		background: {$colors['button-color']};
+		color: {$colors['button-text-color']};
+	}
 
-input[type="submit"]:hover,
-.button:hover,
-.button-primary:hover,
-.button-selected:hover,
-#quicksearch .button:hover,
-.paging-navigation a:hover,
-.archive-link:hover {
-	color: {$colors['button-text-color']};
-}
+	input[type="submit"]:hover,
+	.button:hover,
+	.button-primary:hover,
+	.button-selected:hover,
+	#quicksearch .button:hover,
+	.paging-navigation a:hover,
+	.archive-link:hover {
+		color: {$colors['button-text-color']};
+	}
 
-/* blockquotes */
-blockquote {
-	border-color: {$colors['content-link']};
-}
+	/* blockquotes */
+	blockquote {
+		border-color: {$colors['content-link']};
+	}
 
-blockquote:before {
-	color: {$colors['content-link']};
-}
-
+	blockquote:before {
+		color: {$colors['content-link']};
+	}
 
 {$sidebar_widget_styles}
 

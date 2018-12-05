@@ -579,7 +579,8 @@ template {
   font-weight: 400;
 }
 
-.icon-dropbox::before, .menu-item [href*="dropbox.com"]::before, .icon-dropbox-alt::before, .icon-facebook::before, .menu-item [href*="facebook.com"]::before, .icon-facebook-alt::before, .icon-flickr::before, .menu-item [href*="flickr.com"]::before, .icon-flickr-alt::before, .icon-foursquare::before, .menu-item [href*="foursquare.com"]::before, .icon-foursquare-alt::before, .icon-github::before, .menu-item [href*="github.com"]::before, .icon-github-alt::before, .icon-googleplus::before, .menu-item [href*="plus.google.com"]::before, .icon-googleplus-alt::before, .icon-instagram::before, .menu-item [href*="instagram.com"]::before, .icon-instagram-alt::before, .icon-kickstarter::before, .menu-item [href*="kickstarter.com"]::before, .icon-kickstarter-alt::before, .icon-linkedin::before, .menu-item [href*="linkedin.com"]::before, .icon-linkedin-alt::before, .icon-paypal::before, .icon-paypal-alt::before, .icon-pinterest::before, .menu-item [href*="pinterest.com"]::before, .icon-pinterest-alt::before, .icon-pocket::before, .menu-item [href*="getpocket.com"]::before, .icon-pocket-alt::before, .icon-reddit::before, .menu-item [href*="reddit.com"]::before, .icon-reddit-alt::before, .icon-renren::before, .icon-retweet::before, .icon-snapchat::before, .menu-item [href*="snapchat.com"]::before, .icon-snapchat-alt::before, .icon-soundcloud::before, .icon-soundcloud-alt::before, .icon-spotify::before, .icon-stackexchange::before, .icon-stackexchange-alt::before, .icon-stackoverflow::before, .icon-stackoverflow-alt::before, .icon-stumbleupon::before, .icon-stumbleupon-alt::before, .icon-twitter::before, .menu-item [href*="twitter.com"]::before, .icon-twitter-alt::before, .icon-tumblr::before, .menu-item [href*="tumblr.com"]::before, .icon-tumblr-alt::before, .icon-vimeo::before, .menu-item [href*="vimeo.com"]::before, .icon-vimeo-alt::before, .icon-vine::before, .menu-item [href*="vine.co"]::before, .icon-vine-alt::before, .icon-weibo::before, .icon-weibo-alt::before, .icon-wordpress::before, .icon-youtube::before, .menu-item [href*="youtube.com"]::before, .icon-youtube-alt::before, .icon-action::before, .icon-ban::before, .icon-bookmark::before, .icon-close::before, .search-toggle.is-open::before, .icon-delete::before, .icon-download::before, .icon-downloadbox::before, .icon-like::before, .icon-like-alt::before, .icon-dislike::before, .icon-menu::before, .icon-plus::before, .bu_collapsible::before, .icon-hyphen::before, .bu_collapsible_open > .bu_collapsible::before, .icon-print::before, .icon-redirect::before, .icon-refresh::before, .icon-replay::before, .icon-share::before, .icon-search::before, .search-toggle::before, .icon-settings::before, .icon-sync::before, .icon-star::before, .icon-tag::before, .icon-upload::before, .icon-uploadcloud::before, .icon-contract::before, .icon-expand::before, .icon-scaledown::before, .icon-scaleup::before, .gallery-icon a::before, .icon-up::before, .icon-right::before, .icon-down::before, .icon-left::before, .icon-directup::before, .icon-directright::before, .icon-dropdown::before, .icon-directleft::before, .icon-navigateup::before, .icon-navigateright::before, .icon-navigatedown::before, .icon-navigateleft::before, .icon-calculator::before, .icon-barchart::before, .icon-piechart::before, .icon-stock::before, .icon-envelope::before, .icon-phone::before, .icon-rss::before, .icon-rss-alt::before, .icon-rotaryphone::before, .icon-link::before, .icon-link-alt::before, .icon-file::before, .icon-files::before, .icon-folder::before, .icon-index::before, .icon-storagebox::before, .icon-burst::before, .icon-cart::before, .icon-creditcard::before, .icon-emptycart::before, .icon-compose::before, .icon-grid::before, .icon-layers::before, .icon-layout::before, .icon-list::before, .icon-flag::before, .icon-reply::before, .icon-thumbnails::before, .icon-write::before, .icon-compass::before, .icon-crosshair::before, .icon-globe::before, .icon-location::before, .icon-map::before, .icon-navigate::before, .icon-signpost::before, .icon-play::before, .icon-pause::before, .icon-stop::before, .icon-rewind::before, .icon-fastforward::before, .icon-skipback::before, .icon-skipforward::before, .icon-record::before, .icon-volume::before, .icon-camera::before, .icon-headphones::before, .icon-mic::before, .icon-music::before, .icon-picture::before, .icon-video::before, .icon-book::before, .icon-box::before, .icon-briefcase::before, .icon-bug::before, .icon-chat::before, .icon-clipboard::before, .icon-code::before, .icon-contacts::before, .icon-dashboard::before, .icon-flask::before, .icon-heart::before, .icon-home::before, .icon-key::before, .icon-lightbulb::before, .icon-lightning::before, .icon-lock::before, .icon-unlock::before, .icon-notebook::before, .icon-notifications::before, .icon-pin::before, .icon-pinboard::before, .icon-planet::before, .icon-poo::before, .icon-puzzle::before, .icon-recycle::before, .icon-recycle-alt::before, .icon-screwdriver::before, .icon-thermometer::before, .icon-toolbox::before, .icon-user::before, .icon-users::before, .icon-utensils::before, .icon-view::before, .icon-wheelchair::before, .icon-wrench::before, .icon-alert::before, .icon-check::before, .icon-info::before, .icon-megaphone::before, .icon-android::before, .icon-appleinc::before, .icon-desktop::before, .icon-cloud::before, .icon-laptop::before, .icon-tablet::before, .icon-smartphone::before, .icon-tv::before, .icon-wifi::before, .icon-calendar::before, .icon-clock::before, .icon-watch::before, .icon-infinity::before, .icon-bike::before, .icon-car::before, .icon-plane::before, .icon-filter::before, .icon-checkbox-empty::before, .icon-checkbox-filled::before, .icon-radio-empty::before, .icon-radio-filled::before, .icon-buhub::before, .icon-questionmark::before {
+.icon-dropbox::before, .menu-item [href*="dropbox.com"]::before, .icon-dropbox-alt::before, .icon-facebook::before, .menu-item [href*="facebook.com"]::before, .icon-facebook-alt::before, .icon-flickr::before, .menu-item [href*="flickr.com"]::before, .icon-flickr-alt::before, .icon-foursquare::before, .menu-item [href*="foursquare.com"]::before, .icon-foursquare-alt::before, .icon-github::before, .menu-item [href*="github.com"]::before, .icon-github-alt::before, .icon-googleplus::before, .menu-item [href*="plus.google.com"]::before, .icon-googleplus-alt::before, .icon-instagram::before, .menu-item [href*="instagram.com"]::before, .icon-instagram-alt::before, .icon-kickstarter::before, .menu-item [href*="kickstarter.com"]::before, .icon-kickstarter-alt::before, .icon-linkedin::before, .menu-item [href*="linkedin.com"]::before, .icon-linkedin-alt::before, .icon-paypal::before, .icon-paypal-alt::before, .icon-pinterest::before, .menu-item [href*="pinterest.com"]::before, .icon-pinterest-alt::before, .icon-pocket::before, .menu-item [href*="getpocket.com"]::before, .icon-pocket-alt::before, .icon-reddit::before, .menu-item [href*="reddit.com"]::before, .icon-reddit-alt::before, .icon-renren::before, .icon-retweet::before, .icon-snapchat::before, .menu-item [href*="snapchat.com"]::before, .icon-snapchat-alt::before, .icon-soundcloud::before, .icon-soundcloud-alt::before, .icon-spotify::before, .icon-stackexchange::before, .icon-stackexchange-alt::before, .icon-stackoverflow::before, .icon-stackoverflow-alt::before, .icon-stumbleupon::before, .icon-stumbleupon-alt::before, .icon-twitter::before, .menu-item [href*="twitter.com"]::before, .icon-twitter-alt::before, .icon-tumblr::before, .menu-item [href*="tumblr.com"]::before, .icon-tumblr-alt::before, .icon-vimeo::before, .menu-item [href*="vimeo.com"]::before, .icon-vimeo-alt::before, .icon-vine::before, .menu-item [href*="vine.co"]::before, .icon-vine-alt::before, .icon-weibo::before, .icon-weibo-alt::before, .icon-wordpress::before, .icon-youtube::before, .menu-item [href*="youtube.com"]::before,
+.menu-item [href*="bu.edu/buniverse"]::before, .icon-youtube-alt::before, .icon-action::before, .icon-ban::before, .icon-bookmark::before, .icon-close::before, .search-toggle.is-open::before, .icon-delete::before, .icon-download::before, .icon-downloadbox::before, .icon-like::before, .icon-like-alt::before, .icon-dislike::before, .icon-menu::before, .icon-plus::before, .bu_collapsible::before, .icon-hyphen::before, .bu_collapsible_open > .bu_collapsible::before, .icon-print::before, .icon-redirect::before, .icon-refresh::before, .icon-replay::before, .icon-share::before, .icon-search::before, .search-toggle::before, .icon-settings::before, .icon-sync::before, .icon-star::before, .icon-tag::before, .icon-upload::before, .icon-uploadcloud::before, .icon-contract::before, .icon-expand::before, .icon-scaledown::before, .icon-scaleup::before, .gallery-icon a::before, .icon-up::before, .icon-right::before, .icon-down::before, .icon-left::before, .icon-directup::before, .icon-directright::before, .icon-dropdown::before, .icon-directleft::before, .icon-navigateup::before, .icon-navigateright::before, .icon-navigatedown::before, .icon-navigateleft::before, .icon-calculator::before, .icon-barchart::before, .icon-piechart::before, .icon-stock::before, .icon-envelope::before, .icon-phone::before, .icon-rss::before, .icon-rss-alt::before, .icon-rotaryphone::before, .icon-link::before, .icon-link-alt::before, .icon-file::before, .icon-files::before, .icon-folder::before, .icon-index::before, .icon-storagebox::before, .icon-burst::before, .icon-cart::before, .icon-creditcard::before, .icon-emptycart::before, .icon-compose::before, .icon-grid::before, .icon-layers::before, .icon-layout::before, .icon-list::before, .icon-flag::before, .icon-reply::before, .icon-thumbnails::before, .icon-write::before, .icon-compass::before, .icon-crosshair::before, .icon-globe::before, .icon-location::before, .icon-map::before, .icon-navigate::before, .icon-signpost::before, .icon-play::before, .icon-pause::before, .icon-stop::before, .icon-rewind::before, .icon-fastforward::before, .icon-skipback::before, .icon-skipforward::before, .icon-record::before, .icon-volume::before, .icon-camera::before, .icon-headphones::before, .icon-mic::before, .icon-music::before, .icon-picture::before, .icon-video::before, .icon-book::before, .icon-box::before, .icon-briefcase::before, .icon-bug::before, .icon-chat::before, .icon-clipboard::before, .icon-code::before, .icon-contacts::before, .icon-dashboard::before, .icon-flask::before, .icon-heart::before, .icon-home::before, .icon-key::before, .icon-lightbulb::before, .icon-lightning::before, .icon-lock::before, .icon-unlock::before, .icon-notebook::before, .icon-notifications::before, .icon-pin::before, .icon-pinboard::before, .icon-planet::before, .icon-poo::before, .icon-puzzle::before, .icon-recycle::before, .icon-recycle-alt::before, .icon-screwdriver::before, .icon-thermometer::before, .icon-toolbox::before, .icon-user::before, .icon-users::before, .icon-utensils::before, .icon-view::before, .icon-wheelchair::before, .icon-wrench::before, .icon-alert::before, .icon-check::before, .icon-info::before, .icon-megaphone::before, .icon-android::before, .icon-appleinc::before, .icon-desktop::before, .icon-cloud::before, .icon-laptop::before, .icon-tablet::before, .icon-smartphone::before, .icon-tv::before, .icon-wifi::before, .icon-calendar::before, .icon-clock::before, .icon-watch::before, .icon-infinity::before, .icon-bike::before, .icon-car::before, .icon-plane::before, .icon-filter::before, .icon-checkbox-empty::before, .icon-checkbox-filled::before, .icon-radio-empty::before, .icon-radio-filled::before, .icon-buhub::before, .icon-questionmark::before {
   color: unset;
   display: inline-block;
   font-family: "bu-default-icons";
@@ -1207,15 +1208,17 @@ template {
   content: "";
 }
 
-.lt-ie9:hover .icon-youtube, .lt-ie9:hover .menu-item [href*="youtube.com"], .menu-item .lt-ie9:hover [href*="youtube.com"] {
+.lt-ie9:hover .icon-youtube, .lt-ie9:hover .menu-item [href*="youtube.com"], .menu-item .lt-ie9:hover [href*="youtube.com"],
+.lt-ie9:hover .menu-item [href*="bu.edu/buniverse"], .menu-item .lt-ie9:hover [href*="bu.edu/buniverse"] {
   -ms-zoom: 1;
 }
 
-.icon-youtube span, .menu-item [href*="youtube.com"] span {
+.icon-youtube span, .menu-item [href*="youtube.com"] span, .menu-item [href*="bu.edu/buniverse"] span {
   display: none;
 }
 
-.icon-youtube::before, .menu-item [href*="youtube.com"]::before {
+.icon-youtube::before, .menu-item [href*="youtube.com"]::before,
+.menu-item [href*="bu.edu/buniverse"]::before {
   content: "";
 }
 
@@ -3095,13 +3098,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  color: #555;
-  font-family: "TiemposText", Georgia, serif;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
 section {
   margin: 60px 0 0;
 }
@@ -3115,17 +3111,6 @@ figure {
   max-width: 100%;
 }
 
-/*a {
-	&[target="_blank"],
-	&[target="_new"] {
-		@include icon( 'redirect', 'after' );
-
-		&:after {
-			font-size: 0.6em;
-			vertical-align: text-top;
-		}
-	}
-}*/
 .wrapper {
   overflow: hidden;
 }
@@ -4447,6 +4432,13 @@ figure {
   margin-bottom: 0;
 }
 
+body {
+  color: #555;
+  font-family: "Benton-Sans", "Helvetica", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
 a {
   color: #0f69d7;
 }
@@ -4667,6 +4659,10 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   color: #666;
   font-size: 0.75em;
   font-weight: normal;
+}
+
+.page-title.u-visually-hidden + h1, .page-title.u-visually-hidden + h2, .page-title.u-visually-hidden + h3, .page-title.u-visually-hidden + h4, .page-title.u-visually-hidden + h5, .page-title.u-visually-hidden + h6 {
+  margin-top: 0;
 }
 
 abbr[title] {
@@ -5195,6 +5191,202 @@ textarea {
 
 .gform_wrapper [type="radio"] {
   margin-left: 1px;
+}
+
+/* Helpful Guide to translating px => pt sizes:
+
+  Pixels => Points
+  6px => 5pt
+  7px => 5pt
+  8px => 6pt
+  9px => 7pt
+  10px => 8pt
+  11px => 8pt
+  12px => 9pt
+  13px => 10pt
+  14px => 11pt
+  15px => 11pt
+  16px => 12pt
+  17px => 13pt
+  18px => 14pt
+  19px => 14pt
+  20px => 15pt
+  21px => 16pt
+  22px => 17pt
+  23px => 17pt
+  24px => 18pt
+
+***************************************************/
+@media print {
+  /* Set content width, remove floats and margins */
+  /* Attention: The classes and IDs vary from theme to theme. Set your own classes here */
+  .content-container, .content-area {
+    width: 100%;
+    margin: 0;
+    float: none;
+  }
+  /* Force the printer to render the colors as seen on screen  (Chrome and Safari only) */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  /** Adjust margins */
+  @page {
+    margin: 2cm;
+  }
+  /* Font set to 16px / 13pt, background set to white and font set to black. */
+  /* This saves ink */
+  body {
+    font: 13pt Georgia, "Times New Roman", Times, serif;
+    line-height: 1.3;
+    background: #fff !important;
+    color: #555;
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    font-size: 24pt;
+  }
+  h2, h3, h4 {
+    font-size: 14pt;
+    margin-top: 25px;
+  }
+  /* Define all page breaks */
+  a {
+    page-break-inside: avoid;
+  }
+  blockquote {
+    page-break-inside: avoid;
+    font-style: italic;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  img {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+    max-width: 100% !important;
+  }
+  table, pre {
+    page-break-inside: avoid;
+  }
+  ul, ol, dl {
+    page-break-before: avoid;
+  }
+  /* Show link color and link behavior */
+  a:link, a:visited, a {
+    font-weight: bold;
+    text-align: left;
+  }
+  a {
+    page-break-inside: avoid;
+  }
+  article a {
+    font-weight: bolder;
+    text-decoration: none;
+  }
+  a[href^=http]:after {
+    content: " <" attr(href) "> ";
+  }
+  a:after > img {
+    content: "";
+  }
+  article a[href^="#"]:after,
+  a[href*="bu.edu"]:after {
+    content: "";
+  }
+  /** Restore Wordpress alignright, alignleft, aligncenter */
+  .alignleft {
+    float: left;
+    margin: 0 15px 15px 0;
+  }
+  .aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+  }
+  .alignright {
+    float: right;
+    margin: 0 0 15px 15px;
+  }
+  .alignright, .alignleft {
+    max-width: 50%;
+  }
+  /** Disconnect embedded videos and reduce the whitespace of iframes to zero. */
+  iframe {
+    display: none;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    line-height: 0pt !important;
+    white-space: nowrap;
+  }
+  iframe[src^="https://maps.bu.edu"] {
+    display: block;
+    height: 500px !important;
+    width: 100% !important;
+  }
+  .responsive-video, .responsive-youtube,
+  .buvideoWrapper {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: none;
+  }
+  /* Hide unnecessary elements for printing */
+  .primary-nav,
+  .utility-nav,
+  .sidebar,
+  form,
+  .bu-sharing,
+  .archive-link-container,
+  #comments,
+  .footbar,
+  .site-footer-disclaimer,
+  .site-footer-menus,
+  .skip-link,
+  .edit-link,
+  button,
+  .button,
+  .button-primary {
+    display: none !important;
+  }
+  /* Hide Collapsible icons */
+  .icon-plus::before, .bu_collapsible::before {
+    content: '';
+  }
+  /* Insert custom messages after content */
+  /* NOTE: Should we move this below the masterplate and have it be a hidden php insert instead? */
+  .content-container:after {
+    content: "\ All rights reserved. (c) 2018 Boston University - bu.edu";
+    color: #666 !important;
+    font-size: 1em;
+    padding-top: 30px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  /* remove background color from footer */
+  .site-footer {
+    background: transparent !important;
+  }
+  /* Define important elements */
+  p, address, li, dt, dd, blockquote {
+    font-size: 100%;
+  }
+  /* Character set for code examples */
+  code, pre {
+    font-family: "Courier New", Courier, mono;
+  }
+  ul, ol {
+    list-style: square;
+    margin-left: 18pt;
+    margin-bottom: 20pt;
+  }
+  li {
+    line-height: 1.6em;
+  }
 }
 
 .color-grayscale-0 {
@@ -6043,6 +6235,14 @@ a:hover .bu-hub-iconstyles::before {
   color: #0f69d7;
 }
 
+.widget a.button, .widget a.button:hover, .widget a.button:focus {
+  color: #444;
+}
+
+.widget a.button-primary, .widget a.button-primary:hover, .widget a.button-primary:focus {
+  color: #fff;
+}
+
 .widget ul {
   list-style: none;
   list-style-image: none;
@@ -6433,7 +6633,7 @@ a:hover .bu-hub-iconstyles::before {
   .brand-site-description {
     color: #999;
     display: block;
-    font-family: "TiemposText", Georgia, serif;
+    font-family: "Benton-Sans", "Helvetica", sans-serif;
   }
 }
 
@@ -7165,14 +7365,14 @@ nav a {
   line-height: normal;
   margin: 0;
   padding: 15px 23px 14px;
-  position: absolute;
+  position: fixed;
   right: 50%;
   text-align: center;
   text-decoration: none;
   top: -130px;
   transform: translateX(-50%);
-  -webkit-transition: top 0.75s ease-out;
-  transition: top 0.75s ease-out;
+  -webkit-transition: top 0.3s ease-out;
+  transition: top 0.3s ease-out;
   width: 90%;
   z-index: 100000;
 }
@@ -7185,7 +7385,7 @@ nav a {
 
 .skip-link:focus, .skip-link:active {
   color: #21759b;
-  top: 37px;
+  top: 0;
   -webkit-transition: top 0s;
   transition: top 0s;
 }
