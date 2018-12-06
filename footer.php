@@ -100,6 +100,7 @@
 			 */
 			do_action( 'r_after_footer_menus' );
 		?>
+
 	</footer>
 
 	<?php wp_footer(); ?>

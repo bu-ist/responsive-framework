@@ -835,251 +835,258 @@ CSS;
 	}
 
 	return <<<CSS
+
+	@media screen {
+
 	/* navigation bar and links
 	----------------------------------------------------------------- */
+		/* navbar bg color */
+		.l-side-nav .wrapper,
+		.primary-nav,
+		.primary-nav-menu ul,
+		.l-side-nav {
+			background: {$colors['primaryNav-bg']};
+		}
 
-	/* navbar bg color */
-	.l-side-nav .wrapper,
-	.primary-nav,
-	.primary-nav-menu ul,
-	.l-side-nav {
-		background: {$colors['primaryNav-bg']};
-	}
+		.primary-nav,
+		.primary-nav-menu ul,
+		.primary-nav-menu a,
+		.search-toggle::before {
+			color: {$colors['primaryNav-link']};
+		}
 
-	.primary-nav,
-	.primary-nav-menu ul,
-	.primary-nav-menu a,
-	.search-toggle::before {
-		color: {$colors['primaryNav-link']};
-	}
+		/* main nav and nav border color */
+		.primary-nav-menu a,
+		.l-side-nav .primary-nav-menu a {
+			border-color: {$colors['primaryNav-border']};
+		}
 
-	/* main nav and nav border color */
-	.primary-nav-menu a,
-	.l-side-nav .primary-nav-menu a {
-		border-color: {$colors['primaryNav-border']};
-	}
+		/* main nav and nav border color */
+		.nav-toggle span,
+		.nav-toggle span::before,
+		.nav-toggle span::after {
+			background-color: {$colors['primaryNav-link']};
+		}
 
-	/* main nav and nav border color */
-	.nav-toggle span,
-	.nav-toggle span::before,
-	.nav-toggle span::after {
-		background-color: {$colors['primaryNav-link']};
-	}
+		/* utility nav color */
+		.l-side-nav .utility-nav a {
+			color: {$colors['utilityNav-link']};
+		}
 
-	/* utility nav color */
-	.l-side-nav .utility-nav a {
-		color: {$colors['utilityNav-link']};
-	}
+		/* main nav and utility nav hover color */
+		.primary-nav-menu a:hover,
+		.primary-nav-menu a:focus,
+		.l-side-nav .utility-nav a:hover,
+		.l-side-nav .utility-nav a:focus,
+		.primary-nav-menu li a.active,
+		.primary-nav-menu li a.active_section,
+		.primary-nav-menu li li a:hover,
+		.primary-nav-menu li li a:focus {
+			color: {$colors['primaryNav-hover']};
+		}
 
-	/* main nav and utility nav hover color */
-	.primary-nav-menu a:hover,
-	.primary-nav-menu a:focus,
-	.l-side-nav .utility-nav a:hover,
-	.l-side-nav .utility-nav a:focus,
-	.primary-nav-menu li a.active,
-	.primary-nav-menu li a.active_section,
-	.primary-nav-menu li li a:hover,
-	.primary-nav-menu li li a:focus {
-		color: {$colors['primaryNav-hover']};
-	}
+		/* content area
+		----------------------------------------------------------------- */
 
-	/* content area
-	----------------------------------------------------------------- */
+		/* heading color */
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: {$colors['content-heading']};
+		}
 
-	/* heading color */
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		color: {$colors['content-heading']};
-	}
+		/* text color */
+		body {
+			color: {$colors['content-base']};
+		}
 
-	/* text color */
-	body {
-		color: {$colors['content-base']};
-	}
+		/* link color */
+		a,
+		.widget a,
+		.widget a:hover,
+		.widget a:focus,
+		.calendar-list-event-link,
+		.calendar-list-event-link:focus,
+		.bu_collapsible::before,
+		.profile-name {
+			color: {$colors['content-link']};
+		}
 
-	/* link color */
-	a,
-	.widget a,
-	.widget a:hover,
-	.widget a:focus,
-	.calendar-list-event-link,
-	.calendar-list-event-link:focus,
-	.bu_collapsible::before,
-	.profile-name {
-		color: {$colors['content-link']};
-	}
+		/* link hover color */
+		a:hover,
+		.calendar-list-event-link:hover,
+		.bu_collapsible:hover::before,
+		.bu_collapsible:focus::before,
+		.month td a:hover {
+			color: {$colors['content-link-hover']};
+		}
 
-	/* link hover color */
-	a:hover,
-	.calendar-list-event-link:hover,
-	.bu_collapsible:hover::before,
-	.bu_collapsible:focus::before,
-	.month td a:hover {
-		color: {$colors['content-link-hover']};
-	}
+		/* buttons */
+		input[type="submit"],
+		.button,
+		.button-primary,
+		.button-selected,
+		#quicksearch .button,
+		.paging-navigation a,
+		.archive-link {
+			background: {$colors['button-color']};
+			color: {$colors['button-text-color']};
+		}
 
-	/* buttons */
-	input[type="submit"],
-	.button,
-	.button-primary,
-	.button-selected,
-	#quicksearch .button,
-	.paging-navigation a,
-	.archive-link {
-		background: {$colors['button-color']};
-		color: {$colors['button-text-color']};
-	}
+		input[type="submit"]:hover,
+		.button:hover,
+		.button-primary:hover,
+		.button-selected:hover,
+		#quicksearch .button:hover,
+		.paging-navigation a:hover,
+		.archive-link:hover {
+			color: {$colors['button-text-color']};
+		}
 
-	input[type="submit"]:hover,
-	.button:hover,
-	.button-primary:hover,
-	.button-selected:hover,
-	#quicksearch .button:hover,
-	.paging-navigation a:hover,
-	.archive-link:hover {
-		color: {$colors['button-text-color']};
-	}
+		/* blockquotes */
+		blockquote {
+			border-color: {$colors['content-link']};
+		}
 
-	/* blockquotes */
-	blockquote {
-		border-color: {$colors['content-link']};
-	}
-
-	blockquote:before {
-		color: {$colors['content-link']};
-	}
+		blockquote:before {
+			color: {$colors['content-link']};
+		}
+	} /* End screen media query */
 
 {$sidebar_widget_styles}
 
-/* sidebar area
------------------------------------------------------------------ */
+@media screen {
 
-/* widget border color */
-.widget-title,
-#contentnav ul,
-#contentnav li,
-.widget_nav_menu ul,
-.widget_nav_menu li,
-.widget-calendar-event,
-.month,
-.widget-calendar-picker th,
-.widget-calendar-picker td {
-	border-color: {$colors['sidebar-widgetTitle-border']};
-}
+	/* sidebar area
+	----------------------------------------------------------------- */
 
-.widget-title {
-	color: {$colors['sidebar-widgetTitle']};
-}
+	/* widget border color */
+	.widget-title,
+	#contentnav ul,
+	#contentnav li,
+	.widget_nav_menu ul,
+	.widget_nav_menu li,
+	.widget-calendar-event,
+	.month,
+	.widget-calendar-picker th,
+	.widget-calendar-picker td {
+		border-color: {$colors['sidebar-widgetTitle-border']};
+	}
 
-/* text color */
-.widget,
-.widget-calendar-picker th,
-.widget-calendar-picker caption {
-	color: {$colors['sidebar-base']};
-}
+	.widget-title {
+		color: {$colors['sidebar-widgetTitle']};
+	}
 
-/* link color */
-.widget a,
-#contentnav li a,
-.widget_nav_menu li a {
-	color: {$colors['sidebar-link']};
-}
+	/* text color */
+	.widget,
+	.widget-calendar-picker th,
+	.widget-calendar-picker caption {
+		color: {$colors['sidebar-base']};
+	}
 
-/* link hover color */
-.widget a:hover,
-#contentnav li a:hover,
-.widget_nav_menu li a:hover,
-#contentnav li.current_page_item > a,
-.widget_nav_menu li.current_page_item > a{
-	color: {$colors['sidebar-link-hover']};
-}
+	/* link color */
+	.widget a,
+	#contentnav li a,
+	.widget_nav_menu li a {
+		color: {$colors['sidebar-link']};
+	}
 
-/* footbar area
------------------------------------------------------------------ */
+	/* link hover color */
+	.widget a:hover,
+	#contentnav li a:hover,
+	.widget_nav_menu li a:hover,
+	#contentnav li.current_page_item > a,
+	.widget_nav_menu li.current_page_item > a{
+		color: {$colors['sidebar-link-hover']};
+	}
 
-/* background color */
-.footbar,
-.footbar-container,
-.banner-container-window-width {
-	background: {$colors['footbar-bg']};
-}
+	/* footbar area
+	----------------------------------------------------------------- */
 
-/* top border color */
-.footbar {
-	border-color: {$colors['footbar-topBorder']};
-}
+	/* background color */
+	.footbar,
+	.footbar-container,
+	.banner-container-window-width {
+		background: {$colors['footbar-bg']};
+	}
 
-/* link color */
-.footbar a,
-.footbar .widget a,
-.footbar #contentnav li a,
-.footbar .widget_nav_menu li a {
-	color: {$colors['footbar-link']};
-}
+	/* top border color */
+	.footbar {
+		border-color: {$colors['footbar-topBorder']};
+	}
 
-/* widget title color */
-.footbar .widget-title,
-.footbar .widget-calendar-date {
-	color: {$colors['footbar-widgetTitle']};
-}
+	/* link color */
+	.footbar a,
+	.footbar .widget a,
+	.footbar #contentnav li a,
+	.footbar .widget_nav_menu li a {
+		color: {$colors['footbar-link']};
+	}
 
-/* border color */
-.footbar .widget-title,
-.footbar #contentnav ul,
-.footbar #contentnav li,
-.footbar .widget_nav_menu ul,
-.footbar .widget_nav_menu li,
-.footbar .widget-calendar-event {
-	border-color: {$colors['footbar-widgetTitle-border']};
-}
+	/* widget title color */
+	.footbar .widget-title,
+	.footbar .widget-calendar-date {
+		color: {$colors['footbar-widgetTitle']};
+	}
 
-/* link hover color */
-.footbar .widget a:hover,
-.footbar #contentnav li a:hover,
-.footbar .widget_nav_menu li a:hover {
-	color: {$colors['footbar-link-hover']};
-}
+	/* border color */
+	.footbar .widget-title,
+	.footbar #contentnav ul,
+	.footbar #contentnav li,
+	.footbar .widget_nav_menu ul,
+	.footbar .widget_nav_menu li,
+	.footbar .widget-calendar-event {
+		border-color: {$colors['footbar-widgetTitle-border']};
+	}
 
-/* text color */
-.footbar .widget,
-.footbar .widget-calendar-day-graphic,
-.footbar .widget-bu-posts .meta {
-	color: {$colors['footbar-base']};
-}
+	/* link hover color */
+	.footbar .widget a:hover,
+	.footbar #contentnav li a:hover,
+	.footbar .widget_nav_menu li a:hover {
+		color: {$colors['footbar-link-hover']};
+	}
 
-/* non-configurable styles
------------------------------------------------------------------ */
+	/* text color */
+	.footbar .widget,
+	.footbar .widget-calendar-day-graphic,
+	.footbar .widget-bu-posts .meta {
+		color: {$colors['footbar-base']};
+	}
 
-.comment-respond,
-#quicksearch,
-.l-side-nav #quicksearch,
-.message,
-.single .content-area .meta,
-.single-event-schedule,
-.single-profile .profile-info {
-	background: #f5f8ff;
-	border-color: #dfdfea;
-}
+	/* non-configurable styles
+	----------------------------------------------------------------- */
 
-/* calendar table */
-.widget-calendar-picker thead,
-.widget-calendar-picker th,
-.widget-calendar-picker .out,
-.widget-calendar-picker .today {
-	background: rgba(0,0,0,0.15);
-}
+	.comment-respond,
+	#quicksearch,
+	.l-side-nav #quicksearch,
+	.message,
+	.single .content-area .meta,
+	.single-event-schedule,
+	.single-profile .profile-info {
+		background: #f5f8ff;
+		border-color: #dfdfea;
+	}
 
-.utility-nav a,
-a:active,
-a:visited,
-.widget-title a,
-.widget-post-meta {
-	color: inherit;
-}
+	/* calendar table */
+	.widget-calendar-picker thead,
+	.widget-calendar-picker th,
+	.widget-calendar-picker .out,
+	.widget-calendar-picker .today {
+		background: rgba(0,0,0,0.15);
+	}
+
+	.utility-nav a,
+	a:active,
+	a:visited,
+	.widget-title a,
+	.widget-post-meta {
+		color: inherit;
+	}
+
+} /* End media query */
 
 CSS;
 

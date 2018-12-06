@@ -5413,6 +5413,13 @@ textarea {
     page-break-inside: avoid;
     font-style: italic;
   }
+  blockquote:before {
+    content: '' !important;
+    margin: 0 !important;
+  }
+  blockquote > p:first-of-type {
+    margin: 0 !important;
+  }
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
     page-break-inside: avoid;
@@ -5443,14 +5450,18 @@ textarea {
   a[href^=http]:after {
     content: " <" attr(href) "> ";
   }
+  a[href*="mailto:"]:after {
+    content: " (" attr(href) ") ";
+    color: #000;
+    font-size: 14px;
+  }
   a:after > img {
     content: "";
   }
-  article a[href^="#"]:after,
   a[href*="bu.edu"]:after {
     content: "";
   }
-  /** Restore Wordpress alignright, alignleft, aligncenter */
+  /** Restore Wordpress alignright, alignleft, aligncenter classes */
   .alignleft {
     float: left;
     margin: 0 15px 15px 0;
@@ -5504,22 +5515,21 @@ textarea {
   .edit-link,
   button,
   .button,
-  .button-primary {
+  .button-primary,
+  .bu-slideshow-container,
+  article a[href^="#"] {
     display: none !important;
   }
   /* Hide Collapsible icons */
   .icon-plus::before, .bu_collapsible::before {
     content: '';
   }
-  /* Insert custom messages after content */
-  /* NOTE: Should we move this below the masterplate and have it be a hidden php insert instead? */
-  .content-container:after {
-    content: "\ All rights reserved. (c) 2018 Boston University - bu.edu";
-    color: #666 !important;
-    font-size: 1em;
-    padding-top: 30px;
-    text-align: center;
+  /* Insert copyright after content */
+  .bu_copyright {
+    display: block;
     margin: 0 auto;
+    text-align: center;
+    font-size: 11pt;
   }
   /* remove background color from footer */
   .site-footer {
@@ -7582,6 +7592,10 @@ body {
   clear: none;
   float: left;
   max-width: 33%;
+}
+
+.bu_copyright {
+  display: none;
 }
 
 .content-container-narrow {
