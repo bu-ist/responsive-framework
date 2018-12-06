@@ -999,6 +999,16 @@ blockquote:before {
 	color: {$colors['sidebar-link-hover']};
 }
 
+/* buttons */
+.widget a.button,
+.widget a.button:hover,
+.widget a.button:focus,
+.widget a.button-primary,
+.widget a.button-primary:hover,
+.widget a.button-primary:focus {
+	color: {$colors['button-text-color']};
+}
+
 /* footbar area
 ----------------------------------------------------------------- */
 
