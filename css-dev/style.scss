@@ -11,5 +11,5 @@ Theme Groups: Responsive Framework
 $print-icon-classes:                     true;
 
 // Import from responsive-foundation
-@import 'node_modules/responsive-foundation/css-dev/burf-base';
-@import 'node_modules/responsive-foundation/css-dev/burf-theme';
+@import 'burf-base';
+@import 'burf-theme';
