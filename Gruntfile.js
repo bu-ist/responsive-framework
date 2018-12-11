@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 	require( 'time-grunt' )(grunt);
 
 	// Require external packages.
-	const sass = require('node-sass');
+	var sass = require('node-sass');
 
 	// 1. All configuration goes here
 	grunt.initConfig({
