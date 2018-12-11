@@ -100,6 +100,11 @@ module.exports = function(grunt) {
 				indentType: 'space',
 				indentWidth: 2,
 				precision: '5',
+				includePaths: [
+					'node_modules/normalize-scss/sass',
+					'node_modules/mathsass/dist/',
+					'node_modules/responsive-foundation/css-dev'
+				],
 				bundleExec: true
 			},
 			dev: {
