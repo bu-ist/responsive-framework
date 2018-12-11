@@ -9,6 +9,10 @@
 - Remove includePath functionality from Gruntfile. Use full path to
   node_modules.
 
+## 2.1.11
+
+- Bugfix: Fixed buttons inside of widgets to have white text
+
 ## 2.1.10
 
 -	Update WordPress version in Travis tests to our current install version 4.9.7
