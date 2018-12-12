@@ -1,4 +1,4 @@
-as# Responsive Framework
+# Responsive Framework
 
 A responsive WordPress theme framework. Uses the [Responsive Foundation](https://github.com/bu-ist/responsive-foundation/).
 
