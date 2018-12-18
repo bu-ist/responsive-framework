@@ -5,6 +5,11 @@
 - Bower cleanup.
 - Fix font labeling in the customizer to match actual fonts.
 - Remove `bundle install` from package.json postinstall scripts.
+- Upgrade `grunt-sass` from 2.0.0 to 3.0.2.
+
+## 2.1.11
+
+- Bugfix: Fixed buttons inside of widgets to have white text
 
 ## 2.1.10
 
