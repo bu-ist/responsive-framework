@@ -5193,121 +5193,95 @@ textarea {
   margin-left: 1px;
 }
 
-/* Helpful Guide to translating px => pt sizes:
-
-  Pixels => Points
-  6px => 5pt
-  7px => 5pt
-  8px => 6pt
-  9px => 7pt
-  10px => 8pt
-  11px => 8pt
-  12px => 9pt
-  13px => 10pt
-  14px => 11pt
-  15px => 11pt
-  16px => 12pt
-  17px => 13pt
-  18px => 14pt
-  19px => 14pt
-  20px => 15pt
-  21px => 16pt
-  22px => 17pt
-  23px => 17pt
-  24px => 18pt
-
-***************************************************/
 @media print {
-  /* Set content width, remove floats and margins */
-  /* Attention: The classes and IDs vary from theme to theme. Set your own classes here */
-  .content-container, .content-area {
-    width: 100%;
-    margin: 0;
+  .content-container,
+  .content-area {
     float: none;
+    margin: 0;
+    width: 100%;
   }
-  /* Force the printer to render the colors as seen on screen  (Chrome and Safari only) */
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-  /** Adjust margins */
   @page {
     margin: 2cm;
   }
-  /* Font set to 16px / 13pt, background set to white and font set to black. */
-  /* This saves ink */
   body {
-    font: 13pt Georgia, "Times New Roman", Times, serif;
-    line-height: 1.3;
     background: #fff !important;
     color: #555;
+    font: 13pt Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.3;
     margin: 0;
     padding: 0;
   }
   h1 {
     font-size: 24pt;
   }
-  h2, h3, h4 {
+  h2,
+  h3,
+  h4 {
     font-size: 14pt;
     margin-top: 25px;
   }
-  /* Define all page breaks */
-  a {
-    page-break-inside: avoid;
-  }
   blockquote {
-    page-break-inside: avoid;
     font-style: italic;
+    page-break-inside: avoid;
   }
-  blockquote:before {
+  blockquote::before {
     content: '' !important;
     margin: 0 !important;
   }
   blockquote > p:first-of-type {
     margin: 0 !important;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     page-break-after: avoid;
     page-break-inside: avoid;
   }
   img {
-    page-break-inside: avoid;
-    page-break-after: avoid;
     max-width: 100% !important;
-  }
-  table, pre {
+    page-break-after: avoid;
     page-break-inside: avoid;
   }
-  ul, ol, dl {
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+  ul,
+  ol,
+  dl {
     page-break-before: avoid;
   }
-  /* Show link color and link behavior */
-  a:link, a:visited, a {
+  a {
+    font-weight: bold;
+    page-break-inside: avoid;
+    text-align: left;
+  }
+  a:link, a:visited {
     font-weight: bold;
     text-align: left;
   }
-  a {
-    page-break-inside: avoid;
-  }
-  article a {
+  a article {
     font-weight: bolder;
     text-decoration: none;
   }
-  a[href^=http]:after {
+  a::after > img {
+    content: '';
+  }
+  a[href^='http']::after {
     content: " <" attr(href) "> ";
   }
-  a[href*="mailto:"]:after {
-    content: " (" attr(href) ") ";
+  a[href*='mailto:']::after {
     color: #000;
+    content: " (" attr(href) ") ";
     font-size: 14px;
   }
-  a:after > img {
-    content: "";
-  }
-  a[href*="bu.edu"]:after {
-    content: "";
-  }
-  /** Restore Wordpress alignright, alignleft, aligncenter classes */
   .alignleft {
     float: left;
     margin: 0 15px 15px 0;
@@ -5320,33 +5294,33 @@ textarea {
     float: right;
     margin: 0 0 15px 15px;
   }
-  .alignright, .alignleft {
+  .alignright,
+  .alignleft {
     max-width: 50%;
   }
-  /** Disconnect embedded videos and reduce the whitespace of iframes to zero. */
   iframe {
     display: none;
-    width: 0 !important;
     height: 0 !important;
+    line-height: 0 !important;
     overflow: hidden !important;
-    line-height: 0pt !important;
     white-space: nowrap;
+    width: 0 !important;
   }
-  iframe[src^="https://maps.bu.edu"] {
+  iframe[src^='https://maps.bu.edu'] {
     display: block;
     height: 500px !important;
     width: 100% !important;
   }
-  .responsive-video, .responsive-youtube,
+  .responsive-video,
+  .responsive-youtube,
   .buvideoWrapper {
     position: absolute;
-    height: 0;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
     display: none;
+    overflow: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
   }
-  /* Hide unnecessary elements for printing */
   .primary-nav,
   .utility-nav,
   .sidebar,
@@ -5363,36 +5337,39 @@ textarea {
   .button,
   .button-primary,
   .bu-slideshow-container,
-  article a[href^="#"] {
+  article a[href^='#'] {
     display: none !important;
   }
-  /* Hide Collapsible icons */
-  .icon-plus::before, .bu_collapsible::before {
+  .icon-plus::before,
+  .bu_collapsible::before {
     content: '';
   }
-  /* Insert copyright after content */
   .bu_copyright {
     display: block;
     margin: 0 auto;
-    text-align: center;
     font-size: 11pt;
+    text-align: center;
   }
-  /* remove background color from footer */
   .site-footer {
     background: transparent !important;
   }
-  /* Define important elements */
-  p, address, li, dt, dd, blockquote {
+  p,
+  address,
+  li,
+  dt,
+  dd,
+  blockquote {
     font-size: 100%;
   }
-  /* Character set for code examples */
-  code, pre {
-    font-family: "Courier New", Courier, mono;
+  code,
+  pre {
+    font-family: 'Courier New', Courier, mono;
   }
-  ul, ol {
+  ul,
+  ol {
     list-style: square;
-    margin-left: 18pt;
     margin-bottom: 20pt;
+    margin-left: 18pt;
   }
   li {
     line-height: 1.6em;
