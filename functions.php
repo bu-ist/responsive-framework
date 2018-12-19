@@ -725,6 +725,18 @@ function r_remove_news_template( $templates, $theme, $post ) {
 
 	return $templates;
 }
+
+/**
+ * Add Copyright for print purposes to footer.
+ */
+function responsive_branding_copyright() {
+	?>
+		<div class="bu_copyright">&copy; <?php date( 'Y' ); ?> Boston&nbsp;University. All&nbsp;rights&nbsp;reserved. www.bu.edu</div>
+	<?php
+}
+
+add_action( 'r_after_footer_menus', 'responsive_branding_copyright' );
+
 // add_filter( 'theme_page_templates', 'r_remove_news_template', 10, 3 );
 /**
  * Admin.
