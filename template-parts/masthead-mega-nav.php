@@ -15,7 +15,7 @@
 
 <nav class="primary-nav" role="navigation">
 	<?php do_action( 'responsive_before_mega_nav', '' ); ?>
-	<div class="search-bar"><?php responsive_search_form(); ?></div>
+	<?php responsive_search_form(); ?>
 	<?php responsive_primary_nav(); ?>
 	<?php responsive_utility_nav(); ?>
 	<?php do_action( 'responsive_after_mega_nav', '' ); ?>
