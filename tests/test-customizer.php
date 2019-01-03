@@ -38,6 +38,36 @@ class Tests_Responsive_Framework_Customizer extends WP_UnitTestCase {
 	}
 
 	/**
+	 * Test the default font palettes, but filtered.
+	 */
+	function test_responsive_font_options_filtered() {
+
+		// Add filter to change the default font family values.
+		add_filter(
+			'responsive_font_options',
+			function( $fonts ) {
+				// Remove the first option for testing.
+				unset( $fonts['f1'] );
+				// Add a new font for testing.
+				$fonts['new_font'] = '<span class="new_font-font-title">New Font</span><span class="new_font-font-body">New Font is the font your body copy will appear in.</span>';
+				return $fonts;
+			}
+		);
+
+		// Define the expected result of this filter.
+		$expected = array(
+			'f2'       => '<span class="f2-font-title">Capita Bold</span><span class="f2-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
+			'f3'       => '<span class="f3-font-title">Benton Light</span><span class="f3-font-body">Capita Regular is the font your body copy will appear in.</span>',
+			'f4'       => '<span class="f4-font-title">Tiempos Bold</span><span class="f4-font-body">Tiempos Regular is the font your body copy will appear in.</span>',
+			'f5'       => '<span class="f5-font-title">Pressura Heading</span><span class="f5-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
+			'new_font' => '<span class="new_font-font-title">New Font</span><span class="new_font-font-body">New Font is the font your body copy will appear in.</span>',
+		);
+
+		$this->assertEquals( $expected, responsive_font_options() );
+
+	}
+
+	/**
 	 * Test the customizer style cache flush.
 	 */
 	function test_responsive_flush_customizer_styles_cache() {
