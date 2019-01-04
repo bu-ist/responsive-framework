@@ -4,6 +4,7 @@
 
 - Bower cleanup.
 - Fix font labeling in the customizer to match actual fonts.
+- Add filter for `responsive_font_options` for customizer fonts.
 - Remove `bundle install` from package.json postinstall scripts.
 - Upgrade `grunt-sass` from 2.0.0 to 3.0.2.
 - Print Stylesheet partial creation in Foundation: `/css-dev/burf-base/_print.scss`
