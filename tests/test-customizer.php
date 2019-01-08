@@ -65,6 +65,16 @@ class Tests_Responsive_Framework_Customizer extends WP_UnitTestCase {
 
 		$this->assertEquals( $expected, responsive_font_options() );
 
+		// Test the fallback font value if none set in Options table.
+		add_filter(
+			'responsive_font_fallback',
+			function( $fallback_font ) {
+				$fallback_font = 'new_font';
+				return $fallback_font;
+			}
+		);
+		$this->assertEquals( 'new_font', responsive_get_font_palette() );
+
 	}
 
 	/**
