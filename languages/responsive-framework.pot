@@ -1,15 +1,15 @@
-# <!=Copyright (C) 2018
+# <!=Copyright (C) 2019
 # This file is distributed under the same license as the  package.=!>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/theme/responsive-framework-2-x\n"
-"POT-Creation-Date: 2018-12-03 21:26:13+00:00\n"
+"https://wordpress.org/support/theme/responsive-framework\n"
+"POT-Creation-Date: 2019-01-09 19:33:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -245,7 +245,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:267 inc/customizer.php:237 inc/template-tags.php:994
+#: functions.php:267 inc/customizer.php:237 inc/template-tags.php:993
 msgid "Footbar"
 msgstr ""
 
@@ -253,7 +253,7 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:281 inc/template-tags.php:995
+#: functions.php:281 inc/template-tags.php:994
 msgid "Alternate Footbar"
 msgstr ""
 
@@ -468,60 +468,60 @@ msgstr ""
 msgid "Profile Directory"
 msgstr ""
 
-#: inc/template-tags.php:413 template-parts/masthead-side-nav.php:20
+#: inc/template-tags.php:412 template-parts/masthead-side-nav.php:20
 #: template-parts/masthead-top-nav.php:10 template-parts/masthead.php:15
 msgid "Open menu"
 msgstr ""
 
-#: inc/template-tags.php:414
+#: inc/template-tags.php:413
 msgid "Full Menu"
 msgstr ""
 
-#: inc/template-tags.php:415
+#: inc/template-tags.php:414
 msgid "Close Menu"
 msgstr ""
 
-#: inc/template-tags.php:593
+#: inc/template-tags.php:592
 #. translators: %s: archive type singular name.
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:598
+#: inc/template-tags.php:597
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:599
+#: inc/template-tags.php:598
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:640
+#: inc/template-tags.php:639
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:668 single.php:34
+#: inc/template-tags.php:667 single.php:34
 #. translators: %s: author name linking to their archive page.
 #. translators: %s: author name
 msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:685
+#: inc/template-tags.php:684
 #. translators: %s: category list for the post.
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:694
+#: inc/template-tags.php:693
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:694
+#: inc/template-tags.php:693
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:694
+#: inc/template-tags.php:693
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:827
+#: inc/template-tags.php:826
 msgid "View all posts"
 msgstr ""
 
