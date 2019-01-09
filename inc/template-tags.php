@@ -323,23 +323,24 @@ function responsive_term_links( $post = null, $before = '', $sep = '', $after = 
 }
 
 /**
- * Renders the primary navigation menu.
- *
- * If the current site has a site-wide ACL applied nothing will be displayed.
- *
- * @uses  BU Navigation plugin
+ * Renders the primary navigation menu with custom id and class.
+ * It can be overridden in the child theme.
  */
-function responsive_primary_nav() {
-	$nav = apply_filters( 'responsive_primary_nav', wp_nav_menu( array(
-		'theme_location' => 'responsive-primary',
-		'menu_id'        => 'primaryNav-menu',
-		'menu_class'     => 'primaryNav-menu',
-		'container_tag'  => 'ul',
-		'depth'          => 2,
-		'echo'           => false,
-	) ) );
+if ( ! function_exists( 'responsive_primary_nav' ) ) {
+	function responsive_primary_nav() {
+		/**
+		 * Filters the responsive framework default nav options.
+		 */
+		$args = apply_filters( 'responsive_primary_nav_args', array(
+			'theme_location' => 'responsive-primary',
+			'menu_id'        => 'primaryNav-menu',
+			'menu_class'     => 'primaryNav-menu',
+			'container_tag'  => 'ul',
+			'depth'          => 2,
+		) );
 
-	echo $nav;
+		wp_nav_menu( $args );
+	}
 }
 
 /**
