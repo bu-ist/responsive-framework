@@ -68,26 +68,49 @@ function responsive_layout_options() {
 
 /**
  * Returns the site's current font palette.
+ *
+ * @return string The value for the font palette to be used.
  */
 function responsive_get_font_palette() {
 	if ( defined( 'BU_RESPONSIVE_FONT_PALETTE' ) && array_key_exists( BU_RESPONSIVE_FONT_PALETTE, responsive_font_options() ) ) {
 		return BU_RESPONSIVE_FONT_PALETTE;
 	}
 
-	return get_option( 'burf_setting_fonts', 'f1' );
+	/**
+	 * Allow the fallback font to be filtered.
+	 *
+	 * @since 2.1.11
+	 *
+	 * @param string Fallback font value.
+	 */
+	$fallback_font = (string) apply_filters( 'responsive_font_fallback', 'f1' );
+
+	return get_option( 'burf_setting_fonts', $fallback_font );
 }
 
 /**
  * Returns font palette options available via Customizer.
  */
 function responsive_font_options() {
-	return array(
-		'f1' => '<span class="f1-font-title">Benton Bold</span><span class="f1-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
-		'f2' => '<span class="f2-font-title">Capita Bold</span><span class="f2-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
-		'f3' => '<span class="f3-font-title">Benton Light</span><span class="f3-font-body">Capita Regular is the font your body copy will appear in.</span>',
-		'f4' => '<span class="f4-font-title">Tiempos Bold</span><span class="f4-font-body">Tiempos Regular is the font your body copy will appear in.</span>',
-		'f5' => '<span class="f5-font-title">Pressura Heading</span><span class="f5-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
+
+	/**
+	 * Allow fonts to be filtered.
+	 *
+	 * @since 2.1.11
+	 *
+	 * @param array List of font family options.
+	 */
+	return (array) apply_filters(
+		'responsive_font_options',
+		array(
+			'f1' => '<span class="f1-font-title">Benton Bold</span><span class="f1-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
+			'f2' => '<span class="f2-font-title">Capita Bold</span><span class="f2-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
+			'f3' => '<span class="f3-font-title">Benton Light</span><span class="f3-font-body">Capita Regular is the font your body copy will appear in.</span>',
+			'f4' => '<span class="f4-font-title">Tiempos Bold</span><span class="f4-font-body">Tiempos Regular is the font your body copy will appear in.</span>',
+			'f5' => '<span class="f5-font-title">Pressura Heading</span><span class="f5-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
+		)
 	);
+
 }
 
 /**
