@@ -67,13 +67,24 @@ function responsive_layout_options() {
 
 /**
  * Returns the site's current font palette.
+ *
+ * @return string The value for the font palette to be used.
  */
 function responsive_get_font_palette() {
 	if ( defined( 'BU_RESPONSIVE_FONT_PALETTE' ) && array_key_exists( BU_RESPONSIVE_FONT_PALETTE, responsive_font_options() ) ) {
 		return BU_RESPONSIVE_FONT_PALETTE;
 	}
 
-	return get_option( 'burf_setting_fonts', 'f1' );
+	/**
+	 * Allow the fallback font to be filtered.
+	 *
+	 * @since 2.1.11
+	 *
+	 * @param string Fallback font value.
+	 */
+	$fallback_font = (string) apply_filters( 'responsive_font_fallback', 'f1' );
+
+	return get_option( 'burf_setting_fonts', $fallback_font );
 }
 
 /**
