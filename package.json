@@ -39,7 +39,7 @@
     "lg-thumbnail": "^1.1.0",
     "lightgallery": "^1.6.11",
     "node-sass": "^4.10.0",
-    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#3.0.0",
+    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#develop",
     "time-grunt": "^1.4.0"
   },
   "scripts": {

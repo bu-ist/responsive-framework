@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 			},
 			scripts: {
 				files: [
-					'node_modules/responsive-foundation/js-dev/*.js',
+					//'node_modules/responsive-foundation/js-dev/*.js',
 					'js-dev/*.js',
 					'js/vendor/**/*.js'
 				],
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
 		concat: {
 			scripts: {
 				src: [
-					'node_modules/responsive-foundation/js-dev/*.js',
+					//'node_modules/responsive-foundation/js-dev/*.js',
 					'js-dev/*.js'
 				],
 				dest: 'js/script.js'
