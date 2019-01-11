@@ -819,6 +819,7 @@ require __DIR__ . '/inc/search-form.php';
 /**
  * Reusable template tags to keep templates logic-free.
  */
+require __DIR__ . '/inc/bu-template-tags.php'; // BU enhancements to template-tags.
 require __DIR__ . '/inc/template-tags.php';
 
 /**
