@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 					'js-dev/*.js',
 					'js/vendor/**/*.js'
 				],
-				tasks: ['concat', 'uglify'],
+				tasks: ['browserify', 'uglify'],
 				options: {
 					spawn: false
 				}
@@ -67,17 +67,26 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		concat: {
-			scripts: {
-				src: [
-					//'node_modules/responsive-foundation/js-dev/*.js',
-					'js-dev/*.js'
-				],
-				dest: 'js/script.js'
+		browserify: {
+			options: {
+				watch: true,
+			},
+			dist: {
+				files: [
+					{
+						expand: true, // Enable dynamic expansion.
+						cwd: "js-dev/", // Src matches are relative to this path.
+						src: ["*.js"], // Actual pattern(s) to match.
+						dest: "js/" // Destination path prefix.
+					}
+				]
 			}
 		},
 		uglify: {
 			scripts: {
+				options: {
+					sourceMap: true,
+				},
 				expand: true,
 				cwd: 'js',
 				src: ['*.js', '!*.min.js'],
@@ -85,6 +94,9 @@ module.exports = function(grunt) {
 				ext: '.min.js'
 			},
 			vendor: {
+				options: {
+					sourceMap: true,
+				},
 				expand: true,
 				cwd: 'js/vendor',
 				src: ['*.js', '!*.min.js'],
@@ -113,7 +125,8 @@ module.exports = function(grunt) {
 				},
 				files: {
 					'style.css': 'css-dev/style.scss',
-					'ie.css': 'css-dev/ie.scss'
+					'ie.css': 'css-dev/ie.scss',
+					'css/vendor/lightgallery.css': 'css-dev/lightgallery.scss',
 				}
 			},
 			prod: {
@@ -222,24 +235,6 @@ module.exports = function(grunt) {
 				src: 'hooks/post-merge',
 				dest: '.git/hooks/post-merge'
 			},
-			lightgallery: {
-				options: {
-					mode: true
-				},
-				expand: true,
-				cwd: 'node_modules/lightgallery/dist/',
-				src: '**',
-				dest: 'js/vendor/lightgallery/'
-			},
-			lgthumbnail: {
-				options: {
-					mode: true
-				},
-				expand: true,
-				cwd: 'node_modules/lg-thumbnail/dist/',
-				src: '**',
-				dest: 'js/vendor/lg-thumbnail/'
-			}
 		},
 		phplint: {
 			options: {
@@ -322,6 +317,7 @@ module.exports = function(grunt) {
 	});
 
 	// 3. Where we tell Grunt we plan to use this plug-in.
+	grunt.loadNpmTasks( 'grunt-browserify' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
@@ -338,9 +334,9 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'install',             [ 'copy:hooks', 'build' ] );
 	grunt.registerTask( 'i18n',                [ 'clean', 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'styles',              [ 'sass' ] );
-	grunt.registerTask( 'scripts',             [ 'phplint', 'concat', 'uglify' ] );
+	grunt.registerTask( 'scripts',             [ 'browserify', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail', 'version:lightgallery', 'version:lg_thumbnail' ] );
 	grunt.registerTask( 'upgrade_modernizr',   [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
-	grunt.registerTask( 'build',               [ 'sass', 'scripts', 'i18n' ] );
+	grunt.registerTask( 'build',               [ 'sass', 'phplint', 'scripts', 'i18n' ] );
 	grunt.registerTask( 'default',             [ 'watch' ] );
 };
