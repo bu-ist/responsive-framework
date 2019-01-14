@@ -30,7 +30,7 @@ get_header();
 				);
 			?>
 
-			<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<span class="edit-link">', '</span>' ); ?>
+			<?php edit_post_link( __( 'Edit Page', 'responsive-framework' ) ); ?>
 
 			<?php responsive_comments(); ?>
 

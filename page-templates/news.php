@@ -31,7 +31,7 @@ get_header();
 			) );
 		?>
 
-		<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( 'Edit Page', 'responsive-framework' ), '<span class="edit-link">', '</span>' ); ?>
 
 		<?php if ( class_exists( 'BU_News_Page_Template' ) ) : ?>
 
