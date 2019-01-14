@@ -41,6 +41,6 @@ if ( ! class_exists( 'BU_News_Page_Template' ) ) {
 
 	?>
 
-	<?php edit_post_link( __( 'Edit Post', 'responsive-framework' ) ); ?>
+	<?php edit_post_link( __( 'Edit Post', 'responsive-framework' ), '', '<span class="post-edit-hint"></span>' ); ?>
 
 </article>

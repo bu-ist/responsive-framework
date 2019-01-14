@@ -23,6 +23,8 @@ get_header(); ?>
 
 			<?php responsive_comments(); ?>
 
+			<?php edit_post_link( __( 'Edit Page', 'responsive-framework' ), '', '<span class="post-edit-hint"></span>' ); ?>
+
 		</article>
 
 	<?php endwhile; ?>

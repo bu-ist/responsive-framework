@@ -2,7 +2,7 @@
 /**
  * Basic profile format.
  *
- * Render sindividual profiles for basic profile listings.
+ * Renders individual profiles for basic profile listings.
  *
  * @package Responsive_Framework\BU_Profiles
  */
@@ -39,4 +39,7 @@ $thumb_args = array(
 
 		?>
 	</a>
+
+	<?php edit_post_link( __( 'Edit Profile', 'responsive-framework' ), '', '<span class="post-edit-hint"></span>' ); ?>
+
 </li>

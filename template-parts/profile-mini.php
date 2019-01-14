@@ -41,4 +41,7 @@ $thumb_args = array(
 			<?php bu_page_summary( '<p class="profile-summary profile-summary-mini">', '</p>' ); ?>
 		<?php endif; ?>
 	</div>
+
+	<?php edit_post_link( __( 'Edit Profile', 'responsive-framework' ), '', '<span class="post-edit-hint"></span>' ); ?>
+
 </li>

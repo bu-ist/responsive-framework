@@ -23,6 +23,6 @@
 		the_tags( '<p class="meta tags"><em>' . __( 'Tagged:', 'responsive-framework' ) . '</em> ', ', ', '</p>' );
 } ?>
 
-	<?php edit_post_link( __( 'Edit Post', 'responsive-framework' ) ); ?>
+	<?php edit_post_link( __( 'Edit Post', 'responsive-framework' ), '', '<span class="post-edit-hint"></span>' ); ?>
 
 </article>
