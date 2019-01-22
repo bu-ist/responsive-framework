@@ -13,15 +13,6 @@ require_once __DIR__ . '/customizer-controls.php';
 function responsive_customizer_scripts() {
 	wp_enqueue_style( 'responsi-admin', get_template_directory_uri() . '/admin/admin.css', array(), RESPONSIVE_FRAMEWORK_VERSION );
 	wp_enqueue_script( 'responsi-customizer', get_template_directory_uri() . '/admin/theme-customizer.js', array( 'jquery', 'customize-controls', 'iris', 'underscore', 'wp-util' ), RESPONSIVE_FRAMEWORK_VERSION, true );
-	wp_localize_script(
-		'responsi-customizer',
-		'responsiveColor',
-		array(
-			'schemes'  => responsive_get_color_schemes(),
-			'regions'  => responsive_customizer_color_regions(),
-			'optional' => responsive_get_optional_color_regions(),
-		)
-	);
 }
 add_action( 'customize_controls_enqueue_scripts', 'responsive_customizer_scripts' );
 
@@ -110,121 +101,35 @@ function responsive_customize_register( $wp_customize ) {
 		// Colors.
 		$wp_customize->remove_section( 'colors' );
 
-		$wp_customize->add_panel(
-			'burf_panel_colors',
+		$wp_customize->add_section(
+			'burf_section_colors',
 			array(
 				'title'    => __( 'Colors', 'responsive-framework' ),
 				'priority' => 33,
 			)
 		);
 
-		$wp_customize->add_section(
-			'burf_section_color_scheme',
-			array(
-				'title' => __( 'Color Scheme', 'responsive-framework' ),
-				'panel' => 'burf_panel_colors',
-			)
-		);
-
 		$wp_customize->add_setting(
-			'burf_setting_color_scheme',
+			'burf_setting_colors',
 			array(
-				'default'           => 'default',
-				'sanitize_callback' => 'responsive_sanitize_color_scheme',
-				'transport'         => 'postMessage',
-				'type'              => 'option',
+				'default'    => 'f1',
+				'capability' => 'edit_theme_options',
+				'type'       => 'option',
 			)
 		);
 
 		$wp_customize->add_control(
-			'burf_setting_color_scheme',
-			array(
-				'label'   => __( 'Base Color Scheme', 'responsive-framework' ),
-				'section' => 'burf_section_color_scheme',
-				'type'    => 'select',
-				'choices' => responsive_get_color_scheme_choices(),
+			new BURF_Customize_Radio(
+				$wp_customize,
+				'burf_setting_colors',
+				array(
+					'section'  => 'burf_section_colors',
+					'settings' => 'burf_setting_colors',
+					'type'     => 'radio',
+					'choices'  => responsive_color_options(),
+				)
 			)
 		);
-
-		// Add color picker for each customizable colo region.
-		$color_groups    = responsive_customizer_color_region_groups();
-		$regions         = responsive_customizer_color_regions();
-		$scheme          = responsive_get_color_scheme();
-		$active_settings = isset( $scheme['active'] ) ? $scheme['active'] : array();
-
-		foreach ( $color_groups as $slug => $group ) {
-
-			$wp_customize->add_section(
-				"burf_section_custom_colors[$slug]",
-				array(
-					'title'           => $group['label'],
-					'panel'           => 'burf_panel_colors',
-					'active_callback' => function ( $control ) use ( $group ) {
-						$excluded_layouts = isset( $group['layout_excludes'] ) ? $group['layout_excludes'] : array();
-						if ( in_array( $control->manager->get_setting( 'burf_setting_layout' )->value(), $excluded_layouts ) ) {
-							return false;
-						} else {
-							return true;
-						}
-					},
-				)
-			);
-
-			$group_regions = wp_filter_object_list(
-				$regions,
-				array(
-					'group' => $slug,
-				)
-			);
-
-			foreach ( $group_regions as $option => $colors ) {
-
-				// Color picker.
-				$wp_customize->add_setting(
-					"burf_setting_custom_colors[$option]",
-					array(
-						'default'           => $colors['default'],
-						'sanitize_callback' => 'sanitize_hex_color',
-						'transport'         => 'postMessage',
-						'type'              => 'option',
-					)
-				);
-
-				$wp_customize->add_control(
-					new WP_Customize_Color_Control(
-						$wp_customize,
-						"burf_setting_custom_colors[$option]",
-						array(
-							'label'       => $colors['label'],
-							'description' => $colors['description'],
-							'section'     => "burf_section_custom_colors[$slug]",
-						)
-					)
-				);
-
-				// Disable toggle (for optional color regions).
-				if ( $colors['optional'] && array_key_exists( $option, $active_settings ) ) {
-					$wp_customize->add_setting(
-						"burf_setting_active_color_regions[$option]",
-						array(
-							'default'   => $active_settings[ $option ],
-							'transport' => 'postMessage',
-							'type'      => 'option',
-						)
-					);
-
-					$wp_customize->add_control(
-						"burf_setting_active_color_regions[$option]",
-						array(
-							/* translators: %s: color label */
-							'label'   => sprintf( esc_html__( 'Use %s?', 'responsive-framework' ), $colors['label'] ),
-							'section' => "burf_section_custom_colors[$slug]",
-							'type'    => 'checkbox',
-						)
-					);
-				}
-			}
-		}
 	}
 
 	// Content Options.
@@ -426,25 +331,6 @@ function responsive_customize_register( $wp_customize ) {
 	}
 }
 add_action( 'customize_register', 'responsive_customize_register' );
-
-/**
- * Output an Underscore template for generating CSS for the color scheme.
- *
- * The template generates the css dynamically for instant display in the Customizer
- * preview.
- */
-function responsive_framework_color_scheme_template() {
-	$colors = array();
-	foreach ( responsive_customizer_color_regions() as $slug => $color ) {
-		$colors[ $slug ] = "{{ data['$slug'] }}";
-	}
-	?>
-	<script type="text/html" id="tmpl-responsive-framework-color-scheme">
-		<?php echo responsive_framework_get_color_regions_css( $colors, 'template' ); ?>
-	</script>
-	<?php
-}
-add_action( 'customize_controls_print_footer_scripts', 'responsive_framework_color_scheme_template' );
 
 /**
  * Appends inline styles based on Customizer configuration.
