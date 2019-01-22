@@ -55,12 +55,15 @@ function responsive_layout_options() {
 	 *
 	 * @param array List of layout options.
 	 */
-	$layout_options = apply_filters( 'responsive_layout_options', array(
-		'default'  => __( 'Default', 'responsive-framework' ),
-		'top-nav'  => __( 'Top Navigation Bar', 'responsive-framework' ),
-		'side-nav' => __( 'Side Navigation Bar', 'responsive-framework' ),
-		'no-nav'   => __( 'No Navigation Bar', 'responsive-framework' ),
-	) );
+	$layout_options = apply_filters(
+		'responsive_layout_options',
+		array(
+			'default'  => __( 'Default', 'responsive-framework' ),
+			'top-nav'  => __( 'Top Navigation Bar', 'responsive-framework' ),
+			'side-nav' => __( 'Side Navigation Bar', 'responsive-framework' ),
+			'no-nav'   => __( 'No Navigation Bar', 'responsive-framework' ),
+		)
+	);
 
 	return $layout_options;
 }
@@ -119,19 +122,19 @@ function responsive_color_options() {
 	return (array) apply_filters(
 		'responsive_color_options',
 		array(
-			'default' => 'Default',
-			'slacker' => 'Slacker',
-			'extra-spectral' => 'Extra Spectral',
+			'default'             => 'Default',
+			'slacker'             => 'Slacker',
+			'extra-spectral'      => 'Extra Spectral',
 			'rayleigh-scattering' => 'Rayleigh Scattering',
-			'vinca-minor' => 'Vinca Minor',
-			'eiffel' => 'Eiffel',
-			'comm_ave' => 'Comm Ave',
+			'vinca-minor'         => 'Vinca Minor',
+			'eiffel'              => 'Eiffel',
+			'comm_ave'            => 'Comm Ave',
 		)
 	);
 }
 
 /**
-* Returns the site's current color palette.
+ * Returns the site's current color palette.
  *
  * @return string The value for the color palette to be used.
  */
@@ -160,7 +163,8 @@ function responsive_get_color_palette() {
  * @return string $styles CSS Styles for use in the Customizer.
  */
 function responsive_get_customizer_styles( $use_cache = true ) {
-	$styles = array();
+
+	$styles              = array();
 	$is_script_debugging = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 
 	// Check cache first if requested and SCRIPT_DEBUG is off.
@@ -222,14 +226,14 @@ function responsive_flush_customizer_styles_cache() {
 	delete_option( 'burf_customizer_styles' );
 }
 
-add_action( 'customize_save_after',                            'responsive_flush_customizer_styles_cache' );
-add_action( 'update_option_burf_setting_color_scheme',         'responsive_flush_customizer_styles_cache' );
-add_action( 'update_option_burf_setting_custom_colors',        'responsive_flush_customizer_styles_cache' );
+add_action( 'customize_save_after', 'responsive_flush_customizer_styles_cache' );
+add_action( 'update_option_burf_setting_color_scheme', 'responsive_flush_customizer_styles_cache' );
+add_action( 'update_option_burf_setting_custom_colors', 'responsive_flush_customizer_styles_cache' );
 add_action( 'update_option_burf_setting_active_color_regions', 'responsive_flush_customizer_styles_cache' );
-add_action( 'update_option_burf_setting_fonts',                'responsive_flush_customizer_styles_cache' );
+add_action( 'update_option_burf_setting_fonts', 'responsive_flush_customizer_styles_cache' );
 
 // Flush cached Customizer styles whenever framework has been updated.
-add_action( 'update_option__responsive_framework_version',     'responsive_flush_customizer_styles_cache' );
+add_action( 'update_option__responsive_framework_version', 'responsive_flush_customizer_styles_cache' );
 
 /**
  * Returns a configured csstidy instance for CSS minification.
@@ -247,16 +251,16 @@ function responsive_css_tidy() {
 
 	$csstidy = new csstidy();
 
-	$csstidy->set_cfg( 'remove_bslash',              false );
-	$csstidy->set_cfg( 'compress_colors',            false );
-	$csstidy->set_cfg( 'compress_font-weight',       false );
-	$csstidy->set_cfg( 'optimise_shorthands',        0 );
-	$csstidy->set_cfg( 'remove_last_;',              false );
-	$csstidy->set_cfg( 'case_properties',            false );
+	$csstidy->set_cfg( 'remove_bslash', false );
+	$csstidy->set_cfg( 'compress_colors', false );
+	$csstidy->set_cfg( 'compress_font-weight', false );
+	$csstidy->set_cfg( 'optimise_shorthands', 0 );
+	$csstidy->set_cfg( 'remove_last_;', false );
+	$csstidy->set_cfg( 'case_properties', false );
 	$csstidy->set_cfg( 'discard_invalid_properties', true );
-	$csstidy->set_cfg( 'css_level',                  'CSS3.0' );
-	$csstidy->set_cfg( 'preserve_css',               true );
-	$csstidy->set_cfg( 'template',                   'highest' );
+	$csstidy->set_cfg( 'css_level', 'CSS3.0' );
+	$csstidy->set_cfg( 'preserve_css', true );
+	$csstidy->set_cfg( 'template', 'highest' );
 
 	return $csstidy;
 }
@@ -264,11 +268,11 @@ function responsive_css_tidy() {
 /**
  * Return font palette CSS styles.
  *
- * @param string $palette Either font or color
+ * @param string $palette Either font or color.
  * @return string $css Contents of the CSS font palette file.
  */
 function responsive_get_css( $palette ) {
-	if ( ! in_array( $palette, array( 'font', 'color' ) ) ) {
+	if ( ! in_array( $palette, array( 'font', 'color' ), true ) ) {
 		return;
 	}
 
@@ -288,7 +292,7 @@ function responsive_get_css( $palette ) {
 	if ( ! empty( $palette ) ) {
 		$request = wp_remote_get( get_template_directory_uri() . '/css/' . $get_palette . '.css' );
 
-		if ( ! is_wp_error( $request ) && 200 == wp_remote_retrieve_response_code( $request ) ) {
+		if ( ! is_wp_error( $request ) && 200 === wp_remote_retrieve_response_code( $request ) ) {
 			$css = wp_remote_retrieve_body( $request );
 		}
 	}
@@ -304,6 +308,7 @@ function responsive_get_customizer_footer_info() {
 		'text'  => '',
 		'autop' => false,
 	);
+
 	$footer = wp_parse_args( get_option( 'burf_setting_footer', array() ), $defaults );
 
 	if ( $footer['autop'] ) {
@@ -332,7 +337,8 @@ function responsive_customizer_footer_info( $args = array() ) {
 		'after'  => '</div>',
 		'echo'   => true,
 	);
-	$args = wp_parse_args( $args, $defaults );
+
+	$args   = wp_parse_args( $args, $defaults );
 	$output = '';
 
 	$footer_info = responsive_get_customizer_footer_info();
