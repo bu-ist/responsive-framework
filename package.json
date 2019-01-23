@@ -1,6 +1,6 @@
 {
   "name": "bu-responsive-framework",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "description": "A responsive WordPress theme framework. Uses the Responsive Foundation.",
   "repository": "https://github.com/bu-ist/responsive-framework/",
   "contributors": [
@@ -21,7 +21,8 @@
     "RJ Foley IV <rjfoley@bu.edu>",
     "Alana Martin <alanam@bu.edu>",
     "Tim Spears <tspears1@bu.edu>",
-    "Todd Milliken <milliktr@bu.edu>"
+    "Todd Milliken <milliktr@bu.edu>",
+    "Jim Reevior <jreevior@bu.edu>"
   ],
   "devDependencies": {
     "grunt": "^1.0.3",
@@ -39,7 +40,7 @@
     "lg-thumbnail": "^1.1.0",
     "lightgallery": "^1.6.11",
     "node-sass": "^4.10.0",
-    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#3.0.0",
+    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#3.1.0",
     "time-grunt": "^1.4.0"
   },
   "scripts": {

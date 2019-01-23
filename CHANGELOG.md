@@ -10,6 +10,9 @@
 - Remove `bundle install` from package.json postinstall scripts.
 - Upgrade `grunt-sass` from 2.0.0 to 3.0.2.
 - Print Stylesheet partial creation in Foundation: `/css-dev/burf-base/_print.scss`
+- Added mega navigation menu to customizer
+- Added new masthead markup for mega nav
+- Added new menu location for "short" nav
 - Add filter to alllow for modification of `bu_navigation_display_primary` defaults from within framework.
 
 ## 2.1.11
