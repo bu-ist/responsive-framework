@@ -322,12 +322,19 @@ function responsive_term_links( $post = null, $before = '', $sep = '', $after = 
 	return $output;
 }
 
-/**
- * Renders the primary navigation menu with custom id and class.
- * It can be overridden in the child theme.
- */
 if ( ! function_exists( 'responsive_primary_nav' ) ) {
+	/**
+	 * Renders the primary navigation menu with custom id and class.
+	 * It can be overridden in the child theme.
+	 */
 	function responsive_primary_nav() {
+		/**
+		 * Fires before primary nav is displayed.
+		 *
+		 * @since 2.11.12
+		 */
+		do_action( 'responsive_primary_nav_before' );
+
 		/**
 		 * Filters the responsive framework default nav options.
 		 */
@@ -340,47 +347,95 @@ if ( ! function_exists( 'responsive_primary_nav' ) ) {
 		) );
 
 		wp_nav_menu( $args );
+
+		/**
+		 * Fires after primary nav is displayed.
+		 *
+		 * @since 2.11.12
+		 */
+		do_action( 'responsive_primary_nav_after' );
 	}
 }
 
-/**
- * Renders utility navigation menu.
- *
- * If the current site has a site-wide ACL applied or the utility menu has
- * no items nothing will be displayed.
- *
- * @param array $args {
- *     Optional. Arguments to configure menu markup.
- *
- *     @type  string $before HTML markup to display before menu.
- *     @type  string $after  HTML markup to display after menu.
- * }
- */
-function responsive_utility_nav( $args = array() ) {
-	if ( ! has_nav_menu( 'utility' ) ) {
-		return;
+if ( ! function_exists( 'responsive_utility_nav' ) ) {
+	/**
+	 * Renders utility navigation menu.
+	 *
+	 * If the current site has a site-wide ACL applied or the utility menu has
+	 * no items nothing will be displayed.
+	 *
+	 * @param array $args {
+	 *     Optional. Arguments to configure menu markup.
+	 *
+	 *     @type  string $before HTML markup to display before menu.
+	 *     @type  string $after  HTML markup to display after menu.
+	 * }
+	 */
+	function responsive_utility_nav( $args = array() ) {
+		/**
+		 * Fires before utility nav is displayed.
+		 *
+		 * @since 2.11.12
+		 */
+		do_action( 'responsive_utility_nav_before' );
+
+		// Displays utility nav if exists.
+		$menu = responsive_get_utility_nav( $args );
+		if ( ! empty( $menu ) ) {
+			echo $menu; // wpcs: xss ok.
+		}
+
+		/**
+		 * Fires after utility nav is displayed.
+		 *
+		 * @since 2.11.12
+		 */
+		do_action( 'responsive_utility_nav_after' );
 	}
+}
 
-	$defaults = array(
-		'before' => '<nav class="utility-nav" role="navigation">',
-		'after'  => '</nav>',
-	);
+if ( ! function_exists( 'responsive_get_utility_nav' ) ) {
+	/**
+	 * Fetches the utility nav, if exists.
+	 *
+	 * @since 2.11.12
+	 *
+	 * @see   responsive_utility_nav
+	 *
+	 * @param array $args Same arguments as responsive_utility_nav.
+	 * @return string $menu The resulting menu markup.
+	 */
+	function responsive_get_utility_nav( $args = array() ) {
 
-	$args = wp_parse_args( $args, $defaults );
-	$menu = '';
+		if ( ! has_nav_menu( 'utility' ) ) {
+			return false;
+		}
 
-	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || false == BuAccessControlPlugin::is_site_403() ) {
-		$menu = wp_nav_menu( array(
-			'theme_location' => 'utility',
-			'menu_id'        => 'utility-nav-menu',
-			'menu_class'     => 'utility-nav-menu',
-			'container'      => false,
-			'echo'           => false,
-		) );
-	}
+		$defaults = array(
+			'before' => '<nav class="utility-nav" role="navigation">',
+			'after'  => '</nav>',
+		);
 
-	if ( $menu ) {
-		echo $args['before'] . $menu . $args['after'];
+		$args = wp_parse_args( $args, $defaults );
+		$menu = '';
+
+		if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || false == BuAccessControlPlugin::is_site_403() ) {
+			$menu = wp_nav_menu(
+				array(
+					'theme_location' => 'utility',
+					'menu_id'        => 'utility-nav-menu',
+					'menu_class'     => 'utility-nav-menu',
+					'container'      => false,
+					'echo'           => false,
+				)
+			);
+		}
+
+		if ( $menu ) {
+			$menu = $args['before'] . $menu . $args['after'];
+		}
+
+		return $menu;
 	}
 }
 
