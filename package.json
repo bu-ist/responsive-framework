@@ -37,14 +37,15 @@
     "grunt-sass": "^3.0.2",
     "grunt-version": "^1.2.1",
     "grunt-wp-i18n": "^1.0.2",
-    "lg-thumbnail": "^1.1.0",
-    "lightgallery": "^1.6.11",
     "node-sass": "^4.10.0",
-    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#develop",
     "time-grunt": "^1.4.0"
   },
   "scripts": {
     "postinstall": "grunt install"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lg-thumbnail": "^1.1.0",
+    "lightgallery": "^1.6.11",
+    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#develop"
+  }
 }
