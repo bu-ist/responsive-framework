@@ -322,12 +322,19 @@ function responsive_term_links( $post = null, $before = '', $sep = '', $after = 
 	return $output;
 }
 
-/**
- * Renders the primary navigation menu with custom id and class.
- * It can be overridden in the child theme.
- */
 if ( ! function_exists( 'responsive_primary_nav' ) ) {
+	/**
+	 * Renders the primary navigation menu with custom id and class.
+	 * It can be overridden in the child theme.
+	 */
 	function responsive_primary_nav() {
+		/**
+		 * Fires before primary nav is displayed.
+		 *
+		 * @since 2.11.12
+		 */
+		do_action( 'responsive_primary_nav_before' );
+
 		/**
 		 * Filters the responsive framework default nav options.
 		 */
@@ -340,6 +347,13 @@ if ( ! function_exists( 'responsive_primary_nav' ) ) {
 		) );
 
 		wp_nav_menu( $args );
+
+		/**
+		 * Fires after primary nav is displayed.
+		 *
+		 * @since 2.11.12
+		 */
+		do_action( 'responsive_primary_nav_after' );
 	}
 }
 
