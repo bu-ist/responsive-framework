@@ -13,7 +13,10 @@
 - Added mega navigation menu to customizer
 - Added new masthead markup for mega nav
 - Added new menu location for "short" nav
-- Add filter to alllow for modification of `bu_navigation_display_primary` defaults from within framework.
+- Add filter to alllow for modification of `bu_navigation_display_primary`
+  defaults from within framework.
+- Add before/after action hooks for the `responsive_primary_nav` and
+  `responsive_utility_nav`, so additional markup can be added by child themes.
 
 ## 2.1.11
 
