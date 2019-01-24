@@ -357,8 +357,41 @@ if ( ! function_exists( 'responsive_primary_nav' ) ) {
  * }
  */
 function responsive_utility_nav( $args = array() ) {
+	/**
+	 * Fires before utility nav is displayed.
+	 *
+	 * @since 2.11.12
+	 */
+	do_action( 'responsive_utility_nav_before' );
+
+	// Displays utility nav if exists.
+	$menu = responsive_get_utility_nav( $args );
+	if ( ! empty( $menu ) ) {
+		echo $menu; // wpcs: xss ok.
+	}
+
+	/**
+	 * Fires after utility nav is displayed.
+	 *
+	 * @since 2.11.12
+	 */
+	do_action( 'responsive_utility_nav_after' );
+}
+
+/**
+ * Fetches the utility nav, if exists.
+ *
+ * @since 2.11.12
+ *
+ * @see   responsive_utility_nav
+ *
+ * @param array $args Same arguments as responsive_utility_nav.
+ * @return string $menu The resulting menu markup.
+ */
+function responsive_get_utility_nav( $args = array() ) {
+
 	if ( ! has_nav_menu( 'utility' ) ) {
-		return;
+		return false;
 	}
 
 	$defaults = array(
@@ -370,18 +403,22 @@ function responsive_utility_nav( $args = array() ) {
 	$menu = '';
 
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || false == BuAccessControlPlugin::is_site_403() ) {
-		$menu = wp_nav_menu( array(
-			'theme_location' => 'utility',
-			'menu_id'        => 'utility-nav-menu',
-			'menu_class'     => 'utility-nav-menu',
-			'container'      => false,
-			'echo'           => false,
-		) );
+		$menu = wp_nav_menu(
+			array(
+				'theme_location' => 'utility',
+				'menu_id'        => 'utility-nav-menu',
+				'menu_class'     => 'utility-nav-menu',
+				'container'      => false,
+				'echo'           => false,
+			)
+		);
 	}
 
 	if ( $menu ) {
-		echo $args['before'] . $menu . $args['after'];
+		$menu = $args['before'] . $menu . $args['after'];
 	}
+
+	return $menu;
 }
 
 /**
