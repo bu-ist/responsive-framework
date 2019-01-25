@@ -23,6 +23,11 @@
     "Tim Spears <tspears1@bu.edu>",
     "Todd Milliken <milliktr@bu.edu>"
   ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
