@@ -6,5 +6,6 @@
  *
  * @package ResponsiveFramework
  */
+"use strict";
 
 },{}]},{},[1]);
