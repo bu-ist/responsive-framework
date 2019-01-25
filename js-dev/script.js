@@ -5,3 +5,6 @@
  *
  * @package ResponsiveFramework
  */
+
+// Import Foundation scripts.
+import Toggle from 'responsive-foundation';
