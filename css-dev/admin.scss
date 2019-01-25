@@ -129,6 +129,21 @@ $_customizer-description-color: #999;
 	}
 }
 
+@import 'customizer/color-palettes/palettes';
+
+@each $palette, $map in $color-palettes {
+	label[for="burf_setting_colors_#{$palette}"]::after {
+		content: '';
+		display: block;
+		width: 20px;
+		height: 20px;
+
+		@if map-get( $map, 'primary-nav-bg' ) {
+			background-color: map-get( $map, 'primary-nav-bg' );
+		}
+	}
+}
+
 // Customizer: Other
 #customize-control-burf_setting_color_scheme {
 	.customize-control-title {
