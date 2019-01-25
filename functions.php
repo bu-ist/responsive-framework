@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.10' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.11' );
 
 /**
  * Modernizr version.
@@ -154,6 +154,7 @@ function responsive_setup_nav_menus() {
 			'footer'  => __( 'Footer Links', 'responsive-framework' ),
 			'social'  => __( 'Social Links', 'responsive-framework' ),
 			'utility' => __( 'Utility Navigation', 'responsive-framework' ),
+			'short'   => __( 'Short Navigation', 'responsive-framework' ),
 		)
 	);
 
@@ -818,6 +819,7 @@ require __DIR__ . '/inc/search-form.php';
 /**
  * Reusable template tags to keep templates logic-free.
  */
+require __DIR__ . '/inc/bu-template-tags.php'; // BU enhancements to template-tags.
 require __DIR__ . '/inc/template-tags.php';
 
 /**

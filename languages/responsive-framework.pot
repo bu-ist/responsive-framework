@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/theme/responsive-framework\n"
-"POT-Creation-Date: 2019-01-25 03:54:37+00:00\n"
+"POT-Creation-Date: 2019-01-25 14:58:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,7 +42,7 @@ msgid "All page templates"
 msgstr ""
 
 #: admin/responsive-admin-page-template-filter.php:72 inc/calendar.php:94
-#: inc/customizer.php:59 inc/customizer.php:410
+#: inc/customizer.php:411
 msgid "Default"
 msgstr ""
 
@@ -209,51 +209,55 @@ msgstr ""
 msgid "Utility Navigation"
 msgstr ""
 
-#: functions.php:162
+#: functions.php:157
+msgid "Short Navigation"
+msgstr ""
+
+#: functions.php:163
 msgid "Primary Navigation"
 msgstr ""
 
-#: functions.php:228
+#: functions.php:229
 msgid "Main Sidebar"
 msgstr ""
 
-#: functions.php:230
+#: functions.php:231
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:240
+#: functions.php:241
 msgid "Posts Content Area"
 msgstr ""
 
-#: functions.php:242
+#: functions.php:243
 msgid ""
 "Add widgets here for display on posts and archives. Only the first 2 "
 "widgets will appear."
 msgstr ""
 
-#: functions.php:253
+#: functions.php:254
 msgid "Profiles Content Area"
 msgstr ""
 
-#: functions.php:255
+#: functions.php:256
 msgid ""
 "Add widgets here for display on profile pages and archives. Only the first "
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:266 inc/customizer.php:259 inc/template-tags.php:944
+#: functions.php:267 inc/customizer.php:260 inc/template-tags.php:1041
 msgid "Footbar"
 msgstr ""
 
-#: functions.php:268 functions.php:282
+#: functions.php:269 functions.php:283
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:280 inc/template-tags.php:945
+#: functions.php:281 inc/template-tags.php:1042
 msgid "Alternate Footbar"
 msgstr ""
 
-#: functions.php:425
+#: functions.php:426
 #. translators: %s: navigation label navigating to.
 msgid "Navigate to: %s"
 msgstr ""
@@ -293,115 +297,133 @@ msgstr ""
 msgid "Graphic"
 msgstr ""
 
+#: inc/customizer.php:59
+msgid ""
+"Default Navigation <span class=\"ui-context\">A good choice for most "
+"websites</span>"
+msgstr ""
+
 #: inc/customizer.php:60
-msgid "Top Navigation Bar"
+msgid ""
+"Top Navigation <span class=\"ui-context\">Best for websites without "
+"dropdowns</span>"
 msgstr ""
 
 #: inc/customizer.php:61
-msgid "Side Navigation Bar"
+msgid ""
+"Side Navigation <span class=\"ui-context\">Best for small websites with few "
+"nested pages</span>"
 msgstr ""
 
 #: inc/customizer.php:62
-msgid "No Navigation Bar"
+msgid ""
+"Mega Navigation <span class=\"ui-context\">Best for large, complex "
+"websites</span>"
 msgstr ""
 
-#: inc/customizer.php:249
+#: inc/customizer.php:63
+msgid ""
+"No Navigation <span class=\"ui-context\">Best for single-page "
+"websites</span>"
+msgstr ""
+
+#: inc/customizer.php:250
 msgid "Navigation Bar"
 msgstr ""
 
-#: inc/customizer.php:253
+#: inc/customizer.php:254
 msgid "Content Area"
 msgstr ""
 
-#: inc/customizer.php:256
+#: inc/customizer.php:257
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer.php:273
+#: inc/customizer.php:274
 msgid "Background Color"
 msgstr ""
 
-#: inc/customizer.php:278
+#: inc/customizer.php:279
 msgid "Border Color"
 msgstr ""
 
-#: inc/customizer.php:283
+#: inc/customizer.php:284
 msgid "Primary Nav Links"
 msgstr ""
 
-#: inc/customizer.php:288
+#: inc/customizer.php:289
 msgid "Utility Nav Links"
 msgstr ""
 
-#: inc/customizer.php:293
+#: inc/customizer.php:294
 msgid "Primary Nav Links Hover"
 msgstr ""
 
-#: inc/customizer.php:300
+#: inc/customizer.php:301
 msgid "Headings"
 msgstr ""
 
-#: inc/customizer.php:305 inc/customizer.php:358 inc/customizer.php:395
+#: inc/customizer.php:306 inc/customizer.php:359 inc/customizer.php:396
 msgid "Text Color"
 msgstr ""
 
-#: inc/customizer.php:310 inc/customizer.php:348 inc/customizer.php:385
+#: inc/customizer.php:311 inc/customizer.php:349 inc/customizer.php:386
 msgid "Link Color"
 msgstr ""
 
-#: inc/customizer.php:315 inc/customizer.php:353 inc/customizer.php:390
+#: inc/customizer.php:316 inc/customizer.php:354 inc/customizer.php:391
 msgid "Link Hover"
 msgstr ""
 
-#: inc/customizer.php:320
+#: inc/customizer.php:321
 msgid "Button Background"
 msgstr ""
 
-#: inc/customizer.php:325
+#: inc/customizer.php:326
 msgid "Button Text Color"
 msgstr ""
 
-#: inc/customizer.php:332
+#: inc/customizer.php:333
 msgid "Widget Background"
 msgstr ""
 
-#: inc/customizer.php:338 inc/customizer.php:375
+#: inc/customizer.php:339 inc/customizer.php:376
 msgid "Widget Title"
 msgstr ""
 
-#: inc/customizer.php:343 inc/customizer.php:380
+#: inc/customizer.php:344 inc/customizer.php:381
 msgid "Widget Title Border"
 msgstr ""
 
-#: inc/customizer.php:365
+#: inc/customizer.php:366
 msgid "Background"
 msgstr ""
 
-#: inc/customizer.php:370
+#: inc/customizer.php:371
 msgid "Top Border"
 msgstr ""
 
-#: inc/customizer.php:449
+#: inc/customizer.php:450
 msgid "Slacker"
 msgstr ""
 
-#: inc/customizer.php:488
+#: inc/customizer.php:489
 msgid "Extra Spectral"
 msgstr ""
 
-#: inc/customizer.php:527
+#: inc/customizer.php:528
 msgid "Rayleigh Scattering"
 msgstr ""
 
-#: inc/customizer.php:566
+#: inc/customizer.php:567
 msgid "Vinca Minor"
 msgstr ""
 
-#: inc/customizer.php:605
+#: inc/customizer.php:606
 msgid "Eiffel"
 msgstr ""
 
-#: inc/customizer.php:644
+#: inc/customizer.php:645
 msgid "Comm Ave"
 msgstr ""
 
@@ -460,47 +482,60 @@ msgstr ""
 msgid "Profile Directory"
 msgstr ""
 
-#: inc/template-tags.php:543
+#: inc/template-tags.php:460 template-parts/masthead-side-nav.php:20
+#: template-parts/masthead-top-nav.php:10 template-parts/masthead.php:15
+msgid "Open menu"
+msgstr ""
+
+#: inc/template-tags.php:461
+msgid "Full Menu"
+msgstr ""
+
+#: inc/template-tags.php:462
+msgid "Close Menu"
+msgstr ""
+
+#: inc/template-tags.php:640
 #. translators: %s: archive type singular name.
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:548
+#: inc/template-tags.php:645
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:549
+#: inc/template-tags.php:646
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:590
+#: inc/template-tags.php:687
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:618 single.php:34
+#: inc/template-tags.php:715 single.php:34
 #. translators: %s: author name linking to their archive page.
 #. translators: %s: author name
 msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:635
+#: inc/template-tags.php:732
 #. translators: %s: category list for the post.
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:644
+#: inc/template-tags.php:741
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:644
+#: inc/template-tags.php:741
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:644
+#: inc/template-tags.php:741
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:777
+#: inc/template-tags.php:874
 msgid "View all posts"
 msgstr ""
 
@@ -692,11 +727,6 @@ msgstr ""
 #: template-parts/masthead-side-nav.php:15
 #: template-parts/masthead-top-nav.php:13 template-parts/masthead.php:18
 msgid "Open search"
-msgstr ""
-
-#: template-parts/masthead-side-nav.php:20
-#: template-parts/masthead-top-nav.php:10 template-parts/masthead.php:15
-msgid "Open menu"
 msgstr ""
 
 #: template-parts/masthead-side-nav.php:20
