@@ -1,0 +1,51 @@
+@media screen {
+	/* background color */
+	.footbar,
+	.footbar-container,
+	.banner-container-window-width {
+		background: map-get( $current-palette, 'footer-bg' );
+	}
+
+	/* top border color */
+	.footbar {
+		border-color: map-get( $current-palette, 'footer-border' );
+	}
+
+	/* link color */
+	.footbar a,
+	.footbar .widget a,
+	.footbar #contentnav li a,
+	.footbar .widget_nav_menu li a {
+		color: map-get( $current-palette, 'footer-widget-link' );
+	}
+
+	/* widget title color */
+	.footbar .widget-title,
+	.footbar .widget-calendar-date {
+		color: map-get( $current-palette, 'footer-widget-title' );
+	}
+
+	/* border color */
+	.footbar .widget-title,
+	.footbar #contentnav ul,
+	.footbar #contentnav li,
+	.footbar .widget_nav_menu ul,
+	.footbar .widget_nav_menu li,
+	.footbar .widget-calendar-event {
+		border-color: map-get( $current-palette, 'footer-widget-title-border' );
+	}
+
+	/* link hover color */
+	.footbar .widget a:hover,
+	.footbar #contentnav li a:hover,
+	.footbar .widget_nav_menu li a:hover {
+		color: map-get( $current-palette, 'footer-widget-link-hover' );
+	}
+
+	/* text color */
+	.footbar .widget,
+	.footbar .widget-calendar-day-graphic,
+	.footbar .widget-bu-posts .meta {
+		color: map-get( $current-palette, 'footer-widget-text' );
+	}
+}

@@ -1,0 +1,54 @@
+@media screen {
+	/* sidebar area
+	----------------------------------------------------------------- */
+
+	/* widget border color */
+	.widget-title,
+	#contentnav ul,
+	#contentnav li,
+	.widget_nav_menu ul,
+	.widget_nav_menu li,
+	.widget-calendar-event,
+	.month,
+	.widget-calendar-picker th,
+	.widget-calendar-picker td {
+		border-color: map-get( $current-palette, 'widget-title-border' );
+	}
+
+	.widget-title {
+		color: map-get( $current-palette, 'widget-title' );
+	}
+
+	/* text color */
+	.widget,
+	.widget-calendar-picker th,
+	.widget-calendar-picker caption {
+		color: map-get( $current-palette, 'widget-text' );
+	}
+
+	/* link color */
+	.widget a,
+	#contentnav li a,
+	.widget_nav_menu li a {
+		color: map-get( $current-palette, 'widget-link' );
+	}
+
+	/* link hover color */
+	.widget a:hover,
+	#contentnav li a:hover,
+	.widget_nav_menu li a:hover,
+	#contentnav li.current_page_item > a,
+	.widget_nav_menu li.current_page_item > a{
+		color: map-get( $current-palette, 'widget-link-color' );
+	}
+
+	/* buttons */
+	.widget a.button,
+	.widget a.button:hover,
+	.widget a.button:focus,
+	.widget a.button-primary,
+	.widget a.button-primary:hover,
+	.widget a.button-primary:focus {
+		color: map-get( $current-palette, 'button-color' );
+	}
+}

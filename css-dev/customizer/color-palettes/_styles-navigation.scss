@@ -1,0 +1,48 @@
+@media screen {
+	/* navigation bar and links
+	----------------------------------------------------------------- */
+	/* navbar bg color */
+	.l-side-nav .wrapper,
+	.primary-nav,
+	.primary-nav-menu ul,
+	.l-side-nav {
+		background: map-get( $current-palette, 'primary-nav-bg' );
+	}
+
+	.primary-nav,
+	.primary-nav-menu ul,
+	.primary-nav-menu a,
+	.search-toggle::before {
+		color: map-get( $current-palette, 'primary-nav-link' );
+	}
+
+	/* main nav and nav border color */
+	.primary-nav-menu a,
+	.l-side-nav .primary-nav-menu a {
+		border-color: map-get( $current-palette, 'primary-nav-border' );
+	}
+
+	/* main nav and nav border color */
+	.nav-toggle span,
+	.nav-toggle span::before,
+	.nav-toggle span::after {
+		background-color: map-get( $current-palette, 'primary-nav-link' );
+	}
+
+	/* utility nav color */
+	.l-side-nav .utility-nav a {
+		color: map-get( $current-palette, 'utility-nav-link' );
+	}
+
+	/* main nav and utility nav hover color */
+	.primary-nav-menu a:hover,
+	.primary-nav-menu a:focus,
+	.l-side-nav .utility-nav a:hover,
+	.l-side-nav .utility-nav a:focus,
+	.primary-nav-menu li a.active,
+	.primary-nav-menu li a.active_section,
+	.primary-nav-menu li li a:hover,
+	.primary-nav-menu li li a:focus {
+		color: map-get( $current-palette, 'primary-nav-link-hover' );
+	}
+}

@@ -1,0 +1,51 @@
+@import 'palettes';
+
+$current-palette: map-get( $color-palettes, $palette-id );
+
+@if map-get( $current-palette, 'sidebar-bg' ) == true {
+	@media screen {
+		.widget {
+			background: map-get( $current-palette, 'widget-bg' );
+			padding: 24px;
+		}
+
+		.footbar .widget {
+			background: transparent;
+			padding: 0;
+		}
+	}
+}
+
+@media screen {
+
+	/* non-configurable styles
+	----------------------------------------------------------------- */
+
+	.comment-respond,
+	#quicksearch,
+	.l-side-nav #quicksearch,
+	.message,
+	.single .content-area .meta,
+	.single-event-schedule,
+	.single-profile .profile-info {
+		background: #f5f8ff;
+		border-color: #dfdfea;
+	}
+
+	/* calendar table */
+	.widget-calendar-picker thead,
+	.widget-calendar-picker th,
+	.widget-calendar-picker .out,
+	.widget-calendar-picker .today {
+		background: rgba(0,0,0,0.15);
+	}
+
+	.utility-nav a,
+	a:active,
+	a:visited,
+	.widget-title a,
+	.widget-post-meta {
+		color: inherit;
+	}
+
+}

@@ -1,0 +1,71 @@
+@media screen {
+/* content area
+	----------------------------------------------------------------- */
+
+	/* heading color */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: map-get( $current-palette, 'heading-color' );
+	}
+
+	/* text color */
+	body {
+		color: map-get( $current-palette, 'body-color' );
+	}
+
+	/* link color */
+	a,
+	.widget a,
+	.widget a:hover,
+	.widget a:focus,
+	.calendar-list-event-link,
+	.calendar-list-event-link:focus,
+	.bu_collapsible::before,
+	.profile-name {
+		color: map-get( $current-palette, 'link-color' );
+	}
+
+	/* link hover color */
+	a:hover,
+	.calendar-list-event-link:hover,
+	.bu_collapsible:hover::before,
+	.bu_collapsible:focus::before,
+	.month td a:hover {
+		color: map-get( $current-palette, 'link-hover-color' );
+	}
+
+	/* buttons */
+	input[type="submit"],
+	.button,
+	.button-primary,
+	.button-selected,
+	#quicksearch .button,
+	.paging-navigation a,
+	.archive-link {
+		color: map-get( $current-palette, 'button-bg' );
+		color: map-get( $current-palette, 'button-color' );
+	}
+
+	input[type="submit"]:hover,
+	.button:hover,
+	.button-primary:hover,
+	.button-selected:hover,
+	#quicksearch .button:hover,
+	.paging-navigation a:hover,
+	.archive-link:hover {
+		color: map-get( $current-palette, 'button-color' );
+	}
+
+	/* blockquotes */
+	blockquote {
+		border-color: map-get( $current-palette, 'link-color' );
+	}
+
+	blockquote:before {
+		color: map-get( $current-palette, 'link-color' );
+	}
+} /* End screen media query */
