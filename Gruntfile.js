@@ -72,13 +72,9 @@ module.exports = function(grunt) {
 				watch: true,
 				browserifyOptions: {
 					debug: false,
-					transform: [['babelify',
-					{
-					  "presets": [
-						"@babel/preset-env",
-						"@wordpress/default"
-					  ]
-					}]],
+					transform: [
+						['babelify']
+					],
 				},
 			},
 			dist: {
