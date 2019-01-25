@@ -157,6 +157,10 @@ module.exports = function( grunt ) {
 				],
 			},
 		},
+		sasslint: {
+			target: 'css-dev/**/*.scss',
+			// see .sasslintrc for options.
+		},
 		addtextdomain: {
 			options: {
 				textdomain: 'responsive-framework',
@@ -321,6 +325,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-sass' );
+	grunt.loadNpmTasks( 'grunt-sass-lint' );
 	grunt.loadNpmTasks( 'grunt-notify' );
 	grunt.loadNpmTasks( 'grunt-version' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );

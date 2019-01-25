@@ -32,7 +32,7 @@ engines:
       - "Gruntfile.js"
   eslint:
     enabled: true
-    channel: eslint-3
+    channel: eslint-5
   fixme:
     enabled: true
   markdownlint:
@@ -49,10 +49,8 @@ engines:
     config:
       file_extensions: php
       rulesets: codesize,naming,unusedcode
-  scss-lint:
+  sass-lint:
     enabled: true
-    exclude_fingerprints:
-    - bcfbf6b95474763b7de69327fe455ae5
 ratings:
   paths:
   - "**.md"
