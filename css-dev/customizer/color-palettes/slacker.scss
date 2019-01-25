@@ -1,0 +1,22 @@
+$palette-id: 'slacker';
+
+@import 'palettes';
+@import 'styles';
+
+blockquote {
+	background-color: #f0f0f0; // color contrast with text (#24243a) = 13.27:1, passes WCAG AAA;
+	border-color: #666; // Default grey will be overwritten by inc/customizer.php if colors customized
+	border-left: 0.45em solid;
+	padding: 18px;
+	position: relative;
+
+	&::before {
+		left: 14px;
+		position: absolute;
+		top: 2px;
+	}
+
+	>p:last-of-type {
+		margin-bottom: 0; // Provides bottom padding for last paragraph of blockquote to fill out gray box.
+	}
+}

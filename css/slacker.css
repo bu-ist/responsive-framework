@@ -1,0 +1,241 @@
+.widget {
+  background: #494971;
+  padding: 24px;
+}
+
+.footbar .widget {
+  background: transparent;
+  padding: 0;
+}
+
+@media screen {
+  /* navigation bar and links
+	----------------------------------------------------------------- */
+  /* navbar bg color */
+  .l-side-nav .wrapper,
+  .primary-nav,
+  .primary-nav-menu ul,
+  .l-side-nav {
+    background: #24243a;
+  }
+  .primary-nav,
+  .primary-nav-menu ul,
+  .primary-nav-menu a,
+  .search-toggle::before {
+    color: #ffffff;
+  }
+  /* main nav and nav border color */
+  .primary-nav-menu a,
+  .l-side-nav .primary-nav-menu a {
+    border-color: #3c3c50;
+  }
+  /* main nav and nav border color */
+  .nav-toggle span,
+  .nav-toggle span::before,
+  .nav-toggle span::after {
+    background-color: #ffffff;
+  }
+  /* utility nav color */
+  .l-side-nav .utility-nav a {
+    color: #7c7c9d;
+  }
+  /* main nav and utility nav hover color */
+  .primary-nav-menu a:hover,
+  .primary-nav-menu a:focus,
+  .l-side-nav .utility-nav a:hover,
+  .l-side-nav .utility-nav a:focus,
+  .primary-nav-menu li a.active,
+  .primary-nav-menu li a.active_section,
+  .primary-nav-menu li li a:hover,
+  .primary-nav-menu li li a:focus {
+    color: #9f9fec;
+  }
+  /* content area
+		----------------------------------------------------------------- */
+  /* heading color */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #24243a;
+  }
+  /* text color */
+  body {
+    color: #24243a;
+  }
+  /* link color */
+  a,
+  .widget a,
+  .widget a:hover,
+  .widget a:focus,
+  .calendar-list-event-link,
+  .calendar-list-event-link:focus,
+  .bu_collapsible::before,
+  .profile-name {
+    color: #A06C1A;
+  }
+  /* link hover color */
+  a:hover,
+  .calendar-list-event-link:hover,
+  .bu_collapsible:hover::before,
+  .bu_collapsible:focus::before,
+  .month td a:hover {
+    color: #000000;
+  }
+  /* buttons */
+  input[type="submit"],
+  .button,
+  .button-primary,
+  .button-selected,
+  #quicksearch .button,
+  .paging-navigation a,
+  .archive-link {
+    color: #4fc3a0;
+    color: #ffffff;
+  }
+  input[type="submit"]:hover,
+  .button:hover,
+  .button-primary:hover,
+  .button-selected:hover,
+  #quicksearch .button:hover,
+  .paging-navigation a:hover,
+  .archive-link:hover {
+    color: #ffffff;
+  }
+  /* blockquotes */
+  blockquote {
+    border-color: #A06C1A;
+  }
+  blockquote:before {
+    color: #A06C1A;
+  }
+}
+
+/* End screen media query */
+@media screen {
+  /* sidebar area
+	----------------------------------------------------------------- */
+  /* widget border color */
+  .widget-title,
+  #contentnav ul,
+  #contentnav li,
+  .widget_nav_menu ul,
+  .widget_nav_menu li,
+  .widget-calendar-event,
+  .month,
+  .widget-calendar-picker th,
+  .widget-calendar-picker td {
+    border-color: #6a6a9d;
+  }
+  .widget-title {
+    color: #ffffff;
+  }
+  /* text color */
+  /* link color */
+  .widget a,
+  #contentnav li a,
+  .widget_nav_menu li a {
+    color: #ecb438;
+  }
+  /* link hover color */
+  /* buttons */
+  .widget a.button,
+  .widget a.button:hover,
+  .widget a.button:focus,
+  .widget a.button-primary,
+  .widget a.button-primary:hover,
+  .widget a.button-primary:focus {
+    color: #ffffff;
+  }
+  /* footbar area
+----------------------------------------------------------------- */
+  /* background color */
+  .footbar,
+  .footbar-container,
+  .banner-container-window-width {
+    background: #1a1a22;
+  }
+  /* top border color */
+  .footbar {
+    border-color: #1a1a22;
+  }
+  /* link color */
+  .footbar a,
+  .footbar .widget a,
+  .footbar #contentnav li a,
+  .footbar .widget_nav_menu li a {
+    color: #ecb438;
+  }
+  /* widget title color */
+  .footbar .widget-title,
+  .footbar .widget-calendar-date {
+    color: #ffffff;
+  }
+  /* border color */
+  .footbar .widget-title,
+  .footbar #contentnav ul,
+  .footbar #contentnav li,
+  .footbar .widget_nav_menu ul,
+  .footbar .widget_nav_menu li,
+  .footbar .widget-calendar-event {
+    border-color: #323242;
+  }
+  /* link hover color */
+  .footbar .widget a:hover,
+  .footbar #contentnav li a:hover,
+  .footbar .widget_nav_menu li a:hover {
+    color: #ffffff;
+  }
+  /* text color */
+  .footbar .widget,
+  .footbar .widget-calendar-day-graphic,
+  .footbar .widget-bu-posts .meta {
+    color: #8080a2;
+  }
+  /* non-configurable styles
+	----------------------------------------------------------------- */
+  .comment-respond,
+  #quicksearch,
+  .l-side-nav #quicksearch,
+  .message,
+  .single .content-area .meta,
+  .single-event-schedule,
+  .single-profile .profile-info {
+    background: #f5f8ff;
+    border-color: #dfdfea;
+  }
+  /* calendar table */
+  .widget-calendar-picker thead,
+  .widget-calendar-picker th,
+  .widget-calendar-picker .out,
+  .widget-calendar-picker .today {
+    background: rgba(0, 0, 0, 0.15);
+  }
+  .utility-nav a,
+  a:active,
+  a:visited,
+  .widget-title a,
+  .widget-post-meta {
+    color: inherit;
+  }
+}
+
+blockquote {
+  background-color: #f0f0f0;
+  border-color: #666;
+  border-left: 0.45em solid;
+  padding: 18px;
+  position: relative;
+}
+
+blockquote::before {
+  left: 14px;
+  position: absolute;
+  top: 2px;
+}
+
+blockquote > p:last-of-type {
+  margin-bottom: 0;
+}
