@@ -309,7 +309,8 @@ module.exports = function( grunt ) {
 			},
 		},
 		clean: {
-			build: [ 'languages/*' ],
+			languages: [ 'languages/*' ],
+			js: [ 'js/**/*.js', 'js/**/*.map', '!js/vendor/**/*' ],
 		},
 	} );
 
@@ -329,9 +330,9 @@ module.exports = function( grunt ) {
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask( 'install', [ 'copy:hooks', 'build' ] );
-	grunt.registerTask( 'i18n', [ 'clean', 'addtextdomain', 'makepot' ] );
+	grunt.registerTask( 'i18n', [ 'clean:languages', 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'styles', [ 'sass' ] );
-	grunt.registerTask( 'scripts', [ 'browserify', 'uglify' ] );
+	grunt.registerTask( 'scripts', [ 'clean:js', 'browserify', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [
 		'copy:lightgallery',
 		'copy:lgthumbnail',
