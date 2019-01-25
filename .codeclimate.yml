@@ -1,23 +1,23 @@
 ---
 exclude_paths:
-- node_modules/
-- languages/
-- vendor/
-- js/vendor/
-- ".sass-cache/"
-- "*.min.css"
-- "*.min.js"
-- "**.css"
-- "js/script.js"
+  - node_modules/
+  - languages/
+  - vendor/
+  - js/vendor/
+  - ".sass-cache/"
+  - "*.min.css"
+  - "*.min.js"
+  - "**.css"
+  - "js/script.js"
 
 prepare:
   fetch:
-  - url: "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.scss-lint-r-2.x.yml"
-    path: ".scss-lint.yml"
-  - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintrc"
-  - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintignore"
-  - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.mdlrc"
-  - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/markdown.rb"
+    - url: "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.scss-lint-r-2.x.yml"
+      path: ".scss-lint.yml"
+    - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintrc"
+    - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintignore"
+    - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.mdlrc"
+    - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/markdown.rb"
 
 engines:
   csslint:
@@ -26,8 +26,8 @@ engines:
     enabled: true
     config:
       languages:
-      - javascript
-      - php
+        - javascript
+        - php
     exclude_paths:
       - "Gruntfile.js"
   eslint:
@@ -53,10 +53,10 @@ engines:
     enabled: true
 ratings:
   paths:
-  - "**.md"
-  - "**.inc"
-  - "**.js"
-  - "**.json"
-  - "**.php"
-  - "**.css"
-  - "**.scss"
+    - "**.md"
+    - "**.inc"
+    - "**.js"
+    - "**.json"
+    - "**.php"
+    - "**.css"
+    - "**.scss"
