@@ -86,11 +86,11 @@ module.exports = function( grunt ) {
 				options: {
 					sourceMap: true,
 				},
+				// Note: Overwrites the un-uglified version.
 				expand: true,
-				cwd: 'js',
-				src: [ '*.js', '!*.min.js' ],
-				dest: 'js',
-				ext: '.min.js',
+				cwd: 'js/',
+				src: [ '*.js' ],
+				dest: 'js/',
 			},
 			vendor: {
 				options: {
@@ -100,7 +100,6 @@ module.exports = function( grunt ) {
 				cwd: 'js/vendor',
 				src: [ '*.js', '!*.min.js' ],
 				dest: 'js/vendor',
-				ext: '.min.js',
 			},
 		},
 		sass: {
