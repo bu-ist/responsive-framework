@@ -732,7 +732,7 @@ function r_remove_news_template( $templates, $theme, $post ) {
  */
 function responsive_branding_copyright() {
 	?>
-		<div class="bu_copyright">&copy; <?php date( 'Y' ); ?> Boston&nbsp;University. All&nbsp;rights&nbsp;reserved. www.bu.edu</div>
+		<div class="bu_copyright visually-hidden">&copy; <?php date( 'Y' ); ?> Boston&nbsp;University. All&nbsp;rights&nbsp;reserved. www.bu.edu</div>
 	<?php
 }
 
