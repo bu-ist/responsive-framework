@@ -77,12 +77,8 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\after_setup_theme' );
  * Register responsive gallery related scripts and styles.
  */
 function wp_default_scripts() {
-	$postfix = '';
-	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-		$postfix = '.min';
-	}
 
-	wp_register_script( 'responsive-framework-gallery', get_template_directory_uri() . "/js/galleries{$postfix}.js", array( 'jquery' ), RESPONSIVE_FRAMEWORK_VERSION, true );
+	wp_register_script( 'responsive-framework-gallery', get_template_directory_uri() . '/js/galleries.js', array( 'jquery' ), RESPONSIVE_FRAMEWORK_VERSION, true );
 
 	wp_register_style( 'lightgallery', get_template_directory_uri() . '/css/vendor/lightgallery.css', array(), '1.6.8' );
 }
