@@ -2,6 +2,8 @@
 /**
  * BU Specific functionality
  * expanding from template-tags.php
+ *
+ * @package Responsive_Framework
  */
 
 /**

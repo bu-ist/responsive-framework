@@ -6,16 +6,16 @@ $_customizer-layout-sprite-width: 75px;
 // Customizer: Layout
 #burf_setting_layout {
 	li {
-		position: relative;
-		padding: 8px;
 		margin-bottom: 10px;
 		min-height: $_customizer-layout-sprite-height;
+		padding: 8px;
 		padding-right: $_customizer-layout-sprite-width + 8px;
+		position: relative;
 
 		&::after {
-			display: table;
 			clear: both;
 			content: "";
+			display: table;
 		}
 	}
 
@@ -25,9 +25,9 @@ $_customizer-layout-sprite-width: 75px;
 
 	// Active styles
 	input:checked + label::before {
+		background: lighten( $_customizer-selected-color, 50% );
 		border: 1px solid $_customizer-selected-color;
 		border-radius: 2px;
-		background: lighten( $_customizer-selected-color, 50% );
 		margin: 0;
 		z-index: -1;
 	}
@@ -51,16 +51,15 @@ $_customizer-layout-sprite-width: 75px;
 
 		// For everyone
 		&::after {
-			background: url( "layouts-ui.png" ) no-repeat 0 0 transparent;
+			background: url( 'layouts-ui.png' ) no-repeat 0 0 transparent;
 			content: "";
 			display: block;
 			height: 47px;
 			margin: 0 auto;
-			margin: 0;
 			padding: 0;
 			position: absolute;
-			top: 8px;
 			right: 8px;
+			top: 8px;
 			width: 75px;
 		}
 
@@ -70,28 +69,28 @@ $_customizer-layout-sprite-width: 75px;
 		}
 
 		&[for="burf_setting_layout_top-nav"]::after {
-			background-position: 0 (-$_customizer-layout-sprite-height);
+			background-position: 0 ( -$_customizer-layout-sprite-height );
 		}
 
 		&[for="burf_setting_layout_side-nav"]::after {
-			background-position: 0 (-$_customizer-layout-sprite-height * 2);
+			background-position: 0 ( -$_customizer-layout-sprite-height * 2 );
 		}
 
 		&[for="burf_setting_layout_mega-nav"]::after {
-			background-position: 0 (-$_customizer-layout-sprite-height * 3);
+			background-position: 0 ( -$_customizer-layout-sprite-height * 3 );
 		}
 
 		&[for="burf_setting_layout_no-nav"]::after {
-			background-position: 0 (-$_customizer-layout-sprite-height * 4);
+			background-position: 0 ( -$_customizer-layout-sprite-height * 4 );
 		}
 	}
 }
 
 .ui-context {
 	display: block;
+	font-size: 13px;
 	font-weight: 400;
 	margin-left: 24px;
-	font-size: 13px;
 }
 
 // Customizer: Fonts Import

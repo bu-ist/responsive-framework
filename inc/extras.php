@@ -354,7 +354,6 @@ function responsive_get_layout_default() {
  * Check if the site being accessed is the wpdocs subdomain
  *
  * @return boolean
- *
  */
 function responsive_is_wpdocs() {
 	$subdomain = explode( '.', $_SERVER['HTTP_HOST'] )[0];
@@ -368,7 +367,6 @@ function responsive_is_wpdocs() {
 /**
  * Hook into admin notices, reminding to set up
  * the short menu if mega nav has been selected
- *
  */
 function responsive_short_nav_notice() {
 	$layout = responsive_layout();
