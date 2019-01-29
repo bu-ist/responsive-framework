@@ -20,10 +20,10 @@ module.exports = function( grunt ) {
 			scripts: {
 				files: [
 					//'node_modules/responsive-foundation/js-dev/*.js',
-					'js-dev/*.js',
+					'js-dev/**/*.js',
 					'js/vendor/**/*.js',
 				],
-				tasks: [ 'browserify', 'uglify' ],
+				tasks: [ 'scripts' ],
 				options: {
 					spawn: false,
 				},
@@ -75,7 +75,7 @@ module.exports = function( grunt ) {
 					{
 						expand: true, // Enable dynamic expansion.
 						cwd: 'js-dev/', // Src matches are relative to this path.
-						src: [ '*.js' ], // Actual pattern(s) to match.
+						src: [ '*.js' ], // Actual pattern(s) to match. Targets root JS files.
 						dest: 'js/', // Destination path prefix.
 					},
 				],
