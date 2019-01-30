@@ -7,19 +7,21 @@
  * @package ResponsiveFramework
  */
 
+import $ from 'jquery';
+
 /**
  * Requires the lightgallery jQuery library.
  *
  * @link https://github.com/sachinchoolur/lightgallery.js
  */
-require( 'lightgallery/src/js/lightgallery' );
+import 'lightgallery';
 
 /**
  * Requires the lg-thumbnail plugin for lightgallery.
  *
  * @link https://github.com/sachinchoolur/lg-thumbnail
  */
-require( 'lg-thumbnail/src/lg-thumbnail' );
+import 'lg-thumbnail';
 
 /**
  * A better WordPress gallery experience for Responsive Framework.

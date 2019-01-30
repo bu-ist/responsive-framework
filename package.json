@@ -29,6 +29,10 @@
     "last 2 versions",
     "not dead"
   ],
+  "browser": {
+    "lg-thumbnail": "./node_modules/lg-thumbnail/dist/lg-thumbnail.js",
+    "lightgallery": "./node_modules/lightgallery/dist/js/lightgallery.js"
+  },
   "browserify-shim": {
     "jquery": "global:jQuery"
   },
