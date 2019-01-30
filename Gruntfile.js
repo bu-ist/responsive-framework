@@ -124,7 +124,6 @@ module.exports = function( grunt ) {
 				files: {
 					'style.css': 'css-dev/style.scss',
 					'ie.css': 'css-dev/ie.scss',
-					'css/vendor/lightgallery.css': 'css-dev/lightgallery.scss',
 				},
 			},
 			prod: {
@@ -241,6 +240,15 @@ module.exports = function( grunt ) {
 				src: 'hooks/post-merge',
 				dest: '.git/hooks/post-merge',
 			},
+			lightgallery: {
+				options: {
+					mode: true,
+				},
+				expand: true,
+				cwd: 'node_modules/lightgallery/dist/',
+				src: [ 'fonts/**/*', 'img/**/*', 'css/**/*' ],
+				dest: 'js/vendor/lightgallery/',
+			},
 		},
 		phplint: {
 			options: {
@@ -333,13 +341,12 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-modernizr' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-	grunt.registerTask( 'install', [ 'copy:hooks', 'build' ] );
+	grunt.registerTask( 'install', [ 'copy', 'build' ] );
 	grunt.registerTask( 'i18n', [ 'clean:languages', 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'styles', [ 'sass' ] );
 	grunt.registerTask( 'scripts', [ 'clean:js', 'browserify', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [
 		'copy:lightgallery',
-		'copy:lgthumbnail',
 		'version:lightgallery',
 		'version:lg_thumbnail',
 	] );
