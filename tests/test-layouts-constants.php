@@ -54,10 +54,11 @@ class Tests_Responsive_Framework_Layouts_Constants extends WP_UnitTestCase {
 	 */
 	function test_responsive_layout_options() {
 		$layout_options = array(
-			'default' => 'Default',
-			'top-nav'  => 'Top Navigation Bar',
-			'side-nav' => 'Side Navigation Bar',
-			'no-nav'   => 'No Navigation Bar',
+			'default'  => 'Default Navigation <span class="ui-context">A good choice for most websites</span>',
+			'top-nav'  => 'Top Navigation <span class="ui-context">Best for websites without dropdowns</span>',
+			'side-nav' => 'Side Navigation <span class="ui-context">Best for small websites with few nested pages</span>',
+			'mega-nav' => 'Mega Navigation <span class="ui-context">Best for large, complex websites</span>',
+			'no-nav'   => 'No Navigation <span class="ui-context">Best for single-page websites</span>',
 		);
 
 		$this->assertEquals( $layout_options, responsive_layout_options() );

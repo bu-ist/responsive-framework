@@ -56,10 +56,11 @@ function responsive_layout_options() {
 	 * @param array List of layout options.
 	 */
 	$layout_options = apply_filters( 'responsive_layout_options', array(
-		'default'  => __( 'Default', 'responsive-framework' ),
-		'top-nav'  => __( 'Top Navigation Bar', 'responsive-framework' ),
-		'side-nav' => __( 'Side Navigation Bar', 'responsive-framework' ),
-		'no-nav'   => __( 'No Navigation Bar', 'responsive-framework' ),
+		'default'  => __( 'Default Navigation <span class="ui-context">A good choice for most websites</span>', 'responsive-framework' ),
+		'top-nav'  => __( 'Top Navigation <span class="ui-context">Best for websites without dropdowns</span>', 'responsive-framework' ),
+		'side-nav' => __( 'Side Navigation <span class="ui-context">Best for small websites with few nested pages</span>', 'responsive-framework' ),
+		'mega-nav' => __( 'Mega Navigation <span class="ui-context">Best for large, complex websites</span>', 'responsive-framework' ),
+		'no-nav'   => __( 'No Navigation <span class="ui-context">Best for single-page websites</span>', 'responsive-framework' ),
 	) );
 
 	return $layout_options;
@@ -67,26 +68,49 @@ function responsive_layout_options() {
 
 /**
  * Returns the site's current font palette.
+ *
+ * @return string The value for the font palette to be used.
  */
 function responsive_get_font_palette() {
 	if ( defined( 'BU_RESPONSIVE_FONT_PALETTE' ) && array_key_exists( BU_RESPONSIVE_FONT_PALETTE, responsive_font_options() ) ) {
 		return BU_RESPONSIVE_FONT_PALETTE;
 	}
 
-	return get_option( 'burf_setting_fonts', 'f1' );
+	/**
+	 * Allow the fallback font to be filtered.
+	 *
+	 * @since 2.1.11
+	 *
+	 * @param string Fallback font value.
+	 */
+	$fallback_font = (string) apply_filters( 'responsive_font_fallback', 'f1' );
+
+	return get_option( 'burf_setting_fonts', $fallback_font );
 }
 
 /**
  * Returns font palette options available via Customizer.
  */
 function responsive_font_options() {
-	return array(
-		'f1' => 'Capita,Benton',
-		'f2' => 'Benton,Benton',
-		'f3' => 'Benton,Capita',
-		'f4' => 'Pressura,Benton',
-		'f5' => 'Stag,Benton',
+
+	/**
+	 * Allow fonts to be filtered.
+	 *
+	 * @since 2.1.11
+	 *
+	 * @param array List of font family options.
+	 */
+	return (array) apply_filters(
+		'responsive_font_options',
+		array(
+			'f1' => '<span class="f1-font-title">Benton Bold</span><span class="f1-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
+			'f2' => '<span class="f2-font-title">Capita Bold</span><span class="f2-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
+			'f3' => '<span class="f3-font-title">Benton Light</span><span class="f3-font-body">Capita Regular is the font your body copy will appear in.</span>',
+			'f4' => '<span class="f4-font-title">Tiempos Bold</span><span class="f4-font-body">Tiempos Regular is the font your body copy will appear in.</span>',
+			'f5' => '<span class="f5-font-title">Pressura Heading</span><span class="f5-font-body">Benton Sans Regular is the font your body copy will appear in.</span>',
+		)
 	);
+
 }
 
 /**
@@ -808,15 +832,15 @@ function responsive_framework_get_color_regions_css( $colors, $context = 'defaul
 /* sidebar widget background color
 ----------------------------------------------------------------- */
 
-.widget {
-	background: {$colors['sidebar-bg']};
-	padding: 24px;
-}
+	.widget {
+		background: {$colors['sidebar-bg']};
+		padding: 24px;
+	}
 
-.footbar .widget {
-	background: transparent;
-	padding: 0;
-}
+	.footbar .widget {
+		background: transparent;
+		padding: 0;
+	}
 CSS;
 
 	// Underscore template gets special logic.
@@ -835,252 +859,269 @@ CSS;
 	}
 
 	return <<<CSS
-/* navigation bar and links
------------------------------------------------------------------ */
 
-/* navbar bg color */
-.l-side-nav .wrapper,
-.primary-nav,
-.primary-nav-menu ul,
-.l-side-nav {
-	background: {$colors['primaryNav-bg']};
-}
+	@media screen {
 
-.primary-nav,
-.primary-nav-menu ul,
-.primary-nav-menu a,
-.search-toggle::before {
-	color: {$colors['primaryNav-link']};
-}
+	/* navigation bar and links
+	----------------------------------------------------------------- */
+		/* navbar bg color */
+		.l-side-nav .wrapper,
+		.primary-nav,
+		.primary-nav-menu ul,
+		.l-side-nav {
+			background: {$colors['primaryNav-bg']};
+		}
 
-/* main nav and nav border color */
-.primary-nav-menu a,
-.l-side-nav .primary-nav-menu a {
-	border-color: {$colors['primaryNav-border']};
-}
+		.primary-nav,
+		.primary-nav-menu ul,
+		.primary-nav-menu a,
+		.search-toggle::before {
+			color: {$colors['primaryNav-link']};
+		}
 
-/* main nav and nav border color */
-.nav-toggle span,
-.nav-toggle span::before,
-.nav-toggle span::after {
-	background-color: {$colors['primaryNav-link']};
-}
+		/* main nav and nav border color */
+		.primary-nav-menu a,
+		.l-side-nav .primary-nav-menu a {
+			border-color: {$colors['primaryNav-border']};
+		}
 
-/* utility nav color */
-.l-side-nav .utility-nav a {
-	color: {$colors['utilityNav-link']};
-}
+		/* main nav and nav border color */
+		.nav-toggle span,
+		.nav-toggle span::before,
+		.nav-toggle span::after {
+			background-color: {$colors['primaryNav-link']};
+		}
 
-/* main nav and utility nav hover color */
-.primary-nav-menu a:hover,
-.primary-nav-menu a:focus,
-.l-side-nav .utility-nav a:hover,
-.l-side-nav .utility-nav a:focus,
-.primary-nav-menu li a.active,
-.primary-nav-menu li a.active_section,
-.primary-nav-menu li li a:hover,
-.primary-nav-menu li li a:focus {
-	color: {$colors['primaryNav-hover']};
-}
+		/* utility nav color */
+		.l-side-nav .utility-nav a {
+			color: {$colors['utilityNav-link']};
+		}
 
-/* content area
------------------------------------------------------------------ */
+		/* main nav and utility nav hover color */
+		.primary-nav-menu a:hover,
+		.primary-nav-menu a:focus,
+		.l-side-nav .utility-nav a:hover,
+		.l-side-nav .utility-nav a:focus,
+		.primary-nav-menu li a.active,
+		.primary-nav-menu li a.active_section,
+		.primary-nav-menu li li a:hover,
+		.primary-nav-menu li li a:focus {
+			color: {$colors['primaryNav-hover']};
+		}
 
-/* heading color */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	color: {$colors['content-heading']};
-}
+		/* content area
+		----------------------------------------------------------------- */
 
-/* text color */
-body {
-	color: {$colors['content-base']};
-}
+		/* heading color */
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: {$colors['content-heading']};
+		}
 
-/* link color */
-a,
-.widget a,
-.widget a:hover,
-.widget a:focus,
-.calendar-list-event-link,
-.calendar-list-event-link:focus,
-.bu_collapsible::before,
-.profile-name {
-	color: {$colors['content-link']};
-}
+		/* text color */
+		body {
+			color: {$colors['content-base']};
+		}
 
-/* link hover color */
-a:hover,
-.calendar-list-event-link:hover,
-.bu_collapsible:hover::before,
-.bu_collapsible:focus::before,
-.month td a:hover {
-	color: {$colors['content-link-hover']};
-}
+		/* link color */
+		a,
+		.widget a,
+		.widget a:hover,
+		.widget a:focus,
+		.calendar-list-event-link,
+		.calendar-list-event-link:focus,
+		.bu_collapsible::before,
+		.profile-name {
+			color: {$colors['content-link']};
+		}
 
-/* buttons */
-input[type="submit"],
-.button,
-.button-primary,
-.button-selected,
-#quicksearch .button,
-.paging-navigation a,
-.archive-link {
-	background: {$colors['button-color']};
-	color: {$colors['button-text-color']};
-}
+		/* link hover color */
+		a:hover,
+		.calendar-list-event-link:hover,
+		.bu_collapsible:hover::before,
+		.bu_collapsible:focus::before,
+		.month td a:hover {
+			color: {$colors['content-link-hover']};
+		}
 
-input[type="submit"]:hover,
-.button:hover,
-.button-primary:hover,
-.button-selected:hover,
-#quicksearch .button:hover,
-.paging-navigation a:hover,
-.archive-link:hover {
-	color: {$colors['button-text-color']};
-}
+		/* buttons */
+		input[type="submit"],
+		.button,
+		.button-primary,
+		.button-selected,
+		#quicksearch .button,
+		.paging-navigation a,
+		.archive-link {
+			background: {$colors['button-color']};
+			color: {$colors['button-text-color']};
+		}
 
-/* blockquotes */
-blockquote {
-	border-color: {$colors['content-link']};
-}
+		input[type="submit"]:hover,
+		.button:hover,
+		.button-primary:hover,
+		.button-selected:hover,
+		#quicksearch .button:hover,
+		.paging-navigation a:hover,
+		.archive-link:hover {
+			color: {$colors['button-text-color']};
+		}
 
-blockquote:before {
-	color: {$colors['content-link']};
-}
+		/* blockquotes */
+		blockquote {
+			border-color: {$colors['content-link']};
+		}
 
+		blockquote:before {
+			color: {$colors['content-link']};
+		}
+	} /* End screen media query */
 
 {$sidebar_widget_styles}
 
-/* sidebar area
------------------------------------------------------------------ */
+@media screen {
 
-/* widget border color */
-.widget-title,
-#contentnav ul,
-#contentnav li,
-.widget_nav_menu ul,
-.widget_nav_menu li,
-.widget-calendar-event,
-.month,
-.widget-calendar-picker th,
-.widget-calendar-picker td {
-	border-color: {$colors['sidebar-widgetTitle-border']};
-}
+	/* sidebar area
+	----------------------------------------------------------------- */
 
-.widget-title {
-	color: {$colors['sidebar-widgetTitle']};
-}
+	/* widget border color */
+	.widget-title,
+	#contentnav ul,
+	#contentnav li,
+	.widget_nav_menu ul,
+	.widget_nav_menu li,
+	.widget-calendar-event,
+	.month,
+	.widget-calendar-picker th,
+	.widget-calendar-picker td {
+		border-color: {$colors['sidebar-widgetTitle-border']};
+	}
 
-/* text color */
-.widget,
-.widget-calendar-picker th,
-.widget-calendar-picker caption {
-	color: {$colors['sidebar-base']};
-}
+	.widget-title {
+		color: {$colors['sidebar-widgetTitle']};
+	}
 
-/* link color */
-.widget a,
-#contentnav li a,
-.widget_nav_menu li a {
-	color: {$colors['sidebar-link']};
-}
+	/* text color */
+	.widget,
+	.widget-calendar-picker th,
+	.widget-calendar-picker caption {
+		color: {$colors['sidebar-base']};
+	}
 
-/* link hover color */
-.widget a:hover,
-#contentnav li a:hover,
-.widget_nav_menu li a:hover,
-#contentnav li.current_page_item > a,
-.widget_nav_menu li.current_page_item > a{
-	color: {$colors['sidebar-link-hover']};
-}
+	/* link color */
+	.widget a,
+	#contentnav li a,
+	.widget_nav_menu li a {
+		color: {$colors['sidebar-link']};
+	}
+
+	/* link hover color */
+	.widget a:hover,
+	#contentnav li a:hover,
+	.widget_nav_menu li a:hover,
+	#contentnav li.current_page_item > a,
+	.widget_nav_menu li.current_page_item > a{
+		color: {$colors['sidebar-link-hover']};
+	}
+
+	/* buttons */
+	.widget a.button,
+	.widget a.button:hover,
+	.widget a.button:focus,
+	.widget a.button-primary,
+	.widget a.button-primary:hover,
+	.widget a.button-primary:focus {
+		color: {$colors['button-text-color']};
+	}
 
 /* footbar area
 ----------------------------------------------------------------- */
 
-/* background color */
-.footbar,
-.footbar-container,
-.banner-container-window-width {
-	background: {$colors['footbar-bg']};
-}
 
-/* top border color */
-.footbar {
-	border-color: {$colors['footbar-topBorder']};
-}
+	/* background color */
+	.footbar,
+	.footbar-container,
+	.banner-container-window-width {
+		background: {$colors['footbar-bg']};
+	}
 
-/* link color */
-.footbar a,
-.footbar .widget a,
-.footbar #contentnav li a,
-.footbar .widget_nav_menu li a {
-	color: {$colors['footbar-link']};
-}
+	/* top border color */
+	.footbar {
+		border-color: {$colors['footbar-topBorder']};
+	}
 
-/* widget title color */
-.footbar .widget-title,
-.footbar .widget-calendar-date {
-	color: {$colors['footbar-widgetTitle']};
-}
+	/* link color */
+	.footbar a,
+	.footbar .widget a,
+	.footbar #contentnav li a,
+	.footbar .widget_nav_menu li a {
+		color: {$colors['footbar-link']};
+	}
 
-/* border color */
-.footbar .widget-title,
-.footbar #contentnav ul,
-.footbar #contentnav li,
-.footbar .widget_nav_menu ul,
-.footbar .widget_nav_menu li,
-.footbar .widget-calendar-event {
-	border-color: {$colors['footbar-widgetTitle-border']};
-}
+	/* widget title color */
+	.footbar .widget-title,
+	.footbar .widget-calendar-date {
+		color: {$colors['footbar-widgetTitle']};
+	}
 
-/* link hover color */
-.footbar .widget a:hover,
-.footbar #contentnav li a:hover,
-.footbar .widget_nav_menu li a:hover {
-	color: {$colors['footbar-link-hover']};
-}
+	/* border color */
+	.footbar .widget-title,
+	.footbar #contentnav ul,
+	.footbar #contentnav li,
+	.footbar .widget_nav_menu ul,
+	.footbar .widget_nav_menu li,
+	.footbar .widget-calendar-event {
+		border-color: {$colors['footbar-widgetTitle-border']};
+	}
 
-/* text color */
-.footbar .widget,
-.footbar .widget-calendar-day-graphic,
-.footbar .widget-bu-posts .meta {
-	color: {$colors['footbar-base']};
-}
+	/* link hover color */
+	.footbar .widget a:hover,
+	.footbar #contentnav li a:hover,
+	.footbar .widget_nav_menu li a:hover {
+		color: {$colors['footbar-link-hover']};
+	}
 
-/* non-configurable styles
------------------------------------------------------------------ */
+	/* text color */
+	.footbar .widget,
+	.footbar .widget-calendar-day-graphic,
+	.footbar .widget-bu-posts .meta {
+		color: {$colors['footbar-base']};
+	}
 
-.comment-respond,
-#quicksearch,
-.l-side-nav #quicksearch,
-.message,
-.single .content-area .meta,
-.single-event-schedule,
-.single-profile .profile-info {
-	background: #f5f8ff;
-	border-color: #dfdfea;
-}
+	/* non-configurable styles
+	----------------------------------------------------------------- */
 
-/* calendar table */
-.widget-calendar-picker thead,
-.widget-calendar-picker th,
-.widget-calendar-picker .out,
-.widget-calendar-picker .today {
-	background: rgba(0,0,0,0.15);
-}
+	.comment-respond,
+	#quicksearch,
+	.l-side-nav #quicksearch,
+	.message,
+	.single .content-area .meta,
+	.single-event-schedule,
+	.single-profile .profile-info {
+		background: #f5f8ff;
+		border-color: #dfdfea;
+	}
 
-.utility-nav a,
-a:active,
-a:visited,
-.widget-title a,
-.widget-post-meta {
-	color: inherit;
-}
+	/* calendar table */
+	.widget-calendar-picker thead,
+	.widget-calendar-picker th,
+	.widget-calendar-picker .out,
+	.widget-calendar-picker .today {
+		background: rgba(0,0,0,0.15);
+	}
+
+	.utility-nav a,
+	a:active,
+	a:visited,
+	.widget-title a,
+	.widget-post-meta {
+		color: inherit;
+	}
+
+} /* End media query */
 
 CSS;
 

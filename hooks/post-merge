@@ -12,5 +12,4 @@ check_run() {
 
 # Monitor manifest files that prompt re-installs
 check_run package.json "npm install"
-check_run bower.json "bower install"
 check_run Gemfile "bundle install"

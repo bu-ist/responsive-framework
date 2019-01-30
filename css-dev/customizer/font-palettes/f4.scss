@@ -1,10 +1,11 @@
-$font-heading: "TiemposHeadline", serif;
-$font-body: "Benton-Sans", sans-serif;
+$palette-id: 'f4';
+
 $font-body-accent: "TiemposText", serif;
 
-@import "fonts/benton";
-@import "fonts/tiempos";
-@import "fonts/shared";
+@import 'fonts/benton';
+@import 'fonts/tiempos';
+@import 'palettes';
+@import 'fonts/shared';
 
 #q {
 	font-family: $font-body-accent;
@@ -32,7 +33,7 @@ blockquote {
 	&::before {
 		background: #fff;
 		content: "\201C";
-		font-family: $font-heading;
+		font-family: $heading-stack;
 		font-size: 3em;
 		font-weight: 700;
 		left: 50%;

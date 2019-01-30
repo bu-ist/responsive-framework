@@ -1,8 +1,8 @@
-$font-heading: "Benton-Sans", sans-serif;
-$font-body: "Benton-Sans", sans-serif;
+$palette-id: 'f1';
 
-@import "fonts/benton";
-@import "fonts/shared";
+@import 'fonts/benton';
+@import 'palettes';
+@import 'fonts/shared';
 
 blockquote {
 	background-color: #f0f0f0; // color contrast with text (#24243a) = 13.27:1, passes WCAG AAA;

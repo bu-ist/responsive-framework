@@ -14,14 +14,13 @@ These are the latest versions verified to work with our development setup. Upgra
 - [Node 8.11.2 LTS](http://nodejs.org/) *Important: Node 10 is not yet supported by node-sass, and your Sass will fail to compile if you upgrade past version 8 at this time.*
 - [Node Package Manager 5.6.0](https://github.com/npm/npm) *The latest version, 6.1.0, requires Node 10.*
 - [Grunt 1.0.2](http://gruntjs.com/)
-- [Bower](http://bower.io/)
 
 ## Quick Start
 
-These instructions assume that you have installed Node and Node Package Manager, and that you have globally installed Grunt and Bower.
+These instructions assume that you have installed Node and Node Package Manager.
 
 1. Clone this repository.
-1. Run `npm install` and `bower install` to pull down development dependencies.
+1. Run `npm install` to pull down development dependencies.
 1. Run `grunt` to watch your files as you work.
 
 Be sure to commit changes to the generated output files (`style.css`, `js/script.js`, etc.) along with changes to source files!
