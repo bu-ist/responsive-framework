@@ -801,7 +801,14 @@ function responsive_posts_should_display( $field ) {
 function responsive_get_posts_archive_link() {
 	$archive_link = false;
 	$post_cats = get_the_terms( get_post(), 'category' );
-	$post_cat_ids = wp_list_pluck( $post_cats, 'term_id' );
+
+	// Check for valid post categories before populating `$post_cat_ids`.
+	if ( ! $post_cats || is_wp_error( $post_cats ) ) {
+		$post_cat_ids = array();
+	} else {
+		$post_cat_ids = wp_list_pluck( $post_cats, 'term_id' );
+	}
+
 	$all_cats = false;
 
 	$news_pages = get_pages( array(
