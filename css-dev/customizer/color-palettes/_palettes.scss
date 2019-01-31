@@ -1,3 +1,18 @@
+/// Map deep get
+/// @author Hugo Giraudel
+/// @access public
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+
+@function map-deep-get( $map, $keys... ) {
+	@each $key in $keys {
+		$map: map-get( $map, $key );
+	}
+
+	@return $map;
+}
+
 $color-palettes: (
 	default: (
 		sidebar-bg: false,
@@ -31,39 +46,7 @@ $color-palettes: (
 		footer-widget-text: #555555, // text color.
 	),
 	slacker: (
-		sidebar-bg: true,
-		// navigation.
-		primary-nav-bg: #24243a, // background.
-		primary-nav-border: #3c3c50, // border color.
-		primary-nav-link: #ffffff, // primary nav links.
-		primary-nav-link-hover: #9f9fec, // primary links hover.
-
-		utility-nav-link: #7c7c9d, // utility nav links.
-
-		// content area.
-		heading-color: #24243a, // headings.
-		body-color: #24243a, // text color.
-		link-color: #A06C1A, // link color.
-		link-hover-color: #000000, // link hovers.
-		button-bg: #4fc3a0, // button color.
-		button-color: #ffffff, // button text color.
-
-		// sidebar.
-		widget-bg: #494971, // widget bg.
-		widget-title: #ffffff, // widget title.
-		widget-title-border: #6a6a9d, // widget title border.
-		widget-link: #ecb438, // links.
-		widget-link-hover: #ffffff, // link hovers.
-		widget-text-color: #ffffff, // text color.
-
-		// footbar.
-		footer-bg: #1a1a22, // background.
-		footer-border: #1a1a22, // top border.
-		footer-widget-title: #ffffff, // widget title.
-		footer-widget-title-border: #323242, // widget title border.
-		footer-widget-link: #ecb438, // link colors.
-		footer-widget-link-hover: #ffffff, // link hover colors.
-		footer-widget-text: #8080a2, // text color.
+		color-primary: #24243a,
 	),
 	extra-spectral: (
 		sidebar-bg: true,
@@ -251,3 +234,41 @@ $color-palettes: (
 @if variable-exists( color-palettes-theme ) {
 	$font-styles: map_merge( $color-palettes, $color-palettes-theme );
 }
+
+$color-palettes-config: (
+	slacker: (
+		sidebar-bg: true,
+		// navigation.
+		primary-nav-bg: map-deep-get( $color-palettes, 'slacker', 'color-primary' ), // background.
+		primary-nav-border: #3c3c50, // border color.
+		primary-nav-link: #ffffff, // primary nav links.
+		primary-nav-link-hover: #9f9fec, // primary links hover.
+
+		utility-nav-link: #7c7c9d, // utility nav links.
+
+		// content area.
+		heading-color: map-deep-get( $color-palettes, 'slacker', 'color-primary' ), // headings.
+		body-color: map-deep-get( $color-palettes, 'slacker', 'color-primary' ), // text color.
+		link-color: #A06C1A, // link color.
+		link-hover-color: #000000, // link hovers.
+		button-bg: #4fc3a0, // button color.
+		button-color: #ffffff, // button text color.
+
+		// sidebar.
+		widget-bg: #494971, // widget bg.
+		widget-title: #ffffff, // widget title.
+		widget-title-border: #6a6a9d, // widget title border.
+		widget-link: #ecb438, // links.
+		widget-link-hover: #ffffff, // link hovers.
+		widget-text-color: #ffffff, // text color.
+
+		// footbar.
+		footer-bg: #1a1a22, // background.
+		footer-border: #1a1a22, // top border.
+		footer-widget-title: #ffffff, // widget title.
+		footer-widget-title-border: #323242, // widget title border.
+		footer-widget-link: #ecb438, // link colors.
+		footer-widget-link-hover: #ffffff, // link hover colors.
+		footer-widget-text: #8080a2, // text color.
+	),
+);
