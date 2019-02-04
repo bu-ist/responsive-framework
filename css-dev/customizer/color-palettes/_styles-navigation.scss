@@ -6,7 +6,7 @@
 	.primary-nav,
 	.primary-nav-menu ul,
 	.l-side-nav {
-		background: map-get( $current-palette, 'primary-nav-bg' );
+		background: $color-primary;
 	}
 
 	.primary-nav,
@@ -19,7 +19,7 @@
 	/* main nav and nav border color */
 	.primary-nav-menu a,
 	.l-side-nav .primary-nav-menu a {
-		border-color: map-get( $current-palette, 'primary-nav-border' );
+		border-color: lighten( $color-primary, 10% );
 	}
 
 	/* main nav and nav border color */
