@@ -1,5 +1,3 @@
-$color-primary-light: lighten( $color-primary, 40% );
-
 @media screen {
 	// Nav menu background color
 	.l-side-nav .wrapper,
@@ -11,16 +9,18 @@ $color-primary-light: lighten( $color-primary, 40% );
 
 	// Nav menu toggles and text colors
 	.primary-nav-menu a,
-	.l-side-nav .primary-nav-menu a,
-	.nav-toggle span {
+	.primary-nav-menu li li a,
+	.l-side-nav .primary-nav-menu a {
 		color: accessible-text( $color-primary, #fff );
+		border-color: $color-primary-border;
 
 		&:hover,
 		&:focus {
-			color: accessible-text( $color-primary, $color-primary-light );
+			color: accessible-text( $color-primary, $color-tertiary );
 		}
 	}
 
+	.nav-toggle span,
 	.search-toggle::before,
 	.nav-toggle span::before,
 	.nav-toggle span::after {
@@ -29,6 +29,11 @@ $color-primary-light: lighten( $color-primary, 40% );
 
 	// Utility nav in left hand nav layout
 	.l-side-nav .utility-nav a {
-		color: accessible-text( $color-primary, lighten( $color-primary, 20% ) );
+		color: accessible-text( $color-primary, $color-primary-40 );
+
+		&:hover,
+		&:focus {
+			color: accessible-text( $color-primary, $color-primary-60 );
+		}
 	}
 }
