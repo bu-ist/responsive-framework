@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.1.12
 
 - Bower cleanup.
 - Fix font labeling in the customizer to match actual fonts.
@@ -10,7 +10,13 @@
 - Remove `bundle install` from package.json postinstall scripts.
 - Upgrade `grunt-sass` from 2.0.0 to 3.0.2.
 - Print Stylesheet partial creation in Foundation: `/css-dev/burf-base/_print.scss`
-- Add filter to alllow for modification of `bu_navigation_display_primary` defaults from within framework.
+- Added mega navigation menu to customizer
+- Added new masthead markup for mega nav
+- Added new menu location for "short" nav
+- Add filter to alllow for modification of `bu_navigation_display_primary`
+  defaults from within framework.
+- Add before/after action hooks for the `responsive_primary_nav` and
+  `responsive_utility_nav`, so additional markup can be added by child themes.
 
 ## 2.1.11
 
