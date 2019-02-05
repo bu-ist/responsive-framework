@@ -1,7 +1,7 @@
+$color-primary-light: lighten( $color-primary, 40% );
+
 @media screen {
-	/* navigation bar and links
-	----------------------------------------------------------------- */
-	/* navbar bg color */
+	// Nav menu background color
 	.l-side-nav .wrapper,
 	.primary-nav,
 	.primary-nav-menu ul,
@@ -9,40 +9,26 @@
 		background: $color-primary;
 	}
 
-	.primary-nav,
-	.primary-nav-menu ul,
+	// Nav menu toggles and text colors
 	.primary-nav-menu a,
-	.search-toggle::before {
-		color: map-get( $current-palette, 'primary-nav-link' );
+	.l-side-nav .primary-nav-menu a,
+	.nav-toggle span {
+		color: accessible-text( $color-primary, #fff );
+
+		&:hover,
+		&:focus {
+			color: accessible-text( $color-primary, $color-primary-light );
+		}
 	}
 
-	/* main nav and nav border color */
-	.primary-nav-menu a,
-	.l-side-nav .primary-nav-menu a {
-		border-color: lighten( $color-primary, 10% );
-	}
-
-	/* main nav and nav border color */
-	.nav-toggle span,
+	.search-toggle::before,
 	.nav-toggle span::before,
 	.nav-toggle span::after {
-		background-color: map-get( $current-palette, 'primary-nav-link' );
+		color: accessible-text( $color-primary, #fff );
 	}
 
-	/* utility nav color */
+	// Utility nav in left hand nav layout
 	.l-side-nav .utility-nav a {
-		color: map-get( $current-palette, 'utility-nav-link' );
-	}
-
-	/* main nav and utility nav hover color */
-	.primary-nav-menu a:hover,
-	.primary-nav-menu a:focus,
-	.l-side-nav .utility-nav a:hover,
-	.l-side-nav .utility-nav a:focus,
-	.primary-nav-menu li a.active,
-	.primary-nav-menu li a.active_section,
-	.primary-nav-menu li li a:hover,
-	.primary-nav-menu li li a:focus {
-		color: map-get( $current-palette, 'primary-nav-link-hover' );
+		color: accessible-text( $color-primary, lighten( $color-primary, 20% ) );
 	}
 }

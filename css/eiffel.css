@@ -39,46 +39,31 @@
 }
 
 @media screen {
-  /* navigation bar and links
-	----------------------------------------------------------------- */
-  /* navbar bg color */
   .l-side-nav .wrapper,
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
     background: #00343a;
   }
-  .primary-nav,
-  .primary-nav-menu ul,
   .primary-nav-menu a,
-  .search-toggle::before {
-    color: #ffffff;
+  .l-side-nav .primary-nav-menu a,
+  .nav-toggle span {
+    color: #fff;
   }
-  /* main nav and nav border color */
-  .primary-nav-menu a,
-  .l-side-nav .primary-nav-menu a {
-    border-color: #00626d;
+  .primary-nav-menu a:hover, .primary-nav-menu a:focus,
+  .l-side-nav .primary-nav-menu a:hover,
+  .l-side-nav .primary-nav-menu a:focus,
+  .nav-toggle span:hover,
+  .nav-toggle span:focus {
+    color: #07e5ff;
   }
-  /* main nav and nav border color */
-  .nav-toggle span,
+  .search-toggle::before,
   .nav-toggle span::before,
   .nav-toggle span::after {
-    background-color: #ffffff;
+    color: #fff;
   }
-  /* utility nav color */
   .l-side-nav .utility-nav a {
-    color: #c4c7c7;
-  }
-  /* main nav and utility nav hover color */
-  .primary-nav-menu a:hover,
-  .primary-nav-menu a:focus,
-  .l-side-nav .utility-nav a:hover,
-  .l-side-nav .utility-nav a:focus,
-  .primary-nav-menu li a.active,
-  .primary-nav-menu li a.active_section,
-  .primary-nav-menu li li a:hover,
-  .primary-nav-menu li li a:focus {
-    color: #c9b28f;
+    color: #00a6ba;
   }
 }
 
