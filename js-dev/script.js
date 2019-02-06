@@ -7,10 +7,6 @@
  */
 
 // Import Foundation scripts.
-import toggle from 'responsive-foundation';
+import { toggle } from 'responsive-foundation/js-dev/dist/toggle.js';
 
-// This isn't working. And neither is `toggle()`.
-console.log( toggle );
-
-// This would work, but would automatically execute the underlying js.
-//import 'responsive-foundation';
+toggle();
