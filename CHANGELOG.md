@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.1.12
 
 - Bower cleanup.
 - Fix font labeling in the customizer to match actual fonts.
