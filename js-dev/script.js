@@ -7,6 +7,6 @@
  */
 
 // Import Foundation scripts.
-import { toggle } from 'responsive-foundation/js-dev/dist/toggle.js';
+import { toggle } from 'responsive-foundation/js-dev/dist/toggle';
 
 toggle();
