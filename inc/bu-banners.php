@@ -41,7 +41,7 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 		$banner_content = get_post_meta( get_the_id(), '_bu_banner_content', true );
 
 		// Only continues if we have a bu banner, its content is not empty, and there is no title field supplied.
-		if ( bu_has_banner() && ! empty( $banner_content[0] ) && empty( $banner_content[0]['title'] ) ) {
+		if ( bu_has_banner() && bu_banner_has_text( get_the_id() ) && empty( $banner_content[0]['title'] ) ) {
 
 			/**
 			 * Filters BU Banner values.
