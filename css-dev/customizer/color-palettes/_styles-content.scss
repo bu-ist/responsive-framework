@@ -38,7 +38,7 @@
 		color: map-get( $current-palette, 'link-hover-color' );
 	}
 
-	/* buttons */
+	// buttons
 	input[type="submit"],
 	.button,
 	.button-primary,
@@ -46,18 +46,12 @@
 	#quicksearch .button,
 	.paging-navigation a,
 	.archive-link {
-		color: map-get( $current-palette, 'button-bg' );
-		color: map-get( $current-palette, 'button-color' );
-	}
+		background-color: $color-secondary;
+		color: accessible-text( $color-secondary-dark, #fff );
 
-	input[type="submit"]:hover,
-	.button:hover,
-	.button-primary:hover,
-	.button-selected:hover,
-	#quicksearch .button:hover,
-	.paging-navigation a:hover,
-	.archive-link:hover {
-		color: map-get( $current-palette, 'button-color' );
+		&:hover {
+			color: accessible-text( $color-secondary-dark, #fff );
+		}
 	}
 
 	/* blockquotes */

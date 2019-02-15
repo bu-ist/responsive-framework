@@ -77,8 +77,11 @@
     border-color: #fff;
   }
   .mega-nav-toggle {
-    background: #e82a75;
-    color: #fff;
+    background: #ea5690;
+    color: #4d0823;
+  }
+  .mega-nav-toggle:hover, .mega-nav-toggle:focus {
+    color: #4d0823;
   }
 }
 
@@ -117,7 +120,6 @@
   .month td a:hover {
     color: #000000;
   }
-  /* buttons */
   input[type="submit"],
   .button,
   .button-primary,
@@ -125,8 +127,8 @@
   #quicksearch .button,
   .paging-navigation a,
   .archive-link {
-    color: #e82a75;
-    color: #ffffff;
+    background-color: #e82a75;
+    color: #fff;
   }
   input[type="submit"]:hover,
   .button:hover,
@@ -135,7 +137,7 @@
   #quicksearch .button:hover,
   .paging-navigation a:hover,
   .archive-link:hover {
-    color: #ffffff;
+    color: #fff;
   }
   /* blockquotes */
   blockquote {

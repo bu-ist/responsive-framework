@@ -11,6 +11,7 @@ $color-primary-20: lighten( $color-primary, 20% );
 $color-primary-border: lighten( $color-primary, 15% );
 
 $color-secondary: map-get( $current-palette, 'color-secondary' );
+$color-secondary-dark: darken( $color-secondary, 50% );
 
 $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 
