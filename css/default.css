@@ -53,11 +53,21 @@
   .nav-toggle span::after {
     color: #fff;
   }
-  .l-side-nav .utility-nav a {
+  .l-side-nav .utility-nav a,
+  .l-mega-nav .utility-nav a {
     color: #757575;
   }
-  .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus {
+  .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
+  .l-mega-nav .utility-nav a:hover,
+  .l-mega-nav .utility-nav a:focus {
     color: #999999;
+  }
+  .l-mega-nav .search-field {
+    border-color: #fff;
+  }
+  .mega-nav-toggle {
+    background: #0f69d7;
+    color: #fff;
   }
 }
 

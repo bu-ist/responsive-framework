@@ -64,11 +64,21 @@
   .nav-toggle span::after {
     color: #fff;
   }
-  .l-side-nav .utility-nav a {
+  .l-side-nav .utility-nav a,
+  .l-mega-nav .utility-nav a {
     color: #d1d6ef;
   }
-  .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus {
+  .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
+  .l-mega-nav .utility-nav a:hover,
+  .l-mega-nav .utility-nav a:focus {
     color: white;
+  }
+  .l-mega-nav .search-field {
+    border-color: #fff;
+  }
+  .mega-nav-toggle {
+    background: #6c7dff;
+    color: #fff;
   }
 }
 

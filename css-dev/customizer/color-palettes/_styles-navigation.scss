@@ -27,13 +27,23 @@
 		color: accessible-text( $color-primary, #fff );
 	}
 
-	// Utility nav in left hand nav layout
-	.l-side-nav .utility-nav a {
+	// Utility nav in left hand and mega nav layout
+	.l-side-nav .utility-nav a,
+	.l-mega-nav .utility-nav a {
 		color: accessible-text( $color-primary, $color-primary-40 );
 
 		&:hover,
 		&:focus {
 			color: accessible-text( $color-primary, $color-primary-60 );
 		}
+	}
+
+	.l-mega-nav .search-field {
+		border-color: #fff;
+	}
+
+	.mega-nav-toggle {
+		background: $color-secondary;
+		color: accessible-text( $color-primary, #fff );
 	}
 }

@@ -10,6 +10,8 @@ $color-primary-40: lighten( $color-primary, 40% );
 $color-primary-20: lighten( $color-primary, 20% );
 $color-primary-border: lighten( $color-primary, 15% );
 
+$color-secondary: map-get( $current-palette, 'color-secondary' );
+
 $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 
 @if map-get( $current-palette, 'sidebar-bg' ) == true {
