@@ -12,20 +12,6 @@ $color-secondary-dark: darken( $color-secondary, 50% );
 
 $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 
-@if map-get( $current-palette, 'sidebar-bg' ) == true {
-	@media screen {
-		.widget {
-			background: map-get( $current-palette, 'widget-bg' );
-			padding: 24px;
-		}
-
-		.footbar .widget {
-			background: transparent;
-			padding: 0;
-		}
-	}
-}
-
 @media screen {
 
 	/* non-configurable styles

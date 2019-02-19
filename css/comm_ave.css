@@ -1,15 +1,4 @@
 @media screen {
-  .widget {
-    background: #7ba11b;
-    padding: 24px;
-  }
-  .footbar .widget {
-    background: transparent;
-    padding: 0;
-  }
-}
-
-@media screen {
   /* non-configurable styles
 	----------------------------------------------------------------- */
   .comment-respond,
@@ -161,6 +150,14 @@
 }
 
 @media screen {
+  .widget {
+    background: #484e52;
+    padding: 24px;
+  }
+  .footbar .widget {
+    background: transparent;
+    padding: 0;
+  }
   .widget-title,
   #contentnav ul,
   #contentnav li,
@@ -172,7 +169,7 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #939aa0;
+    border-color: #aeb4b8;
   }
   .widget-title {
     color: #fff;
@@ -180,14 +177,14 @@
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: #e4e6e8;
+    color: white;
   }
   .widget a,
   #contentnav li a,
   .widget_nav_menu li a,
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a {
-    color: #82aa1c;
+    color: #a0d123;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,

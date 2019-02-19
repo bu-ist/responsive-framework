@@ -1,261 +1,45 @@
 $color-palettes: (
 	default: (
-		sidebar-bg: false,
+		use-background-colors: false,
 		color-primary: #000000, // background.
 		color-secondary: #0f69d7,
 		color-tertiary: #0f69d7,
-		primary-nav-link-hover: #aaaaaa, // primary links hover.
-		utility-nav-link: #aaaaaa, // utility nav links.
-		// content area.
-		heading-color: #000000, // headings.
-		body-color: #555555, // text color.
-		link-color: #0f69d7, // link color.
-		link-hover-color: #0f69d7, // link hovers.
-		button-bg: #0f69d7, // button color.
-		button-color: #ffffff, // button text color.
-		// sidebar.
-		widget-bg: #ffffff, // widget bg.
-		widget-title: #000000, // widget title.
-		widget-title-border: #000000, // widget title border.
-		widget-link: #0f69d7, // links.
-		widget-link-hover: #0f69d7, // link hovers.
-		widget-text-color: #555555, // text color.
-		// footbar.
-		footer-bg: #f5f5f5, // background.
-		footer-border: #cccccc, // top border.
-		footer-widget-title: #000000, // widget title.
-		footer-widget-title-border: #000000, // widget title border.
-		footer-widget-link: #0f69d7, // link colors.
-		footer-widget-link-hover: #0f69d7, // link hover colors.
-		footer-widget-text: #555555, // text color.
 	),
 	slacker: (
-		sidebar-bg: true,
-		// navigation.
-		primary-nav-bg: #24243a, // background.
+		use-background-colors: true,
 		color-primary: #24243a, // background.
-		primary-nav-border: #3c3c50, // border color.
-		primary-nav-link: #ffffff, // primary nav links.
-		primary-nav-link-hover: #9f9fec, // primary links hover.
-
 		color-secondary: #6cd5b5, //4fc3a0
 		color-tertiary: #ecb438,
-		utility-nav-link: #7c7c9d, // utility nav links.
-
-		// content area.
-		heading-color: #24243a, // headings.
-		body-color: #24243a, // text color.
-		link-color: #A06C1A, // link color.
-		link-hover-color: #000000, // link hovers.
-		button-bg: #4fc3a0, // button color.
-		button-color: #ffffff, // button text color.
-
-		// sidebar.
-		widget-bg: #494971, // widget bg.
-		widget-title: #ffffff, // widget title.
-		widget-title-border: #6a6a9d, // widget title border.
-		widget-link: #ecb438, // links.
-		widget-link-hover: #ffffff, // link hovers.
-		widget-text-color: #ffffff, // text color.
-
-		// footbar.
-		footer-bg: #1a1a22, // background.
-		footer-border: #1a1a22, // top border.
-		footer-widget-title: #ffffff, // widget title.
-		footer-widget-title-border: #323242, // widget title border.
-		footer-widget-link: #ecb438, // link colors.
-		footer-widget-link-hover: #ffffff, // link hover colors.
-		footer-widget-text: #8080a2, // text color.
 	),
 	extra-spectral: (
-		sidebar-bg: true,
-		// navigation.
-		primary-nav-bg: #c2185b, // background.
+		use-background-colors: true,
 		color-primary: #c2185b, // background.
-		primary-nav-border: #cd4279, // border color.
-		primary-nav-link: #ffffff, // primary nav links.
-		primary-nav-link-hover: #ff9fc5, // primary links hover.
-
 		color-secondary: #e82a75,
 		color-tertiary: #e82a75,
-		utility-nav-link: #000000, // utility nav links.
-
-		// content area.
-		heading-color: #000000, // headings.
-		body-color: #000000, // text color.
-		link-color: #e82a75, // link color.
-		link-hover-color: #000000, // link hovers.
-		button-bg: #e82a75, // button color.
-		button-color: #ffffff, // button text color.
-
-		// sidebar.
-		widget-bg: #7f2247, // widget bg.
-		widget-title: #ffffff, // widget title.
-		widget-title-border: #924362, // widget title border.
-		widget-link: #ffffff, // links.
-		widget-link-hover: #ffffff, // link hovers.
-		widget-text-color: #e4abc1, // text color.
-
-		// footbar.
-		footer-bg: #222222, // background.
-		footer-border: #222222, // top border.
-		footer-widget-title: #ffffff, // widget title.
-		footer-widget-title-border: #3d3d3d, // widget title border.
-		footer-widget-link: #e82a75, // link colors.
-		footer-widget-link-hover: #ffffff, // link hover colors.
-		footer-widget-text: #bdbdbd, // text color.
 	),
 	rayleigh-scattering: (
-		sidebar-bg: true,
-		// navigation.
-		primary-nav-bg: #04a9f4, // background.
+		use-background-colors: true,
 		color-primary: #04a9f4, // background.
-		primary-nav-border: #31b9f6, // border color.
-		primary-nav-link: #ffffff, // primary nav links.
-		primary-nav-link-hover: #b4ddfa, // primary links hover.
-
 		color-secondary: #fa5707,
 		color-tertiary: #fa5707,
-		utility-nav-link: #000000, // utility nav links.
-
-		// content area.
-		heading-color: #222222, // headings.
-		body-color: #000000, // text color.
-		link-color: #fa5707, // link color.
-		link-hover-color: #000000, // link hovers.
-		button-bg: #fa5707, // button color.
-		button-color: #ffffff, // button text color.
-
-		// sidebar.
-		widget-bg: #e1f0f5, // widget bg.
-		widget-title: #000000, // widget title.
-		widget-title-border: #cad7db, // widget title border.
-		widget-link: #000000, // links.
-		widget-link-hover: #000000, // link hovers.
-		widget-text-color: #6f7b7f, // text color.
-
-		// footbar.
-		footer-bg: #222222, // background.
-		footer-border: #222222, // top border.
-		footer-widget-title: #ffffff, // widget title.
-		footer-widget-title-border: #3d3d3d, // widget title border.
-		footer-widget-link: #fa5707, // link colors.
-		footer-widget-link-hover: #dcdcdc, // link hover colors.
-		footer-widget-text: #dcdcdc, // text color.
 	),
 	vinca-minor: (
-		sidebar-bg: true,
-		// navigation.
-		primary-nav-bg: #3f51b5, // background.
+		use-background-colors: true,
 		color-primary: #3f51b5, // background.
-		primary-nav-border: #6270c2, // border color.
-		primary-nav-link: #ffffff, // primary nav links.
-		primary-nav-link-hover: #bec8ff, // primary links hover.
-
 		color-secondary: #6c7dff,
 		color-tertiary: #6c7dff,
-		utility-nav-link: #000000, // utility nav links.
-
-		// content area.
-		heading-color: #000000, // headings.
-		body-color: #000000, // text color.
-		link-color: #fb8007, // link color.
-		link-hover-color: #000000, // link hovers.
-		button-bg: #6c7dff, // button color.
-		button-color: #ffffff, // button text color.
-
-		// sidebar.
-		widget-bg: #ffffff, // widget bg.
-		widget-title: #000000, // widget title.
-		widget-title-border: #e8eaf6, // widget title border.
-		widget-link: #fb8007, // links.
-		widget-link-hover: #989bad, // link hovers.
-		widget-text-color: #989bad, // text color.
-
-		// footbar.
-		footer-bg: #1a1d2b, // background.
-		footer-border: #1a1a22, // top border.
-		footer-widget-title: #ffffff, // widget title.
-		footer-widget-title-border: #363845, // widget title border.
-		footer-widget-link: #fb8007, // link colors.
-		footer-widget-link-hover: #ffffff, // link hover colors.
-		footer-widget-text: #dcdcdc, // text color.
 	),
 	eiffel: (
-		sidebar-bg: true,
-		// navigation.
-		primary-nav-bg: #00343a, // background.
+		use-background-colors: true,
 		color-primary: #00343a, // background.
-		primary-nav-border: #3f6270, // border color.
-		primary-nav-link: #ffffff, // primary nav links.
-		primary-nav-link-hover: #c9b28f, // primary links hover.
-
 		color-secondary: #447375,
 		color-tertiary: #447375,
-		utility-nav-link: #c4c7c7, // utility nav links.
-
-		// content area.
-		heading-color: #c58700, // headings.
-		body-color: #2a3239, // text color.
-		link-color: #447375, // link color.
-		link-hover-color: #005653, // link hovers.
-		button-bg: #447375, // button color.
-		button-color: #ffffff, // button text color.
-
-		// sidebar.
-		widget-bg: #f4f7f7, // widget bg.
-		widget-title: #34595b, // widget title.
-		widget-title-border: #e5e7e7, // widget title border.
-		widget-link: #447375, // links.
-		widget-link-hover: #005653, // link hovers.
-		widget-text-color: #2a3239, // text color.
-
-		// footbar.
-		footer-bg: #f4f7f7, // background.
-		footer-border: #b4b7b7, // top border.
-		footer-widget-title: #34595b, // widget title.
-		footer-widget-title-border: #e5e7e7, // widget title border.
-		footer-widget-link: #447375, // link colors.
-		footer-widget-link-hover: #005653, // link hover colors.
-		footer-widget-text: #2a3239, // text color.
 	),
 	comm-ave: (
-		sidebar-bg: true,
-		// navigation.
-		primary-nav-bg: #303437, // background.
+		use-background-colors: true,
 		color-primary: #303437, // background.
-		primary-nav-border: #535860, // border color.
-		primary-nav-link: #ffffff, // primary nav links.
-		primary-nav-link-hover: #b2b2b2, // primary links hover.
-
 		color-secondary: #7ba11b,
 		color-tertiary: #7ba11b,
-		utility-nav-link: #48b4f4, // utility nav links.
-
-		// content area.
-		heading-color: #48b4f4, // headings.
-		body-color: #001f2c, // text color.
-		link-color: #7ba11b, // link color.
-		link-hover-color: #4f6d04, // link hovers.
-		button-bg: #7ba11b, // button color.
-		button-color: #ffffff, // button text color.
-
-		// sidebar.
-		widget-bg: #7ba11b, // widget bg.
-		widget-title: #ffffff, // widget title.
-		widget-title-border: #87b71f, // widget title border.
-		widget-link: #eaedeb, // links.
-		widget-link-hover: #ffffff, // link hovers.
-		widget-text-color: #ffffff, // text color.
-
-		// footbar.
-		footer-bg: #53575b, // background.
-		footer-border: #b4e145, // top border.
-		footer-widget-title: #f6f7f9, // widget title.
-		footer-widget-title-border: #6f7378, // widget title border.
-		footer-widget-link: #b4e145, // link colors.
-		footer-widget-link-hover: #86b304, // link hover colors.
-		footer-widget-text: #ffffff, // text color.
 	),
 );
 

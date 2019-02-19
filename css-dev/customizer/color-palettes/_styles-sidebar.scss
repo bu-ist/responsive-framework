@@ -1,55 +1,121 @@
-@media screen {
-	// sidebar area
+$sidebar-bg: lighten( $color-primary, 10% );
 
-	// widget border color
-	.widget-title,
-	#contentnav ul,
-	#contentnav li,
-	.widget_nav_menu ul,
-	.widget_nav_menu li,
-	.widget-calendar-event,
-	.month,
-	.widget-calendar-picker th,
-	.widget-calendar-picker td,
-	.widget_links li,
-	.widget_archive li {
-		border-color: lighten( $color-primary, 40% );
-	}
+@if map-get( $current-palette, 'use-background-colors' ) == true {
+	@media screen {
+		.widget {
+			background: $sidebar-bg;
+			padding: 24px;
+		}
 
-	.widget-title {
-		color: accessible-text( $color-primary, #fff );
-	}
+		.footbar .widget {
+			background: transparent;
+			padding: 0;
+		}
 
-	// text color
-	.widget,
-	.widget-calendar-picker th,
-	.widget-calendar-picker caption {
-		color: accessible-text( $color-primary, lighten( $color-primary, 70% ) );
-	}
+				// widget border color
+		.widget-title,
+		#contentnav ul,
+		#contentnav li,
+		.widget_nav_menu ul,
+		.widget_nav_menu li,
+		.widget-calendar-event,
+		.month,
+		.widget-calendar-picker th,
+		.widget-calendar-picker td,
+		.widget_links li,
+		.widget_archive li {
+			border-color: lighten( $sidebar-bg, 40% );
+		}
 
-	// link color
-	.widget a,
-	#contentnav li a,
-	.widget_nav_menu li a,
-	#contentnav li.current_page_item > a,
-	.widget_nav_menu li.current_page_item > a {
-		color: accessible-text( $color-primary, $color-tertiary );
+		.widget-title {
+			color: accessible-text( $sidebar-bg, #fff );
+		}
 
-		&:hover,
-		&:focus {
-			color: accessible-text( $color-primary, #fff );
+		// text color
+		.widget,
+		.widget-calendar-picker th,
+		.widget-calendar-picker caption {
+			color: accessible-text( $sidebar-bg, lighten( $sidebar-bg, 70% ) );
+		}
+
+		// link color
+		.widget a,
+		#contentnav li a,
+		.widget_nav_menu li a,
+		#contentnav li.current_page_item > a,
+		.widget_nav_menu li.current_page_item > a {
+			color: accessible-text( $sidebar-bg, $color-tertiary );
+
+			&:hover,
+			&:focus {
+				color: accessible-text( $sidebar-bg, #fff );
+			}
+		}
+
+		// buttons
+		.widget a.button,
+		.widget a.button-primary {
+			background: $color-secondary;
+			color: accessible-text( $color-secondary, #000 );
+
+			&:hover,
+			&:focus {
+				color: accessible-text( $color-secondary, #000 );
+			}
 		}
 	}
+} @else {
+	@media screen {
+		// widget border color
+		.widget-title,
+		#contentnav ul,
+		#contentnav li,
+		.widget_nav_menu ul,
+		.widget_nav_menu li,
+		.widget-calendar-event,
+		.month,
+		.widget-calendar-picker th,
+		.widget-calendar-picker td,
+		.widget_links li,
+		.widget_archive li {
+			border-color: lighten( $color-primary, 80% );
+		}
 
-	// buttons
-	.widget a.button,
-	.widget a.button-primary {
-		background: $color-secondary;
-		color: accessible-text( $color-secondary, #000 );
+		.widget-title {
+			color: accessible-text( #fff, $color-primary );
+		}
 
-		&:hover,
-		&:focus {
+		// text color
+		.widget,
+		.widget-calendar-picker th,
+		.widget-calendar-picker caption {
+			color: accessible-text( #fff, $color-primary );
+		}
+
+		// link color
+		.widget a,
+		#contentnav li a,
+		.widget_nav_menu li a,
+		#contentnav li.current_page_item > a,
+		.widget_nav_menu li.current_page_item > a {
+			color: accessible-text( $color-primary, $color-tertiary );
+
+			&:hover,
+			&:focus {
+				color: accessible-text( $color-primary, #fff );
+			}
+		}
+
+		// buttons
+		.widget a.button,
+		.widget a.button-primary {
+			background: $color-secondary;
 			color: accessible-text( $color-secondary, #000 );
+
+			&:hover,
+			&:focus {
+				color: accessible-text( $color-secondary, #000 );
+			}
 		}
 	}
 }

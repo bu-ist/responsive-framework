@@ -1,15 +1,4 @@
 @media screen {
-  .widget {
-    background: #7f2247;
-    padding: 24px;
-  }
-  .footbar .widget {
-    background: transparent;
-    padding: 0;
-  }
-}
-
-@media screen {
   /* non-configurable styles
 	----------------------------------------------------------------- */
   .comment-respond,
@@ -161,6 +150,14 @@
 }
 
 @media screen {
+  .widget {
+    background: #e42973;
+    padding: 24px;
+  }
+  .footbar .widget {
+    background: transparent;
+    padding: 0;
+  }
   .widget-title,
   #contentnav ul,
   #contentnav li,
@@ -172,22 +169,22 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #f5b1cc;
+    border-color: #fbdee9;
   }
   .widget-title {
-    color: #fff;
+    color: #0d0d0d;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: white;
+    color: #0d0d0d;
   }
   .widget a,
   #contentnav li a,
   .widget_nav_menu li a,
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a {
-    color: #fbd9e6;
+    color: #1f030e;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -198,7 +195,7 @@
   #contentnav li.current_page_item > a:focus,
   .widget_nav_menu li.current_page_item > a:hover,
   .widget_nav_menu li.current_page_item > a:focus {
-    color: #fff;
+    color: #0d0d0d;
   }
   .widget a.button,
   .widget a.button-primary {

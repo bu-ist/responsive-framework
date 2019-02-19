@@ -1,49 +1,105 @@
-@media screen {
-	// background color
-	.footbar,
-	.footbar-container,
-	.banner-container-window-width {
-		background: $color-primary;
-	}
+@if map-get( $current-palette, 'use-background-colors' ) == true {
+	$footbar-bg: $color-primary;
 
-	// top border color
-	.footbar {
-		border-color: $color-primary;
-	}
+	@media screen {
+		// background color
+		.footbar,
+		.footbar-container,
+		.banner-container-window-width {
+			background: $footbar-bg;
+		}
 
-	// link color
-	.footbar a,
-	.footbar .widget a,
-	.footbar #contentnav li a,
-	.footbar .widget_nav_menu li a {
-		color: accessible-text( $color-primary, $color-tertiary );
+		// top border color
+		.footbar {
+			border-color: $footbar-bg;
+		}
 
-		&:hover,
-		&:focus {
-			color: accessible-text( $color-primary, #fff );
+		// link color
+		.footbar a,
+		.footbar .widget a,
+		.footbar #contentnav li a,
+		.footbar .widget_nav_menu li a {
+			color: accessible-text( $footbar-bg, $color-tertiary );
+
+			&:hover,
+			&:focus {
+				color: accessible-text( $footbar-bg, #fff );
+			}
+		}
+
+		// widget title color
+		.footbar .widget-title,
+		.footbar .widget-calendar-date {
+			color: accessible-text( $footbar-bg, #fff );
+		}
+
+		// border color
+		.footbar .widget-title,
+		.footbar #contentnav ul,
+		.footbar #contentnav li,
+		.footbar .widget_nav_menu ul,
+		.footbar .widget_nav_menu li,
+		.footbar .widget-calendar-event {
+			border-color: $color-primary-border;
+		}
+
+		// text color
+		.footbar .widget,
+		.footbar .widget-calendar-day-graphic,
+		.footbar .widget-bu-posts .meta {
+			color: accessible-text( $footbar-bg, lighten( $color-primary, 70% ) );
 		}
 	}
+} @else {
+	$footbar-bg: lighten( $color-primary, 95% );
 
-	// widget title color
-	.footbar .widget-title,
-	.footbar .widget-calendar-date {
-		color: accessible-text( $color-primary, #fff );
-	}
+	@media screen {
+		// background color
+		.footbar,
+		.footbar-container,
+		.banner-container-window-width {
+			background: $footbar-bg;
+		}
 
-	// border color
-	.footbar .widget-title,
-	.footbar #contentnav ul,
-	.footbar #contentnav li,
-	.footbar .widget_nav_menu ul,
-	.footbar .widget_nav_menu li,
-	.footbar .widget-calendar-event {
-		border-color: $color-primary-border;
-	}
+		// top border color
+		.footbar {
+			border-color: $footbar-bg;
+		}
 
-	// text color
-	.footbar .widget,
-	.footbar .widget-calendar-day-graphic,
-	.footbar .widget-bu-posts .meta {
-		color: accessible-text( $color-primary, lighten( $color-primary, 70% ) );
+		// link color
+		.footbar a,
+		.footbar .widget a,
+		.footbar #contentnav li a,
+		.footbar .widget_nav_menu li a {
+			color: accessible-text( $footbar-bg, $color-secondary );
+
+			&:hover,
+			&:focus {
+				color: accessible-text( $footbar-bg, #000 );
+			}
+		}
+
+		// widget title color
+		.footbar .widget-title,
+		.footbar .widget-calendar-date {
+			color: accessible-text( $footbar-bg, #000 );
+		}
+
+		// border color
+		.footbar .widget-title,
+		.footbar #contentnav ul,
+		.footbar #contentnav li,
+		.footbar .widget_nav_menu ul,
+		.footbar .widget_nav_menu li,
+		.footbar .widget-calendar-event {
+			border-color: darken( $footbar-bg, 10% );
+		}
+
+		// text color
+		.footbar .widget,
+		.footbar .widget-calendar-day-graphic,
+		.footbar .widget-bu-posts .meta {
+			color: accessible-text( $footbar-bg, #000 );
+		}
 	}
 }
