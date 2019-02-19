@@ -1,8 +1,7 @@
 @media screen {
-	/* sidebar area
-	----------------------------------------------------------------- */
+	// sidebar area
 
-	/* widget border color */
+	// widget border color
 	.widget-title,
 	#contentnav ul,
 	#contentnav li,
@@ -11,44 +10,46 @@
 	.widget-calendar-event,
 	.month,
 	.widget-calendar-picker th,
-	.widget-calendar-picker td {
-		border-color: map-get( $current-palette, 'widget-title-border' );
+	.widget-calendar-picker td,
+	.widget_links li,
+	.widget_archive li {
+		border-color: lighten( $color-primary, 40% );
 	}
 
 	.widget-title {
-		color: map-get( $current-palette, 'widget-title' );
+		color: accessible-text( $color-primary, #fff );
 	}
 
-	/* text color */
+	// text color
 	.widget,
 	.widget-calendar-picker th,
 	.widget-calendar-picker caption {
-		color: map-get( $current-palette, 'widget-text' );
+		color: accessible-text( $color-primary, lighten( $color-primary, 70% ) );
 	}
 
-	/* link color */
+	// link color
 	.widget a,
 	#contentnav li a,
-	.widget_nav_menu li a {
-		color: map-get( $current-palette, 'widget-link' );
-	}
-
-	/* link hover color */
-	.widget a:hover,
-	#contentnav li a:hover,
-	.widget_nav_menu li a:hover,
+	.widget_nav_menu li a,
 	#contentnav li.current_page_item > a,
-	.widget_nav_menu li.current_page_item > a{
-		color: map-get( $current-palette, 'widget-link-color' );
+	.widget_nav_menu li.current_page_item > a {
+		color: accessible-text( $color-primary, $color-tertiary );
+
+		&:hover,
+		&:focus {
+			color: accessible-text( $color-primary, #fff );
+		}
 	}
 
-	/* buttons */
+	// buttons
 	.widget a.button,
-	.widget a.button:hover,
-	.widget a.button:focus,
-	.widget a.button-primary,
-	.widget a.button-primary:hover,
-	.widget a.button-primary:focus {
-		color: map-get( $current-palette, 'button-color' );
+	.widget a.button-primary {
+		background: $color-secondary;
+		color: accessible-text( $color-secondary, #000 );
+
+		&:hover,
+		&:focus {
+			color: accessible-text( $color-secondary, #000 );
+		}
 	}
 }

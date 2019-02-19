@@ -30,11 +30,11 @@
 	// Utility nav in left hand and mega nav layout
 	.l-side-nav .utility-nav a,
 	.l-mega-nav .utility-nav a {
-		color: accessible-text( $color-primary, $color-primary-40 );
+		color: accessible-text( $color-primary, lighten( $color-primary, 40% ) );
 
 		&:hover,
 		&:focus {
-			color: accessible-text( $color-primary, $color-primary-60 );
+			color: accessible-text( $color-primary, lighten( $color-primary, 60% ) );
 		}
 	}
 

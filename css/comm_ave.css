@@ -161,9 +161,6 @@
 }
 
 @media screen {
-  /* sidebar area
-	----------------------------------------------------------------- */
-  /* widget border color */
   .widget-title,
   #contentnav ul,
   #contentnav li,
@@ -172,28 +169,46 @@
   .widget-calendar-event,
   .month,
   .widget-calendar-picker th,
-  .widget-calendar-picker td {
-    border-color: #87b71f;
+  .widget-calendar-picker td,
+  .widget_links li,
+  .widget_archive li {
+    border-color: #939aa0;
   }
   .widget-title {
-    color: #ffffff;
+    color: #fff;
   }
-  /* text color */
-  /* link color */
+  .widget,
+  .widget-calendar-picker th,
+  .widget-calendar-picker caption {
+    color: #e4e6e8;
+  }
   .widget a,
   #contentnav li a,
-  .widget_nav_menu li a {
-    color: #eaedeb;
+  .widget_nav_menu li a,
+  #contentnav li.current_page_item > a,
+  .widget_nav_menu li.current_page_item > a {
+    color: #82aa1c;
   }
-  /* link hover color */
-  /* buttons */
+  .widget a:hover, .widget a:focus,
+  #contentnav li a:hover,
+  #contentnav li a:focus,
+  .widget_nav_menu li a:hover,
+  .widget_nav_menu li a:focus,
+  #contentnav li.current_page_item > a:hover,
+  #contentnav li.current_page_item > a:focus,
+  .widget_nav_menu li.current_page_item > a:hover,
+  .widget_nav_menu li.current_page_item > a:focus {
+    color: #fff;
+  }
   .widget a.button,
-  .widget a.button:hover,
-  .widget a.button:focus,
-  .widget a.button-primary,
+  .widget a.button-primary {
+    background: #7ba11b;
+    color: #000;
+  }
+  .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #ffffff;
+    color: #000;
   }
 }
 
