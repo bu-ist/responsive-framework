@@ -1,23 +1,22 @@
 @media screen {
-/* content area
-	----------------------------------------------------------------- */
+// content area
 
-	/* heading color */
+	// heading color
 	h1,
 	h2,
 	h3,
 	h4,
 	h5,
 	h6 {
-		color: map-get( $current-palette, 'heading-color' );
+		color: accessible-text( #fff, $color-secondary );
 	}
 
-	/* text color */
+	// text color
 	body {
-		color: map-get( $current-palette, 'body-color' );
+		color: accessible-text( #fff, $color-secondary-dark );
 	}
 
-	/* link color */
+	// link color
 	a,
 	.widget a,
 	.widget a:hover,
@@ -25,17 +24,14 @@
 	.calendar-list-event-link,
 	.calendar-list-event-link:focus,
 	.bu_collapsible::before,
-	.profile-name {
-		color: map-get( $current-palette, 'link-color' );
-	}
+	.profile-name,
+	.month td a {
+		color: accessible-text( #fff, $color-tertiary );
 
-	/* link hover color */
-	a:hover,
-	.calendar-list-event-link:hover,
-	.bu_collapsible:hover::before,
-	.bu_collapsible:focus::before,
-	.month td a:hover {
-		color: map-get( $current-palette, 'link-hover-color' );
+		&:hover,
+		&:focus {
+			color: accessible-text( #fff, $color-secondary-dark );
+		}
 	}
 
 	// buttons
@@ -47,19 +43,20 @@
 	.paging-navigation a,
 	.archive-link {
 		background-color: $color-secondary;
-		color: accessible-text( $color-secondary-dark, #fff );
+		color: accessible-text( $color-secondary, #000 );
 
-		&:hover {
-			color: accessible-text( $color-secondary-dark, #fff );
+		&:hover,
+		&:focus {
+			color: accessible-text( $color-secondary, #000 );
 		}
 	}
 
-	/* blockquotes */
+	// blockquotes
 	blockquote {
-		border-color: map-get( $current-palette, 'link-color' );
+		border-color: $color-tertiary;
 	}
 
 	blockquote:before {
-		color: map-get( $current-palette, 'link-color' );
+		color: $color-tertiary;
 	}
-} /* End screen media query */
+}

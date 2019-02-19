@@ -77,31 +77,26 @@
     border-color: #fff;
   }
   .mega-nav-toggle {
-    background: #4b4b79;
-    color: #eebb4b;
+    background: #6cd5b5;
+    color: #000;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus {
-    color: #eebb4b;
+    color: #000;
   }
 }
 
 @media screen {
-  /* content area
-	----------------------------------------------------------------- */
-  /* heading color */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    color: #24243a;
+    color: #258366;
   }
-  /* text color */
   body {
-    color: #24243a;
+    color: #0f3328;
   }
-  /* link color */
   a,
   .widget a,
   .widget a:hover,
@@ -109,16 +104,28 @@
   .calendar-list-event-link,
   .calendar-list-event-link:focus,
   .bu_collapsible::before,
-  .profile-name {
-    color: #A06C1A;
+  .profile-name,
+  .month td a {
+    color: #966c0e;
   }
-  /* link hover color */
-  a:hover,
+  a:hover, a:focus,
+  .widget a:hover,
+  .widget a:focus,
+  .widget a:hover:hover,
+  .widget a:hover:focus,
+  .widget a:focus:hover,
+  .widget a:focus:focus,
   .calendar-list-event-link:hover,
-  .bu_collapsible:hover::before,
-  .bu_collapsible:focus::before,
-  .month td a:hover {
-    color: #000000;
+  .calendar-list-event-link:focus,
+  .calendar-list-event-link:focus:hover,
+  .calendar-list-event-link:focus:focus,
+  .bu_collapsible::before:hover,
+  .bu_collapsible::before:focus,
+  .profile-name:hover,
+  .profile-name:focus,
+  .month td a:hover,
+  .month td a:focus {
+    color: #0f3328;
   }
   input[type="submit"],
   .button,
@@ -127,28 +134,32 @@
   #quicksearch .button,
   .paging-navigation a,
   .archive-link {
-    background-color: #4fc3a0;
-    color: #fff;
+    background-color: #6cd5b5;
+    color: #000;
   }
-  input[type="submit"]:hover,
+  input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
+  .button:focus,
   .button-primary:hover,
+  .button-primary:focus,
   .button-selected:hover,
+  .button-selected:focus,
   #quicksearch .button:hover,
+  #quicksearch .button:focus,
   .paging-navigation a:hover,
-  .archive-link:hover {
-    color: #fff;
+  .paging-navigation a:focus,
+  .archive-link:hover,
+  .archive-link:focus {
+    color: #000;
   }
-  /* blockquotes */
   blockquote {
-    border-color: #A06C1A;
+    border-color: #ecb438;
   }
   blockquote:before {
-    color: #A06C1A;
+    color: #ecb438;
   }
 }
 
-/* End screen media query */
 @media screen {
   /* sidebar area
 	----------------------------------------------------------------- */

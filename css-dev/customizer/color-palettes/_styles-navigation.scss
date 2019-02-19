@@ -43,12 +43,12 @@
 	}
 
 	.mega-nav-toggle {
-		background: $color-primary-20;
-		color: accessible-text( $color-primary-20, #fff );
+		background: $color-secondary;
+		color: accessible-text( $color-secondary, #000 );
 
 		&:hover,
 		&:focus {
-			color: accessible-text( $color-primary-20, #fff );
+			color: accessible-text( $color-secondary, #000 );
 		}
 	}
 }

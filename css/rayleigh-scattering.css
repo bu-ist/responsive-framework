@@ -77,31 +77,26 @@
     border-color: #fff;
   }
   .mega-nav-toggle {
-    background: #62ccfc;
-    color: #892f03;
+    background: #fa5707;
+    color: #000;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus {
-    color: #892f03;
+    color: #000;
   }
 }
 
 @media screen {
-  /* content area
-	----------------------------------------------------------------- */
-  /* heading color */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    color: #222222;
+    color: #cf4704;
   }
-  /* text color */
   body {
-    color: #000000;
+    color: #020100;
   }
-  /* link color */
   a,
   .widget a,
   .widget a:hover,
@@ -109,16 +104,28 @@
   .calendar-list-event-link,
   .calendar-list-event-link:focus,
   .bu_collapsible::before,
-  .profile-name {
-    color: #fa5707;
+  .profile-name,
+  .month td a {
+    color: #cf4704;
   }
-  /* link hover color */
-  a:hover,
+  a:hover, a:focus,
+  .widget a:hover,
+  .widget a:focus,
+  .widget a:hover:hover,
+  .widget a:hover:focus,
+  .widget a:focus:hover,
+  .widget a:focus:focus,
   .calendar-list-event-link:hover,
-  .bu_collapsible:hover::before,
-  .bu_collapsible:focus::before,
-  .month td a:hover {
-    color: #000000;
+  .calendar-list-event-link:focus,
+  .calendar-list-event-link:focus:hover,
+  .calendar-list-event-link:focus:focus,
+  .bu_collapsible::before:hover,
+  .bu_collapsible::before:focus,
+  .profile-name:hover,
+  .profile-name:focus,
+  .month td a:hover,
+  .month td a:focus {
+    color: #020100;
   }
   input[type="submit"],
   .button,
@@ -128,18 +135,23 @@
   .paging-navigation a,
   .archive-link {
     background-color: #fa5707;
-    color: #fff;
+    color: #000;
   }
-  input[type="submit"]:hover,
+  input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
+  .button:focus,
   .button-primary:hover,
+  .button-primary:focus,
   .button-selected:hover,
+  .button-selected:focus,
   #quicksearch .button:hover,
+  #quicksearch .button:focus,
   .paging-navigation a:hover,
-  .archive-link:hover {
-    color: #fff;
+  .paging-navigation a:focus,
+  .archive-link:hover,
+  .archive-link:focus {
+    color: #000;
   }
-  /* blockquotes */
   blockquote {
     border-color: #fa5707;
   }
@@ -148,7 +160,6 @@
   }
 }
 
-/* End screen media query */
 @media screen {
   /* sidebar area
 	----------------------------------------------------------------- */
