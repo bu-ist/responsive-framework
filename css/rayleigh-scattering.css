@@ -198,47 +198,44 @@
 }
 
 @media screen {
-  /* background color */
   .footbar,
   .footbar-container,
   .banner-container-window-width {
-    background: #222222;
+    background: #04a9f4;
   }
-  /* top border color */
   .footbar {
-    border-color: #222222;
+    border-color: #04a9f4;
   }
-  /* link color */
   .footbar a,
   .footbar .widget a,
   .footbar #contentnav li a,
   .footbar .widget_nav_menu li a {
-    color: #fa5707;
+    color: #612102;
   }
-  /* widget title color */
+  .footbar a:hover, .footbar a:focus,
+  .footbar .widget a:hover,
+  .footbar .widget a:focus,
+  .footbar #contentnav li a:hover,
+  .footbar #contentnav li a:focus,
+  .footbar .widget_nav_menu li a:hover,
+  .footbar .widget_nav_menu li a:focus {
+    color: #363636;
+  }
   .footbar .widget-title,
   .footbar .widget-calendar-date {
-    color: #ffffff;
+    color: #363636;
   }
-  /* border color */
   .footbar .widget-title,
   .footbar #contentnav ul,
   .footbar #contentnav li,
   .footbar .widget_nav_menu ul,
   .footbar .widget_nav_menu li,
   .footbar .widget-calendar-event {
-    border-color: #3d3d3d;
+    border-color: #48c4fc;
   }
-  /* link hover color */
-  .footbar .widget a:hover,
-  .footbar #contentnav li a:hover,
-  .footbar .widget_nav_menu li a:hover {
-    color: #dcdcdc;
-  }
-  /* text color */
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,
   .footbar .widget-bu-posts .meta {
-    color: #dcdcdc;
+    color: #363636;
   }
 }
