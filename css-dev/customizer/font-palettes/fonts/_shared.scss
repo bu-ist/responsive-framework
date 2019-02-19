@@ -1,8 +1,13 @@
-$font-heading: sans-serif !default;
-$font-body: serif !default;
+$palette-id: f1 !default;
+
+$current-palette: map-get( $font-palettes, $palette-id );
+$heading-stack: map-get( $current-palette, 'heading' ), map-get( $current-palette, 'heading-fallback' );
+$body-stack: map-get( $current-palette, 'body' ), map-get( $current-palette, 'body-fallback' );
 
 body {
-	font-family: $font-body;
+	font-family: $body-stack;
+	font-weight: map-get( $current-palette, 'body-weight' );
+	text-transform: map-get( $current-palette, 'body-case' );
 }
 
 h1,
@@ -13,15 +18,23 @@ h4,
 h5,
 h6,
 #q {
-	font-family: $font-heading;
+	font-family: $heading-stack;
+	font-weight: map-get( $current-palette, 'heading-weight' );
+	text-transform: map-get( $current-palette, 'heading-case' );
 }
 
 .primary-nav-menu li a {
-	font-family: $font-heading;
-	font-weight: 700;
+	font-family: $heading-stack;
+	text-transform: map-get( $current-palette, 'heading-case' );
+
+	@if map-get( $current-palette, 'heading-weight' ) {
+		font-weight: map-get( $current-palette, 'heading-weight' );
+	} @else {
+		font-weight: 700;
+	}
 }
 
 .utility-nav li a {
-	font-family: $font-heading;
+	font-family: $heading-stack;
 	font-weight: 400;
 }

@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.10' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.12' );
 
 /**
  * Modernizr version.
@@ -154,6 +154,7 @@ function responsive_setup_nav_menus() {
 			'footer'  => __( 'Footer Links', 'responsive-framework' ),
 			'social'  => __( 'Social Links', 'responsive-framework' ),
 			'utility' => __( 'Utility Navigation', 'responsive-framework' ),
+			'short'   => __( 'Short Navigation', 'responsive-framework' ),
 		)
 	);
 
@@ -864,6 +865,18 @@ function r_remove_news_template( $templates, $theme, $post ) {
 
 	return $templates;
 }
+
+/**
+ * Add Copyright for print purposes to footer.
+ */
+function responsive_branding_copyright() {
+	?>
+		<div class="bu_copyright u-visually-hidden">&copy; <?php date( 'Y' ); ?> Boston&nbsp;University. All&nbsp;rights&nbsp;reserved. www.bu.edu</div>
+	<?php
+}
+
+add_action( 'r_after_footer_menus', 'responsive_branding_copyright' );
+
 // add_filter( 'theme_page_templates', 'r_remove_news_template', 10, 3 );
 /**
  * Admin.
@@ -945,6 +958,7 @@ require __DIR__ . '/inc/search-form.php';
 /**
  * Reusable template tags to keep templates logic-free.
  */
+require __DIR__ . '/inc/bu-template-tags.php'; // BU enhancements to template-tags.
 require __DIR__ . '/inc/template-tags.php';
 
 /**

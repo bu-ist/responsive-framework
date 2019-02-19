@@ -1,15 +1,33 @@
 # Changelog
 
-## Unreleased
+## 2.1.12
 
-- bower cleanup.
+- Bower cleanup.
+- Fix font labeling in the customizer to match actual fonts.
+- Add filter for `responsive_font_options` for customizer fonts.
+- Add filter for `responsive_get_font_palette` for when `f1` no longer exists
+  and a value hasn't been set yet.
+- Remove `bundle install` from package.json postinstall scripts.
+- Upgrade `grunt-sass` from 2.0.0 to 3.0.2.
+- Print Stylesheet partial creation in Foundation: `/css-dev/burf-base/_print.scss`
+- Added mega navigation menu to customizer
+- Added new masthead markup for mega nav
+- Added new menu location for "short" nav
+- Add filter to alllow for modification of `bu_navigation_display_primary`
+  defaults from within framework.
+- Add before/after action hooks for the `responsive_primary_nav` and
+  `responsive_utility_nav`, so additional markup can be added by child themes.
+
+## 2.1.11
+
+- Bugfix: Fixed buttons inside of widgets to have white text
 
 ## 2.1.10
 
 -	Update WordPress version in Travis tests to our current install version 4.9.7
 -	Update Unit Tests for `test_responsive_is_bu_domain_true()` to work with single
 	or multi-site installations.
--	Update deprecated Gravity Form call `GFForms::setup()` 
+-	Update deprecated Gravity Form call `GFForms::setup()`
 -	NPM Packages removed grunt-bowercopy.
 -	NPM Packages updated grunt-contrib-watch, grunt-modernizr, & lightgallery.
 -	Remove Ruby Sass gem.
@@ -374,4 +392,3 @@
 - Pre-release version of Responsi.
 - Child themes based on 0.9.1 include: r-cfa, r-hr, r-pardeeschool, r-research,
   and r-school.
-

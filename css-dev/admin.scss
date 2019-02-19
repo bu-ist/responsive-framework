@@ -1,49 +1,66 @@
 $_customizer-selected-color: #288dbb;
 $_customizer-description-color: #999;
-
-// Customizer: Shared
-%admin-sprite-input {
-	input {
-		display: none;
-	}
-
-	// Active styles
-	input:checked + label::after {
-		border: 4px solid $_customizer-selected-color;
-		margin: 0;
-	}
-}
-
-%admin-sprite-label {
-	display: inline-block;
-	font-size: 0;
-	height: auto;
-	width: auto;
-}
-
-%admin-sprite-background {
-	background: url( "admin_sprite.png" ) no-repeat 0 0 transparent;
-	content: "";
-	display: block;
-	margin: 4px;
-}
+$_customizer-layout-sprite-height: 47px;
+$_customizer-layout-sprite-width: 75px;
 
 // Customizer: Layout
 #burf_setting_layout {
-	@extend %admin-sprite-input;
+	li {
+		margin-bottom: 10px;
+		min-height: $_customizer-layout-sprite-height;
+		padding: 8px;
+		padding-right: $_customizer-layout-sprite-width + 8px;
+		position: relative;
+
+		&::after {
+			clear: both;
+			content: "";
+			display: table;
+		}
+	}
+
+	.customize-control-radio & input {
+		margin-left: 0;
+	}
+
+	// Active styles
+	input:checked + label::before {
+		background: lighten( $_customizer-selected-color, 50% );
+		border: 1px solid $_customizer-selected-color;
+		border-radius: 2px;
+		margin: 0;
+		z-index: -1;
+	}
 
 	// Styles for the layout selector images
 	label {
-		@extend %admin-sprite-label;
-		margin-left: 0;
+		font-size: 14px;
+		font-weight: bold;
+		z-index: 2;
+
+		&::before {
+			box-sizing: border-box;
+			content: '';
+			display: block;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
 
 		// For everyone
 		&::after {
-			@extend %admin-sprite-background;
-			height: 129px;
+			background: url( 'layouts-ui.png' ) no-repeat 0 0 transparent;
+			content: "";
+			display: block;
+			height: 47px;
 			margin: 0 auto;
-			padding: 4px;
-			width: 227px;
+			padding: 0;
+			position: absolute;
+			right: 8px;
+			top: 8px;
+			width: 75px;
 		}
 
 		// For specific layouts
@@ -52,53 +69,90 @@ $_customizer-description-color: #999;
 		}
 
 		&[for="burf_setting_layout_top-nav"]::after {
-			background-position: 0 -150px;
+			background-position: 0 ( -$_customizer-layout-sprite-height );
 		}
 
 		&[for="burf_setting_layout_side-nav"]::after {
-			background-position: 0 -300px;
+			background-position: 0 ( -$_customizer-layout-sprite-height * 2 );
+		}
+
+		&[for="burf_setting_layout_mega-nav"]::after {
+			background-position: 0 ( -$_customizer-layout-sprite-height * 3 );
 		}
 
 		&[for="burf_setting_layout_no-nav"]::after {
-			background-position: -300px 0;
+			background-position: 0 ( -$_customizer-layout-sprite-height * 4 );
 		}
 	}
 }
 
+.ui-context {
+	display: block;
+	font-size: 13px;
+	font-weight: 400;
+	margin-left: 24px;
+}
+
+// Customizer: Fonts Import
+
+@import 'customizer/font-palettes/fonts/benton';
+@import 'customizer/font-palettes/fonts/capita-bold';
+@import 'customizer/font-palettes/fonts/capita';
+@import 'customizer/font-palettes/fonts/pressura';
+@import 'customizer/font-palettes/fonts/tiempos';
+@import 'customizer/font-palettes/palettes';
+
 // Customizer: Fonts
 #burf_setting_fonts {
-	@extend %admin-sprite-input;
-
-	// Styles for the layout selector images
 	label {
-		@extend %admin-sprite-label;
+		color: #000;
+		display: block;
+		padding: 1em 0.5em;
+	}
 
-		// For everyone
-		&::after {
-			@extend %admin-sprite-background;
-			height: 82px;
-			width: 245px;
+	input {
+		display: none;
+	}
+
+	input:checked + label {
+		border: 4px solid $_customizer-selected-color;
+		margin: -4px;
+	}
+
+	span {
+		display: block;
+
+		&:first-child {
+			font-size: 1.9em;
+			margin-bottom: 0.5em;
 		}
 
-		// For specific layouts
-		&[for="burf_setting_fonts_f1"]::after {
-			background-position: 0 -750px;
+		& + span {
+			font-size: 14px;
 		}
+	}
+}
 
-		&[for="burf_setting_fonts_f2"]::after {
-			background-position: 0 -850px;
+@each $palette, $map in $font-palettes {
+	.#{$palette}-font-title {
+		font-family: map-get( $map, 'heading' ), map-get( $map, 'heading-fallback' );
+		text-transform: map-get( $map, 'heading-case' );
+
+		@if map-get( $map, 'heading-weight' ) {
+			font-weight: map-get( $map, 'heading-weight' );
+		} @else {
+			font-weight: 700;
 		}
+	}
 
-		&[for="burf_setting_fonts_f3"]::after {
-			background-position: 0 -950px;
-		}
+	.#{$palette}-font-body {
+		font-family: map-get( $map, 'body' ), map-get( $map, 'body-fallback' );
+		text-transform: map-get( $map, 'body-case' );
 
-		&[for="burf_setting_fonts_f4"]::after {
-			background-position: 0 -1050px;
-		}
-
-		&[for="burf_setting_fonts_f5"]::after {
-			background-position: 0 -1150px;
+		@if map-get( $map, 'body-weight' ) {
+			font-weight: map-get( $map, 'body-weight' );
+		} @else {
+			font-weight: 400;
 		}
 	}
 }
