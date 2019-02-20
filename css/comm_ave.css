@@ -84,10 +84,10 @@
   h4,
   h5,
   h6 {
-    color: #607e15;
+    color: #222222;
   }
   body {
-    color: black;
+    color: #000;
   }
   a,
   .calendar-list-event-link,
@@ -111,7 +111,7 @@
   .paging-navigation a,
   .archive-link {
     background-color: #7ba11b;
-    color: #000;
+    color: #2b2b2b;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
@@ -124,7 +124,7 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
-    color: #000;
+    color: #2b2b2b;
   }
   blockquote {
     border-color: #7ba11b;
@@ -136,7 +136,7 @@
 
 @media screen {
   .widget {
-    background: #484e52;
+    background: #0c0d0e;
     padding: 24px;
   }
   .footbar .widget {
@@ -154,12 +154,12 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #6b747b;
+    border-color: #303437;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: white;
+    color: #bbc0c4;
   }
   .widget a,
   #contentnav li a,
@@ -167,7 +167,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #a0d123;
+    color: #7ba11b;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,

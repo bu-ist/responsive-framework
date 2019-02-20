@@ -21,14 +21,14 @@ $color-dark:                          map-get( $current-palette, 'color-dark' );
 // Content Colors
 // =================================================================
 
-$content-heading:                     accessible-text( $content-bg, $color-dark );
-$content-body:                        accessible-text( $content-bg, #000 );
-$content-link:                        accessible-text( $content-bg, $color-secondary );
+$content-heading:                     accessible-text( $content-bg, $color-secondary );
+$content-body:                        accessible-text( $content-bg, $color-secondary-dark );
+$content-link:                        accessible-text( $content-bg, $color-tertiary );
 $content-link-hover:                  accessible-text( $content-bg, $color-secondary-dark );
-$button-bg:                           $color-tertiary;
-$button-link:                         accessible-text( $button-bg, #fff );
-$button-link-hover:                   accessible-text( $button-bg, #fff );
-$quote-accent:                        $color-secondary;
+$button-bg:                           $color-secondary;
+$button-link:                         accessible-text( $button-bg, #000 );
+$button-link-hover:                   accessible-text( $button-bg, #000 );
+$quote-accent:                        $color-tertiary;
 
 // =================================================================
 // Main Navigation Colors
@@ -48,10 +48,10 @@ $mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, #000 );
 // Sidebar Colors
 // =================================================================
 
-$sidebar-bg:                          darken( $color-primary, 15% );
+$sidebar-bg:                          lighten( $color-primary, 10% );
 
 @if lightness( $color-primary ) > 30% {
-	$sidebar-bg:                       darken( $color-primary, 15% );
+	$sidebar-bg:                       darken( $color-primary, 10% );
 }
 
 $sidebar-widget-title:                accessible-text( #fff, $sidebar-bg );
@@ -60,7 +60,7 @@ $sidebar-text:                        accessible-text( lighten( $sidebar-bg, 70%
 $sidebar-link:                        accessible-text( $sidebar-bg, $color-tertiary );
 $sidebar-link-hover:                  accessible-text( $sidebar-bg, #fff );
 
-@if $use-background-colors == true {
+@if $use-background-colors {
 	$sidebar-widget-title:             accessible-text( $sidebar-bg, #fff );
 	$sidebar-text:                     accessible-text( $sidebar-bg, lighten( $sidebar-bg, 70% ) );
 }
@@ -75,15 +75,15 @@ $footbar-bg:                          $color-dark;
 	$footbar-bg:                       lighten( $color-dark, 95% );
 }
 
-$footbar-link:                        accessible-text( $footbar-bg, $color-primary );
+$footbar-link:                        accessible-text( $footbar-bg, $color-secondary );
 $footbar-link-hover:                  accessible-text( $footbar-bg, #000 );
 $footbar-widget-title:                accessible-text( $footbar-bg, #000 );
 $footbar-border:                      darken( $footbar-bg, 10% );
 $footbar-text:                        accessible-text( $footbar-bg, #000 );
 
-@if $use-background-colors == true {
+@if $use-background-colors {
 	$footbar-bg:                       $color-dark;
-	$footbar-link:                     accessible-text( $footbar-bg, $color-secondary );
+	$footbar-link:                     accessible-text( $footbar-bg, $color-tertiary );
 	$footbar-link-hover:               accessible-text( $footbar-bg, #fff );
 	$footbar-widget-title:             accessible-text( $footbar-bg, #fff );
 	$footbar-border:                   lighten( $footbar-bg, $border-lighten-amt );

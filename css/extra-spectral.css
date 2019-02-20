@@ -32,20 +32,20 @@
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
-    background: #c2185b;
+    background: #024b6d;
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a {
     color: #fff;
-    border-color: #e73f81;
+    border-color: #037fb8;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus,
   .primary-nav-menu li li a:hover,
   .primary-nav-menu li li a:focus,
   .l-side-nav .primary-nav-menu a:hover,
   .l-side-nav .primary-nav-menu a:focus {
-    color: #ffdbe9;
+    color: #ffc1da;
   }
   .nav-toggle span,
   .search-toggle::before,
@@ -55,12 +55,12 @@
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
-    color: #fadae6;
+    color: #40c0fb;
   }
   .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
   .l-mega-nav .utility-nav a:hover,
   .l-mega-nav .utility-nav a:focus {
-    color: white;
+    color: #a4e1fd;
   }
   .l-mega-nav .search-field {
     border-color: #fff;
@@ -136,7 +136,7 @@
 
 @media screen {
   .widget {
-    background: #7e103b;
+    background: #011722;
     padding: 24px;
   }
   .footbar .widget {
@@ -154,12 +154,12 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #c2185b;
+    border-color: #024b6d;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: #fef5f8;
+    color: #8bd9fd;
   }
   .widget a,
   #contentnav li a,
