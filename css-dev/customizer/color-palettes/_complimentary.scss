@@ -67,3 +67,24 @@ $sidebar-link-hover: accessible-text( $sidebar-bg, #fff );
 // =================================================================
 // Footer Colors
 // =================================================================
+
+$footbar-bg: $color-dark;
+
+@if lightness( $color-primary ) > 30% {
+	$footbar-bg: lighten( $color-dark, 95% );
+}
+
+$footbar-link: accessible-text( $footbar-bg, $color-secondary );
+$footbar-link-hover: accessible-text( $footbar-bg, #000 );
+$footbar-widget-title: accessible-text( $footbar-bg, #000 );
+$footbar-border: darken( $footbar-bg, 10% );
+$footbar-text: accessible-text( $footbar-bg, #000 );
+
+@if $use-background-colors {
+	$footbar-bg: $color-dark;
+	$footbar-link: accessible-text( $footbar-bg, $color-tertiary );
+	$footbar-link-hover: accessible-text( $footbar-bg, #fff );
+	$footbar-widget-title: accessible-text( $footbar-bg, #fff );
+	$footbar-border: $color-dark-border;
+	$footbar-text: accessible-text( $footbar-bg, lighten( $color-dark, 70% ) );
+}

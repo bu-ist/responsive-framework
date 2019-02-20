@@ -194,16 +194,16 @@
   .footbar,
   .footbar-container,
   .banner-container-window-width {
-    background: #f2f2f2;
+    background: #000000;
   }
   .footbar {
-    border-color: #f2f2f2;
+    border-color: #000000;
   }
   .footbar a,
   .footbar .widget a,
   .footbar #contentnav li a,
   .footbar .widget_nav_menu li a {
-    color: #0f69d7;
+    color: #1070e5;
   }
   .footbar a:hover, .footbar a:focus,
   .footbar .widget a:hover,
@@ -212,11 +212,11 @@
   .footbar #contentnav li a:focus,
   .footbar .widget_nav_menu li a:hover,
   .footbar .widget_nav_menu li a:focus {
-    color: #000;
+    color: #757575;
   }
   .footbar .widget-title,
   .footbar .widget-calendar-date {
-    color: #000;
+    color: #757575;
   }
   .footbar .widget-title,
   .footbar #contentnav ul,
@@ -224,11 +224,11 @@
   .footbar .widget_nav_menu ul,
   .footbar .widget_nav_menu li,
   .footbar .widget-calendar-event {
-    border-color: #d9d9d9;
+    border-color: black;
   }
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,
   .footbar .widget-bu-posts .meta {
-    color: #000;
+    color: #757575;
   }
 }
