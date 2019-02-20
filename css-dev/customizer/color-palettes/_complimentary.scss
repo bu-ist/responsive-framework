@@ -10,12 +10,38 @@ $use-background-colors: map-get( $current-palette, 'use-background-colors' );
 // =================================================================
 
 $color-primary: map-get( $current-palette, 'color-primary' );
-$color-primary-border: lighten( $color-primary, 15% );
 $color-secondary: map-get( $current-palette, 'color-secondary' );
 $color-secondary-dark: darken( $color-secondary, 50% );
 $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 $color-dark: map-get( $current-palette, 'color-dark' );
 $color-dark-border: lighten( $color-dark, 15% );
+
+// =================================================================
+// Content Colors
+// =================================================================
+
+$content-heading: accessible-text( #fff, $color-secondary );
+$content-body: accessible-text( #fff, $color-secondary-dark );
+$content-link: accessible-text( #fff, $color-tertiary );
+$content-link-hover: accessible-text( #fff, $color-secondary-dark );
+$button-bg: $color-secondary;
+$button-link: accessible-text( $button-bg, #000 );
+$button-link-hover: accessible-text( $button-bg, #000 );
+$quote-accent: $color-tertiary;
+
+// =================================================================
+// Main Navigation Colors
+// =================================================================
+
+$nav-bg: $color-primary;
+$nav-border: lighten( $color-primary, 15% );
+$nav-link: accessible-text( $color-primary, #fff );
+$nav-link-hover: accessible-text( $color-primary, $color-tertiary );
+$nav-utility-link: accessible-text( $color-primary, lighten( $color-primary, 40% ) );
+$nav-utility-link-hover: accessible-text( $color-primary, lighten( $color-primary, 60% ) );
+$mega-toggle-bg: $color-secondary;
+$mega-toggle-link: accessible-text( $mega-toggle-bg, #000 );
+$mega-toggle-link-hover: accessible-text( $mega-toggle-bg, #000 );
 
 // =================================================================
 // Sidebar Colors
@@ -37,3 +63,7 @@ $sidebar-link-hover: accessible-text( $sidebar-bg, #fff );
 	$sidebar-border: lighten( $sidebar-bg, 20% );
 	$sidebar-text: accessible-text( $sidebar-bg, lighten( $sidebar-bg, 70% ) );
 }
+
+// =================================================================
+// Footer Colors
+// =================================================================

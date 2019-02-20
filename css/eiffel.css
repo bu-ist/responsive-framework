@@ -65,11 +65,14 @@
   .l-mega-nav .search-field {
     border-color: #fff;
   }
-  .mega-nav-toggle {
+  .mega-nav-toggle,
+  #quicksearch .button {
     background: #447375;
     color: #ededed;
   }
-  .mega-nav-toggle:hover, .mega-nav-toggle:focus {
+  .mega-nav-toggle:hover, .mega-nav-toggle:focus,
+  #quicksearch .button:hover,
+  #quicksearch .button:focus {
     color: #ededed;
   }
 }
@@ -87,40 +90,24 @@
     color: black;
   }
   a,
-  .widget a,
-  .widget a:hover,
-  .widget a:focus,
   .calendar-list-event-link,
-  .calendar-list-event-link:focus,
   .bu_collapsible::before,
-  .profile-name,
-  .month td a {
+  .profile-name {
     color: #447375;
   }
   a:hover, a:focus,
-  .widget a:hover,
-  .widget a:focus,
-  .widget a:hover:hover,
-  .widget a:hover:focus,
-  .widget a:focus:hover,
-  .widget a:focus:focus,
   .calendar-list-event-link:hover,
   .calendar-list-event-link:focus,
-  .calendar-list-event-link:focus:hover,
-  .calendar-list-event-link:focus:focus,
   .bu_collapsible::before:hover,
   .bu_collapsible::before:focus,
   .profile-name:hover,
-  .profile-name:focus,
-  .month td a:hover,
-  .month td a:focus {
+  .profile-name:focus {
     color: black;
   }
   input[type="submit"],
   .button,
   .button-primary,
   .button-selected,
-  #quicksearch .button,
   .paging-navigation a,
   .archive-link {
     background-color: #447375;
@@ -133,8 +120,6 @@
   .button-primary:focus,
   .button-selected:hover,
   .button-selected:focus,
-  #quicksearch .button:hover,
-  #quicksearch .button:focus,
   .paging-navigation a:hover,
   .paging-navigation a:focus,
   .archive-link:hover,
@@ -144,7 +129,7 @@
   blockquote {
     border-color: #447375;
   }
-  blockquote:before {
+  blockquote::before {
     color: #447375;
   }
 }
@@ -180,7 +165,8 @@
   #contentnav li a,
   .widget_nav_menu li a,
   #contentnav li.current_page_item > a,
-  .widget_nav_menu li.current_page_item > a {
+  .widget_nav_menu li.current_page_item > a,
+  .month td a {
     color: #b9d5d6;
   }
   .widget a:hover, .widget a:focus,
@@ -191,7 +177,9 @@
   #contentnav li.current_page_item > a:hover,
   #contentnav li.current_page_item > a:focus,
   .widget_nav_menu li.current_page_item > a:hover,
-  .widget_nav_menu li.current_page_item > a:focus {
+  .widget_nav_menu li.current_page_item > a:focus,
+  .month td a:hover,
+  .month td a:focus {
     color: #fff;
   }
   .widget-title,

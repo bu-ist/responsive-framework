@@ -4,19 +4,19 @@
 	.primary-nav,
 	.primary-nav-menu ul,
 	.l-side-nav {
-		background: $color-primary;
+		background: $nav-bg;
 	}
 
 	// Nav menu toggles and text colors
 	.primary-nav-menu a,
 	.primary-nav-menu li li a,
 	.l-side-nav .primary-nav-menu a {
-		color: accessible-text( $color-primary, #fff );
-		border-color: $color-primary-border;
+		color: $nav-link;
+		border-color: $nav-border;
 
 		&:hover,
 		&:focus {
-			color: accessible-text( $color-primary, $color-tertiary );
+			color: $nav-link-hover;
 		}
 	}
 
@@ -24,17 +24,17 @@
 	.search-toggle::before,
 	.nav-toggle span::before,
 	.nav-toggle span::after {
-		color: accessible-text( $color-primary, #fff );
+		color: $nav-link;
 	}
 
 	// Utility nav in left hand and mega nav layout
 	.l-side-nav .utility-nav a,
 	.l-mega-nav .utility-nav a {
-		color: accessible-text( $color-primary, lighten( $color-primary, 40% ) );
+		color: $nav-utility-link;
 
 		&:hover,
 		&:focus {
-			color: accessible-text( $color-primary, lighten( $color-primary, 60% ) );
+			color: $nav-utility-link-hover;
 		}
 	}
 
@@ -42,13 +42,14 @@
 		border-color: #fff;
 	}
 
-	.mega-nav-toggle {
-		background: $color-secondary;
-		color: accessible-text( $color-secondary, #000 );
+	.mega-nav-toggle,
+	#quicksearch .button {
+		background: $mega-toggle-bg;
+		color: $mega-toggle-link;
 
 		&:hover,
 		&:focus {
-			color: accessible-text( $color-secondary, #000 );
+			color: $mega-toggle-link-hover;
 		}
 	}
 }

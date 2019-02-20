@@ -8,29 +8,24 @@
 	h4,
 	h5,
 	h6 {
-		color: accessible-text( #fff, $color-secondary );
+		color: $content-heading;
 	}
 
 	// text color
 	body {
-		color: accessible-text( #fff, $color-secondary-dark );
+		color: $content-body;
 	}
 
 	// link color
 	a,
-	.widget a,
-	.widget a:hover,
-	.widget a:focus,
 	.calendar-list-event-link,
-	.calendar-list-event-link:focus,
 	.bu_collapsible::before,
-	.profile-name,
-	.month td a {
-		color: accessible-text( #fff, $color-tertiary );
+	.profile-name {
+		color: $content-link;
 
 		&:hover,
 		&:focus {
-			color: accessible-text( #fff, $color-secondary-dark );
+			color: $content-link-hover;
 		}
 	}
 
@@ -39,24 +34,23 @@
 	.button,
 	.button-primary,
 	.button-selected,
-	#quicksearch .button,
 	.paging-navigation a,
 	.archive-link {
-		background-color: $color-secondary;
-		color: accessible-text( $color-secondary, #000 );
+		background-color: $button-bg;
+		color: $button-link;
 
 		&:hover,
 		&:focus {
-			color: accessible-text( $color-secondary, #000 );
+			color: $button-link-hover;
 		}
 	}
 
 	// blockquotes
 	blockquote {
-		border-color: $color-tertiary;
-	}
+		border-color: $quote-accent;
 
-	blockquote:before {
-		color: $color-tertiary;
+		&::before {
+			color: $quote-accent;
+		}
 	}
 }
