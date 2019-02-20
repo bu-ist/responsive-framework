@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.13
+
+- Minor update to change how content was checked for banners, switching to the bu_banners spefic `has_text`.
+
 ## 2.1.12
 
 - Bower cleanup.
