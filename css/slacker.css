@@ -169,10 +169,7 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #9c9cc1;
-  }
-  .widget-title {
-    color: #fff;
+    border-color: #5f5f98;
   }
   .widget,
   .widget-calendar-picker th,
@@ -197,6 +194,10 @@
   .widget_nav_menu li.current_page_item > a:focus {
     color: #fff;
   }
+  .widget-title,
+  .widget-title a {
+    color: #fff;
+  }
   .widget a.button,
   .widget a.button-primary {
     background: #6cd5b5;
@@ -213,10 +214,10 @@
   .footbar,
   .footbar-container,
   .banner-container-window-width {
-    background: #24243a;
+    background: #1a1a22;
   }
   .footbar {
-    border-color: #24243a;
+    border-color: #1a1a22;
   }
   .footbar a,
   .footbar .widget a,
@@ -234,6 +235,7 @@
     color: #fff;
   }
   .footbar .widget-title,
+  .footbar .widget-title a,
   .footbar .widget-calendar-date {
     color: #fff;
   }
@@ -243,11 +245,11 @@
   .footbar .widget_nav_menu ul,
   .footbar .widget_nav_menu li,
   .footbar .widget-calendar-event {
-    border-color: #414169;
+    border-color: #3b3b4d;
   }
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,
   .footbar .widget-bu-posts .meta {
-    color: #dbdbe8;
+    color: #cacad7;
   }
 }

@@ -32,20 +32,20 @@
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
-    background: #c2185b;
+    background: #4f183e;
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a {
     color: #fff;
-    border-color: #e73f81;
+    border-color: #8a2a6c;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus,
   .primary-nav-menu li li a:hover,
   .primary-nav-menu li li a:focus,
   .l-side-nav .primary-nav-menu a:hover,
   .l-side-nav .primary-nav-menu a:focus {
-    color: #fbd9e6;
+    color: #ed6e41;
   }
   .nav-toggle span,
   .search-toggle::before,
@@ -55,18 +55,18 @@
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
-    color: #fadae6;
+    color: #d473b6;
   }
   .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
   .l-mega-nav .utility-nav a:hover,
   .l-mega-nav .utility-nav a:focus {
-    color: white;
+    color: #e7b2d7;
   }
   .l-mega-nav .search-field {
     border-color: #fff;
   }
   .mega-nav-toggle {
-    background: #e82a75;
+    background: #ec6738;
     color: #000;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus {
@@ -81,10 +81,10 @@
   h4,
   h5,
   h6 {
-    color: #e01867;
+    color: #d34614;
   }
   body {
-    color: #110208;
+    color: #220b03;
   }
   a,
   .widget a,
@@ -95,7 +95,7 @@
   .bu_collapsible::before,
   .profile-name,
   .month td a {
-    color: #e01867;
+    color: #d34614;
   }
   a:hover, a:focus,
   .widget a:hover,
@@ -114,7 +114,7 @@
   .profile-name:focus,
   .month td a:hover,
   .month td a:focus {
-    color: #110208;
+    color: #220b03;
   }
   input[type="submit"],
   .button,
@@ -123,7 +123,7 @@
   #quicksearch .button,
   .paging-navigation a,
   .archive-link {
-    background-color: #e82a75;
+    background-color: #ec6738;
     color: #000;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
@@ -142,16 +142,16 @@
     color: #000;
   }
   blockquote {
-    border-color: #e82a75;
+    border-color: #ec6738;
   }
   blockquote:before {
-    color: #e82a75;
+    color: #ec6738;
   }
 }
 
 @media screen {
   .widget {
-    background: #e42973;
+    background: #76245d;
     padding: 24px;
   }
   .footbar .widget {
@@ -169,22 +169,19 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #fbdee9;
-  }
-  .widget-title {
-    color: #0d0d0d;
+    border-color: #c43c9a;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: #0d0d0d;
+    color: white;
   }
   .widget a,
   #contentnav li a,
   .widget_nav_menu li a,
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a {
-    color: #1f030e;
+    color: #f39c7e;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -195,11 +192,15 @@
   #contentnav li.current_page_item > a:focus,
   .widget_nav_menu li.current_page_item > a:hover,
   .widget_nav_menu li.current_page_item > a:focus {
-    color: #0d0d0d;
+    color: #fff;
+  }
+  .widget-title,
+  .widget-title a {
+    color: #fff;
   }
   .widget a.button,
   .widget a.button-primary {
-    background: #e82a75;
+    background: #ec6738;
     color: #000;
   }
   .widget a.button:hover, .widget a.button:focus,
@@ -213,16 +214,16 @@
   .footbar,
   .footbar-container,
   .banner-container-window-width {
-    background: #c2185b;
+    background: #1a1a22;
   }
   .footbar {
-    border-color: #c2185b;
+    border-color: #1a1a22;
   }
   .footbar a,
   .footbar .widget a,
   .footbar #contentnav li a,
   .footbar .widget_nav_menu li a {
-    color: #fbd9e6;
+    color: #ec6738;
   }
   .footbar a:hover, .footbar a:focus,
   .footbar .widget a:hover,
@@ -234,6 +235,7 @@
     color: #fff;
   }
   .footbar .widget-title,
+  .footbar .widget-title a,
   .footbar .widget-calendar-date {
     color: #fff;
   }
@@ -243,11 +245,11 @@
   .footbar .widget_nav_menu ul,
   .footbar .widget_nav_menu li,
   .footbar .widget-calendar-event {
-    border-color: #e73f81;
+    border-color: #3b3b4d;
   }
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,
   .footbar .widget-bu-posts .meta {
-    color: white;
+    color: #cacad7;
   }
 }

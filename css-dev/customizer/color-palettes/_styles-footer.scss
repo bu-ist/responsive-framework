@@ -1,5 +1,9 @@
+@if lightness( $color-dark ) > 30% {
+	$sidebar-bg: darken( $color-dark, 10% );
+}
+
 @if map-get( $current-palette, 'use-background-colors' ) == true {
-	$footbar-bg: $color-primary;
+	$footbar-bg: $color-dark;
 
 	@media screen {
 		// background color
@@ -29,6 +33,7 @@
 
 		// widget title color
 		.footbar .widget-title,
+		.footbar .widget-title a,
 		.footbar .widget-calendar-date {
 			color: accessible-text( $footbar-bg, #fff );
 		}
@@ -40,18 +45,18 @@
 		.footbar .widget_nav_menu ul,
 		.footbar .widget_nav_menu li,
 		.footbar .widget-calendar-event {
-			border-color: $color-primary-border;
+			border-color: $color-dark-border;
 		}
 
 		// text color
 		.footbar .widget,
 		.footbar .widget-calendar-day-graphic,
 		.footbar .widget-bu-posts .meta {
-			color: accessible-text( $footbar-bg, lighten( $color-primary, 70% ) );
+			color: accessible-text( $footbar-bg, lighten( $color-dark, 70% ) );
 		}
 	}
 } @else {
-	$footbar-bg: lighten( $color-primary, 95% );
+	$footbar-bg: lighten( $color-dark, 95% );
 
 	@media screen {
 		// background color

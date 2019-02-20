@@ -1,7 +1,13 @@
+$use-background-colors: map-get( $current-palette, 'use-background-colors' );
+
 $sidebar-bg: lighten( $color-primary, 10% );
 
-@if map-get( $current-palette, 'use-background-colors' ) == true {
-	@media screen {
+@if lightness( $color-primary ) > 30% {
+	$sidebar-bg: darken( $color-primary, 10% );
+}
+
+@media screen {
+	@if $use-background-colors {
 		.widget {
 			background: $sidebar-bg;
 			padding: 24px;
@@ -11,111 +17,72 @@ $sidebar-bg: lighten( $color-primary, 10% );
 			background: transparent;
 			padding: 0;
 		}
+	}
 
-				// widget border color
-		.widget-title,
-		#contentnav ul,
-		#contentnav li,
-		.widget_nav_menu ul,
-		.widget_nav_menu li,
-		.widget-calendar-event,
-		.month,
-		.widget-calendar-picker th,
-		.widget-calendar-picker td,
-		.widget_links li,
-		.widget_archive li {
-			border-color: lighten( $sidebar-bg, 40% );
-		}
-
-		.widget-title {
-			color: accessible-text( $sidebar-bg, #fff );
-		}
-
-		// text color
-		.widget,
-		.widget-calendar-picker th,
-		.widget-calendar-picker caption {
-			color: accessible-text( $sidebar-bg, lighten( $sidebar-bg, 70% ) );
-		}
-
-		// link color
-		.widget a,
-		#contentnav li a,
-		.widget_nav_menu li a,
-		#contentnav li.current_page_item > a,
-		.widget_nav_menu li.current_page_item > a {
-			color: accessible-text( $sidebar-bg, $color-tertiary );
-
-			&:hover,
-			&:focus {
-				color: accessible-text( $sidebar-bg, #fff );
-			}
-		}
-
-		// buttons
-		.widget a.button,
-		.widget a.button-primary {
-			background: $color-secondary;
-			color: accessible-text( $color-secondary, #000 );
-
-			&:hover,
-			&:focus {
-				color: accessible-text( $color-secondary, #000 );
-			}
+	// widget border color
+	.widget-title,
+	#contentnav ul,
+	#contentnav li,
+	.widget_nav_menu ul,
+	.widget_nav_menu li,
+	.widget-calendar-event,
+	.month,
+	.widget-calendar-picker th,
+	.widget-calendar-picker td,
+	.widget_links li,
+	.widget_archive li {
+		@if $use-background-colors {
+			border-color: lighten( $sidebar-bg, 20% );
+		} @else {
+			border-color: lighten( $sidebar-bg, 80% );
 		}
 	}
-} @else {
-	@media screen {
-		// widget border color
-		.widget-title,
-		#contentnav ul,
-		#contentnav li,
-		.widget_nav_menu ul,
-		.widget_nav_menu li,
-		.widget-calendar-event,
-		.month,
-		.widget-calendar-picker th,
-		.widget-calendar-picker td,
-		.widget_links li,
-		.widget_archive li {
-			border-color: lighten( $color-primary, 80% );
+
+	// text color
+	.widget,
+	.widget-calendar-picker th,
+	.widget-calendar-picker caption {
+		@if $use-background-colors {
+			color: accessible-text( $sidebar-bg, lighten( $sidebar-bg, 70% ) );
+		} @else {
+			color: accessible-text( lighten( $sidebar-bg, 70% ), $sidebar-bg );
 		}
+	}
 
-		.widget-title {
-			color: accessible-text( #fff, $color-primary );
+	// link color
+	.widget a,
+	#contentnav li a,
+	.widget_nav_menu li a,
+	#contentnav li.current_page_item > a,
+	.widget_nav_menu li.current_page_item > a {
+		color: accessible-text( $sidebar-bg, $color-tertiary );
+
+		&:hover,
+		&:focus {
+			color: accessible-text( $sidebar-bg, #fff );
 		}
+	}
 
-		// text color
-		.widget,
-		.widget-calendar-picker th,
-		.widget-calendar-picker caption {
-			color: accessible-text( #fff, $color-primary );
+
+	// Widget Titles
+	.widget-title,
+	.widget-title a {
+		@if $use-background-colors {
+			color: accessible-text( $sidebar-bg, #fff );
+		} @else {
+			color: accessible-text( #fff, $sidebar-bg );
 		}
+	}
 
-		// link color
-		.widget a,
-		#contentnav li a,
-		.widget_nav_menu li a,
-		#contentnav li.current_page_item > a,
-		.widget_nav_menu li.current_page_item > a {
-			color: accessible-text( $color-primary, $color-tertiary );
+	// buttons
+	.widget a.button,
+	.widget a.button-primary {
+		background: $color-secondary;
+		color: accessible-text( $color-secondary, #000 );
 
-			&:hover,
-			&:focus {
-				color: accessible-text( $color-primary, #fff );
-			}
-		}
-
-		// buttons
-		.widget a.button,
-		.widget a.button-primary {
-			background: $color-secondary;
+		&:hover,
+		&:focus {
 			color: accessible-text( $color-secondary, #000 );
-
-			&:hover,
-			&:focus {
-				color: accessible-text( $color-secondary, #000 );
-			}
 		}
 	}
 }

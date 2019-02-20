@@ -12,6 +12,9 @@ $color-secondary-dark: darken( $color-secondary, 50% );
 
 $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 
+$color-dark: map-get( $current-palette, 'color-dark' );
+$color-dark-border: lighten( $color-dark, 15% );
+
 @media screen {
 
 	/* non-configurable styles

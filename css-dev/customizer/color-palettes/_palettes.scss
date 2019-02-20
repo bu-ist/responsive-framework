@@ -4,42 +4,49 @@ $color-palettes: (
 		color-primary: #000000, // background.
 		color-secondary: #0f69d7,
 		color-tertiary: #0f69d7,
+		color-dark: #000000,
 	),
 	slacker: (
 		use-background-colors: true,
 		color-primary: #24243a, // background.
 		color-secondary: #6cd5b5, //4fc3a0
 		color-tertiary: #ecb438,
+		color-dark: #1a1a22,
 	),
 	extra-spectral: (
 		use-background-colors: true,
-		color-primary: #c2185b, // background.
-		color-secondary: #e82a75,
-		color-tertiary: #e82a75,
+		color-primary: #4f183e, // background.
+		color-secondary: #ec6738,
+		color-tertiary: #ec6738, //4fc3a0
+		color-dark: #1a1a22,
 	),
 	rayleigh-scattering: (
 		use-background-colors: true,
 		color-primary: #04a9f4, // background.
 		color-secondary: #fa5707,
 		color-tertiary: #fa5707,
+		color-dark: #222222,
 	),
 	vinca-minor: (
 		use-background-colors: true,
 		color-primary: #3f51b5, // background.
 		color-secondary: #6c7dff,
 		color-tertiary: #6c7dff,
+		color-dark: #1a1d2b,
 	),
 	eiffel: (
 		use-background-colors: true,
 		color-primary: #00343a, // background.
 		color-secondary: #447375,
 		color-tertiary: #447375,
+		color-dark: #222222,
 	),
 	comm-ave: (
 		use-background-colors: true,
 		color-primary: #303437, // background.
 		color-secondary: #7ba11b,
 		color-tertiary: #7ba11b,
+		color-dark: #222222,
 	),
 );
 
