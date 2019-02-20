@@ -25,8 +25,8 @@
 	}
 
 	// widget title color
-	.footbar .widget-title,
-	.footbar .widget-calendar-date {
+	.footbar .widget-title a,
+	.footbar .widget-calendar-date a {
 		color: $footbar-widget-title;
 	}
 

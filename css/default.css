@@ -146,7 +146,7 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #e6e6e6;
+    border-color: #404040;
   }
   .widget,
   .widget-calendar-picker th,
@@ -214,8 +214,8 @@
   .footbar .widget_nav_menu li a:focus {
     color: #757575;
   }
-  .footbar .widget-title,
-  .footbar .widget-calendar-date {
+  .footbar .widget-title a,
+  .footbar .widget-calendar-date a {
     color: #757575;
   }
   .footbar .widget-title,
