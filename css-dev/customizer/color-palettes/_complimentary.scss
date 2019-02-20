@@ -1,0 +1,39 @@
+// =================================================================
+// Palette Controls
+// =================================================================
+
+$current-palette: map-get( $color-palettes, $palette-id );
+$use-background-colors: map-get( $current-palette, 'use-background-colors' );
+
+// =================================================================
+// Palette Colors
+// =================================================================
+
+$color-primary: map-get( $current-palette, 'color-primary' );
+$color-primary-border: lighten( $color-primary, 15% );
+$color-secondary: map-get( $current-palette, 'color-secondary' );
+$color-secondary-dark: darken( $color-secondary, 50% );
+$color-tertiary: map-get( $current-palette, 'color-tertiary' );
+$color-dark: map-get( $current-palette, 'color-dark' );
+$color-dark-border: lighten( $color-dark, 15% );
+
+// =================================================================
+// Sidebar Colors
+// =================================================================
+
+$sidebar-bg: lighten( $color-primary, 10% );
+$sidebar-widget-title: accessible-text( #fff, $sidebar-bg );
+$sidebar-border: lighten( $sidebar-bg, 80% );
+$sidebar-text: accessible-text( lighten( $sidebar-bg, 70% ), $sidebar-bg );
+$sidebar-link: accessible-text( $sidebar-bg, $color-tertiary );
+$sidebar-link-hover: accessible-text( $sidebar-bg, #fff );
+
+@if lightness( $color-primary ) > 30% {
+	$sidebar-bg: darken( $color-primary, 10% );
+}
+
+@if $use-background-colors {
+	$sidebar-widget-title: accessible-text( $sidebar-bg, #fff );
+	$sidebar-border: lighten( $sidebar-bg, 20% );
+	$sidebar-text: accessible-text( $sidebar-bg, lighten( $sidebar-bg, 70% ) );
+}

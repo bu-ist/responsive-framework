@@ -181,7 +181,7 @@
   .widget_nav_menu li a,
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a {
-    color: #a9b3ff;
+    color: white;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,

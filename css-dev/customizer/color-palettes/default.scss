@@ -1,8 +1,9 @@
 $palette-id: 'default';
 
-$color-palette-primary: #000000;
-
 @import 'styles-base';
+
+@import 'complimentary';
+
 @import 'styles-navigation';
 @import 'styles-content';
 @import 'styles-sidebar';

@@ -1,6 +1,9 @@
 $palette-id: 'vinca-minor';
 
 @import 'styles-base';
+
+@import 'complimentary';
+
 @import 'styles-navigation';
 @import 'styles-content';
 @import 'styles-sidebar';

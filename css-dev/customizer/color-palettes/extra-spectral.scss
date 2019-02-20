@@ -1,6 +1,9 @@
 $palette-id: 'extra-spectral';
 
 @import 'styles-base';
+
+@import 'complimentary';
+
 @import 'styles-navigation';
 @import 'styles-content';
 @import 'styles-sidebar';
