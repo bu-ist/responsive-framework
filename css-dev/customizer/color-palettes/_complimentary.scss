@@ -25,9 +25,9 @@ $content-heading:                     accessible-text( $content-bg, $color-dark 
 $content-body:                        accessible-text( $content-bg, #000 );
 $content-link:                        accessible-text( $content-bg, $color-secondary );
 $content-link-hover:                  accessible-text( $content-bg, $color-secondary-dark );
-$button-bg:                           $color-tertiary;
-$button-link:                         accessible-text( $button-bg, #000 );
-$button-link-hover:                   accessible-text( $button-bg, #000 );
+$button-bg:                           $color-tertiary !default;
+$button-link:                         accessible-text( $button-bg, #000 ) !default;
+$button-link-hover:                   accessible-text( $button-bg, #000 ) !default;
 $quote-accent:                        $color-secondary;
 
 // =================================================================
@@ -41,8 +41,8 @@ $nav-link-hover:                      accessible-text( $color-primary, $color-te
 $nav-utility-link:                    accessible-text( $color-primary, lighten( $color-primary, 40% ) );
 $nav-utility-link-hover:              accessible-text( $color-primary, lighten( $color-primary, 60% ) );
 $mega-toggle-bg:                      $button-bg;
-$mega-toggle-link:                    $button-link;
-$mega-toggle-link-hover:              $button-link-hover;
+$mega-toggle-link:                    accessible-text( $button-bg, #000 );
+$mega-toggle-link-hover:              accessible-text( $button-bg, #000 );
 
 // =================================================================
 // Sidebar Colors

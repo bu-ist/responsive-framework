@@ -25,9 +25,9 @@ $content-heading:                     accessible-text( $content-bg, $color-dark 
 $content-body:                        accessible-text( $content-bg, #000 );
 $content-link:                        accessible-text( $content-bg, $color-secondary );
 $content-link-hover:                  accessible-text( $content-bg, $color-secondary-dark );
-$button-bg:                           $color-secondary;
-$button-link:                         accessible-text( $button-bg, #fff );
-$button-link-hover:                   accessible-text( $button-bg, #fff );
+$button-bg:                           $color-secondary !default;
+$button-link:                         accessible-text( $button-bg, #fff ) !default;
+$button-link-hover:                   accessible-text( $button-bg, #fff ) !default;
 $quote-accent:                        $color-tertiary;
 
 // =================================================================

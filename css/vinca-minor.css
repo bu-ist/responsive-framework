@@ -45,7 +45,7 @@
   .primary-nav-menu li li a:focus,
   .l-side-nav .primary-nav-menu a:hover,
   .l-side-nav .primary-nav-menu a:focus {
-    color: #cdd3ff;
+    color: #fec9af;
   }
   .nav-toggle span,
   .search-toggle::before,
@@ -67,13 +67,13 @@
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background: #6c7dff;
-    color: #000;
+    background: #3f51b5;
+    color: #d4d4d4;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    color: #000;
+    color: #d4d4d4;
   }
 }
 
@@ -93,7 +93,7 @@
   .calendar-list-event-link,
   .bu_collapsible::before,
   .profile-name {
-    color: #4d62ff;
+    color: #cf4704;
   }
   a:hover, a:focus,
   .calendar-list-event-link:hover,
@@ -102,7 +102,7 @@
   .bu_collapsible::before:focus,
   .profile-name:hover,
   .profile-name:focus {
-    color: #000c6c;
+    color: #020100;
   }
   input[type="submit"],
   .button,
@@ -110,8 +110,8 @@
   .button-selected,
   .paging-navigation a,
   .archive-link {
-    background-color: #6c7dff;
-    color: #000;
+    background-color: #3f51b5;
+    color: #fff;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
@@ -124,25 +124,17 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
-    color: #000;
+    color: #fff;
   }
   blockquote {
-    border-color: #6c7dff;
+    border-color: #fa5707;
   }
   blockquote::before {
-    color: #6c7dff;
+    color: #fa5707;
   }
 }
 
 @media screen {
-  .widget {
-    background: #2b387c;
-    padding: 24px;
-  }
-  .footbar .widget {
-    background: transparent;
-    padding: 0;
-  }
   .widget-title,
   #contentnav ul,
   #contentnav li,
@@ -154,12 +146,12 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #3f51b5;
+    border-color: #e6e6e6;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: white;
+    color: #4d4d4d;
   }
   .widget a,
   #contentnav li a,
@@ -167,7 +159,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #9aa6ff;
+    color: #cf4704;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -180,21 +172,21 @@
   .widget_nav_menu li.current_page_item > a:focus,
   .month td a:hover,
   .month td a:focus {
-    color: #fff;
+    color: #757575;
   }
   .widget-title,
   .widget-title a {
-    color: #fff;
+    color: #000;
   }
   .widget a.button,
   .widget a.button-primary {
-    background: #6c7dff;
-    color: #000;
+    background: #3f51b5;
+    color: #fff;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #000;
+    color: #fff;
   }
 }
 
@@ -211,7 +203,7 @@
   .footbar .widget a,
   .footbar #contentnav li a,
   .footbar .widget_nav_menu li a {
-    color: #6c7dff;
+    color: #fe9c6d;
   }
   .footbar a:hover, .footbar a:focus,
   .footbar .widget a:hover,
