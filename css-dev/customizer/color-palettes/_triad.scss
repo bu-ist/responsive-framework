@@ -49,6 +49,9 @@ $mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, #000 );
 // =================================================================
 
 $sidebar-bg:                          lighten( $color-primary, 10% );
+$sidebar-button-bg:                   $button-bg;
+$sidebar-button-link:                 $button-link;
+$sidebar-button-link-hover:           $button-link-hover;
 
 @if lightness( $color-primary ) > 30% {
 	$sidebar-bg:                       darken( $color-primary, 10% );

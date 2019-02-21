@@ -189,12 +189,12 @@
   .widget a.button,
   .widget a.button-primary {
     background: #e82a75;
-    color: #000;
+    color: #0f0f0f;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #000;
+    color: #0f0f0f;
   }
 }
 

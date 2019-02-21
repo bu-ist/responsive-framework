@@ -58,12 +58,12 @@
 	// buttons
 	.widget a.button,
 	.widget a.button-primary {
-		background: $color-secondary;
-		color: accessible-text( $color-secondary, #000 );
+		background: $sidebar-button-bg;
+		color: accessible-text( $sidebar-button-bg, $sidebar-button-link );
 
 		&:hover,
 		&:focus {
-			color: accessible-text( $color-secondary, #000 );
+			color: accessible-text( $sidebar-button-bg, $sidebar-button-link-hover );
 		}
 	}
 }

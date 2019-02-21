@@ -146,7 +146,7 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #8c8c8c;
+    border-color: #262626;
   }
   .widget,
   .widget-calendar-picker th,
@@ -159,7 +159,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #083a78;
+    color: #1070e5;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -172,21 +172,21 @@
   .widget_nav_menu li.current_page_item > a:focus,
   .month td a:hover,
   .month td a:focus {
-    color: #3b3b3b;
+    color: #fff;
   }
   .widget-title,
   .widget-title a {
-    color: #000;
+    color: black;
   }
   .widget a.button,
   .widget a.button-primary {
     background: #0f69d7;
-    color: #f0f0f0;
+    color: #fff;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #f0f0f0;
+    color: #fff;
   }
 }
 
@@ -203,7 +203,7 @@
   .footbar .widget a,
   .footbar #contentnav li a,
   .footbar .widget_nav_menu li a {
-    color: #1070e5;
+    color: #757575;
   }
   .footbar a:hover, .footbar a:focus,
   .footbar .widget a:hover,
@@ -212,12 +212,12 @@
   .footbar #contentnav li a:focus,
   .footbar .widget_nav_menu li a:hover,
   .footbar .widget_nav_menu li a:focus {
-    color: #fff;
+    color: #757575;
   }
   .footbar .widget-title,
   .footbar .widget-title a,
   .footbar .widget-calendar-date a {
-    color: #fff;
+    color: #757575;
   }
   .footbar .widget-title,
   .footbar #contentnav ul,
@@ -225,11 +225,11 @@
   .footbar .widget_nav_menu ul,
   .footbar .widget_nav_menu li,
   .footbar .widget-calendar-event {
-    border-color: #262626;
+    border-color: black;
   }
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,
   .footbar .widget-bu-posts .meta {
-    color: #fff;
+    color: #757575;
   }
 }

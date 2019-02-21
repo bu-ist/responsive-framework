@@ -111,7 +111,7 @@
   .paging-navigation a,
   .archive-link {
     background-color: #447375;
-    color: #fff;
+    color: #ededed;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
@@ -124,7 +124,7 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
-    color: #fff;
+    color: #ededed;
   }
   blockquote {
     border-color: #447375;
