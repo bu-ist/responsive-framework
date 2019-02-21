@@ -32,35 +32,35 @@
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
-    background: #04a9f4;
+    background: #006d9f;
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a {
-    color: #363636;
-    border-color: #48c4fc;
+    color: #fff;
+    border-color: #00a1ec;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus,
   .primary-nav-menu li li a:hover,
   .primary-nav-menu li li a:focus,
   .l-side-nav .primary-nav-menu a:hover,
   .l-side-nav .primary-nav-menu a:focus {
-    color: #612001;
+    color: #ffe1d2;
   }
   .nav-toggle span,
   .search-toggle::before,
   .nav-toggle span::before,
   .nav-toggle span::after {
-    color: #363636;
+    color: #fff;
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
-    color: #013a53;
+    color: #c3ecff;
   }
   .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
   .l-mega-nav .utility-nav a:hover,
   .l-mega-nav .utility-nav a:focus {
-    color: #363636;
+    color: #d2f1ff;
   }
   .l-mega-nav .search-field {
     border-color: #fff;
@@ -136,7 +136,7 @@
 
 @media screen {
   .widget {
-    background: #0375a9;
+    background: #ecf9ff;
     padding: 24px;
   }
   .footbar .widget {
@@ -154,12 +154,12 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #04a9f4;
+    border-color: #b9e9ff;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: white;
+    color: #005c86;
   }
   .widget a,
   #contentnav li a,
@@ -167,7 +167,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #ffeee7;
+    color: #c64101;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -180,11 +180,11 @@
   .widget_nav_menu li.current_page_item > a:focus,
   .month td a:hover,
   .month td a:focus {
-    color: #fff;
+    color: #707070;
   }
   .widget-title,
   .widget-title a {
-    color: #fff;
+    color: #000;
   }
   .widget a.button,
   .widget a.button-primary {
@@ -211,7 +211,7 @@
   .footbar .widget a,
   .footbar #contentnav li a,
   .footbar .widget_nav_menu li a {
-    color: #fa5707;
+    color: #fe9c6d;
   }
   .footbar a:hover, .footbar a:focus,
   .footbar .widget a:hover,
@@ -222,6 +222,7 @@
   .footbar .widget_nav_menu li a:focus {
     color: #fff;
   }
+  .footbar .widget-title,
   .footbar .widget-title a,
   .footbar .widget-calendar-date a {
     color: #fff;
@@ -237,6 +238,6 @@
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,
   .footbar .widget-bu-posts .meta {
-    color: #d5d5d5;
+    color: #fff;
   }
 }

@@ -222,6 +222,7 @@
   .footbar .widget_nav_menu li a:focus {
     color: #fff;
   }
+  .footbar .widget-title,
   .footbar .widget-title a,
   .footbar .widget-calendar-date a {
     color: #fff;
@@ -237,6 +238,6 @@
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,
   .footbar .widget-bu-posts .meta {
-    color: #cbcedf;
+    color: #fff;
   }
 }
