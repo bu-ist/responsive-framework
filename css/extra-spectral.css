@@ -37,7 +37,7 @@
   .primary-nav-menu a,
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a {
-    color: #404040;
+    color: #595959;
     border-color: #7ad2f9;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus,
@@ -45,13 +45,13 @@
   .primary-nav-menu li li a:focus,
   .l-side-nav .primary-nav-menu a:hover,
   .l-side-nav .primary-nav-menu a:focus {
-    color: #840035;
+    color: #b7004a;
   }
   .nav-toggle span,
   .search-toggle::before,
   .nav-toggle span::before,
   .nav-toggle span::after {
-    color: #404040;
+    color: #595959;
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
@@ -111,7 +111,7 @@
   .paging-navigation a,
   .archive-link {
     background-color: #e82a75;
-    color: #0f0f0f;
+    color: #fff;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
@@ -124,7 +124,7 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
-    color: #0f0f0f;
+    color: #fff;
   }
   blockquote {
     border-color: #ffc1da;
@@ -184,7 +184,7 @@
   }
   .widget-title,
   .widget-title a {
-    color: #242424;
+    color: #fff;
   }
   .widget a.button,
   .widget a.button-primary {

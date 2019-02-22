@@ -68,12 +68,12 @@
   .mega-nav-toggle,
   #quicksearch .button {
     background: #3f51b5;
-    color: #d4d4d4;
+    color: #000;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    color: #d4d4d4;
+    color: #000;
   }
 }
 

@@ -45,7 +45,7 @@
   .primary-nav-menu li li a:focus,
   .l-side-nav .primary-nav-menu a:hover,
   .l-side-nav .primary-nav-menu a:focus {
-    color: #1070e5;
+    color: #0f69d7;
   }
   .nav-toggle span,
   .search-toggle::before,
@@ -68,12 +68,12 @@
   .mega-nav-toggle,
   #quicksearch .button {
     background: #0f69d7;
-    color: #f0f0f0;
+    color: #000;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    color: #f0f0f0;
+    color: #000;
   }
 }
 
@@ -217,7 +217,7 @@
   .footbar .widget-title,
   .footbar .widget-title a,
   .footbar .widget-calendar-date a {
-    color: #757575;
+    color: #595959;
   }
   .footbar .widget-title,
   .footbar #contentnav ul,

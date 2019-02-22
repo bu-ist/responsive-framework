@@ -68,12 +68,12 @@
   .mega-nav-toggle,
   #quicksearch .button {
     background: #447375;
-    color: #ededed;
+    color: #000;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    color: #ededed;
+    color: #000;
   }
 }
 
@@ -225,7 +225,7 @@
   .footbar .widget-title,
   .footbar .widget-title a,
   .footbar .widget-calendar-date a {
-    color: #707070;
+    color: #8c8c8c;
   }
   .footbar .widget-title,
   .footbar #contentnav ul,
