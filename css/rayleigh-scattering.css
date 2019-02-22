@@ -45,7 +45,7 @@
   .primary-nav-menu li li a:focus,
   .l-side-nav .primary-nav-menu a:hover,
   .l-side-nav .primary-nav-menu a:focus {
-    color: #ffe1d2;
+    color: #feaa81;
   }
   .nav-toggle span,
   .search-toggle::before,
@@ -55,7 +55,7 @@
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
-    color: #c3ecff;
+    color: #6cd1ff;
   }
   .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
   .l-mega-nav .utility-nav a:hover,

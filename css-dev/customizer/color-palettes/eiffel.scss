@@ -2,7 +2,17 @@ $palette-id: 'eiffel';
 
 @import 'styles-base';
 
+$current-palette:                     map-get( $color-palettes, $palette-id );
+
+$button-bg:                           map-get( $current-palette, 'color-secondary' );
+$button-link:                         accessible-text( $button-bg, #fff );
+$button-link-hover:                   accessible-text( $button-bg, #fff );
+
 @import 'complimentary';
+
+$sidebar-bg:                          #f4f7f7;
+$sidebar-border:                      #e5e7e7;
+$content-heading:                     accessible-text( $content-bg, map-get( $current-palette, 'color-tertiary' ), true );
 
 @import 'styles-navigation';
 @import 'styles-content';

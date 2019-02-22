@@ -45,7 +45,7 @@
   .primary-nav-menu li li a:focus,
   .l-side-nav .primary-nav-menu a:hover,
   .l-side-nav .primary-nav-menu a:focus {
-    color: #62a1a4;
+    color: #c58700;
   }
   .nav-toggle span,
   .search-toggle::before,
@@ -84,7 +84,7 @@
   h4,
   h5,
   h6 {
-    color: #222222;
+    color: #c58700;
   }
   body {
     color: #000;
@@ -111,7 +111,7 @@
   .paging-navigation a,
   .archive-link {
     background-color: #447375;
-    color: #ededed;
+    color: #fff;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
@@ -124,7 +124,7 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
-    color: #ededed;
+    color: #fff;
   }
   blockquote {
     border-color: #447375;
@@ -136,7 +136,7 @@
 
 @media screen {
   .widget {
-    background: #87f3ff;
+    background: #f4f7f7;
     padding: 24px;
   }
   .footbar .widget {
@@ -154,7 +154,7 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #54edff;
+    border-color: #e5e7e7;
   }
   .widget,
   .widget-calendar-picker th,
@@ -189,12 +189,12 @@
   .widget a.button,
   .widget a.button-primary {
     background: #447375;
-    color: #ededed;
+    color: #fff;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #ededed;
+    color: #fff;
   }
 }
 
@@ -202,16 +202,16 @@
   .footbar,
   .footbar-container,
   .banner-container-window-width {
-    background: #222222;
+    background: #f4f7f7;
   }
   .footbar {
-    border-color: #222222;
+    border-color: #f4f7f7;
   }
   .footbar a,
   .footbar .widget a,
   .footbar #contentnav li a,
   .footbar .widget_nav_menu li a {
-    color: #579395;
+    color: #976800;
   }
   .footbar a:hover, .footbar a:focus,
   .footbar .widget a:hover,
@@ -220,12 +220,12 @@
   .footbar #contentnav li a:focus,
   .footbar .widget_nav_menu li a:hover,
   .footbar .widget_nav_menu li a:focus {
-    color: #fff;
+    color: #707070;
   }
   .footbar .widget-title,
   .footbar .widget-title a,
   .footbar .widget-calendar-date a {
-    color: #fff;
+    color: #707070;
   }
   .footbar .widget-title,
   .footbar #contentnav ul,
@@ -233,11 +233,11 @@
   .footbar .widget_nav_menu ul,
   .footbar .widget_nav_menu li,
   .footbar .widget-calendar-event {
-    border-color: #484848;
+    border-color: white;
   }
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,
   .footbar .widget-bu-posts .meta {
-    color: #fff;
+    color: #707070;
   }
 }
