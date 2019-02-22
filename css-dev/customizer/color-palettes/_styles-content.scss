@@ -47,7 +47,6 @@
 
 	// blockquotes
 	blockquote {
-		background: mix( $color-primary, $content-bg, 3% );
 		border-color: $quote-accent;
 
 		&::before {

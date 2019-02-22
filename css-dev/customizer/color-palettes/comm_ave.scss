@@ -2,15 +2,13 @@ $palette-id: 'comm-ave';
 
 @import 'styles-base';
 
-$border-lighten-amt: 7%;
-
 $current-palette:                     map-get( $color-palettes, $palette-id );
 $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 
 @import 'triad';
 
 $sidebar-bg:                          $color-secondary;
-$sidebar-border:                      lighten( $sidebar-bg, $border-lighten-amt );
+$sidebar-border:                      mix( #fff, $sidebar-bg, $border-lighten-amt );
 $sidebar-link:                        accessible-text( $sidebar-bg, #fff );
 $content-heading:                     accessible-text( $content-bg, $color-tertiary, true );
 $mega-toggle-bg:                      $color-secondary;

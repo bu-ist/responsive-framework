@@ -38,7 +38,7 @@
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a {
     color: #fff;
-    border-color: #41464a;
+    border-color: #4f5255;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus,
   .primary-nav-menu li li a:hover,
@@ -87,7 +87,7 @@
     color: #0e99ec;
   }
   body {
-    color: black;
+    color: #254300;
   }
   a,
   .calendar-list-event-link,
@@ -102,7 +102,7 @@
   .bu_collapsible::before:focus,
   .profile-name:hover,
   .profile-name:focus {
-    color: black;
+    color: #254300;
   }
   input[type="submit"],
   .button,
@@ -127,7 +127,6 @@
     color: #000;
   }
   blockquote {
-    background: #f9f9f9;
     border-color: #48b4f4;
   }
   blockquote::before {
@@ -155,12 +154,12 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #5da900;
+    border-color: #649726;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: white;
+    color: #fafbfb;
   }
   .widget a,
   #contentnav li a,
@@ -234,7 +233,7 @@
   .footbar .widget_nav_menu ul,
   .footbar .widget_nav_menu li,
   .footbar .widget-calendar-event {
-    border-color: #343434;
+    border-color: #434343;
   }
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,

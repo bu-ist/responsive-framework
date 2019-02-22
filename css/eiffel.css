@@ -38,7 +38,7 @@
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a {
     color: #fff;
-    border-color: #007987;
+    border-color: #265258;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus,
   .primary-nav-menu li li a:hover,
@@ -55,12 +55,12 @@
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
-    color: #07e5ff;
+    color: #668589;
   }
   .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
   .l-mega-nav .utility-nav a:hover,
   .l-mega-nav .utility-nav a:focus {
-    color: #6df0ff;
+    color: #99aeb0;
   }
   .l-mega-nav .search-field {
     border-color: #fff;
@@ -102,7 +102,7 @@
   .bu_collapsible::before:focus,
   .profile-name:hover,
   .profile-name:focus {
-    color: black;
+    color: #223a3b;
   }
   input[type="submit"],
   .button,
@@ -127,7 +127,6 @@
     color: #fff;
   }
   blockquote {
-    background: #f7f9f9;
     border-color: #447375;
   }
   blockquote::before {
@@ -160,7 +159,7 @@
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: #001d21;
+    color: black;
   }
   .widget a,
   #contentnav li a,
@@ -168,7 +167,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #3e696b;
+    color: #2c4a4b;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -181,7 +180,7 @@
   .widget_nav_menu li.current_page_item > a:focus,
   .month td a:hover,
   .month td a:focus {
-    color: #636363;
+    color: #454545;
   }
   .widget-title,
   .widget-title a {
@@ -234,7 +233,7 @@
   .footbar .widget_nav_menu ul,
   .footbar .widget_nav_menu li,
   .footbar .widget-calendar-event {
-    border-color: white;
+    border-color: #f6f8f8;
   }
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,

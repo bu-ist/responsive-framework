@@ -38,7 +38,7 @@
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a {
     color: #fff;
-    border-color: #e73f81;
+    border-color: #cb3b74;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus,
   .primary-nav-menu li li a:hover,
@@ -55,19 +55,19 @@
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
-    color: #fadae6;
+    color: #f6dde7;
   }
   .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
   .l-mega-nav .utility-nav a:hover,
   .l-mega-nav .utility-nav a:focus {
-    color: white;
+    color: #f6dce6;
   }
   .l-mega-nav .search-field {
     border-color: #fff;
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background: #7e103b;
+    background: #a5144d;
     color: #fff;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
@@ -102,7 +102,7 @@
   .bu_collapsible::before:focus,
   .profile-name:hover,
   .profile-name:focus {
-    color: #110208;
+    color: #74153b;
   }
   input[type="submit"],
   .button,
@@ -110,7 +110,7 @@
   .button-selected,
   .paging-navigation a,
   .archive-link {
-    background-color: #7e103b;
+    background-color: #a5144d;
     color: #fff;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
@@ -127,7 +127,6 @@
     color: #fff;
   }
   blockquote {
-    background: #fdf8fa;
     border-color: #c2185b;
   }
   blockquote::before {
@@ -137,7 +136,7 @@
 
 @media screen {
   .widget {
-    background: #7e103b;
+    background: #a5144d;
     padding: 24px;
   }
   .footbar .widget {
@@ -155,12 +154,12 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #c2185b;
+    border-color: #b33768;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: #fef5f8;
+    color: #e7c0d0;
   }
   .widget a,
   #contentnav li a,
@@ -168,7 +167,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #ffb0cf;
+    color: #ffb5d2;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -234,11 +233,11 @@
   .footbar .widget_nav_menu ul,
   .footbar .widget_nav_menu li,
   .footbar .widget-calendar-event {
-    border-color: #484848;
+    border-color: #434343;
   }
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,
   .footbar .widget-bu-posts .meta {
-    color: #d5d5d5;
+    color: #bdbdbd;
   }
 }
