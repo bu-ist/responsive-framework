@@ -15,7 +15,8 @@
 		border-color: $nav-border;
 
 		&:hover,
-		&:focus {
+		&:focus,
+		&.active {
 			color: $nav-link-hover;
 		}
 	}

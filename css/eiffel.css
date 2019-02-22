@@ -40,11 +40,13 @@
     color: #fff;
     border-color: #265258;
   }
-  .primary-nav-menu a:hover, .primary-nav-menu a:focus,
+  .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active,
   .primary-nav-menu li li a:hover,
   .primary-nav-menu li li a:focus,
+  .primary-nav-menu li li a.active,
   .l-side-nav .primary-nav-menu a:hover,
-  .l-side-nav .primary-nav-menu a:focus {
+  .l-side-nav .primary-nav-menu a:focus,
+  .l-side-nav .primary-nav-menu a.active {
     color: #c58700;
   }
   .nav-toggle span,
@@ -55,19 +57,19 @@
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
-    color: #668589;
+    color: #99aeb0;
   }
   .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
   .l-mega-nav .utility-nav a:hover,
   .l-mega-nav .utility-nav a:focus {
-    color: #99aeb0;
+    color: #ccd6d8;
   }
   .l-mega-nav .search-field {
     border-color: #fff;
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background: #447375;
+    background: #86c9cc;
     color: #000;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
@@ -93,7 +95,7 @@
   .calendar-list-event-link,
   .bu_collapsible::before,
   .profile-name {
-    color: #447375;
+    color: #377f82;
   }
   a:hover, a:focus,
   .calendar-list-event-link:hover,
@@ -102,7 +104,7 @@
   .bu_collapsible::before:focus,
   .profile-name:hover,
   .profile-name:focus {
-    color: #223a3b;
+    color: #436566;
   }
   input[type="submit"],
   .button,
@@ -110,8 +112,8 @@
   .button-selected,
   .paging-navigation a,
   .archive-link {
-    background-color: #447375;
-    color: #fff;
+    background-color: #86c9cc;
+    color: #000;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
@@ -124,13 +126,13 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
-    color: #fff;
+    color: #000;
   }
   blockquote {
-    border-color: #447375;
+    border-color: #86c9cc;
   }
   blockquote::before {
-    color: #447375;
+    color: #86c9cc;
   }
 }
 
@@ -167,7 +169,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #2c4a4b;
+    color: #204a4c;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -188,13 +190,13 @@
   }
   .widget a.button,
   .widget a.button-primary {
-    background: #447375;
-    color: #fff;
+    background: #86c9cc;
+    color: #000;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #fff;
+    color: #000;
   }
 }
 

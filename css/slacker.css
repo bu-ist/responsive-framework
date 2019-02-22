@@ -40,11 +40,13 @@
     color: #fff;
     border-color: #454558;
   }
-  .primary-nav-menu a:hover, .primary-nav-menu a:focus,
+  .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active,
   .primary-nav-menu li li a:hover,
   .primary-nav-menu li li a:focus,
+  .primary-nav-menu li li a.active,
   .l-side-nav .primary-nav-menu a:hover,
-  .l-side-nav .primary-nav-menu a:focus {
+  .l-side-nav .primary-nav-menu a:focus,
+  .l-side-nav .primary-nav-menu a.active {
     color: #ecb438;
   }
   .nav-toggle span,
@@ -55,12 +57,12 @@
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
-    color: #8989b6;
+    color: #bbbbd5;
   }
   .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
   .l-mega-nav .utility-nav a:hover,
   .l-mega-nav .utility-nav a:focus {
-    color: #bbbbd5;
+    color: #fafafc;
   }
   .l-mega-nav .search-field {
     border-color: #fff;

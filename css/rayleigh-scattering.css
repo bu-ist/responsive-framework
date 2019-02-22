@@ -40,11 +40,13 @@
     color: #fff;
     border-color: #2683ad;
   }
-  .primary-nav-menu a:hover, .primary-nav-menu a:focus,
+  .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active,
   .primary-nav-menu li li a:hover,
   .primary-nav-menu li li a:focus,
+  .primary-nav-menu li li a.active,
   .l-side-nav .primary-nav-menu a:hover,
-  .l-side-nav .primary-nav-menu a:focus {
+  .l-side-nav .primary-nav-menu a:focus,
+  .l-side-nav .primary-nav-menu a.active {
     color: #feaa81;
   }
   .nav-toggle span,
@@ -55,12 +57,12 @@
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
-    color: #9ac5d9;
+    color: #99c5d9;
   }
   .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
   .l-mega-nav .utility-nav a:hover,
   .l-mega-nav .utility-nav a:focus {
-    color: #99c5d9;
+    color: #cce2ec;
   }
   .l-mega-nav .search-field {
     border-color: #fff;
