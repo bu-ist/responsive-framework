@@ -72,6 +72,16 @@ h6,
   font-weight: 400;
 }
 
+input[type="submit"],
+.button,
+.button-primary,
+.button-selected,
+.paging-navigation a,
+.archive-link,
+.mega-nav-toggle {
+  font-weight: 400;
+}
+
 body {
   font-size: 18px;
 }
