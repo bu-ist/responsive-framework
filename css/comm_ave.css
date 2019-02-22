@@ -127,6 +127,7 @@
     color: #000;
   }
   blockquote {
+    background: #f9f9f9;
     border-color: #48b4f4;
   }
   blockquote::before {

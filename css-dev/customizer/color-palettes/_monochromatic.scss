@@ -25,10 +25,10 @@ $content-heading:                     accessible-text( $content-bg, $color-dark,
 $content-body:                        accessible-text( $content-bg, #000 );
 $content-link:                        accessible-text( $content-bg, $color-secondary );
 $content-link-hover:                  accessible-text( $content-bg, $color-secondary-dark );
-$button-bg:                           $color-secondary !default;
+$button-bg:                           darken( $color-primary, 15% ) !default;
 $button-link:                         accessible-text( $button-bg, #fff, true ) !default;
 $button-link-hover:                   accessible-text( $button-bg, #fff, true ) !default;
-$quote-accent:                        $color-tertiary;
+$quote-accent:                        $color-primary;
 
 // =================================================================
 // Main Navigation Colors
@@ -40,18 +40,18 @@ $nav-link:                            accessible-text( $color-primary, #fff, tru
 $nav-link-hover:                      accessible-text( $color-primary, $color-tertiary, true );
 $nav-utility-link:                    accessible-text( $color-primary, lighten( $color-primary, 40% ) );
 $nav-utility-link-hover:              accessible-text( $color-primary, lighten( $color-primary, 60% ) );
-$mega-toggle-bg:                      $color-secondary;
-$mega-toggle-link:                    accessible-text( $mega-toggle-bg, #000, true );
-$mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, #000, true );
+$mega-toggle-bg:                      $button-bg;
+$mega-toggle-link:                    accessible-text( $mega-toggle-bg, #fff, true );
+$mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, #fff, true );
 
 // =================================================================
 // Sidebar Colors
 // =================================================================
 
 $sidebar-bg:                          darken( $color-primary, 15% );
-$sidebar-button-bg:                   $button-bg;
-$sidebar-button-link:                 $button-link;
-$sidebar-button-link-hover:           $button-link-hover;
+$sidebar-button-bg:                   $color-tertiary;
+$sidebar-button-link:                 accessible-text( $color-tertiary, #000 );
+$sidebar-button-link-hover:           $sidebar-button-link;
 
 @if lightness( $color-primary ) > 30% {
 	$sidebar-bg:                       darken( $color-primary, 15% );
@@ -73,22 +73,8 @@ $sidebar-link-hover:                  accessible-text( $sidebar-bg, #fff );
 // =================================================================
 
 $footbar-bg:                          $color-dark;
-
-@if lightness( $color-primary ) > 30% {
-	$footbar-bg:                       lighten( $color-dark, 95% );
-}
-
-$footbar-link:                        accessible-text( $footbar-bg, $color-primary );
-$footbar-link-hover:                  accessible-text( $footbar-bg, #000 );
-$footbar-widget-title:                accessible-text( $footbar-bg, #000, true );
-$footbar-border:                      darken( $footbar-bg, 10% );
-$footbar-text:                        accessible-text( $footbar-bg, #000 );
-
-@if $use-background-colors == true {
-	$footbar-bg:                       $color-dark;
-	$footbar-link:                     accessible-text( $footbar-bg, $color-secondary );
-	$footbar-link-hover:               accessible-text( $footbar-bg, #fff );
-	$footbar-widget-title:             accessible-text( $footbar-bg, #fff, true );
-	$footbar-border:                   lighten( $footbar-bg, $border-lighten-amt );
-	$footbar-text:                     accessible-text( $footbar-bg, lighten( $color-dark, 70% ) );
-}
+$footbar-link:                        accessible-text( $footbar-bg, $color-secondary );
+$footbar-link-hover:                  accessible-text( $footbar-bg, #fff );
+$footbar-widget-title:                accessible-text( $footbar-bg, #fff, true );
+$footbar-border:                      lighten( $footbar-bg, $border-lighten-amt );
+$footbar-text:                        accessible-text( $footbar-bg, lighten( $color-dark, 70% ) );

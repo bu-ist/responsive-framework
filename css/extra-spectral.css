@@ -32,48 +32,48 @@
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
-    background: #31b9f6;
+    background: #c2185b;
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a {
-    color: #595959;
-    border-color: #7ad2f9;
+    color: #fff;
+    border-color: #e73f81;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus,
   .primary-nav-menu li li a:hover,
   .primary-nav-menu li li a:focus,
   .l-side-nav .primary-nav-menu a:hover,
   .l-side-nav .primary-nav-menu a:focus {
-    color: #b7004a;
+    color: #ffb0cf;
   }
   .nav-toggle span,
   .search-toggle::before,
   .nav-toggle span::before,
   .nav-toggle span::after {
-    color: #595959;
+    color: #fff;
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
-    color: #044461;
+    color: #fadae6;
   }
   .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
   .l-mega-nav .utility-nav a:hover,
   .l-mega-nav .utility-nav a:focus {
-    color: #404040;
+    color: white;
   }
   .l-mega-nav .search-field {
     border-color: #fff;
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background: #e82a75;
-    color: #000;
+    background: #7e103b;
+    color: #fff;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    color: #000;
+    color: #fff;
   }
 }
 
@@ -110,7 +110,7 @@
   .button-selected,
   .paging-navigation a,
   .archive-link {
-    background-color: #e82a75;
+    background-color: #7e103b;
     color: #fff;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
@@ -127,16 +127,17 @@
     color: #fff;
   }
   blockquote {
-    border-color: #ffc1da;
+    background: #fdf8fa;
+    border-color: #c2185b;
   }
   blockquote::before {
-    color: #ffc1da;
+    color: #c2185b;
   }
 }
 
 @media screen {
   .widget {
-    background: #0993d1;
+    background: #7e103b;
     padding: 24px;
   }
   .footbar .widget {
@@ -154,12 +155,12 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #31b9f6;
+    border-color: #c2185b;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: #242424;
+    color: #fef5f8;
   }
   .widget a,
   #contentnav li a,
@@ -167,7 +168,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #4c001f;
+    color: #ffb0cf;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -180,7 +181,7 @@
   .widget_nav_menu li.current_page_item > a:focus,
   .month td a:hover,
   .month td a:focus {
-    color: #242424;
+    color: #fff;
   }
   .widget-title,
   .widget-title a {
@@ -188,13 +189,13 @@
   }
   .widget a.button,
   .widget a.button-primary {
-    background: #e82a75;
-    color: #0f0f0f;
+    background: #ffb0cf;
+    color: #000;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #0f0f0f;
+    color: #000;
   }
 }
 
