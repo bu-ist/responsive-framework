@@ -53,10 +53,23 @@
 
 	// blockquotes
 	blockquote {
-		border-color: $quote-accent;
+		border-color: $content-accent-bg;
 
 		&::before {
-			color: $quote-accent;
+			color: $content-accent-bg;
+		}
+	}
+
+	// tables
+
+	table {
+		thead {
+			background: $content-accent-bg;
+			color: $content-accent-text;
+		}
+
+		th {
+			border-color: $content-accent-bg;
 		}
 	}
 }

@@ -148,6 +148,13 @@
   blockquote::before {
     color: #ecb438;
   }
+  table thead {
+    background: #ecb438;
+    color: #000;
+  }
+  table th {
+    border-color: #ecb438;
+  }
 }
 
 @media screen {

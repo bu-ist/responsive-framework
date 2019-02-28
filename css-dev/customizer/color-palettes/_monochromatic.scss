@@ -37,7 +37,16 @@ $button-bg:                           mix( #000, $color-primary, 15% ) !default;
 
 $button-link:                         accessible-text( $button-bg, $_adjust-base, true ) !default;
 $button-link-hover:                   accessible-text( $button-bg, $_adjust-base, true ) !default;
-$quote-accent:                        $color-primary !default;
+
+$content-accent-bg:                   $color-primary !default;
+
+@if luminance( $content-accent-bg ) < .4 {
+	$_adjust-base: #fff;
+} @else {
+	$_adjust-base: #000;
+}
+
+$content-accent-text:                 accessible-text( $content-accent-bg, $_adjust-base, true ) !default;
 
 // =================================================================
 // Main Navigation Colors
