@@ -3,21 +3,15 @@ $palette-id: 'comm-ave';
 @import 'styles-base';
 
 $current-palette:                     map-get( $color-palettes, $palette-id );
+$color-secondary: map-get( $current-palette, 'color-secondary' );
 $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 
-@import 'triad';
-
 $sidebar-bg:                          $color-secondary;
-$sidebar-border:                      mix( #fff, $sidebar-bg, $border-lighten-amt );
 $sidebar-link:                        accessible-text( $sidebar-bg, #fff );
-$content-heading:                     accessible-text( $content-bg, $color-tertiary, true );
 $mega-toggle-bg:                      $color-secondary;
-$mega-toggle-link:                    accessible-text( $mega-toggle-bg, #fff );
-$mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, #fff );
 $sidebar-button-bg:                   $color-tertiary;
-$sidebar-button-link:                 accessible-text( $color-tertiary, #000, true );
-$sidebar-button-link-hover:           accessible-text( $color-tertiary, #000, true );
-$footbar-link:                        accessible-text( $footbar-bg, lighten( $color-secondary, 10% ) );
+
+@import 'triad';
 
 @import 'styles-navigation';
 @import 'styles-content';

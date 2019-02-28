@@ -91,8 +91,15 @@ $sidebar-widget-title:                accessible-text( $_sidebar-bg, $_adjust-ba
 $sidebar-border:                      mix( $_adjust-base, $_sidebar-bg, 10% );
 $sidebar-text:                        accessible-text( $_sidebar-bg, mix( $_adjust-base, $_sidebar-bg, 70% ) );
 $sidebar-button-bg:                   $button-bg !default;
-$sidebar-button-link:                 $button-link !default;
-$sidebar-button-link-hover:           $button-link-hover !default;
+
+@if luminance( $sidebar-button-bg ) < .4 {
+	$_adjust-base: #fff;
+} @else {
+	$_adjust-base: #000;
+}
+
+$sidebar-button-link:                 accessible-text( $sidebar-button-bg, $_adjust-base, true ) !default;
+$sidebar-button-link-hover:           accessible-text( $sidebar-button-bg, $_adjust-base, true ) !default;
 
 $sidebar-link:                        accessible-text( $_sidebar-bg, $color-secondary ) !default;
 $sidebar-link-hover:                  accessible-text( $_sidebar-bg, $_adjust-base ) !default;
