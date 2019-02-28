@@ -186,7 +186,7 @@
   .widget_nav_menu li.current_page_item > a:focus,
   .month td a:hover,
   .month td a:focus {
-    color: #000;
+    color: #fff;
   }
   .widget-title,
   .widget-title a {

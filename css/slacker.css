@@ -93,7 +93,7 @@
     color: #30a682;
   }
   body {
-    color: #366b5b;
+    color: #000;
   }
   a,
   .calendar-list-event-link,
@@ -173,7 +173,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #6cd5b5;
+    color: #ecb438;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -186,7 +186,7 @@
   .widget_nav_menu li.current_page_item > a:focus,
   .month td a:hover,
   .month td a:focus {
-    color: #a6a6a6;
+    color: #fff;
   }
   .widget-title,
   .widget-title a {
