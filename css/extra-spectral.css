@@ -160,7 +160,7 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #b33768;
+    border-color: #ae2c5f;
   }
   .widget,
   .widget-calendar-picker th,
@@ -173,7 +173,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #ffb5d2;
+    color: #f7b9d1;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -194,13 +194,13 @@
   }
   .widget a.button,
   .widget a.button-primary {
-    background: #ffb0cf;
-    color: #000;
+    background: #660028;
+    color: #fff;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #000;
+    color: #fff;
   }
 }
 

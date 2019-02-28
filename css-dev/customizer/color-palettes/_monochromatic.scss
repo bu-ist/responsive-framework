@@ -2,10 +2,11 @@
 // Palette Controls
 // =================================================================
 
+$_adjust-base:                        #fff;
+
 $current-palette:                     map-get( $color-palettes, $palette-id );
 $use-background-colors:               map-get( $current-palette, 'use-background-colors' );
-$content-bg:                          #fff !default;
-$border-lighten-amt:                  15% !default;
+$border-adjust-amt:                   15% !default;
 
 // =================================================================
 // Palette Colors
@@ -21,60 +22,95 @@ $color-dark:                          map-get( $current-palette, 'color-dark' );
 // Content Colors
 // =================================================================
 
-$content-heading:                     accessible-text( $content-bg, $color-dark, true );
-$content-body:                        accessible-text( $content-bg, #000 );
-$content-link:                        accessible-text( $content-bg, $color-secondary );
-$content-link-hover:                  accessible-text( $content-bg, $color-secondary-dark );
+$content-bg:                          #fff !default;
+$content-heading:                     accessible-text( $content-bg, $color-dark, true ) !default;
+$content-body:                        accessible-text( $content-bg, #000 ) !default;
+$content-link:                        accessible-text( $content-bg, $color-secondary ) !default;
+$content-link-hover:                  accessible-text( $content-bg, $color-secondary-dark ) !default;
 $button-bg:                           mix( #000, $color-primary, 15% ) !default;
-$button-link:                         accessible-text( $button-bg, #fff, true ) !default;
-$button-link-hover:                   accessible-text( $button-bg, #fff, true ) !default;
-$quote-accent:                        $color-primary;
+
+@if luminance( $button-bg ) < .4 {
+	$_adjust-base: #fff;
+} @else {
+	$_adjust-base: #000;
+}
+
+$button-link:                         accessible-text( $button-bg, $_adjust-base, true ) !default;
+$button-link-hover:                   accessible-text( $button-bg, $_adjust-base, true ) !default;
+$quote-accent:                        $color-primary !default;
 
 // =================================================================
 // Main Navigation Colors
 // =================================================================
 
 $nav-bg:                              $color-primary;
-$nav-border:                          mix( #fff, $color-primary, $border-lighten-amt );
-$nav-link:                            accessible-text( $color-primary, #fff, true );
-$nav-link-hover:                      accessible-text( $color-primary, $color-tertiary, true );
-$nav-utility-link:                    accessible-text( $color-primary, mix( #fff, $color-primary, 60% ) );
-$nav-utility-link-hover:              accessible-text( $color-primary, mix( #fff, $color-primary, 80% ) );
-$mega-toggle-bg:                      $button-bg;
-$mega-toggle-link:                    accessible-text( $mega-toggle-bg, #fff, true );
-$mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, #fff, true );
+
+@if luminance( $nav-bg ) < .4 {
+	$_adjust-base: #fff;
+} @else {
+	$_adjust-base: #000;
+}
+
+$nav-border:                          mix( $_adjust-base, $nav-bg, $border-adjust-amt );
+$nav-link:                            accessible-text( $nav-bg, $_adjust-base, true ) !default;
+$nav-link-hover:                      accessible-text( $nav-bg, $color-tertiary, true ) !default;
+$nav-utility-link:                    accessible-text( $nav-bg, mix( $_adjust-base, $nav-bg, 60% ) ) !default;
+$nav-utility-link-hover:              accessible-text( $nav-bg, mix( $_adjust-base, $nav-bg, 80% ) ) !default;
+
+$mega-toggle-bg:                      $button-bg !default;
+
+@if luminance( $mega-toggle-bg ) < .4 {
+	$_adjust-base: #fff;
+} @else {
+	$_adjust-base: #000;
+}
+
+$mega-toggle-link:                    accessible-text( $mega-toggle-bg, $_adjust-base, true ) !default;
+$mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, $_adjust-base, true ) !default;
 
 // =================================================================
 // Sidebar Colors
 // =================================================================
 
-$sidebar-bg:                          mix( #fff, $color-primary, 15% );
-$sidebar-button-bg:                   $color-tertiary;
-$sidebar-button-link:                 accessible-text( $color-tertiary, #000 );
-$sidebar-button-link-hover:           $sidebar-button-link;
+$sidebar-bg:                          mix( #fff, $color-primary, 15% ) !default;
 
-@if lightness( $color-primary ) > 30% {
-	$sidebar-bg:                       mix( #000, $color-primary, 15% );
+// This private variable holds the true, final sidebar value after all
+// other settings are accounted for. Necessary to allow overrides with
+// the default flag above. Do not set directly.
+
+$_sidebar-bg:                         $sidebar-bg;
+
+@if $use-background-colors == true and luminance( $_sidebar-bg ) < .4 {
+	$_adjust-base: #fff;
+} @else {
+	$_sidebar-bg:                       $content-bg;
+	$_adjust-base: #000;
 }
 
-$sidebar-widget-title:                accessible-text( #fff, $sidebar-bg, true );
-$sidebar-border:                      mix( #fff, $sidebar-bg, $border-lighten-amt );
-$sidebar-text:                        accessible-text( mix( #fff, $sidebar-bg, 70% ), $sidebar-bg );
-$sidebar-link:                        accessible-text( $sidebar-bg, $color-tertiary );
-$sidebar-link-hover:                  accessible-text( $sidebar-bg, #fff );
+$sidebar-widget-title:                accessible-text( $_sidebar-bg, $_adjust-base, true ) !default;
+$sidebar-border:                      mix( $_adjust-base, $_sidebar-bg, 10% );
+$sidebar-text:                        accessible-text( $_sidebar-bg, mix( $_adjust-base, $_sidebar-bg, 70% ) );
+$sidebar-button-bg:                   $button-bg !default;
+$sidebar-button-link:                 $button-link !default;
+$sidebar-button-link-hover:           $button-link-hover !default;
 
-@if $use-background-colors == true {
-	$sidebar-widget-title:             accessible-text( $sidebar-bg, #fff, true );
-	$sidebar-text:                     accessible-text( $sidebar-bg, mix( #fff, $sidebar-bg, 70% ) );
-}
+$sidebar-link:                        accessible-text( $_sidebar-bg, $color-secondary ) !default;
+$sidebar-link-hover:                  accessible-text( $_sidebar-bg, $_adjust-base ) !default;
 
 // =================================================================
 // Footer Colors
 // =================================================================
 
-$footbar-bg:                          $color-dark;
-$footbar-link:                        accessible-text( $footbar-bg, $color-secondary );
-$footbar-link-hover:                  accessible-text( $footbar-bg, #fff );
-$footbar-widget-title:                accessible-text( $footbar-bg, #fff, true );
-$footbar-border:                      mix( #fff, $footbar-bg, $border-lighten-amt );
-$footbar-text:                        accessible-text( $footbar-bg, mix( #fff, $color-dark, 70% ) );
+$footbar-bg:                          $color-dark !default;
+
+@if luminance( $footbar-bg ) < .4 {
+	$_adjust-base: #fff;
+} @else {
+	$_adjust-base: #000;
+}
+
+$footbar-widget-title:                accessible-text( $footbar-bg, $_adjust-base, true ) !default;
+$footbar-border:                      mix( $_adjust-base, $footbar-bg, $border-adjust-amt );
+$footbar-link:                        accessible-text( $footbar-bg, $color-secondary ) !default;
+$footbar-link-hover:                  accessible-text( $footbar-bg, $_adjust-base ) !default;
+$footbar-text:                        accessible-text( $footbar-bg, mix( $_adjust-base, $color-dark, 70% ) ) !default;
