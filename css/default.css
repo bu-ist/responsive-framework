@@ -41,16 +41,19 @@
     color: #fff;
     border-color: #262626;
   }
-  .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active,
+  .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active, .primary-nav-menu a.active_section,
   .primary-nav-menu li li a:hover,
   .primary-nav-menu li li a:focus,
   .primary-nav-menu li li a.active,
+  .primary-nav-menu li li a.active_section,
   .l-side-nav .primary-nav-menu a:hover,
   .l-side-nav .primary-nav-menu a:focus,
   .l-side-nav .primary-nav-menu a.active,
+  .l-side-nav .primary-nav-menu a.active_section,
   .l-mega-nav .primary-nav-menu li:hover,
   .l-mega-nav .primary-nav-menu li:focus,
-  .l-mega-nav .primary-nav-menu li.active {
+  .l-mega-nav .primary-nav-menu li.active,
+  .l-mega-nav .primary-nav-menu li.active_section {
     color: #448de7;
   }
   .nav-toggle span,

@@ -17,7 +17,8 @@
 
 		&:hover,
 		&:focus,
-		&.active {
+		&.active,
+		&.active_section {
 			color: $nav-link-hover;
 		}
 	}
