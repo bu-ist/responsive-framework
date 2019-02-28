@@ -16,3 +16,7 @@ $mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, #fff );
 @import 'styles-content';
 @import 'styles-sidebar';
 @import 'styles-footer';
+
+#quicksearch .button {
+	background: #cf4704;
+}

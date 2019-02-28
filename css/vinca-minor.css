@@ -239,3 +239,7 @@
     color: #fff;
   }
 }
+
+#quicksearch .button {
+  background: #cf4704;
+}
