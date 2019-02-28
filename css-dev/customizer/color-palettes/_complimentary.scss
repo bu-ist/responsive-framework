@@ -30,7 +30,7 @@ $content-link-hover:                  accessible-text( $content-bg, $color-secon
 
 $button-bg:                           $color-tertiary !default;
 
-@if luminance( $button-bg ) > .5 {
+@if luminance( $button-bg ) < .5 {
 	$adjust-base: #fff;
 } @else {
 	$adjust-base: #000;
@@ -52,8 +52,6 @@ $nav-bg:                              $color-primary !default;
 	$adjust-base: #000;
 }
 
-@debug $palette-id $adjust-base;
-
 $nav-border:                          mix( $adjust-base, $nav-bg, $border-adjust-amt );
 $nav-link:                            accessible-text( $nav-bg, $adjust-base, true );
 $nav-link-hover:                      accessible-text( $nav-bg, $color-tertiary, true );
@@ -62,7 +60,7 @@ $nav-utility-link-hover:              accessible-text( $nav-bg, mix( $adjust-bas
 
 $mega-toggle-bg:                      $button-bg !default;
 
-@if luminance( $mega-toggle-bg ) > .5 {
+@if luminance( $mega-toggle-bg ) < .5 {
 	$adjust-base: #fff;
 } @else {
 	$adjust-base: #000;

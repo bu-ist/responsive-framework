@@ -74,12 +74,12 @@
   .mega-nav-toggle,
   #quicksearch .button {
     background: #86c9cc;
-    color: #666666;
+    color: #000;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    color: #666666;
+    color: #000;
   }
 }
 
@@ -160,12 +160,12 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #e5e7e7;
+    border-color: #dcdede;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: #8f8f8f;
+    color: #384e4e;
   }
   .widget a,
   #contentnav li a,
@@ -173,7 +173,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #86c9cc;
+    color: #34787b;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -186,11 +186,11 @@
   .widget_nav_menu li.current_page_item > a:focus,
   .month td a:hover,
   .month td a:focus {
-    color: #fff;
+    color: #000;
   }
   .widget-title,
   .widget-title a {
-    color: #fff;
+    color: #000;
   }
   .widget a.button,
   .widget a.button-primary {
