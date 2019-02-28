@@ -66,4 +66,26 @@
 			color: accessible-text( $sidebar-button-bg, $sidebar-button-link-hover );
 		}
 	}
+
+	.profile-single-details {
+		background: $sidebar-bg;
+		border: none;
+
+		a {
+			color: $sidebar-link;
+
+			&:hover,
+			&:focus {
+				color: $sidebar-link-hover;
+			}
+		}
+	}
+
+	.profile-details-item {
+		color: $sidebar-text;
+	}
+
+	.profile-details-label {
+		color: $sidebar-widget-title;
+	}
 }

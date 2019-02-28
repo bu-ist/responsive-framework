@@ -219,6 +219,22 @@
   .widget a.button-primary:focus {
     color: #000;
   }
+  .profile-single-details {
+    background: #498500;
+    border: none;
+  }
+  .profile-single-details a {
+    color: #fff;
+  }
+  .profile-single-details a:hover, .profile-single-details a:focus {
+    color: #fff;
+  }
+  .profile-details-item {
+    color: white;
+  }
+  .profile-details-label {
+    color: #fff;
+  }
 }
 
 @media screen {
