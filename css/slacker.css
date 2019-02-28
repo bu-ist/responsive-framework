@@ -36,7 +36,8 @@
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
-  .l-side-nav .primary-nav-menu a {
+  .l-side-nav .primary-nav-menu a,
+  .l-mega-nav .primary-nav-menu li {
     color: #fff;
     border-color: #454558;
   }
@@ -46,7 +47,10 @@
   .primary-nav-menu li li a.active,
   .l-side-nav .primary-nav-menu a:hover,
   .l-side-nav .primary-nav-menu a:focus,
-  .l-side-nav .primary-nav-menu a.active {
+  .l-side-nav .primary-nav-menu a.active,
+  .l-mega-nav .primary-nav-menu li:hover,
+  .l-mega-nav .primary-nav-menu li:focus,
+  .l-mega-nav .primary-nav-menu li.active {
     color: #ecb438;
   }
   .nav-toggle span,

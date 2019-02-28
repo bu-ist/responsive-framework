@@ -32,13 +32,14 @@
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
-    background: #15b6ff;
+    background: #00405d;
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
-  .l-side-nav .primary-nav-menu a {
-    color: #000;
-    border-color: #129bd9;
+  .l-side-nav .primary-nav-menu a,
+  .l-mega-nav .primary-nav-menu li {
+    color: #fff;
+    border-color: #265d75;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active,
   .primary-nav-menu li li a:hover,
@@ -46,30 +47,33 @@
   .primary-nav-menu li li a.active,
   .l-side-nav .primary-nav-menu a:hover,
   .l-side-nav .primary-nav-menu a:focus,
-  .l-side-nav .primary-nav-menu a.active {
-    color: #9e3401;
+  .l-side-nav .primary-nav-menu a.active,
+  .l-mega-nav .primary-nav-menu li:hover,
+  .l-mega-nav .primary-nav-menu li:focus,
+  .l-mega-nav .primary-nav-menu li.active {
+    color: #fe9c6d;
   }
   .nav-toggle span,
   .search-toggle::before,
   .nav-toggle span::before,
   .nav-toggle span::after {
-    color: #000;
+    color: #fff;
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
-    color: #084966;
+    color: #99b3be;
   }
   .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
   .l-mega-nav .utility-nav a:hover,
   .l-mega-nav .utility-nav a:focus {
-    color: #042433;
+    color: #ccd9df;
   }
   .l-mega-nav .search-field {
     border-color: #fff;
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background: #fe9c6d;
+    background: #15b6ff;
     color: #000;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,

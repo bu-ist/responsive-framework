@@ -44,21 +44,23 @@ $quote-accent:                        $color-secondary;
 // Main Navigation Colors
 // =================================================================
 
-$nav-bg:                              $color-primary;
+$nav-bg:                              $color-primary !default;
 
-@if luminance( $nav-bg ) > .5 {
+@if luminance( $nav-bg ) < .5 {
 	$adjust-base: #fff;
 } @else {
 	$adjust-base: #000;
 }
 
-$nav-border:                          mix( $adjust-base, $color-primary, $border-adjust-amt );
-$nav-link:                            accessible-text( $color-primary, $adjust-base, true );
-$nav-link-hover:                      accessible-text( $color-primary, $color-tertiary, true );
-$nav-utility-link:                    accessible-text( $color-primary, mix( $adjust-base, $color-primary, 60% ), true );
-$nav-utility-link-hover:              accessible-text( $color-primary, mix( $adjust-base, $color-primary, 80% ), true );
+@debug $palette-id $adjust-base;
 
-$mega-toggle-bg:                      $button-bg;
+$nav-border:                          mix( $adjust-base, $nav-bg, $border-adjust-amt );
+$nav-link:                            accessible-text( $nav-bg, $adjust-base, true );
+$nav-link-hover:                      accessible-text( $nav-bg, $color-tertiary, true );
+$nav-utility-link:                    accessible-text( $nav-bg, mix( $adjust-base, $nav-bg, 60% ), true );
+$nav-utility-link-hover:              accessible-text( $nav-bg, mix( $adjust-base, $nav-bg, 80% ), true );
+
+$mega-toggle-bg:                      $button-bg !default;
 
 @if luminance( $mega-toggle-bg ) > .5 {
 	$adjust-base: #fff;
@@ -66,8 +68,8 @@ $mega-toggle-bg:                      $button-bg;
 	$adjust-base: #000;
 }
 
-$mega-toggle-link:                    accessible-text( $button-bg, $adjust-base, true );
-$mega-toggle-link-hover:              accessible-text( $button-bg, $adjust-base, true );
+$mega-toggle-link:                    accessible-text( $mega-toggle-bg, $adjust-base, true );
+$mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, $adjust-base, true );
 
 // =================================================================
 // Sidebar Colors
@@ -75,15 +77,11 @@ $mega-toggle-link-hover:              accessible-text( $button-bg, $adjust-base,
 
 $sidebar-bg:                          mix( #000, $color-primary, 15% ) !default;
 
-@debug $sidebar-bg luminance( $sidebar-bg );
-
 @if $use-background-colors == true and luminance( $sidebar-bg ) < .5 {
 	$adjust-base: #fff;
 } @else {
 	$adjust-base: #000;
 }
-
-@debug $adjust-base;
 
 $sidebar-widget-title:                accessible-text( $sidebar-bg, $adjust-base, true );
 $sidebar-border:                      mix( $adjust-base, $sidebar-bg, 10% );

@@ -10,7 +10,8 @@
 	// Nav menu toggles and text colors
 	.primary-nav-menu a,
 	.primary-nav-menu li li a,
-	.l-side-nav .primary-nav-menu a {
+	.l-side-nav .primary-nav-menu a,
+	.l-mega-nav .primary-nav-menu li {
 		color: $nav-link;
 		border-color: $nav-border;
 
