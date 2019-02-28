@@ -160,12 +160,12 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #cbd8dd;
+    border-color: #e6e6e6;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: #1c4755;
+    color: #4d4d4d;
   }
   .widget a,
   #contentnav li a,
@@ -173,7 +173,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #bb4004;
+    color: #cf4704;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,

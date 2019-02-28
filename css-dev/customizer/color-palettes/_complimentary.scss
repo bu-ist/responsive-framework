@@ -75,25 +75,28 @@ $mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, $adjust-
 
 $sidebar-bg:                          mix( #000, $color-primary, 15% ) !default;
 
-@if $use-background-colors == true and luminance( $sidebar-bg ) < .4 {
+// This private variable holds the true, final sidebar value after all
+// other settings are accounted for. Necessary to allow overrides with
+// the default flag above. Do not set directly.
+
+$_sidebar-bg:                         $sidebar-bg;
+
+@if $use-background-colors == true and luminance( $_sidebar-bg ) < .4 {
 	$adjust-base: #fff;
 } @else {
+	$_sidebar-bg:                       $content-bg;
 	$adjust-base: #000;
 }
 
-$sidebar-widget-title:                accessible-text( $sidebar-bg, $adjust-base, true );
-$sidebar-border:                      mix( $adjust-base, $sidebar-bg, 10% );
-$sidebar-text:                        accessible-text( $sidebar-bg, darken( $sidebar-bg, 70% ) );
+$sidebar-widget-title:                accessible-text( $_sidebar-bg, $adjust-base, true );
+$sidebar-border:                      mix( $adjust-base, $_sidebar-bg, 10% );
+$sidebar-text:                        accessible-text( $_sidebar-bg, mix( $adjust-base, $_sidebar-bg, 70% ) );
 $sidebar-button-bg:                   $button-bg;
 $sidebar-button-link:                 $button-link;
 $sidebar-button-link-hover:           $button-link-hover;
 
-$sidebar-link:                        accessible-text( $sidebar-bg, $color-secondary );
-$sidebar-link-hover:                  accessible-text( $sidebar-bg, $adjust-base );
-
-@if $use-background-colors == false {
-	$sidebar-bg:                       transparent !default;
-}
+$sidebar-link:                        accessible-text( $_sidebar-bg, $color-secondary );
+$sidebar-link-hover:                  accessible-text( $_sidebar-bg, $adjust-base );
 
 // =================================================================
 // Footer Colors
