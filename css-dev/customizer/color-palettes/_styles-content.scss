@@ -19,6 +19,7 @@
 	// link color
 	a,
 	.calendar-list-event-link,
+	.bu_collapsible,
 	.bu_collapsible::before,
 	.profile-name {
 		color: $content-link;
@@ -27,6 +28,11 @@
 		&:focus {
 			color: $content-link-hover;
 		}
+	}
+
+	.bu_collapsible:hover::before,
+	.bu_collapsible:focus::before {
+		color: $content-link-hover;
 	}
 
 	// buttons

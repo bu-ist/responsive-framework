@@ -97,6 +97,7 @@
   }
   a,
   .calendar-list-event-link,
+  .bu_collapsible,
   .bu_collapsible::before,
   .profile-name {
     color: #0f69d7;
@@ -104,10 +105,16 @@
   a:hover, a:focus,
   .calendar-list-event-link:hover,
   .calendar-list-event-link:focus,
+  .bu_collapsible:hover,
+  .bu_collapsible:focus,
   .bu_collapsible::before:hover,
   .bu_collapsible::before:focus,
   .profile-name:hover,
   .profile-name:focus {
+    color: #08356c;
+  }
+  .bu_collapsible:hover::before,
+  .bu_collapsible:focus::before {
     color: #08356c;
   }
   input[type="submit"],
