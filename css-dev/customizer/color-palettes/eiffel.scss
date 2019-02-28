@@ -10,9 +10,9 @@ $button-link-hover:                   accessible-text( $button-bg, #000, true );
 
 $sidebar-bg:                          #f4f7f7;
 
-@import 'complimentary';
+$content-heading:                     accessible-text( #fff, map-get( $current-palette, 'color-tertiary' ), true );
 
-$content-heading:                     accessible-text( $content-bg, map-get( $current-palette, 'color-tertiary' ), true );
+@import 'complimentary';
 
 @import 'styles-navigation';
 @import 'styles-content';
