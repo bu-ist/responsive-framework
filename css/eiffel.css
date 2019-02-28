@@ -226,12 +226,12 @@
   .footbar #contentnav li a:focus,
   .footbar .widget_nav_menu li a:hover,
   .footbar .widget_nav_menu li a:focus {
-    color: #707070;
+    color: #000;
   }
   .footbar .widget-title,
   .footbar .widget-title a,
   .footbar .widget-calendar-date a {
-    color: #8c8c8c;
+    color: #000;
   }
   .footbar .widget-title,
   .footbar #contentnav ul,
@@ -239,11 +239,11 @@
   .footbar .widget_nav_menu ul,
   .footbar .widget_nav_menu li,
   .footbar .widget-calendar-event {
-    border-color: #f6f8f8;
+    border-color: #cfd2d2;
   }
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,
   .footbar .widget-bu-posts .meta {
-    color: #707070;
+    color: #000;
   }
 }
