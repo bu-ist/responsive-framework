@@ -32,14 +32,14 @@
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
-    background: #00405d;
+    background: #15b6ff;
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a,
   .l-mega-nav .primary-nav-menu li {
-    color: #fff;
-    border-color: #265d75;
+    color: #052e40;
+    border-color: #13a2e2;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active, .primary-nav-menu a.active_section,
   .primary-nav-menu li li a:hover,
@@ -54,35 +54,35 @@
   .l-mega-nav .primary-nav-menu li:focus,
   .l-mega-nav .primary-nav-menu li.active,
   .l-mega-nav .primary-nav-menu li.active_section {
-    color: #fe9c6d;
+    color: #9e3401;
   }
   .nav-toggle span,
   .search-toggle::before,
   .nav-toggle span::before,
   .nav-toggle span::after {
-    color: #fff;
+    color: #052e40;
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
-    color: #99b3be;
+    color: #0a5d83;
   }
   .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
   .l-mega-nav .utility-nav a:hover,
   .l-mega-nav .utility-nav a:focus {
-    color: #ccd9df;
+    color: #084966;
   }
   .l-mega-nav .search-field {
     border-color: #fff;
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background: #15b6ff;
-    color: #052e40;
+    background: #fe9c6d;
+    color: #40271b;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    color: #052e40;
+    color: #40271b;
   }
 }
 
