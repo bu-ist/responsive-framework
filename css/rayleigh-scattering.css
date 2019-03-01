@@ -77,12 +77,12 @@
   .mega-nav-toggle,
   #quicksearch .button {
     background: #15b6ff;
-    color: #000;
+    color: #052e40;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    color: #000;
+    color: #052e40;
   }
 }
 
@@ -127,7 +127,7 @@
   .paging-navigation a,
   .archive-link {
     background-color: #fe9c6d;
-    color: #000;
+    color: #40271b;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
@@ -140,7 +140,7 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
-    color: #000;
+    color: #40271b;
   }
   blockquote {
     border-color: #fa5707;
@@ -177,12 +177,12 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #e6e6e6;
+    border-color: #d0dee3;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: #4d4d4d;
+    color: #666d6f;
   }
   .widget a,
   #contentnav li a,
@@ -190,7 +190,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #cf4704;
+    color: #bb4004;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -203,37 +203,37 @@
   .widget_nav_menu li.current_page_item > a:focus,
   .month td a:hover,
   .month td a:focus {
-    color: #000;
+    color: #383c3d;
   }
   .widget-title,
   .widget-title a {
-    color: #000;
+    color: #383c3d;
   }
   .widget a.button,
   .widget a.button-primary {
     background: #fe9c6d;
-    color: #000;
+    color: #40271b;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #000;
+    color: #40271b;
   }
   .profile-single-details {
     background: #e1f0f5;
     border: none;
   }
   .profile-single-details a {
-    color: #cf4704;
+    color: #bb4004;
   }
   .profile-single-details a:hover, .profile-single-details a:focus {
-    color: #000;
+    color: #383c3d;
   }
   .profile-details-item {
-    color: #4d4d4d;
+    color: #666d6f;
   }
   .profile-details-label {
-    color: #000;
+    color: #383c3d;
   }
 }
 

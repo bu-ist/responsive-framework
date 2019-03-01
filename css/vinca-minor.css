@@ -169,12 +169,12 @@
   .widget-calendar-picker td,
   .widget_links li,
   .widget_archive li {
-    border-color: #e6e6e6;
+    border-color: #e7e7e9;
   }
   .widget,
   .widget-calendar-picker th,
   .widget-calendar-picker caption {
-    color: #4d4d4d;
+    color: #565868;
   }
   .widget a,
   #contentnav li a,
@@ -195,11 +195,11 @@
   .widget_nav_menu li.current_page_item > a:focus,
   .month td a:hover,
   .month td a:focus {
-    color: #000;
+    color: #0e1127;
   }
   .widget-title,
   .widget-title a {
-    color: #000;
+    color: #0e1127;
   }
   .widget a.button,
   .widget a.button-primary {
@@ -219,13 +219,13 @@
     color: #cf4704;
   }
   .profile-single-details a:hover, .profile-single-details a:focus {
-    color: #000;
+    color: #0e1127;
   }
   .profile-details-item {
-    color: #4d4d4d;
+    color: #565868;
   }
   .profile-details-label {
-    color: #000;
+    color: #0e1127;
   }
 }
 

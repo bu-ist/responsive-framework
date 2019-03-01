@@ -32,7 +32,7 @@ $button-bg:                           $color-secondary !default;
 @if luminance( $button-bg ) < .4 {
 	$_adjust-base: #fff;
 } @else {
-	$_adjust-base: #000;
+	$_adjust-base: mix( #000, $button-bg, 75% );
 }
 
 $button-link:                         accessible-text( $button-bg, $_adjust-base, true ) !default;
@@ -56,7 +56,7 @@ $nav-bg:                              $color-primary !default;
 @if luminance( $nav-bg ) < .4 {
 	$_adjust-base: #fff;
 } @else {
-	$_adjust-base: #000;
+	$_adjust-base: mix( #000, $nav-bg, 75% );
 }
 
 $nav-border:                          mix( $_adjust-base, $nav-bg, $border-adjust-amt );
@@ -70,7 +70,7 @@ $mega-toggle-bg:                      $color-secondary !default;
 @if luminance( $mega-toggle-bg ) < .4 {
 	$_adjust-base: #fff;
 } @else {
-	$_adjust-base: #000;
+	$_adjust-base: mix( #000, $mega-toggle-bg, 75% );
 }
 
 $mega-toggle-link:                    accessible-text( $mega-toggle-bg, $_adjust-base, true ) !default;
@@ -91,8 +91,11 @@ $_sidebar-bg:                         $sidebar-bg;
 @if $use-background-colors == true and luminance( $_sidebar-bg ) < .4 {
 	$_adjust-base: #fff;
 } @else {
-	$_sidebar-bg:                       $content-bg;
-	$_adjust-base: #000;
+	$_adjust-base: mix( #000, $sidebar-bg, 75% );
+}
+
+@if $use-background-colors == false {
+	$_sidebar-bg:                      $content-bg;
 }
 
 $sidebar-widget-title:                accessible-text( $_sidebar-bg, $_adjust-base, true ) !default;
@@ -106,7 +109,7 @@ $sidebar-button-bg:                   $button-bg !default;
 @if luminance( $sidebar-button-bg ) < .4 {
 	$_adjust-base: #fff;
 } @else {
-	$_adjust-base: #000;
+	$_adjust-base: mix( #000, $sidebar-button-bg, 75% );
 }
 
 $sidebar-button-link:                 accessible-text( $sidebar-button-bg, $_adjust-base, true ) !default;
@@ -121,7 +124,7 @@ $footbar-bg:                          $color-dark !default;
 @if luminance( $footbar-bg ) < .4 {
 	$_adjust-base: #fff;
 } @else {
-	$_adjust-base: #000;
+	$_adjust-base: mix( #000, $footbar-bg, 75% );
 }
 
 $footbar-widget-title:                accessible-text( $footbar-bg, $_adjust-base, true ) !default;
