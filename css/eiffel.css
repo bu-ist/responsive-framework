@@ -77,12 +77,12 @@
   .mega-nav-toggle,
   #quicksearch .button {
     background: #86c9cc;
-    color: #223233;
+    color: #000;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    color: #223233;
+    color: #000;
   }
 }
 
@@ -212,12 +212,12 @@
   .widget a.button,
   .widget a.button-primary {
     background: #86c9cc;
-    color: #223233;
+    color: #000;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #223233;
+    color: #000;
   }
   .profile-single-details {
     background: #f4f7f7;

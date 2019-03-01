@@ -35,8 +35,8 @@ $button-bg:                           mix( #000, $color-primary, 15% ) !default;
 	$_adjust-base: #000;
 }
 
-$button-link:                         accessible-text( $button-bg, mix( $_adjust-base, $button-bg, 75% ), true ) !default;
-$button-link-hover:                   accessible-text( $button-bg, mix( $_adjust-base, $button-bg, 75% ), true ) !default;
+$button-link:                         accessible-text( $button-bg, $_adjust-base, true ) !default;
+$button-link-hover:                   accessible-text( $button-bg, $_adjust-base, true ) !default;
 
 $content-accent-bg:                   $color-primary !default;
 
@@ -74,8 +74,8 @@ $mega-toggle-bg:                      $button-bg !default;
 	$_adjust-base: #000;
 }
 
-$mega-toggle-link:                    accessible-text( $mega-toggle-bg, mix( $_adjust-base, $mega-toggle-bg, 75% ), true ) !default;
-$mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, mix( $_adjust-base, $mega-toggle-bg, 75% ), true ) !default;
+$mega-toggle-link:                    accessible-text( $mega-toggle-bg, $_adjust-base, true ) !default;
+$mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, $_adjust-base, true ) !default;
 
 // =================================================================
 // Sidebar Colors
@@ -110,8 +110,8 @@ $sidebar-button-bg:                   $button-bg !default;
 	$_adjust-base: #000;
 }
 
-$sidebar-button-link:                 accessible-text( $sidebar-button-bg, mix( $_adjust-base, $sidebar-button-bg, 75% ), true ) !default;
-$sidebar-button-link-hover:           accessible-text( $sidebar-button-bg, mix( $_adjust-base, $sidebar-button-bg, 75% ), true ) !default;
+$sidebar-button-link:                 accessible-text( $sidebar-button-bg, $_adjust-base, true ) !default;
+$sidebar-button-link-hover:           accessible-text( $sidebar-button-bg, $_adjust-base, true ) !default;
 
 // =================================================================
 // Footer Colors
