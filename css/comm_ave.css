@@ -77,12 +77,12 @@
   .mega-nav-toggle,
   #quicksearch .button {
     background: #498500;
-    color: #fff;
+    color: #d2e1bf;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    color: #fff;
+    color: #d2e1bf;
   }
 }
 
@@ -127,7 +127,7 @@
   .paging-navigation a,
   .archive-link {
     background-color: #498500;
-    color: #fff;
+    color: #d2e1bf;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
@@ -140,7 +140,7 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
-    color: #fff;
+    color: #d2e1bf;
   }
   blockquote {
     border-color: #48b4f4;
@@ -212,12 +212,12 @@
   .widget a.button,
   .widget a.button-primary {
     background: #48b4f4;
-    color: #000;
+    color: #122d3d;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #000;
+    color: #122d3d;
   }
   .profile-single-details {
     background: #498500;

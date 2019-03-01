@@ -204,12 +204,12 @@
   .widget a.button,
   .widget a.button-primary {
     background: #3f51b5;
-    color: #fff;
+    color: #cfd4ed;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #fff;
+    color: #cfd4ed;
   }
   .profile-single-details {
     background: #36459a;

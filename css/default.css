@@ -77,12 +77,12 @@
   .mega-nav-toggle,
   #quicksearch .button {
     background: #0f69d7;
-    color: #fff;
+    color: #c3daf5;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    color: #fff;
+    color: #c3daf5;
   }
 }
 
@@ -127,7 +127,7 @@
   .paging-navigation a,
   .archive-link {
     background-color: #0f69d7;
-    color: #fff;
+    color: #c3daf5;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
@@ -140,7 +140,7 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
-    color: #fff;
+    color: #c3daf5;
   }
   blockquote {
     border-color: #000000;
@@ -204,12 +204,12 @@
   .widget a.button,
   .widget a.button-primary {
     background: #0f69d7;
-    color: #fff;
+    color: #eaf2fc;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #fff;
+    color: #eaf2fc;
   }
   .profile-single-details {
     background: #262626;
