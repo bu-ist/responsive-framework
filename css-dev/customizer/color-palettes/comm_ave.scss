@@ -11,6 +11,8 @@ $sidebar-link:                        accessible-text( $sidebar-bg, #fff );
 $mega-toggle-bg:                      $color-secondary;
 $sidebar-button-bg:                   $color-tertiary;
 
+$footbar-link: accessible-text( #222222, #96ce53 );
+
 @import 'triad';
 
 @import 'styles-navigation';
