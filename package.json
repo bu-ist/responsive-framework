@@ -1,6 +1,6 @@
 {
   "name": "bu-responsive-framework",
-  "version": "2.1.12",
+  "version": "2.2.0",
   "description": "A responsive WordPress theme framework. Uses the Responsive Foundation.",
   "repository": "https://github.com/bu-ist/responsive-framework/",
   "contributors": [
@@ -29,10 +29,29 @@
     "last 2 versions",
     "not dead"
   ],
+  "browser": {
+    "lg-thumbnail": "./node_modules/lg-thumbnail/dist/lg-thumbnail.js",
+    "lightgallery": "./node_modules/lightgallery/dist/js/lightgallery.js"
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@wordpress/babel-preset-default": "^3.0.2",
+    "@wordpress/eslint-plugin": "^1.0.1",
     "autoprefixer": "^9.4.9",
+    "babelify": "^10.0.0",
+    "eslint": "^5.12.1",
     "grunt": "^1.0.3",
-    "grunt-contrib-clean": "^1.1.0",
+    "grunt-browserify": "^5.3.0",
+    "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-uglify": "^3.3.0",
@@ -42,16 +61,19 @@
     "grunt-phplint": "~0.1.0",
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^3.0.2",
+    "grunt-sass-lint": "^0.2.4",
     "grunt-version": "^1.2.1",
     "grunt-wp-i18n": "^1.0.2",
-    "lg-thumbnail": "^1.1.0",
-    "lightgallery": "^1.6.11",
     "node-sass": "^4.10.0",
-    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#3.1.0",
     "time-grunt": "^1.4.0"
   },
   "scripts": {
     "postinstall": "grunt install"
   },
-  "dependencies": {}
+  "dependencies": {
+    "browserify-shim": "^3.8.14",
+    "lg-thumbnail": "^1.1.0",
+    "lightgallery": "^1.6.11",
+    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#3.2.0"
+  }
 }
