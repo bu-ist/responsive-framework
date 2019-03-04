@@ -3,6 +3,9 @@
 ## Unreleased
 - Move footer-branding and footer-menus to their own template partials for
   easier child theme overrides.
+- Add autoprefixer support with grunt-postcss plugin.
+- Add browserslist support in package.json for front-end tools like
+  autoprefixer.
 
 ## 2.1.13
 
