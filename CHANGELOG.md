@@ -1,30 +1,9 @@
 # Changelog
 
-## Unreleased
+## 2.2.0
+
 - Move footer-branding and footer-menus to their own template partials for
   easier child theme overrides.
-
-## 2.1.13
-
-- Minor update to change how content was checked for banners, switching to the bu_banners spefic `has_text`.
-
-## 2.1.12
-
-- Bower cleanup.
-- Fix font labeling in the customizer to match actual fonts.
-- Add filter for `responsive_font_options` for customizer fonts.
-- Add filter for `responsive_get_font_palette` for when `f1` no longer exists
-  and a value hasn't been set yet.
-- Remove `bundle install` from package.json postinstall scripts.
-- Upgrade `grunt-sass` from 2.0.0 to 3.0.2.
-- Print Stylesheet partial creation in Foundation: `/css-dev/burf-base/_print.scss`
-- Added mega navigation menu to customizer
-- Added new masthead markup for mega nav
-- Added new menu location for "short" nav
-- Add filter to alllow for modification of `bu_navigation_display_primary`
-  defaults from within framework.
-- Add before/after action hooks for the `responsive_primary_nav` and
-  `responsive_utility_nav`, so additional markup can be added by child themes.
 - Add es6 functionality via a variety of npm packages and Gruntfile
   modifications:
     - `grunt-browserify`: A bundler that allows for easier dependency management
@@ -62,6 +41,28 @@
 - Refactors all JS files to be written in modern es6 syntax.
 - Updates codeclimate to use eslint-5 and sass-lint instead of scss-lint which
   will eventually be deprecated or will not support latest sass features.
+
+## 2.1.13
+
+- Minor update to change how content was checked for banners, switching to the bu_banners spefic `has_text`.
+
+## 2.1.12
+
+- Bower cleanup.
+- Fix font labeling in the customizer to match actual fonts.
+- Add filter for `responsive_font_options` for customizer fonts.
+- Add filter for `responsive_get_font_palette` for when `f1` no longer exists
+  and a value hasn't been set yet.
+- Remove `bundle install` from package.json postinstall scripts.
+- Upgrade `grunt-sass` from 2.0.0 to 3.0.2.
+- Print Stylesheet partial creation in Foundation: `/css-dev/burf-base/_print.scss`
+- Added mega navigation menu to customizer
+- Added new masthead markup for mega nav
+- Added new menu location for "short" nav
+- Add filter to alllow for modification of `bu_navigation_display_primary`
+  defaults from within framework.
+- Add before/after action hooks for the `responsive_primary_nav` and
+  `responsive_utility_nav`, so additional markup can be added by child themes.
 
 ## 2.1.11
 

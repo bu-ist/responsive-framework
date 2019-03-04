@@ -1,6 +1,6 @@
 {
   "name": "bu-responsive-framework",
-  "version": "2.1.12",
+  "version": "2.2.0",
   "description": "A responsive WordPress theme framework. Uses the Responsive Foundation.",
   "repository": "https://github.com/bu-ist/responsive-framework/",
   "contributors": [
@@ -72,6 +72,6 @@
     "browserify-shim": "^3.8.14",
     "lg-thumbnail": "^1.1.0",
     "lightgallery": "^1.6.11",
-    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#feature/use-as-js-component-library"
+    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#3.2.0"
   }
 }
