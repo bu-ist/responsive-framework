@@ -69,7 +69,7 @@ get_header(); ?>
 
 			<?php responsive_comments(); ?>
 
-			<?php edit_post_link( __( 'Edit Post', 'responsive-framework' ), '', '<span class="post-edit-hint"></span>' ); ?>
+			<?php edit_post_link( __( 'Edit Post', 'responsive-framework' ), '<span class="edit-link">', '</span><span class="post-edit-hint"></span>' ); ?>
 
 		</article>
 

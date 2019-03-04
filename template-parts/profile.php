@@ -40,6 +40,6 @@ $thumb_args = array(
 		?>
 	</a>
 
-	<?php edit_post_link( __( 'Edit Profile', 'responsive-framework' ), '', '<span class="post-edit-hint"></span>' ); ?>
+	<?php edit_post_link( __( 'Edit Profile', 'responsive-framework' ), '<span class="edit-link">', '</span><span class="post-edit-hint"></span>' ); ?>
 
 </li>
