@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+- Move footer-branding and footer-menus to their own template partials for
+  easier child theme overrides.
+
+## 2.1.13
+
+- Minor update to change how content was checked for banners, switching to the bu_banners spefic `has_text`.
+
 ## 2.1.12
 
 - Bower cleanup.
