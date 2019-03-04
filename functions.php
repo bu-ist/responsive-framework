@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.10' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.13' );
 
 /**
  * Modernizr version.
@@ -154,6 +154,7 @@ function responsive_setup_nav_menus() {
 			'footer'  => __( 'Footer Links', 'responsive-framework' ),
 			'social'  => __( 'Social Links', 'responsive-framework' ),
 			'utility' => __( 'Utility Navigation', 'responsive-framework' ),
+			'short'   => __( 'Short Navigation', 'responsive-framework' ),
 		)
 	);
 
@@ -731,7 +732,7 @@ function r_remove_news_template( $templates, $theme, $post ) {
  */
 function responsive_branding_copyright() {
 	?>
-		<div class="bu_copyright">&copy; <?php date( 'Y' ); ?> Boston&nbsp;University. All&nbsp;rights&nbsp;reserved. www.bu.edu</div>
+		<div class="bu_copyright u-visually-hidden">&copy; <?php date( 'Y' ); ?> Boston&nbsp;University. All&nbsp;rights&nbsp;reserved. www.bu.edu</div>
 	<?php
 }
 

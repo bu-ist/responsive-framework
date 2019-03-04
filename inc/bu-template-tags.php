@@ -2,6 +2,8 @@
 /**
  * BU Specific functionality
  * expanding from template-tags.php
+ *
+ * @package Responsive_Framework
  */
 
 /**
@@ -23,7 +25,6 @@ function responsive_primary_nav() {
 				'include_links'   => true,
 				'depth'           => BU_NAVIGATION_PRIMARY_DEPTH,
 				'max_items'       => BU_NAVIGATION_PRIMARY_MAX,
-				'dive'            => true,
 				'container_tag'   => 'ul',
 				'container_id'    => 'primary-nav-menu',
 				'container_class' => 'primary-nav-menu',
