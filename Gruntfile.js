@@ -4,6 +4,7 @@ module.exports = function(grunt) {
 	require( 'time-grunt' )(grunt);
 
 	// Require external packages.
+	var autoprefixer = require('autoprefixer');
 	var sass = require('node-sass');
 
 	// 1. All configuration goes here
@@ -140,6 +141,32 @@ module.exports = function(grunt) {
 					'admin/admin.css': 'css-dev/admin.scss'
 				}]
 			}
+		},
+		postcss: {
+			defaults: {
+				options: {
+					map: {
+						inline: false, // Save all sourcemaps as separate files.
+						annotation: '/', // Save to this specified directory.
+					},
+					processors: [
+						autoprefixer, // add vendor prefixes.
+					],
+				},
+				src: ['ie.css', 'ie.min.css', 'style.css', 'style.min.css'],
+			},
+			admin: {
+				options: {
+					map: {
+						inline: false, // Save all sourcemaps as separate files.
+						annotation: 'admin/', // Save to this specified directory.
+					},
+					processors: [
+						autoprefixer, // add vendor prefixes.
+					],
+				},
+				src: ['admin/admin.css'],
+			},
 		},
 		addtextdomain: {
 			options: {
@@ -326,6 +353,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+	grunt.loadNpmTasks( 'grunt-postcss' );
 	grunt.loadNpmTasks( 'grunt-sass' );
 	grunt.loadNpmTasks( 'grunt-notify' );
 	grunt.loadNpmTasks( 'grunt-version' );
@@ -337,7 +365,7 @@ module.exports = function(grunt) {
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask( 'install',             [ 'copy:hooks', 'build' ] );
 	grunt.registerTask( 'i18n',                [ 'clean', 'addtextdomain', 'makepot' ] );
-	grunt.registerTask( 'styles',              [ 'sass' ] );
+	grunt.registerTask( 'styles',              [ 'sass', 'postcss' ] );
 	grunt.registerTask( 'scripts',             [ 'phplint', 'concat', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail', 'version:lightgallery', 'version:lg_thumbnail' ] );
 	grunt.registerTask( 'upgrade_modernizr',   [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
