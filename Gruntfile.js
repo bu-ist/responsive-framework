@@ -147,7 +147,6 @@ module.exports = function(grunt) {
 				options: {
 					map: {
 						inline: false, // Save all sourcemaps as separate files.
-						annotation: '/', // Save to this specified directory.
 					},
 					processors: [
 						autoprefixer, // add vendor prefixes.
