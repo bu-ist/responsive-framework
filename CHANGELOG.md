@@ -4,6 +4,8 @@
 
 - Move footer-branding and footer-menus to their own template partials for
   easier child theme overrides.
+- Bugfix on `responsive_primary_nav` introduced in 2.1.12. Only overrides
+  container_id and container_class args for bu navigation, rather than all args.
 - Add autoprefixer support with grunt-postcss plugin.
 - Add browserslist support in package.json for front-end tools like
   autoprefixer.
