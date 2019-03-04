@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/theme/responsive-framework-2-x\n"
-"POT-Creation-Date: 2019-02-15 20:07:20+00:00\n"
+"POT-Creation-Date: 2019-03-04 23:04:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: grunt-wp-i18n1.0.2\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
 #: 404.php:17
 msgid "Looks like that page might not be here anymore. Want to give search a try?"
@@ -42,117 +42,103 @@ msgid "All page templates"
 msgstr ""
 
 #: admin/responsive-admin-page-template-filter.php:72 inc/calendar.php:94
-#: inc/customizer.php:411
 msgid "Default"
 msgstr ""
 
-#: admin/theme-customizer.php:45
+#: admin/theme-customizer.php:39
 msgid "Navigation Style"
 msgstr ""
 
-#: admin/theme-customizer.php:76
+#: admin/theme-customizer.php:74
 msgid "Fonts"
 msgstr ""
 
-#: admin/theme-customizer.php:105
+#: admin/theme-customizer.php:107
 msgid "Colors"
 msgstr ""
 
-#: admin/theme-customizer.php:112
-msgid "Color Scheme"
-msgstr ""
-
-#: admin/theme-customizer.php:128
-msgid "Base Color Scheme"
-msgstr ""
-
-#: admin/theme-customizer.php:199
-#. translators: %s: color label
-msgid "Use %s?"
-msgstr ""
-
-#: admin/theme-customizer.php:212
+#: admin/theme-customizer.php:139
 msgid "Content Options"
 msgstr ""
 
-#: admin/theme-customizer.php:230
+#: admin/theme-customizer.php:158
 msgid "Post Display Options"
 msgstr ""
 
-#: admin/theme-customizer.php:232
+#: admin/theme-customizer.php:160
 msgid ""
 "Change visibility of post meta fields. Note that the \"News\" page template "
 "has its own display options."
 msgstr ""
 
-#: admin/theme-customizer.php:234 inc/template-tags.php:275
+#: admin/theme-customizer.php:162 inc/template-tags.php:275
 msgid "Categories"
 msgstr ""
 
-#: admin/theme-customizer.php:235
+#: admin/theme-customizer.php:163
 msgid "Tags"
 msgstr ""
 
-#: admin/theme-customizer.php:236
+#: admin/theme-customizer.php:164
 msgid "Author"
 msgstr ""
 
-#: admin/theme-customizer.php:254
+#: admin/theme-customizer.php:183
 msgid "Options set by the theme:"
 msgstr ""
 
-#: admin/theme-customizer.php:258
+#: admin/theme-customizer.php:187
 msgid "Main sidebar position "
 msgstr ""
 
-#: admin/theme-customizer.php:261
+#: admin/theme-customizer.php:190
 msgid "Keep posts and profiles sidebar on the bottom?"
 msgstr ""
 
-#: admin/theme-customizer.php:269
+#: admin/theme-customizer.php:198
 msgid "Sidebar Options"
 msgstr ""
 
-#: admin/theme-customizer.php:283
+#: admin/theme-customizer.php:213
 msgid "Footer"
 msgstr ""
 
-#: admin/theme-customizer.php:285
+#: admin/theme-customizer.php:215
 #. translators: %s: menu url
 msgid ""
 "Footer links can be managed using the <a href=\"%s\">Footer and Social "
 "Links Custom Menu locations</a>."
 msgstr ""
 
-#: admin/theme-customizer.php:309
+#: admin/theme-customizer.php:241
 msgid "Custom HTML"
 msgstr ""
 
-#: admin/theme-customizer.php:313
+#: admin/theme-customizer.php:245
 msgid "May be used to enter an address or contact information."
 msgstr ""
 
-#: admin/theme-customizer.php:323
+#: admin/theme-customizer.php:256
 msgid "Automatically add paragraphs"
 msgstr ""
 
-#: admin/theme-customizer.php:344
+#: admin/theme-customizer.php:278
 msgid "Static page options"
 msgstr ""
 
-#: admin/theme-customizer.php:347
+#: admin/theme-customizer.php:281
 msgid "Hide the homepage title"
 msgstr ""
 
-#: admin/theme-customizer.php:364
+#: admin/theme-customizer.php:300
 msgid "Main Sidebar Position"
 msgstr ""
 
-#: admin/theme-customizer.php:366
+#: admin/theme-customizer.php:302
 msgid "Changes the position of the main sidebar."
 msgstr ""
 
-#: admin/theme-customizer.php:388
+#: admin/theme-customizer.php:326
 msgid "Keep the posts sidebar on bottom"
 msgstr ""
 
@@ -245,7 +231,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:267 inc/customizer.php:260 inc/template-tags.php:1041
+#: functions.php:267 inc/template-tags.php:1041
 msgid "Footbar"
 msgstr ""
 
@@ -297,134 +283,34 @@ msgstr ""
 msgid "Graphic"
 msgstr ""
 
-#: inc/customizer.php:59
+#: inc/customizer.php:60
 msgid ""
 "Default Navigation <span class=\"ui-context\">A good choice for most "
 "websites</span>"
 msgstr ""
 
-#: inc/customizer.php:60
+#: inc/customizer.php:61
 msgid ""
 "Top Navigation <span class=\"ui-context\">Best for websites without "
 "dropdowns</span>"
 msgstr ""
 
-#: inc/customizer.php:61
+#: inc/customizer.php:62
 msgid ""
 "Side Navigation <span class=\"ui-context\">Best for small websites with few "
 "nested pages</span>"
 msgstr ""
 
-#: inc/customizer.php:62
+#: inc/customizer.php:63
 msgid ""
 "Mega Navigation <span class=\"ui-context\">Best for large, complex "
 "websites</span>"
 msgstr ""
 
-#: inc/customizer.php:63
+#: inc/customizer.php:64
 msgid ""
 "No Navigation <span class=\"ui-context\">Best for single-page "
 "websites</span>"
-msgstr ""
-
-#: inc/customizer.php:250
-msgid "Navigation Bar"
-msgstr ""
-
-#: inc/customizer.php:254
-msgid "Content Area"
-msgstr ""
-
-#: inc/customizer.php:257
-msgid "Sidebar"
-msgstr ""
-
-#: inc/customizer.php:274
-msgid "Background Color"
-msgstr ""
-
-#: inc/customizer.php:279
-msgid "Border Color"
-msgstr ""
-
-#: inc/customizer.php:284
-msgid "Primary Nav Links"
-msgstr ""
-
-#: inc/customizer.php:289
-msgid "Utility Nav Links"
-msgstr ""
-
-#: inc/customizer.php:294
-msgid "Primary Nav Links Hover"
-msgstr ""
-
-#: inc/customizer.php:301
-msgid "Headings"
-msgstr ""
-
-#: inc/customizer.php:306 inc/customizer.php:359 inc/customizer.php:396
-msgid "Text Color"
-msgstr ""
-
-#: inc/customizer.php:311 inc/customizer.php:349 inc/customizer.php:386
-msgid "Link Color"
-msgstr ""
-
-#: inc/customizer.php:316 inc/customizer.php:354 inc/customizer.php:391
-msgid "Link Hover"
-msgstr ""
-
-#: inc/customizer.php:321
-msgid "Button Background"
-msgstr ""
-
-#: inc/customizer.php:326
-msgid "Button Text Color"
-msgstr ""
-
-#: inc/customizer.php:333
-msgid "Widget Background"
-msgstr ""
-
-#: inc/customizer.php:339 inc/customizer.php:376
-msgid "Widget Title"
-msgstr ""
-
-#: inc/customizer.php:344 inc/customizer.php:381
-msgid "Widget Title Border"
-msgstr ""
-
-#: inc/customizer.php:366
-msgid "Background"
-msgstr ""
-
-#: inc/customizer.php:371
-msgid "Top Border"
-msgstr ""
-
-#: inc/customizer.php:450
-msgid "Slacker"
-msgstr ""
-
-#: inc/customizer.php:489
-msgid "Extra Spectral"
-msgstr ""
-
-#: inc/customizer.php:528
-msgid "Rayleigh Scattering"
-msgstr ""
-
-#: inc/customizer.php:567
-msgid "Vinca Minor"
-msgstr ""
-
-#: inc/customizer.php:606
-msgid "Eiffel"
-msgstr ""
-
-#: inc/customizer.php:645
-msgid "Comm Ave"
 msgstr ""
 
 #: inc/post-lists.php:19

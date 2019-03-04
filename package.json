@@ -72,6 +72,6 @@
     "browserify-shim": "^3.8.14",
     "lg-thumbnail": "^1.1.0",
     "lightgallery": "^1.6.11",
-    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#feature/use-as-js-component-library"
+    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#3.2.0"
   }
 }

@@ -10877,10 +10877,73 @@ textarea {
   width: 100px;
 }
 
-.edit-link {
+.post-edit-link {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+  background: #fff;
+  border: 1px solid currentColor;
+  color: #0f69d7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  line-height: 1;
+  margin: 0.5em;
+  max-width: 32px;
+  overflow: hidden;
+  padding: 0.25em 0.5em 0.4em;
   position: absolute;
   right: 0;
+  text-decoration: none;
   top: 0;
+  transition: max-width 0.3s ease-in;
+  white-space: nowrap;
+  z-index: 100;
+}
+
+.post-edit-link:visited, .post-edit-link:active, .post-edit-link:hover {
+  color: #0f69d7;
+}
+
+.post-edit-link:hover {
+  max-width: 150px;
+  transition: max-width 0.3s ease-in;
+}
+
+.post-edit-link::before {
+  content: "\f464";
+  font-family: "dashicons";
+  font-size: 17px;
+  margin-right: 0.25em;
+  vertical-align: text-bottom;
+}
+
+.post-edit-hint {
+  border: 1px dashed #0f69d7;
+  box-sizing: content-box;
+  height: 0;
+  left: -10px;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  top: -10px;
+  width: 100%;
+  -webkit-transition: height 0s step-end 0.5s, opacity 0.2s ease-in, padding 0s step-end 0.5s;
+  -moz-transition: height 0s step-end 0.5s, opacity 0.2s ease-in, padding 0s step-end 0.5s;
+  -ms-transition: height 0s step-end 0.5s, opacity 0.2s ease-in, padding 0s step-end 0.5s;
+  -o-transition: height 0s step-end 0.5s, opacity 0.2s ease-in, padding 0s step-end 0.5s;
+  transition: height 0s step-end 0.5s, opacity 0.2s ease-in, padding 0s step-end 0.5s;
+}
+
+.edit-link:hover + .post-edit-hint {
+  height: 100%;
+  opacity: 1;
+  padding: 10px;
+  -webkit-transition: height 0s step-start 0s, opacity 0.2s ease-in, padding 0s step-start 0s;
+  -moz-transition: height 0s step-start 0s, opacity 0.2s ease-in, padding 0s step-start 0s;
+  -ms-transition: height 0s step-start 0s, opacity 0.2s ease-in, padding 0s step-start 0s;
+  -o-transition: height 0s step-start 0s, opacity 0.2s ease-in, padding 0s step-start 0s;
+  transition: height 0s step-start 0s, opacity 0.2s ease-in, padding 0s step-start 0s;
 }
 
 .responsive-video {
@@ -13052,16 +13115,13 @@ nav a {
 
 .content-area {
   padding-bottom: 10px;
+  position: relative;
 }
 
 @media (min-width: 768px) {
   .content-area {
     padding-bottom: 35px;
   }
-}
-
-.sidebar-location-left .content-container .content-area {
-  position: relative;
 }
 
 .page-template-no-sidebars .content-area,
@@ -13599,6 +13659,10 @@ body {
   margin-top: -0.5em;
 }
 
+.post-thumb + .post-headline {
+  margin-top: 0;
+}
+
 .post-meta span::before {
   color: #aaa;
   content: "\a0\b7\a0";
@@ -13735,6 +13799,7 @@ body {
 }
 
 .archive-link-container {
+  clear: both;
   text-align: center;
 }
 
