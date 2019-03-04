@@ -21,10 +21,9 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 	 * @param bool       $has_text    Whether the current banner has text.
 	 * @param array|bool $banner_info Array of banner info for the current banner if it exists,
 	 *                                false if the post has no banner info.
-	 * @param int        $post_id     Current post ID.
 	 * @return bool $has_text Defines whether the banner has text.
 	 */
-	function responsive_bu_banner_has_text( $has_text, $banner_info, $post_id ) {
+	function responsive_bu_banner_has_text( $has_text, $banner_info ) {
 		/**
 		 * Bails immediately if the following conditions are met:
 		 * - this is an admin page (avoids messing with save_post hook).
@@ -41,7 +40,7 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 
 		return $has_text;
 	}
-	add_filter( 'bu_banners_banner_has_text', 'responsive_bu_banner_has_text', 10, 3 );
+	add_filter( 'bu_banners_banner_has_text', 'responsive_bu_banner_has_text', 10, 2 );
 
 	/**
 	 * Sets the banner title to the current page title if empty.
