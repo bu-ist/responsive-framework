@@ -4,6 +4,9 @@
 
 - Move footer-branding and footer-menus to their own template partials for
   easier child theme overrides.
+- Add autoprefixer support with grunt-postcss plugin.
+- Add browserslist support in package.json for front-end tools like
+  autoprefixer.
 - Add es6 functionality via a variety of npm packages and Gruntfile
   modifications:
     - `grunt-browserify`: A bundler that allows for easier dependency management
