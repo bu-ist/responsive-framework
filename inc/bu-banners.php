@@ -9,6 +9,40 @@
 
 if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 
+
+	/**
+	 * Filters whether the current banner has text.
+	 *
+	 * This can be used when custom fields are added to a banner layout that,
+	 * when filled in, should indicate that a banner has text.
+	 *
+	 * @since 2.1.3
+	 *
+	 * @param bool       $has_text    Whether the current banner has text.
+	 * @param array|bool $banner_info Array of banner info for the current banner if it exists,
+	 *                                false if the post has no banner info.
+	 * @param int        $post_id     Current post ID.
+	 * @return bool $has_text Defines whether the banner has text.
+	 */
+	function responsive_bu_banner_has_text( $has_text, $banner_info, $post_id ) {
+		/**
+		 * Bails immediately if the following conditions are met:
+		 * - this is an admin page (avoids messing with save_post hook).
+		 * - this is not a text layout.
+		 */
+		if ( is_admin() || ! bu_banners_layout_supports_text( $banner_info['layout'] ) ) {
+			return $has_text;
+		}
+
+		// If this text layout has an empty title, return true. We'll fill it in later.
+		if ( empty( $banner['title'] ) ) {
+			$has_text = true;
+		}
+
+		return $has_text;
+	}
+	add_filter( 'bu_banners_banner_has_text', $has_text, $banner_info, $post_id );
+
 	/**
 	 * Sets the banner title to the current page title if empty.
 	 *
@@ -41,7 +75,8 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 		$banner_content = get_post_meta( get_the_id(), '_bu_banner_content', true );
 
 		// Only continues if we have a bu banner, its content is not empty, and there is no title field supplied.
-		if ( bu_has_banner() && bu_banner_has_text( get_the_id() ) && empty( $banner_content[0]['title'] ) ) {
+		//if ( bu_has_banner() && bu_banner_has_text( get_the_id() ) && empty( $banner_content[0]['title'] ) ) {
+		if ( bu_has_banner() && ! empty( $banner_content[0] ) && empty( $banner_content[0]['title'] ) ) {
 
 			/**
 			 * Filters BU Banner values.
