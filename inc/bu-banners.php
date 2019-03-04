@@ -35,7 +35,7 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 		}
 
 		// If this text layout has an empty title, return true. We'll fill it in later.
-		if ( empty( $banner['title'] ) ) {
+		if ( empty( $banner_info['title'] ) ) {
 			$has_text = true;
 		}
 
