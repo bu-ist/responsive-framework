@@ -41,7 +41,7 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 
 		return $has_text;
 	}
-	add_filter( 'bu_banners_banner_has_text', $has_text, $banner_info, $post_id );
+	add_filter( 'bu_banners_banner_has_text', 'responsive_bu_banner_has_text', 10, 3 );
 
 	/**
 	 * Sets the banner title to the current page title if empty.
