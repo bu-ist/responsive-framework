@@ -257,7 +257,7 @@ msgstr ""
 msgid "Alternate Footbar"
 msgstr ""
 
-#: functions.php:426
+#: functions.php:425
 #. translators: %s: navigation label navigating to.
 msgid "Navigate to: %s"
 msgstr ""
