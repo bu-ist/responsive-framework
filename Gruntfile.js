@@ -368,6 +368,6 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'scripts',             [ 'phplint', 'concat', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [ 'copy:lightgallery', 'copy:lgthumbnail', 'version:lightgallery', 'version:lg_thumbnail' ] );
 	grunt.registerTask( 'upgrade_modernizr',   [ 'modernizr:dist', 'uglify', 'version:modernizr' ] );
-	grunt.registerTask( 'build',               [ 'sass', 'scripts', 'i18n' ] );
+	grunt.registerTask( 'build',               [ 'styles', 'scripts', 'i18n' ] );
 	grunt.registerTask( 'default',             [ 'watch' ] );
 };
