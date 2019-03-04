@@ -31,7 +31,7 @@ $content-link-hover:                  accessible-text( $content-bg, $color-secon
 
 $button-bg:                           $color-tertiary !default;
 
-@if luminance( $button-bg ) < .4 {
+@if luminance( $button-bg ) < 0.4 {
 	$_adjust-base: $color-grayscale-f;
 } @else {
 	$_adjust-base: mix( $color-grayscale-0, $button-bg, 75% );
@@ -42,7 +42,7 @@ $button-link-hover:                   accessible-text( $button-bg, $_adjust-base
 
 $content-accent-bg:                   $color-secondary !default;
 
-@if luminance( $content-accent-bg ) < .4 {
+@if luminance( $content-accent-bg ) < 0.4 {
 	$_adjust-base: $color-grayscale-f;
 } @else {
 	$_adjust-base: $color-grayscale-0;
@@ -56,7 +56,7 @@ $content-accent-text:                 accessible-text( $content-accent-bg, $_adj
 
 $nav-bg:                              $color-primary !default;
 
-@if luminance( $nav-bg ) < .4 {
+@if luminance( $nav-bg ) < 0.4 {
 	$_adjust-base: $color-grayscale-f;
 } @else {
 	$_adjust-base: mix( $color-grayscale-0, $nav-bg, 75% );
@@ -70,7 +70,7 @@ $nav-utility-link-hover:              accessible-text( $nav-bg, mix( $_adjust-ba
 
 $mega-toggle-bg:                      $button-bg !default;
 
-@if luminance( $mega-toggle-bg ) < .4 {
+@if luminance( $mega-toggle-bg ) < 0.4 {
 	$_adjust-base: $color-grayscale-f;
 } @else {
 	$_adjust-base: mix( $color-grayscale-0, $mega-toggle-bg, 75% );
@@ -91,7 +91,7 @@ $sidebar-bg:                          mix( $color-grayscale-0, $color-primary, 1
 
 $_sidebar-bg:                         $sidebar-bg;
 
-@if $use-background-colors == true and luminance( $_sidebar-bg ) < .4 {
+@if $use-background-colors == true and luminance( $_sidebar-bg ) < 0.4 {
 	$_adjust-base: $color-grayscale-f;
 } @else {
 	$_adjust-base: mix( $color-grayscale-0, $sidebar-bg, 75% );
@@ -108,7 +108,7 @@ $sidebar-button-bg:                   $button-bg !default;
 $sidebar-link:                        accessible-text( $_sidebar-bg, $color-secondary ) !default;
 $sidebar-link-hover:                  accessible-text( $_sidebar-bg, $_adjust-base ) !default;
 
-@if luminance( $sidebar-button-bg ) < .4 {
+@if luminance( $sidebar-button-bg ) < 0.4 {
 	$_adjust-base: $color-grayscale-f;
 } @else {
 	$_adjust-base: mix( $color-grayscale-0, $sidebar-button-bg, 75% );
@@ -123,7 +123,7 @@ $sidebar-button-link-hover:           accessible-text( $sidebar-button-bg, $_adj
 
 $footbar-bg:                          $color-dark !default;
 
-@if luminance( $footbar-bg ) < .4 {
+@if luminance( $footbar-bg ) < 0.4 {
 	$_adjust-base: $color-grayscale-f;
 } @else {
 	$_adjust-base: mix( $color-grayscale-0, $footbar-bg, 75% );

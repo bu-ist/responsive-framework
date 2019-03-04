@@ -8,8 +8,7 @@ $color-grayscale-0: #000;
 
 @media screen {
 
-	/* non-configurable styles
-	----------------------------------------------------------------- */
+	// non-configurable styles
 
 	.comment-respond,
 	#quicksearch,
@@ -22,12 +21,12 @@ $color-grayscale-0: #000;
 		border-color: #dfdfea;
 	}
 
-	/* calendar table */
+	// calendar table
 	.widget-calendar-picker thead,
 	.widget-calendar-picker th,
 	.widget-calendar-picker .out,
 	.widget-calendar-picker .today {
-		background: rgba(0,0,0,0.15);
+		background: rgba( 0, 0, 0, 0.15 );
 	}
 
 	.utility-nav a,

@@ -1,6 +1,4 @@
 @media screen {
-  /* non-configurable styles
-	----------------------------------------------------------------- */
   .comment-respond,
   #quicksearch,
   .l-side-nav #quicksearch,
@@ -11,7 +9,6 @@
     background: #f5f8ff;
     border-color: #dfdfea;
   }
-  /* calendar table */
   .widget-calendar-picker thead,
   .widget-calendar-picker th,
   .widget-calendar-picker .out,
@@ -221,7 +218,7 @@
   }
   .profile-single-details {
     background: #3a3a4e;
-    border: none;
+    border: 0;
   }
   .profile-single-details a {
     color: #ecb438;
