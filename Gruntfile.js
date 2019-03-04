@@ -152,7 +152,7 @@ module.exports = function(grunt) {
 						autoprefixer, // add vendor prefixes.
 					],
 				},
-				src: ['ie.css', 'ie.min.css', 'style.css', 'style.min.css'],
+				src: ['style.css', 'style.min.css'],
 			},
 			admin: {
 				options: {
