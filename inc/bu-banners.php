@@ -72,11 +72,10 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 		}
 
 		// Retrieves the banner content field.
-		$banner_content = get_post_meta( get_the_id(), '_bu_banner_content', true );
+		$banner_content = get_post_meta( $post_id, '_bu_banner_content', true );
 
 		// Only continues if we have a bu banner, its content is not empty, and there is no title field supplied.
-		//if ( bu_has_banner() && bu_banner_has_text( get_the_id() ) && empty( $banner_content[0]['title'] ) ) {
-		if ( bu_has_banner() && ! empty( $banner_content[0] ) && empty( $banner_content[0]['title'] ) ) {
+		if ( bu_has_banner() && bu_banner_has_text( $post_id ) && empty( $banner_content[0]['title'] ) ) {
 
 			/**
 			 * Filters BU Banner values.
@@ -92,7 +91,7 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 			add_filter(
 				'bu_banners_banner_info',
 				function( $banner_info ) {
-					$banner_info['title']        = get_the_title();
+					$banner_info['title']        = get_the_title( $post_id );
 					$banner_info['title_before'] = '<h1 class="page-title bu-banner-title">';
 					$banner_info['title_after']  = '</h1>';
 					return $banner_info;
