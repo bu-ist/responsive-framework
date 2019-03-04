@@ -2,6 +2,10 @@
 @import 'node_modules/mathsass/dist/math';
 @import 'burf-base/accessibility';
 
+$color-grayscale-f: #fff;
+$color-grayscale-c: #ccc;
+$color-grayscale-0: #000;
+
 @media screen {
 
 	/* non-configurable styles
