@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Resolve PHP Warnings when `responsive_get_posts_archive_link` is called on a
+  page that doesn't have any categories assigned to it.
+
 ## 2.2.0
 
 - Move footer-branding and footer-menus to their own template partials for
