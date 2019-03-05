@@ -73,6 +73,7 @@ class Tests_Responsive_Framework_Customizer extends WP_UnitTestCase {
 				return $fallback_font;
 			}
 		);
+
 		$this->assertEquals( 'new_font', responsive_get_font_palette() );
 	}
 
@@ -83,18 +84,5 @@ class Tests_Responsive_Framework_Customizer extends WP_UnitTestCase {
 		update_option( 'burf_customizer_styles', 'hey this is a test option' );
 		responsive_flush_customizer_styles_cache();
 		$this->assertEmpty( responsive_flush_customizer_styles_cache() );
-	}
-
-	/**
-	 * Theme and framework version constants.
-	 */
-	public function test_responsive_get_custom_colors() {
-		$test_values = array( 'primaryNav-bg' => '#c2185b', 'primaryNav-border' => '#cd4279' );
-
-		$this->assertEquals( array(), responsive_get_custom_colors() );
-
-		update_option( 'burf_setting_custom_colors', $test_values );
-
-		$this->assertEquals( $test_values, responsive_get_custom_colors() );
 	}
 }
