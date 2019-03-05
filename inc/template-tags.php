@@ -816,19 +816,22 @@ function responsive_get_posts_archive_link() {
 		'meta_value'   => 'page-templates/news.php',
 	) );
 
-	foreach( $news_pages as $page ) {
-		$page_cat_id = get_post_meta( $page->ID, '_bu_list_news_category', true );
+	// Only iterates through pages if they exist.
+	if ( ! empty( $news_pages ) ) {
+		foreach ( $news_pages as $page ) {
+			$page_cat_id = get_post_meta( $page->ID, '_bu_list_news_category', true );
 
-		if ( in_array( $page_cat_id, $post_cat_ids ) ) {
-			$archive_link = get_permalink( $page->ID );
-			break;
-		}
+			if ( in_array( $page_cat_id, $post_cat_ids ) ) {
+				$archive_link = get_permalink( $page->ID );
+				break;
+			}
 
-		// Find the first news page set to display "All Categories".
-		// Hold onto it in case we can't find a page that matches the category.
-		if ( empty( $page_cat_id ) && ! $all_cats ) {
-			$all_cats = get_permalink( $page->ID );
-			continue;
+			// Find the first news page set to display "All Categories".
+			// Hold onto it in case we can't find a page that matches the category.
+			if ( empty( $page_cat_id ) && ! $all_cats ) {
+				$all_cats = get_permalink( $page->ID );
+				continue;
+			}
 		}
 	}
 
