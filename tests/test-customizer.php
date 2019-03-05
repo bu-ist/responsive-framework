@@ -74,7 +74,6 @@ class Tests_Responsive_Framework_Customizer extends WP_UnitTestCase {
 			}
 		);
 		$this->assertEquals( 'new_font', responsive_get_font_palette() );
-
 	}
 
 	/**
@@ -84,68 +83,6 @@ class Tests_Responsive_Framework_Customizer extends WP_UnitTestCase {
 		update_option( 'burf_customizer_styles', 'hey this is a test option' );
 		responsive_flush_customizer_styles_cache();
 		$this->assertEmpty( responsive_flush_customizer_styles_cache() );
-	}
-
-	/**
-	 * Test default color region sections.
-	 */
-	public function test_responsive_customizer_color_region_groups() {
-		$color_region_groups = array(
-			'navbar'       => array(
-				'label' => 'Navigation Bar',
-				'layout_excludes' => array( 'no-nav' ),
-			),
-			'content-area' => array(
-				'label' => 'Content Area',
-			),
-			'sidebar'      => array(
-				'label' => 'Sidebar',
-			),
-			'footbar'      => array(
-				'label' => 'Footbar',
-			),
-		);
-
-		$this->assertEquals( $color_region_groups, responsive_customizer_color_region_groups() );
-	}
-
-	/**
-	 * Test default optional color regions.
-	 */
-	public function test_responsive_get_optional_color_regions() {
-		$this->assertEquals( array( 'sidebar-bg' ), responsive_get_optional_color_regions() );
-	}
-
-	/**
-	 * Test color scheme sanitization.
-	 */
-	public function test_responsive_sanitize_color_scheme() {
-		$this->assertEquals( 'default', responsive_sanitize_color_scheme( 'default' ) );
-		$this->assertEquals( 'slacker', responsive_sanitize_color_scheme( 'slacker' ) );
-		$this->assertEquals( 'default', responsive_sanitize_color_scheme( 'non-existant-scheme' ) );
-	}
-
-	/**
-	 * Test default color scheme choices.
-	 */
-	public function test_responsive_get_color_scheme_choices() {
-		$this->assertEquals( responsive_get_color_scheme_choices(), array(
-			'default' => 'Default',
-			'slacker' => 'Slacker',
-			'extra-spectral' => 'Extra Spectral',
-			'rayleigh-scattering' => 'Rayleigh Scattering',
-			'vinca-minor' => 'Vinca Minor',
-			'eiffel' => 'Eiffel',
-			'comm_ave' => 'Comm Ave',
-		) );
-	}
-
-	/**
-	 * Test correct color scheme is returned.
-	 */
-	public function test_responsive_get_color_scheme() {
-		$this->assertEquals( 'Default', responsive_get_color_scheme()['label'] );
-		$this->assertEquals( 'Vinca Minor', responsive_get_color_scheme( 'vinca-minor' )['label'] );
 	}
 
 	/**
