@@ -2,8 +2,8 @@
 @import 'node_modules/mathsass/dist/math';
 @import 'burf-base/accessibility';
 
-$color-grayscale-f: #fff;
-$color-grayscale-c: #ccc;
+$color-grayscale-f: #FFF;
+$color-grayscale-c: #CCC;
 $color-grayscale-0: #000;
 
 @media screen {
@@ -17,8 +17,8 @@ $color-grayscale-0: #000;
 	.single .content-area .meta,
 	.single-event-schedule,
 	.single-profile .profile-info {
-		background: #f5f8ff;
-		border-color: #dfdfea;
+		background: #F5F8FF;
+		border-color: #DFDFEA;
 	}
 
 	// calendar table

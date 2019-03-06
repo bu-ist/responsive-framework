@@ -4,11 +4,11 @@ $palette-id: 'vinca-minor';
 
 $current-palette:                     map-get( $color-palettes, $palette-id );
 $button-bg:                           map-get( $current-palette, 'color-primary' );
-$button-link:                         accessible-text( $button-bg, #fff );
-$button-link-hover:                   accessible-text( $button-bg, #fff );
+$button-link:                         accessible-text( $button-bg, #FFF );
+$button-link-hover:                   accessible-text( $button-bg, #FFF );
 $mega-toggle-bg:                      map-get( $current-palette, 'color-primary' );
-$mega-toggle-link:                    accessible-text( $mega-toggle-bg, #fff );
-$mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, #fff );
+$mega-toggle-link:                    accessible-text( $mega-toggle-bg, #FFF );
+$mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, #FFF );
 
 @import 'complimentary';
 
@@ -18,5 +18,5 @@ $mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, #fff );
 @import 'styles-footer';
 
 #quicksearch .button {
-	background: #cf4704;
+	background: #CF4704;
 }

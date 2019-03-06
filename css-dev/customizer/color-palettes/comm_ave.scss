@@ -7,11 +7,11 @@ $color-secondary: map-get( $current-palette, 'color-secondary' );
 $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 
 $sidebar-bg:                          $color-secondary;
-$sidebar-link:                        accessible-text( $sidebar-bg, #fff );
+$sidebar-link:                        accessible-text( $sidebar-bg, #FFF );
 $mega-toggle-bg:                      $color-secondary;
 $sidebar-button-bg:                   $color-tertiary;
 
-$footbar-link: accessible-text( #222222, #96ce53 );
+$footbar-link: accessible-text( #222222, #96CE53 );
 
 @import 'triad';
 
