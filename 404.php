@@ -7,18 +7,48 @@
 
 get_header(); ?>
 
-<div class="error-404 not-found content-area">
+<?php
+/**
+ * Fires immediately before the opening article tag.
+ *
+ * @since 2.2.1
+ */
+do_action( 'r_before_opening_article' );
+?>
 
-	<header class="page-header">
-		<?php responsive_the_title(); ?>
-	</header><!-- .page-header -->
+<article class="error-404 not-found content-area">
 
-	<div class="page-content">
-		<p><?php esc_html_e( 'Looks like that page might not be here anymore. Want to give search a try?', 'responsive-framework' ); ?></p>
+	<?php
+	/**
+	 * Fires immediately after opening article tag.
+	 *
+	 * @since 2.2.1
+	 */
+	do_action( 'r_after_opening_article' );
+	?>
 
-		<?php responsive_search_form(); ?>
+	<p><?php esc_html_e( 'Looks like that page might not be here anymore. Want to give search a try?', 'responsive-framework' ); ?></p>
 
-	</div><!-- .page-content -->
-</div><!-- .error-404 -->
+	<?php responsive_search_form(); ?>
+
+	<?php
+	/**
+	 * Fires immediately before closing article tag.
+	 *
+	 * @since 2.2.1
+	 */
+	do_action( 'r_before_closing_article' );
+	?>
+
+</article><!-- .error-404 -->
+
+<?php
+/**
+ * Fires immediately after closing article tag.
+ *
+ * @since 2.2.1
+ */
+do_action( 'r_after_closing_article' );
+?>
 
 <?php get_footer();
