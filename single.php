@@ -9,10 +9,25 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
+		<?php
+		/**
+		 * Fires immediately before the opening article tag.
+		 *
+		 * @since 2.2.1
+		 */
+		do_action( 'r_before_opening_article' );
+		?>
+
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
-			<header>
-				<?php responsive_the_title(); ?>
-			</header>
+
+			<?php
+			/**
+			 * Fires immediately after opening article tag.
+			 *
+			 * @since 2.2.1
+			 */
+			do_action( 'r_after_opening_article' );
+			?>
 
 			<?php the_content(); ?>
 
@@ -71,7 +86,25 @@ get_header(); ?>
 
 			<?php responsive_comments(); ?>
 
+			<?php
+			/**
+			 * Fires immediately before closing article tag.
+			 *
+			 * @since 2.2.1
+			 */
+			do_action( 'r_before_closing_article' );
+			?>
+
 		</article>
+
+		<?php
+		/**
+		 * Fires immediately after closing article tag.
+		 *
+		 * @since 2.2.1
+		 */
+		do_action( 'r_after_closing_article' );
+		?>
 
 	<?php endwhile; ?>
 
