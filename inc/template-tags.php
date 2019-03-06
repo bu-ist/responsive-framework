@@ -799,31 +799,43 @@ function responsive_posts_should_display( $field ) {
  * @return mixed Post archive link, or false if no good candidates were found.
  */
 function responsive_get_posts_archive_link() {
+	// Sets initial values.
 	$archive_link = false;
-	$post_cats = get_the_terms( get_post(), 'category' );
-	$post_cat_ids = wp_list_pluck( $post_cats, 'term_id' );
-	$all_cats = false;
+	$post_cats    = get_the_terms( get_post(), 'category' );
+	$post_cat_ids = array();
+	$all_cats     = false;
 
-	$news_pages = get_pages( array(
-		'hierarchical' => 0,
-		'parent' => -1,
-		'meta_key'     => '_wp_page_template',
-		'meta_value'   => 'page-templates/news.php',
-	) );
+	// Sets $post_cat_ids if categories exist for this post.
+	if ( ! empty( $post_cats ) && ! is_wp_error( $post_cats ) ) {
+		$post_cat_ids = wp_list_pluck( $post_cats, 'term_id' );
+	}
 
-	foreach( $news_pages as $page ) {
-		$page_cat_id = get_post_meta( $page->ID, '_bu_list_news_category', true );
+	// Runs the query to retrieve custom news page templates.
+	$news_pages = get_pages(
+		array(
+			'hierarchical' => 0,
+			'parent'       => -1,
+			'meta_key'     => '_wp_page_template',
+			'meta_value'   => 'page-templates/news.php',
+		)
+	);
 
-		if ( in_array( $page_cat_id, $post_cat_ids ) ) {
-			$archive_link = get_permalink( $page->ID );
-			break;
-		}
+	// Only iterates through pages if they exist.
+	if ( ! empty( $news_pages ) ) {
+		foreach ( $news_pages as $page ) {
+			$page_cat_id = get_post_meta( $page->ID, '_bu_list_news_category', true );
 
-		// Find the first news page set to display "All Categories".
-		// Hold onto it in case we can't find a page that matches the category.
-		if ( empty( $page_cat_id ) && ! $all_cats ) {
-			$all_cats = get_permalink( $page->ID );
-			continue;
+			if ( in_array( $page_cat_id, $post_cat_ids, true ) ) {
+				$archive_link = get_permalink( $page->ID );
+				break;
+			}
+
+			// Find the first news page set to display "All Categories".
+			// Hold onto it in case we can't find a page that matches the category.
+			if ( empty( $page_cat_id ) && ! $all_cats ) {
+				$all_cats = get_permalink( $page->ID );
+				continue;
+			}
 		}
 	}
 
@@ -831,7 +843,7 @@ function responsive_get_posts_archive_link() {
 
 	// If we don't have a category match, but we have an all categories page, use that.
 	if ( ! $archive_link && $all_cats ) {
-			$archive_link = $all_cats;
+		$archive_link = $all_cats;
 	}
 
 	if ( ! $archive_link ) {
