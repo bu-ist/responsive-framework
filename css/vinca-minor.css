@@ -6,8 +6,8 @@
   .single .content-area .meta,
   .single-event-schedule,
   .single-profile .profile-info {
-    background: #f5f8ff;
-    border-color: #dfdfea;
+    background: #F5F8FF;
+    border-color: #DFDFEA;
   }
   .widget-calendar-picker thead,
   .widget-calendar-picker th,
@@ -29,13 +29,13 @@
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
-    background: #3f51b5;
+    background: #3F51B5;
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a,
   .l-mega-nav .primary-nav-menu li {
-    color: #fff;
+    color: #FFF;
     border-color: #5c6bc0;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active, .primary-nav-menu a.active_section,
@@ -51,13 +51,13 @@
   .l-mega-nav .primary-nav-menu li:focus,
   .l-mega-nav .primary-nav-menu li.active,
   .l-mega-nav .primary-nav-menu li.active_section {
-    color: #fe9c6d;
+    color: #FE9C6D;
   }
   .nav-toggle span,
   .search-toggle::before,
   .nav-toggle span::before,
   .nav-toggle span::after {
-    color: #fff;
+    color: #FFF;
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
@@ -69,17 +69,17 @@
     color: #d9dcf0;
   }
   .l-mega-nav .search-field {
-    border-color: #fff;
+    border-color: #FFF;
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background: #3f51b5;
-    color: #fff;
+    background: #3F51B5;
+    color: #FFF;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    color: #fff;
+    color: #FFF;
   }
 }
 
@@ -90,7 +90,7 @@
   h4,
   h5,
   h6 {
-    color: #1a1d2b;
+    color: #1A1D2B;
   }
   body {
     color: #000;
@@ -123,8 +123,8 @@
   .button-selected,
   .paging-navigation a,
   .archive-link {
-    background-color: #3f51b5;
-    color: #fff;
+    background-color: #3F51B5;
+    color: #FFF;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
@@ -137,20 +137,20 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
-    color: #fff;
+    color: #FFF;
   }
   blockquote {
-    border-color: #fa5707;
+    border-color: #FA5707;
   }
   blockquote::before {
-    color: #fa5707;
+    color: #FA5707;
   }
   table thead {
-    background: #fa5707;
-    color: #fff;
+    background: #FA5707;
+    color: #FFF;
   }
   table th {
-    border-color: #fa5707;
+    border-color: #FA5707;
   }
 }
 
@@ -200,13 +200,13 @@
   }
   .widget a.button,
   .widget a.button-primary {
-    background: #3f51b5;
-    color: #fff;
+    background: #3F51B5;
+    color: #FFF;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #fff;
+    color: #FFF;
   }
   .profile-single-details {
     background: #36459a;
@@ -230,16 +230,16 @@
   .footbar,
   .footbar-container,
   .banner-container-window-width {
-    background: #1a1d2b;
+    background: #1A1D2B;
   }
   .footbar {
-    border-color: #1a1d2b;
+    border-color: #1A1D2B;
   }
   .footbar a,
   .footbar .widget a,
   .footbar #contentnav li a,
   .footbar .widget_nav_menu li a {
-    color: #fe9c6d;
+    color: #FE9C6D;
   }
   .footbar a:hover, .footbar a:focus,
   .footbar .widget a:hover,
@@ -248,12 +248,12 @@
   .footbar #contentnav li a:focus,
   .footbar .widget_nav_menu li a:hover,
   .footbar .widget_nav_menu li a:focus {
-    color: #fff;
+    color: #FFF;
   }
   .footbar .widget-title,
   .footbar .widget-title a,
   .footbar .widget-calendar-date a {
-    color: #fff;
+    color: #FFF;
   }
   .footbar .widget-title,
   .footbar #contentnav ul,
@@ -266,10 +266,10 @@
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,
   .footbar .widget-bu-posts .meta {
-    color: #fff;
+    color: #FFF;
   }
 }
 
 #quicksearch .button {
-  background: #cf4704;
+  background: #CF4704;
 }

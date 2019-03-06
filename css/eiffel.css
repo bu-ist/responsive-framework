@@ -6,8 +6,8 @@
   .single .content-area .meta,
   .single-event-schedule,
   .single-profile .profile-info {
-    background: #f5f8ff;
-    border-color: #dfdfea;
+    background: #F5F8FF;
+    border-color: #DFDFEA;
   }
   .widget-calendar-picker thead,
   .widget-calendar-picker th,
@@ -29,13 +29,13 @@
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
-    background: #00343a;
+    background: #00343A;
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a,
   .l-mega-nav .primary-nav-menu li {
-    color: #fff;
+    color: #FFF;
     border-color: #265258;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active, .primary-nav-menu a.active_section,
@@ -51,13 +51,13 @@
   .l-mega-nav .primary-nav-menu li:focus,
   .l-mega-nav .primary-nav-menu li.active,
   .l-mega-nav .primary-nav-menu li.active_section {
-    color: #c58700;
+    color: #C58700;
   }
   .nav-toggle span,
   .search-toggle::before,
   .nav-toggle span::before,
   .nav-toggle span::after {
-    color: #fff;
+    color: #FFF;
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
@@ -69,11 +69,11 @@
     color: #ccd6d8;
   }
   .l-mega-nav .search-field {
-    border-color: #fff;
+    border-color: #FFF;
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background: #86c9cc;
+    background: #86C9CC;
     color: #223233;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
@@ -90,7 +90,7 @@
   h4,
   h5,
   h6 {
-    color: #c58700;
+    color: #C58700;
   }
   body {
     color: #000;
@@ -123,7 +123,7 @@
   .button-selected,
   .paging-navigation a,
   .archive-link {
-    background-color: #86c9cc;
+    background-color: #86C9CC;
     color: #000;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
@@ -140,23 +140,23 @@
     color: #000;
   }
   blockquote {
-    border-color: #86c9cc;
+    border-color: #86C9CC;
   }
   blockquote::before {
-    color: #86c9cc;
+    color: #86C9CC;
   }
   table thead {
-    background: #86c9cc;
+    background: #86C9CC;
     color: #000;
   }
   table th {
-    border-color: #86c9cc;
+    border-color: #86C9CC;
   }
 }
 
 @media screen {
   .widget {
-    background: #f4f7f7;
+    background: #F4F7F7;
     padding: 24px;
   }
   .footbar .widget {
@@ -208,7 +208,7 @@
   }
   .widget a.button,
   .widget a.button-primary {
-    background: #86c9cc;
+    background: #86C9CC;
     color: #223233;
   }
   .widget a.button:hover, .widget a.button:focus,
@@ -217,7 +217,7 @@
     color: #223233;
   }
   .profile-single-details {
-    background: #f4f7f7;
+    background: #F4F7F7;
     border: 0;
   }
   .profile-single-details a {
@@ -238,10 +238,10 @@
   .footbar,
   .footbar-container,
   .banner-container-window-width {
-    background: #f4f7f7;
+    background: #F4F7F7;
   }
   .footbar {
-    border-color: #f4f7f7;
+    border-color: #F4F7F7;
   }
   .footbar a,
   .footbar .widget a,
