@@ -78,6 +78,75 @@ class Tests_Responsive_Framework_Customizer extends WP_UnitTestCase {
 	}
 
 	/**
+	 * Test default responsive color palette.
+	 */
+	public function test_responsive_get_color_palette() {
+		$this->assertEquals( 'default', responsive_get_color_palette() );
+		update_option( 'burf_setting_colors', 'slacker' );
+		$this->assertEquals( 'slacker', responsive_get_color_palette() );
+		update_option( 'burf_setting_colors', 'default' );
+	}
+
+	/**
+	 * Test the default color palettes.
+	 */
+	public function test_responsive_color_options() {
+		$color_options = array(
+			'default'             => 'Default',
+			'slacker'             => 'Slacker',
+			'extra-spectral'      => 'Extra Spectral',
+			'rayleigh-scattering' => 'Rayleigh Scattering',
+			'vinca-minor'         => 'Vinca Minor',
+			'eiffel'              => 'Eiffel',
+			'comm_ave'            => 'Comm Ave',
+		);
+
+		$this->assertEquals( $color_options, responsive_color_options() );
+	}
+
+	/**
+	 * Test the default color palettes, but filtered.
+	 */
+	public function test_responsive_color_options_filtered() {
+
+		// Add filter to change the default color family values.
+		add_filter(
+			'responsive_color_options',
+			function( $color ) {
+				// Remove the slacker option for testing.
+				unset( $color['slacker'] );
+				// Add a new color for testing.
+				$color['new_color'] = 'New Testing Color';
+				return $color;
+			}
+		);
+
+		// Define the expected result of this filter.
+		$expected = array(
+			'default'             => 'Default',
+			'extra-spectral'      => 'Extra Spectral',
+			'rayleigh-scattering' => 'Rayleigh Scattering',
+			'vinca-minor'         => 'Vinca Minor',
+			'eiffel'              => 'Eiffel',
+			'comm_ave'            => 'Comm Ave',
+			'new_color'           => 'New Testing Color',
+		);
+
+		$this->assertEquals( $expected, responsive_color_options() );
+
+		// Test the fallback color value if none set in Options table.
+		add_filter(
+			'responsive_color_fallback',
+		function( $fallback_color ) {
+				$fallback_color = 'new_color';
+				return $fallback_color;
+			}
+		);
+
+		$this->assertEquals( 'new_color', responsive_get_color_palette() );
+	}
+
+	/**
 	 * Test the customizer style cache flush.
 	 */
 	public function test_responsive_flush_customizer_styles_cache() {
