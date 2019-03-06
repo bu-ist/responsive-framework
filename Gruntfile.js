@@ -3,6 +3,7 @@ module.exports = function( grunt ) {
 	require( 'time-grunt' )( grunt );
 
 	// Require external packages.
+	const autoprefixer = require( 'autoprefixer' );
 	const sass = require( 'node-sass' );
 
 	// 1. All configuration goes here
@@ -181,6 +182,31 @@ module.exports = function( grunt ) {
 			target: 'css-dev/**/*.scss',
 			// see .sasslintrc for options.
 		},
+		postcss: {
+			defaults: {
+				options: {
+					map: {
+						inline: false, // Save all sourcemaps as separate files.
+					},
+					processors: [
+						autoprefixer, // add vendor prefixes.
+					],
+				},
+				src: ['style.css', 'style.min.css'],
+			},
+			admin: {
+				options: {
+					map: {
+						inline: false, // Save all sourcemaps as separate files.
+						annotation: 'admin/', // Save to this specified directory.
+					},
+					processors: [
+						autoprefixer, // add vendor prefixes.
+					],
+				},
+				src: ['admin/admin.css'],
+			},
+		},
 		addtextdomain: {
 			options: {
 				textdomain: 'responsive-framework',
@@ -353,6 +379,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+	grunt.loadNpmTasks( 'grunt-postcss' );
 	grunt.loadNpmTasks( 'grunt-sass' );
 	grunt.loadNpmTasks( 'grunt-sass-lint' );
 	grunt.loadNpmTasks( 'grunt-notify' );
@@ -365,10 +392,10 @@ module.exports = function( grunt ) {
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
 	grunt.registerTask( 'install', [ 'copy', 'build' ] );
 	grunt.registerTask( 'i18n', [ 'clean:languages', 'addtextdomain', 'makepot' ] );
-	grunt.registerTask( 'styles', [ 'sass' ] );
+	grunt.registerTask( 'styles', [ 'sass', 'postcss' ] );
 	grunt.registerTask( 'scripts', [ 'clean:js', 'browserify', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [
-		'copy:lightgallery',
+		'copy:lgthumbnail',
 		'version:lightgallery',
 		'version:lg_thumbnail',
 	] );
@@ -377,6 +404,6 @@ module.exports = function( grunt ) {
 		'uglify',
 		'version:modernizr',
 	] );
-	grunt.registerTask( 'build', [ 'sass', 'phplint', 'scripts', 'i18n' ] );
+	grunt.registerTask( 'build', [ 'styles', 'phplint', 'scripts', 'i18n' ] );
 	grunt.registerTask( 'default', [ 'watch' ] );
 };
