@@ -40,4 +40,7 @@ if ( ! class_exists( 'BU_News_Page_Template' ) ) {
 	}
 
 	?>
+
+	<?php edit_post_link( __( 'Edit Post', 'responsive-framework' ), '<span class="edit-link">', '</span><span class="post-edit-hint"></span>' ); ?>
+
 </article>
