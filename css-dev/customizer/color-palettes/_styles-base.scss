@@ -1,0 +1,40 @@
+@import 'palettes';
+@import 'node_modules/mathsass/dist/math';
+@import 'burf-base/accessibility';
+
+$color-grayscale-f: #FFF;
+$color-grayscale-c: #CCC;
+$color-grayscale-0: #000;
+
+@media screen {
+
+	// non-configurable styles
+
+	.comment-respond,
+	#quicksearch,
+	.l-side-nav #quicksearch,
+	.message,
+	.single .content-area .meta,
+	.single-event-schedule,
+	.single-profile .profile-info {
+		background: #F5F8FF;
+		border-color: #DFDFEA;
+	}
+
+	// calendar table
+	.widget-calendar-picker thead,
+	.widget-calendar-picker th,
+	.widget-calendar-picker .out,
+	.widget-calendar-picker .today {
+		background: rgba( 0, 0, 0, 0.15 );
+	}
+
+	.utility-nav a,
+	a:active,
+	a:visited,
+	.widget-title a,
+	.widget-post-meta {
+		color: inherit;
+	}
+
+}

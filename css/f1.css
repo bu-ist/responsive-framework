@@ -55,6 +55,16 @@ h6,
   font-weight: 400;
 }
 
+input[type="submit"],
+.button,
+.button-primary,
+.button-selected,
+.paging-navigation a,
+.archive-link,
+.mega-nav-toggle {
+  font-weight: 700;
+}
+
 blockquote {
   background-color: #f0f0f0;
   border-color: #666;

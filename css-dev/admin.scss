@@ -1,7 +1,12 @@
 $_customizer-selected-color: #288dbb;
+$_customizer-selected-shadow: 0 0 20px 0 rgba( 181, 181, 181, 1 );
 $_customizer-description-color: #999;
 $_customizer-layout-sprite-height: 47px;
 $_customizer-layout-sprite-width: 75px;
+
+$color-grayscale-f: #fff;
+$color-grayscale-c: #ccc;
+$color-grayscale-0: #000;
 
 // Customizer: Layout
 #burf_setting_layout {
@@ -105,7 +110,7 @@ $_customizer-layout-sprite-width: 75px;
 // Customizer: Fonts
 #burf_setting_fonts {
 	label {
-		color: #000;
+		color: $color-grayscale-0;
 		display: block;
 		padding: 1em 0.5em;
 	}
@@ -154,6 +159,90 @@ $_customizer-layout-sprite-width: 75px;
 		} @else {
 			font-weight: 400;
 		}
+	}
+}
+
+#burf_setting_colors {
+	li {
+		margin-bottom: 15px;
+	}
+
+	label {
+		background: $color-grayscale-f;
+		border: 1px solid $color-grayscale-c;
+		color: $color-grayscale-0;
+		display: block;
+		font-weight: bold;
+		opacity: 0.6;
+		padding-top: 0;
+		padding: 0.5em;
+		position: relative;
+		transform: scale( 0.97 );
+		transition:
+			box-shadow 0.3s ease,
+			opacity 0.3s ease,
+			transform 0.3s ease;
+
+		&::before {
+			content: '';
+			display: block;
+			height: 50px;
+			margin-bottom: 5px;
+			margin-left: -0.5em;
+			margin-right: -0.5em;
+		}
+
+		&:hover {
+			box-shadow: $_customizer-selected-shadow;
+			opacity: 1;
+			transform: scale( 1 );
+			transition:
+				box-shadow 0.3s ease,
+				opacity 0.3s ease,
+				transform 0.3s ease;
+		}
+	}
+
+	input {
+		display: none;
+	}
+
+	input:checked + label {
+		border: 4px solid $_customizer-selected-color;
+		box-shadow: $_customizer-selected-shadow;
+		margin: -4px;
+		opacity: 1;
+		transform: scale( 1 );
+	}
+
+	span {
+		display: block;
+
+		&:first-child {
+			font-size: 1.9em;
+			margin-bottom: 0.5em;
+		}
+
+		& + span {
+			font-size: 14px;
+		}
+	}
+}
+
+@import 'customizer/color-palettes/palettes';
+
+@each $palette, $map in $color-palettes {
+	$color-primary: map-get( $map, 'color-primary' );
+	$color-secondary: map-get( $map, 'color-secondary' );
+	$color-tertiary: map-get( $map, 'color-tertiary' );
+	$color-dark: map-get( $map, 'color-dark' );
+
+	label[for="burf_setting_colors_#{$palette}"]::before {
+		background: $color-primary; // Old browsers
+		background: -moz-linear-gradient( top, $color-primary 25%, $color-secondary 25%, $color-secondary 50%, $color-tertiary 50%, $color-tertiary 75%, $color-dark 75% ); // FF3.6-15
+		background: -webkit-linear-gradient( top, $color-primary 25%, $color-secondary 25%, $color-secondary 50%, $color-tertiary 50%, $color-tertiary 75%, $color-dark 75% ); // Chrome10-25,Safari5.1-6
+		background: linear-gradient( to right, $color-primary 25%, $color-secondary 25%, $color-secondary 50%, $color-tertiary 50%, $color-tertiary 75%, $color-dark 75% ); // W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-primary', endColorstr='$color-tertiary',GradientType=0 ); // IE6-9
 	}
 }
 

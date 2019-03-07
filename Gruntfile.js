@@ -48,6 +48,15 @@ module.exports = function( grunt ) {
 					spawn: false,
 				},
 			},
+			colors: {
+				files: [
+					'css-dev/customizer/color-palettes/*.scss'
+				],
+				tasks: ['sass:colors'],
+				options: {
+					spawn: false
+				}
+			},
 			admin: {
 				files: [ 'css-dev/admin.scss' ],
 				tasks: [ 'sass:admin' ],
@@ -147,6 +156,19 @@ module.exports = function( grunt ) {
 						ext: '.css',
 					},
 				],
+			},
+			colors: {
+				options: {
+					outputStyle: 'expanded',
+					sourceMap: false
+				},
+				files: [{
+					expand: true,
+					cwd: 'css-dev/customizer/color-palettes',
+					src: ['*.scss'],
+					dest: 'css',
+					ext: '.css'
+				}]
 			},
 			admin: {
 				files: [
