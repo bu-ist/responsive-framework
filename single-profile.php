@@ -12,25 +12,24 @@ get_header(); ?>
 	<?php if ( have_posts() ) : the_post(); ?>
 
 		<?php
-		if ( function_exists( 'bu_thumbnail' ) ) {
-			$thumb_args = array(
-				'maxwidth'  => 300,
-				'maxheight' => 300,
-				'size'      => 'responsive_profile_large',
-			);
-			$profile_thumb = bu_get_thumbnail_src( get_the_ID(), $thumb_args );
-		} else {
-			$profile_thumb = false;
-		}
+		/**
+		 * Fires immediately before the opening article tag.
+		 *
+		 * @since 2.2.1
+		 */
+		do_action( 'r_before_opening_article' );
 		?>
 
 		<article <?php post_class( 'content-area' ); ?>>
-			<?php if ( $profile_thumb ) : ?>
-				<figure class="profile-photo profile-single-photo"><?php echo wp_kses_post( $profile_thumb ); ?></figure>
-			<?php endif; ?>
 
-			<?php responsive_the_title(); ?>
-			<h2 class="profile-single-title"><?php bu_profile_detail( 'title' ); ?></h2>
+			<?php
+			/**
+			 * Fires immediately after opening article tag.
+			 *
+			 * @since 2.2.1
+			 */
+			do_action( 'r_after_opening_article' );
+			?>
 
 			<?php if ( $has_details ) : ?>
 				<aside role="complementary" class="profile-single-details">
@@ -93,7 +92,25 @@ get_header(); ?>
 
 			<?php responsive_comments(); ?>
 
+			<?php
+			/**
+			 * Fires immediately before closing article tag.
+			 *
+			 * @since 2.2.1
+			 */
+			do_action( 'r_before_closing_article' );
+			?>
+
 		</article>
+
+		<?php
+		/**
+		 * Fires immediately after closing article tag.
+		 *
+		 * @since 2.2.1
+		 */
+		do_action( 'r_after_closing_article' );
+		?>
 
 	<?php endif; ?>
 

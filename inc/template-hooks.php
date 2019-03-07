@@ -45,3 +45,51 @@ if ( ! function_exists( 'responsive_the_title_location' ) ) {
 	}
 }
 add_action( 'wp', 'responsive_the_title_location' );
+
+if ( ! function_exists( 'responsive_single_profile_img' ) ) {
+	/**
+	 * Adds a profile image intended for `single-profile.php`.
+	 *
+	 * @since 2.2.1
+	 */
+	function responsive_single_profile_img() {
+
+		// Sets profile thumbnail to false by default.
+		$profile_thumb = false;
+
+		// If BU Thumbnail exists, attempt to retrieve the image HTML.
+		if ( function_exists( 'bu_thumbnail' ) ) {
+			$thumb_args = array(
+				'maxwidth'  => 300,
+				'maxheight' => 300,
+				'size'      => 'responsive_profile_large',
+			);
+			$profile_thumb = bu_get_thumbnail_src( get_the_ID(), $thumb_args );
+		}
+
+		// Output the thumbnail if found.
+		if ( $profile_thumb ) :
+			?>
+			<figure class="profile-photo profile-single-photo">
+				<?php echo wp_kses_post( $profile_thumb ); ?>
+			</figure>
+			<?php
+		endif;
+
+	}
+}
+add_action( 'r_after_opening_article', 'responsive_single_profile_img', 9 );
+
+if ( ! function_exists( 'responsive_single_profile_subheader' ) ) {
+	/**
+	 * Adds a profile title intended for `single-profile.php`.
+	 *
+	 * @since 2.2.1
+	 */
+	function responsive_single_profile_subheader() {
+		?>
+		<h2 class="profile-single-title"><?php bu_profile_detail( 'title' ); ?></h2>
+		<?php
+	}
+}
+add_action( 'r_after_opening_article', 'responsive_single_profile_subheader', 11 );
