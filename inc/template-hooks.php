@@ -19,32 +19,14 @@
  * @since      2.2.1
  */
 
-if ( ! function_exists( 'responsive_the_title_location' ) ) {
-	/**
-	 * Adds the page title to the front end.
-	 *
-	 * Fires on the `wp` hook so that the global WP class object is set up, and
-	 * the query has already been parsed so that WP Conditional Tags can be
-	 * used.
-	 *
-	 * @since 2.2.1
-	 *
-	 * @link https://codex.wordpress.org/Plugin_API/Action_Reference
-	 * @link https://codex.wordpress.org/Plugin_API/Action_Reference/wp
-	 * @link https://codex.wordpress.org/Conditional_Tags
-	 */
-	function responsive_the_title_location() {
-
-		// Returns immediately if this is not the front-end.
-		if ( is_admin() ) {
-			return;
-		}
-
-		// Adds the title tag immediately after opening article tag, by default.
-		add_action( 'r_after_opening_article', 'responsive_the_title' );
-	}
-}
-add_action( 'wp', 'responsive_the_title_location' );
+/**
+ * Adds the page title to the front end immediately after opening article tag.
+ *
+ * @since 2.2.1
+ *
+ * @see inc/template-tags.php for `responsive_the_title()` definition.
+ */
+add_action( 'r_after_opening_article', 'responsive_the_title' );
 
 if ( ! function_exists( 'responsive_single_profile_img' ) ) {
 	/**
