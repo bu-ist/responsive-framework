@@ -6,6 +6,35 @@
  */
 
 /**
+ * Retrieves an event from the BU Calendar App.
+ *
+ * All parameters are optional. This function may be called without parameters
+ * in order to retrieve a single event on the calendar template when all the
+ * URL query parameters are currently present in the request.
+ *
+ * @since 2.2.1
+ *
+ * @link https://github.com/bu-ist/bu-calendar-plugin/blob/master/calendar.php#L539-L549
+ *
+ * @param int $calendar_id The calendar ID to retrieve events from.
+ * @param int $event_id    The event ID for the event post.
+ * @param int $oid         The event occurrence ID. May have multiple occurrences.
+ * @return array $event An array of single-event data.
+ */
+function responsive_calendar_get_event( $calendar_id, $event_id, $oid ) {
+
+	// Setup parameters for $buCalendar->getEvent() method.
+	$calendar_id = ! empty( $calendar_id ) ? $calendar_id : responsive_calendar_get_calendar_id();
+	$event_id    = ! empty( $event_id ) ? $event_id : responsive_calendar_get_event_id();
+	$oid         = ! empty( $oid ) ? $oid : responsive_calendar_get_oid();
+
+	// Retrieve the event by these IDs.
+	$event = $buCalendar->getEvent( $calendar_id, $event_id, $oid );
+
+	return $event;
+}
+
+/**
  * Display the calendar widget markup.
  *
  * @global $buCalendar Calendar plugin instance.
