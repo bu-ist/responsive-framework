@@ -164,7 +164,7 @@ if ( ! function_exists( 'responsive_get_the_title' ) ) {
 		endif;
 
 		// Allow the current title to be filtered.
-		$title = apply_filters( 'responsive_filter_get_the_title', $title );
+		$title = apply_filters( 'responsive_get_the_title', $title );
 
 		return $title;
 	}
