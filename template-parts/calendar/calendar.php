@@ -7,20 +7,6 @@
 
 global $buCalendar;
 
-// Displays the h1 page title and content.
-if ( have_posts() ) {
-	while ( have_posts() ) :
-		the_post();
-		responsive_the_title();
-		the_content( '<p class="serif">Read the rest of this page &raquo;</p>' );
-		wp_link_pages( array(
-			'before'         => '<p><strong>Pages:</strong> ',
-			'after'          => '</p>',
-			'next_or_number' => 'number',
-		) );
-	endwhile;
-}
-
 // Displays calendar component.
 $calendar_id  = responsive_calendar_get_calendar_id();
 $calendar_url = responsive_calendar_get_calendar_url();

@@ -20,6 +20,38 @@
  */
 
 /**
+ * Filters the path of the current template before including it.
+ *
+ * @since 2.2.1
+ *
+ * @link https://developer.wordpress.org/reference/hooks/template_include/
+ *
+ * @param string $template The path of the template to include.
+ * @return string $template The path of the template to include.
+ */
+function responsive_calendar_template_include( $template ) {
+
+	// Bails immediately if this is not the calendar template.
+	if ( 'page-templates/calendar.php' !== $template ) {
+		return $template;
+	}
+
+	// Attempt to retrieve an event ID.
+	$event_id = responsive_calendar_get_event_id();
+
+	// Conditionally load the single event template.
+	if ( ! is_null( $event_id ) ) {
+		// Attempt to locate the single event template.
+		$single_event_template = locate_template( 'page-template/calendar-single.php' );
+		// If single event template exists, laod it instead of calendar template.
+		$template = $single_event_template;
+	}
+
+	return $template;
+}
+add_filter( 'template_include', 'responsive_calendar_template_include' );
+
+/**
  * Adds the page title to the front end immediately after opening article tag.
  *
  * @since 2.2.1
