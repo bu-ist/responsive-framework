@@ -7,31 +7,8 @@
 
 global $buCalendar;
 
-$labels = apply_filters( 'responsive_calendar_event_labels', array(
-	'address'              => __( 'Address', 'responsive-framework' ) . ':',
-	'audience'             => __( 'Audience', 'responsive-framework' ) . ':',
-	'back_to_calendar'     => __( 'Back to Calendar', 'responsive-framework' ),
-	'contact_email'        => __( 'Contact Email', 'responsive-framework' ) . ':',
-	'contact_name'         => __( 'Contact Name', 'responsive-framework' ) . ':',
-	'contact_organization' => __( 'Contact Organization', 'responsive-framework' ) . ':',
-	'contact_phone'        => __( 'Contact Phone', 'responsive-framework' ) . ':',
-	'deadline'             => __( 'Deadline', 'responsive-framework' ) . ':',
-	'departments'          => __( 'Departments', 'responsive-framework' ) . ':',
-	'ends'                 => __( 'Ends', 'responsive-framework' ) . ':',
-	'fee'                  => __( 'Fees', 'responsive-framework' ) . ':',
-	'fee_general'          => __( 'Fee (General)', 'responsive-framework' ) . ':',
-	'fee_public'           => __( 'Fee (Public)', 'responsive-framework' ) . ':',
-	'fee_senior'           => __( 'Fee (Seniors)', 'responsive-framework' ) . ':',
-	'fee_staff'            => __( 'Fee (Staff)', 'responsive-framework' ) . ':',
-	'fee_student'          => __( 'Fee (Students)', 'responsive-framework' ) . ':',
-	'fee_student_bu'       => __( 'Fee (BU Students)', 'responsive-framework' ) . ':',
-	'fees'                 => __( 'Fees', 'responsive-framework' ) . ':',
-	'location'             => __( 'Location', 'responsive-framework' ) . ':',
-	'registration'         => __( 'Registration', 'responsive-framework' ) . ':',
-	'room'                 => __( 'Room', 'responsive-framework' ) . ':',
-	'speakers'             => __( 'Speakers', 'responsive-framework' ) . ':',
-	'starts'               => __( 'Starts', 'responsive-framework' ) . ':',
-) );
+// Retrieve single-event labels used for templating.
+$labels = responsive_calendar_event_labels();
 
 // Retrieve single-event parameters.
 $calendar_id = responsive_calendar_get_calendar_id();
