@@ -16,12 +16,15 @@
  *
  * @link https://github.com/bu-ist/bu-calendar-plugin/blob/master/calendar.php#L539-L549
  *
+ * @global $buCalendar Calendar plugin instance.
+ *
  * @param int $calendar_id The calendar ID to retrieve events from.
  * @param int $event_id    The event ID for the event post.
  * @param int $oid         The event occurrence ID. May have multiple occurrences.
  * @return array $event An array of single-event data.
  */
-function responsive_calendar_get_event( $calendar_id, $event_id, $oid ) {
+function responsive_calendar_get_event( $calendar_id = false, $event_id = false, $oid = false ) {
+	global $buCalendar;
 
 	// Setup parameters for $buCalendar->getEvent() method.
 	$calendar_id = ! empty( $calendar_id ) ? $calendar_id : responsive_calendar_get_calendar_id();
