@@ -5,18 +5,11 @@
  * @package Responsive_Framework
  */
 
-global $buCalendar;
-
 // Retrieve single-event labels used for templating.
 $labels = responsive_calendar_event_labels();
 
-// Retrieve single-event parameters.
-$calendar_id = responsive_calendar_get_calendar_id();
-$event_id    = responsive_calendar_get_event_id();
-$oid         = responsive_calendar_get_oid();
-
-// Retrieve the event by these IDs.
-$event = $buCalendar->getEvent( $calendar_id, $event_id, $oid );
+// Retrieve the queried event.
+$event = responsive_calendar_get_event();
 ?>
 <div class="single-event">
 	<div class="single-event-summary">
