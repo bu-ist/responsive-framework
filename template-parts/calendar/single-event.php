@@ -39,84 +39,84 @@ $event = responsive_calendar_get_event();
 
 	<div class="single-event-additional-details">
 		<dl class="tabular">
-			<?php if ( $event['speakers'] && ! empty( $labels['speakers'] ) ) : ?>
+			<?php if ( ! empty( $event['speakers'] ) && ! empty( $labels['speakers'] ) ) : ?>
 				<dt class="single-event-speakers-label"><?php echo esc_html( $labels['speakers'] ); ?></dt>
 				<dd class="single-event-speakers-info"><?php echo wp_kses_post( $event['speakers'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['audience'] && ! empty( $labels['audience'] ) ) : ?>
+			<?php if ( ! empty( $event['audience'] ) && ! empty( $labels['audience'] ) ) : ?>
 				<dt class="single-event-audience-label"><?php echo esc_html( $labels['audience'] ); ?></dt>
 				<dd class="single-event-audience-info"><?php echo wp_kses_post( $event['audience'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['departments'] && ! empty( $labels['departments'] ) ) : ?>
+			<?php if ( ! empty( $event['departments'] ) && ! empty( $labels['departments'] ) ) : ?>
 				<dt class="single-event-departments-label"><?php echo esc_html( $labels['departments'] ); ?></dt>
 				<dd class="single-event-departments-info"><?php echo wp_kses_post( $event['departments'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['location'] && ! empty( $labels['location'] ) ) : ?>
+			<?php if ( ! empty( $event['location'] ) && ! empty( $labels['location'] ) ) : ?>
 				<dt class="single-event-location-label"><?php echo esc_html( $labels['location'] ); ?></dt>
 				<dd class="single-event-location-info"><?php echo wp_kses_post( $event['location'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['locationBuilding'] && ! empty( $labels['address'] ) ) : ?>
+			<?php if ( ! empty( $event['locationBuilding'] ) && ! empty( $labels['address'] ) ) : ?>
 				<dt class="single-event-location-building-label"><?php echo esc_html( $labels['address'] ); ?></dt>
 				<dd class="single-event-location-building-info"><?php echo wp_kses_post( $event['locationBuilding'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['locationRoom'] && ! empty( $labels['room'] ) ) : ?>
+			<?php if ( ! empty( $event['locationRoom'] ) && ! empty( $labels['room'] ) ) : ?>
 				<dt class="single-event-location-room-label"><?php echo esc_html( $labels['room'] ); ?></dt>
 				<dd class="single-event-location-room-info"><?php echo wp_kses_post( $event['locationRoom'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['fees'] && ! empty( $labels['fees'] ) ) : ?>
+			<?php if ( ! empty( $event['fees'] ) && ! empty( $labels['fees'] ) ) : ?>
 				<dt class="single-event-fees-label"><?php echo esc_html( $labels['fees'] ); ?></dt>
 				<dd class="single-event-fees-info"><?php echo wp_kses_post( $event['fees'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['fee'] && ! empty( $labels['fee'] ) ) : ?>
+			<?php if ( ! empty( $event['fee'] ) && ! empty( $labels['fee'] ) ) : ?>
 				<dt class="single-event-fee-label"><?php echo esc_html( $labels['fee'] ); ?></dt>
 				<dd class="single-event-fee-info"><?php echo wp_kses_post( $event['fee'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['feeGeneral'] && ! empty( $labels['fee_general'] ) ) : ?>
+			<?php if ( ! empty( $event['feeGeneral'] ) && ! empty( $labels['fee_general'] ) ) : ?>
 				<dt class="single-event-fee-general-label"><?php echo esc_html( $labels['fee_general'] ); ?></dt>
 				<dd class="single-event-fee-general-info"><?php echo wp_kses_post( $event['feeGeneral'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['feePublic'] && ! empty( $labels['fee_public'] ) ) : ?>
+			<?php if ( ! empty( $event['feePublic'] ) && ! empty( $labels['fee_public'] ) ) : ?>
 				<dt class="single-event-fee-public-label"><?php echo esc_html( $labels['fee_public'] ); ?></dt>
 				<dd class="single-event-fee-public-info"><?php echo wp_kses_post( $event['feePublic'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['feeStaff'] && ! empty( $labels['fee_staff'] ) ) : ?>
+			<?php if ( ! empty( $event['feeStaff'] ) && ! empty( $labels['fee_staff'] ) ) : ?>
 				<dt class="single-event-fee-staff-label"><?php echo esc_html( $labels['fee_staff'] ); ?></dt>
 				<dd class="single-event-fee-staff-info"><?php echo wp_kses_post( $event['feeStaff'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['feeStudent'] && ! empty( $labels['fee_student'] ) ) : ?>
+			<?php if ( ! empty( $event['feeStudent'] ) && ! empty( $labels['fee_student'] ) ) : ?>
 				<dt class="single-event-fee-student-label"><?php echo esc_html( $labels['fee_student'] ); ?></dt>
 				<dd class="single-event-fee-student-info"><?php echo wp_kses_post( $event['feeStudent'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['feeBUStudent'] && ! empty( $labels['fee_student_bu'] ) ) : ?>
+			<?php if ( ! empty( $event['feeBUStudent'] ) && ! empty( $labels['fee_student_bu'] ) ) : ?>
 				<dt class="single-event-fee-bu-student-label"><?php echo esc_html( $labels['fee_student_bu'] ); ?></dt>
 				<dd class="single-event-fee-bu-student-info"><?php echo wp_kses_post( $event['feeBUStudent'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['feeSenior'] && ! empty( $labels['fee_senior'] ) ) : ?>
+			<?php if ( ! empty( $event['feeSenior'] ) && ! empty( $labels['fee_senior'] ) ) : ?>
 				<dt class="single-event-fee-senior-label"><?php echo esc_html( $labels['fee_senior'] ); ?></dt>
 				<dd class="single-event-fee-senior-info"><?php echo wp_kses_post( $event['feeSenior'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['deadline'] && ! empty( $labels['deadline'] ) ) : ?>
+			<?php if ( ! empty( $event['deadline'] ) && ! empty( $labels['deadline'] ) ) : ?>
 				<dt class="single-event-deadline-label"><?php echo esc_html( $labels['deadline'] ); ?></dt>
 				<dd class="single-event-deadline-info"><?php echo wp_kses_post( $event['deadline'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['url'] && ! empty( $labels['registration'] ) ) : ?>
-				<?php $url_text = $event['urlText'] ? $event['urlText'] : $event['url']; ?>
+			<?php if ( ! empty( $event['url'] ) && ! empty( $labels['registration'] ) ) : ?>
+				<?php $url_text = ! empty( $event['urlText'] ) ? $event['urlText'] : $event['url']; ?>
 				<dt class="single-event-registration-label"><?php echo esc_html( $labels['registration'] ); ?></dt>
 				<dd class="single-event-registration-info"><?php printf( '<a href="%s" class="single-event-registration-link">%s</a>', esc_url( $event['url'] ), esc_html( $url_text ) ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['contactOrganization'] && ! empty( $labels['contact_organization'] ) ) : ?>
+			<?php if ( ! empty( $event['contactOrganization'] ) && ! empty( $labels['contact_organization'] ) ) : ?>
 				<dt class="single-event-contact-org-label"><?php echo esc_html( $labels['contact_organization'] ); ?></dt>
 				<dd class="single-event-contact-org-info"><?php echo wp_kses_post( $event['contactOrganization'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['contact_name'] && ! empty( $labels['contact_name'] ) ) : ?>
+			<?php if ( ! empty( $event['contact_name'] ) && ! empty( $labels['contact_name'] ) ) : ?>
 				<dt class="single-event-contact-name-label"><?php echo esc_html( $labels['contact_name'] ); ?></dt>
 				<dd class="single-event-contact-name-info"><?php echo wp_kses_post( $event['contact_name'] ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['contact_email'] && ! empty( $labels['contact_email'] ) ) : ?>
+			<?php if ( ! empty( $event['contact_email'] ) && ! empty( $labels['contact_email'] ) ) : ?>
 				<dt class="single-event-contact-email-label"><?php echo esc_html( $labels['contact_email'] ); ?></dt>
 				<dd class="single-event-contact-email-info"><?php printf( '<a href="mailto:%s" class="single-event-contact-email-link">%s</a>', esc_url( $event['contact_email'] ), esc_html( $event['contact_email'] ) ); ?></dd>
 			<?php endif; ?>
-			<?php if ( $event['phone'] && ! empty( $labels['contact_phone'] ) ) : ?>
+			<?php if ( ! empty( $event['phone'] ) && ! empty( $labels['contact_phone'] ) ) : ?>
 				<dt class="single-event-contact-phone-label"><?php echo esc_html( $labels['contact_phone'] ); ?></dt>
 				<dd class="single-event-contact-phone-info"><?php echo wp_kses_post( $event['phone'] ); ?></dd>
 			<?php endif; ?>
