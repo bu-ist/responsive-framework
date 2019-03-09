@@ -1,0 +1,13 @@
+$palette-id: 'extra-spectral';
+
+@import 'styles-base';
+
+$sidebar-bg: #A5144D;
+$sidebar-button-bg: #660028;
+
+@import 'monochromatic';
+
+@import 'styles-navigation';
+@import 'styles-content';
+@import 'styles-sidebar';
+@import 'styles-footer';

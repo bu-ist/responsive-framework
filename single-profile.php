@@ -138,11 +138,11 @@ get_header(); ?>
 
 			<?php the_taxonomies( array( 'before' => '<div class="profile-tax"><dl>', 'sep' => '', 'after' => '</dl></div><!--/.profiles-tax-->', 'template' => '<dt>%s</dt><dd>%l</dd>' ) ); ?>
 
-			<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<p class="edit-link">', '</p>' ); ?>
-
 			<?php responsive_profiles_archive_link(); ?>
 
 			<?php responsive_comments(); ?>
+
+			<?php edit_post_link( __( 'Edit Profile', 'responsive-framework' ), '<span class="edit-link">', '</span><span class="post-edit-hint"></span>' ); ?>
 
 			<?php
 			/**

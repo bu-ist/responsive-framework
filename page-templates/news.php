@@ -46,8 +46,6 @@ get_header();
 			) );
 		?>
 
-		<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<span class="edit-link">', '</span>' ); ?>
-
 		<?php if ( class_exists( 'BU_News_Page_Template' ) ) : ?>
 
 			<?php $news_query = BU_News_Page_Template::query_posts(); ?>
@@ -73,6 +71,8 @@ get_header();
 		<?php endif; ?>
 
 		<?php wp_reset_postdata(); ?>
+
+		<?php edit_post_link( __( 'Edit Page', 'responsive-framework' ), '<span class="edit-link">', '</span><span class="post-edit-hint"></span>' ); ?>
 
 		<?php
 		/**

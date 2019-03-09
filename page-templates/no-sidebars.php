@@ -41,8 +41,6 @@ get_header();
 				) );
 			?>
 
-			<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<span class="edit-link">', '</span>' ); ?>
-
 			<?php responsive_comments(); ?>
 
 			<?php
@@ -53,6 +51,8 @@ get_header();
 			 */
 			do_action( 'r_before_closing_article' );
 			?>
+
+			<?php edit_post_link( __( 'Edit Page', 'responsive-framework' ), '<span class="edit-link">', '</span><span class="post-edit-hint"></span>' ); ?>
 
 		</article>
 
