@@ -61,5 +61,3 @@ add_filter( 'template_include', 'responsive_calendar_template_include' );
  * @see inc/template-tags.php for `responsive_the_title()` definition.
  */
 add_action( 'r_after_opening_article', 'responsive_the_title' );
-
-}
