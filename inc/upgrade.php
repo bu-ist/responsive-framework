@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Upgrade routines.
  *
@@ -82,11 +83,11 @@ function responsive_upgrade_091( $verbose = true ) {
 	}
 
 	$template_map = apply_filters( __FUNCTION__ . '_template_map', array(
-		'calendar.php'        => 'page-templates/calendar.php',
-		'news.php'            => 'page-templates/news.php',
+		'calendar.php' => 'page-templates/calendar.php',
+		'news.php' => 'page-templates/news.php',
 		'page-nosidebars.php' => 'page-templates/no-sidebars.php',
-		'profiles.php'        => 'page-templates/profiles.php',
-	) );
+		'profiles.php' => 'page-templates/profiles.php',
+		) );
 
 	$template_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
 		$wpdb->postmeta, implode( '","', array_keys( $template_map ) )
@@ -108,9 +109,9 @@ function responsive_upgrade_091( $verbose = true ) {
 
 	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
 		'content-width' => 'contentWidth',
-		'page-width'    => 'pageWidth',
-		'window-width'  => 'windowWidth',
-	) );
+		'page-width' => 'pageWidth',
+		'window-width' => 'windowWidth',
+		) );
 
 	$banner_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
 		$wpdb->postmeta
@@ -120,16 +121,16 @@ function responsive_upgrade_091( $verbose = true ) {
 	foreach ( $results as $result ) {
 		$banner = maybe_unserialize( $result->meta_value );
 		if ( is_array( $banner ) ) {
-			if ( array_key_exists( 'position', $banner ) && in_array( $banner['position'], array_keys( $banner_map ) ) ) {
-				$banner['position'] = $banner_map[ $banner['position'] ];
+			if ( array_key_exists( 'position', $banner ) && in_array( $banner[ 'position' ], array_keys( $banner_map ) ) ) {
+				$banner[ 'position' ] = $banner_map[ $banner[ 'position' ] ];
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
-			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
+			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner[ 'position' ] ) ) {
 				if ( $verbose ) {
 					error_log( __FUNCTION__ . ' - Resetting empty banner position to default (contentWidth)' );
 				}
 
 				// Reset to default.
-				$banner['position'] = 'contentWidth';
+				$banner[ 'position' ] = 'contentWidth';
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			}
 		}
@@ -141,9 +142,9 @@ function responsive_upgrade_091( $verbose = true ) {
 	}
 
 	$sidebars_map = apply_filters( __FUNCTION__ . '_sidebars_map', array(
-		'right-content-area'  => 'sidebar',
+		'right-content-area' => 'sidebar',
 		'bottom-content-area' => 'footbar',
-	) );
+		) );
 	$sidebars_widgets = wp_get_sidebars_widgets();
 	foreach ( $sidebars_map as $from => $to ) {
 		if ( array_key_exists( $from, $sidebars_widgets ) ) {
@@ -173,7 +174,7 @@ function responsive_upgrade_2_0( $verbose = true ) {
 
 	$template_map = apply_filters( __FUNCTION__ . '_template_map', array(
 		'page-templates/profiles.php' => 'profiles.php',
-	) );
+		) );
 
 	$template_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
 		$wpdb->postmeta, implode( '","', array_keys( $template_map ) )
@@ -188,6 +189,12 @@ function responsive_upgrade_2_0( $verbose = true ) {
 		update_post_meta( $result->post_id, '_wp_page_template', $template_map[ $result->meta_value ] );
 	}
 
+	upgrade_banner( $verbose );
+	upgrade_layout( $verbose );
+	upgrade_fonts( $verbose );
+}
+
+function upgrade_banner( $verbose ) {
 	// Rename banner positions.
 	if ( $verbose ) {
 		error_log( __FUNCTION__ . ' - Migrating content banners...' );
@@ -195,37 +202,39 @@ function responsive_upgrade_2_0( $verbose = true ) {
 
 	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
 		'contentWidth' => 'content-width',
-		'pageWidth'    => 'page-width',
-		'windowWidth'  => 'window-width',
-	) );
+		'pageWidth' => 'page-width',
+		'windowWidth' => 'window-width',
+		) );
 
-	$results = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'",
-		$wpdb->postmeta
-	) );
+	$results = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb -> postmeta WHERE meta_key = '_bu_banner'",
+			$wpdb->postmeta
+		) );
 
 	foreach ( $results as $result ) {
 		$banner = maybe_unserialize( $result->meta_value );
 		if ( is_array( $banner ) ) {
-			if ( array_key_exists( 'position', $banner ) && in_array( $banner['position'], array_keys( $banner_map ) ) ) {
-				$banner['position'] = $banner_map[ $banner['position'] ];
+			if ( array_key_exists( 'position', $banner ) && in_array( $banner[ 'position' ], array_keys( $banner_map ) ) ) {
+				$banner[ 'position' ] = $banner_map[ $banner[ 'position' ] ];
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
-			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
+			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner[ 'position' ] ) ) {
 				if ( $verbose ) {
 					error_log( __FUNCTION__ . ' - Resetting empty banner position to default (content-width)' );
 				}
 
 				// Reset to default.
-				$banner['position'] = 'content-width';
+				$banner[ 'position' ] = 'content-width';
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			}
 		}
 	}
+}
 
+function upgrade_layout( $verbose ) {
 	// Upgrade layout names and ensure a value is saved to the option in the database.
 	$names = array(
 		'sideNav' => 'side-nav',
-		'topNav' => 'top-nav',
-		'noNav' => 'no-nav',
+		'topNav'  => 'top-nav',
+		'noNav'   => 'no-nav',
 	);
 
 	if ( $verbose ) {
@@ -253,3 +262,62 @@ function responsive_upgrade_2_0( $verbose = true ) {
 		update_option( 'burf_setting_layout', $new_layout );
 	}
 }
+
+function upgrade_fonts( $verbose ) {
+	if ( $verbose ) {
+		error_log( __FUNCTION__ . ' - Updating font.' );
+	}
+
+	$old_font = get_option( 'burf_setting_fonts' );
+	$new_font = 'f1';
+
+	if ( defined( 'BU_RESPONSIVE_FONT_PALETTE' ) ) {
+		$new_font = BU_RESPONSIVE_FONT_PALETTE;
+	} elseif ( ! empty( $old_font ) ) {
+		$new_font = $old_font;
+	}
+
+	if ( 'f1' !== $new_font ) {
+		if ( ! array_key_exists( $new_font, responsive_font_options() ) ) {
+			$new_font = 'f1';
+		}
+	}
+
+	if ( $new_font !== $old_font ) {
+		update_option( 'burf_setting_fonts', $new_font );
+	}
+}
+
+function upgrade_colors( $verbose ) {
+	if ( $verbose ) {
+		error_log( __FUNCTION__ . ' - Updating font.' );
+	}
+
+	$old_color = get_option( 'burf_setting_color_scheme' );
+	$new_color = 'default';
+
+	if ( defined( 'BU_RESPONSIVE_COLOR_PALETTE' ) ) {
+		$new_color = BU_RESPONSIVE_COLOR_PALETTE;
+	} elseif ( ! empty( $old_color ) ) {
+		$new_color = $old_color;
+	}
+
+	if ( 'default' !== $new_color ) {
+		if ( ! array_key_exists( $new_color, responsive_color_options() ) ) {
+			$new_color = 'default';
+		}
+	}
+
+	if ( $new_color !== $old_color ) {
+		update_option( 'burf_setting_colors', $new_color );
+	}
+}
+
+/**
+ * TODO: Flush all the shit.
+ * Rebuild burf_customizer_styles
+ * Kill:
+ *		burf_setting_color_scheme
+ *		burf_setting_active_color_region
+ *		burf_setting_custom_colors
+ */
