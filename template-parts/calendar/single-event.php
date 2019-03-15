@@ -5,6 +5,8 @@
  * @package Responsive_Framework
  */
 
+global $buCalendar;
+
 // Retrieve single-event labels used for templating.
 $labels = responsive_calendar_event_labels();
 
@@ -120,7 +122,41 @@ $event = responsive_calendar_get_event();
 				<dt class="single-event-contact-phone-label"><?php echo esc_html( $labels['contact_phone'] ); ?></dt>
 				<dd class="single-event-contact-phone-info"><?php echo wp_kses_post( $event['phone'] ); ?></dd>
 			<?php endif; ?>
+			<?php
+			// Check if this calendar has custom fields.
+			$calendar_id = responsive_calendar_get_calendar_id();
+			if ( $buCalendar->hasCustomFields( $calendar_id ) ) {
 
+				/**
+				 * Retrieve the fields, will be cached from hasCustomFields call.
+				 *
+				 * Note that these are not fields associated with data/values,
+				 * rather these are the base fields this calendar has. The
+				 * actual event, e.g. $event, contains the data/value for an
+				 * event's custom fields.
+				 */
+				$fields = $buCalendar->getCustomFields( $calendar_id );
+
+				// Now we loop through each field and check
+				// if that field has a value for this event.
+				foreach ( $fields as $field ) {
+
+					// Create some variables to store the field name and that field on the event
+					// not required but done here to make this example more readable.
+					$field_name  = $field['name'];
+					$event_field = $event[ $field_name ];
+
+					// If the event has this field and it has a value then print
+					// the field label and the event's field value.
+					if ( ! empty( $event[ $field['name'] ] ) && ! empty( $event_field ) ) {
+						?>
+						<dt class="single-event-custom-field-label"><?php echo esc_html( $field['label'] ); ?></dt>
+						<dd class="single-event-custom-field-info"><?php echo wp_kses_post( $event_field ); ?></dd>
+						<?php
+					}
+				}
+			}
+			?>
 		</dl>
 	</div> <!-- /.additionalDetails -->
 
