@@ -141,10 +141,8 @@ $event = responsive_calendar_get_event();
 				// if that field has a value for this event.
 				foreach ( $fields as $field ) {
 
-					// Create some variables to store the field name and that field on the event
-					// not required but done here to make this example more readable.
-					$field_name  = $field['name'];
-					$event_field = $event[ $field_name ];
+					// Stores the value of the custom field.
+					$event_field = $event[ $field['name'] ];
 
 					// If the event has this field and it has a value then print
 					// the field label and the event's field value.
