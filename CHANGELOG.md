@@ -3,6 +3,11 @@
 ## Unreleased
 
 - Add edit links to BU profiles partials and support for improved styling
+- Add template hooks to all core WP and custom page templates in the theme.
+- Normalize the markup used on all page templates for consistency.
+- Split the calendar template into `calendar.php` and `calendar-single.php` by
+  leveraging the `template_include` filter.
+- Add support for custom fields on `calendar-single.php`.
 
 ## 2.2.0
 
