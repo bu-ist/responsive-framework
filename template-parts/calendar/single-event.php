@@ -141,6 +141,11 @@ $event = responsive_calendar_get_event();
 				// if that field has a value for this event.
 				foreach ( $fields as $field ) {
 
+					// Skip checkbox fields. Those shouldn't output to front-end.
+					if ( 'checkbox' === $field['html_type'] ) {
+						continue;
+					}
+
 					// Stores the value of the custom field.
 					$event_field = $event[ $field['name'] ];
 
