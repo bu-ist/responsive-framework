@@ -189,12 +189,31 @@ function responsive_upgrade_2_0( $verbose = true ) {
 		update_post_meta( $result->post_id, '_wp_page_template', $template_map[ $result->meta_value ] );
 	}
 
-	upgrade_banner( $verbose );
-	upgrade_layout( $verbose );
-	upgrade_fonts( $verbose );
+	responsive_upgrade_banner( $verbose );
+	responsive_upgrade_layout( $verbose );
+
+	// Delete the sytles cache so we can rebuild it after upgrading fonts and colors.
+	responsive_flush_customizer_styles_cache();
+	responsive_upgrade_fonts( $verbose );
+	responsive_upgrade_colors( $verbose );
+
+	// Recreate the styles cache.
+	responsive_get_customizer_styles( false );
+
+	// Delete unnecessary options.
+	delete_option( 'burf_setting_color_scheme' );
+	delete_option( 'burf_setting_active_color_region' );
+	delete_option( 'burf_setting_custom_colors' );
 }
 
-function upgrade_banner( $verbose ) {
+/**
+ * Migrate banner information
+ *
+ * @param boolean $verbose
+ */
+function responsive_upgrade_banner( $verbose ) {
+	global $wpdb;
+
 	// Rename banner positions.
 	if ( $verbose ) {
 		error_log( __FUNCTION__ . ' - Migrating content banners...' );
@@ -206,7 +225,7 @@ function upgrade_banner( $verbose ) {
 		'windowWidth' => 'window-width',
 		) );
 
-	$results = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb -> postmeta WHERE meta_key = '_bu_banner'",
+	$results = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'",
 			$wpdb->postmeta
 		) );
 
@@ -229,12 +248,17 @@ function upgrade_banner( $verbose ) {
 	}
 }
 
-function upgrade_layout( $verbose ) {
+/**
+ * Migrate layout options.
+ *
+ * @param boolean $verbose
+ */
+function responsive_upgrade_layout( $verbose ) {
 	// Upgrade layout names and ensure a value is saved to the option in the database.
 	$names = array(
 		'sideNav' => 'side-nav',
-		'topNav'  => 'top-nav',
-		'noNav'   => 'no-nav',
+		'topNav' => 'top-nav',
+		'noNav' => 'no-nav',
 	);
 
 	if ( $verbose ) {
@@ -263,7 +287,12 @@ function upgrade_layout( $verbose ) {
 	}
 }
 
-function upgrade_fonts( $verbose ) {
+/**
+ * Migrate font options.
+ *
+ * @param boolean $verbose
+ */
+function responsive_upgrade_fonts( $verbose ) {
 	if ( $verbose ) {
 		error_log( __FUNCTION__ . ' - Updating font.' );
 	}
@@ -283,12 +312,15 @@ function upgrade_fonts( $verbose ) {
 		}
 	}
 
-	if ( $new_font !== $old_font ) {
-		update_option( 'burf_setting_fonts', $new_font );
-	}
+	update_option( 'burf_setting_fonts', $new_font );
 }
 
-function upgrade_colors( $verbose ) {
+/**
+ * Migrate color options.
+ *
+ * @param boolean $verbose
+ */
+function responsive_upgrade_colors( $verbose ) {
 	if ( $verbose ) {
 		error_log( __FUNCTION__ . ' - Updating font.' );
 	}
@@ -308,16 +340,5 @@ function upgrade_colors( $verbose ) {
 		}
 	}
 
-	if ( $new_color !== $old_color ) {
-		update_option( 'burf_setting_colors', $new_color );
-	}
+	update_option( 'burf_setting_colors', $new_color );
 }
-
-/**
- * TODO: Flush all the shit.
- * Rebuild burf_customizer_styles
- * Kill:
- *		burf_setting_color_scheme
- *		burf_setting_active_color_region
- *		burf_setting_custom_colors
- */
