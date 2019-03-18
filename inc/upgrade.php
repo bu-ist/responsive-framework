@@ -227,7 +227,8 @@ function responsive_upgrade_2_0( $verbose = true ) {
 /**
  * Migrate banner information
  *
- * @param boolean $verbose Flag for outptting messages to error log.
+ * @param boolean $verbose Flag for outputting messages to error log.
+ * @since 2.2.1
  */
 function responsive_upgrade_banner( $verbose ) {
 	global $wpdb;
@@ -275,7 +276,8 @@ function responsive_upgrade_banner( $verbose ) {
 /**
  * Migrate layout options.
  *
- * @param boolean $verbose Flag for outptting messages to error log.
+ * @param boolean $verbose Flag for outputting messages to error log.
+ * @since 2.2.1
  */
 function responsive_upgrade_layout( $verbose ) {
 	// Upgrade layout names and ensure a value is saved to the option in the database.
@@ -314,7 +316,8 @@ function responsive_upgrade_layout( $verbose ) {
 /**
  * Migrate font options.
  *
- * @param boolean $verbose Flag for outptting messages to error log.
+ * @param boolean $verbose Flag for outputting messages to error log.
+ * @since 2.2.1
  */
 function responsive_upgrade_fonts( $verbose ) {
 	if ( $verbose ) {
@@ -330,6 +333,8 @@ function responsive_upgrade_fonts( $verbose ) {
 		$new_font = $old_font;
 	}
 
+	// If the default font is not being used,
+	// check to make sure the font actually exists as an option.
 	if ( 'f1' !== $new_font ) {
 		if ( ! array_key_exists( $new_font, responsive_font_options() ) ) {
 			$new_font = 'f1';
@@ -342,11 +347,12 @@ function responsive_upgrade_fonts( $verbose ) {
 /**
  * Migrate color options.
  *
- * @param boolean $verbose Flag for outptting messages to error log.
+ * @param boolean $verbose Flag for outputting messages to error log.
+ * @since 2.2.1
  */
 function responsive_upgrade_colors( $verbose ) {
 	if ( $verbose ) {
-		error_log( __FUNCTION__ . ' - Updating font.' );
+		error_log( __FUNCTION__ . ' - Updating color scheme.' );
 	}
 
 	$old_color = get_option( 'burf_setting_color_scheme' );
@@ -358,6 +364,8 @@ function responsive_upgrade_colors( $verbose ) {
 		$new_color = $old_color;
 	}
 
+	// If the default color is not being used,
+	// check to make sure the color actually exists as an option.
 	if ( 'default' !== $new_color ) {
 		if ( ! array_key_exists( $new_color, responsive_color_options() ) ) {
 			$new_color = 'default';
