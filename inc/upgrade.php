@@ -1,12 +1,11 @@
 <?php
-
 /**
  * Upgrade routines.
  *
  * @todo Prior to 1.0.0 release, add logic to the master branch (0.1.0) to ensure DB version
  *       is set so that these routines run for existing Responsi sites.
  *
- * @since  0.9.1
+ * @since 0.9.1
  *
  * @package Responsive_Framework\Upgrade
  */
@@ -82,16 +81,22 @@ function responsive_upgrade_091( $verbose = true ) {
 		error_log( __FUNCTION__ . ' - Migrating page templates...' );
 	}
 
-	$template_map = apply_filters( __FUNCTION__ . '_template_map', array(
-		'calendar.php' => 'page-templates/calendar.php',
-		'news.php' => 'page-templates/news.php',
-		'page-nosidebars.php' => 'page-templates/no-sidebars.php',
-		'profiles.php' => 'page-templates/profiles.php',
-		) );
-
-	$template_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
-		$wpdb->postmeta, implode( '","', array_keys( $template_map ) )
+	$template_map = apply_filters(
+		__FUNCTION__ . '_template_map',
+		array(
+			'calendar.php'        => 'page-templates/calendar.php',
+			'news.php'            => 'page-templates/news.php',
+			'page-nosidebars.php' => 'page-templates/no-sidebars.php',
+			'profiles.php'        => 'page-templates/profiles.php',
+		)
 	);
+
+	$template_query = sprintf(
+		'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
+		$wpdb->postmeta,
+		implode( '","', array_keys( $template_map ) )
+	);
+
 	$results = $wpdb->get_results( $template_query );
 
 	if ( $verbose ) {
@@ -107,30 +112,35 @@ function responsive_upgrade_091( $verbose = true ) {
 		error_log( __FUNCTION__ . ' - Migrating content banners...' );
 	}
 
-	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
-		'content-width' => 'contentWidth',
-		'page-width' => 'pageWidth',
-		'window-width' => 'windowWidth',
-		) );
+	$banner_map = apply_filters(
+		__FUNCTION__ . '_banner_map',
+		array(
+			'content-width' => 'contentWidth',
+			'page-width'    => 'pageWidth',
+			'window-width'  => 'windowWidth',
+		)
+	);
 
-	$banner_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
+	$banner_query = sprintf(
+		'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
 		$wpdb->postmeta
 	);
+
 	$results = $wpdb->get_results( $banner_query );
 
 	foreach ( $results as $result ) {
 		$banner = maybe_unserialize( $result->meta_value );
 		if ( is_array( $banner ) ) {
-			if ( array_key_exists( 'position', $banner ) && in_array( $banner[ 'position' ], array_keys( $banner_map ) ) ) {
-				$banner[ 'position' ] = $banner_map[ $banner[ 'position' ] ];
+			if ( array_key_exists( 'position', $banner ) && in_array( $banner['position'], array_keys( $banner_map ), true ) ) {
+				$banner['position'] = $banner_map[ $banner['position'] ];
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
-			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner[ 'position' ] ) ) {
+			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
 				if ( $verbose ) {
 					error_log( __FUNCTION__ . ' - Resetting empty banner position to default (contentWidth)' );
 				}
 
 				// Reset to default.
-				$banner[ 'position' ] = 'contentWidth';
+				$banner['position'] = 'contentWidth';
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			}
 		}
@@ -141,10 +151,13 @@ function responsive_upgrade_091( $verbose = true ) {
 		error_log( __FUNCTION__ . ' - Migrating sidebars...' );
 	}
 
-	$sidebars_map = apply_filters( __FUNCTION__ . '_sidebars_map', array(
-		'right-content-area' => 'sidebar',
-		'bottom-content-area' => 'footbar',
-		) );
+	$sidebars_map     = apply_filters(
+		__FUNCTION__ . '_sidebars_map',
+		array(
+			'right-content-area'  => 'sidebar',
+			'bottom-content-area' => 'footbar',
+		)
+	);
 	$sidebars_widgets = wp_get_sidebars_widgets();
 	foreach ( $sidebars_map as $from => $to ) {
 		if ( array_key_exists( $from, $sidebars_widgets ) ) {
@@ -172,14 +185,19 @@ function responsive_upgrade_2_0( $verbose = true ) {
 		error_log( __FUNCTION__ . ' - Migrating page templates...' );
 	}
 
-	$template_map = apply_filters( __FUNCTION__ . '_template_map', array(
-		'page-templates/profiles.php' => 'profiles.php',
-		) );
-
-	$template_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
-		$wpdb->postmeta, implode( '","', array_keys( $template_map ) )
+	$template_map = apply_filters(
+		__FUNCTION__ . '_template_map',
+		array(
+			'page-templates/profiles.php' => 'profiles.php',
+		)
 	);
-	$results = $wpdb->get_results( $template_query );
+
+	$template_query = sprintf(
+		'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
+		$wpdb->postmeta,
+		implode( '","', array_keys( $template_map ) )
+	);
+	$results        = $wpdb->get_results( $template_query );
 
 	if ( $verbose ) {
 		error_log( __FUNCTION__ . ' - Posts to migrate: ' . count( $results ) );
@@ -209,7 +227,7 @@ function responsive_upgrade_2_0( $verbose = true ) {
 /**
  * Migrate banner information
  *
- * @param boolean $verbose
+ * @param boolean $verbose Flag for outptting messages to error log.
  */
 function responsive_upgrade_banner( $verbose ) {
 	global $wpdb;
@@ -219,29 +237,35 @@ function responsive_upgrade_banner( $verbose ) {
 		error_log( __FUNCTION__ . ' - Migrating content banners...' );
 	}
 
-	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
-		'contentWidth' => 'content-width',
-		'pageWidth' => 'page-width',
-		'windowWidth' => 'window-width',
-		) );
+	$banner_map = apply_filters(
+		__FUNCTION__ . '_banner_map',
+		array(
+			'contentWidth' => 'content-width',
+			'pageWidth'    => 'page-width',
+			'windowWidth'  => 'window-width',
+		)
+	);
 
-	$results = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'",
+	$results = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'",
 			$wpdb->postmeta
-		) );
+		)
+	);
 
 	foreach ( $results as $result ) {
 		$banner = maybe_unserialize( $result->meta_value );
 		if ( is_array( $banner ) ) {
-			if ( array_key_exists( 'position', $banner ) && in_array( $banner[ 'position' ], array_keys( $banner_map ) ) ) {
-				$banner[ 'position' ] = $banner_map[ $banner[ 'position' ] ];
+			if ( array_key_exists( 'position', $banner ) && in_array( $banner['position'], array_keys( $banner_map ), true ) ) {
+				$banner['position'] = $banner_map[ $banner['position'] ];
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
-			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner[ 'position' ] ) ) {
+			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
 				if ( $verbose ) {
 					error_log( __FUNCTION__ . ' - Resetting empty banner position to default (content-width)' );
 				}
 
 				// Reset to default.
-				$banner[ 'position' ] = 'content-width';
+				$banner['position'] = 'content-width';
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			}
 		}
@@ -251,14 +275,14 @@ function responsive_upgrade_banner( $verbose ) {
 /**
  * Migrate layout options.
  *
- * @param boolean $verbose
+ * @param boolean $verbose Flag for outptting messages to error log.
  */
 function responsive_upgrade_layout( $verbose ) {
 	// Upgrade layout names and ensure a value is saved to the option in the database.
 	$names = array(
 		'sideNav' => 'side-nav',
-		'topNav' => 'top-nav',
-		'noNav' => 'no-nav',
+		'topNav'  => 'top-nav',
+		'noNav'   => 'no-nav',
 	);
 
 	if ( $verbose ) {
@@ -290,7 +314,7 @@ function responsive_upgrade_layout( $verbose ) {
 /**
  * Migrate font options.
  *
- * @param boolean $verbose
+ * @param boolean $verbose Flag for outptting messages to error log.
  */
 function responsive_upgrade_fonts( $verbose ) {
 	if ( $verbose ) {
@@ -318,7 +342,7 @@ function responsive_upgrade_fonts( $verbose ) {
 /**
  * Migrate color options.
  *
- * @param boolean $verbose
+ * @param boolean $verbose Flag for outptting messages to error log.
  */
 function responsive_upgrade_colors( $verbose ) {
 	if ( $verbose ) {
