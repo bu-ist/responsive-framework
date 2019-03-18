@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/theme/responsive-framework\n"
-"POT-Creation-Date: 2019-03-06 16:15:46+00:00\n"
+"https://wordpress.org/support/theme/responsive-framework-2-x\n"
+"POT-Creation-Date: 2019-03-18 18:54:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -167,7 +167,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: comments.php:90 single-profile.php:55
+#: comments.php:90 single-profile.php:56
 msgid "Email"
 msgstr ""
 
@@ -231,7 +231,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:267 inc/template-tags.php:1041
+#: functions.php:267 inc/template-tags.php:1053
 msgid "Footbar"
 msgstr ""
 
@@ -239,7 +239,7 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:281 inc/template-tags.php:1042
+#: functions.php:281 inc/template-tags.php:1054
 msgid "Alternate Footbar"
 msgstr ""
 
@@ -421,7 +421,7 @@ msgstr ""
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:874
+#: inc/template-tags.php:886
 msgid "View all posts"
 msgstr ""
 
@@ -449,22 +449,22 @@ msgid ""
 "University community.  For further assistance, please see:"
 msgstr ""
 
-#: page-templates/news.php:29 page-templates/no-sidebars.php:22 page.php:27
+#: page-templates/news.php:29 page-templates/no-sidebars.php:23 page.php:27
 #: single.php:23
 msgid "Pages:"
 msgstr ""
 
-#: page-templates/news.php:34 page-templates/no-sidebars.php:27 page.php:33
-#: single-profile.php:90 single.php:70 template-parts/content.php:26
-msgid "Edit"
-msgstr ""
-
-#: page-templates/news.php:53
+#: page-templates/news.php:51
 msgid "No Posts Found"
 msgstr ""
 
-#: page-templates/news.php:54
+#: page-templates/news.php:52
 msgid "This site does not currently have any posts. Please check back later."
+msgstr ""
+
+#: page-templates/news.php:60 page-templates/no-sidebars.php:30 page.php:35
+#: profiles.php:26
+msgid "Edit Page"
 msgstr ""
 
 #: profiles.php:16
@@ -496,24 +496,34 @@ msgstr ""
 msgid "Related to %s"
 msgstr ""
 
-#: single-profile.php:41
+#: single-profile.php:42
 msgid "Title"
 msgstr ""
 
-#: single-profile.php:48
+#: single-profile.php:49
 msgid "Office"
 msgstr ""
 
-#: single-profile.php:62
+#: single-profile.php:63
 msgid "Phone"
 msgstr ""
 
-#: single-profile.php:68
+#: single-profile.php:69
 msgid "Education"
+msgstr ""
+
+#: single-profile.php:95 template-parts/profile-advanced.php:43
+#: template-parts/profile-basic.php:43 template-parts/profile-mini.php:45
+#: template-parts/profile.php:43
+msgid "Edit Profile"
 msgstr ""
 
 #: single.php:64
 msgid "Tagged"
+msgstr ""
+
+#: single.php:72 template-parts/content.php:26 template-parts/news.php:44
+msgid "Edit Post"
 msgstr ""
 
 #: template-parts/calendar/single-event.php:11
