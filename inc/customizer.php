@@ -56,13 +56,16 @@ function responsive_layout_options() {
 	 * @param array List of layout options.
 	 */
 
-	$layout_options = apply_filters( 'responsive_layout_options', array(
-		'default'  => __( 'Default Navigation <span class="ui-context">A good choice for most websites</span>', 'responsive-framework' ),
-		'top-nav'  => __( 'Top Navigation <span class="ui-context">Best for websites without dropdowns</span>', 'responsive-framework' ),
-		'side-nav' => __( 'Side Navigation <span class="ui-context">Best for small websites with few nested pages</span>', 'responsive-framework' ),
-		'mega-nav' => __( 'Mega Navigation <span class="ui-context">Best for large, complex websites</span>', 'responsive-framework' ),
-		'no-nav'   => __( 'No Navigation <span class="ui-context">Best for single-page websites</span>', 'responsive-framework' ),
-	) );
+	$layout_options = apply_filters(
+		'responsive_layout_options',
+		array(
+			'default'  => __( 'Default Navigation <span class="ui-context">A good choice for most websites</span>', 'responsive-framework' ),
+			'top-nav'  => __( 'Top Navigation <span class="ui-context">Best for websites without dropdowns</span>', 'responsive-framework' ),
+			'side-nav' => __( 'Side Navigation <span class="ui-context">Best for small websites with few nested pages</span>', 'responsive-framework' ),
+			'mega-nav' => __( 'Mega Navigation <span class="ui-context">Best for large, complex websites</span>', 'responsive-framework' ),
+			'no-nav'   => __( 'No Navigation <span class="ui-context">Best for single-page websites</span>', 'responsive-framework' ),
+		)
+	);
 
 	return $layout_options;
 }
@@ -282,13 +285,16 @@ function responsive_get_css( $palette ) {
 			break;
 		case 'color':
 			$get_palette = responsive_get_color_palette();
+			if ( 'default' === $get_palette ) {
+				$get_palette = '';
+			}
 			break;
 		default:
 			$get_palette = '';
 			break;
 	}
 
-	if ( ! empty( $palette ) ) {
+	if ( ! empty( $get_palette ) ) {
 		$request = wp_remote_get( get_template_directory_uri() . '/css/' . $get_palette . '.css' );
 
 		if ( ! is_wp_error( $request ) && 200 === wp_remote_retrieve_response_code( $request ) ) {
