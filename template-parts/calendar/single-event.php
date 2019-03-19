@@ -153,7 +153,7 @@ $event = responsive_calendar_get_event();
 					// the field label and the event's field value.
 					if ( ! empty( $event[ $field['name'] ] ) && ! empty( $event_field ) ) {
 						?>
-						<dt class="single-event-custom-field-label"><?php echo esc_html( $field['label'] ); ?></dt>
+						<dt class="single-event-custom-field-label"><?php echo esc_html( $field['name'] ); ?></dt>
 						<dd class="single-event-custom-field-info"><?php echo wp_kses_post( $event_field ); ?></dd>
 						<?php
 					}
