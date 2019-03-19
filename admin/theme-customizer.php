@@ -112,7 +112,7 @@ function responsive_customize_register( $wp_customize ) {
 		$wp_customize->add_setting(
 			'burf_setting_colors',
 			array(
-				'default'    => 'f1',
+				'default'    => 'default',
 				'capability' => 'edit_theme_options',
 				'type'       => 'option',
 			)
@@ -350,7 +350,7 @@ function responsive_customizer_styles() {
 		$use_cache = false;
 	}
 
-	echo responsive_get_customizer_styles( $use_cache );
+	echo responsive_get_customizer_styles( $use_cache ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
 if ( ! defined( 'RESPONSIVE_CUSTOMIZER_DISABLE' ) ) {
