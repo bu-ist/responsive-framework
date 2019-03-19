@@ -58,13 +58,12 @@ if ( ! $calendar_id ) {
 	$params = array( 'maxevents' => 25 );
 	$events = $buCalendar->getEvents( $calendar_id, $start_date, $days, responsive_calendar_get_topic(), $params );
 
-	$last_event = $events[ ( count( $events ) - 1 ) ]['starts']; // timestamp for the last event retrieved.
-
 	$range_end = strtotime( '+' . $days . ' day', $timestamp );
 
 	if ( count( $events ) < 25 ) {
 		$query_end = $range_end;
 	} else {
+		$last_event = $events[ ( count( $events ) - 1 ) ]['starts']; // timestamp for the last event retrieved.
 		$query_end = $last_event;
 	}
 
