@@ -125,17 +125,20 @@ $event = responsive_calendar_get_event();
 			<?php
 			// Check if this calendar has custom fields.
 			$calendar_id = responsive_calendar_get_calendar_id();
-			if ( $buCalendar->hasCustomFields( $calendar_id ) ) {
 
-				/**
-				 * Retrieve the fields, will be cached from hasCustomFields call.
-				 *
-				 * Note that these are not fields associated with data/values,
-				 * rather these are the base fields this calendar has. The
-				 * actual event, e.g. $event, contains the data/value for an
-				 * event's custom fields.
-				 */
-				$fields = $buCalendar->getCustomFields( $calendar_id );
+			/**
+			 * Retrieve the fields, will be cached from hasCustomFields call.
+			 *
+			 * Note that these are not fields associated with data/values,
+			 * rather these are the base fields this calendar has. The
+			 * actual event, e.g. $event, contains the data/value for an
+			 * event's custom fields.
+			 */
+			$has_fields = $buCalendar->hasCustomFields( $calendar_id );
+			$fields     = $buCalendar->getCustomFields( $calendar_id );
+
+			// Only continue if calendar has custom event fields + they aren't empty.
+			if ( $has_fields && ! empty( $fields ) ) {
 
 				// Now we loop through each field and check
 				// if that field has a value for this event.
