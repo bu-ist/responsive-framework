@@ -628,9 +628,11 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 		} elseif ( is_tax() || is_category() || is_tag() ) {
 			$taxonomy_object = get_taxonomy( $queried_object->taxonomy );
 
+			// Overwrite $archive_type if taxonomy object has an object type assigned.
 			$post_type = get_post_type( $taxonomy_object->object_type[0] );
-
-			$archive_type = $post_type->labels->singular_name;
+			if ( ! empty( $post_type ) ) {
+				$archive_type = $post_type->labels->singular_name;
+			}
 		}
 
 		$defaults = array(
