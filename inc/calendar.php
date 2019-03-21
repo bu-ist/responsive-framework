@@ -546,9 +546,13 @@ if ( ! function_exists( 'responsive_calendar_get_topic' ) ) {
 }
 
 /**
- * Get single event labels.
+ * Get generic single event labels.
  *
  * Returns an array of labels used for templating the single-event view.
+ * Note: These labels are not the field labels; instead they are intended for
+ * other parts of the UI such as the "Back to Calendar" link and "Starts" and
+ * "Ends" text. See `responsive_calendar_event_field_labels` for all event field
+ * backend names and their correspondinng labels.
  *
  * @since 2.1.5
  *
@@ -556,28 +560,8 @@ if ( ! function_exists( 'responsive_calendar_get_topic' ) ) {
  */
 function responsive_calendar_event_labels() {
 	$labels = array(
-		'address'              => __( 'Address', 'responsive-framework' ) . ':',
-		'audience'             => __( 'Audience', 'responsive-framework' ) . ':',
 		'back_to_calendar'     => __( 'Back to Calendar', 'responsive-framework' ),
-		'contact_email'        => __( 'Contact Email', 'responsive-framework' ) . ':',
-		'contact_name'         => __( 'Contact Name', 'responsive-framework' ) . ':',
-		'contact_organization' => __( 'Contact Organization', 'responsive-framework' ) . ':',
-		'contact_phone'        => __( 'Contact Phone', 'responsive-framework' ) . ':',
-		'deadline'             => __( 'Deadline', 'responsive-framework' ) . ':',
-		'departments'          => __( 'Departments', 'responsive-framework' ) . ':',
 		'ends'                 => __( 'Ends', 'responsive-framework' ) . ':',
-		'fee'                  => __( 'Fees', 'responsive-framework' ) . ':',
-		'fee_general'          => __( 'Fee (General)', 'responsive-framework' ) . ':',
-		'fee_public'           => __( 'Fee (Public)', 'responsive-framework' ) . ':',
-		'fee_senior'           => __( 'Fee (Seniors)', 'responsive-framework' ) . ':',
-		'fee_staff'            => __( 'Fee (Staff)', 'responsive-framework' ) . ':',
-		'fee_student'          => __( 'Fee (Students)', 'responsive-framework' ) . ':',
-		'fee_student_bu'       => __( 'Fee (BU Students)', 'responsive-framework' ) . ':',
-		'fees'                 => __( 'Fees', 'responsive-framework' ) . ':',
-		'location'             => __( 'Location', 'responsive-framework' ) . ':',
-		'registration'         => __( 'Registration', 'responsive-framework' ) . ':',
-		'room'                 => __( 'Room', 'responsive-framework' ) . ':',
-		'speakers'             => __( 'Speakers', 'responsive-framework' ) . ':',
 		'starts'               => __( 'Starts', 'responsive-framework' ) . ':',
 	);
 
@@ -588,4 +572,234 @@ function responsive_calendar_event_labels() {
 	 * @param array $labels Labels for templating a single-event.
 	 */
 	return apply_filters( 'responsive_calendar_event_labels', $labels );
+}
+
+/**
+ * Returns an array of labels for each standard field.
+ *
+ * Notes:
+ * - Fields are organized into 'name' => 'label' pairs, where the 'name' equals
+ *   the backend name for the BU Calendar Plugin field, and 'label' equals the
+ *   human-readable label that is visible on the front-end.
+ * - The order of these fields matters; it determines the order of outputted
+ *   fields to the front-end.
+ *
+ * @since 2.2.1
+ *
+ * @return array $labels An associated array of field names and their front-end labels.
+ */
+function responsive_calendar_event_field_labels() {
+
+	// Defines all the labels for standard fields. Field name => Field label.
+	$labels = array(
+		'speakers'            => __( 'Speakers', 'responsive-framework' ) . ':',
+		'audience'            => __( 'Audience', 'responsive-framework' ) . ':',
+		'departments'         => __( 'Departments', 'responsive-framework' ) . ':',
+		'location'            => __( 'Location', 'responsive-framework' ) . ':',
+		'locationBuilding'    => __( 'Address', 'responsive-framework' ) . ':',
+		'locationRoom'        => __( 'Room', 'responsive-framework' ) . ':',
+		'fees'                => __( 'Fees', 'responsive-framework' ) . ':',
+		'fee'                 => __( 'Fees', 'responsive-framework' ) . ':',
+		'feeGeneral'          => __( 'Fee (General)', 'responsive-framework' ) . ':',
+		'feePublic'           => __( 'Fee (Public)', 'responsive-framework' ) . ':',
+		'feeStaff'            => __( 'Fee (Staff)', 'responsive-framework' ) . ':',
+		'feeStudent'          => __( 'Fee (Students)', 'responsive-framework' ) . ':',
+		'feeBUStudent'        => __( 'Fee (BU Students)', 'responsive-framework' ) . ':',
+		'feeSenior'           => __( 'Fee (Seniors)', 'responsive-framework' ) . ':',
+		'deadline'            => __( 'Deadline', 'responsive-framework' ) . ':',
+		'url'                 => __( 'Registration', 'responsive-framework' ) . ':',
+		'contactOrganization' => __( 'Contact Organization', 'responsive-framework' ) . ':',
+		'contact_name'        => __( 'Contact Name', 'responsive-framework' ) . ':',
+		'contact_email'       => __( 'Contact Email', 'responsive-framework' ) . ':',
+		'phone'               => __( 'Contact Phone', 'responsive-framework' ) . ':',
+	);
+
+	/**
+	 * Allows standard field labels to be modified.
+	 *
+	 * Useful for changing field labels, removing standard fields, or changing
+	 * the order.
+	 *
+	 * @since 2.2.1
+	 * @param array $labels An associated array of field names and their front-end labels.
+	 */
+	return apply_filters( 'responsive_calendar_event_field_labels', $labels );
+}
+
+/**
+ * Return all event fields for a given calendar (standard + custom).
+ *
+ * Useful for templating out the event fields.
+ *
+ * @since 2.2.1
+ *
+ * @param int $calendar_id The calendar ID to retrieve events from.
+ * @param int $event_id    The event ID for the event post.
+ * @param int $oid         The event occurrence ID. May have multiple occurrences.
+ */
+function responsive_calendar_get_fields( $calendar_id = false, $event_id = false, $oid = false ) {
+
+	// Retrieves the standard fields from BU Calendar Plugin.
+	$standard_fields = responsive_calendar_get_fields_standard( $calendar_id, $event_id, $oid );
+
+	// Retrieves any custom fields from BU Calendar Plugin.
+	$custom_fields = responsive_calendar_get_fields_custom( $calendar_id, $event_id, $oid );
+
+	// Combines the result of both arrays.
+	$all_fields = array_merge( $standard_fields, $custom_fields );
+
+	/**
+	 * Modifies the combined result of standard calendar fields and custom
+	 * fields.
+	 *
+	 * @since 2.2.1
+	 * @param array $all_fields Combined result of standard and custom fields.
+	 */
+	return apply_filters( 'responsive_calendar_get_fields', $all_fields );
+}
+
+/**
+ * Returns standard event fields for a given calendar.
+ *
+ * @since 2.2.1
+ *
+ * @param int $calendar_id The calendar ID to retrieve events from.
+ * @param int $event_id    The event ID for the event post.
+ * @param int $oid         The event occurrence ID. May have multiple occurrences.
+ */
+function responsive_calendar_get_fields_standard( $calendar_id = false, $event_id = false, $oid = false ) {
+
+	// Retrieves the event.
+	$event = responsive_calendar_get_event( $calendar_id, $event_id, $oid );
+
+	// Retrieves all the standard field names and labels.
+	$labels = responsive_calendar_event_field_labels();
+
+	// Sets an empty array of fieldnames and their values.
+	$standard_fields = array();
+
+	// Loop through event field names to return their values.
+	foreach ( $labels as $name => $label ) {
+		// Validates the field is set before adding it.
+		if ( isset( $event[ $name ] ) ) {
+			// Adds an associative array ( name => array( label, value ) ).
+			$standard_fields[ $name ] = array(
+				'label' => $label,
+				'value' => $event[ $name ],
+			);
+		}
+	}
+
+	/**
+	 * Modifies the array of standard event fieldnames and their values.
+	 *
+	 * @since 2.2.1
+	 * @param array $standard_fields Array of standard fieldnames and their label/value.
+	 */
+	return apply_filters( 'responsive_calendar_get_fields_standard', $standard_fields );
+}
+
+function responsive_calendar_modify_fields_standard( $standard_fields ) {
+	// Change URL value to a link tag.
+	if ( ! empty( $standard_fields['url']['value'] ) ) {
+		// If link text exists, remove that from the array of fields and use it
+		// for this value.
+		if ( ! empty( $standard_fields['urlText']['value'] ) ) {
+			$link_text = $standard_fields['urlText']['value'];
+			// Remove urlText from the array of fields.
+			unset( $standard_fields['urlText'] );
+		} else {
+			$link_text = $standard_fields['url']['value'];
+		}
+
+		$standard_fields['url']['value'] = sprintf(
+			'<a href="%s" class="single-event-registration-link">%s</a>',
+			esc_url( $standard_fields['url']['value'] ),
+			esc_html( $link_text )
+		);
+	}
+
+	// Change email value to a link tag.
+	if ( ! empty( $standard_fields['contact_email'] ) ) {
+		// Encodes the email.
+		$encoded_email = antispambot( $standard_fields['contact_email']['value'] );
+		// Overwrites the value with a mailto link.
+		$standard_fields['contact_email']['value'] = sprintf(
+			'<a href="mailto:%s" class="single-event-contact-email-link">%s</a>',
+			esc_url( $encoded_email ),
+			esc_html( $encoded_email )
+		);
+	}
+
+	return $standard_fields;
+}
+add_filter( 'responsive_calendar_get_fields_standard', 'responsive_calendar_modify_fields_standard' );
+
+/**
+ * Returns custom event fields for a given calendar.
+ *
+ * @since 2.2.1
+ *
+ * @global $buCalendar Calendar plugin instance.
+ *
+ * @param int $calendar_id The calendar ID to retrieve events from.
+ * @param int $event_id    The event ID for the event post.
+ * @param int $oid         The event occurrence ID. May have multiple occurrences.
+ */
+function responsive_calendar_get_fields_custom( $calendar_id = false, $event_id = false, $oid = false ) {
+	global $buCalendar;
+
+	// Ensures we have a calendar ID.
+	$calendar_id = ! empty( $calendar_id ) ? $calendar_id : responsive_calendar_get_calendar_id();
+
+	// Retrieves the event.
+	$event = responsive_calendar_get_event( $calendar_id, $event_id, $oid );
+
+	/**
+	 * Retrieve the fields, will be cached from hasCustomFields call.
+	 *
+	 * Note that these are not fields associated with data/values,
+	 * rather these are the base fields this calendar has. The
+	 * actual event, e.g. $event, contains the data/value for an
+	 * event's custom fields.
+	 */
+	$has_fields = $buCalendar->hasCustomFields( $calendar_id );
+	$fields     = $buCalendar->getCustomFields( $calendar_id );
+
+	// Sets an empty array of custom fieldnames and their values.
+	$custom_fields = array();
+
+	// Only continue if calendar has custom event fields + they aren't empty.
+	if ( $has_fields && ! empty( $fields ) ) {
+
+		// Now we loop through each field and check
+		// if that field has a value for this event.
+		foreach ( $fields as $field ) {
+
+			// Skip checkbox fields. Those shouldn't output to front-end.
+			if ( 'checkbox' === $field['html_type'] ) {
+				continue;
+			}
+
+			// Stores the value of the custom field.
+			$value = ! empty( $event[ $field['name'] ] ) ? $event[ $field['name'] ] : false;
+
+			// If the event has this field and it has a value then print
+			// the field label and the event's field value.
+			if ( ! empty( $value ) && ! empty( $value ) ) {
+				$custom_fields[ $field['name'] ] = array(
+					'label' => $field['label'],
+					'value' => $value,
+				);
+			}
+		}
+	}
+
+	/**
+	 * Modifies the array of custom event fieldnames and their values.
+	 *
+	 * @since 2.2.1
+	 * @param array $custom_fields Array of custom fieldnames and their label/value.
+	 */
+	return apply_filters( 'responsive_calendar_get_fields_custom', $custom_fields );
 }
