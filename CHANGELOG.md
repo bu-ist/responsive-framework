@@ -1,8 +1,11 @@
 # Changelog
 
-## Unreleased
+## 2.2.1
 
 - Add edit links to BU profiles partials and support for improved styling
+- Add to the upgrade procedure migration of the font and color palates
+- Rebuilds the `burf_customizer_styles` option.
+- Refactor of the larger code blocks into their own functions.
 - Add template hooks to all core WP and custom page templates in the theme.
 - Normalize the markup used on all page templates for consistency.
 - Split the calendar template into `calendar.php` and `calendar-single.php` by

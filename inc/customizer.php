@@ -56,13 +56,16 @@ function responsive_layout_options() {
 	 * @param array List of layout options.
 	 */
 
-	$layout_options = apply_filters( 'responsive_layout_options', array(
-		'default'  => __( 'Default Navigation <span class="ui-context">A good choice for most websites</span>', 'responsive-framework' ),
-		'top-nav'  => __( 'Top Navigation <span class="ui-context">Best for websites without dropdowns</span>', 'responsive-framework' ),
-		'side-nav' => __( 'Side Navigation <span class="ui-context">Best for small websites with few nested pages</span>', 'responsive-framework' ),
-		'mega-nav' => __( 'Mega Navigation <span class="ui-context">Best for large, complex websites</span>', 'responsive-framework' ),
-		'no-nav'   => __( 'No Navigation <span class="ui-context">Best for single-page websites</span>', 'responsive-framework' ),
-	) );
+	$layout_options = apply_filters(
+		'responsive_layout_options',
+		array(
+			'default'  => __( 'Default Navigation <span class="ui-context">A good choice for most websites</span>', 'responsive-framework' ),
+			'top-nav'  => __( 'Top Navigation <span class="ui-context">Best for websites without dropdowns</span>', 'responsive-framework' ),
+			'side-nav' => __( 'Side Navigation <span class="ui-context">Best for small websites with few nested pages</span>', 'responsive-framework' ),
+			'mega-nav' => __( 'Mega Navigation <span class="ui-context">Best for large, complex websites</span>', 'responsive-framework' ),
+			'no-nav'   => __( 'No Navigation <span class="ui-context">Best for single-page websites</span>', 'responsive-framework' ),
+		)
+	);
 
 	return $layout_options;
 }
@@ -85,8 +88,14 @@ function responsive_get_font_palette() {
 	 * @param string Fallback font value.
 	 */
 	$fallback_font = (string) apply_filters( 'responsive_font_fallback', 'f1' );
+	$palette       = get_option( 'burf_setting_fonts' );
 
-	return get_option( 'burf_setting_fonts', $fallback_font );
+	// Let's make sure that we are actually getting a font that is in the list.
+	if ( ! in_array( $palette, responsive_font_options(), true ) ) {
+		$palette = $fallback_font;
+	}
+
+	return $palette;
 }
 
 /**
@@ -151,7 +160,14 @@ function responsive_get_color_palette() {
 	 */
 	$fallback_color = (string) apply_filters( 'responsive_color_fallback', 'default' );
 
-	return get_option( 'burf_setting_colors', $fallback_color );
+	$palette = get_option( 'burf_setting_colors' );
+
+	// Let's make sure that we are actually getting a color that is in the list.
+	if ( ! in_array( $palette, responsive_color_options(), true ) ) {
+		$palette = $fallback_color;
+	}
+
+	return $palette;
 }
 
 /**
@@ -211,7 +227,6 @@ function responsive_get_customizer_styles( $use_cache = true ) {
 	if ( $styles && $use_cache && ! $is_script_debugging ) {
 		update_option( 'burf_customizer_styles', $styles );
 	}
-
 	return $styles;
 }
 
@@ -275,20 +290,24 @@ function responsive_get_css( $palette ) {
 		return;
 	}
 
-	$css = '';
+	$css         = '';
+	$get_palette = '';
 	switch ( $palette ) {
 		case 'font':
 			$get_palette = responsive_get_font_palette();
 			break;
 		case 'color':
 			$get_palette = responsive_get_color_palette();
+			if ( 'default' === $get_palette ) {
+				$get_palette = '';
+			}
 			break;
 		default:
 			$get_palette = '';
 			break;
 	}
 
-	if ( ! empty( $palette ) ) {
+	if ( ! empty( $get_palette ) ) {
 		$request = wp_remote_get( get_template_directory_uri() . '/css/' . $get_palette . '.css' );
 
 		if ( ! is_wp_error( $request ) && 200 === wp_remote_retrieve_response_code( $request ) ) {
@@ -346,7 +365,7 @@ function responsive_customizer_footer_info( $args = array() ) {
 	}
 
 	if ( $args['echo'] ) {
-		echo $output;
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	} else {
 		return $output;
 	}
