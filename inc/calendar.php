@@ -699,41 +699,91 @@ function responsive_calendar_get_fields_standard( $calendar_id = false, $event_i
 	return apply_filters( 'responsive_calendar_get_fields_standard', $standard_fields );
 }
 
+/**
+ * Filters standard event field values.
+ *
+ * Provides a better user-experience for values that are expected to be links,
+ * such as adding link tags for registration url / email address values.
+ *
+ * @since 2.2.1
+ *
+ * @param array $standard_fields Array of standard fieldnames and their label/value.
+ * @return array $standard_fields Modified array of standard fields.
+ */
 function responsive_calendar_modify_fields_standard( $standard_fields ) {
-	// Change URL value to a link tag.
-	if ( ! empty( $standard_fields['url']['value'] ) ) {
-		// If link text exists, remove that from the array of fields and use it
-		// for this value.
-		if ( ! empty( $standard_fields['urlText']['value'] ) ) {
-			$link_text = $standard_fields['urlText']['value'];
-			// Remove urlText from the array of fields.
-			unset( $standard_fields['urlText'] );
-		} else {
-			$link_text = $standard_fields['url']['value'];
-		}
 
-		$standard_fields['url']['value'] = sprintf(
-			'<a href="%s" class="single-event-registration-link">%s</a>',
-			esc_url( $standard_fields['url']['value'] ),
-			esc_html( $link_text )
-		);
-	}
+	// Changes the url field to link html.
+	$standard_fields = responsive_calendar_modify_field_url( $standard_fields );
 
-	// Change email value to a link tag.
-	if ( ! empty( $standard_fields['contact_email'] ) ) {
-		// Encodes the email.
-		$encoded_email = antispambot( $standard_fields['contact_email']['value'] );
-		// Overwrites the value with a mailto link.
-		$standard_fields['contact_email']['value'] = sprintf(
-			'<a href="mailto:%s" class="single-event-contact-email-link">%s</a>',
-			esc_url( $encoded_email ),
-			esc_html( $encoded_email )
-		);
-	}
+	// Changes the contact_email email value to mailto link html.
+	$standard_fields = responsive_calendar_modify_field_contact_email( $standard_fields );
 
 	return $standard_fields;
 }
 add_filter( 'responsive_calendar_get_fields_standard', 'responsive_calendar_modify_fields_standard' );
+
+/**
+ * Changes event link URL value into link HTML.
+ *
+ * @since 2.2.1
+ *
+ * @param array $standard_fields Array of standard fieldnames and their label/value.
+ * @return array $standard_fields Modified array of standard fields.
+ */
+function responsive_calendar_modify_field_url( $standard_fields ) {
+
+	// Bails immediately if there is no url value for this event.
+	if ( empty( $standard_fields['url']['value'] ) ) {
+		return $standard_fields;
+	}
+
+	// Sets the link text by default to be the href.
+	$link_text = $standard_fields['url']['value'];
+
+	// Conditionally use provided link text if exists.
+	if ( ! empty( $standard_fields['urlText']['value'] ) ) {
+		$link_text = $standard_fields['urlText']['value'];
+		// Remove urlText from the array of fields.
+		unset( $standard_fields['urlText'] );
+	}
+
+	// Overwrite url value with link HTML.
+	$standard_fields['url']['value'] = sprintf(
+		'<a href="%s" class="single-event-registration-link">%s</a>',
+		esc_url( $standard_fields['url']['value'] ),
+		esc_html( $link_text )
+	);
+
+	return $standard_fields;
+}
+
+/**
+ * Changes event contact email value into mailto link HTML.
+ *
+ * @since 2.2.1
+ *
+ * @param array $standard_fields Array of standard fieldnames and their label/value.
+ * @return array $standard_fields Modified array of standard fields.
+ */
+function responsive_calendar_modify_field_contact_email( $standard_fields ) {
+
+	// Bails immediately if there is no contact_email value for this event.
+	if ( empty( $standard_fields['contact_email']['value'] ) ) {
+		return $standard_fields;
+	}
+
+	// Encodes the email address to prevent spam.
+	$encoded_email = antispambot( $standard_fields['contact_email']['value'] );
+
+	// Overwrites contact_email value with mailto link html.
+	$standard_fields['contact_email']['value'] = sprintf(
+		'<a href="mailto:%s" class="single-event-contact-email-link">%s</a>',
+		esc_url( $encoded_email ),
+		esc_html( $encoded_email )
+	);
+
+	return $standard_fields;
+}
 
 /**
  * Returns custom event fields for a given calendar.
