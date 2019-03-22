@@ -5,8 +5,6 @@
  * @package Responsive_Framework
  */
 
-global $buCalendar;
-
 // Retrieve single-event labels used for templating.
 $labels = responsive_calendar_event_labels();
 
