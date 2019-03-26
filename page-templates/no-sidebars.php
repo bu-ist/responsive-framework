@@ -11,6 +11,7 @@ get_header();
 	<?php while ( have_posts() ) : the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
+
 			<?php responsive_the_title(); ?>
 
 			<?php the_content(); ?>
@@ -24,9 +25,10 @@ get_header();
 				) );
 			?>
 
-			<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<span class="edit-link">', '</span>' ); ?>
-
 			<?php responsive_comments(); ?>
+
+			<?php edit_post_link( __( 'Edit Page', 'responsive-framework' ), '<span class="edit-link">', '</span><span class="post-edit-hint"></span>' ); ?>
+
 		</article>
 
 	<?php endwhile; ?>

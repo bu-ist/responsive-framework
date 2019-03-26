@@ -1,0 +1,44 @@
+$font-palettes: (
+	f1: (
+		heading: "Benton-Sans",
+		heading-fallback: sans-serif,
+		body: "Benton-Sans",
+		body-fallback: sans-serif,
+	),
+	f2: (
+		heading: "Capita",
+		heading-fallback: serif,
+		body: "Benton-Sans",
+		body-fallback: sans-serif,
+	),
+	f3: (
+		heading: "Benton-Sans",
+		heading-fallback: sans-serif,
+		heading-weight: 400,
+		body: "Capita",
+		body-fallback: serif,
+	),
+	f4: (
+		heading: "TiemposHeadline",
+		heading-fallback: serif,
+		body: "Benton-Sans",
+		body-fallback: sans-serif,
+	),
+	f5: (
+		heading: "Pressura",
+		heading-fallback: sans-serif,
+		heading-case: uppercase,
+		body: "Benton-Sans",
+		body-fallback: sans-serif,
+	)
+);
+
+// Merges custom styles and overrides with the default font palettes map.
+// $font-palettes-theme must be set BEFORE this is called.
+// @group customizer
+// @access private
+// @since 2.1.11
+
+@if variable-exists( font-palettes-theme ) {
+	$font-styles: map_merge( $font-palettes, $font-palettes-theme );
+}

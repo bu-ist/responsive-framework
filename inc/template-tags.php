@@ -322,38 +322,127 @@ function responsive_term_links( $post = null, $before = '', $sep = '', $after = 
 	return $output;
 }
 
-/**
- * Renders the primary navigation menu.
- *
- * If the current site has a site-wide ACL applied nothing will be displayed.
- *
- * @uses  BU Navigation plugin
- */
-function responsive_primary_nav() {
-	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) ||
-		false == BuAccessControlPlugin::is_site_403() ) {
+if ( ! function_exists( 'responsive_primary_nav' ) ) {
+	/**
+	 * Renders the primary navigation menu with custom id and class.
+	 * It can be overridden in the child theme.
+	 */
+	function responsive_primary_nav() {
+		/**
+		 * Fires before primary nav is displayed.
+		 *
+		 * @since 2.11.12
+		 */
+		do_action( 'responsive_primary_nav_before' );
 
-		if ( function_exists( 'bu_navigation_display_primary' ) ) {
-			bu_navigation_display_primary( array(
-				'container_id'    => 'primary-nav-menu',
-				'container_class' => 'primary-nav-menu',
-			) );
-		} else {
-			wp_nav_menu( array(
-				'theme_location' => 'responsive-primary',
-				'menu_id'        => 'primaryNav-menu',
-				'menu_class'     => 'primaryNav-menu',
-				'container_tag'  => 'ul',
-				'depth'          => 2,
-			) );
+		/**
+		 * Filters the responsive framework default nav options.
+		 */
+		$args = apply_filters( 'responsive_primary_nav_args', array(
+			'theme_location' => 'responsive-primary',
+			'menu_id'        => 'primaryNav-menu',
+			'menu_class'     => 'primaryNav-menu',
+			'container_tag'  => 'ul',
+			'depth'          => 2,
+		) );
+
+		wp_nav_menu( $args );
+
+		/**
+		 * Fires after primary nav is displayed.
+		 *
+		 * @since 2.11.12
+		 */
+		do_action( 'responsive_primary_nav_after' );
+	}
+}
+
+if ( ! function_exists( 'responsive_utility_nav' ) ) {
+	/**
+	 * Renders utility navigation menu.
+	 *
+	 * If the current site has a site-wide ACL applied or the utility menu has
+	 * no items nothing will be displayed.
+	 *
+	 * @param array $args {
+	 *     Optional. Arguments to configure menu markup.
+	 *
+	 *     @type  string $before HTML markup to display before menu.
+	 *     @type  string $after  HTML markup to display after menu.
+	 * }
+	 */
+	function responsive_utility_nav( $args = array() ) {
+		/**
+		 * Fires before utility nav is displayed.
+		 *
+		 * @since 2.11.12
+		 */
+		do_action( 'responsive_utility_nav_before' );
+
+		// Displays utility nav if exists.
+		$menu = responsive_get_utility_nav( $args );
+		if ( ! empty( $menu ) ) {
+			echo $menu; // wpcs: xss ok.
 		}
+
+		/**
+		 * Fires after utility nav is displayed.
+		 *
+		 * @since 2.11.12
+		 */
+		do_action( 'responsive_utility_nav_after' );
+	}
+}
+
+if ( ! function_exists( 'responsive_get_utility_nav' ) ) {
+	/**
+	 * Fetches the utility nav, if exists.
+	 *
+	 * @since 2.11.12
+	 *
+	 * @see   responsive_utility_nav
+	 *
+	 * @param array $args Same arguments as responsive_utility_nav.
+	 * @return string $menu The resulting menu markup.
+	 */
+	function responsive_get_utility_nav( $args = array() ) {
+
+		if ( ! has_nav_menu( 'utility' ) ) {
+			return false;
+		}
+
+		$defaults = array(
+			'before' => '<nav class="utility-nav" role="navigation">',
+			'after'  => '</nav>',
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+		$menu = '';
+
+		if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || false == BuAccessControlPlugin::is_site_403() ) {
+			$menu = wp_nav_menu(
+				array(
+					'theme_location' => 'utility',
+					'menu_id'        => 'utility-nav-menu',
+					'menu_class'     => 'utility-nav-menu',
+					'container'      => false,
+					'echo'           => false,
+				)
+			);
+		}
+
+		if ( $menu ) {
+			$menu = $args['before'] . $menu . $args['after'];
+		}
+
+		return $menu;
 	}
 }
 
 /**
- * Renders utility navigation menu.
+ * Renders short navigation menu.
  *
- * If the current site has a site-wide ACL applied or the utility menu has
+ * If the current site has a site-wide ACL applied or the short menu has
  * no items nothing will be displayed.
  *
  * @param array $args {
@@ -363,26 +452,34 @@ function responsive_primary_nav() {
  *     @type  string $after  HTML markup to display after menu.
  * }
  */
-function responsive_utility_nav( $args = array() ) {
-	if ( ! has_nav_menu( 'utility' ) ) {
+function responsive_short_nav( $args = array() ) {
+	if ( ! has_nav_menu( 'short' ) ) {
 		return;
 	}
 
+	$after .= '<button type="button" class="nav-toggle js-nav-toggle mega-nav-toggle" aria-label="' . __( 'Open menu', 'responsive-framework' ) . '" aria-expanded="true">';
+	$after .= '<div class="nav-toggle-label-closed">' . apply_filters( 'responsive_mega_menu_closed', __( 'Full Menu', 'responsive-framework' ) ) . '</div>';
+	$after .= '<div class="nav-toggle-label-open">' . apply_filters( 'responsive_mega_menu_opened', __( 'Close Menu', 'responsive-framework' ) ) . '</div>';
+	$after .= '</button>';
+	$after .= '</nav>';
+
 	$defaults = array(
-		'before' => '<nav class="utility-nav" role="navigation">',
-		'after'  => '</nav>',
+		'before' => '<nav class="short-nav" role="navigation">',
+		'after'  => $after,
 	);
 
 	$args = wp_parse_args( $args, $defaults );
 	$menu = '';
 
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || false == BuAccessControlPlugin::is_site_403() ) {
+		// Depth of -1 will force the menu to be single level, even if sub-menus are created in the admin.
 		$menu = wp_nav_menu( array(
-			'theme_location' => 'utility',
-			'menu_id'        => 'utility-nav-menu',
-			'menu_class'     => 'utility-nav-menu',
+			'theme_location' => 'short',
+			'menu_id'        => 'short-nav-menu',
+			'menu_class'     => 'short-nav-menu',
 			'container'      => false,
 			'echo'           => false,
+			'depth'          => -1,
 		) );
 	}
 
@@ -702,31 +799,43 @@ function responsive_posts_should_display( $field ) {
  * @return mixed Post archive link, or false if no good candidates were found.
  */
 function responsive_get_posts_archive_link() {
+	// Sets initial values.
 	$archive_link = false;
-	$post_cats = get_the_terms( get_post(), 'category' );
-	$post_cat_ids = wp_list_pluck( $post_cats, 'term_id' );
-	$all_cats = false;
+	$post_cats    = get_the_terms( get_post(), 'category' );
+	$post_cat_ids = array();
+	$all_cats     = false;
 
-	$news_pages = get_pages( array(
-		'hierarchical' => 0,
-		'parent' => -1,
-		'meta_key'     => '_wp_page_template',
-		'meta_value'   => 'page-templates/news.php',
-	) );
+	// Sets $post_cat_ids if categories exist for this post.
+	if ( ! empty( $post_cats ) && ! is_wp_error( $post_cats ) ) {
+		$post_cat_ids = wp_list_pluck( $post_cats, 'term_id' );
+	}
 
-	foreach( $news_pages as $page ) {
-		$page_cat_id = get_post_meta( $page->ID, '_bu_list_news_category', true );
+	// Runs the query to retrieve custom news page templates.
+	$news_pages = get_pages(
+		array(
+			'hierarchical' => 0,
+			'parent'       => -1,
+			'meta_key'     => '_wp_page_template',
+			'meta_value'   => 'page-templates/news.php',
+		)
+	);
 
-		if ( in_array( $page_cat_id, $post_cat_ids ) ) {
-			$archive_link = get_permalink( $page->ID );
-			break;
-		}
+	// Only iterates through pages if they exist.
+	if ( ! empty( $news_pages ) ) {
+		foreach ( $news_pages as $page ) {
+			$page_cat_id = get_post_meta( $page->ID, '_bu_list_news_category', true );
 
-		// Find the first news page set to display "All Categories".
-		// Hold onto it in case we can't find a page that matches the category.
-		if ( empty( $page_cat_id ) && ! $all_cats ) {
-			$all_cats = get_permalink( $page->ID );
-			continue;
+			if ( in_array( $page_cat_id, $post_cat_ids, true ) ) {
+				$archive_link = get_permalink( $page->ID );
+				break;
+			}
+
+			// Find the first news page set to display "All Categories".
+			// Hold onto it in case we can't find a page that matches the category.
+			if ( empty( $page_cat_id ) && ! $all_cats ) {
+				$all_cats = get_permalink( $page->ID );
+				continue;
+			}
 		}
 	}
 
@@ -734,7 +843,7 @@ function responsive_get_posts_archive_link() {
 
 	// If we don't have a category match, but we have an all categories page, use that.
 	if ( ! $archive_link && $all_cats ) {
-			$archive_link = $all_cats;
+		$archive_link = $all_cats;
 	}
 
 	if ( ! $archive_link ) {

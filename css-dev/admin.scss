@@ -1,49 +1,71 @@
 $_customizer-selected-color: #288dbb;
+$_customizer-selected-shadow: 0 0 20px 0 rgba( 181, 181, 181, 1 );
 $_customizer-description-color: #999;
+$_customizer-layout-sprite-height: 47px;
+$_customizer-layout-sprite-width: 75px;
 
-// Customizer: Shared
-%admin-sprite-input {
-	input {
-		display: none;
-	}
-
-	// Active styles
-	input:checked + label::after {
-		border: 4px solid $_customizer-selected-color;
-		margin: 0;
-	}
-}
-
-%admin-sprite-label {
-	display: inline-block;
-	font-size: 0;
-	height: auto;
-	width: auto;
-}
-
-%admin-sprite-background {
-	background: url( "admin_sprite.png" ) no-repeat 0 0 transparent;
-	content: "";
-	display: block;
-	margin: 4px;
-}
+$color-grayscale-f: #fff;
+$color-grayscale-c: #ccc;
+$color-grayscale-0: #000;
 
 // Customizer: Layout
 #burf_setting_layout {
-	@extend %admin-sprite-input;
+	li {
+		margin-bottom: 10px;
+		min-height: $_customizer-layout-sprite-height;
+		padding: 8px;
+		padding-right: $_customizer-layout-sprite-width + 8px;
+		position: relative;
+
+		&::after {
+			clear: both;
+			content: "";
+			display: table;
+		}
+	}
+
+	.customize-control-radio & input {
+		margin-left: 0;
+	}
+
+	// Active styles
+	input:checked + label::before {
+		background: lighten( $_customizer-selected-color, 50% );
+		border: 1px solid $_customizer-selected-color;
+		border-radius: 2px;
+		margin: 0;
+		z-index: -1;
+	}
 
 	// Styles for the layout selector images
 	label {
-		@extend %admin-sprite-label;
-		margin-left: 0;
+		font-size: 14px;
+		font-weight: bold;
+		z-index: 2;
+
+		&::before {
+			box-sizing: border-box;
+			content: '';
+			display: block;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
 
 		// For everyone
 		&::after {
-			@extend %admin-sprite-background;
-			height: 129px;
+			background: url( 'layouts-ui.png' ) no-repeat 0 0 transparent;
+			content: "";
+			display: block;
+			height: 47px;
 			margin: 0 auto;
-			padding: 4px;
-			width: 227px;
+			padding: 0;
+			position: absolute;
+			right: 8px;
+			top: 8px;
+			width: 75px;
 		}
 
 		// For specific layouts
@@ -52,54 +74,175 @@ $_customizer-description-color: #999;
 		}
 
 		&[for="burf_setting_layout_top-nav"]::after {
-			background-position: 0 -150px;
+			background-position: 0 ( -$_customizer-layout-sprite-height );
 		}
 
 		&[for="burf_setting_layout_side-nav"]::after {
-			background-position: 0 -300px;
+			background-position: 0 ( -$_customizer-layout-sprite-height * 2 );
+		}
+
+		&[for="burf_setting_layout_mega-nav"]::after {
+			background-position: 0 ( -$_customizer-layout-sprite-height * 3 );
 		}
 
 		&[for="burf_setting_layout_no-nav"]::after {
-			background-position: -300px 0;
+			background-position: 0 ( -$_customizer-layout-sprite-height * 4 );
 		}
 	}
 }
 
+.ui-context {
+	display: block;
+	font-size: 13px;
+	font-weight: 400;
+	margin-left: 24px;
+}
+
+// Customizer: Fonts Import
+
+@import 'customizer/font-palettes/fonts/benton';
+@import 'customizer/font-palettes/fonts/capita-bold';
+@import 'customizer/font-palettes/fonts/capita';
+@import 'customizer/font-palettes/fonts/pressura';
+@import 'customizer/font-palettes/fonts/tiempos';
+@import 'customizer/font-palettes/palettes';
+
 // Customizer: Fonts
 #burf_setting_fonts {
-	@extend %admin-sprite-input;
-
-	// Styles for the layout selector images
 	label {
-		@extend %admin-sprite-label;
+		color: $color-grayscale-0;
+		display: block;
+		padding: 1em 0.5em;
+	}
 
-		// For everyone
-		&::after {
-			@extend %admin-sprite-background;
-			height: 82px;
-			width: 245px;
+	input {
+		display: none;
+	}
+
+	input:checked + label {
+		border: 4px solid $_customizer-selected-color;
+		margin: -4px;
+	}
+
+	span {
+		display: block;
+
+		&:first-child {
+			font-size: 1.9em;
+			margin-bottom: 0.5em;
 		}
 
-		// For specific layouts
-		&[for="burf_setting_fonts_f1"]::after {
-			background-position: 0 -750px;
+		& + span {
+			font-size: 14px;
+		}
+	}
+}
+
+@each $palette, $map in $font-palettes {
+	.#{$palette}-font-title {
+		font-family: map-get( $map, 'heading' ), map-get( $map, 'heading-fallback' );
+		text-transform: map-get( $map, 'heading-case' );
+
+		@if map-get( $map, 'heading-weight' ) {
+			font-weight: map-get( $map, 'heading-weight' );
+		} @else {
+			font-weight: 700;
+		}
+	}
+
+	.#{$palette}-font-body {
+		font-family: map-get( $map, 'body' ), map-get( $map, 'body-fallback' );
+		text-transform: map-get( $map, 'body-case' );
+
+		@if map-get( $map, 'body-weight' ) {
+			font-weight: map-get( $map, 'body-weight' );
+		} @else {
+			font-weight: 400;
+		}
+	}
+}
+
+#burf_setting_colors {
+	li {
+		margin-bottom: 15px;
+	}
+
+	label {
+		background: $color-grayscale-f;
+		border: 1px solid $color-grayscale-c;
+		color: $color-grayscale-0;
+		display: block;
+		font-weight: bold;
+		opacity: 0.6;
+		padding-top: 0;
+		padding: 0.5em;
+		position: relative;
+		transform: scale( 0.97 );
+		transition:
+			box-shadow 0.3s ease,
+			opacity 0.3s ease,
+			transform 0.3s ease;
+
+		&::before {
+			content: '';
+			display: block;
+			height: 50px;
+			margin-bottom: 5px;
+			margin-left: -0.5em;
+			margin-right: -0.5em;
 		}
 
-		&[for="burf_setting_fonts_f2"]::after {
-			background-position: 0 -850px;
+		&:hover {
+			box-shadow: $_customizer-selected-shadow;
+			opacity: 1;
+			transform: scale( 1 );
+			transition:
+				box-shadow 0.3s ease,
+				opacity 0.3s ease,
+				transform 0.3s ease;
+		}
+	}
+
+	input {
+		display: none;
+	}
+
+	input:checked + label {
+		border: 4px solid $_customizer-selected-color;
+		box-shadow: $_customizer-selected-shadow;
+		margin: -4px;
+		opacity: 1;
+		transform: scale( 1 );
+	}
+
+	span {
+		display: block;
+
+		&:first-child {
+			font-size: 1.9em;
+			margin-bottom: 0.5em;
 		}
 
-		&[for="burf_setting_fonts_f3"]::after {
-			background-position: 0 -950px;
+		& + span {
+			font-size: 14px;
 		}
+	}
+}
 
-		&[for="burf_setting_fonts_f4"]::after {
-			background-position: 0 -1050px;
-		}
+@import 'customizer/color-palettes/palettes';
 
-		&[for="burf_setting_fonts_f5"]::after {
-			background-position: 0 -1150px;
-		}
+@each $palette, $map in $color-palettes {
+	$color-primary: map-get( $map, 'color-primary' );
+	$color-secondary: map-get( $map, 'color-secondary' );
+	$color-tertiary: map-get( $map, 'color-tertiary' );
+	$color-dark: map-get( $map, 'color-dark' );
+
+	label[for="burf_setting_colors_#{$palette}"]::before {
+		background: $color-primary; // Old browsers
+		background: -moz-linear-gradient( top, $color-primary 25%, $color-secondary 25%, $color-secondary 50%, $color-tertiary 50%, $color-tertiary 75%, $color-dark 75% ); // FF3.6-15
+		background: -webkit-linear-gradient( top, $color-primary 25%, $color-secondary 25%, $color-secondary 50%, $color-tertiary 50%, $color-tertiary 75%, $color-dark 75% ); // Chrome10-25,Safari5.1-6
+		background: linear-gradient( to right, $color-primary 25%, $color-secondary 25%, $color-secondary 50%, $color-tertiary 50%, $color-tertiary 75%, $color-dark 75% ); // W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-primary', endColorstr='$color-tertiary',GradientType=0 ); // IE6-9
 	}
 }
 

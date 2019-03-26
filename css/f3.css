@@ -59,11 +59,12 @@ h5,
 h6,
 #q {
   font-family: "Benton-Sans", sans-serif;
+  font-weight: 400;
 }
 
 .primary-nav-menu li a {
   font-family: "Benton-Sans", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .utility-nav li a {
@@ -71,25 +72,18 @@ h6,
   font-weight: 400;
 }
 
+input[type="submit"],
+.button,
+.button-primary,
+.button-selected,
+.paging-navigation a,
+.archive-link,
+.mega-nav-toggle {
+  font-weight: 400;
+}
+
 body {
   font-size: 18px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 400;
-}
-
-.widget h3 {
-  font-weight: 400;
-}
-
-.primary-nav-menu li a {
-  font-weight: 400;
 }
 
 .utility-nav li a {

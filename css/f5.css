@@ -59,16 +59,28 @@ h5,
 h6,
 #q {
   font-family: "Pressura", sans-serif;
+  text-transform: uppercase;
 }
 
 .primary-nav-menu li a {
   font-family: "Pressura", sans-serif;
+  text-transform: uppercase;
   font-weight: 700;
 }
 
 .utility-nav li a {
   font-family: "Pressura", sans-serif;
   font-weight: 400;
+}
+
+input[type="submit"],
+.button,
+.button-primary,
+.button-selected,
+.paging-navigation a,
+.archive-link,
+.mega-nav-toggle {
+  font-weight: 700;
 }
 
 h1,

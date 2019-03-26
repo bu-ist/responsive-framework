@@ -5,7 +5,7 @@
  * @todo Prior to 1.0.0 release, add logic to the master branch (0.1.0) to ensure DB version
  *       is set so that these routines run for existing Responsi sites.
  *
- * @since  0.9.1
+ * @since 0.9.1
  *
  * @package Responsive_Framework\Upgrade
  */
@@ -66,6 +66,8 @@ add_action( 'init', 'responsive_framework_upgrade' );
 
 /**
  * Ensures that the default options are saved in the database.
+ *
+ * @since 2.2.1
  */
 function responsive_upgrade_ensure_theme_options() {
 	// Ensure customizer options have default values saved.
@@ -99,16 +101,22 @@ function responsive_upgrade_091( $verbose = true ) {
 		error_log( __FUNCTION__ . ' - Migrating page templates...' );
 	}
 
-	$template_map = apply_filters( __FUNCTION__ . '_template_map', array(
-		'calendar.php'        => 'page-templates/calendar.php',
-		'news.php'            => 'page-templates/news.php',
-		'page-nosidebars.php' => 'page-templates/no-sidebars.php',
-		'profiles.php'        => 'page-templates/profiles.php',
-	) );
-
-	$template_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
-		$wpdb->postmeta, implode( '","', array_keys( $template_map ) )
+	$template_map = apply_filters(
+		__FUNCTION__ . '_template_map',
+		array(
+			'calendar.php'        => 'page-templates/calendar.php',
+			'news.php'            => 'page-templates/news.php',
+			'page-nosidebars.php' => 'page-templates/no-sidebars.php',
+			'profiles.php'        => 'page-templates/profiles.php',
+		)
 	);
+
+	$template_query = sprintf(
+		'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
+		$wpdb->postmeta,
+		implode( '","', array_keys( $template_map ) )
+	);
+
 	$results = $wpdb->get_results( $template_query );
 
 	if ( $verbose ) {
@@ -124,21 +132,26 @@ function responsive_upgrade_091( $verbose = true ) {
 		error_log( __FUNCTION__ . ' - Migrating content banners...' );
 	}
 
-	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
-		'content-width' => 'contentWidth',
-		'page-width'    => 'pageWidth',
-		'window-width'  => 'windowWidth',
-	) );
+	$banner_map = apply_filters(
+		__FUNCTION__ . '_banner_map',
+		array(
+			'content-width' => 'contentWidth',
+			'page-width'    => 'pageWidth',
+			'window-width'  => 'windowWidth',
+		)
+	);
 
-	$banner_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
+	$banner_query = sprintf(
+		'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
 		$wpdb->postmeta
 	);
+
 	$results = $wpdb->get_results( $banner_query );
 
 	foreach ( $results as $result ) {
 		$banner = maybe_unserialize( $result->meta_value );
 		if ( is_array( $banner ) ) {
-			if ( array_key_exists( 'position', $banner ) && in_array( $banner['position'], array_keys( $banner_map ) ) ) {
+			if ( array_key_exists( 'position', $banner ) && in_array( $banner['position'], array_keys( $banner_map ), true ) ) {
 				$banner['position'] = $banner_map[ $banner['position'] ];
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
@@ -158,10 +171,13 @@ function responsive_upgrade_091( $verbose = true ) {
 		error_log( __FUNCTION__ . ' - Migrating sidebars...' );
 	}
 
-	$sidebars_map = apply_filters( __FUNCTION__ . '_sidebars_map', array(
-		'right-content-area'  => 'sidebar',
-		'bottom-content-area' => 'footbar',
-	) );
+	$sidebars_map     = apply_filters(
+		__FUNCTION__ . '_sidebars_map',
+		array(
+			'right-content-area'  => 'sidebar',
+			'bottom-content-area' => 'footbar',
+		)
+	);
 	$sidebars_widgets = wp_get_sidebars_widgets();
 	foreach ( $sidebars_map as $from => $to ) {
 		if ( array_key_exists( $from, $sidebars_widgets ) ) {
@@ -189,11 +205,18 @@ function responsive_upgrade_2_0( $verbose = true ) {
 		error_log( __FUNCTION__ . ' - Migrating page templates...' );
 	}
 
-	$template_map = apply_filters( __FUNCTION__ . '_template_map', array(
-		'page-templates/profiles.php' => 'profiles.php',
-	) );
+	$template_map = apply_filters(
+		__FUNCTION__ . '_template_map',
+		array(
+			'page-templates/profiles.php' => 'profiles.php',
+		)
+	);
 
-	$template_query = sprintf( 'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")', $wpdb->postmeta, implode( '","', array_keys( $template_map ) ) );
+	$template_query = sprintf(
+		'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
+		$wpdb->postmeta,
+		implode( '","', array_keys( $template_map ) )
+	);
 	$results        = $wpdb->get_results( $template_query );
 
 	if ( $verbose ) {
@@ -204,23 +227,57 @@ function responsive_upgrade_2_0( $verbose = true ) {
 		update_post_meta( $result->post_id, '_wp_page_template', $template_map[ $result->meta_value ] );
 	}
 
+	responsive_upgrade_banner( $verbose );
+	responsive_upgrade_layout( $verbose );
+
+	// Delete the sytles cache so we can rebuild it after upgrading fonts and colors.
+	responsive_flush_customizer_styles_cache();
+	responsive_upgrade_fonts( $verbose );
+	responsive_upgrade_colors( $verbose );
+
+	// Recreate the styles cache.
+	responsive_get_customizer_styles( false );
+
+	// Delete unnecessary options.
+	delete_option( 'burf_setting_color_scheme' );
+	delete_option( 'burf_setting_active_color_region' );
+	delete_option( 'burf_setting_custom_colors' );
+}
+
+/**
+ * Migrate banner information
+ *
+ * @param boolean $verbose Flag for outputting messages to error log.
+ * @since 2.2.1
+ */
+function responsive_upgrade_banner( $verbose ) {
+	global $wpdb;
+
 	// Rename banner positions.
 	if ( $verbose ) {
 		error_log( __FUNCTION__ . ' - Migrating content banners...' );
 	}
 
-	$banner_map = apply_filters( __FUNCTION__ . '_banner_map', array(
-		'contentWidth' => 'content-width',
-		'pageWidth'    => 'page-width',
-		'windowWidth'  => 'window-width',
-	) );
+	$banner_map = apply_filters(
+		__FUNCTION__ . '_banner_map',
+		array(
+			'contentWidth' => 'content-width',
+			'pageWidth'    => 'page-width',
+			'windowWidth'  => 'window-width',
+		)
+	);
 
-	$results = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'", $wpdb->postmeta ) );
+	$results = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'",
+			$wpdb->postmeta
+		)
+	);
 
 	foreach ( $results as $result ) {
 		$banner = maybe_unserialize( $result->meta_value );
 		if ( is_array( $banner ) ) {
-			if ( array_key_exists( 'position', $banner ) && in_array( $banner['position'], array_keys( $banner_map ) ) ) {
+			if ( array_key_exists( 'position', $banner ) && in_array( $banner['position'], array_keys( $banner_map ), true ) ) {
 				$banner['position'] = $banner_map[ $banner['position'] ];
 				update_post_meta( $result->post_id, '_bu_banner', $banner );
 			} elseif ( ! array_key_exists( 'position', $banner ) || empty( $banner['position'] ) ) {
@@ -234,7 +291,15 @@ function responsive_upgrade_2_0( $verbose = true ) {
 			}
 		}
 	}
+}
 
+/**
+ * Migrate layout options.
+ *
+ * @param boolean $verbose Flag for outputting messages to error log.
+ * @since 2.2.1
+ */
+function responsive_upgrade_layout( $verbose ) {
 	// Upgrade layout names and ensure a value is saved to the option in the database.
 	$names = array(
 		'sideNav' => 'side-nav',
@@ -268,4 +333,66 @@ function responsive_upgrade_2_0( $verbose = true ) {
 	}
 
 	responsive_upgrade_ensure_theme_options();
+}
+
+/**
+ * Migrate font options.
+ *
+ * @param boolean $verbose Flag for outputting messages to error log.
+ * @since 2.2.1
+ */
+function responsive_upgrade_fonts( $verbose ) {
+	if ( $verbose ) {
+		error_log( __FUNCTION__ . ' - Updating font.' );
+	}
+
+	$old_font = get_option( 'burf_setting_fonts' );
+	$new_font = 'f1';
+
+	if ( defined( 'BU_RESPONSIVE_FONT_PALETTE' ) ) {
+		$new_font = BU_RESPONSIVE_FONT_PALETTE;
+	} elseif ( ! empty( $old_font ) ) {
+		$new_font = $old_font;
+	}
+
+	// If the default font is not being used,
+	// check to make sure the font actually exists as an option.
+	if ( 'f1' !== $new_font ) {
+		if ( ! array_key_exists( $new_font, responsive_font_options() ) ) {
+			$new_font = 'f1';
+		}
+	}
+
+	update_option( 'burf_setting_fonts', $new_font );
+}
+
+/**
+ * Migrate color options.
+ *
+ * @param boolean $verbose Flag for outputting messages to error log.
+ * @since 2.2.1
+ */
+function responsive_upgrade_colors( $verbose ) {
+	if ( $verbose ) {
+		error_log( __FUNCTION__ . ' - Updating color scheme.' );
+	}
+
+	$old_color = get_option( 'burf_setting_color_scheme' );
+	$new_color = 'default';
+
+	if ( defined( 'BU_RESPONSIVE_COLOR_PALETTE' ) ) {
+		$new_color = BU_RESPONSIVE_COLOR_PALETTE;
+	} elseif ( ! empty( $old_color ) ) {
+		$new_color = $old_color;
+	}
+
+	// If the default color is not being used,
+	// check to make sure the color actually exists as an option.
+	if ( 'default' !== $new_color ) {
+		if ( ! array_key_exists( $new_color, responsive_color_options() ) ) {
+			$new_color = 'default';
+		}
+	}
+
+	update_option( 'burf_setting_colors', $new_color );
 }

@@ -1,15 +1,15 @@
-# <!=Copyright (C) 2018
+# <!=Copyright (C) 2019
 # This file is distributed under the same license as the  package.=!>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/theme/responsive-framework\n"
-"POT-Creation-Date: 2018-09-20 18:29:37+00:00\n"
+"https://wordpress.org/support/theme/responsive-framework-2-x\n"
+"POT-Creation-Date: 2019-03-18 18:54:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: grunt-wp-i18n1.0.2\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
 #: 404.php:17
 msgid "Looks like that page might not be here anymore. Want to give search a try?"
@@ -42,117 +42,103 @@ msgid "All page templates"
 msgstr ""
 
 #: admin/responsive-admin-page-template-filter.php:72 inc/calendar.php:94
-#: inc/customizer.php:59 inc/customizer.php:387
 msgid "Default"
 msgstr ""
 
-#: admin/theme-customizer.php:45
+#: admin/theme-customizer.php:39
 msgid "Navigation Style"
 msgstr ""
 
-#: admin/theme-customizer.php:76
+#: admin/theme-customizer.php:74
 msgid "Fonts"
 msgstr ""
 
-#: admin/theme-customizer.php:105
+#: admin/theme-customizer.php:107
 msgid "Colors"
 msgstr ""
 
-#: admin/theme-customizer.php:112
-msgid "Color Scheme"
-msgstr ""
-
-#: admin/theme-customizer.php:128
-msgid "Base Color Scheme"
-msgstr ""
-
-#: admin/theme-customizer.php:199
-#. translators: %s: color label
-msgid "Use %s?"
-msgstr ""
-
-#: admin/theme-customizer.php:212
+#: admin/theme-customizer.php:139
 msgid "Content Options"
 msgstr ""
 
-#: admin/theme-customizer.php:230
+#: admin/theme-customizer.php:158
 msgid "Post Display Options"
 msgstr ""
 
-#: admin/theme-customizer.php:232
+#: admin/theme-customizer.php:160
 msgid ""
 "Change visibility of post meta fields. Note that the \"News\" page template "
 "has its own display options."
 msgstr ""
 
-#: admin/theme-customizer.php:234 inc/template-tags.php:264
+#: admin/theme-customizer.php:162 inc/template-tags.php:275
 msgid "Categories"
 msgstr ""
 
-#: admin/theme-customizer.php:235
+#: admin/theme-customizer.php:163
 msgid "Tags"
 msgstr ""
 
-#: admin/theme-customizer.php:236
+#: admin/theme-customizer.php:164
 msgid "Author"
 msgstr ""
 
-#: admin/theme-customizer.php:254
+#: admin/theme-customizer.php:183
 msgid "Options set by the theme:"
 msgstr ""
 
-#: admin/theme-customizer.php:258
+#: admin/theme-customizer.php:187
 msgid "Main sidebar position "
 msgstr ""
 
-#: admin/theme-customizer.php:261
+#: admin/theme-customizer.php:190
 msgid "Keep posts and profiles sidebar on the bottom?"
 msgstr ""
 
-#: admin/theme-customizer.php:269
+#: admin/theme-customizer.php:198
 msgid "Sidebar Options"
 msgstr ""
 
-#: admin/theme-customizer.php:283
+#: admin/theme-customizer.php:213
 msgid "Footer"
 msgstr ""
 
-#: admin/theme-customizer.php:285
+#: admin/theme-customizer.php:215
 #. translators: %s: menu url
 msgid ""
 "Footer links can be managed using the <a href=\"%s\">Footer and Social "
 "Links Custom Menu locations</a>."
 msgstr ""
 
-#: admin/theme-customizer.php:309
+#: admin/theme-customizer.php:241
 msgid "Custom HTML"
 msgstr ""
 
-#: admin/theme-customizer.php:313
+#: admin/theme-customizer.php:245
 msgid "May be used to enter an address or contact information."
 msgstr ""
 
-#: admin/theme-customizer.php:323
+#: admin/theme-customizer.php:256
 msgid "Automatically add paragraphs"
 msgstr ""
 
-#: admin/theme-customizer.php:344
+#: admin/theme-customizer.php:278
 msgid "Static page options"
 msgstr ""
 
-#: admin/theme-customizer.php:347
+#: admin/theme-customizer.php:281
 msgid "Hide the homepage title"
 msgstr ""
 
-#: admin/theme-customizer.php:364
+#: admin/theme-customizer.php:300
 msgid "Main Sidebar Position"
 msgstr ""
 
-#: admin/theme-customizer.php:366
+#: admin/theme-customizer.php:302
 msgid "Changes the position of the main sidebar."
 msgstr ""
 
-#: admin/theme-customizer.php:388
+#: admin/theme-customizer.php:326
 msgid "Keep the posts sidebar on bottom"
 msgstr ""
 
@@ -181,7 +167,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: comments.php:90 single-profile.php:55
+#: comments.php:90 single-profile.php:56
 msgid "Email"
 msgstr ""
 
@@ -209,47 +195,51 @@ msgstr ""
 msgid "Utility Navigation"
 msgstr ""
 
-#: functions.php:162
+#: functions.php:157
+msgid "Short Navigation"
+msgstr ""
+
+#: functions.php:163
 msgid "Primary Navigation"
 msgstr ""
 
-#: functions.php:228
+#: functions.php:229
 msgid "Main Sidebar"
 msgstr ""
 
-#: functions.php:230
+#: functions.php:231
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:240
+#: functions.php:241
 msgid "Posts Content Area"
 msgstr ""
 
-#: functions.php:242
+#: functions.php:243
 msgid ""
 "Add widgets here for display on posts and archives. Only the first 2 "
 "widgets will appear."
 msgstr ""
 
-#: functions.php:253
+#: functions.php:254
 msgid "Profiles Content Area"
 msgstr ""
 
-#: functions.php:255
+#: functions.php:256
 msgid ""
 "Add widgets here for display on profile pages and archives. Only the first "
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:266 inc/customizer.php:236 inc/template-tags.php:933
+#: functions.php:267 inc/template-tags.php:1053
 msgid "Footbar"
 msgstr ""
 
-#: functions.php:268 functions.php:282
+#: functions.php:269 functions.php:283
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:280 inc/template-tags.php:934
+#: functions.php:281 inc/template-tags.php:1054
 msgid "Alternate Footbar"
 msgstr ""
 
@@ -264,7 +254,7 @@ msgid ""
 "primary campuses in the heart of Boston and programs around the world."
 msgstr ""
 
-#: inc/bu-banners.php:122
+#: inc/bu-banners.php:161
 msgid "Leave blank to use the page title."
 msgstr ""
 
@@ -294,115 +284,33 @@ msgid "Graphic"
 msgstr ""
 
 #: inc/customizer.php:60
-msgid "Top Navigation Bar"
+msgid ""
+"Default Navigation <span class=\"ui-context\">A good choice for most "
+"websites</span>"
 msgstr ""
 
 #: inc/customizer.php:61
-msgid "Side Navigation Bar"
+msgid ""
+"Top Navigation <span class=\"ui-context\">Best for websites without "
+"dropdowns</span>"
 msgstr ""
 
 #: inc/customizer.php:62
-msgid "No Navigation Bar"
+msgid ""
+"Side Navigation <span class=\"ui-context\">Best for small websites with few "
+"nested pages</span>"
 msgstr ""
 
-#: inc/customizer.php:226
-msgid "Navigation Bar"
+#: inc/customizer.php:63
+msgid ""
+"Mega Navigation <span class=\"ui-context\">Best for large, complex "
+"websites</span>"
 msgstr ""
 
-#: inc/customizer.php:230
-msgid "Content Area"
-msgstr ""
-
-#: inc/customizer.php:233
-msgid "Sidebar"
-msgstr ""
-
-#: inc/customizer.php:250
-msgid "Background Color"
-msgstr ""
-
-#: inc/customizer.php:255
-msgid "Border Color"
-msgstr ""
-
-#: inc/customizer.php:260
-msgid "Primary Nav Links"
-msgstr ""
-
-#: inc/customizer.php:265
-msgid "Utility Nav Links"
-msgstr ""
-
-#: inc/customizer.php:270
-msgid "Primary Nav Links Hover"
-msgstr ""
-
-#: inc/customizer.php:277
-msgid "Headings"
-msgstr ""
-
-#: inc/customizer.php:282 inc/customizer.php:335 inc/customizer.php:372
-msgid "Text Color"
-msgstr ""
-
-#: inc/customizer.php:287 inc/customizer.php:325 inc/customizer.php:362
-msgid "Link Color"
-msgstr ""
-
-#: inc/customizer.php:292 inc/customizer.php:330 inc/customizer.php:367
-msgid "Link Hover"
-msgstr ""
-
-#: inc/customizer.php:297
-msgid "Button Background"
-msgstr ""
-
-#: inc/customizer.php:302
-msgid "Button Text Color"
-msgstr ""
-
-#: inc/customizer.php:309
-msgid "Widget Background"
-msgstr ""
-
-#: inc/customizer.php:315 inc/customizer.php:352
-msgid "Widget Title"
-msgstr ""
-
-#: inc/customizer.php:320 inc/customizer.php:357
-msgid "Widget Title Border"
-msgstr ""
-
-#: inc/customizer.php:342
-msgid "Background"
-msgstr ""
-
-#: inc/customizer.php:347
-msgid "Top Border"
-msgstr ""
-
-#: inc/customizer.php:426
-msgid "Slacker"
-msgstr ""
-
-#: inc/customizer.php:465
-msgid "Extra Spectral"
-msgstr ""
-
-#: inc/customizer.php:504
-msgid "Rayleigh Scattering"
-msgstr ""
-
-#: inc/customizer.php:543
-msgid "Vinca Minor"
-msgstr ""
-
-#: inc/customizer.php:582
-msgid "Eiffel"
-msgstr ""
-
-#: inc/customizer.php:621
-msgid "Comm Ave"
+#: inc/customizer.php:64
+msgid ""
+"No Navigation <span class=\"ui-context\">Best for single-page "
+"websites</span>"
 msgstr ""
 
 #: inc/post-lists.php:19
@@ -447,60 +355,73 @@ msgstr ""
 msgid "Page %d"
 msgstr ""
 
-#: inc/template-tags.php:114
+#: inc/template-tags.php:125
 #. translators: %s: current search query.
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/template-tags.php:117
+#: inc/template-tags.php:128
 msgid "Yikes! We couldn't find that."
 msgstr ""
 
-#: inc/template-tags.php:132
+#: inc/template-tags.php:143
 msgid "Profile Directory"
 msgstr ""
 
-#: inc/template-tags.php:532
+#: inc/template-tags.php:460 template-parts/masthead-side-nav.php:20
+#: template-parts/masthead-top-nav.php:10 template-parts/masthead.php:15
+msgid "Open menu"
+msgstr ""
+
+#: inc/template-tags.php:461
+msgid "Full Menu"
+msgstr ""
+
+#: inc/template-tags.php:462
+msgid "Close Menu"
+msgstr ""
+
+#: inc/template-tags.php:640
 #. translators: %s: archive type singular name.
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:537
+#: inc/template-tags.php:645
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:538
+#: inc/template-tags.php:646
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:579
+#: inc/template-tags.php:687
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:607 single.php:34
+#: inc/template-tags.php:715 single.php:34
 #. translators: %s: author name linking to their archive page.
 #. translators: %s: author name
 msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:624
+#: inc/template-tags.php:732
 #. translators: %s: category list for the post.
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:633
+#: inc/template-tags.php:741
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:633
+#: inc/template-tags.php:741
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:633
+#: inc/template-tags.php:741
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:766
+#: inc/template-tags.php:886
 msgid "View all posts"
 msgstr ""
 
@@ -528,22 +449,22 @@ msgid ""
 "University community.  For further assistance, please see:"
 msgstr ""
 
-#: page-templates/news.php:29 page-templates/no-sidebars.php:22 page.php:27
+#: page-templates/news.php:29 page-templates/no-sidebars.php:23 page.php:27
 #: single.php:23
 msgid "Pages:"
 msgstr ""
 
-#: page-templates/news.php:34 page-templates/no-sidebars.php:27 page.php:33
-#: single-profile.php:90 single.php:70 template-parts/content.php:26
-msgid "Edit"
-msgstr ""
-
-#: page-templates/news.php:53
+#: page-templates/news.php:51
 msgid "No Posts Found"
 msgstr ""
 
-#: page-templates/news.php:54
+#: page-templates/news.php:52
 msgid "This site does not currently have any posts. Please check back later."
+msgstr ""
+
+#: page-templates/news.php:60 page-templates/no-sidebars.php:30 page.php:35
+#: profiles.php:26
+msgid "Edit Page"
 msgstr ""
 
 #: profiles.php:16
@@ -575,24 +496,34 @@ msgstr ""
 msgid "Related to %s"
 msgstr ""
 
-#: single-profile.php:41
+#: single-profile.php:42
 msgid "Title"
 msgstr ""
 
-#: single-profile.php:48
+#: single-profile.php:49
 msgid "Office"
 msgstr ""
 
-#: single-profile.php:62
+#: single-profile.php:63
 msgid "Phone"
 msgstr ""
 
-#: single-profile.php:68
+#: single-profile.php:69
 msgid "Education"
+msgstr ""
+
+#: single-profile.php:95 template-parts/profile-advanced.php:43
+#: template-parts/profile-basic.php:43 template-parts/profile-mini.php:45
+#: template-parts/profile.php:43
+msgid "Edit Profile"
 msgstr ""
 
 #: single.php:64
 msgid "Tagged"
+msgstr ""
+
+#: single.php:72 template-parts/content.php:26 template-parts/news.php:44
+msgid "Edit Post"
 msgstr ""
 
 #: template-parts/calendar/single-event.php:11
@@ -692,11 +623,6 @@ msgstr ""
 #: template-parts/masthead-side-nav.php:15
 #: template-parts/masthead-top-nav.php:13 template-parts/masthead.php:18
 msgid "Open search"
-msgstr ""
-
-#: template-parts/masthead-side-nav.php:20
-#: template-parts/masthead-top-nav.php:10 template-parts/masthead.php:15
-msgid "Open menu"
 msgstr ""
 
 #: template-parts/masthead-side-nav.php:20
