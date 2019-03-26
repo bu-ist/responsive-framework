@@ -91,7 +91,7 @@ function responsive_get_font_palette() {
 	$palette       = get_option( 'burf_setting_fonts' );
 
 	// Let's make sure that we are actually getting a font that is in the list.
-	if ( ! in_array( $palette, responsive_font_options(), true ) ) {
+	if ( ! array_key_exists( $palette, responsive_font_options() ) ) {
 		$palette = $fallback_font;
 	}
 
@@ -163,7 +163,7 @@ function responsive_get_color_palette() {
 	$palette = get_option( 'burf_setting_colors' );
 
 	// Let's make sure that we are actually getting a color that is in the list.
-	if ( ! in_array( $palette, responsive_color_options(), true ) ) {
+	if ( ! array_key_exists( $palette, responsive_color_options() ) ) {
 		$palette = $fallback_color;
 	}
 
