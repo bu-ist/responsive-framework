@@ -15,8 +15,6 @@
  */
 function responsive_get_the_title_single_event( $title ) {
 
-	global $buCalendar;
-
 	// Retrieve single-event parameters.
 	$event = responsive_calendar_get_event();
 
