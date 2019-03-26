@@ -335,8 +335,6 @@ function responsive_upgrade_layout( $verbose ) {
 	if ( $new_layout !== $old_layout ) {
 		update_option( 'burf_setting_layout', $new_layout );
 	}
-
-	responsive_upgrade_ensure_theme_options();
 }
 
 /**
