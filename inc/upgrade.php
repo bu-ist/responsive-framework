@@ -32,7 +32,7 @@ function responsive_framework_upgrade( $verbose = true ) {
 				responsive_upgrade_091( $verbose );
 			}
 
-			if ( version_compare( $db_version, '2.0.0', '<' ) ) {
+			if ( version_compare( $db_version, '2.3.1', '<' ) ) {
 				responsive_upgrade_2_0( $verbose );
 			}
 
@@ -244,7 +244,7 @@ function responsive_upgrade_2_0( $verbose = true ) {
 
 	// Delete unnecessary options.
 	delete_option( 'burf_setting_color_scheme' );
-	delete_option( 'burf_setting_active_color_region' );
+	delete_option( 'burf_setting_active_color_regions' );
 	delete_option( 'burf_setting_custom_colors' );
 }
 

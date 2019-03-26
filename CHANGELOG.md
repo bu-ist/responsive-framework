@@ -6,6 +6,10 @@
   persist an unchecked value for Customizer > Content Options > "Keep the posts
   sidebar on bottom".
 
+## 2.3.1
+
+Version bump to run the upgrade to accomodate new color schemes
+
 ## 2.3.0
 
 - New and improved UI for color palette selection
