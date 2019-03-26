@@ -316,7 +316,6 @@ function responsive_customize_register( $wp_customize ) {
 			'burf_setting_posts_sidebar_bottom',
 			array(
 				'type'    => 'option',
-				'default' => true,
 			)
 		);
 
