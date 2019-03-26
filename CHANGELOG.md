@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.1
+
+Version bump to run the upgrade to accomodate new color schemes
+
 ## 2.3.0
 
 - New and improved UI for color palette selection
