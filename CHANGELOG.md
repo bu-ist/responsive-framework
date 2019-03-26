@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.3.0
+
+- New and improved UI for color palette selection
+- Add edit links to BU profiles partials and support for improved styling
+- Add to the upgrade procedure migration of the font and color palettes
+- Rebuilds the `burf_customizer_styles` option.
+- Refactor of the larger code blocks into their own functions.
+
 ## 2.2.0
 
 - Move footer-branding and footer-menus to their own template partials for
@@ -53,6 +61,8 @@
 ## 2.1.13
 
 - Minor update to change how content was checked for banners, switching to the bu_banners spefic `has_text`.
+- Resolve PHP Warnings when `responsive_get_posts_archive_link` is called on a
+  page that doesn't have any categories assigned to it.
 
 ## 2.1.12
 

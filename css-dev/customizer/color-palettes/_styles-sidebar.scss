@@ -1,0 +1,91 @@
+@media screen {
+	@if $use-background-colors {
+		.widget {
+			background: $sidebar-bg;
+			padding: 24px;
+		}
+
+		.footbar .widget {
+			background: transparent;
+			padding: 0;
+		}
+	}
+
+	// widget border color
+	.widget-title,
+	#contentnav ul,
+	#contentnav li,
+	.widget_nav_menu ul,
+	.widget_nav_menu li,
+	.widget-calendar-event,
+	.month,
+	.widget-calendar-picker th,
+	.widget-calendar-picker td,
+	.widget_links li,
+	.widget_archive li {
+		border-color: $sidebar-border;
+	}
+
+	// text color
+	.widget,
+	.widget-calendar-picker th,
+	.widget-calendar-picker caption {
+		color: $sidebar-text;
+	}
+
+	// link color
+	.widget a,
+	#contentnav li a,
+	.widget_nav_menu li a,
+	#contentnav li.current_page_item > a,
+	.widget_nav_menu li.current_page_item > a,
+	.month td a {
+		color: $sidebar-link;
+
+		&:hover,
+		&:focus {
+			color: $sidebar-link-hover;
+		}
+	}
+
+
+	// Widget Titles
+	.widget-title,
+	.widget-title a {
+		color: $sidebar-widget-title;
+	}
+
+	// buttons
+	.widget a.button,
+	.widget a.button-primary {
+		background: $sidebar-button-bg;
+		color: accessible-text( $sidebar-button-bg, $sidebar-button-link );
+
+		&:hover,
+		&:focus {
+			color: accessible-text( $sidebar-button-bg, $sidebar-button-link-hover );
+		}
+	}
+
+	.profile-single-details {
+		background: $sidebar-bg;
+		border: 0;
+
+		a {
+			color: $sidebar-link;
+
+			&:hover,
+			&:focus {
+				color: $sidebar-link-hover;
+			}
+		}
+	}
+
+	.profile-details-item {
+		color: $sidebar-text;
+	}
+
+	.profile-details-label {
+		color: $sidebar-widget-title;
+	}
+}

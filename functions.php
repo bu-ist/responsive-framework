@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.2.0' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.3.0' );
 
 /**
  * Modernizr version.
@@ -17,7 +17,7 @@ define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.2.0' );
  * Used to version Modernizr assets.
  */
 if ( ! defined( 'RESPONSIVE_MODERNIZR_VERSION' ) ) {
-	define( 'RESPONSIVE_MODERNIZR_VERSION', '3.6.0' );
+	define( 'RESPONSIVE_MODERNIZR_VERSION', '2.3.0' );
 }
 
 /**
@@ -46,7 +46,7 @@ function get_responsive_theme_version() {
  *
  * Used to version `lightGallery` assets.
  */
-define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.11' );
+define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '2.3.0' );
 
 /**
  * `lg-thumbnail` version.
@@ -55,7 +55,7 @@ define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.11' );
  *
  * Used to version `lg-thumbnail` assets.
  */
-define( 'RESPONSIVE_LG_THUMBNAIL_VERSION', '1.1.0' );
+define( 'RESPONSIVE_LG_THUMBNAIL_VERSION', '2.3.0' );
 
 /**
  * Fires the before_responsive_setup action hook before any theme setup occurs.

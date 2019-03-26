@@ -1,0 +1,21 @@
+$palette-id: 'comm_ave';
+
+@import 'styles-base';
+
+$current-palette:                     map-get( $color-palettes, $palette-id );
+$color-secondary: map-get( $current-palette, 'color-secondary' );
+$color-tertiary: map-get( $current-palette, 'color-tertiary' );
+
+$sidebar-bg:                          $color-secondary;
+$sidebar-link:                        accessible-text( $sidebar-bg, #FFF );
+$mega-toggle-bg:                      $color-secondary;
+$sidebar-button-bg:                   $color-tertiary;
+
+$footbar-link: accessible-text( #222222, #96CE53 );
+
+@import 'triad';
+
+@import 'styles-navigation';
+@import 'styles-content';
+@import 'styles-sidebar';
+@import 'styles-footer';
