@@ -1,9 +1,10 @@
 # Changelog
 
-## 2.2.1
+## 2.3.0
 
+- New and improved UI for color palette selection
 - Add edit links to BU profiles partials and support for improved styling
-- Add to the upgrade procedure migration of the font and color palates
+- Add to the upgrade procedure migration of the font and color palettes
 - Rebuilds the `burf_customizer_styles` option.
 - Refactor of the larger code blocks into their own functions.
 
