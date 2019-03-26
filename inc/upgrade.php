@@ -59,6 +59,10 @@ function responsive_framework_upgrade( $verbose = true ) {
 		}
 
 		add_option( '_responsive_framework_version', RESPONSIVE_FRAMEWORK_VERSION );
+
+		// No version has been set. This must be the first time theme has
+		// activated. Initialize default customizer options.
+		responsive_upgrade_ensure_theme_options();
 	}
 }
 
