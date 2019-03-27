@@ -36,7 +36,7 @@ if ( empty( $fields ) ) {
 				<dt class="single-event-label single-event-label-<?php echo sanitize_html_class( strtolower( $fieldname ) ); ?>">
 					<?php echo esc_html( $field['label'] ); ?>
 				</dt>
-				<dd class="single-event-value single-event-value-<?php echo sanitize_html_class( strtolower( $fieldname ) ); ?>">
+				<dd class="single-event-info single-event-info-<?php echo sanitize_html_class( strtolower( $fieldname ) ); ?>">
 					<?php echo wp_kses_post( $field['value'] ); ?>
 				</dd>
 			<?php endif; ?>
