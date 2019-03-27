@@ -46,7 +46,7 @@ function get_responsive_theme_version() {
  *
  * Used to version `lightGallery` assets.
  */
-define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.11' );
+define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.12' );
 
 /**
  * `lg-thumbnail` version.
