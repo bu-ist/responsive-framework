@@ -248,7 +248,7 @@ module.exports = function( grunt ) {
 		version: {
 			functions: {
 				options: {
-					prefix: "['\"]RESPONSIVE_\\w*_VERSION['\"],\\s*'",
+					prefix: "['\"]RESPONSIVE_FRAMEWORK_VERSION['\"],\\s*'",
 				},
 				src: [ 'functions.php' ],
 			},

@@ -113,19 +113,20 @@ class Tests_Responsive_Framework_Narrow_Template_Constants extends WP_UnitTestCa
 	 */
 	function test_r_is_narrow_template_sidebar_location_right() {
 		define( 'BU_RESPONSIVE_SIDEBAR_POSITION', 'right' );
+		update_option( 'burf_setting_posts_sidebar_bottom', true );
 
 		$this->assertFalse( r_is_narrow_template() );
 
-		// Single posts should not be narrow.
+		// Single posts should be narrow.
 		$post_id = $this->factory->post->create( array(
 			'post_title' => 'A Test Post',
 			'post_type'  => 'post',
 		) );
 
 		$this->go_to( get_permalink( $post_id ) );
-		$this->assertFalse( r_is_narrow_template() );
+		$this->assertTrue( r_is_narrow_template() );
 
-		// Pages should not be narrow, even if they have a whitelisted template.
+		// Pages should not be narrow, except if they have a whitelisted template.
 		$page_id = $this->factory->post->create( array(
 			'post_title' => 'A Test Page',
 			'post_type' => 'page',
@@ -135,27 +136,24 @@ class Tests_Responsive_Framework_Narrow_Template_Constants extends WP_UnitTestCa
 		$this->assertFalse( r_is_narrow_template() );
 
 		update_post_meta( $page_id, '_wp_page_template', 'page-templates/news.php' );
-		$this->assertFalse( r_is_narrow_template() );
+		$this->assertTrue( r_is_narrow_template() );
 
 		// Only single events should be narrow.
 		$_GET['eid'] = '1';
 		$this->assertTrue( r_is_narrow_template() );
-		$_GET['eid'] = '';
-
-		$this->assertFalse( r_is_narrow_template() );
 
 		// Changing the option should have no effect.
 		update_option( 'burf_setting_sidebar_location', 'bottom' );
-		$this->assertFalse( r_is_narrow_template() );
+		$this->assertTrue( r_is_narrow_template() );
 		update_option( 'burf_setting_sidebar_location', 'right' );
 
-		// Setting posts sidebar bottom to true flags more items as narrow.
-		update_option( 'burf_setting_posts_sidebar_bottom', true );
+		// Setting posts sidebar bottom to false makes less items narrow.
+		update_option( 'burf_setting_posts_sidebar_bottom', false );
 		$this->go_to( get_permalink( $post_id ) );
-		$this->assertTrue( r_is_narrow_template() );
+		$this->assertFalse( r_is_narrow_template() );
 
 		$this->go_to( get_permalink( $page_id ) );
-		$this->assertTrue( r_is_narrow_template() );
+		$this->assertFalse( r_is_narrow_template() );
 
 		update_post_meta( $page_id, '_wp_page_template', 'default' );
 		$this->assertFalse( r_is_narrow_template() );

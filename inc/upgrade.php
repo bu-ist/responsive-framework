@@ -59,10 +59,34 @@ function responsive_framework_upgrade( $verbose = true ) {
 		}
 
 		add_option( '_responsive_framework_version', RESPONSIVE_FRAMEWORK_VERSION );
+
+		// No version has been set. This must be the first time theme has
+		// activated. Initialize default customizer options.
+		responsive_upgrade_ensure_theme_options();
 	}
 }
 
 add_action( 'init', 'responsive_framework_upgrade' );
+
+/**
+ * Ensures that the default options are saved in the database.
+ *
+ * @since 2.2.1
+ */
+function responsive_upgrade_ensure_theme_options() {
+	// Ensure customizer options have default values saved.
+	$show_on_bottom = get_option( 'burf_setting_posts_sidebar_bottom' );
+
+	if ( empty( $show_on_bottom ) ) {
+		add_option( 'burf_setting_posts_sidebar_bottom', true );
+	}
+
+	$sidebar_location = get_option( 'burf_setting_sidebar_location' );
+
+	if ( empty( $sidebar_location ) ) {
+		update_option( 'burf_setting_sidebar_location', 'right' );
+	}
+}
 
 /**
  * Upgrade for 0.9.1.

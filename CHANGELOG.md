@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.3.2
+
+- Removes default option of "true" to address #364 where customizer could not
+  persist an unchecked value for Customizer > Content Options > "Keep the posts
+  sidebar on bottom".
+- Bugfix on color schemes to ensure their values are properly retrieved using
+  array_key_exists instead of in_array.
+- Fixes broken phpunit tests for testing customizer color/font values.
+
 ## 2.3.1
 
 Version bump to run the upgrade to accomodate new color schemes
