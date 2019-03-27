@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Removes default option of "true" to address #364 where customizer could not
+  persist an unchecked value for Customizer > Content Options > "Keep the posts
+  sidebar on bottom".
+
 ## 2.3.1
 
 Version bump to run the upgrade to accomodate new color schemes

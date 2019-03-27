@@ -315,8 +315,7 @@ function responsive_customize_register( $wp_customize ) {
 		$wp_customize->add_setting(
 			'burf_setting_posts_sidebar_bottom',
 			array(
-				'type'    => 'option',
-				'default' => true,
+				'type' => 'option',
 			)
 		);
 
