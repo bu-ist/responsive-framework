@@ -88,7 +88,7 @@ function responsive_get_font_palette() {
 	 * @param string Fallback font value.
 	 */
 	$fallback_font = (string) apply_filters( 'responsive_font_fallback', 'f1' );
-	$palette       = get_option( 'burf_setting_fonts' );
+	$palette       = (string) get_option( 'burf_setting_fonts' );
 
 	// Let's make sure that we are actually getting a font that is in the list.
 	if ( ! array_key_exists( $palette, responsive_font_options() ) ) {
@@ -160,7 +160,7 @@ function responsive_get_color_palette() {
 	 */
 	$fallback_color = (string) apply_filters( 'responsive_color_fallback', 'default' );
 
-	$palette = get_option( 'burf_setting_colors' );
+	$palette = (string) get_option( 'burf_setting_colors' );
 
 	// Let's make sure that we are actually getting a color that is in the list.
 	if ( ! array_key_exists( $palette, responsive_color_options() ) ) {
