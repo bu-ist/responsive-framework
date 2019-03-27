@@ -32,7 +32,7 @@ function responsive_framework_upgrade( $verbose = true ) {
 				responsive_upgrade_091( $verbose );
 			}
 
-			if ( version_compare( $db_version, '2.0.0', '<' ) ) {
+			if ( version_compare( $db_version, '2.3.1', '<' ) ) {
 				responsive_upgrade_2_0( $verbose );
 			}
 
@@ -59,10 +59,34 @@ function responsive_framework_upgrade( $verbose = true ) {
 		}
 
 		add_option( '_responsive_framework_version', RESPONSIVE_FRAMEWORK_VERSION );
+
+		// No version has been set. This must be the first time theme has
+		// activated. Initialize default customizer options.
+		responsive_upgrade_ensure_theme_options();
 	}
 }
 
 add_action( 'init', 'responsive_framework_upgrade' );
+
+/**
+ * Ensures that the default options are saved in the database.
+ *
+ * @since 2.2.1
+ */
+function responsive_upgrade_ensure_theme_options() {
+	// Ensure customizer options have default values saved.
+	$show_on_bottom = get_option( 'burf_setting_posts_sidebar_bottom' );
+
+	if ( empty( $show_on_bottom ) ) {
+		add_option( 'burf_setting_posts_sidebar_bottom', true );
+	}
+
+	$sidebar_location = get_option( 'burf_setting_sidebar_location' );
+
+	if ( empty( $sidebar_location ) ) {
+		update_option( 'burf_setting_sidebar_location', 'right' );
+	}
+}
 
 /**
  * Upgrade for 0.9.1.
@@ -220,7 +244,7 @@ function responsive_upgrade_2_0( $verbose = true ) {
 
 	// Delete unnecessary options.
 	delete_option( 'burf_setting_color_scheme' );
-	delete_option( 'burf_setting_active_color_region' );
+	delete_option( 'burf_setting_active_color_regions' );
 	delete_option( 'burf_setting_custom_colors' );
 }
 

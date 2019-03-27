@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.2.1' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.3.2' );
 
 /**
  * Modernizr version.
@@ -46,7 +46,7 @@ function get_responsive_theme_version() {
  *
  * Used to version `lightGallery` assets.
  */
-define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.11' );
+define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.12' );
 
 /**
  * `lg-thumbnail` version.
@@ -450,7 +450,7 @@ function r_is_narrow_template() {
 			$narrow_enabled = true;
 		}
 	} else {
-		$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom', false );
+		$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom' );
 	}
 
 	if ( defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ) {

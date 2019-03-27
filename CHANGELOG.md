@@ -1,9 +1,23 @@
 # Changelog
 
-## 2.2.1
+## 2.3.2
 
+- Removes default option of "true" to address #364 where customizer could not
+  persist an unchecked value for Customizer > Content Options > "Keep the posts
+  sidebar on bottom".
+- Bugfix on color schemes to ensure their values are properly retrieved using
+  array_key_exists instead of in_array.
+- Fixes broken phpunit tests for testing customizer color/font values.
+
+## 2.3.1
+
+Version bump to run the upgrade to accomodate new color schemes
+
+## 2.3.0
+
+- New and improved UI for color palette selection
 - Add edit links to BU profiles partials and support for improved styling
-- Add to the upgrade procedure migration of the font and color palates
+- Add to the upgrade procedure migration of the font and color palettes
 - Rebuilds the `burf_customizer_styles` option.
 - Refactor of the larger code blocks into their own functions.
 - Add template hooks to all core WP and custom page templates in the theme.
