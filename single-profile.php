@@ -8,7 +8,7 @@
 /**
  * Adds a profile image above the title.
  *
- * @since 2.2.1
+ * @since 2.3.3
  */
 function responsive_single_profile_img() {
 
@@ -39,7 +39,7 @@ add_action( 'r_after_opening_article', 'responsive_single_profile_img', 9 );
 /**
  * Adds a profile title (a.k.a. job/position) below the title.
  *
- * @since 2.2.1
+ * @since 2.3.3
  *
  * @link https://github.com/bu-ist/bu-profiles/blob/develop/bu-profile-template-tags.php#L3-L28
  */
@@ -67,7 +67,7 @@ get_header(); ?>
 		/**
 		 * Fires immediately before the opening article tag.
 		 *
-		 * @since 2.2.1
+		 * @since 2.3.3
 		 */
 		do_action( 'r_before_opening_article' );
 		?>
@@ -78,7 +78,7 @@ get_header(); ?>
 			/**
 			 * Fires immediately after opening article tag.
 			 *
-			 * @since 2.2.1
+			 * @since 2.3.3
 			 */
 			do_action( 'r_after_opening_article' );
 			?>
@@ -148,7 +148,7 @@ get_header(); ?>
 			/**
 			 * Fires immediately before closing article tag.
 			 *
-			 * @since 2.2.1
+			 * @since 2.3.3
 			 */
 			do_action( 'r_before_closing_article' );
 			?>
@@ -159,7 +159,7 @@ get_header(); ?>
 		/**
 		 * Fires immediately after closing article tag.
 		 *
-		 * @since 2.2.1
+		 * @since 2.3.3
 		 */
 		do_action( 'r_after_closing_article' );
 		?>

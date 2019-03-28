@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Add template hooks to all core WP and custom page templates in the theme.
+- Normalize the markup used on all page templates for consistency.
+- Split the calendar template into `calendar.php` and `calendar-single.php` by
+  leveraging the `template_include` filter.
+- Add support for custom fields on `calendar-single.php`.
+
 ## 2.3.2
 
 - Removes default option of "true" to address #364 where customizer could not
@@ -20,11 +28,6 @@ Version bump to run the upgrade to accomodate new color schemes
 - Add to the upgrade procedure migration of the font and color palettes
 - Rebuilds the `burf_customizer_styles` option.
 - Refactor of the larger code blocks into their own functions.
-- Add template hooks to all core WP and custom page templates in the theme.
-- Normalize the markup used on all page templates for consistency.
-- Split the calendar template into `calendar.php` and `calendar-single.php` by
-  leveraging the `template_include` filter.
-- Add support for custom fields on `calendar-single.php`.
 
 ## 2.2.0
 

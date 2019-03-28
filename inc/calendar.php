@@ -12,7 +12,7 @@
  * in order to retrieve a single event on the calendar template when all the
  * URL query parameters are currently present in the request.
  *
- * @since 2.2.1
+ * @since 2.3.3
  *
  * @link https://github.com/bu-ist/bu-calendar-plugin/blob/master/calendar.php#L539-L549
  *
@@ -584,7 +584,7 @@ function responsive_calendar_event_labels() {
  * - The order of these fields matters; it determines the order of outputted
  *   fields to the front-end.
  *
- * @since 2.2.1
+ * @since 2.3.3
  *
  * @return array $labels An associated array of field names and their front-end labels.
  */
@@ -620,7 +620,7 @@ function responsive_calendar_event_field_labels() {
 	 * Useful for changing field labels, removing standard fields, or changing
 	 * the order.
 	 *
-	 * @since 2.2.1
+	 * @since 2.3.3
 	 * @param array $labels An associated array of field names and their front-end labels.
 	 */
 	return apply_filters( 'responsive_calendar_event_field_labels', $labels );
@@ -631,7 +631,7 @@ function responsive_calendar_event_field_labels() {
  *
  * Useful for templating out the event fields.
  *
- * @since 2.2.1
+ * @since 2.3.3
  *
  * @param int $calendar_id The calendar ID to retrieve events from.
  * @param int $event_id    The event ID for the event post.
@@ -652,7 +652,7 @@ function responsive_calendar_get_fields( $calendar_id = false, $event_id = false
 	 * Modifies the combined result of standard calendar fields and custom
 	 * fields.
 	 *
-	 * @since 2.2.1
+	 * @since 2.3.3
 	 * @param array $all_fields Combined result of standard and custom fields.
 	 */
 	return apply_filters( 'responsive_calendar_get_fields', $all_fields );
@@ -661,7 +661,7 @@ function responsive_calendar_get_fields( $calendar_id = false, $event_id = false
 /**
  * Returns standard event fields for a given calendar.
  *
- * @since 2.2.1
+ * @since 2.3.3
  *
  * @param int $calendar_id The calendar ID to retrieve events from.
  * @param int $event_id    The event ID for the event post.
@@ -693,7 +693,7 @@ function responsive_calendar_get_fields_standard( $calendar_id = false, $event_i
 	/**
 	 * Modifies the array of standard event fieldnames and their values.
 	 *
-	 * @since 2.2.1
+	 * @since 2.3.3
 	 * @param array $standard_fields Array of standard fieldnames and their label/value.
 	 */
 	return apply_filters( 'responsive_calendar_get_fields_standard', $standard_fields );
@@ -705,7 +705,7 @@ function responsive_calendar_get_fields_standard( $calendar_id = false, $event_i
  * Provides a better user-experience for values that are expected to be links,
  * such as adding link tags for registration url / email address values.
  *
- * @since 2.2.1
+ * @since 2.3.3
  *
  * @param array $standard_fields Array of standard fieldnames and their label/value.
  * @return array $standard_fields Modified array of standard fields.
@@ -725,7 +725,7 @@ add_filter( 'responsive_calendar_get_fields_standard', 'responsive_calendar_modi
 /**
  * Changes event link URL value into link HTML.
  *
- * @since 2.2.1
+ * @since 2.3.3
  *
  * @param array $standard_fields Array of standard fieldnames and their label/value.
  * @return array $standard_fields Modified array of standard fields.
@@ -760,7 +760,7 @@ function responsive_calendar_modify_field_url( $standard_fields ) {
 /**
  * Changes event contact email value into mailto link HTML.
  *
- * @since 2.2.1
+ * @since 2.3.3
  *
  * @param array $standard_fields Array of standard fieldnames and their label/value.
  * @return array $standard_fields Modified array of standard fields.
@@ -788,7 +788,7 @@ function responsive_calendar_modify_field_contact_email( $standard_fields ) {
 /**
  * Returns custom event fields for a given calendar.
  *
- * @since 2.2.1
+ * @since 2.3.3
  *
  * @global $buCalendar Calendar plugin instance.
  *
@@ -848,7 +848,7 @@ function responsive_calendar_get_fields_custom( $calendar_id = false, $event_id 
 	/**
 	 * Modifies the array of custom event fieldnames and their values.
 	 *
-	 * @since 2.2.1
+	 * @since 2.3.3
 	 * @param array $custom_fields Array of custom fieldnames and their label/value.
 	 */
 	return apply_filters( 'responsive_calendar_get_fields_custom', $custom_fields );

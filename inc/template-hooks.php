@@ -16,13 +16,13 @@
  *
  * @package    Responsive_Framework
  * @subpackage Responsive_Framework/inc
- * @since      2.2.1
+ * @since      2.3.3
  */
 
 /**
  * Filters the path of the current template before including it.
  *
- * @since 2.2.1
+ * @since 2.3.3
  *
  * @link https://developer.wordpress.org/reference/hooks/template_include/
  *
@@ -56,7 +56,7 @@ add_filter( 'template_include', 'responsive_calendar_template_include' );
 /**
  * Adds the page title to the front end immediately after opening article tag.
  *
- * @since 2.2.1
+ * @since 2.3.3
  *
  * @see inc/template-tags.php for `responsive_the_title()` definition.
  */

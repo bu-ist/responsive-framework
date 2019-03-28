@@ -11,7 +11,7 @@ get_header(); ?>
 /**
  * Fires immediately before the opening article tag.
  *
- * @since 2.2.1
+ * @since 2.3.3
  */
 do_action( 'r_before_opening_article' );
 ?>
@@ -22,7 +22,7 @@ do_action( 'r_before_opening_article' );
 	/**
 	 * Fires immediately after opening article tag.
 	 *
-	 * @since 2.2.1
+	 * @since 2.3.3
 	 */
 	do_action( 'r_after_opening_article' );
 	?>
@@ -35,7 +35,7 @@ do_action( 'r_before_opening_article' );
 	/**
 	 * Fires immediately before closing article tag.
 	 *
-	 * @since 2.2.1
+	 * @since 2.3.3
 	 */
 	do_action( 'r_before_closing_article' );
 	?>
@@ -46,7 +46,7 @@ do_action( 'r_before_opening_article' );
 /**
  * Fires immediately after closing article tag.
  *
- * @since 2.2.1
+ * @since 2.3.3
  */
 do_action( 'r_after_closing_article' );
 ?>
