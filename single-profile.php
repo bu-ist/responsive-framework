@@ -59,7 +59,8 @@ add_action( 'r_after_opening_article', 'responsive_single_profile_subheader', 11
 /**
  * Begin templating.
  */
-get_header(); ?>
+get_header();
+?>
 
 	<?php if ( have_posts() ) : the_post(); ?>
 

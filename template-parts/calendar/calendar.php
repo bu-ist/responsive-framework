@@ -64,7 +64,7 @@ if ( ! $calendar_id ) {
 		$query_end = $range_end;
 	} else {
 		$last_event = $events[ ( count( $events ) - 1 ) ]['starts']; // timestamp for the last event retrieved.
-		$query_end = $last_event;
+		$query_end  = $last_event;
 	}
 
 	/* Content: Calendar Topic */

@@ -560,9 +560,9 @@ if ( ! function_exists( 'responsive_calendar_get_topic' ) ) {
  */
 function responsive_calendar_event_labels() {
 	$labels = array(
-		'back_to_calendar'     => __( 'Back to Calendar', 'responsive-framework' ),
-		'ends'                 => __( 'Ends', 'responsive-framework' ) . ':',
-		'starts'               => __( 'Starts', 'responsive-framework' ) . ':',
+		'back_to_calendar' => __( 'Back to Calendar', 'responsive-framework' ),
+		'ends'             => __( 'Ends', 'responsive-framework' ) . ':',
+		'starts'           => __( 'Starts', 'responsive-framework' ) . ':',
 	);
 
 	/**
