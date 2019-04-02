@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.3.3
 
 - Add template hooks to all core WP and custom page templates in the theme.
 - Normalize the markup used on all page templates for consistency.

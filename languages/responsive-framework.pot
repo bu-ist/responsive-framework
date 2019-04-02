@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/theme/responsive-framework\n"
-"POT-Creation-Date: 2019-03-27 18:12:11+00:00\n"
+"POT-Creation-Date: 2019-04-02 14:48:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -167,7 +167,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: comments.php:90 single-profile.php:106
+#: comments.php:90 single-profile.php:107
 msgid "Email"
 msgstr ""
 
@@ -584,23 +584,23 @@ msgstr ""
 msgid "Related to %s"
 msgstr ""
 
-#: single-profile.php:92
+#: single-profile.php:93
 msgid "Title"
 msgstr ""
 
-#: single-profile.php:99
+#: single-profile.php:100
 msgid "Office"
 msgstr ""
 
-#: single-profile.php:113
+#: single-profile.php:114
 msgid "Phone"
 msgstr ""
 
-#: single-profile.php:119
+#: single-profile.php:120
 msgid "Education"
 msgstr ""
 
-#: single-profile.php:145 template-parts/profile-advanced.php:43
+#: single-profile.php:146 template-parts/profile-advanced.php:43
 #: template-parts/profile-basic.php:43 template-parts/profile-mini.php:45
 #: template-parts/profile.php:43
 msgid "Edit Profile"

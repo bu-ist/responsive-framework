@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.3.2' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.3.3' );
 
 /**
  * Modernizr version.
@@ -17,7 +17,7 @@ define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.3.2' );
  * Used to version Modernizr assets.
  */
 if ( ! defined( 'RESPONSIVE_MODERNIZR_VERSION' ) ) {
-	define( 'RESPONSIVE_MODERNIZR_VERSION', '3.6.0' );
+	define( 'RESPONSIVE_MODERNIZR_VERSION', '3.7.1' );
 }
 
 /**
