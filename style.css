@@ -13705,12 +13705,16 @@ body {
   margin-top: 0;
 }
 
-.single-event-label, .single-event-speakers-label, .single-event-audience-label, .single-event-departments-label, .single-event-location-label, .single-event-location-building-label, .single-event-location-room-label, .single-event-fees-label, .single-event-fee-label, .single-event-fee-general-label, .single-event-fee-public-label, .single-event-fee-staff-label, .single-event-fee-student-label, .single-event-fee-bu-student-label, .single-event-fee-senior-label, .single-event-deadline-label, .single-event-registration-label, .single-event-contact-org-label, .single-event-contact-name-label, .single-event-contact-email-label, .single-event-contact-phone-label {
+.single-event-label {
   color: #999;
   display: block;
   font-family: "Benton-Sans", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.single-event-info {
+  margin: 0 0 20px;
 }
 
 .single-event-time {
@@ -13724,10 +13728,6 @@ body {
 }
 
 .single-event-additional-details {
-  margin: 0 0 20px;
-}
-
-.single-event-speakers-info, .single-event-audience-info, .single-event-departments-info, .single-event-location-info, .single-event-location-building-info, .single-event-location-room-info, .single-event-fees-info, .single-event-fee-info, .single-event-fee-general-info, .single-event-fee-public-info, .single-event-fee-staff-info, .single-event-fee-student-info, .single-event-fee-bu-student-info, .single-event-fee-senior-info, .single-event-deadline-info, .single-event-registration-info, .single-event-contact-org-info, .single-event-contact-name-info, .single-event-contact-email-info, .single-event-contact-phone-info {
   margin: 0 0 20px;
 }
 

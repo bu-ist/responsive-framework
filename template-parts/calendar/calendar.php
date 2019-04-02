@@ -7,20 +7,6 @@
 
 global $buCalendar;
 
-// Displays the h1 page title and content.
-if ( have_posts() ) {
-	while ( have_posts() ) :
-		the_post();
-		responsive_the_title();
-		the_content( '<p class="serif">Read the rest of this page &raquo;</p>' );
-		wp_link_pages( array(
-			'before'         => '<p><strong>Pages:</strong> ',
-			'after'          => '</p>',
-			'next_or_number' => 'number',
-		) );
-	endwhile;
-}
-
 // Displays calendar component.
 $calendar_id  = responsive_calendar_get_calendar_id();
 $calendar_url = responsive_calendar_get_calendar_url();
@@ -72,14 +58,13 @@ if ( ! $calendar_id ) {
 	$params = array( 'maxevents' => 25 );
 	$events = $buCalendar->getEvents( $calendar_id, $start_date, $days, responsive_calendar_get_topic(), $params );
 
-	$last_event = $events[ ( count( $events ) - 1 ) ]['starts']; // timestamp for the last event retrieved.
-
 	$range_end = strtotime( '+' . $days . ' day', $timestamp );
 
 	if ( count( $events ) < 25 ) {
 		$query_end = $range_end;
 	} else {
-		$query_end = $last_event;
+		$last_event = $events[ ( count( $events ) - 1 ) ]['starts']; // timestamp for the last event retrieved.
+		$query_end  = $last_event;
 	}
 
 	/* Content: Calendar Topic */

@@ -822,6 +822,11 @@ require __DIR__ . '/inc/bu-template-tags.php'; // BU enhancements to template-ta
 require __DIR__ . '/inc/template-tags.php';
 
 /**
+ * Templating hooks to offer flexibility in templating, adding content, etc.
+ */
+require __DIR__ . '/inc/template-hooks.php';
+
+/**
  * Upgrade routines for schema changes across versions.
  */
 require __DIR__ . '/inc/upgrade.php';

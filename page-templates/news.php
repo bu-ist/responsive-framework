@@ -5,7 +5,6 @@
  * @package Responsive_Framework
  */
 
-
 // Setup for secondary query that lists posts based on the page's metadata.
 include BU_NEWS_POST_LISTS_PATH . '/news-page-template.php';
 
@@ -18,9 +17,25 @@ get_header();
 
 <?php while ( have_posts() ) : the_post(); ?>
 
+	<?php
+	/**
+	 * Fires immediately before the opening article tag.
+	 *
+	 * @since 2.3.3
+	 */
+	do_action( 'r_before_opening_article' );
+	?>
+
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-area' ); ?>>
 
-		<?php responsive_the_title(); ?>
+		<?php
+		/**
+		 * Fires immediately after opening article tag.
+		 *
+		 * @since 2.3.3
+		 */
+		do_action( 'r_after_opening_article' );
+		?>
 
 		<?php the_content(); ?>
 
@@ -48,7 +63,7 @@ get_header();
 
 			<?php else : ?>
 
-				<h1><?php esc_html_e( 'No Posts Found', 'responsive-framework' ); ?></h1>
+				<h2><?php esc_html_e( 'No Posts Found', 'responsive-framework' ); ?></h2>
 				<p><?php esc_html_e( 'This site does not currently have any posts. Please check back later.', 'responsive-framework' ); ?></p>
 
 			<?php endif; ?>
@@ -59,7 +74,25 @@ get_header();
 
 		<?php edit_post_link( __( 'Edit Page', 'responsive-framework' ), '<span class="edit-link">', '</span><span class="post-edit-hint"></span>' ); ?>
 
+		<?php
+		/**
+		 * Fires immediately before closing article tag.
+		 *
+		 * @since 2.3.3
+		 */
+		do_action( 'r_before_closing_article' );
+		?>
+
 	</article>
+
+	<?php
+	/**
+	 * Fires immediately after closing article tag.
+	 *
+	 * @since 2.3.3
+	 */
+	do_action( 'r_after_closing_article' );
+	?>
 
 <?php endwhile; ?>
 

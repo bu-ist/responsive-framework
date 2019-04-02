@@ -164,7 +164,7 @@ if ( ! function_exists( 'responsive_get_the_title' ) ) {
 		endif;
 
 		// Allow the current title to be filtered.
-		$title = apply_filters( 'responsive_filter_get_the_title', $title );
+		$title = apply_filters( 'responsive_get_the_title', $title );
 
 		return $title;
 	}
@@ -457,7 +457,7 @@ function responsive_short_nav( $args = array() ) {
 		return;
 	}
 
-	$after .= '<button type="button" class="nav-toggle js-nav-toggle mega-nav-toggle" aria-label="' . __( 'Open menu', 'responsive-framework' ) . '" aria-expanded="true">';
+	$after  = '<button type="button" class="nav-toggle js-nav-toggle mega-nav-toggle" aria-label="' . __( 'Open menu', 'responsive-framework' ) . '" aria-expanded="true">';
 	$after .= '<div class="nav-toggle-label-closed">' . apply_filters( 'responsive_mega_menu_closed', __( 'Full Menu', 'responsive-framework' ) ) . '</div>';
 	$after .= '<div class="nav-toggle-label-open">' . apply_filters( 'responsive_mega_menu_opened', __( 'Close Menu', 'responsive-framework' ) ) . '</div>';
 	$after .= '</button>';
@@ -628,9 +628,11 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 		} elseif ( is_tax() || is_category() || is_tag() ) {
 			$taxonomy_object = get_taxonomy( $queried_object->taxonomy );
 
+			// Overwrite $archive_type if taxonomy object has an object type assigned.
 			$post_type = get_post_type( $taxonomy_object->object_type[0] );
-
-			$archive_type = $post_type->labels->singular_name;
+			if ( ! empty( $post_type ) ) {
+				$archive_type = $post_type->labels->singular_name;
+			}
 		}
 
 		$defaults = array(

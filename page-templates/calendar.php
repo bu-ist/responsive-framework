@@ -5,27 +5,64 @@
  * @package Responsive_Framework
  */
 
-// Retrieves event id. This is used to determine if calendar view or single-event view, and if a sidebar should show up.
-$event_id = responsive_calendar_get_event_id();
-
 get_header();
-?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( responsive_calendar_article_classes() ); ?>>
-	<?php
-	// Retrieves calendar or single-event partial.
-	if ( is_null( $event_id ) ) {
-		get_template_part( 'template-parts/calendar/calendar' );
-	} else {
-		get_template_part( 'template-parts/calendar/single-event' );
-	}
+// Displays the h1 page title and content.
+while ( have_posts() ) :
+	the_post();
+
+	/**
+	 * Fires immediately before the opening article tag.
+	 *
+	 * @since 2.3.3
+	 */
+	do_action( 'r_before_opening_article' );
 	?>
-</article>
 
-<?php
-// Retrieve the sidebar if there is no event id.
-if ( is_null( $event_id ) ) {
-	get_sidebar( 'calendar' );
-}
+	<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'content-area', 'calendar-list' ) ); ?>>
+
+		<?php
+		/**
+		 * Fires immediately after opening article tag.
+		 *
+		 * @since 2.3.3
+		 */
+		do_action( 'r_after_opening_article' );
+
+		the_content( '<p class="serif">Read the rest of this page &raquo;</p>' );
+
+		wp_link_pages(
+			array(
+				'before'         => '<p><strong>Pages:</strong> ',
+				'after'          => '</p>',
+				'next_or_number' => 'number',
+			)
+		);
+
+		// Retrieves calendar partial.
+		get_template_part( 'template-parts/calendar/calendar' );
+
+		/**
+		 * Fires immediately before closing article tag.
+		 *
+		 * @since 2.3.3
+		 */
+		do_action( 'r_before_closing_article' );
+		?>
+
+	</article>
+
+	<?php
+	/**
+	 * Fires immediately after closing article tag.
+	 *
+	 * @since 2.3.3
+	 */
+	do_action( 'r_after_closing_article' );
+
+endwhile;
+
+// Retrieve the calendar sidebar.
+get_sidebar( 'calendar' );
 
 get_footer();

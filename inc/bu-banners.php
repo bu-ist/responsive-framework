@@ -90,7 +90,7 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 			add_filter(
 				'bu_banners_banner_info',
 				function( $banner_info ) {
-					$banner_info['title']        = get_the_title( $post_id );
+					$banner_info['title']        = get_the_title( get_queried_object_id() );
 					$banner_info['title_before'] = '<h1 class="page-title bu-banner-title">';
 					$banner_info['title_after']  = '</h1>';
 					return $banner_info;
