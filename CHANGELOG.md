@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.3.4
+- Add quotes to iframe attributes for BUNIVERSE shortcode. 
+
 ## 2.3.3
 
 - Add template hooks to all core WP and custom page templates in the theme.
