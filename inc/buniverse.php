@@ -23,23 +23,25 @@
  * @return string Shortcode output.
  */
 function buniverse_shortcode( $atts, $content ) {
-	$atts = shortcode_atts( array(
-		'vid'     => '',
-		'id'      => '',
-		'class'   => '',
-		'width'   => 550,
-		'height'  => 310,
-		'caption' => '',
-	), $atts, 'buniverse' );
+	$atts = shortcode_atts(
+		array(
+			'vid'     => '',
+			'id'      => '',
+			'class'   => '',
+			'width'   => 550,
+			'height'  => 310,
+			'caption' => '',
+		), $atts, 'buniverse'
+	);
 
 	// Sanitize and build wrapper attributes.
 	$atts['id'] = trim( $atts['id'] );
-	$id_attr = '';
+	$id_attr    = '';
 	if ( $atts['id'] ) {
 		$id_attr = sprintf( 'id="%s"', esc_attr( $atts['id'] ) );
 	}
 
-	$classes = '';
+	$classes       = '';
 	$atts['class'] = trim( $atts['class'] );
 	if ( $atts['class'] ) {
 		$classes = implode( ' ', array_map( 'esc_attr', explode( ' ', $atts['class'] ) ) );
@@ -57,10 +59,11 @@ function buniverse_shortcode( $atts, $content ) {
 	$source_url = apply_filters( 'buniverse_shortcode_src', 'https://www.bu.edu/buniverse/interface/embed/embed.html?v=%s' );
 
 	// Build <iframe> attributes.
-	$iframe = $iframe_atts = array();
-	$iframe['src'] = esc_url( sprintf( $source_url, $atts['vid'] ) );
-	$iframe['width'] = (int) $atts['width'];
-	$iframe['height'] = (int) $atts['height'];
+	$iframe_atts           = array();
+	$iframe                = array();
+	$iframe['src']         = esc_url( sprintf( $source_url, $atts['vid'] ) );
+	$iframe['width']       = (int) $atts['width'];
+	$iframe['height']      = (int) $atts['height'];
 	$iframe['frameborder'] = 0;
 
 	foreach ( $iframe as $key => $val ) {
@@ -68,7 +71,7 @@ function buniverse_shortcode( $atts, $content ) {
 		if ( is_bool( $val ) && $val ) {
 			$iframe_atts[] = $key;
 		} else {
-			$iframe_atts[] = $key . '=' . esc_attr( $val );
+			$iframe_atts[] = $key . '="' . esc_attr( $val ) . '"';
 		}
 	}
 	$iframe_atts = implode( ' ', $iframe_atts );
@@ -122,7 +125,7 @@ function buniverse_embed_handler( $matches, $attr, $url, $rawattr ) {
 	);
 
 	if ( ! empty( $rawattr['width'] ) && ! empty( $rawattr['height'] ) ) {
-		$atts['width'] = (int) $rawattr['width'];
+		$atts['width']  = (int) $rawattr['width'];
 		$atts['height'] = (int) $rawattr['height'];
 	}
 
