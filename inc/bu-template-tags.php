@@ -17,6 +17,13 @@ function responsive_primary_nav() {
 
 		if ( function_exists( 'bu_navigation_display_primary' ) ) {
 			/**
+			 * Fires before primary nav is displayed.
+			 *
+			 * @since 2.11.12
+			 */
+			do_action( 'responsive_primary_nav_before' );
+
+			/**
 			 * Defines arguments to pass in to BU Navigation.
 			 *
 			 * Note: These arguments will override Primary Navigation defaults +
@@ -39,6 +46,13 @@ function responsive_primary_nav() {
 
 			// Calls the BU primary navigation, providing overrides.
 			bu_navigation_display_primary( $args );
+
+			/**
+			 * Fires after primary nav is displayed.
+			 *
+			 * @since 2.11.12
+			 */
+			do_action( 'responsive_primary_nav_after' );
 		}
 	}
 }
