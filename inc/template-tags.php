@@ -1156,3 +1156,41 @@ function r_get_archive_sidebar( $name = null ) {
 
 	locate_template( $templates, true );
 }
+
+/**
+ * Helper method to retrieve post excerpts outside of The Loop.
+ *
+ * Retrieves a custom excerpt (if exists). Fallsback to generating an excerpt
+ * from the post content field.
+ *
+ * A workaround for a known WP issue:
+ * https://developer.wordpress.org/reference/functions/get_the_excerpt/#comment-2457
+ *
+ * @since 1.0.0
+ *
+ * @param int $post_id The post ID to retrieve an excerpt for.
+ * @param int $length  Optional. The number of words to include.
+ * @return string $excerpt The resulting excerpt.
+ */
+function responsive_get_the_excerpt( $post_id = null, $length = 55 ) {
+	// If no Post ID supplied, use the main query's post.
+	$post_id = ! empty( $post_id ) ? $post_id : get_queried_object_id();
+	// Sets the initial value for the excerpt.
+	$excerpt = '';
+	// If has a custom excerpt, use that.
+	if ( has_excerpt( $post_id ) ) {
+		$excerpt = get_the_excerpt( $post_id );
+	} else {
+		// Craft an excerpt from post_content, without using setup_postdata().
+		$post_content = get_post_field( 'post_content', $post_id );
+		// Only generate an excerpt if there post_content exists.
+		if ( ! empty( $post_content ) ) {
+			$excerpt = $post_content;
+		}
+	}
+	// If a length was passed and not empty, trim words.
+	if ( ! empty( $length ) ) {
+		$excerpt = wp_trim_words( $excerpt, $length );
+	}
+	return $excerpt;
+}
