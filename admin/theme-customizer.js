@@ -24,17 +24,29 @@
 
 	// Manage the sidebar & layout controls. If left layout, then left sidebar is disabled and switched to right
 	$( document ).ready( function () {
-		$( '#burf_setting_layout input[type="radio"]' ).on( 'change', function() {
-			if( $( '#burf_setting_layout_side-nav').is( ':checked' ) ){
-				if( $( '#customize-control-burf_setting_sidebar_location input[value="left"]' ).is( ':checked' ) ){
-					$( '#customize-control-burf_setting_sidebar_location input[value="left"]' ).attr( 'checked', false ).attr( 'disabled', 'disabled' );
-					$( '#customize-control-burf_setting_sidebar_location input[value="right"]' ).attr( 'checked', true ).change();
-				}
-			}else {
-				$( '#customize-control-burf_setting_sidebar_location input[value="left"]' ).attr( 'checked', false ).attr( 'disabled', false );
-			}
 
-		} );
+		function preventBadLayoutDecisions() {
+			var $sidebarLocationLeft = $( '#customize-control-burf_setting_sidebar_location input[value="left"]' ),
+			$sidebarLocationRight = $( '#customize-control-burf_setting_sidebar_location input[value="right"]' );
+
+			if ( $( '#burf_setting_layout_side-nav' ).is( ':checked' ) ) {
+				if( $sidebarLocationLeft.is( ':checked' ) ) {
+					// Uncheck and disable the left sidebar option
+					$sidebarLocationLeft.attr( 'checked', false ).attr( 'disabled', 'disabled' );
+
+					// Check the right sidebar instead
+					$sidebarLocationRight.attr( 'checked', true ).change();
+				}
+			} else {
+				// Leave it alone, but reinstate the ability to change it
+				$sidebarLocationLeft.attr( 'disabled', false );
+			}
+		}
+
+		$( '#burf_setting_layout input[type="radio"]' ).on( 'change', preventBadLayoutDecisions );
+
+		// Run the bad decisions layout check on initial load as well
+		preventBadLayoutDecisions();
 	} );
 
 } ) ( wp.customize, jQuery );
