@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Replicated the `responsive_primary_nav_before` and `responsive_primary_nav_after` hooks into the BU version of `responsive_primary_nav`
+- Fixes #170
 
 ## 2.3.4
 
