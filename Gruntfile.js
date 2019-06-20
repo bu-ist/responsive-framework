@@ -258,13 +258,13 @@ module.exports = function( grunt ) {
 				},
 				src: [ 'css-dev/style.scss' ],
 			},
-			modernizr: {
+			/*modernizr: {
 				options: {
 					pkg: 'node_modules/modernizr/package.json',
 					prefix: "['\"]RESPONSIVE_MODERNIZR_VERSION['\"],\\s*'",
 				},
 				src: [ 'functions.php' ],
-			},
+			},*/
 			lightgallery: {
 				options: {
 					pkg: 'node_modules/lightgallery/package.json',
