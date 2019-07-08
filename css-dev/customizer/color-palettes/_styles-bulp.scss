@@ -1,0 +1,9 @@
+$bulp-intro-title:                    $color-tertiary !default;
+
+@media screen {
+
+	.bulp-intro-title {
+		color: $bulp-intro-title;
+	}
+
+}

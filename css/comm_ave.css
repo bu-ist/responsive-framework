@@ -277,3 +277,9 @@
     color: #bdbdbd;
   }
 }
+
+@media screen {
+  .bulp-intro-title {
+    color: red;
+  }
+}
