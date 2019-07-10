@@ -270,6 +270,33 @@
   }
 }
 
+@media screen {
+  .bulp-intro-title {
+    color: #1A1D2B;
+  }
+  .bulp-promo-button,
+  .bulp-event-register {
+    background-color: #FE9C6D;
+  }
+  .bulp-event-readmore,
+  .bulp-article-readmore {
+    background-color: #EEE;
+    color: #1A1D2B;
+  }
+  .bulp-event-readmore:hover,
+  .bulp-article-readmore:hover {
+    color: #1A1D2B;
+  }
+  .bulp-event-when:before,
+  .bulp-event-where:before {
+    color: #1A1D2B;
+  }
+  .bulp-article-category,
+  .bulp-event-topic-text {
+    background-color: #1A1D2B;
+  }
+}
+
 #quicksearch .button {
   background: #CF4704;
 }

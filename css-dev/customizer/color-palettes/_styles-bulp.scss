@@ -1,24 +1,25 @@
 $bulp-event-icon-color:                    $color-dark !default;
+$bulp-promo-btn-color:                 $color-tertiary !default;
+$bulp-category-topic-color:                $color-dark !default;
 
 @media screen {
 
-	.bulp-intro-title,
-	.bulp-largepromo-title {
-		color: $color-primary;
+	.bulp-intro-title {
+		color: $color-dark;
 	}
 
 	.bulp-promo-button,
 	.bulp-event-register {
-		background-color: $color-tertiary;
+		background-color: $bulp-promo-btn-color;
 	}
 
 	.bulp-event-readmore,
 	.bulp-article-readmore {
 		background-color: #EEE;
-		color: $color-primary;
+		color: $color-dark;
 
 		&:hover {
-			color: $color-primary;
+			color: $color-dark;
 		}
 	}
 
@@ -26,4 +27,10 @@ $bulp-event-icon-color:                    $color-dark !default;
 	.bulp-event-where:before {
 		color: $bulp-event-icon-color;
 	}
+
+	.bulp-article-category,
+	.bulp-event-topic-text {
+		background-color: $bulp-category-topic-color;
+	}
+
 }
