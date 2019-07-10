@@ -1,9 +1,29 @@
-$bulp-intro-title:                    $color-tertiary !default;
+$bulp-event-icon-color:                    $color-dark !default;
 
 @media screen {
 
-	.bulp-intro-title {
-		color: $bulp-intro-title;
+	.bulp-intro-title,
+	.bulp-largepromo-title {
+		color: $color-primary;
 	}
 
+	.bulp-promo-button,
+	.bulp-event-register {
+		background-color: $color-tertiary;
+	}
+
+	.bulp-event-readmore,
+	.bulp-article-readmore {
+		background-color: #EEE;
+		color: $color-primary;
+
+		&:hover {
+			color: $color-primary;
+		}
+	}
+
+	.bulp-event-when:before,
+	.bulp-event-where:before {
+		color: $bulp-event-icon-color;
+	}
 }

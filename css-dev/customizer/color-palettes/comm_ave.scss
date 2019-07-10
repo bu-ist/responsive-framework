@@ -3,6 +3,7 @@ $palette-id: 'comm_ave';
 @import 'styles-base';
 
 $current-palette:                     map-get( $color-palettes, $palette-id );
+$color-primary: map-get( $current-palette, 'color-primary' );
 $color-secondary: map-get( $current-palette, 'color-secondary' );
 $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 
@@ -10,7 +11,7 @@ $sidebar-bg:                          $color-secondary;
 $sidebar-link:                        accessible-text( $sidebar-bg, #FFF );
 $mega-toggle-bg:                      $color-secondary;
 $sidebar-button-bg:                   $color-tertiary;
-$bulp-intro-title:                    red;
+$bulp-event-icon-color:               $color-primary;
 
 $footbar-link: accessible-text( #222222, #96CE53 );
 

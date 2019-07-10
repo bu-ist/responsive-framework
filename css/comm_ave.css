@@ -279,7 +279,25 @@
 }
 
 @media screen {
-  .bulp-intro-title {
-    color: red;
+  .bulp-intro-title,
+  .bulp-largepromo-title {
+    color: #303437;
+  }
+  .bulp-promo-button,
+  .bulp-event-register {
+    background-color: #48B4F4;
+  }
+  .bulp-event-readmore,
+  .bulp-article-readmore {
+    background-color: #EEE;
+    color: #303437;
+  }
+  .bulp-event-readmore:hover,
+  .bulp-article-readmore:hover {
+    color: #303437;
+  }
+  .bulp-event-when:before,
+  .bulp-event-where:before {
+    color: #303437;
   }
 }
