@@ -282,6 +282,9 @@
   .bulp-intro-title {
     color: #222222;
   }
+  .bu-banner-button {
+    background-color: #303437;
+  }
   .bulp-promo-button,
   .bulp-event-register {
     background-color: #48B4F4;

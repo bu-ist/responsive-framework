@@ -1,11 +1,16 @@
 $bulp-event-icon-color:                    $color-dark !default;
 $bulp-promo-btn-color:                 $color-tertiary !default;
 $bulp-category-topic-color:                $color-dark !default;
+$bulp-bu-banner-button-color:           $color-primary !default;
 
 @media screen {
 
 	.bulp-intro-title {
 		color: $color-dark;
+	}
+
+	.bu-banner-button {
+		background-color: $bulp-bu-banner-button-color;
 	}
 
 	.bulp-promo-button,
