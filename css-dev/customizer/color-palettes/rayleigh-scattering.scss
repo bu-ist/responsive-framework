@@ -2,7 +2,16 @@ $palette-id: 'rayleigh-scattering';
 
 @import 'styles-base';
 
+$current-palette: map-get( $color-palettes, $palette-id );
+$color-primary: map-get( $current-palette, 'color-primary' );
+$color-secondary: map-get( $current-palette, 'color-secondary' );
+
 $sidebar-bg: #E1F0F5;
+
+$bulp-bu-banner-button-bg: $color-secondary;
+$bulp-promo-btn-bg: $color-secondary;
+$bulp-register-btn-bg: $color-primary;
+
 //$mega-toggle-bg: #15b6ff;
 //$nav-bg: #00405d;
 

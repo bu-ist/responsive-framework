@@ -279,15 +279,30 @@
 }
 
 @media screen {
-  .bulp-intro-title {
+  .bulp-intro-title,
+  .bulp-largepromo-title {
     color: #1A1A22;
   }
   .bu-banner-button {
     background-color: #24243A;
   }
-  .bulp-promo-button,
-  .bulp-event-register {
+  .bulp-promo-button {
     background-color: #ECB438;
+    color: #4d4d4d;
+  }
+  .bulp-promo-button:hover {
+    color: #4d4d4d;
+  }
+  .bulp-event-register {
+    background-color: #6CD5B5;
+    color: #4f4f4f;
+  }
+  .bulp-largepromo-button {
+    background-color: #24243A;
+    color: #FFF;
+  }
+  .bulp-largepromo-button:hover {
+    color: #FFF;
   }
   .bulp-event-readmore,
   .bulp-article-readmore {

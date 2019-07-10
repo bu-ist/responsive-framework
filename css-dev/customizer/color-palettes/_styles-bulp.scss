@@ -1,21 +1,47 @@
-$bulp-event-icon-color:                    $color-dark !default;
-$bulp-promo-btn-color:                 $color-tertiary !default;
-$bulp-category-topic-color:                $color-dark !default;
-$bulp-bu-banner-button-color:           $color-primary !default;
+$bulp-event-icon-bg:                             $color-dark !default;
+$bulp-promo-btn-bg:                          $color-tertiary !default;
+$bulp-promo-btn-text:                                   #FFF !default;
+$bulp-register-btn-bg:                       $color-tertiary !default;
+$bulp-register-btn-text:                                #FFF !default;
+$bulp-category-topic-bg:                         $color-dark !default;
+$bulp-bu-banner-button-bg:                    $color-primary !default;
+$bulp-largepromo-button-bg:                   $color-primary !default;
+$bulp-largepromo-button-text:                           #FFF !default;
+$bulp-intro-title-bg:                            $color-dark !default;
+
 
 @media screen {
 
-	.bulp-intro-title {
-		color: $color-dark;
+	.bulp-intro-title,
+	.bulp-largepromo-title {
+		color: $bulp-intro-title-bg;
 	}
 
 	.bu-banner-button {
-		background-color: $bulp-bu-banner-button-color;
+		background-color: $bulp-bu-banner-button-bg;
 	}
 
-	.bulp-promo-button,
+	.bulp-promo-button {
+		background-color: $bulp-promo-btn-bg;
+		color: $bulp-promo-btn-text;
+
+		&:hover {
+			color: $bulp-promo-btn-text;
+		}
+	}
+
 	.bulp-event-register {
-		background-color: $bulp-promo-btn-color;
+		background-color: $bulp-register-btn-bg;
+		color: $bulp-register-btn-text;
+	}
+
+	.bulp-largepromo-button {
+		background-color: $bulp-largepromo-button-bg;
+		color: $bulp-largepromo-button-text;
+
+		&:hover {
+			color: $bulp-largepromo-button-text;
+		}
 	}
 
 	.bulp-event-readmore,
@@ -30,12 +56,12 @@ $bulp-bu-banner-button-color:           $color-primary !default;
 
 	.bulp-event-when:before,
 	.bulp-event-where:before {
-		color: $bulp-event-icon-color;
+		color: $bulp-event-icon-bg;
 	}
 
 	.bulp-article-category,
 	.bulp-event-topic-text {
-		background-color: $bulp-category-topic-color;
+		background-color: $bulp-category-topic-bg;
 	}
 
 }

@@ -2,8 +2,18 @@ $palette-id: 'slacker';
 
 @import 'styles-base';
 
+$current-palette: map-get( $color-palettes, $palette-id );
+$color-tertiary: map-get( $current-palette, 'color-tertiary' );
+$color-secondary: map-get( $current-palette, 'color-secondary' );
+$color-primary: map-get( $current-palette, 'color-primary' );
+
 $content-body: #000;
 $sidebar-link: #ECB438;
+
+$bulp-bu-banner-button-bg:              $color-primary;
+$bulp-register-btn-bg:                  $color-secondary;
+$bulp-promo-btn-text:                   accessible-text( $color-tertiary, #FFF );
+$bulp-register-btn-text:                accessible-text( $color-secondary, #FFF );
 
 @import 'triad';
 

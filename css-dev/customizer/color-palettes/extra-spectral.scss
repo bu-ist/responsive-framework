@@ -9,9 +9,10 @@ $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 
 $sidebar-bg: #A5144D;
 $sidebar-button-bg: #660028;
-$bulp-promo-btn-color:                     $color-secondary;
-$bulp-category-topic-color:                $color-primary;
-$bulp-bu-banner-button-color:              $color-secondary;
+$bulp-promo-btn-bg:                     $color-secondary;
+$bulp-category-topic-bg:                  $color-primary;
+$bulp-bu-banner-button-bg:              $color-secondary;
+$bulp-register-btn-bg:              $color-secondary;
 
 @import 'monochromatic';
 
