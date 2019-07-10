@@ -281,7 +281,7 @@
 @media screen {
   .bulp-intro-title,
   .bulp-largepromo-title {
-    color: #F4F7F7;
+    color: #00343A;
   }
   .bu-banner-button {
     background-color: #00343A;
@@ -297,6 +297,9 @@
     background-color: #C58700;
     color: #FFF;
   }
+  .bulp-event-register:hover {
+    color: #FFF;
+  }
   .bulp-largepromo-button {
     background-color: #00343A;
     color: #FFF;
@@ -307,18 +310,18 @@
   .bulp-event-readmore,
   .bulp-article-readmore {
     background-color: #EEE;
-    color: #F4F7F7;
+    color: #333;
   }
   .bulp-event-readmore:hover,
   .bulp-article-readmore:hover {
-    color: #F4F7F7;
+    color: #333;
   }
   .bulp-event-when:before,
   .bulp-event-where:before {
-    color: #F4F7F7;
+    color: #00343A;
   }
   .bulp-article-category,
   .bulp-event-topic-text {
-    background-color: #F4F7F7;
+    background-color: #00343A;
   }
 }

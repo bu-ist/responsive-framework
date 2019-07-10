@@ -279,14 +279,17 @@
     background-color: #3F51B5;
   }
   .bulp-promo-button {
-    background-color: #FE9C6D;
+    background-color: #FA5707;
     color: #FFF;
   }
   .bulp-promo-button:hover {
     color: #FFF;
   }
   .bulp-event-register {
-    background-color: #FE9C6D;
+    background-color: #3F51B5;
+    color: #FFF;
+  }
+  .bulp-event-register:hover {
     color: #FFF;
   }
   .bulp-largepromo-button {
@@ -299,11 +302,11 @@
   .bulp-event-readmore,
   .bulp-article-readmore {
     background-color: #EEE;
-    color: #1A1D2B;
+    color: #333;
   }
   .bulp-event-readmore:hover,
   .bulp-article-readmore:hover {
-    color: #1A1D2B;
+    color: #333;
   }
   .bulp-event-when:before,
   .bulp-event-where:before {

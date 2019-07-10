@@ -8,6 +8,7 @@ $bulp-bu-banner-button-bg:                    $color-primary !default;
 $bulp-largepromo-button-bg:                   $color-primary !default;
 $bulp-largepromo-button-text:                           #FFF !default;
 $bulp-intro-title-bg:                            $color-dark !default;
+$bulp-readmore-button-text:                             #333 !default;
 
 
 @media screen {
@@ -33,6 +34,10 @@ $bulp-intro-title-bg:                            $color-dark !default;
 	.bulp-event-register {
 		background-color: $bulp-register-btn-bg;
 		color: $bulp-register-btn-text;
+
+		&:hover {
+			color: $bulp-register-btn-text;
+		}
 	}
 
 	.bulp-largepromo-button {
@@ -47,10 +52,10 @@ $bulp-intro-title-bg:                            $color-dark !default;
 	.bulp-event-readmore,
 	.bulp-article-readmore {
 		background-color: #EEE;
-		color: $color-dark;
+		color: $bulp-readmore-button-text;
 
 		&:hover {
-			color: $color-dark;
+			color: $bulp-readmore-button-text;
 		}
 	}
 

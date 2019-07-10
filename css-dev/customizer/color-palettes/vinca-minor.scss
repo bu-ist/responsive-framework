@@ -2,6 +2,10 @@ $palette-id: 'vinca-minor';
 
 @import 'styles-base';
 
+$current-palette: map-get( $color-palettes, $palette-id );
+$color-primary: map-get( $current-palette, 'color-primary' );
+$color-secondary: map-get( $current-palette, 'color-secondary' );
+
 $current-palette:                     map-get( $color-palettes, $palette-id );
 $button-bg:                           map-get( $current-palette, 'color-primary' );
 $button-link:                         accessible-text( $button-bg, #FFF );
@@ -9,6 +13,8 @@ $button-link-hover:                   accessible-text( $button-bg, #FFF );
 $mega-toggle-bg:                      map-get( $current-palette, 'color-primary' );
 $mega-toggle-link:                    accessible-text( $mega-toggle-bg, #FFF );
 $mega-toggle-link-hover:              accessible-text( $mega-toggle-bg, #FFF );
+$bulp-promo-btn-bg:                   $color-secondary;
+$bulp-register-btn-bg:                $color-primary;
 
 @import 'complimentary';
 

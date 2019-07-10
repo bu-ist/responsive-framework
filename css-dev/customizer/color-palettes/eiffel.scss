@@ -11,6 +11,11 @@ $button-link-hover:                   accessible-text( $button-bg, #000, true );
 $sidebar-bg:                          #F4F7F7;
 
 $content-heading:                     accessible-text( #FFF, map-get( $current-palette, 'color-tertiary' ), true );
+$bulp-promo-btn-color:                map-get( $current-palette, 'color-primary' );
+
+$bulp-event-icon-bg:                  map-get( $current-palette, 'color-primary' );
+$bulp-category-topic-bg:              map-get( $current-palette, 'color-primary' );
+$bulp-intro-title-bg:                 map-get( $current-palette, 'color-primary' );
 
 @import 'complimentary';
 

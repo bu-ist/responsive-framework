@@ -297,6 +297,9 @@
     background-color: #6CD5B5;
     color: #4f4f4f;
   }
+  .bulp-event-register:hover {
+    color: #4f4f4f;
+  }
   .bulp-largepromo-button {
     background-color: #24243A;
     color: #FFF;
@@ -307,11 +310,11 @@
   .bulp-event-readmore,
   .bulp-article-readmore {
     background-color: #EEE;
-    color: #1A1A22;
+    color: #333;
   }
   .bulp-event-readmore:hover,
   .bulp-article-readmore:hover {
-    color: #1A1A22;
+    color: #333;
   }
   .bulp-event-when:before,
   .bulp-event-where:before {
