@@ -105,7 +105,64 @@ switch ($_GET['form_id']) {
 						Cell Phone: " . $editentry['214'] . "<br/>
 						Email: " . $editentry['5'] . "<br/><br/>
 						
-						High School Program: Summer Challenge
+						High School Program: SSIP
+					</blockquote>
+					<p>Payment Information:</p>
+						 <blockquote>
+						Payment Date: " . $editentry['payment_date'] . "<br/>
+						Credit Card: " . $editentry['36'] . "<br/>
+						Amount: " . $editentry['37'] . "<br/>
+						Nelnet ID: " . $editentry['38'] . "<br/>
+						
+					</blockquote>
+						</p>";
+/*$editentry = GFAPI::get_entry($_GET['application_id']);*/
+GFAPI::send_notifications( $_GET['form_id'], $editentry, 'payment_updated' );
+
+				} else {
+					$success_message =  '<P>Unable to update entry.</P>';
+				}
+
+			} else {
+				$success_message =  '<P>Looks like payment information has already been updated.</P>';
+		}
+
+		break;
+
+	//international
+	case '44':
+
+		if ($editentry['payment_status'] != 'Yes'
+			&& $editentry['payment_date'] == ''
+			&& $editentry['36'] == ''
+			&& $editentry['37'] == ''
+			&& $editentry['38'] == ''
+			&& ( $editentry['2.1'] == $_GET['address1'] )
+			&& ( $editentry['5'] == $_GET['email'] ) ) {
+
+				//if it seems copecetic, continue
+				$editentry['payment_status'] = 'Yes';
+				$editentry['payment_date'] = date('Y/m/d');
+				$editentry['36']    = $_GET['creditCardLastFour'];
+				$editentry['37']    = $_GET['transactionTotalAmount'];
+				$editentry['38']    = $_GET['NelnetID'];
+
+				if (GFAPI::update_entry($editentry)) {
+				 //var_dump( $editentry );
+					$success_message = "<p>Thank you for your application to the Boston University Summer Study Internship Program. Your application has been submitted and your $50 application fee payment has been processed.</p>
+					 
+					  <p>Here is the information we have for your records:</p>
+					  <blockquote>" . 
+						$editentry['386'] . " " . $editentry['387'] . "<br/>
+						" . $editentry['2.1']  . $editentry['206.1'] . "<br/>
+						" . $editentry['2.2'] . $editentry['206.2'] .  "<br/>" . 
+						$editentry['2.3'] . $editentry['206.3'] . " " . $editentry['2.4'] . $editentry['206.4'] . " " . $editentry['2.5'] . $editentry['206.5'] . "<br/>
+						" . $editentry['2.6'] . $editentry['206.6']. "<br/>
+						<br/>
+						Cell Phone: " . $editentry['4'] . "<br/>
+						Email: " . $editentry['5'] . "<br/><br/>
+						
+						High School Program: International Student
 					</blockquote>
 					<p>Payment Information:</p>
 						 <blockquote>
