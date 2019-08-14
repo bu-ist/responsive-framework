@@ -49,7 +49,7 @@ echo 'String End ' . $entry_length_string . "<br>";*/
 $orig_message = str_replace($replacement_string, $editentry[$entry_length_string], $orig_message);
 $orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
 $orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);
-echo 'New Message ' . $orig_message . "<br>";
+//echo 'New Message ' . $orig_message . "<br>";
 
 $replacement_array = array(
 	);
@@ -68,8 +68,8 @@ $check_string = substr( $orig_message, 0, $end_of_string );
 $string_start = strrpos ( $check_string, '{',  0);
 $length_of_string = $end_of_string - $string_start + $entry_length + 1;
 $replacement_string = substr( $orig_message, $string_start, $length_of_string );
-echo 'replacement_string ' . $replacement_string . "<br>";
-echo 'replace with ' . $editentry[$entry_length_string] . "<br>";
+/*echo 'replacement_string ' . $replacement_string . "<br>";
+echo 'replace with ' . $editentry[$entry_length_string] . "<br>";*/
 /*echo 'String Check ' . $check_string . "<br><br><br>";
 echo 'String Length ' . $length_of_string . "<br>";
 echo 'String Start ' . $string_start . "<br>";
@@ -79,7 +79,7 @@ echo 'String End ' . $entry_length_string . "<br>";*/
 $orig_message = str_replace($replacement_string, $editentry[$entry_length_string], $orig_message);
 /*$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
 $orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);*/
-echo '82 New Message ' . $orig_message . "<br>";
+//echo '82 New Message ' . $orig_message . "<br>";
 
 
 
