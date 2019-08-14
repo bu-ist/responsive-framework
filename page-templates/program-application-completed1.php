@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Program Application Thank You Page
+ * Template Name: Testing Program Application Thank You Page
  *
  * @package Responsive_Framework
  */
