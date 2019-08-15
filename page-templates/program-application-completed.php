@@ -22,13 +22,14 @@ $headers[] = 'From: ' . $notifications_list[0]['from'];
 $headers[] = 'Reply-To: ' . $notifications_list[0]['from'];
 $headers[] = 'X-Mailer: PHP/' . phpversion();
 
+$notifications_list[0]['bcc'] = str_replace('{parentemail:12}', $editentry['id'], $notifications_list[0]['bcc'] );
 $orig_message = $notifications_list[0]['message'];
 $replacement_array = array(
 	);
 
 $t = preg_match('/:(.*?)}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE);
-//var_dump($editentry);
-//var_dump($notifications_list);
+var_dump($editentry);
+var_dump($notifications_list);
 //count backwards from here
 $end_of_string = $replacement_array[1][1];
 $entry_length = strlen($replacement_array[1][0]);
@@ -224,8 +225,8 @@ echo 'Entry length Start ' . $entry_length . "<br>";
 echo 'Entry length Label ' . $entry_length_string . "<br>";*/
 $length_of_string = $end_of_string - $string_start + $entry_length + 1;
 $replacement_string = substr( $orig_message, $string_start, $length_of_string );
-/*echo '139 replacement_string ' . $replacement_string . "<br>";
-echo 'END 139 replacement_string ' . $replacement_string . "<br>";
+/*echo '228 replacement_string ' . $replacement_string . "<br>";
+echo 'END 229 replacement_string ' . $replacement_string . "<br>";
 echo 'replace with ' . $editentry[$entry_length_string] . "<br>";
 echo 'String Check ' . $check_string . "<br><br><br>";
 echo 'String Length ' . $length_of_string . "<br>";
@@ -234,17 +235,22 @@ echo 'String Length ' . $length_of_string . "<br>";
 echo $replacement_string . "<br>";
 echo 'String End ' . $entry_length_string . "<br>";*/
 $orig_message = str_replace($replacement_string, $editentry[$entry_length_string], $orig_message);
-/*$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
-$orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);*/
+$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
+$orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);
+
+
+/*$orig_message = str_replace('{parentemail:12}', $editentry['id'], $orig_message);*/
+// /{parentemail:12}
 //echo '<h1>I ' . $i . "</H1>";
-//echo '198 New Message ' . $orig_message . "<br>";
-if ($i > 15) {
+echo '245 New Message ' . $orig_message . "<br>";
+if ($i > 150) {
+	//echo '198 New Message ' . $orig_message . "<br>";
 die();
 } else {
 	$i++;
 }
 }
-
+//die();
 /*var_dump($_GET['form_id']);
 var_dump($editentry);*/
 switch ($_GET['form_id']) {
@@ -384,6 +390,12 @@ switch ($_GET['form_id']) {
 		var_dump($headers);
 		var_dump($notifications_list);
 		var_dump($to_email);*/
+		if ($editentry['2.1'] != '') {
+			$comp_addr = strcasecmp( $editentry['2.1'], $_GET['address1'] );
+		} else {
+			$comp_addr = strcasecmp( $editentry['321.1'], $_GET['address1'] );
+		}
+
 		$mail_test = mail('djgannon@bu.edu',
 							$notifications_list[0]['subject'],
 							$orig_message, implode("\r\n", $headers) );
@@ -649,6 +661,78 @@ switch ($_GET['form_id']) {
 							$notifications_list[0]['subject'],
 							$message, implode("\r\n", $headers) );
 
+
+				} else {
+					$success_message =  '<P>Unable to update entry.</P>';
+				}
+
+			} else {
+				$success_message =  '<P>Looks like payment information has already been updated.</P>';
+		}
+
+		break;
+
+
+	//honors
+	case '75':
+		/*var_dump($editentry);
+		var_dump($headers);
+		var_dump($notifications_list);
+		var_dump($to_email);*/
+		$mail_test = mail('djgannon@bu.edu',
+							$notifications_list[0]['subject'],
+							$orig_message, implode("\r\n", $headers) );
+		if ( $editentry['payment_status'] != 'Yes'
+			&& $editentry['payment_date'] == ''
+			&& $editentry['36'] == ''
+			&& $editentry['37'] == ''
+			&& $editentry['38'] == ''//nelnet id
+			&& $comp_addr == 0
+			&& $editentry['5'] == $_GET['email'] ) {
+
+				//if it seems copecetic, continue
+				$editentry['payment_status'] = 'Yes';
+				$editentry['payment_date'] = date('Y/m/d');
+				$editentry['36']    = $_GET['creditCardLastFour'];
+				$editentry['37']    = $_GET['transactionTotalAmount'];
+				$editentry['38']    = $_GET['NelnetID'];
+
+				if (GFAPI::update_entry($editentry)) {
+				 //var_dump( $editentry );
+					$success_message = "<p>Thank you for your application to Boston University Summer Term High School Programs. We have received both your application form and your $50 application fee. Your payment has been processed.</p>
+					<p>To complete your application, please use the following link to upload your supplemental materials.</p>
+					<p><blockquote>
+					<a href='http://djgannon.cms-devl.bu.edu/summer/summer-challenge-supplemental-materials-upload/?firstname=" . $editentry['1.3'] . "&lastname=" . $editentry['1.6'] . "&email=" . $editentry['5'] . "&application_id=" . $editentry['id'] . "'>UPLOAD SUPPLEMENTAL MATERIALS</a></blockquote></p>
+					<p>Please note all supplemental materials should be submitted at the same time. <p>Once you submit all of your supplemental materials we will contact you with further information. If you have any questions, please <a href='https://www.bu.edu/summer/high-school-programs/contact-us.shtml'>contact us</a></p>
+					<p>Here is the information we have for your records:</p>
+					<blockquote>" . 
+						$editentry['1.3'] . " " . $editentry['1.6'] . "<br/>
+						" . $editentry['2.1'] . "<br/>
+						" . $editentry['2.2'] . "<br/>" . 
+						$editentry['2.3'] . " " . $editentry['2.4'] . " " . $editentry['2.5'] . "<br/>
+						" . $editentry['2.6'] . "<br/>
+						<br/>
+						Phone: " . $editentry['181'] . "<br/>
+						Email: " . $editentry['5'] . "<br/><br/>
+						
+						High School Program: Summer Challenge
+					</blockquote>
+					<p>Payment Information:</p>
+						 <blockquote>
+						Payment Date: " . $editentry['payment_date'] . "<br/>
+						Credit Card: " . $editentry['36'] . "<br/>
+						Amount: " . $editentry['37'] . "<br/>
+						Nelnet ID: " . $editentry['38'] . "<br/>
+						
+					</blockquote>";
+
+    				$to_email = $editentry[$notifications_list[0]['to']];
+					$mail_test = mail($to_email,
+							$notifications_list[0]['subject'],
+							$orig_message, implode("\r\n", $headers) );
+					$mail_test = mail('djgannon@bu.edu',
+							$notifications_list[0]['subject'],
+							$orig_message, implode("\r\n", $headers) );
 
 				} else {
 					$success_message =  '<P>Unable to update entry.</P>';
