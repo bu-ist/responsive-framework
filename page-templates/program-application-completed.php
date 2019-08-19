@@ -10,246 +10,116 @@ var_dump($_SERVER);*/
 /*Updating entries directly form telegraph*/
 GLOBAL $orig_message;
 $editentry = GFAPI::get_entry($_GET['application_id']);
-$form = GFAPI::get_form( $_GET['form_id'] );
+if ( !isset($_GET['form_id']) || $_GET['form_id'] == '') {
+	//var_dump($editentry);
+	$_GET['form_id'] = $editentry['form_id'];
+	$form = GFAPI::get_form( $editentry['form_id'] );
+} else {
+	$form = GFAPI::get_form( $_GET['form_id'] );
+}
 $notifications_list = GFCommon::get_notifications_to_send( 'payment_updated', $form, $editentry );
 $notification_id = $notifications_list['id'];
 $headers[] = 'MIME-Version: 1.0';
 $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
-	// Additional headers
-$headers[] = 'To: ' . $to_email;
+// Additional headers
 $headers[] = 'From: ' . $notifications_list[0]['from'];
 $headers[] = 'Reply-To: ' . $notifications_list[0]['from'];
 $headers[] = 'X-Mailer: PHP/' . phpversion();
 
+//$orig_message = preg_quote($notifications_list[0]['message']);
 $orig_message = $notifications_list[0]['message'];
 $replacement_array = array(
 	);
+//var_dump($orig_message);
 
-$t = preg_match('/:(.*?)}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE);
-//var_dump($editentry);
+
 //var_dump($notifications_list);
-//count backwards from here
-$end_of_string = $replacement_array[1][1];
-$entry_length = strlen($replacement_array[1][0]);
-$entry_length_string = $replacement_array[1][0];
-//get the whole replacement string
-
-//check in here for the opening {
-$check_string = substr( $orig_message, 0, $end_of_string );
-$string_start = strrpos ( $check_string, '{',  0);
-$length_of_string = $end_of_string - $string_start + $entry_length + 1;
-$replacement_string = substr( $orig_message, $string_start, $length_of_string );
-/*echo 'String Check ' . $check_string . "<br><br><br>";
-echo 'String Length ' . $length_of_string . "<br>";
-echo 'String Start ' . $string_start . "<br>";
-echo 'String End ' . $end_of_string . "<br>";
-echo $replacement_string . "<br>";
-echo 'String End ' . $entry_length_string . "<br>";*/
-$orig_message = str_replace($replacement_string, $editentry[$entry_length_string], $orig_message);
-$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
-$orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);
-//echo 'New Message ' . $orig_message . "<br>";
-
-$replacement_array = array(
-	);
-
-$t = preg_match('/:(.*?)}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE);
-//var_dump($editentry);
-//var_dump($notifications_list);
-//count backwards from here
-$end_of_string = $replacement_array[1][1];
-$entry_length = strlen($replacement_array[1][0]);
-$entry_length_string = $replacement_array[1][0];
-//get the whole replacement string
-
-//check in here for the opening {
-$check_string = substr( $orig_message, 0, $end_of_string );
-$string_start = strrpos ( $check_string, '{',  0);
-$length_of_string = $end_of_string - $string_start + $entry_length + 1;
-$replacement_string = substr( $orig_message, $string_start, $length_of_string );
-/*echo 'replacement_string ' . $replacement_string . "<br>";
-echo 'replace with ' . $editentry[$entry_length_string] . "<br>";*/
-/*echo 'String Check ' . $check_string . "<br><br><br>";
-echo 'String Length ' . $length_of_string . "<br>";
-echo 'String Start ' . $string_start . "<br>";
-echo 'String End ' . $end_of_string . "<br>";
-echo $replacement_string . "<br>";
-echo 'String End ' . $entry_length_string . "<br>";*/
-$orig_message = str_replace($replacement_string, $editentry[$entry_length_string], $orig_message);
-/*$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
-$orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);*/
-//echo '82 New Message ' . $orig_message . "<br>";
-
-
-
-
-$replacement_array = array(
-	);
-
-$t = preg_match('/:(.*?)}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE);
-$t = preg_match('/:(.*?)}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE);
-//var_dump($replacement_array);
-//var_dump($editentry);
-//var_dump($notifications_list);
-//count backwards from here
-$end_of_string = $replacement_array[1][1];
-$entry_length = strlen($replacement_array[1][0]);
-$entry_length_string = $replacement_array[1][0];
-//get the whole replacement string
-
-//check in here for the opening {
-$check_string = substr( $orig_message, 0, $end_of_string );
-$string_start = strrpos ( $check_string, '{',  0);
-$length_of_string = $end_of_string - $string_start + $entry_length + 1;
-$replacement_string = substr( $orig_message, $string_start, $length_of_string );
-/*echo 'replacement_string ' . $replacement_string . "<br>";
-echo 'replace with ' . $editentry[$entry_length_string] . "<br>";*/
-/*echo 'String Check ' . $check_string . "<br><br><br>";
-echo 'String Length ' . $length_of_string . "<br>";
-echo 'String Start ' . $string_start . "<br>";
-echo 'String End ' . $end_of_string . "<br>";
-echo $replacement_string . "<br>";
-echo 'String End ' . $entry_length_string . "<br>";*/
-$orig_message = str_replace($replacement_string, $editentry[$entry_length_string], $orig_message);
-/*$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
-$orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);*/
-//echo '115 New Message ' . $orig_message . "<br>";
-
-
-
-
-
-
-$replacement_array = array(
-	);
-
-$t = preg_match('/:(.*?)}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE);
-//var_dump($replacement_array);
-//var_dump($notifications_list);
-//count backwards from here
-$end_of_string = $replacement_array[1][1];
-$entry_length = strlen($replacement_array[1][0]);
-$entry_length_string = $replacement_array[1][0];
-//get the whole replacement string
-
-//check in here for the opening {
-//echo "135" . $orig_message;
-$check_string = substr( $orig_message, 0, $end_of_string );
-$string_start = strrpos ( $check_string, '{',  0);
-/*echo 'String End ' . $end_of_string . "<br>";
-echo 'String Start ' . $string_start . "<br>";
-echo 'Entry length Start ' . $entry_length . "<br>";
-echo 'Entry length Label ' . $entry_length_string . "<br>";*/
-$length_of_string = $end_of_string - $string_start + $entry_length + 1;
-$replacement_string = substr( $orig_message, $string_start, $length_of_string );
-/*echo '139 replacement_string ' . $replacement_string . "<br>";
-echo 'END 139 replacement_string ' . $replacement_string . "<br>";
-echo 'replace with ' . $editentry[$entry_length_string] . "<br>";
-echo 'String Check ' . $check_string . "<br><br><br>";
-echo 'String Length ' . $length_of_string . "<br>";
-*/
-
-/*echo $replacement_string . "<br>";
-echo 'String End ' . $entry_length_string . "<br>";*/
-$orig_message = str_replace($replacement_string, $editentry[$entry_length_string], $orig_message);
-/*$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
-$orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);*/
-//echo '150 New Message ' . $orig_message . "<br>";
-
-
-
-
-
-$replacement_array = array(
-	);
-
-$t = preg_match('/:(.*?)}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE);
-//var_dump($replacement_array);
-//var_dump($notifications_list);
-//count backwards from here
-$end_of_string = $replacement_array[1][1];
-$entry_length = strlen($replacement_array[1][0]);
-$entry_length_string = $replacement_array[1][0];
-//get the whole replacement string
-
-//check in here for the opening {
-//echo "135" . $orig_message;
-$check_string = substr( $orig_message, 0, $end_of_string );
-$string_start = strrpos ( $check_string, '{',  0);
-/*echo 'String End ' . $end_of_string . "<br>";
-echo 'String Start ' . $string_start . "<br>";
-echo 'Entry length Start ' . $entry_length . "<br>";
-echo 'Entry length Label ' . $entry_length_string . "<br>";*/
-$length_of_string = $end_of_string - $string_start + $entry_length + 1;
-$replacement_string = substr( $orig_message, $string_start, $length_of_string );
-/*echo '139 replacement_string ' . $replacement_string . "<br>";
-echo 'END 139 replacement_string ' . $replacement_string . "<br>";
-echo 'replace with ' . $editentry[$entry_length_string] . "<br>";
-echo 'String Check ' . $check_string . "<br><br><br>";
-echo 'String Length ' . $length_of_string . "<br>";
-
-
-echo $replacement_string . "<br>";
-echo 'String End ' . $entry_length_string . "<br>";*/
-$orig_message = str_replace($replacement_string, $editentry[$entry_length_string], $orig_message);
-/*$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
-$orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);*/
-//echo '198 New Message ' . $orig_message . "<br>";
-
-$t = preg_match('/:(.*?)}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE);
-//var_dump($t);
+//die();
 $i= 0;
-while(preg_match('/:(.*?)}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE) == 1){
+//echo $orig_message;
+if ($notifications_list[0]['bcc'] != '') {
+	//need to do a regex check here for multiple extra emails
+	$notifications_list[0]['bcc'] = $editentry['12'];//parentemail:12
+}
+/* Finds a colon before a closing }
+preg_match('/:(.*?)}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE);
+I need to find the last colon before a closing bracket
+*/
+while(preg_match('/:[0-9]+\.?[0-9]+}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE) == 1){
 $i++;
-$replacement_array = array(
-	);
+	$replacement_array = array(
+		);
 
-$t = preg_match('/:(.*?)}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE);
-//var_dump($replacement_array);
-//var_dump($notifications_list);
-//count backwards from here
-$end_of_string = $replacement_array[1][1];
-$entry_length = strlen($replacement_array[1][0]);
-$entry_length_string = $replacement_array[1][0];
-//get the whole replacement string
+	$t = preg_match('/:[0-9]+\.?[0-9]+}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE);
+	//var_dump($replacement_array);
+	//var_dump($notifications_list);
+	//count backwards from here
+	$entry_length = strlen($replacement_array[0][0]);
+	//echo 'Entry length ' . $entry_length . "<br>";
+	$entry_string = $replacement_array[0][0];
+	//echo 'Entry String ' . $entry_string . "<br>";
+	$entry_string = str_replace('}', '', $entry_string);
+	//echo 'Entry String ' . $entry_string . "<br>";
+	$entry_string = str_replace(':', '', $entry_string);
+	//echo 'Entry String ' . $entry_string . "<br>";
+	$index_of_string = $replacement_array[0][1];//int 28
+	//echo 'Index of String ' . $index_of_string . "<br>";
+	//get the whole replacement string
+	$length_of_string = $entry_length + $index_of_string;
+	//check in here for the opening {
+	//echo "135" . $orig_message;
+	$check_string = substr( $orig_message, 0, $length_of_string );
+	//echo 'Check String: ' . $check_string . "<br>";
+	$string_start = strrpos ( $check_string, '{',  0);
+	//echo 'Index of { ' . $string_start . "<br>";
+	$string_to_replace = substr( $check_string, $string_start );
+	//echo 'String to replace ' . $string_to_replace . "<br>";
+	$replace_with = '';
+	/*echo 'Replace with $editentry[' . $entry_string . "]<br>";
+	echo 'Replace with ' . $editentry[$entry_string] . "<br>";*/
 
-//check in here for the opening {
-//echo "135" . $orig_message;
-$check_string = substr( $orig_message, 0, $end_of_string );
-$string_start = strrpos ( $check_string, '{',  0);
-/*echo 'String End ' . $end_of_string . "<br>";
-echo 'String Start ' . $string_start . "<br>";
-echo 'Entry length Start ' . $entry_length . "<br>";
-echo 'Entry length Label ' . $entry_length_string . "<br>";*/
-$length_of_string = $end_of_string - $string_start + $entry_length + 1;
-$replacement_string = substr( $orig_message, $string_start, $length_of_string );
-/*echo '139 replacement_string ' . $replacement_string . "<br>";
-echo 'END 139 replacement_string ' . $replacement_string . "<br>";
-echo 'replace with ' . $editentry[$entry_length_string] . "<br>";
-echo 'String Check ' . $check_string . "<br><br><br>";
-echo 'String Length ' . $length_of_string . "<br>";
+/*
+	echo 'Entry length Label ' . $entry_length_string . "<br>";
+	$length_of_string = $end_of_string - $string_start + $entry_length + 1;
+	$replacement_string = substr( $orig_message, $string_start, $length_of_string );
+	var_dump($replacement_array);*/
+	//echo '<h1>I ' . $i . "</H1>";
+	/*echo '139 replacement_string ' . $replacement_string . "<br>";
+	echo 'END 139 replacement_string<br><br><br>';
+	var_dump($editentry[$entry_string]);
+	
+	echo 'String Length ' . $length_of_string . "<br>";
 
 
-echo $replacement_string . "<br>";
-echo 'String End ' . $entry_length_string . "<br>";*/
-$orig_message = str_replace($replacement_string, $editentry[$entry_length_string], $orig_message);
-/*$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
-$orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);*/
-//echo '<h1>I ' . $i . "</H1>";
-//echo '198 New Message ' . $orig_message . "<br>";
-if ($i > 15) {
-die();
-} else {
-	$i++;
+	echo $replacement_string . "<br>";
+	echo 'String End ' . $entry_length_string . "<br>";
+	die();*/
+	$orig_message = str_replace($string_to_replace, $editentry[$entry_string], $orig_message);
+	$orig_message = str_replace('{email:5}', $editentry['5'], $orig_message);
+	$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
+	$orig_message = str_replace('{phone:156}', $editentry['156'], $orig_message);
+	$orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);
+	$orig_message = str_replace('{referer}', 'www.bu.edu/summer', $orig_message);
+	$orig_message = str_replace('{date_mdy}', date("F j, Y, g:i a"), $orig_message);
+	$orig_message = str_replace('{Credit Card:36}', $_GET['creditCardLastFour'], $orig_message);
+	$orig_message = str_replace('{Charged Amount:37}', $_GET['transactionTotalAmount'], $orig_message);
+	$orig_message = str_replace('{Nelnet ID:38}', $_GET['NelnetID'], $orig_message);
+	
+	/*var_dump(preg_last_error());*/
+	//echo '198 New Message ' . $orig_message . "<br>";
+	if ($i > 150) {
+	die();
+	} else {
+		$i++;
+	}
 }
-}
-
+//die();
 /*var_dump($_GET['form_id']);
 var_dump($editentry);*/
 switch ($_GET['form_id']) {
 	//AIM
-	case '10':
+	case '74':
 	if ($editentry['2.1'] != '') {
 		$comp_addr = strcasecmp( $editentry['2.1'], $_GET['address1'] );
 	} else {
@@ -381,9 +251,9 @@ switch ($_GET['form_id']) {
 	//case '22':
 	case '73':
 		/*var_dump($editentry);
-		var_dump($headers);
-		var_dump($notifications_list);
-		var_dump($to_email);*/
+		var_dump($headers);*/
+		//var_dump($orig_message);
+		/*var_dump($to_email);*/
 		$mail_test = mail('djgannon@bu.edu',
 							$notifications_list[0]['subject'],
 							$orig_message, implode("\r\n", $headers) );
@@ -430,6 +300,7 @@ switch ($_GET['form_id']) {
 						Nelnet ID: " . $editentry['38'] . "<br/>
 						
 					</blockquote>";
+					$success_message = $orig_message;
 					
 					/*//notifications_list
 					//var_dump($notifications_list );
@@ -483,10 +354,122 @@ switch ($_GET['form_id']) {
 
 		break;
 
+	//honors
+	case '75':
+		/*var_dump($orig_message);
+		var_dump($notifications_list);*/
+		if ($editentry['2.1'] != '') {
+			$comp_addr = strcasecmp( $editentry['2.1'], $_GET['address1'] );
+		} else {
+			$comp_addr = strcasecmp( $editentry['161.1'], $_GET['address1'] );
+		}
+		$headers[] = 'MIME-Version: 1.0';
+		$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+		// Additional headers
+		$headers[] = 'From: ' . $notifications_list[0]['from'];
+		$headers[] = 'Reply-To: ' . $notifications_list[0]['from'];
+		$headers[] = 'X-Mailer: PHP/' . phpversion();
+		$mail_test = mail('djgannon@bu.edu',
+							$notifications_list[0]['subject'],
+							$orig_message, implode("\r\n", $headers) );
+		if ( $editentry['payment_status'] != 'Yes'
+			&& $editentry['payment_date'] == ''
+			&& $editentry['36'] == ''
+			&& $editentry['37'] == ''
+			&& $editentry['38'] == ''//nelnet id
+			&& $comp_addr == 0
+			&& $editentry['5'] == $_GET['email'] ) {
+
+				//if it seems copecetic, continue
+				$editentry['payment_status'] = 'Yes';
+				$editentry['payment_date'] = date('Y/m/d');
+				$editentry['36']    = $_GET['creditCardLastFour'];
+				$editentry['37']    = $_GET['transactionTotalAmount'];
+				$editentry['38']    = $_GET['NelnetID'];
+
+				if (GFAPI::update_entry($editentry)) {
+				 //var_dump( $editentry );
+					$success_message = $orig_message;
+
+    				$to_email = $editentry[$notifications_list[0]['to']];
+					$mail_test = mail($to_email,
+							$notifications_list[0]['subject'],
+							$orig_message, implode("\r\n", $headers) );
+					$mail_test = mail('djgannon@bu.edu',
+							$notifications_list[0]['subject'],
+							$orig_message, implode("\r\n", $headers) );
+
+				} else {
+					$success_message =  '<P>Unable to update entry.</P>';
+				}
+
+			} else {
+				$success_message =  '<P>Looks like payment information has already been updated.</P>';
+		}
+
+		break;
+
+		//Preview
+		case '79':
+			/*var_dump($orig_message);
+			var_dump($notifications_list);*/
+			if ($editentry['2.1'] != '') {
+				$comp_addr = strcasecmp( $editentry['2.1'], $_GET['address1'] );
+			} else {
+				$comp_addr = strcasecmp( $editentry['161.1'], $_GET['address1'] );
+			}
+			$headers[] = 'MIME-Version: 1.0';
+			$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+			// Additional headers
+			$headers[] = 'From: ' . $notifications_list[0]['from'];
+			$headers[] = 'Reply-To: ' . $notifications_list[0]['from'];
+			$headers[] = 'X-Mailer: PHP/' . phpversion();
+			$mail_test = mail('djgannon@bu.edu',
+								$notifications_list[0]['subject'],
+								$orig_message, implode("\r\n", $headers) );
+			if ( $editentry['payment_status'] != 'Yes'
+				&& $editentry['payment_date'] == ''
+				&& $editentry['36'] == ''
+				&& $editentry['37'] == ''
+				&& $editentry['38'] == ''//nelnet id
+				&& $comp_addr == 0
+				&& $editentry['5'] == $_GET['email'] ) {
+
+					//if it seems copecetic, continue
+					$editentry['payment_status'] = 'Yes';
+					$editentry['payment_date'] = date('Y/m/d');
+					$editentry['36']    = $_GET['creditCardLastFour'];
+					$editentry['37']    = $_GET['transactionTotalAmount'];
+					$editentry['38']    = $_GET['NelnetID'];
+
+					if (GFAPI::update_entry($editentry)) {
+					 //var_dump( $editentry );
+						$success_message = $orig_message;
+
+	    				$to_email = $editentry[$notifications_list[0]['to']];
+						$mail_test = mail($to_email,
+								$notifications_list[0]['subject'],
+								$orig_message, implode("\r\n", $headers) );
+						$mail_test = mail('djgannon@bu.edu',
+								$notifications_list[0]['subject'],
+								$orig_message, implode("\r\n", $headers) );
+
+					} else {
+						$success_message =  '<P>Unable to update entry.</P>';
+					}
+
+				} else {
+					$success_message =  '<P>Looks like payment information has already been updated.</P>';
+			}
+
+			break;
+
 	//SSIP
 	case '37':
 
-	/*&zipcode={Current Address (International) (ZIP / Postal Code):206.5}{Current Address (International) (ZIP / Postal Code):206.5}&country={Current Address (United States) (Country):2.6}{Current Address (International) (Country):206.6}&address1={Current Address (United States) (Street Address):2.1}{Current Address (International) (Street Address):206.1}&address2={Current Address (United States) (Address Line 2):2.2}{Current Address (International) (Address Line 2):206.2}&city={Current Address (United States) (City):2.3}{Current Address (International) (City):206.3}*/
+		
 
 		if ($editentry['payment_status'] != 'Yes'
 			&& $editentry['payment_date'] == ''
