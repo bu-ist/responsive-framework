@@ -10,6 +10,9 @@ Theme Groups: Responsive Framework
 // Framework-specific settings
 $print-icon-classes:                     true;
 
+// Framework-specific settings
+$enable-css-grid:                        false;
+
 // Import from responsive-foundation
 @import 'burf-base';
 @import 'burf-theme';
