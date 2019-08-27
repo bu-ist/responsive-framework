@@ -316,6 +316,9 @@
   .bulp-event-topic-text {
     background-color: #1A1D2B;
   }
+  .bulp-section:nth-child(even) {
+    background-color: #eaecf3;
+  }
 }
 
 #quicksearch .button {

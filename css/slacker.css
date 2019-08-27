@@ -324,4 +324,7 @@
   .bulp-event-topic-text {
     background-color: #1A1A22;
   }
+  .bulp-section:nth-child(even) {
+    background-color: #e7e7ed;
+  }
 }
