@@ -328,6 +328,13 @@
     background-color: #e7e7ed;
   }
   .bulp-child-nav .bulp-article {
-    background: #e7e7ed;
+    background-color: #e7e7ed;
+    border-color: #6CD5B5;
+  }
+  .bulp-child-nav .bulp-article:hover {
+    background-color: #d9d9e2;
+  }
+  .bulp-child-nav-content {
+    border-color: #24243A;
   }
 }

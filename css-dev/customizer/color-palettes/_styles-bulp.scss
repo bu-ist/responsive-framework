@@ -10,6 +10,10 @@ $bulp-largepromo-button-text:                           #FFF !default;
 $bulp-intro-title-bg:                            $color-dark !default;
 $bulp-readmore-button-text:                             #333 !default;
 $bulp-section-even-bg:           lighten( $color-dark, 80% ) !default;
+$bulp-child-nav-article-bg:      lighten( $color-dark, 80% ) !default;
+$bulp-child-nav-article-hover:   lighten( $color-dark, 75% ) !default;
+$bulp-child-nav-article-border:             $color-secondary !default;
+$bulp-child-nav-content-border:               $color-primary !default;
 
 
 @media screen {
@@ -75,7 +79,16 @@ $bulp-section-even-bg:           lighten( $color-dark, 80% ) !default;
 	}
 
 	.bulp-child-nav .bulp-article {
-		background: lighten( $color-dark, 80% );
+		background-color: $bulp-child-nav-article-bg;
+		border-color: $bulp-child-nav-article-border;
+
+		&:hover {
+			background-color: $bulp-child-nav-article-hover;
+		}
+	}
+
+	.bulp-child-nav-content {
+		border-color: $bulp-child-nav-content-border;
 	}
 
 }
