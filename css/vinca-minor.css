@@ -319,6 +319,9 @@
   .bulp-section:nth-child(even) {
     background-color: #eaecf3;
   }
+  .bulp-child-nav .bulp-article {
+    background: #eaecf3;
+  }
 }
 
 #quicksearch .button {

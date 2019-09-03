@@ -74,4 +74,8 @@ $bulp-section-even-bg:           lighten( $color-dark, 80% ) !default;
 		background-color: $bulp-section-even-bg;
 	}
 
+	.bulp-child-nav .bulp-article {
+		background: lighten( $color-dark, 80% );
+	}
+
 }

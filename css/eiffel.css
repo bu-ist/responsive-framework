@@ -327,4 +327,7 @@
   .bulp-section:nth-child(even) {
     background-color: #d6e2e2;
   }
+  .bulp-child-nav .bulp-article {
+    background: white;
+  }
 }
