@@ -142,13 +142,8 @@ switch ($_GET['form_id']) {
 		$headers[] = 'Reply-To: ' . $notifications_list[0]['from'];
 		$headers[] = 'Cc: ' . $notifications_list[0]['bcc'];
 
-		if (   $editentry['payment_status'] == null
-			&& $editentry['payment_date'] == null
-			&& $editentry['36'] == ''//cc number
-			&& $editentry['37'] == ''//amount paid
-			&& $editentry['38'] == ''//nelnet id
-			&& $comp_addr == 0
-			&& $editentry['5'] == $_GET['email'] ) {
+		$cur_pay_status = checkPayStatus($editentry);
+		if ( $cur_pay_status === true ) {
 				//if it seems copecetic, continue
 				$editentry['payment_status'] = 'Yes';
 				$editentry['payment_date'] = date('Y/m/d');
@@ -182,10 +177,8 @@ switch ($_GET['form_id']) {
 			$comp_addr = strcasecmp( $editentry['150.1'], $_GET['address1'] );
 		}
 
-		if (  $editentry['36'] == ''//cc number
-			&& $editentry['37'] == ''//amount paid
-			&& $editentry['38'] == ''//nelnet id
-			&& $editentry['5'] == $_GET['email'] ) {
+		$cur_pay_status = checkPayStatus($editentry);
+		if ( $cur_pay_status === true ) {
 				//if it seems copecetic, continue
 				$editentry['payment_status'] = 'Yes';
 				$editentry['payment_date'] = date('Y/m/d');
@@ -251,13 +244,9 @@ switch ($_GET['form_id']) {
 		$headers[] = 'From: ' . $notifications_list[0]['from'];
 		$headers[] = 'Reply-To: ' . $notifications_list[0]['from'];
 		$headers[] = 'Cc: ' . $notifications_list[0]['bcc'];
-		if ( $editentry['payment_status'] != 'Yes'
-			&& $editentry['payment_date'] == ''
-			&& $editentry['36'] == ''
-			&& $editentry['37'] == ''
-			&& $editentry['38'] == ''//nelnet id
-			&& $comp_addr == 0
-			&& $editentry['5'] == $_GET['email'] ) {
+		
+		$cur_pay_status = checkPayStatus($editentry);
+		if ( $cur_pay_status === true ) {
 
 				//if it seems copecetic, continue
 				$editentry['payment_status'] = 'Yes';
@@ -310,13 +299,8 @@ switch ($_GET['form_id']) {
 		$headers[] = 'Reply-To: ' . $notifications_list[0]['from'];
 		$headers[] = 'Cc: ' . $notifications_list[0]['bcc'];
 		
-		if ( $editentry['payment_status'] != 'Yes'
-			&& $editentry['payment_date'] == ''
-			&& $editentry['36'] == ''
-			&& $editentry['37'] == ''
-			&& $editentry['38'] == ''//nelnet id
-			&& $comp_addr == 0
-			&& $editentry['5'] == $_GET['email'] ) {
+		$cur_pay_status = checkPayStatus($editentry);
+		if ( $cur_pay_status === true ) {
 
 				//if it seems copecetic, continue
 				$editentry['payment_status'] = 'Yes';
@@ -361,13 +345,8 @@ switch ($_GET['form_id']) {
 		$headers[] = 'Reply-To: ' . $notifications_list[0]['from'];
 		$headers[] = 'Cc: ' . $notifications_list[0]['bcc'];
 			
-		if ( $editentry['payment_status'] != 'Yes'
-			&& $editentry['payment_date'] == ''
-			&& $editentry['36'] == ''
-			&& $editentry['37'] == ''
-			&& $editentry['38'] == ''//nelnet id
-			&& $comp_addr == 0
-			&& $editentry['5'] == $_GET['email'] ) {
+		$cur_pay_status = checkPayStatus($editentry);
+		if ( $cur_pay_status === true ) {
 
 			//if it seems copecetic, continue
 			$editentry['payment_status'] = 'Yes';
@@ -417,13 +396,8 @@ switch ($_GET['form_id']) {
 		$headers[] = 'Reply-To: ' . $notifications_list[0]['from'];
 		$headers[] = 'Cc: ' . $notifications_list[0]['bcc'];
 
-		if ($editentry['payment_status'] != 'Yes'
-			&& $editentry['payment_date'] == ''
-			&& $editentry['36'] == ''
-			&& $editentry['37'] == ''
-			&& $editentry['38'] == ''
-			&& $comp_addr == 0
-			&& $editentry['5'] == $_GET['email']) {
+		$cur_pay_status = checkPayStatus($editentry);
+		if ( $cur_pay_status === true ) {
 
 				//if it seems copecetic, continue
 				$editentry['payment_status'] = 'Yes';
@@ -455,13 +429,8 @@ switch ($_GET['form_id']) {
 	//international
 	case '44':
 
-		if ($editentry['payment_status'] != 'Yes'
-			&& $editentry['payment_date'] == ''
-			&& $editentry['36'] == ''
-			&& $editentry['37'] == ''
-			&& $editentry['38'] == ''
-			&& $comp_addr == 0
-			&& $editentry['5'] == $_GET['email'] ) {
+		$cur_pay_status = checkPayStatus($editentry);
+		if ( $cur_pay_status === true ) {
 
 				//if it seems copecetic, continue
 				$editentry['payment_status'] = 'Yes';
@@ -534,17 +503,11 @@ switch ($_GET['form_id']) {
 		$headers[] = 'Reply-To: ' . $notifications_list[0]['from'];
 		$headers[] = 'Cc: ' . $notifications_list[0]['bcc'];
 
-		if ($editentry['payment_status'] != 'Yes'
-			&& $editentry['payment_date'] == ''
-			&& $editentry['36'] == ''
-			&& $editentry['37'] == ''
-			&& $editentry['38'] == ''
-			&& $comp_addr == 0
-			&& $editentry['5'] == $_GET['email'] ) {
+		$cur_pay_status = checkPayStatus($editentry);
+
+		if ( $cur_pay_status === true ) {
 
 				//if it seems copecetic, continue
-				
-
 				if (GFAPI::update_entry($editentry)) {
 				 //var_dump( $editentry );
 					$success_message = $orig_message;
@@ -568,7 +531,7 @@ switch ($_GET['form_id']) {
 		break;
 }
 
-/*
+
 function checkPayStatus($editentry){
 
 	if ($editentry['payment_status'] != 'Yes'
@@ -585,7 +548,7 @@ function checkPayStatus($editentry){
 	}
 
 }
-*/
+
 
 get_header(); ?>
 
