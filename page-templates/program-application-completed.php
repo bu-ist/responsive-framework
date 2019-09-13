@@ -33,6 +33,7 @@ $replacement_array = array(
 	);
 
 /*var_dump($notifications_list);
+var_dump($editentry);
 die();*/
 $i= 0;
 
@@ -94,24 +95,33 @@ $i++;
 	$orig_message = str_replace('{parentemail:14}', $editentry['14'], $orig_message);
 	$orig_message = str_replace('{parentemail:16}', $editentry['16'], $orig_message);
 	$orig_message = str_replace('{parentemail:16}', $editentry['18'], $orig_message);
-	$parent_email = $editentry['12'];
-	$parent_email = $editentry['14'];
-	$parent_email = $editentry['16'];
-	$parent_email = $editentry['18'];
+	if (isset($editentry['12']) && filter_var($editentry['12'], FILTER_VALIDATE_EMAIL) != false) {
+		$parent_email = $editentry['12'];
+	} elseif (isset($editentry['14']) && filter_var($editentry['14'], FILTER_VALIDATE_EMAIL) != false) {
+		$parent_email = $editentry['14'];
+	} elseif (isset($editentry['16']) && filter_var($editentry['16'], FILTER_VALIDATE_EMAIL) != false) {
+		$parent_email = $editentry['16'];
+	} elseif (isset($editentry['18']) && filter_var($editentry['18'], FILTER_VALIDATE_EMAIL) != false) {
+		$parent_email = $editentry['18'];
+	}
+	
+	
+	
+	
 	$orig_message = str_replace('{email:5}', $editentry['5'], $orig_message);
 	$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
 	$orig_message = str_replace('{phone:156}', $editentry['156'], $orig_message);
 	$orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);
-	$orig_message = str_replace('{embed_url}', 'http://djgannon.cms-devl.bu.edu/summer', $orig_message);
+	$orig_message = str_replace('{embed_url}', 'https://djgannon.cms-devl.bu.edu', $orig_message);
 	$orig_message = str_replace('{date_mdy}', date("F j, Y, g:i a"), $orig_message);
-	$orig_message = str_replace('{Credit Card:36}', $_GET['creditCardLastFour'], $orig_message);
-	$orig_message = str_replace('{Charged Amount:37}', $_GET['transactionTotalAmount'], $orig_message);
-	$orig_message = str_replace('{Nelnet ID:38}', $_GET['NelnetID'], $orig_message);
+	$orig_message = str_replace('{cashier_cc_masked_number:36}', $_GET['cashier_cc_masked_number'], $orig_message);
+	$orig_message = str_replace('{cashier_charged_amount:37}', $_GET['cashier_charged_amount'], $orig_message);
+	$orig_message = str_replace('{NelnetID:38}', $_GET['NelnetID'], $orig_message);
 	
 	/*var_dump(preg_last_error());*/
 	//echo '198 New Message ' . $orig_message . "<br>";
 	if ($i > 150) {
-	die();
+		die();
 	} else {
 		$i++;
 	}
@@ -121,7 +131,7 @@ $i++;
 var_dump($editentry);*/
 switch ($_GET['form_id']) {
 	//AIM - CC parent
-	case '98':
+	case '10':
 		//international addresses are not always the same field
 		if ($editentry['2.1'] != '') {
 			$comp_addr = strcasecmp( $editentry['2.1'], $_GET['address1'] );
@@ -226,7 +236,7 @@ switch ($_GET['form_id']) {
 
 		break;
 	//summer challenge
-	case '115':
+	case '73':
 		if ($editentry['2.1'] != '') {
 			$comp_addr = strcasecmp( $editentry['2.1'], $_GET['address1'] );
 		} else {
@@ -263,9 +273,9 @@ switch ($_GET['form_id']) {
 					$mail_test = mail($to_email,
 							$notifications_list[0]['subject'],
 							$orig_message, implode("\r\n", $headers) );
-					$mail_test = mail('djgannon@bu.edu',
+					/*$mail_test = mail('djgannon@bu.edu',
 							$notifications_list[0]['subject'],
-							$orig_message, implode("\r\n", $headers) );
+							$orig_message, implode("\r\n", $headers) );*/
 
 				} else {
 					$success_message =  '<P>Unable to update entry.</P>';
@@ -278,7 +288,7 @@ switch ($_GET['form_id']) {
 		break;
 
 	//honors
-	case '99':
+	case '12':
 		/*var_dump($orig_message);
 		var_dump($notifications_list);*/
 		if ($editentry['2.1'] != '') {
@@ -329,7 +339,7 @@ switch ($_GET['form_id']) {
 	break;
 
 	//Preview
-	case '100':
+	case '28':
 		/*var_dump($orig_message);
 		var_dump($notifications_list);*/
 		if ($editentry['2.1'] != '') {
@@ -337,6 +347,12 @@ switch ($_GET['form_id']) {
 		} else {
 			$comp_addr = strcasecmp( $editentry['161.1'], $_GET['address1'] );
 		}
+
+		if ($notifications_list[0]['bcc'] != '') {
+			//regex check here for multiple extra emails?
+			$notifications_list[0]['bcc'] = $parent_email;//parentemail:12
+		}
+
 		$headers[] = 'MIME-Version: 1.0';
 		$headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
@@ -482,7 +498,7 @@ switch ($_GET['form_id']) {
 		break;
 
 		//RISE
-	case '112':
+	case '63':
 		//international addresses are not always the same field
 		if ($editentry['2.1'] != '') {
 			$comp_addr = strcasecmp( $editentry['2.1'], $_GET['address1'] );
