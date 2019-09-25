@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Add `rel="nofollow"` attributes to event links in the calendar widget output.
+- Replace the template name in `calendar-single.php` with a note about its
+  usage.
+
 ## 2.3.5
 
 - Replicated the `responsive_primary_nav_before` and `responsive_primary_nav_after` hooks into the BU version of `responsive_primary_nav`
