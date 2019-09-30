@@ -295,6 +295,8 @@ function add_event( $notification_events ) {
     return $notification_events;
 }
 include 'st_functions.php';
+include 'rise_program_functions.php';
+include 'hsh_program_functions.php';
 
 /**
  * Admin

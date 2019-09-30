@@ -288,7 +288,7 @@ switch ($_GET['form_id']) {
 		break;
 
 	//honors
-	case '12':
+	case '99':
 		/*var_dump($orig_message);
 		var_dump($notifications_list);*/
 		if ($editentry['2.1'] != '') {
