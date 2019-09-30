@@ -287,13 +287,14 @@ add_filter( 'bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 
 
 /**
  * Custom GF Events for Summer Term
+ * Move events to st_functions.php for prod
  */
 add_filter( 'gform_notification_events', 'add_event' );
 function add_event( $notification_events ) {
     $notification_events['payment_updated'] = __( 'Payment Updated', 'gravityforms' );
     return $notification_events;
 }
-
+include 'st_functions.php';
 
 /**
  * Admin
