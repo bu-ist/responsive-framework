@@ -137,6 +137,7 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
+    background-color: #3849a2;
     color: #FFF;
   }
   blockquote {
@@ -278,6 +279,16 @@
   .bu-banner-button {
     background-color: #3F51B5;
   }
+  .bulp-promo::before,
+  .bulp-article::before {
+    background-color: #FA5707;
+  }
+  .bulp-section:nth-child(2n+1) .bulp-child-nav-item {
+    border-left-color: #FA5707;
+  }
+  .bulp-section:nth-child(2n+1) .bulp-event {
+    border-top-color: #FA5707;
+  }
   .bulp-promo-button {
     background-color: #FA5707;
     color: #FFF;
@@ -301,7 +312,7 @@
   }
   .bulp-event-readmore,
   .bulp-article-readmore {
-    background-color: #EEE;
+    background-color: #eee;
     color: #333;
   }
   .bulp-event-readmore:hover,
@@ -327,7 +338,7 @@
     background-color: #dbdde9;
   }
   .bulp-child-nav-content {
-    border-color: #3F51B5;
+    border-color: #ffd0b9;
   }
 }
 

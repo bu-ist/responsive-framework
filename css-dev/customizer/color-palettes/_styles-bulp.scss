@@ -13,7 +13,8 @@ $bulp-section-even-bg:           lighten( $color-dark, 80% ) !default;
 $bulp-child-nav-article-bg:      lighten( $color-dark, 80% ) !default;
 $bulp-child-nav-article-hover:   lighten( $color-dark, 75% ) !default;
 $bulp-child-nav-article-border:             $color-secondary !default;
-$bulp-child-nav-content-border:               $color-primary !default;
+$bulp-child-nav-content-border: lighten( $color-tertiary, 15% ) !default;
+$bulp-border-color:								  $color-secondary !default;
 
 
 @media screen {
@@ -25,6 +26,21 @@ $bulp-child-nav-content-border:               $color-primary !default;
 
 	.bu-banner-button {
 		background-color: $bulp-bu-banner-button-bg;
+	}
+
+	.bulp-promo,
+	.bulp-article {
+		&::before {
+			background-color: $bulp-border-color;
+		}
+	}
+
+	.bulp-section:nth-child(2n+1) .bulp-child-nav-item {
+		border-left-color: $bulp-border-color;
+	}
+
+	.bulp-section:nth-child(2n+1) .bulp-event {
+		border-top-color: $bulp-border-color;
 	}
 
 	.bulp-promo-button {
@@ -56,7 +72,7 @@ $bulp-child-nav-content-border:               $color-primary !default;
 
 	.bulp-event-readmore,
 	.bulp-article-readmore {
-		background-color: #EEE;
+		background-color: #eee;
 		color: $bulp-readmore-button-text;
 
 		&:hover {

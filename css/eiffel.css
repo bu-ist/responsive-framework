@@ -137,6 +137,7 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
+    background-color: #74c1c4;
     color: #000;
   }
   blockquote {
@@ -286,6 +287,16 @@
   .bu-banner-button {
     background-color: #00343A;
   }
+  .bulp-promo::before,
+  .bulp-article::before {
+    background-color: #86C9CC;
+  }
+  .bulp-section:nth-child(2n+1) .bulp-child-nav-item {
+    border-left-color: #86C9CC;
+  }
+  .bulp-section:nth-child(2n+1) .bulp-event {
+    border-top-color: #86C9CC;
+  }
   .bulp-promo-button {
     background-color: #C58700;
     color: #FFF;
@@ -309,7 +320,7 @@
   }
   .bulp-event-readmore,
   .bulp-article-readmore {
-    background-color: #EEE;
+    background-color: #eee;
     color: #333;
   }
   .bulp-event-readmore:hover,
