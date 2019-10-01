@@ -1,10 +1,11 @@
 # Changelog
 
-## Unreleased
+## 2.3.5
 
 - Add `responsive_get_the_excerpt( $post_id, $length )` for reliably retrieving
   post excerpts outside of The Loop. Default $length value is 55 words.
 - Replicated the `responsive_primary_nav_before` and `responsive_primary_nav_after` hooks into the BU version of `responsive_primary_nav`
+- Fixes #170
 
 ## 2.3.4
 
