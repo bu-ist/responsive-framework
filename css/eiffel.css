@@ -291,9 +291,6 @@
   .bulp-article::before {
     background-color: #00343A;
   }
-  .bulp-section:nth-child(2n+1) .bulp-child-nav-item {
-    border-left-color: #00343A;
-  }
   .bulp-section:nth-child(2n+1) .bulp-event {
     border-top-color: #00343A;
   }
@@ -318,15 +315,6 @@
   .bulp-largepromo-button:hover {
     color: #FFF;
   }
-  .bulp-event-readmore,
-  .bulp-article-readmore {
-    background-color: #eee;
-    color: #333;
-  }
-  .bulp-event-readmore:hover,
-  .bulp-article-readmore:hover {
-    color: #333;
-  }
   .bulp-event-when:before,
   .bulp-event-where:before {
     color: #00343A;
@@ -339,19 +327,46 @@
     background-color: #d6e2e2;
   }
   .bulp-child-nav-item {
-    background-color: #d6e2e2;
+    background-color: #fff;
+    border-color: #00343A;
+    box-shadow: 0 3px 20px -1px rgba(0, 0, 0, 0.12), 0 2px 8px -3px rgba(0, 0, 0, 0.06);
+    color: #000607;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+  }
+  .bulp-child-nav-item::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #00343A;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
   }
   .bulp-child-nav-item:hover {
-    background-color: #b9cccc;
+    background-color: transparent;
+    color: #fff;
   }
-  .bulp-child-nav .bulp-article {
-    background-color: #d6e2e2;
-    border-color: #86C9CC;
+  .bulp-child-nav-item:hover::before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
   }
-  .bulp-child-nav .bulp-article:hover {
-    background-color: #e5ecec;
-  }
-  .bulp-child-nav-content {
-    border-color: #C58700;
+  .bulp-section:nth-child(2n+1) .bulp-child-nav-item {
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
+    border-left-color: #00343A;
   }
 }

@@ -21,10 +21,10 @@ $bulp-event-icon-bg:                  map-get( $current-palette, 'color-primary'
 $bulp-category-topic-bg:              map-get( $current-palette, 'color-primary' );
 $bulp-intro-title-bg:                 map-get( $current-palette, 'color-primary' );
 $bulp-section-even-bg:                darken( $color-dark, 10% );
+$bulp-child-nav-article-border:             $color-primary;
 
-$bulp-child-nav-article-bg:           darken( $color-dark, 10% );
-$bulp-child-nav-article-hover:        darken( $color-dark, 5% );
-$bulp-child-nav-content-border:       $color-tertiary;
+//$bulp-child-nav-article-bg:           darken( $color-dark, 10% );
+//$bulp-child-nav-article-hover:        darken( $color-dark, 5% );
 
 
 @import 'complimentary';

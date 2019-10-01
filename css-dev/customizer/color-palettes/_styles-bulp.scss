@@ -10,10 +10,9 @@ $bulp-largepromo-button-text:                           #FFF !default;
 $bulp-intro-title-bg:                            $color-dark !default;
 $bulp-readmore-button-text:                             #333 !default;
 $bulp-section-even-bg:           mix( #eee, $color-primary, 95% ) !default;
-$bulp-child-nav-article-bg:      lighten( $color-dark, 80% ) !default;
-$bulp-child-nav-article-hover:   lighten( $color-dark, 75% ) !default;
 $bulp-child-nav-article-border:             $color-secondary !default;
-$bulp-child-nav-content-border: lighten( $color-tertiary, 15% ) !default;
+$bulp-child-nav-article-bg:      #fff !default;
+$bulp-child-nav-article-hover:   $bulp-child-nav-article-border !default;
 $bulp-border-color:								  $color-primary !default;
 
 
@@ -33,10 +32,6 @@ $bulp-border-color:								  $color-primary !default;
 		&::before {
 			background-color: $bulp-border-color;
 		}
-	}
-
-	.bulp-section:nth-child(2n+1) .bulp-child-nav-item {
-		border-left-color: $bulp-border-color;
 	}
 
 	.bulp-section:nth-child(2n+1) .bulp-event {
@@ -70,16 +65,6 @@ $bulp-border-color:								  $color-primary !default;
 		}
 	}
 
-	.bulp-event-readmore,
-	.bulp-article-readmore {
-		background-color: #eee;
-		color: $bulp-readmore-button-text;
-
-		&:hover {
-			color: $bulp-readmore-button-text;
-		}
-	}
-
 	.bulp-event-when:before,
 	.bulp-event-where:before {
 		color: $bulp-event-icon-bg;
@@ -95,24 +80,51 @@ $bulp-border-color:								  $color-primary !default;
 	}
 
 	.bulp-child-nav-item {
-		background-color: $bulp-section-even-bg;
-
-		&:hover {
-			background-color: darken( $bulp-section-even-bg, 10% );
-		}
-	}
-
-	.bulp-child-nav .bulp-article {
 		background-color: $bulp-child-nav-article-bg;
 		border-color: $bulp-child-nav-article-border;
+		box-shadow: 0 3px 20px -1px rgba(0, 0, 0, 0.12), 0 2px 8px -3px rgba(0, 0, 0, 0.06);
+		color: accessible-text( $bulp-child-nav-article-bg, darken( $bulp-child-nav-article-border, 10% ) );
+		font-weight: bold;
+		position: relative;
+		z-index: 1;
+
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: $bulp-child-nav-article-hover;
+			-webkit-transform: scaleX(0);
+			transform: scaleX(0);
+			-webkit-transform-origin: 0 50%;
+			transform-origin: 0 50%;
+			-webkit-transition-property: transform;
+			transition-property: transform;
+			-webkit-transition-duration: 0.3s;
+			transition-duration: 0.3s;
+			-webkit-transition-timing-function: ease-out;
+			transition-timing-function: ease-out;
+		}
 
 		&:hover {
-			background-color: $bulp-child-nav-article-hover;
+			background-color: transparent;
+			color: accessible-text( $bulp-child-nav-article-hover, #fff );
+
+			&::before {
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1);
+			}
 		}
 	}
 
-	.bulp-child-nav-content {
-		border-color: $bulp-child-nav-content-border;
+	.bulp-section:nth-child(2n+1) .bulp-child-nav-item {
+		border-top: 0;
+		border-bottom: 0;
+		border-right: 0;
+		border-left-color: $bulp-child-nav-article-border;
 	}
 
 }
