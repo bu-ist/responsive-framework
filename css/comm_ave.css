@@ -289,13 +289,13 @@
   }
   .bulp-promo::before,
   .bulp-article::before {
-    background-color: #498500;
+    background-color: #303437;
   }
   .bulp-section:nth-child(2n+1) .bulp-child-nav-item {
-    border-left-color: #498500;
+    border-left-color: #303437;
   }
   .bulp-section:nth-child(2n+1) .bulp-event {
-    border-top-color: #498500;
+    border-top-color: #303437;
   }
   .bulp-promo-button {
     background-color: #48B4F4;
@@ -336,7 +336,13 @@
     background-color: #222222;
   }
   .bulp-section:nth-child(even) {
-    background-color: #eeeeee;
+    background-color: #e5e5e5;
+  }
+  .bulp-child-nav-item {
+    background-color: #e5e5e5;
+  }
+  .bulp-child-nav-item:hover {
+    background-color: #cccccc;
   }
   .bulp-child-nav .bulp-article {
     background-color: #eeeeee;
