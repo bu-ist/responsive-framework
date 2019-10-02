@@ -16,6 +16,7 @@ $bulp-bu-banner-button-bg:              $color-secondary;
 $bulp-register-btn-bg:                  $color-secondary;
 $bulp-section-even-bg: 							#f3f0f4;
 $bulp-child-nav-article-border:             $color-tertiary;
+$bulp-section-even-bg: mix( $color-primary, #fff, 10% );
 
 @import 'monochromatic';
 

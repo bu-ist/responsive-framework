@@ -6,6 +6,7 @@ $current-palette: map-get( $color-palettes, $palette-id );
 $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 $color-secondary: map-get( $current-palette, 'color-secondary' );
 $color-primary: map-get( $current-palette, 'color-primary' );
+$color-dark: map-get( $current-palette, 'color-dark' );
 
 $content-body: #000;
 $sidebar-link: #ECB438;
@@ -14,6 +15,9 @@ $bulp-bu-banner-button-bg:              $color-primary;
 $bulp-register-btn-bg:                  $color-secondary;
 $bulp-promo-btn-text:                   accessible-text( $color-tertiary, #FFF );
 $bulp-register-btn-text:                accessible-text( $color-secondary, #FFF );
+$bulp-event-border: transparent;
+$bulp-category-topic-bg: $color-secondary;
+$bulp-category-topic-color: $color-dark;
 
 @import 'triad';
 

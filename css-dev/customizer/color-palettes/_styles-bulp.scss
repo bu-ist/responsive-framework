@@ -1,9 +1,15 @@
-$bulp-event-icon-bg:                             $color-dark !default;
+$bulp-event-bg:                             $color-primary !default;
+$bulp-event-color:                          lighten( $bulp-event-bg, 70% ) !default;
+$bulp-event-icon-bg:                             lighten( $bulp-event-bg, 30% ) !default;
+$bulp-event-border:                     darken( $bulp-event-bg, 30% ) !default;
+$bulp-event-link:                          $bulp-event-color !default;
+$bulp-event-divider:                lighten( $bulp-event-bg, 15% ) !default;
 $bulp-promo-btn-bg:                          $color-tertiary !default;
 $bulp-promo-btn-text:                                   #FFF !default;
 $bulp-register-btn-bg:                       $color-tertiary !default;
 $bulp-register-btn-text:                                #FFF !default;
-$bulp-category-topic-bg:                         $color-dark !default;
+$bulp-category-topic-bg:                         lighten( $color-primary, 15% ) !default;
+$bulp-category-topic-color: 									#FFF !default;
 $bulp-bu-banner-button-bg:                    $color-primary !default;
 $bulp-largepromo-button-bg:                   $color-primary !default;
 $bulp-largepromo-button-text:                           #FFF !default;
@@ -14,6 +20,8 @@ $bulp-child-nav-article-border:             $color-secondary !default;
 $bulp-child-nav-article-bg:      #fff !default;
 $bulp-child-nav-article-hover:   $bulp-child-nav-article-border !default;
 $bulp-border-color:								  $color-primary !default;
+$bulp-event-readmore-bg: $color-tertiary !default;
+$bulp-event-readmore-color: darken( $bulp-event-readmore-bg, 70% ) !default;
 
 
 @media screen {
@@ -34,16 +42,51 @@ $bulp-border-color:								  $color-primary !default;
 		}
 	}
 
-	.bulp-section:nth-child(2n+1) .bulp-event {
-		border-top-color: $bulp-border-color;
-	}
-
 	.bulp-promo-button {
 		background-color: $bulp-promo-btn-bg;
 		color: $bulp-promo-btn-text;
 
 		&:hover {
 			color: $bulp-promo-btn-text;
+		}
+	}
+
+	.bulp-event {
+		background: $bulp-event-bg;
+		color: #fff;
+	}
+
+	.bulp-event-title,
+	.bulp-event-when {
+		color: accessible-text( $bulp-event-bg, $bulp-event-color );
+	}
+
+	.bulp-event-when {
+		border-color: $bulp-event-divider;
+	}
+
+	.bulp-section:nth-child(2n+1) .bulp-event {
+		border-top-color: $bulp-event-border;
+		border-left-color: $bulp-event-bg;
+		border-right-color: $bulp-event-bg;
+		border-bottom-color: $bulp-event-bg;
+	}
+
+	.bulp-event-address {
+		color: accessible-text( $bulp-event-bg, $bulp-event-link ) ;
+	}
+
+	.bulp-event-readmore {
+		background: $bulp-event-readmore-bg;
+		color: accessible-text( $bulp-event-readmore-bg, $bulp-event-readmore-color );
+
+		&:visited,
+		&:active {
+			color: accessible-text( $bulp-event-readmore-bg, $bulp-event-readmore-color );
+		}
+
+		&:hover {
+			background: lighten( $bulp-event-readmore-bg, 10% );
 		}
 	}
 
@@ -73,6 +116,7 @@ $bulp-border-color:								  $color-primary !default;
 	.bulp-article-category,
 	.bulp-event-topic-text {
 		background-color: $bulp-category-topic-bg;
+		color: accessible-text( $bulp-category-topic-bg, $bulp-category-topic-color );
 	}
 
 	.bulp-section:nth-child(even) {

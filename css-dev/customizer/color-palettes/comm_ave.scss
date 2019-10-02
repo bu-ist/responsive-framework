@@ -6,14 +6,18 @@ $current-palette: map-get( $color-palettes, $palette-id );
 $color-primary: map-get( $current-palette, 'color-primary' );
 $color-secondary: map-get( $current-palette, 'color-secondary' );
 $color-tertiary: map-get( $current-palette, 'color-tertiary' );
+$color-dark: map-get( $current-palette, 'color-dark' );
 
 $sidebar-bg:                          $color-secondary;
 $sidebar-link:                        accessible-text( $sidebar-bg, #FFF );
 $mega-toggle-bg:                      $color-secondary;
 $sidebar-button-bg:                   $color-tertiary;
-$bulp-event-icon-bg:               $color-primary;
+$bulp-category-topic-bg:              darken( $color-primary, 40% );
 $bulp-largepromo-button-bg:        $color-secondary;
 $bulp-bu-banner-button-bg:         $color-secondary;
+$bulp-event-border: $color-dark;
+$bulp-event-bg: lighten( $color-primary, 5% );
+$bulp-event-icon-bg: $color-secondary;
 
 $footbar-link: accessible-text( #222222, #96CE53 );
 

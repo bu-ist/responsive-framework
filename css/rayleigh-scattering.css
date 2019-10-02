@@ -546,15 +546,42 @@
   .bulp-article::before {
     background-color: #15B6FF;
   }
-  .bulp-section:nth-child(2n+1) .bulp-event {
-    border-top-color: #15B6FF;
-  }
   .bulp-promo-button {
     background-color: #FA5707;
     color: #FFF;
   }
   .bulp-promo-button:hover {
     color: #FFF;
+  }
+  .bulp-event {
+    background: #dcf4ff;
+    color: #fff;
+  }
+  .bulp-event-title,
+  .bulp-event-when {
+    color: #222222;
+  }
+  .bulp-event-when {
+    border-color: #a9e4ff;
+  }
+  .bulp-section:nth-child(2n+1) .bulp-event {
+    border-top-color: #43c4ff;
+    border-left-color: #dcf4ff;
+    border-right-color: #dcf4ff;
+    border-bottom-color: #dcf4ff;
+  }
+  .bulp-event-address {
+    color: #222222;
+  }
+  .bulp-event-readmore {
+    background: #FF732F;
+    color: #222222;
+  }
+  .bulp-event-readmore:visited, .bulp-event-readmore:active {
+    color: #222222;
+  }
+  .bulp-event-readmore:hover {
+    background: #ff9562;
   }
   .bulp-event-register {
     background-color: #15B6FF;
@@ -572,14 +599,15 @@
   }
   .bulp-event-when:before,
   .bulp-event-where:before {
-    color: #222222;
+    color: #15B6FF;
   }
   .bulp-article-category,
   .bulp-event-topic-text {
     background-color: #222222;
+    color: #FFF;
   }
   .bulp-section:nth-child(even) {
-    background-color: #e3ebef;
+    background-color: #e8f8ff;
   }
   .bulp-child-nav-item {
     background-color: #fff;

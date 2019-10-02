@@ -291,15 +291,42 @@
   .bulp-article::before {
     background-color: #303437;
   }
-  .bulp-section:nth-child(2n+1) .bulp-event {
-    border-top-color: #303437;
-  }
   .bulp-promo-button {
     background-color: #48B4F4;
     color: #FFF;
   }
   .bulp-promo-button:hover {
     color: #FFF;
+  }
+  .bulp-event {
+    background: #3c4145;
+    color: #fff;
+  }
+  .bulp-event-title,
+  .bulp-event-when {
+    color: #f2f3f4;
+  }
+  .bulp-event-when {
+    border-color: #60676d;
+  }
+  .bulp-section:nth-child(2n+1) .bulp-event {
+    border-top-color: #222222;
+    border-left-color: #3c4145;
+    border-right-color: #3c4145;
+    border-bottom-color: #3c4145;
+  }
+  .bulp-event-address {
+    color: #f2f3f4;
+  }
+  .bulp-event-readmore {
+    background: #48B4F4;
+    color: black;
+  }
+  .bulp-event-readmore:visited, .bulp-event-readmore:active {
+    color: black;
+  }
+  .bulp-event-readmore:hover {
+    background: #78c8f7;
   }
   .bulp-event-register {
     background-color: #48B4F4;
@@ -317,11 +344,12 @@
   }
   .bulp-event-when:before,
   .bulp-event-where:before {
-    color: #303437;
+    color: #498500;
   }
   .bulp-article-category,
   .bulp-event-topic-text {
-    background-color: #222222;
+    background-color: black;
+    color: #FFF;
   }
   .bulp-section:nth-child(even) {
     background-color: #e5e5e5;

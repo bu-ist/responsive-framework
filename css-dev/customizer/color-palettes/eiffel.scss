@@ -17,11 +17,14 @@ $sidebar-bg:                          #F4F7F7;
 $content-heading:                     accessible-text( #FFF, map-get( $current-palette, 'color-tertiary' ), true );
 $bulp-promo-btn-color:                map-get( $current-palette, 'color-primary' );
 
-$bulp-event-icon-bg:                  map-get( $current-palette, 'color-primary' );
-$bulp-category-topic-bg:              map-get( $current-palette, 'color-primary' );
 $bulp-intro-title-bg:                 map-get( $current-palette, 'color-primary' );
-$bulp-section-even-bg:                darken( $color-dark, 10% );
+$bulp-section-even-bg:                darken( $color-dark, 5% );
 $bulp-child-nav-article-border:             $color-primary;
+$bulp-event-bg: lighten( $color-primary, 5% );
+$bulp-event-color: #eef8f9;
+$bulp-event-divider: #3c696f;
+$bulp-category-topic-bg: $color-dark;
+$bulp-category-topic-color: #000;
 
 //$bulp-child-nav-article-bg:           darken( $color-dark, 10% );
 //$bulp-child-nav-article-hover:        darken( $color-dark, 5% );
