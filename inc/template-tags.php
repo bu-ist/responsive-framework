@@ -1174,7 +1174,7 @@ function r_get_archive_sidebar( $name = null ) {
  */
 function responsive_get_the_excerpt( $post_id = null, $length = 55 ) {
 	// If no Post ID supplied, use the main query's post.
-	$post_id = ! empty( $post_id ) ? $post_id : get_queried_object_id();
+	$post_id = ! empty( $post_id ) ? $post_id : get_the_ID();
 	// Sets the initial value for the excerpt.
 	$excerpt = '';
 	// If has a custom excerpt, use that.
