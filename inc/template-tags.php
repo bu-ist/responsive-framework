@@ -1186,6 +1186,8 @@ function responsive_get_the_excerpt( $post_id = null, $length = 55 ) {
 		// Only generate an excerpt if there post_content exists.
 		if ( ! empty( $post_content ) ) {
 			$excerpt = $post_content;
+			// Strip any shortcodes from the excerpt.
+			$excerpt = strip_shortcodes( $excerpt );
 		}
 	}
 	// If a length was passed and not empty, trim words.
