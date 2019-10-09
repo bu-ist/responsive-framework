@@ -46,7 +46,7 @@ before_script:
       ./cc-test-reporter before-build
     fi
 
-   - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
     if [ -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
       phpenv config-rm xdebug.ini
@@ -78,7 +78,6 @@ script:
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
       phpcs
     fi
-
 
 after_script:
   - |
