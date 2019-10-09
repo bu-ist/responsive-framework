@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Added pagination to search template.
+
 ## 2.3.5
 
 - Replicated the `responsive_primary_nav_before` and `responsive_primary_nav_after` hooks into the BU version of `responsive_primary_nav`
