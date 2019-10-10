@@ -2,16 +2,21 @@
 
 ## Unreleased
 
-- Fixes broken Travis CI tests.
-- Added pagination to search template.
+- Fix broken Travis CI tests.
+- Add pagination to search template.
+- Add `responsive_get_the_excerpt( $post_id, $length )` for reliably retrieving
+  post excerpts outside of The Loop. Default $length value is 55 words.
 - Add `rel="nofollow"` attributes to event links in the calendar widget output.
 - Replace the template name in `calendar-single.php` with a note about its
   usage.
+- Automated fixes of security vulnerabilities in package-lock.json
+    - Bump mixin-deep from 1.3.1 to 1.3.2
+    - Bump lodash.merge from 4.6.1 to 4.6.2
+    - Bump lodash.mergewith from 4.6.1 to 4.6.2
+    - Bump eslint-utils from 1.3.1 to 1.4.2
 
 ## 2.3.5
 
-- Add `responsive_get_the_excerpt( $post_id, $length )` for reliably retrieving
-  post excerpts outside of The Loop. Default $length value is 55 words.
 - Replicated the `responsive_primary_nav_before` and `responsive_primary_nav_after` hooks into the BU version of `responsive_primary_nav`
 - Fixes #170
 
