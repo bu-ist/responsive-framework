@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Fixes broken Travis CI tests.
+- Added pagination to search template.
+
 ## 2.3.5
 
 - Add `responsive_get_the_excerpt( $post_id, $length )` for reliably retrieving

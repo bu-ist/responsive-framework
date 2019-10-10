@@ -633,6 +633,8 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 			if ( ! empty( $post_type ) ) {
 				$archive_type = $post_type->labels->singular_name;
 			}
+		} elseif ( is_search() ) {
+			$archive_type = 'search';
 		}
 
 		$defaults = array(
