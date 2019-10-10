@@ -35,6 +35,8 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
+			<?php responsive_posts_navigation(); ?>
+
 		<?php else : ?>
 
 			<?php get_template_part( 'template-parts/no-content', 'search' ); ?>
