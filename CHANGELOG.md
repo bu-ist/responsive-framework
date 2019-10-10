@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Fixes broken Travis CI tests.
+- Added pagination to search template.
 - Add `rel="nofollow"` attributes to event links in the calendar widget output.
 - Replace the template name in `calendar-single.php` with a note about its
   usage.
