@@ -187,7 +187,7 @@ function responsive_calendar_format_default( $events, $base_url, $calendar_id = 
 			$output .= sprintf( '
 				<li class="widget-calendar-event widget-calendar-event-default">
 					<time class="widget-calendar-date widget-calendar-date-default">%s</time>
-					<a href="%s" class="widget-calendar-title widget-calendar-title-default widget-calendar-link widget-calendar-link-default">%s</a>
+					<a href="%s" class="widget-calendar-title widget-calendar-title-default widget-calendar-link widget-calendar-link-default" rel="no-follow">%s</a>
 				</li>', date( 'n.j', $event['starts'] ), esc_url( $url ), $event['summary'] );
 
 			$output .= "\n";
@@ -217,7 +217,7 @@ function responsive_calendar_format_fulldate( $events, $base_url, $calendar_id =
 			$output .= sprintf( '
 				<li class="widget-calendar-event widget-calendar-event-fulldate">
 					<time class="widget-calendar-date widget-calendar-date-fulldate">%s</time>
-					<a href="%s" class="widget-calendar-title widget-calendar-title-fulldate widget-calendar-link widget-calendar-link-fulldate">%s</a>
+					<a href="%s" class="widget-calendar-title widget-calendar-title-fulldate widget-calendar-link widget-calendar-link-fulldate" rel="no-follow">%s</a>
 				</li>', date( 'l, F j', $event['starts'] ), esc_url( $url ), $event['summary'] );
 
 			$output .= "\n";
@@ -246,7 +246,7 @@ function responsive_calendar_format_graphic( $events, $base_url, $calendar_id = 
 
 			$output .= sprintf( '
 				<li class="widget-calendar-event widget-calendar-event-graphic">
-					<a href="%s" class="widget-calendar-link widget-calendar-link-graphic">
+					<a href="%s" class="widget-calendar-link widget-calendar-link-graphic" rel="no-follow">
 						<time class="widget-calendar-date widget-calendar-date-graphic">
 							<span class="widget-calendar-day widget-calendar-day-graphic">%s</span>
 							<span class="widget-calendar-month widget-calendar-month-graphic">%s</span>
