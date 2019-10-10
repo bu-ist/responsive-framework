@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+
+- Fixes broken Travis CI tests.
 - Added pagination to search template.
 
 ## 2.3.5
