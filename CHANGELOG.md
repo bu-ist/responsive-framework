@@ -14,6 +14,7 @@
     - Bump lodash.merge from 4.6.1 to 4.6.2
     - Bump lodash.mergewith from 4.6.1 to 4.6.2
     - Bump eslint-utils from 1.3.1 to 1.4.2
+- Upgrade Foundation to 3.2.3 to resolve autoprefixer warnings.
 
 ## 2.3.5
 
