@@ -1,6 +1,10 @@
 <?php
 /**
- * Template Name: Calendar
+ * Template used for individual event views.
+ *
+ * This is not a selectable page template - its use is determined by query
+ * parameters via the `responsive_calendar_template_include` function in
+ * `inc/template-hooks.php`.
  *
  * @package Responsive_Framework
  */

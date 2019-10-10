@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/theme/responsive-framework\n"
-"POT-Creation-Date: 2019-06-20 18:44:43+00:00\n"
+"POT-Creation-Date: 2019-10-10 20:30:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -231,7 +231,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:267 inc/template-tags.php:1055
+#: functions.php:267 inc/template-tags.php:1057
 msgid "Footbar"
 msgstr ""
 
@@ -239,7 +239,7 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:281 inc/template-tags.php:1056
+#: functions.php:281 inc/template-tags.php:1058
 msgid "Alternate Footbar"
 msgstr ""
 
@@ -469,47 +469,47 @@ msgstr ""
 msgid "Close Menu"
 msgstr ""
 
-#: inc/template-tags.php:642
+#: inc/template-tags.php:644
 #. translators: %s: archive type singular name.
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:647
+#: inc/template-tags.php:649
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:648
+#: inc/template-tags.php:650
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:689
+#: inc/template-tags.php:691
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:717 single.php:49
+#: inc/template-tags.php:719 single.php:49
 #. translators: %s: author name linking to their archive page.
 #. translators: %s: author name
 msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:734
+#: inc/template-tags.php:736
 #. translators: %s: category list for the post.
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:743
+#: inc/template-tags.php:745
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:743
+#: inc/template-tags.php:745
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:743
+#: inc/template-tags.php:745
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:888
+#: inc/template-tags.php:890
 msgid "View all posts"
 msgstr ""
 
