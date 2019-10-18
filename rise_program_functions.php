@@ -1,24 +1,394 @@
 <?php
+
+//make application_id required - 42, 62 has no application_ID
+/*$form = GFAPI::get_form( '65' );
+$next_form = GFAPI::get_form( '38' );
+var_dump($form['fields']);
+foreach ($form['fields'] as $fields) {
+    
+    if ( $fields->inputName == 'hs_passport_approved' ) {
+       $passport_field = $fields;
+        $fields->id = count($next_form['fields']) + 1;
+       array_push($next_form['fields'], $fields);
+    }
+    
+    if ( $fields->inputName == 'hs_test_scores_approved' ) {
+       $passport_field = $fields;
+        $fields->id = count($next_form['fields']) + 1;
+       array_push($next_form['fields'], $fields);
+    }
+
+    if ( $fields->inputName == 'hs_trans_approved' ) {
+       $passport_field = $fields;
+        $fields->id = count($next_form['fields']) + 1;
+       array_push($next_form['fields'], $fields);
+    }
+
+  }
+GFAPI::update_form( $next_form );
+var_dump($next_form['fields']);*/
+  //GFAPI::update_form( $next_form );
+
+     /* $next_form = GFAPI::get_form( '46' );
+      $fields->id = count($next_form['fields']) + 1;
+
+      array_unshift($next_form['fields'], $form['fields'][0]);
+      */
+      
+  //GFAPI::update_form( $form );
+  
+  //var_dump($next_form['fields']);
+  //var_dump($new_field);
+
+  /*$form = GFAPI::get_form( '65' );
+var_dump($form['fields']['9']);
+foreach ($form['fields'] as $fields) {
+    var_dump($fields->id);
+    
+    if ($fields->id == 13) {
+      
+      $next_form = GFAPI::get_form( '38' );
+      $fields->id = count($next_form['fields']) + 1;
+      $fields->label = 'Passport Approved';
+      $new_field = $fields;
+      array_push($next_form['fields'], $new_field);
+      GFAPI::update_form( $next_form );
+      
+     
+      //var_dump($fields);
+    }
+  }
+  $next_form = GFAPI::get_form( '38' );
+  var_dump($next_form['fields']);*/
+
+  /*var_dump($new_field);
+  $next_form = GFAPI::get_form( '46' );
+  array_unshift($next_form['fields'], $new_field);
+  var_dump($next_form['fields']);
+  GFAPI::update_form( $form );*/
+
+
+ /* GFAPI::update_form( $form );
+  $form = GFAPI::get_form( '46' );
+var_dump($form['fields']);*/
+/*foreach ($form['fields']['8'] as $key => $value) {
+    echo $key . ' - ' . $value . '<br>';
+    if ($key == 'isRequired') {
+      //$form_aim['fields']['11']['isRequired'] = true;
+    }
+  }*/
+  //var_dump($form['fields']);
+  
+  /*$form_aim = GFAPI::get_form( '38' );*/
+  /*$newform_aim = array_pop($form_aim['fields']);
+  GFAPI::update_form( $form_aim );*/
+//$newform_aim = array_shift($form_aim['fields']);
+  /*var_dump($form_aim['fields']);
+  
+  $newform_aim = array_pop($form_aim['fields']);
+  var_dump($form_aim['fields']);*/
+  //GFAPI::update_form( $form_aim );
+  /*var_dump($form_aim['fields']);
+  die();*/
+  
+  /*foreach ($form_aim['fields']['7'] as $key => $value) {
+    echo $key . ' - ' . $value['id'] . '<br>';
+    if ($key == '14') {
+        $value['id'] = '22';
+    }
+    if ($key == '15') {
+        $value['id'] = '23';
+    }
+    if ($key == '16') {
+        $value['id'] = '24';
+    }
+    if ($key == 'isRequired') {
+      $form_aim['fields']['7']['isRequired'] = true;
+    }
+  }*/
+  
+  /*array_unshift($form_aim['fields'], $form['fields']['0']);
+  array_push($form_aim['fields'], $form['fields']['5'], $form['fields']['6'], $form['fields']['8']);
+  // /var_dump($form_aim['fields']['12']);
+  foreach ($form_aim['fields']['10'] as $key => $value) {
+    echo $key . ' - ' . $value . '<br>';
+    if ($key == 'isRequired') {
+      $form_aim['fields']['10']['isRequired'] = true;
+    }
+  }
+  var_dump($form_aim['fields']);
+  GFAPI::update_form( $form_aim );*/
+  //die();
+  /*$form = GFAPI::get_form( '65' );
+
+  $field = $form['fields']['11'];
+  $field1 = $form['fields']['12'];
+  var_dump($form['fields']['7']);*/
+  //die();
+include 'class_BU_ST_Rise_Entry.php';
+include 'class_BU_ST_HSH_Entry.php';
+include 'class_BU_ST_SC_Entry.php';
+add_filter( 'gform_toolbar_menu', 'my_custom_toolbar', 10, 2 );
+function my_custom_toolbar( $menu_items, $form_id ) {
+ 
+    $menu_items['my_custom_link'] = array(
+        'label' => 'Documents', // the text to display on the menu for this link
+        'title' => 'Documents', // the text to be displayed in the title attribute for this link
+        'url' => self_admin_url( "admin.php?page=program_documents_page&application_id=" . $_GET['lid'] . "&form_id=" . $entry['form_id']), // the URL this link should point to
+        'menu_class' => 'gf_form_toolbar_custom_link', // optional, class to apply to menu list item (useful for providing a custom icon)
+        /*'link_class' => rgget( 'page' ) == 'my_custom_page' ? 'gf_toolbar_active' : *,*/ // class to apply to link (useful for specifying an active style when this link is the current page)
+        'capabilities' => array( 'gravityforms_edit_forms' ), // the capabilities the user should possess in order to access this page
+        'priority' => 500 // optional, use this to specify the order in which this menu item should appear; if no priority is provided, the menu item will be append to end
+    );
+    $menu_items['essay_link'] = array(
+        'label' => 'Essays', // the text to display on the menu for this link
+        'title' => 'Essays', // the text to be displayed in the title attribute for this link
+        'url' => self_admin_url( "admin.php?page=program_application_essays&application_id=" . $_GET['lid'] . "&form_id=" . $entry['form_id']), // the URL this link should point to
+        'menu_class' => 'gf_form_toolbar_custom_link', 
+        'capabilities' => array( 'gravityforms_edit_forms' ), // the capabilities the user should possess in order to access this page
+        'priority' => 500 // optional, use this to specify the order in which this menu item should appear; if no priority is provided, the menu item will be append to end
+    );
+
+    $menu_items['counselor_rec_link'] = array(
+        'label' => 'Counselor Rec.', // the text to display on the menu for this link
+        'title' => 'Counselor Rec.', // the text to be displayed in the title attribute for this link
+        'url' => self_admin_url( "admin.php?page=program_counsel_recommendations&application_id=" . $_GET['lid'] . "&form_id=" . $entry['form_id']), // the URL this link should point to
+        'menu_class' => 'gf_form_toolbar_custom_link', // optional, class to apply to menu list item (useful for providing a custom icon)
+        /*'link_class' => rgget( 'page' ) == 'my_custom_page' ? 'gf_toolbar_active' : *,*/ // class to apply to link (useful for specifying an active style when this link is the current page)
+        'capabilities' => array( 'gravityforms_edit_forms' ), // the capabilities the user should possess in order to access this page
+        'priority' => 500 // optional, use this to specify the order in which this menu item should appear; if no priority is provided, the menu item will be append to end
+    );
+
+    $menu_items['teacher_rec_link'] = array(
+        'label' => 'Teacher Rec.', // the text to display on the menu for this link
+        'title' => 'Teacher Rec.', // the text to be displayed in the title attribute for this link
+        'url' => self_admin_url( "admin.php?page=program_teacher_recommendations&application_id=" . $_GET['lid'] . "&form_id=" . $entry['form_id']), // the URL this link should point to
+        'menu_class' => 'gf_form_toolbar_custom_link', // optional, class to apply to menu list item (useful for providing a custom icon)
+        /*'link_class' => rgget( 'page' ) == 'my_custom_page' ? 'gf_toolbar_active' : *,*/ // class to apply to link (useful for specifying an active style when this link is the current page)
+        'capabilities' => array( 'gravityforms_edit_forms' ), // the capabilities the user should possess in order to access this page
+        'priority' => 500 // optional, use this to specify the order in which this menu item should appear; if no priority is provided, the menu item will be append to end
+    );
+
+    $menu_items['archive_link'] = array(
+        'label' => 'Archive', // the text to display on the menu for this link
+        'title' => 'Archive', // the text to be displayed in the title attribute for this link
+        'url' => self_admin_url( "admin.php?page=notification_archive_page&application_id=" . $_GET['lid']), // the URL this link should point to
+        'menu_class' => 'gf_form_toolbar_custom_link', 
+        'capabilities' => array( 'gravityforms_edit_forms' ), // the capabilities the user should possess in order to access this page
+        'priority' => 500 // optional, use this to specify the order in which this menu item should appear; if no priority is provided, the menu item will be append to end
+    );
+ 
+    return $menu_items;
+}
+
+add_action( 'gform_pre_submission', 'bu_st_update_nickname' );
+function bu_st_update_nickname( $form ) {
+  if ( $form['id'] == '63' && $_POST['input_161'] == '' ){
+    $_POST['input_161'] = $_POST['input_1_3'];
+  }
+  if ( $form['id'] == '12' && $_POST['input_161'] == '' ){
+    $_POST['input_163'] = $_POST['input_1_3'];
+  }
+  if ( $form['id'] == '73' && $_POST['input_161'] == '' ){
+    $_POST['input_189'] = $_POST['input_1_3'];
+  }
+}
+/*$_POST/GET triggered functions */
+/********************************************************/
+
+//program admin decisions
+if ( isset($_POST['update_admin']) && $_POST['update_admin'] == true ){
+  /*var_dump($_POST);
+  die();*/
+  $editentry = GFAPI::get_entry($_GET['lid']);
+  $editentry['75'] = $_POST['input_75'];
+  $editentry['133'] = $_POST['input_133'];
+  GFAPI::update_entry($editentry);
+}
+
+//approve documents
+if ( isset($_POST['doc_entry_id']) && $_POST['doc_entry_id'] != '' ){
+  //var_dump($_POST);
+  //die();
+  foreach ($_POST as $key => $value) {
+    $transcript_id = str_replace('approve_hs_transcript_', '', $key);
+    $tests_id = str_replace('approve_test_scores_', '', $key);
+    $trans = str_replace($key . '_', '', $key);
+
+
+    $doc_entry = GFAPI::get_entry($transcript_id);
+    $test_entry = GFAPI::get_entry($tests_id);
+
+    /*if ( !is_wp_error( $doc_entry ) ) { var_dump($doc_entry); }
+    if ( !is_wp_error( $test_entry ) ) { var_dump($test_entry); }*/
+  
+
+    if ( !is_wp_error( $doc_entry ) ) {
+      //$doc_entry['13'] = 'Approved';
+      if ( $doc_entry['form_id'] == 65 || $doc_entry['form_id'] == 38 || $doc_entry['form_id'] == 48) {
+        if ($value == 'false') {
+          /*var_dump($doc_entry);
+          var_dump($value);*/
+         $doc_entry['13'] = 'Denied';
+          GFAPI::update_entry($doc_entry);
+        } elseif($value == 'true') {
+          /*var_dump($doc_entry);
+          var_dump($value);*/
+          $doc_entry['13'] = 'Approved';
+          GFAPI::update_entry($doc_entry);
+        } else {
+          $doc_entry['13'] = '';
+          GFAPI::update_entry($doc_entry);
+        }
+      }
+    }
+
+
+    if ( !is_wp_error( $test_entry ) ) {
+
+      if ( $test_entry['form_id'] == 65 ) {
+        if ($value == 'false') {
+          /*var_dump($test_entry);
+          var_dump($value);*/
+          $test_entry['14'] = 'Denied';
+          GFAPI::update_entry($test_entry);
+        } elseif ($value == 'true') {
+          /*var_dump($test_entry);
+          var_dump($value);*/
+          $test_entry['14'] = 'Approved';
+          GFAPI::update_entry($test_entry);
+        } else {
+          $test_entry['14'] = '';
+          GFAPI::update_entry($test_entry);
+        }
+
+      }
+/*var_dump($test_entry);
+die();*/
+      if ( $test_entry['form_id'] == 38 ) {
+        if ($value == 'false') {
+          /*var_dump($test_entry);
+          var_dump($value);*/
+          $test_entry['19'] = 'Denied';
+          GFAPI::update_entry($test_entry);
+        } elseif ($value == 'true') {
+          /*var_dump($test_entry);
+          var_dump($value);*/
+          $test_entry['19'] = 'Approved';
+          GFAPI::update_entry($test_entry);
+        } else {
+          $test_entry['19'] = '';
+          GFAPI::update_entry($test_entry);
+        }
+
+      }
+    } 
+  }
+  //die();
+  if ( isset( $_POST['docs_approval_status'] ) && $_POST['docs_approval_status'] == 'completed') {
+
+    $editentry = GFAPI::get_entry($_GET['lid']);
+/*var_dump($_GET);
+var_dump($_POST);
+var_dump($editentry);
+$form = GFAPI::get_form(73);
+var_dump($form['fields'][69]);
+die();*/
+    if ( $_GET['id'] == '73' ) {
+      $editentry['334'] = 'true';
+      GFAPI::update_entry($editentry);
+    } else {
+
+    $editentry['104'] = 'true';
+    $editentry['130'] = 'true';
+    $editentry['108'] = 'true';
+    $editentry['107'] = 'true';
+    GFAPI::update_entry($editentry);
+    }
+  }
+  if ( isset( $_POST['docs_approval_status'] ) && $_POST['docs_approval_status'] == 'incomplete') {
+
+    $editentry = GFAPI::get_entry($_GET['lid']);
+    /*var_dump($_GET);
+var_dump($_POST);
+var_dump($editentry);
+$form = GFAPI::get_form(73);
+var_dump($form['fields'][69]);
+die();*/
+    if ( $_GET['id'] == '73' ) {
+      $editentry['334'] = 'false';
+      GFAPI::update_entry($editentry);
+    } else {
+
+    
+    $editentry['104'] = 'false';
+    $editentry['130'] = 'false';
+    $editentry['108'] = 'false';
+    $editentry['107'] = 'false';
+    GFAPI::update_entry($editentry);
+  }
+  }
+  
+}
+
+
+
+if (  isset($_POST['update_recs']) && $_POST['update_recs'] == true ){
+  /*var_dump($_POST);
+  var_dump($_GET);*/
+  
+  $editentry = GFAPI::get_entry($_GET['lid']);
+/*var_dump($editentry);
+  die();*/
+  //set received to false
+  if (isset($_POST['program_teacher_recommendations'])) {
+    $editentry['106'] = $_POST['program_teacher_recommendations'];
+  }
+  if (isset($_POST['program_counsel_recommendations'])) {
+   /* var_dump($editentry);
+  die();*/
+    $editentry['105'] = $_POST['program_counsel_recommendations'];
+  }
+  
+  GFAPI::update_entry($editentry);
+}
+
+
 /*Custom Admin for RISE */
 /********************************************************/
 add_action( 'gform_entries_column', 'bu_summer_application_cols', 10, 5 );
 
 function bu_summer_application_cols( $form_id, $field_id, $value, $entry, $query_string ) {
 
-	//echo '<div>IDS: ' . $field_id . '<br>';
-
 	switch ($form_id) {
-		case '112':
+		case '63':
 			/*field 135 is the first student transcript
 			use that to trigger the document status check*/
+        $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
 		    if ( $field_id == 135 ) {
+
 		    	$output_type = 'col_data';
-    			rise_document_status($entry, $form, $output_type);
+          $doc_status = $bu_rise_entry_obj->rise_document_status($entry, $form, $output_type);
+          echo $doc_status;
 		      //return;
 		    }
+        if ( $field_id == 103 ) {
+          $output_type = 'col_data';
+          //echo "really";
+          $form_status = $bu_rise_entry_obj->rise_form_completion_status();
+          echo $form_status;
+          //return;
+        }
+        if ( $field_id == 127 ) {
+          $output_type = 'col_data';
+          $doc_status = $bu_rise_entry_obj->rise_document_status($entry, $form, $output_type);
+          echo $doc_status;
+          //return;
+        }
 			//Actual Program
 		    if ( $field_id == 75 ) {
 		      countEntries($form_id, $entry, $field->id);
+          echo $add_column_data;
 		      //return;
 		    }
 
@@ -26,6 +396,14 @@ function bu_summer_application_cols( $form_id, $field_id, $value, $entry, $query
 		      $fields = GFAPI::get_fields_by_type( $form, array( 'fileupload' ) , true );
 
 		    }
+        if ( $field_id == 68 ) {
+          if ($value != '') {
+            echo 'Paid';
+          } else {
+            echo 'NA';
+          }
+
+        }
 		    if ( $field_id == 30 ) {
 			    //this is counting for some other program I believe
 			
@@ -52,16 +430,169 @@ function bu_summer_application_cols( $form_id, $field_id, $value, $entry, $query
 	
 }
 
+
+
+/*
+Adding menu pages
+*/
+/**
+ * Adds a submenu page under a custom post type parent.
+ */
+
+function bu_st_recommendations_list_menu() {
+
+    $menus[] = array( 'name' => 'program_teacher_recommendations', 'label' => __( 'Teacher Recommendations' ), 'callback' =>  'bu_teacher_recommendations_list' );
+    $menus[] = array( 'name' => 'program_counsel_recommendations', 'label' => __( 'Counselor Recommendations' ), 'callback' =>  'bu_counsel_recommendations_list' );
+    $menus[] = array( 'name' => 'program_application_essays', 'label' => __( 'Application Essays' ), 'callback' =>  'bu_program_essays_list' );
+    $menus[] = array( 'name' => 'program_documents_page', 'label' => __( 'Application Documents' ), 'callback' =>  'rise_document_status_page' );
+
+    $menus[] = array( 'name' => 'notification_archive_page', 'label' => __( 'Archives' ), 'callback' =>  'notification_archive' );
+  return $menus;
+}
+
+/**
+ * Display callback for the submenu page.
+ */
+
+/*$entry = GFAPI::get_entry($_GET["application_id"]);
+  $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
+  //var_dump($bu_rise_entry_obj->entry);
+  $rec = $bu_rise_entry_obj->rise_recommendation_status($entry);
+  */
+  //var_dump($entry);
+function bu_teacher_recommendations_list() {
+  //include 'bu-st-recommendations-template.php';
+  $entry = GFAPI::get_entry($_GET["application_id"]);
+  $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
+  $bu_rise_entry_obj->rise_teacher_rec_page($entry, $form);
+  echo $rec_html;
+
+}
+
+/**
+ * Display callback for the submenu page.
+ */
+function bu_counsel_recommendations_list() {
+  $entry = GFAPI::get_entry($_GET["application_id"]);
+
+  if ($entry['form_id'] == 63) {
+    $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
+    $bu_rise_entry_obj->rise_counselor_rec_page($_GET["application_id"]);
+  }
+
+  if ($entry['form_id'] == 12) {
+    $bu_rise_entry_obj = new BU_ST_HSH_Entry($entry, $form);
+    $bu_rise_entry_obj->rise_counselor_rec_page($_GET["application_id"]);
+  }
+
+  echo $rec_html;
+    /*$search_criteria = array(
+      'field_filters' => array(
+        'mode' => 'any',
+          array(
+              'key'   => 'application_id',//application_id
+              'value' => $_GET['application_id']//passed id value
+          ),
+          array(
+              'key'   => '57',//application_id
+              'value' => $_GET['application_id']//passed id value
+          ),
+
+      )
+  );
+  
+  $entries         = GFAPI::get_entries( 66, $search_criteria );
+  maybe_load_gf_entry_detail_class();
+  foreach ($entries as $entry) {
+    $form = GFAPI::get_form($entry['form_id']);
+    $entry = GFAPI::get_entry($entry['id']);
+   //var_dump(GFEntryDetail::lead_detail_grid( $form, $entry ));
+    echo '<form>';
+      echo GFEntryDetail::lead_detail_grid( $form, $entry );
+      echo '</form>';
+
+  }*/
+  //echo GFEntryList::leads_page($entry['form_id']);
+
+}
+
+
+
+function bu_program_essays_list() {
+    $search_criteria = array(
+      'field_filters' => array(
+        'mode' => 'any',
+          array(
+              'key'   => 'id',//application_id
+              'value' => $_GET['application_id']//passed id value
+          ),
+          array(
+              'key'   => '57',//application_id
+              'value' => $_GET['application_id']//passed id value
+          ),
+
+      )
+  );
+  //$search_criteria = array();
+  /*$sorting         = array( 'key' => '5', 'direction' => 'ASC' );
+  $paging          = array( 'offset' => 0, 'page_size' => 25 );*/
+  $total_count     = 0;
+  $entries         = GFAPI::get_entries( 63, $search_criteria, /*$sorting, $paging,*/ $total_count );
+// $total_count now contains the total number of entries matching the search criteria. This is useful for displaying pagination controls.
+  maybe_load_gf_entry_detail_class();
+  foreach ($entries as $entry) {
+    $form = GFAPI::get_form($entry['form_id']);
+    //$entry = GFAPI::get_entry($entry['id']);
+/*var_dump($entry);
+var_dump($form['fields']);
+die();*/
+/*var_dump($form['fields']);
+die();*/
+    echo '<form>';
+    echo '<H3>' . $form['fields']['65']->label . '</H3>';
+    echo '<H4>' . $form['fields']['66']->label . '</H4>';
+      echo '<p>' . $entry['92'];
+      echo '<H4>' . $form['fields']['67']->label . '</H4>';
+      echo '<p>' . $entry['93'];
+      echo '<H4>' . $form['fields']['68']->label . '</H4>';
+      echo '<p>' . $entry['94'];
+      echo '</form>';
+
+  }
+
+}
+
+function rise_document_status_page(){
+  $entry = GFAPI::get_entry($_GET["application_id"]);
+  if ($entry['form_id'] == 63) {
+    $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
+    $bu_rise_entry_obj->rise_document_status_page($_GET["application_id"]);
+  }
+
+  if ($entry['form_id'] == 12) {
+    $bu_rise_entry_obj = new BU_ST_HSH_Entry($entry, $form);
+    $bu_rise_entry_obj->rise_document_status_page($_GET["application_id"]);
+  }
+
+  if ($entry['form_id'] == 73) {
+    $bu_rise_entry_obj = new BU_ST_SC_Entry($entry, $form);
+    $bu_rise_entry_obj->rise_document_status_page($_GET["application_id"]);
+  }
+
+  echo $rec_html;
+}
+
 /*Collect data from secondary forms and feed into the main application*/
 /********************************************************/
 
 //RISE counselor recommendation
-add_action("gform_after_submission_117", "counselRecHandler", 10, 2 );
+add_action("gform_after_submission_74", "counselRecHandler", 10, 2 );
+add_action("gform_after_submission_78", "counselRecHandler", 10, 2 );
 function counselRecHandler($entry, $form){
     /*all we're doing right now is marking is at received*/
-	if($_POST["input_57"]!==""){
+	if($_POST["input_63"]!==""){
 		//get the actual entry we want to edit
-	    $editentry = GFAPI::get_entry($_POST["input_57"]);
+	    $editentry = GFAPI::get_entry($_POST["input_63"]);
 
 	    if ( is_wp_error( $editentry ) ) {
 	      echo "Error.";
@@ -74,10 +605,11 @@ function counselRecHandler($entry, $form){
 
 }
 
-//RISE student upload form form 113
-add_action("gform_after_submission_113", "studentUploadHandler", 10, 2 );
+//RISE student upload form form 65
+
+add_action("gform_after_submission_65", "studentUploadHandler", 10, 2 );
 function studentUploadHandler($entry, $form){
-	
+
 	/*input_7 holds the application id of the program application*/
 	if($_POST["input_7"]!==""){
     //get the actual entry we want to edit
@@ -112,24 +644,26 @@ function studentUploadHandler($entry, $form){
               }
 
           } else {
-          	var_dump($entry);
-            var_dump( $input['id'] . ' ' . $field->id . ' ' . $field->lable);
+          	//var_dump($entry);
+            /*var_dump( $input['id'] . ' ' . $field->id . ' ' . $field->lable);*/
 
               $value = rgar( $entry, (string) $field->id );
               switch (true) {
               	//$field->id == 5 //HS transcript
                 case ($input['id'] == '1.8' &&  $field->id == 5):
                   //trans received
+                
                   $editentry[135]=$value;
-                  $editentry[108]='true';
-                    var_dump($value);
+                  $editentry[108]='pending_review';
+                  
+                    //var_dump($value);
                   break;
                  //$field->id == 6 //standardized tesat scores
                 case ($input['id'] == '1.8' &&  $field->id == 6):
-                  //test scores received
+                  //test scores received called supplemental upload 1?
                   $editentry[136]=$value;
-                  $editentry[128]='true';
-                    var_dump($value);
+                  $editentry[104]='pending_review';
+                    //var_dump($value);
                   break;
                 //$field->id == 8 //passport - not required?
 				/*case ($input['id'] == '1.8' &&  $field->id == 8):
@@ -152,21 +686,32 @@ function studentUploadHandler($entry, $form){
 }
 
 
-//RISE science/math rec 114
-add_action("gform_after_submission_114", "studentRecommendationHandler", 10, 2 );
+//RISE science/math rec 66 teacher
+add_action("gform_after_submission_66", "studentRecommendationHandler", 10, 2 );
 function studentRecommendationHandler($entry, $form){
     /*all we're doing right now is marking is at received*/
+/*var_dump($_POST);
+var_dump($entry);
+var_dump($form);*/
+
   if($_POST["input_57"]!==""){
     //get the actual entry we want to edit
       $editentry = GFAPI::get_entry($_POST["input_57"]);
-
+      //var_dump($editentry);
       if ( is_wp_error( $editentry ) ) {
         echo "Error.";
         die();
       }
 
-      $editentry[127]='true';
+      $editentry['128']='true';
       $updateit = GFAPI::update_entry($editentry);
+  } else {
+    $editentry = GFAPI::get_entry($entry["input_57"]);
+    //var_dump($editentry);
+      if ( is_wp_error( $editentry ) ) {
+        echo "Error.";
+        die();
+      }
   }
 
 }
@@ -196,7 +741,7 @@ function countEntries($form_id, $entry, $field_id, $add_column_data, $field_valu
   );
   $search_criteria['field_filters'][] = array( 'key' => $field_id, 'value' => $field_value );
 
-  $entry_count = GFAPI::count_entries( /*$form_id*/112, $search_criteria );
+  $entry_count = GFAPI::count_entries( /*$form_id*/63, $search_criteria );
   $add_column_data .= ' - ' . $entry_count;
   echo $entry_count;
   
@@ -232,26 +777,41 @@ function change_subject( $form, $lead_ids ) {
   RGFormsModel::add_note( $entry['id'], $current_user->ID, $current_user->display_name, 'Notification re-sent.' );
 }
 
-/*add_action( 'gform_after_email', function( $is_success, $to, $subject, $message, $headers, $attachments, $message_format, $from, $from_name, $bcc, $reply_to, $entry ) {
+add_action( 'gform_after_email', function( $is_success, $to, $subject, $message, $headers, $attachments, $message_format, $from, $from_name, $bcc, $reply_to, $entry ) {
+  /*var_dump($entry);
+  var_dump($message);*/
+  //die();
   $current_user = wp_get_current_user();
-  RGFormsModel::add_note( $entry['id'], $current_user->ID, $current_user->display_name, 'Edited the note to be added' );
+  
+  //rise forms
+  if ( $entry['form_id'] == '65'
+        || $entry['form_id'] == '84'
+        || $entry['form_id'] == '78'
+        || $entry['form_id'] == '66'
+        )  {
+    //$entry['7'] is the original application id - put note there
+    RGFormsModel::add_note( $entry['7'], $current_user->ID, $current_user->display_name, $message );
+  }
+
+  /*RGFormsModel::add_note($_POST['lead_id'], $current_user->ID, $user_data->display_name, stripslashes($orig_message));*/
 }, 10, 12 );
-*/
 
 
-/*add_filter( 'gform_pre_send_email', function ( $email, $message_format, $notifications, $entry ) {
+/*
+RGFormsModel::add_note($_POST['lead_id'], $current_user->ID, $user_data->display_name, stripslashes($orig_message));
+add_filter( 'gform_pre_send_email', function ( $email, $message_format, $notifications, $entry ) {
   //cancel sending emails
   //var_dump($email);
   //var_dump($message_format);
   //var_dump($notifications);
   //var_dump($entry);
-  $email['abort_email'] = false;
+  //$email['abort_email'] = false;
   $message = $notifications['subject'] . ' resent.';
   $current_user = wp_get_current_user();
   RGFormsModel::add_note( $entry['id'], $current_user->ID, $current_user->display_name, $message );
   return $email;
-}, 10, 4 );*/
-
+}, 10, 4 );
+*/
 
 /**
  * Add the meta box to the entry detail page.
@@ -264,28 +824,41 @@ function change_subject( $form, $lead_ids ) {
  */
 function register_status_meta_box( $meta_boxes, $entry, $form ) {
   // If the add-on is active and the form has an active feed, add the meta box.
-      $meta_boxes[ 'bu_status_and_decision' ] = array(
+  //var_dump($entry);
+      if ( $entry['form_id'] == 63 || $entry['form_id'] == 12 || $entry['form_id'] == 73 ) {
+        $meta_boxes[ 'bu_status_and_decision' ] = array(
           'title'    => 'Status and Decision Buttons',
           'callback' => 'add_status_details_meta_box',
           'context'  => 'side',
           'callback_args' => array( $entry, $form ),
-      );
+          );
 
-      $meta_boxes[ 'bu_document_approval_tools' ] = array(
-        'title'    => 'Document Approvals',
-        'callback' => 'meta_box_document_approval_tools',
-        'context'  => 'side',
-        'callback_args' => array( $entry, $form ),
-        
-      );
+          $meta_boxes[ 'bu_document_approval_tools' ] = array(
+            'title'    => 'Documentation and Review',
+            'callback' => 'meta_box_document_approval_tools',
+            'context'  => 'side',
+            'callback_args' => array( $entry, $form ),
+            
+          );
 
-      //for adding custom content to the notifications
-     $meta_boxes[ 'bu_notifications' ] = array(
-          'title'    => 'BU Notifications',
-          'callback' => 'add_bu_notification_content',
-          'context'  => 'side',
-          'callback_args' => array( $entry, $form ),
-    );
+          $meta_boxes[ 'bu_recommendation_approval_tools' ] = array(
+            'title'    => 'Review Recommendations',
+            'callback' => 'meta_box_recommendation_tools',
+            'context'  => 'side',
+            'callback_args' => array( $entry, $form ),
+            
+          );
+
+          //for adding custom content to the notifications
+         $meta_boxes[ 'bu_notifications' ] = array(
+              'title'    => 'BU Notifications',
+              'callback' => 'add_bu_notification_content',
+              'context'  => 'side',
+              'callback_args' => array( $entry, $form ),
+          );
+
+      }
+
 
   return $meta_boxes;
 }
@@ -301,13 +874,99 @@ function add_status_details_meta_box( $args ) {
 
 	$form  = $args['form'];
 	$entry = $args['entry'];
-	//var_dump($form['fields']);
+
+  //use get field
+  // Passing the form object with the field id.
+//$cur_field = GFAPI::get_field( $form, 133 );
+/*foreach ( $form['fields'] as $field ) {
+  if ($field['id'] == '133'){
+//var_dump($field['choices']);
+    foreach ($field['choices'] as $choices) {
+      //var_dump($choices);
+      $html .= '<option value="' . $choices['value']  . '">' . $choices['text']  . '</option>';
+    }
+
+  }
+//var_dump($field);
+}
+ */
+// Passing the form id with the field id.
+//$cur_field = GFAPI::get_field( 2, 1 );
+ 
+// Passing the form id with the input id.
+//$cur_field = GFAPI::get_field( 2, '1.3' );
+  
+	//var_dump($entry);die();
 	//personal statements and essays
-	$html = '<li><a href="?page=program_application_essays&application_id=' . $entry['id'] . '" target="_blank">Review ' . $form['fields']['61']->label . '</a>';
-	//confirm gpa?
-	/*$html = '<li><a href="?page=program_application_essays&application_id=' . $entry['id'] . '" target="_blank">Review ' . $form['fields']['61']->label . '</a>';*/
-		
-	$html .= sprintf( '<input type="submit" value="%s" class="button" onclick="jQuery(\'#action\').val(\'%s\');" />', 'Status Updates', $action );
+	$html = '<li>Review <a href="?page=program_application_essays&application_id=' . $entry['id'] . '" target="_blank">Personal Statements</a>';
+  //confirm gpa?
+
+  //manaage application
+  $html .= '<form action="" method="post">';
+  $html .= '<li>Administrative Decision:<BR><select name="input_133" id="input_133" class="medium_admin gfield_select" tabindex="373" aria-invalid="false">';
+  foreach ( $form['fields'] as $field ) {
+  if ($field['id'] == '133'){
+/*var_dump($field['choices']);
+var_dump($entry['133']);*/
+    foreach ($field['choices'] as $choices) {
+      //var_dump($choices);
+      $html .= '<option value="' . $choices['value']  . '"';
+      
+      if ( $entry['133'] == $choices['value'] ) {
+          $html .= ' selected';
+      }
+
+      $html .= '>' . $choices['text']  . '</option>';
+    }
+
+  }
+//var_dump($field);
+}
+$html .= '</select></li>';
+$html .= '<li>Actual Program:<BR><select name="input_75" id="input_75" class="medium_admin gfield_select" aria-invalid="false">';
+foreach ( $form['fields'] as $field ) {
+  if ($field['id'] == '75'){
+//var_dump($field['choices']);
+    foreach ($field['choices'] as $choices) {
+      //var_dump($choices);
+      $html .= '<option value="' . $choices['value']  . '"';
+      
+      if ( $entry['75'] == $choices['text'] ) {
+          $html .= ' selected';
+      }
+
+      $html .= '>' . $choices['text']  . '</option>';
+    }
+
+  }
+//var_dump($field);
+}
+$html .= '</select></li>';
+ /* 
+  if ($entry['75'] == "NA") {
+    $html .= ' selected';
+  }
+  $html .= '>- N/A -</option>
+  <option value="Astronomy"';
+  if ($entry['75'] == "Astronomy") {
+    $html .= ' selected';
+  }
+  $html .= '>Astronomy</option>
+  <option value="Biology"';
+  if ($entry['75'] == "Biology") {
+    $html .= ' selected';
+  }
+  $html .= '>Biology</option>
+  <option value="Chemestry"';
+  if ($entry['75'] == "Chemestry") {
+    $html .= ' selected';
+  }
+  $html .= '>Chemestry</option>
+  </select></li>';*/
+	
+	$html .= sprintf( '<li><input type="hidden" value="%s" name="update_admin" /></li>', 'true', $action );
+	$html .= sprintf( '<li><input type="submit" value="%s" class="button" onclick="jQuery(\'#action\').val(\'%s\');" /></li>', 'Update Status', $action );
+  $html .= '</form>';
 
 
   echo $html;
@@ -315,113 +974,88 @@ function add_status_details_meta_box( $args ) {
 
 function meta_box_document_approval_tools ($args){
 
-  $form  = $args['form'];
-  $entry = $args['entry'];
-  //var_dump($entry);
-  //var_dump($form);
+  /*$form  = $args['form'];
+  $entry = $args['entry'];*/
+  /*var_dump($args['entry']);
+  die();*/
+  if ( $args['form']['id'] == 12 ) {
+    $bu_rise_entry_obj = new BU_ST_HSH_Entry($args['entry'], $args['form']);
+  }
+  if ( $args['form']['id'] == 63 ) {
+    $bu_rise_entry_obj = new BU_ST_Rise_Entry($args['entry'], $args['form']);
+  }
+  if ( $args['form']['id'] == 73 ) {
+    $bu_rise_entry_obj = new BU_ST_SC_Entry($args['entry'], $args['form']);
+  }
 
   $output_type = 'review_status';
-  rise_document_status($entry, $form, $output_type);
-  rise_recommendation_status($entry, $form, $output_type);
+  echo "<h3>Documents Status</h3>";
+  echo '<form action="" method="post">';
+  echo '<input type="hidden" name="doc_entry_id" value="' . $args['entry']['id'] . '">';
+  //rise_document_status($entry, $form, $output_type);
+  $doc_status = $bu_rise_entry_obj->rise_document_status($args['entry'], $args['form'], $output_type);
+  echo $doc_status;
+ /* echo "<h3>Recommendations Status</h3>";
+  $rec_status = $bu_rise_entry_obj->rise_recommendation_status($entry, $form, $output_type);
+  echo $rec_status;*/
+  $review_status_html .= sprintf( '<li><input type="submit" value="%s" class="button" onclick="jQuery(\'#action\').val(\'%s\');" /></li>', 'Update Document Status', $action );
+  echo $review_status_html;
+  echo "</form>";
+  /*echo $review_status_html;
+  echo $add_column_data;*/
 
 }
 
+function meta_box_recommendation_tools ($args){
 
+  /*$form  = $args['form'];
+  $entry = $args['entry'];*/
+  /*var_dump($args['entry']);
+  die();*/
+  //var_dump($form);
+  $bu_rise_entry_obj = new BU_ST_Rise_Entry($args['entry'], $args['form']);
 
-function rise_document_status ($entry, $form, $output_type) {
-  	$needs_review = 'true';
-    $review_status_html = 'Incomplete<br>';
-    $add_column_data = 'Incomplete ';
-    $value = rgar( $entry, (string) $field->id );
+  $output_type = 'review_status';
+/*  echo "<h3>Documents Status</h3>";
+  echo '<form action="" method="post">';
+  echo '<input type="hidden" name="doc_entry_id" value="' . $args['entry']['id'] . '">';
+  //rise_document_status($entry, $form, $output_type);
+  $doc_status = $bu_rise_entry_obj->rise_document_status($args['entry'], $args['form'], $output_type);
+  echo $doc_status;*/
+  echo '<form action="" method="post">';
+  echo '<input type="hidden" name="rec_entry_id" value="' . $args['entry']['id'] . '">';
+  echo "<h3>Recommendations Status</h3>";
+  $rec_status = $bu_rise_entry_obj->rise_recommendation_status($args['entry'], $form, $output_type);
+  echo $rec_status;
+  $review_status_html .= sprintf( '<li><input type="submit" value="%s" class="button" onclick="jQuery(\'#action\').val(\'%s\');" /></li>', 'Update Recommendations Status', $action );
+  echo $review_status_html;
+  echo "</form>";
+  /*echo $review_status_html;
+  echo $add_column_data;*/
 
-    //RISE high school transcript 1
-    if ($entry['108'] == 'true') {//received
-      if ($entry['107'] != 'true'){//received but approved is false
-        $needs_review = 'true';
-        $review_status_html .= '<li>Please review: <a href="' . $entry['135'] . '" target="_blank">' . $form['fields']['156']['label'] . '</a><br>';
-        $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        $review_status_html .= '<a href="' . $actual_link . '&approve_hs_transcript=true">Approve</a><br>';
-      }
-    }
-
-    //RISE Standardized test scores
-    if ($entry['128'] == 'true') {//received
-      if ($entry['106'] != 'true'){//received but approved is false
-        $needs_review = 'true';
-        $review_status_html .= '<li>Please review: <a href="' . $entry['136'] . '" target="_blank">' . $form['fields']['154']['label'] . '</a><br>';
-        $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        $review_status_html .= '<a href="' . $actual_link . '&approve_test_scores=true">Approve</a><br>';
-      }
-    }
-
-      /*
-	we may be able to adapt this for all review notification - not only documents
-      if($needs_review == 'false') {
-        $add_column_data = 'Complete';
-        $entry['103'] = 'true';
-        $updated_entry = GFAPI::update_entry( $entry );
-      } else {
-        $entry['103'] = 'false';
-        $updated_entry = GFAPI::update_entry( $entry );
-
-        $add_column_data = 'Incomplete';
-      }*/
-      //$add_column_data = $review_status_html;
-      if ($output_type == 'review_status') {
-        echo 'Status ' . $review_status_html;
-      } elseif($output_type == 'col_data') {
-        echo $review_status_html;
-      } else {
-        echo 'no output type ' . $add_column_data;
-      }
-}
-//approve transcript
-if ( $_GET['approve_hs_transcript'] == true ){
-	$editentry = GFAPI::get_entry($_GET['lid']);
-	$editentry['107'] = 'true';
-	GFAPI::update_entry($editentry);
-}
-//approve test scores
-if ( $_GET['approve_test_scores'] == true ){
-	$editentry = GFAPI::get_entry($_GET['lid']);
-	$editentry['106'] = 'true';
-	GFAPI::update_entry($editentry);
 }
 
-
-function rise_recommendation_status ($entry, $form, $output_type) {
-  	$needs_review = 'true';
-    $review_status_html = 'Recommendations Incomplete<br>';
-    $add_column_data = 'Recommendations Incomplete ';
-    $value = rgar( $entry, (string) $field->id );
-	
-    if ($entry['127'] != '') {//received
-      if ($entry['107'] != 'true'){//received but approved is false
-        $needs_review = 'true';
-        $review_status_html .= 'Please review: <a href="?page=program_counsil_recommendations&application_id=' . $entry['id'] . '" target="_blank">' . $form['fields']['161']['label'] . '</a><br>';
-        $review_status_html .= '<a href="' . $entry['id'] . '" target="_blank">Approve</a><br>';
-      }
-    }
-
-      if ($output_type == 'review_status') {
-        echo 'Status ' . $review_status_html;
-      } elseif($output_type == 'col_data') {
-        echo $review_status_html;
-      } else {
-        echo 'no output type ' . $add_column_data;
-      }
-}
-
-
-add_action( 'gform_after_update_entry_112', 'copy_entry_to_program', 10, 2 );
+add_action( 'gform_after_update_entry_63', 'copy_entry_to_program', 10, 2 );
 //copies from rise form only
-//needs to check the field ids etc make to make sure it's an application move
-function copy_entry_to_program($form, $entry_id, $original_entry){
+/*needs to check the field ids etc make to make sure it's an application move
+NOTE: Need to update the application_id field in each of the the feeder forms - documents, recomendaions, intent letters, etc
+
+?Add a new Form Status "new", "spam", "moved" or 'acrhived' for applications that got moved to another Program?
+
+*/
+
+function copy_entry_to_program( $form, $entry_id ){
+  //var_dump( $form );
+  //var_dump( $entry_id );
   $editentry = GFAPI::get_entry($entry_id);
-  $editentry['form_id'] = $editentry['133'];
+ // var_dump($editentry);
+  //die();
+  $editentry['form_id'] = '10';//10 is currently AIM
   $editentry['1.3'] = 'Deedee';
   $editentry['1.6'] = 'Ramon';
-  $entry_id = GFAPI::add_entry($editentry);
+ // $entry_id = GFAPI::add_entry($editentry);
+  var_dump($entry_id);
+  //die();
 
   //
   //$response_data = array_merge($data, array('status' => 'OK', 'entry_id' => $entry_id, 'message' => $success_msg));
@@ -448,15 +1082,26 @@ function admin_notes( $meta_boxes, $entry, $form ) {
 function meta_box_admin_notes ($args){
   $form  = $args['form'];
   $entry = $args['entry'];
-  $html = '';
 
-  $html .= '<P><B>Special Skills:</b> ' . $entry[141];
-  $html .= '<P><B>Concerns:</b> ' . $entry[142];
-  $html .= '<P><B>Possible Matches:</b> ' . $entry[143];
+  $html = '<form action="" method="post">';
 
-  $html .= '<div value="%s" class="summer-prog-button" />Update</div>';
+  $html .= '<P><B>Special Skills:</b><br>
+  <textarea name="special_skills" id="input_141">' . $entry[141];
+  $html .= '</textarea>
+  <P><B>Concerns:</b><br>
+  <textarea name="concerns" id="input_142">' . $entry[142];
+  $html .= '</textarea>
+  <P><B>Possible Matches:</b><br>
+  <textarea name="possible_matches" id="input_143"> ' . $entry[143];
+  $html .= '</textarea>';
+  $html .= sprintf( '<li><input type="hidden" value="%s" name="bu_update_admin_assessment" /></li>', 'true', $action );
+  $html .= sprintf( '<li><input type="submit" value="%s" class="button" onclick="jQuery(\'#action\').val(\'%s\');" /></li>', 'Update Status', $action );
+  $html .= '</form>';
+
 
   echo $html;
+  /*var_dump($entry);
+  die();*/
 }
 
 //Update actual program registration
