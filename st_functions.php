@@ -354,7 +354,7 @@ function add_bu_notification_content_old( $args ) {
   echo $html;
 }*/
 
-add_action( 'admin_footer', 'my_action_javascript' ); // Write our JS below here
+//add_action( 'admin_footer', 'my_action_javascript' ); // Write our JS below here
 function my_action_javascript() { ?>
 <script type="text/javascript" >
      /* function startMessage() {

@@ -10,6 +10,7 @@ var_dump($_SERVER);*/
 /*Updating entries directly form telegraph*/
 GLOBAL $orig_message;
 $editentry = GFAPI::get_entry($_GET['application_id']);
+
 if ( !isset($_GET['form_id']) || $_GET['form_id'] == '') {
 	//var_dump($editentry);
 	$_GET['form_id'] = $editentry['form_id'];
@@ -17,6 +18,7 @@ if ( !isset($_GET['form_id']) || $_GET['form_id'] == '') {
 } else {
 	$form = GFAPI::get_form( $_GET['form_id'] );
 }
+
 $notifications_list = GFCommon::get_notifications_to_send( 'payment_updated', $form, $editentry );
 $notification_id = $notifications_list['id'];
 /*$headers[] = 'MIME-Version: 1.0';
@@ -126,9 +128,18 @@ $i++;
 		$i++;
 	}
 }
+
+/*var_dump($orig_message);
+var_dump($editentry);
+die();*/
 //die();
-/*var_dump($_GET['form_id']);
-var_dump($editentry);*/
+/*var_dump($_GET['form_id']);*/
+/*var_dump($editentry);
+var_dump($_GET);
+die();*/
+if ( !isset($_GET['form_id']) || $_GET['form_id'] == '' ) {
+$_GET['form_id'] = $editentry['form_id'];
+}
 switch ($_GET['form_id']) {
 	//AIM - CC parent
 	case '10':
@@ -288,7 +299,7 @@ switch ($_GET['form_id']) {
 		break;
 
 	//honors
-	case '99':
+	case '12':
 		/*var_dump($orig_message);
 		var_dump($notifications_list);*/
 		if ($editentry['2.1'] != '') {
@@ -496,7 +507,7 @@ switch ($_GET['form_id']) {
 		break;
 
 		//RISE
-	case '112':
+	case '63':
 		//international addresses are not always the same field
 		if ($editentry['2.1'] != '') {
 			$comp_addr = strcasecmp( $editentry['2.1'], $_GET['address1'] );
