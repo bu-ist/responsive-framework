@@ -391,6 +391,70 @@ public function rise_document_status_page($application_id)
       }
   }
 
+
+
+  public function bu_program_essays_list() {
+
+    $search_criteria = array(
+      'field_filters' => array(
+        'mode' => 'any',
+          array(
+              'key'   => 'id',//application_id
+              'value' => $_GET['application_id']//passed id value
+          ),
+          array(
+              'key'   => '57',//application_id
+              'value' => $_GET['application_id']//passed id value
+          ),
+
+      )
+  );
+
+  $total_count     = 0;
+  $entries         = GFAPI::get_entries( 63, $search_criteria, /*$sorting, $paging,*/ $total_count );
+// $total_count now contains the total number of entries matching the search criteria. This is useful for displaying pagination controls.
+  maybe_load_gf_entry_detail_class();
+  foreach ($entries as $entry) {
+    $form = GFAPI::get_form($entry['form_id']);
+    //$entry = GFAPI::get_entry($entry['id']);
+/*var_dump($entry);
+var_dump($form['fields']);
+die();*/
+/*var_dump($form['fields']);
+die();*/
+    echo '<form>';
+    echo '<H3>' . $form['fields']['65']->label . '</H3>';
+    echo '<H4>' . $form['fields']['66']->label . '</H4>';
+      echo '<p>' . $entry['92'];
+      echo '<H4>' . $form['fields']['67']->label . '</H4>';
+      echo '<p>' . $entry['93'];
+      echo '<H4>' . $form['fields']['68']->label . '</H4>';
+      echo '<p>' . $entry['94'];
+      echo '</form>';
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   public function rise_form_completion_status (/*$entry, $form, $output_type*/) {
     $doc_status = $this->rise_document_status($entry, $form, 'col_data');
     $rec_status = $this->rise_recommendation_status($entry, $form, 'col_data');

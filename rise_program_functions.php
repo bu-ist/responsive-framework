@@ -128,13 +128,14 @@ var_dump($form['fields']);*/
 include 'class_BU_ST_Rise_Entry.php';
 include 'class_BU_ST_HSH_Entry.php';
 include 'class_BU_ST_SC_Entry.php';
+include 'class_BU_ST_SP_Entry.php';
 add_filter( 'gform_toolbar_menu', 'my_custom_toolbar', 10, 2 );
 function my_custom_toolbar( $menu_items, $form_id ) {
  
     $menu_items['my_custom_link'] = array(
         'label' => 'Documents', // the text to display on the menu for this link
         'title' => 'Documents', // the text to be displayed in the title attribute for this link
-        'url' => self_admin_url( "admin.php?page=program_documents_page&application_id=" . $_GET['lid'] . "&form_id=" . $entry['form_id']), // the URL this link should point to
+        'url' => self_admin_url( "admin.php?page=program_documents_page&application_id=" . $_GET['lid'] . "&form_id=" . $_GET['id']), // the URL this link should point to
         'menu_class' => 'gf_form_toolbar_custom_link', // optional, class to apply to menu list item (useful for providing a custom icon)
         /*'link_class' => rgget( 'page' ) == 'my_custom_page' ? 'gf_toolbar_active' : *,*/ // class to apply to link (useful for specifying an active style when this link is the current page)
         'capabilities' => array( 'gravityforms_edit_forms' ), // the capabilities the user should possess in order to access this page
@@ -143,7 +144,7 @@ function my_custom_toolbar( $menu_items, $form_id ) {
     $menu_items['essay_link'] = array(
         'label' => 'Essays', // the text to display on the menu for this link
         'title' => 'Essays', // the text to be displayed in the title attribute for this link
-        'url' => self_admin_url( "admin.php?page=program_application_essays&application_id=" . $_GET['lid'] . "&form_id=" . $entry['form_id']), // the URL this link should point to
+        'url' => self_admin_url( "admin.php?page=program_application_essays&application_id=" . $_GET['lid'] . "&form_id=" . $_GET['id']), // the URL this link should point to
         'menu_class' => 'gf_form_toolbar_custom_link', 
         'capabilities' => array( 'gravityforms_edit_forms' ), // the capabilities the user should possess in order to access this page
         'priority' => 500 // optional, use this to specify the order in which this menu item should appear; if no priority is provided, the menu item will be append to end
@@ -152,7 +153,7 @@ function my_custom_toolbar( $menu_items, $form_id ) {
     $menu_items['counselor_rec_link'] = array(
         'label' => 'Counselor Rec.', // the text to display on the menu for this link
         'title' => 'Counselor Rec.', // the text to be displayed in the title attribute for this link
-        'url' => self_admin_url( "admin.php?page=program_counsel_recommendations&application_id=" . $_GET['lid'] . "&form_id=" . $entry['form_id']), // the URL this link should point to
+        'url' => self_admin_url( "admin.php?page=program_counsel_recommendations&application_id=" . $_GET['lid'] . "&form_id=" . $_GET['id']), // the URL this link should point to
         'menu_class' => 'gf_form_toolbar_custom_link', // optional, class to apply to menu list item (useful for providing a custom icon)
         /*'link_class' => rgget( 'page' ) == 'my_custom_page' ? 'gf_toolbar_active' : *,*/ // class to apply to link (useful for specifying an active style when this link is the current page)
         'capabilities' => array( 'gravityforms_edit_forms' ), // the capabilities the user should possess in order to access this page
@@ -162,7 +163,7 @@ function my_custom_toolbar( $menu_items, $form_id ) {
     $menu_items['teacher_rec_link'] = array(
         'label' => 'Teacher Rec.', // the text to display on the menu for this link
         'title' => 'Teacher Rec.', // the text to be displayed in the title attribute for this link
-        'url' => self_admin_url( "admin.php?page=program_teacher_recommendations&application_id=" . $_GET['lid'] . "&form_id=" . $entry['form_id']), // the URL this link should point to
+        'url' => self_admin_url( "admin.php?page=program_teacher_recommendations&application_id=" . $_GET['lid'] . "&form_id=" . $_GET['id']), // the URL this link should point to
         'menu_class' => 'gf_form_toolbar_custom_link', // optional, class to apply to menu list item (useful for providing a custom icon)
         /*'link_class' => rgget( 'page' ) == 'my_custom_page' ? 'gf_toolbar_active' : *,*/ // class to apply to link (useful for specifying an active style when this link is the current page)
         'capabilities' => array( 'gravityforms_edit_forms' ), // the capabilities the user should possess in order to access this page
@@ -172,7 +173,7 @@ function my_custom_toolbar( $menu_items, $form_id ) {
     $menu_items['archive_link'] = array(
         'label' => 'Archive', // the text to display on the menu for this link
         'title' => 'Archive', // the text to be displayed in the title attribute for this link
-        'url' => self_admin_url( "admin.php?page=notification_archive_page&application_id=" . $_GET['lid']), // the URL this link should point to
+        'url' => self_admin_url( "admin.php?page=notification_archive_page&application_id=" . $_GET['lid'] . "&form_id=" . $_GET['id']), // the URL this link should point to
         'menu_class' => 'gf_form_toolbar_custom_link', 
         'capabilities' => array( 'gravityforms_edit_forms' ), // the capabilities the user should possess in order to access this page
         'priority' => 500 // optional, use this to specify the order in which this menu item should appear; if no priority is provided, the menu item will be append to end
@@ -186,12 +187,18 @@ function bu_st_update_nickname( $form ) {
   if ( $form['id'] == '63' && $_POST['input_161'] == '' ){
     $_POST['input_161'] = $_POST['input_1_3'];
   }
-  if ( $form['id'] == '12' && $_POST['input_161'] == '' ){
+  if ( $form['id'] == '12' && $_POST['input_163'] == '' ){
     $_POST['input_163'] = $_POST['input_1_3'];
   }
-  if ( $form['id'] == '73' && $_POST['input_161'] == '' ){
+  if ( $form['id'] == '73' && $_POST['input_189'] == '' ){
     $_POST['input_189'] = $_POST['input_1_3'];
   }
+  if ( $form['id'] == '28' && $_POST['input_169'] == '' ){
+    $_POST['input_169'] = $_POST['input_1_3'];
+  }
+
+
+
 }
 /*$_POST/GET triggered functions */
 /********************************************************/
@@ -210,6 +217,14 @@ if ( isset($_POST['update_admin']) && $_POST['update_admin'] == true ){
 if ( isset($_POST['doc_entry_id']) && $_POST['doc_entry_id'] != '' ){
   //var_dump($_POST);
   //die();
+
+  if (  $_GET['id'] == 12 ) {
+    $bu_rise_entry_obj = new BU_ST_HSH_Entry($doc_entry, $form);
+    $bu_rise_entry_obj->hsh_update_documents($_POST);
+  } elseif ($_GET['id'] == 28) {
+    $bu_rise_entry_obj = new BU_ST_SP_Entry($doc_entry, $form);
+    $bu_rise_entry_obj->sp_update_documents($_POST);
+  } else {
   foreach ($_POST as $key => $value) {
     $transcript_id = str_replace('approve_hs_transcript_', '', $key);
     $tests_id = str_replace('approve_test_scores_', '', $key);
@@ -219,11 +234,11 @@ if ( isset($_POST['doc_entry_id']) && $_POST['doc_entry_id'] != '' ){
     $doc_entry = GFAPI::get_entry($transcript_id);
     $test_entry = GFAPI::get_entry($tests_id);
 
-    /*if ( !is_wp_error( $doc_entry ) ) { var_dump($doc_entry); }
-    if ( !is_wp_error( $test_entry ) ) { var_dump($test_entry); }*/
-  
-
     if ( !is_wp_error( $doc_entry ) ) {
+
+
+
+
       //$doc_entry['13'] = 'Approved';
       if ( $doc_entry['form_id'] == 65 || $doc_entry['form_id'] == 38 || $doc_entry['form_id'] == 48) {
         if ($value == 'false') {
@@ -284,6 +299,7 @@ die();*/
       }
     } 
   }
+}
   //die();
   if ( isset( $_POST['docs_approval_status'] ) && $_POST['docs_approval_status'] == 'completed') {
 
@@ -463,8 +479,15 @@ function bu_st_recommendations_list_menu() {
 function bu_teacher_recommendations_list() {
   //include 'bu-st-recommendations-template.php';
   $entry = GFAPI::get_entry($_GET["application_id"]);
-  $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
-  $bu_rise_entry_obj->rise_teacher_rec_page($entry, $form);
+  if ($entry['form_id'] == 63) {
+    $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
+    $bu_rise_entry_obj->rise_counselor_rec_page($_GET["application_id"]);
+  }
+
+  if ($entry['form_id'] == 12) {
+    $bu_rise_entry_obj = new BU_ST_HSH_Entry($entry, $form);
+    $bu_rise_entry_obj->rise_counselor_rec_page($_GET["application_id"]);
+  }
   echo $rec_html;
 
 }
@@ -519,6 +542,29 @@ function bu_counsel_recommendations_list() {
 
 
 function bu_program_essays_list() {
+
+
+  if ($_GET['form_id'] == 63) {
+    $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
+    $bu_rise_entry_obj->bu_program_essays_list($_GET["application_id"]);
+  }
+
+  if ($_GET['form_id'] == 12) {
+    $bu_rise_entry_obj = new BU_ST_HSH_Entry($entry, $form);
+    $bu_rise_entry_obj->bu_program_essays_list($_GET["application_id"]);
+  }
+
+  if ($_GET['form_id'] == 73) {
+    $bu_rise_entry_obj = new BU_ST_SC_Entry($entry, $form);
+    $bu_rise_entry_obj->bu_program_essays_list($_GET["application_id"]);
+  }
+
+
+
+
+
+
+
     $search_criteria = array(
       'field_filters' => array(
         'mode' => 'any',
@@ -533,9 +579,7 @@ function bu_program_essays_list() {
 
       )
   );
-  //$search_criteria = array();
-  /*$sorting         = array( 'key' => '5', 'direction' => 'ASC' );
-  $paging          = array( 'offset' => 0, 'page_size' => 25 );*/
+
   $total_count     = 0;
   $entries         = GFAPI::get_entries( 63, $search_criteria, /*$sorting, $paging,*/ $total_count );
 // $total_count now contains the total number of entries matching the search criteria. This is useful for displaying pagination controls.
@@ -586,6 +630,7 @@ function rise_document_status_page(){
 /********************************************************/
 
 //RISE counselor recommendation
+//add_action("gform_after_submission_74", "counselRecHandler", 10, 2 );
 add_action("gform_after_submission_74", "counselRecHandler", 10, 2 );
 add_action("gform_after_submission_78", "counselRecHandler", 10, 2 );
 function counselRecHandler($entry, $form){
@@ -605,8 +650,9 @@ function counselRecHandler($entry, $form){
 
 }
 
-//RISE student upload form form 65
+//hsh upload
 
+//RISE student upload form form 65
 add_action("gform_after_submission_65", "studentUploadHandler", 10, 2 );
 function studentUploadHandler($entry, $form){
 
@@ -685,14 +731,37 @@ function studentUploadHandler($entry, $form){
 
 }
 
+//hsh teacher rec
+add_action("gform_after_submission_59", "hshTeachRecommendationHandler", 10, 2 );
+function hshTeachRecommendationHandler($entry, $form){
+    /*all we're doing right now is marking is at received*/
 
+  if($_POST["input_63"]!==""){
+    //get the actual entry we want to edit
+      $editentry = GFAPI::get_entry($_POST["input_63"]);
+      //var_dump($editentry);
+      if ( is_wp_error( $editentry ) ) {
+        echo "Error.";
+        die();
+      }
+
+      $editentry['128']='true';
+      $updateit = GFAPI::update_entry($editentry);
+  } else {
+    $editentry = GFAPI::get_entry($entry["input_63"]);
+    //var_dump($editentry);
+      if ( is_wp_error( $editentry ) ) {
+        echo "Error.";
+        die();
+      }
+  }
+
+}
 //RISE science/math rec 66 teacher
 add_action("gform_after_submission_66", "studentRecommendationHandler", 10, 2 );
 function studentRecommendationHandler($entry, $form){
     /*all we're doing right now is marking is at received*/
-/*var_dump($_POST);
-var_dump($entry);
-var_dump($form);*/
+
 
   if($_POST["input_57"]!==""){
     //get the actual entry we want to edit
@@ -825,7 +894,7 @@ add_filter( 'gform_pre_send_email', function ( $email, $message_format, $notific
 function register_status_meta_box( $meta_boxes, $entry, $form ) {
   // If the add-on is active and the form has an active feed, add the meta box.
   //var_dump($entry);
-      if ( $entry['form_id'] == 63 || $entry['form_id'] == 12 || $entry['form_id'] == 73 ) {
+      if ( $entry['form_id'] == 63 || $entry['form_id'] == 12 ) {
         $meta_boxes[ 'bu_status_and_decision' ] = array(
           'title'    => 'Status and Decision Buttons',
           'callback' => 'add_status_details_meta_box',
@@ -858,6 +927,35 @@ function register_status_meta_box( $meta_boxes, $entry, $form ) {
           );
 
       }
+      if ( $entry['form_id'] == 73 || $entry['form_id'] == 28 ) {
+        $meta_boxes[ 'bu_status_and_decision' ] = array(
+          'title'    => 'Status and Decision Buttons',
+          'callback' => 'add_status_details_meta_box',
+          'context'  => 'side',
+          'callback_args' => array( $entry, $form ),
+          );
+
+          $meta_boxes[ 'bu_document_approval_tools' ] = array(
+            'title'    => 'Documentation and Review',
+            'callback' => 'meta_box_document_approval_tools',
+            'context'  => 'side',
+            'callback_args' => array( $entry, $form ),
+            
+          );
+
+          //for adding custom content to the notifications
+         $meta_boxes[ 'bu_notifications' ] = array(
+              'title'    => 'BU Notifications',
+              'callback' => 'add_bu_notification_content',
+              'context'  => 'side',
+              'callback_args' => array( $entry, $form ),
+          );
+
+      }
+
+
+
+
 
 
   return $meta_boxes;
@@ -898,11 +996,11 @@ function add_status_details_meta_box( $args ) {
   
 	//var_dump($entry);die();
 	//personal statements and essays
-	$html = '<li>Review <a href="?page=program_application_essays&application_id=' . $entry['id'] . '" target="_blank">Personal Statements</a>';
+	/*$html = '<li>Review <a href="?page=program_application_essays&application_id=' . $entry['id'] . '" target="_blank">Personal Statements</a>';*/
   //confirm gpa?
 
   //manaage application
-  $html .= '<form action="" method="post">';
+  $html = '<form action="" method="post">';
   $html .= '<li>Administrative Decision:<BR><select name="input_133" id="input_133" class="medium_admin gfield_select" tabindex="373" aria-invalid="false">';
   foreach ( $form['fields'] as $field ) {
   if ($field['id'] == '133'){
@@ -987,6 +1085,9 @@ function meta_box_document_approval_tools ($args){
   if ( $args['form']['id'] == 73 ) {
     $bu_rise_entry_obj = new BU_ST_SC_Entry($args['entry'], $args['form']);
   }
+  if ( $args['form']['id'] == 28 ) {
+    $bu_rise_entry_obj = new BU_ST_SP_Entry($args['entry'], $args['form']);
+  }
 
   $output_type = 'review_status';
   echo "<h3>Documents Status</h3>";
@@ -1013,7 +1114,13 @@ function meta_box_recommendation_tools ($args){
   /*var_dump($args['entry']);
   die();*/
   //var_dump($form);
-  $bu_rise_entry_obj = new BU_ST_Rise_Entry($args['entry'], $args['form']);
+
+  if ( $args['form']['id'] == 12 ) {
+    $bu_rise_entry_obj = new BU_ST_HSH_Entry($args['entry'], $args['form']);
+  }
+  if ( $args['form']['id'] == 63 ) {
+    $bu_rise_entry_obj = new BU_ST_Rise_Entry($args['entry'], $args['form']);
+  }
 
   $output_type = 'review_status';
 /*  echo "<h3>Documents Status</h3>";

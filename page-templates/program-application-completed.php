@@ -378,9 +378,7 @@ switch ($_GET['form_id']) {
 				$mail_test = mail($to_email,
 							$notifications_list[0]['subject'],
 							$orig_message, implode("\r\n", $headers) );
-				$mail_test = mail('djgannon@bu.edu',
-							$notifications_list[0]['subject'] . ' TEST',
-							$orig_message, implode("\r\n", $headers) );
+
 			} else {
 				$success_message =  '<P>Unable to update entry.</P>';
 			}

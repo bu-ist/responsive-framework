@@ -1,5 +1,5 @@
 <?php
-  class BU_ST_SC_Entry
+  class BU_ST_SP_Entry
 {
   /*public $entry;
   public $form;
@@ -93,23 +93,24 @@ $application_entry = GFAPI::get_entry( $application_id );
         $sorting         = array( 'key' => '5', 'direction' => 'ASC' );
         $paging          = array( 'offset' => 0, 'page_size' => 25 );
         $total_count     = 0;
-        $doc_entries         = GFAPI::get_entries( 48, $search_criteria, $sorting, $paging, $total_count );
-        $doc_form =GFAPI::get_form(48);
-        //var_dump( $doc_form['fields'] );
+        $doc_entries         = GFAPI::get_entries( 46, $search_criteria, $sorting, $paging, $total_count );
+        $doc_form =GFAPI::get_form(46);
+       // var_dump( $doc_form['fields'] );
+        /*var_dump( $doc_entries );*/
         foreach ($doc_entries as $entry) {
 
-$review_status_html .= "<hr>";
-
+          $review_status_html .= "<hr>";
+//var_dump($entry);
           //transcript file  entry field
           if ( $entry['5'] != '') {//hasn't been viewed
-            if ( $entry['23'] == '' )
-                $entry['23'] = 'Pending Review';
-              if ($entry['23'] != "Approved" && $application_entry['107'] == 'true') {
+            if ( $entry['22'] == '' )
+                $entry['22'] = 'Pending Review';
+              if ($entry['22'] != "Approved" && $application_entry['107'] == 'true') {
                 break;
               }
-              $review_status_html .= '<li>' . $entry['23'] . ': <a href="' . $entry['5'] . '" target="_blank">' . $doc_form['fields']['7']['label'] . '</a><br>';
+              $review_status_html .= '<li>' . $entry['23'] . ': <a href="' . $entry['5'] . '" target="_blank">' . $doc_form['fields']['3']['label'] . '</a><br>';
 
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['15']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['8']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
 
             if ($entry['23'] == 'Approved') {
               $review_status_html .= ' checked';
@@ -117,8 +118,8 @@ $review_status_html .= "<hr>";
             $review_status_html .= '> Approve<br>';
 
 
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['15']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
-            if ($entry['13'] == 'Denied') {
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['8']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
+            if ($entry['23'] == 'Denied') {
               $review_status_html .= ' checked';
             }
             
@@ -128,32 +129,32 @@ $review_status_html .= "<hr>";
 
           }
           
-          //test scores
-          if ( $entry['6'] != '' ) {
-            if ( $entry['14'] == '' )
-                $entry['14'] = 'Pending Review';
+          //english
+          if ( $entry['13'] != '' ) {
+            if ( $entry['24'] == '' )
+                $entry['24'] = 'Pending Review';
 
-              if ($entry['14'] != "Approved" && $application_entry['107'] == 'true') {
+              if ($entry['24'] != "Approved" && $application_entry['107'] == 'true') {
                 break;
               }
-            $review_status_html .= '<li>' . $entry['14'] . ': <a href="' . $entry['6'] . '" target="_blank">' . $doc_form['fields']['4']['label'] . '</a><br>';
+            $review_status_html .= '<li>' . $entry['24'] . ': <a href="' . $entry['13'] . '" target="_blank">' . $doc_form['fields']['5']['label'] . '</a><br>';
 
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['13']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['10']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
 
-            if ($entry['14'] == 'Approved') {
+            if ($entry['24'] == 'Approved') {
               $review_status_html .= ' checked';
             }
             $review_status_html .= '> Approve<br>';
 
 
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['13']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
-            if ($entry['14'] == 'Denied') {
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['10']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
+            if ($entry['24'] == 'Denied') {
               $review_status_html .= ' checked';
             }
             
             $review_status_html .= '> Deny</a><br>';
           } else {
-            $review_status_html .= '<li>' . $doc_form['fields']['4']['label'] . ' Not Received<br>';
+            $review_status_html .= '<li>' . $doc_form['fields']['5']['label'] . ' Not Received<br>';
           }
 
           //passport
@@ -164,18 +165,17 @@ $review_status_html .= "<hr>";
               if ($entry['20'] != "Approved" && $application_entry['107'] == 'true') {
                 break;
               }
-            $review_status_html .= '<li>' . $entry['20'] . ': <a href="' . $entry['8'] . '" target="_blank">' . $doc_form['fields']['7']['label'] . '</a><br>';
+            $review_status_html .= '<li>' . $entry['20'] . ': <a href="' . $entry['8'] . '" target="_blank">' . $doc_form['fields']['6']['label'] . '</a><br>';
 
 
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['14']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['9']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
 
             if ($entry['20'] == 'Approved') {
               $review_status_html .= ' checked';
             }
             $review_status_html .= '> Approve<br>';
 
-
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['14']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['9']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
             if ($entry['20'] == 'Denied') {
               $review_status_html .= ' checked';
             }
@@ -183,7 +183,7 @@ $review_status_html .= "<hr>";
             $review_status_html .= '> Deny</a><br>';
           } else {
             
-            $review_status_html .= '<li>' . $doc_form['fields']['7']['label'] . ' Not Received<br>';
+            $review_status_html .= '<li>' . $doc_form['fields']['6']['label'] . ' Not Received<br>';
             
 
           }
@@ -196,9 +196,9 @@ $review_status_html .= "<hr>";
               if ($entry['25'] != "Approved" && $application_entry['107'] == 'true') {
                 break;
               }
-            $review_status_html .= '<li>' . $entry['25'] . ': <a href="' . $entry['10'] . '" target="_blank">' . $doc_form['fields']['8']['label'] . '</a><br>';
+            $review_status_html .= '<li>' . $entry['25'] . ': <a href="' . $entry['10'] . '" target="_blank">' . $doc_form['fields']['7']['label'] . '</a><br>';
 
-           $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['19']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
+           $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['11']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
 
             if ($entry['25'] == 'Approved') {
               $review_status_html .= ' checked';
@@ -206,7 +206,7 @@ $review_status_html .= "<hr>";
             $review_status_html .= '> Approve<br>';
 
 
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['19']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['11']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
             if ($entry['25'] == 'Denied') {
               $review_status_html .= ' checked';
             }
@@ -214,75 +214,12 @@ $review_status_html .= "<hr>";
             $review_status_html .= '> Deny</a><br>';
           } else {
             
-            $review_status_html .= '<li>' . $doc_form['fields']['8']['label'] . ' Not Received<br>';
+            $review_status_html .= '<li>' . $doc_form['fields']['7']['label'] . ' Not Received<br>';
             
 
           }
 
-          //Financial sponsorship
-          if ( $entry['11'] != '' ) {
-            if ( $entry['24'] == '' )
-                $entry['24'] = 'Pending Review';
-
-              if ($entry['24'] != "Approved" && $application_entry['107'] == 'true') {
-                break;
-              }
-            $review_status_html .= '<li>' . $entry['24'] . ': <a href="' . $entry['11'] . '" target="_blank">' . $doc_form['fields']['9']['label'] . '</a><br>';
-
-
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['18']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
-
-            if ($entry['24'] == 'Approved') {
-              $review_status_html .= ' checked';
-            }
-            $review_status_html .= '> Approve<br>';
-
-
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['18']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
-            if ($entry['24'] == 'Denied') {
-              $review_status_html .= ' checked';
-            }
-            
-            $review_status_html .= '> Deny</a><br>';
-          } else {
-            
-            $review_status_html .= '<li>' . $doc_form['fields']['9']['label'] . ' Not Received<br>';
-            
-
-          }
-
-          //toefl
-          if ( $entry['13'] != '' ) {
-            if ( $entry['23'] == '' )
-                $entry['23'] = 'Pending Review';
-/*var_dump($entry);
-die();*/
-              if ($entry['23'] != "Approved" && $application_entry['107'] == 'true') {
-                break;
-              }
-            $review_status_html .= '<li>' . $entry['23'] . ': <a href="' . $entry['13'] . '" target="_blank">' . $doc_form['fields']['11']['label'] . '</a><br>';
-
-
-
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['17']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
-
-            if ($entry['23'] == 'Approved') {
-              $review_status_html .= ' checked';
-            }
-            $review_status_html .= '> Approve<br>';
-
-
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['17']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
-            if ($entry['23'] == 'Denied') {
-              $review_status_html .= ' checked';
-            }
-
-            $review_status_html .= '> Deny</a><br>';
-          } else {
-
-            $review_status_html .= '<li>Toefl?' . $doc_form['fields']['11']['label'] . ' Not Received<br>';
-
-          }
+         
 
           //echo $review_status_html;
         //die();
@@ -321,6 +258,78 @@ die();*/
   }
 
 
+public function sp_update_documents ($entry, $form, $output_type) {
+    //var_dump($_POST);
+    $form = GFAPI::get_form(38);
+    
+    foreach ($_POST as $key => $value) {
+      if ( strpos( $key, 'approve_hs_transcript') !== false ) {
+        $entry_ID = str_replace('approve_hs_transcript_', '', $key);
+      }
+
+    }
+
+    $doc_entry = GFAPI::get_entry($entry_ID);
+    /*var_dump($_POST);
+    var_dump($doc_entry);*/
+//die();
+    foreach ($_POST as $key => $value) {
+      if ($value == 'false') {
+        $value = 'Denied';
+      }
+      if ($value == 'true') {
+        $value = 'Approved';
+      }
+      if ( strpos( $key, 'approve_hs_transcript') !== false ) {
+        $doc_entry['22'] = $value;
+      }
+
+      if ( strpos( $key, 'hs_passport_approved') !== false ) {
+        $doc_entry['23'] = $value;
+      }
+      if ( strpos( $key, 'hs_intl_student_data_form_approved') !== false ) {
+        $doc_entry['25'] = $value;
+      }
+      if ( strpos( $key, 'hs_english_proficiency_approved') !== false ) {
+        $doc_entry['24'] = $value;
+      }
+      /*if ( strpos( $key, 'hs_toefl_approved') !== false ) {
+        $doc_entry['23'] = $value;
+      }
+      if ( strpos( $key, 'hs_bank_statement_approved') !== false ) {
+        $doc_entry['22'] = $value;
+      }
+      */
+
+      //
+    }
+    GFAPI::update_entry($doc_entry);
+    var_dump($doc_entry);
+    // /die();
+/*var_dump($form['fields']);
+    $doc_entry = GFAPI::get_entry($entry_ID);
+var_dump($doc_entry);*/
+
+
+   /* 'approve_hs_transcript_801' => string 'true' (length=4)
+  'approve_test_scores_801' => string 'true' (length=4)
+  'hs_passport_approved_801' => string 'true' (length=4)
+  'hs_intl_student_data_form_approved_801' => string 'false' (length=5)
+  'hs_fin_sponser_approved_801' => string 'true' (length=4)
+  'hs_toefl_approved_801' => string 'false' (length=5)
+  'hs_bank_statement_approved_801' => string 'false' (length=5)
+  'docs_approval_status' => string 'incomplete' (length=10)*/
+    /*foreach ($_POST as $key => $value) {
+    $transcript_id = str_replace('approve_hs_transcript_', '', $key);
+    $tests_id = str_replace('approve_test_scores_', '', $key);
+    $trans = str_replace($key . '_', '', $key);
+
+
+    $doc_entry = GFAPI::get_entry($transcript_id);
+    $test_entry = GFAPI::get_entry($tests_id);
+}*/
+
+  }
 public function bu_program_essays_list() {
 
     $search_criteria = array(
