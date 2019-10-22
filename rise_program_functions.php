@@ -1,4 +1,5 @@
 <?php
+//var_dump($_POST);
 
 //make application_id required - 42, 62 has no application_ID
 /*$form = GFAPI::get_form( '65' );
@@ -129,6 +130,7 @@ include 'class_BU_ST_Rise_Entry.php';
 include 'class_BU_ST_HSH_Entry.php';
 include 'class_BU_ST_SC_Entry.php';
 include 'class_BU_ST_SP_Entry.php';
+include 'class_BU_ST_AIM_Entry.php';
 add_filter( 'gform_toolbar_menu', 'my_custom_toolbar', 10, 2 );
 function my_custom_toolbar( $menu_items, $form_id ) {
  
@@ -196,6 +198,9 @@ function bu_st_update_nickname( $form ) {
   if ( $form['id'] == '28' && $_POST['input_169'] == '' ){
     $_POST['input_169'] = $_POST['input_1_3'];
   }
+  if ( $form['id'] == '10' && $_POST['input_143'] == '' ){
+    $_POST['input_143'] = $_POST['input_1_3'];
+  }
 
 
 
@@ -224,6 +229,9 @@ if ( isset($_POST['doc_entry_id']) && $_POST['doc_entry_id'] != '' ){
   } elseif ($_GET['id'] == 28) {
     $bu_rise_entry_obj = new BU_ST_SP_Entry($doc_entry, $form);
     $bu_rise_entry_obj->sp_update_documents($_POST);
+  } elseif ($_GET['id'] == 10) {
+    $bu_rise_entry_obj = new BU_ST_AIM_Entry($doc_entry, $form);
+    $bu_rise_entry_obj->aim_update_documents($_POST);
   } else {
   foreach ($_POST as $key => $value) {
     $transcript_id = str_replace('approve_hs_transcript_', '', $key);
@@ -488,6 +496,11 @@ function bu_teacher_recommendations_list() {
     $bu_rise_entry_obj = new BU_ST_HSH_Entry($entry, $form);
     $bu_rise_entry_obj->rise_counselor_rec_page($_GET["application_id"]);
   }
+
+  if ($entry['form_id'] == 10) {
+    $bu_rise_entry_obj = new BU_ST_AIM_Entry($entry, $form);
+    $bu_rise_entry_obj->rise_counselor_rec_page($_GET["application_id"]);
+  }
   echo $rec_html;
 
 }
@@ -505,6 +518,11 @@ function bu_counsel_recommendations_list() {
 
   if ($entry['form_id'] == 12) {
     $bu_rise_entry_obj = new BU_ST_HSH_Entry($entry, $form);
+    $bu_rise_entry_obj->rise_counselor_rec_page($_GET["application_id"]);
+  }
+
+  if ($entry['form_id'] == 10) {
+    $bu_rise_entry_obj = new BU_ST_AIM_Entry($entry, $form);
     $bu_rise_entry_obj->rise_counselor_rec_page($_GET["application_id"]);
   }
 
@@ -556,6 +574,11 @@ function bu_program_essays_list() {
 
   if ($_GET['form_id'] == 73) {
     $bu_rise_entry_obj = new BU_ST_SC_Entry($entry, $form);
+    $bu_rise_entry_obj->bu_program_essays_list($_GET["application_id"]);
+  }
+
+  if ($_GET['form_id'] == 10) {
+    $bu_rise_entry_obj = new BU_ST_AIM_Entry($entry, $form);
     $bu_rise_entry_obj->bu_program_essays_list($_GET["application_id"]);
   }
 
@@ -623,6 +646,11 @@ function rise_document_status_page(){
     $bu_rise_entry_obj->rise_document_status_page($_GET["application_id"]);
   }
 
+  if ($entry['form_id'] == 10) {
+    $bu_rise_entry_obj = new BU_ST_AIM_Entry($entry, $form);
+    $bu_rise_entry_obj->rise_document_status_page($_GET["application_id"]);
+  }
+
   echo $rec_html;
 }
 
@@ -633,6 +661,7 @@ function rise_document_status_page(){
 //add_action("gform_after_submission_74", "counselRecHandler", 10, 2 );
 add_action("gform_after_submission_74", "counselRecHandler", 10, 2 );
 add_action("gform_after_submission_78", "counselRecHandler", 10, 2 );
+
 function counselRecHandler($entry, $form){
     /*all we're doing right now is marking is at received*/
 	if($_POST["input_63"]!==""){
@@ -730,6 +759,35 @@ function studentUploadHandler($entry, $form){
   }
 
 }
+
+
+//AIM teacher rec
+add_action("gform_after_submission_58", "aimTeachRecommendationHandler", 10, 2 );
+function aimTeachRecommendationHandler($entry, $form){
+    /*all we're doing right now is marking is at received*/
+  //var_dump($_POST);
+  if($_POST["input_77"]!==""){
+    //get the actual entry we want to edit
+      $editentry = GFAPI::get_entry($_POST["input_77"]);
+      //var_dump($editentry);
+      if ( is_wp_error( $editentry ) ) {
+        echo "Error.";
+        die();
+      }
+
+      $editentry['128']='true';
+      $updateit = GFAPI::update_entry($editentry);
+  } else {
+    $editentry = GFAPI::get_entry($entry["input_77"]);
+    //var_dump($editentry);
+      if ( is_wp_error( $editentry ) ) {
+        echo "Error.";
+        die();
+      }
+  }
+
+}
+
 
 //hsh teacher rec
 add_action("gform_after_submission_59", "hshTeachRecommendationHandler", 10, 2 );
@@ -894,7 +952,7 @@ add_filter( 'gform_pre_send_email', function ( $email, $message_format, $notific
 function register_status_meta_box( $meta_boxes, $entry, $form ) {
   // If the add-on is active and the form has an active feed, add the meta box.
   //var_dump($entry);
-      if ( $entry['form_id'] == 63 || $entry['form_id'] == 12 ) {
+      if ( $entry['form_id'] == 63 || $entry['form_id'] == 12 || $entry['form_id'] == 10 ) {
         $meta_boxes[ 'bu_status_and_decision' ] = array(
           'title'    => 'Status and Decision Buttons',
           'callback' => 'add_status_details_meta_box',
@@ -1076,6 +1134,9 @@ function meta_box_document_approval_tools ($args){
   $entry = $args['entry'];*/
   /*var_dump($args['entry']);
   die();*/
+  if ( $args['form']['id'] == 10 ) {
+    $bu_rise_entry_obj = new BU_ST_AIM_Entry($args['entry'], $args['form']);
+  }
   if ( $args['form']['id'] == 12 ) {
     $bu_rise_entry_obj = new BU_ST_HSH_Entry($args['entry'], $args['form']);
   }
@@ -1093,6 +1154,7 @@ function meta_box_document_approval_tools ($args){
   echo "<h3>Documents Status</h3>";
   echo '<form action="" method="post">';
   echo '<input type="hidden" name="doc_entry_id" value="' . $args['entry']['id'] . '">';
+
   //rise_document_status($entry, $form, $output_type);
   $doc_status = $bu_rise_entry_obj->rise_document_status($args['entry'], $args['form'], $output_type);
   echo $doc_status;
@@ -1114,7 +1176,9 @@ function meta_box_recommendation_tools ($args){
   /*var_dump($args['entry']);
   die();*/
   //var_dump($form);
-
+  if ( $args['form']['id'] == 10 ) {
+    $bu_rise_entry_obj = new BU_ST_AIM_Entry($args['entry'], $args['form']);
+  }
   if ( $args['form']['id'] == 12 ) {
     $bu_rise_entry_obj = new BU_ST_HSH_Entry($args['entry'], $args['form']);
   }

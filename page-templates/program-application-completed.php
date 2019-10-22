@@ -114,7 +114,7 @@ $i++;
 	$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
 	$orig_message = str_replace('{phone:156}', $editentry['156'], $orig_message);
 	$orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);
-	$orig_message = str_replace('{embed_url}', 'https://djgannon.cms-devl.bu.edu', $orig_message);
+	//$orig_message = str_replace('{embed_url}', 'https://djgannon.cms-devl.bu.edu', $orig_message);
 	$orig_message = str_replace('{date_mdy}', date("F j, Y, g:i a"), $orig_message);
 	$orig_message = str_replace('{cashier_cc_masked_number:36}', $_GET['cashier_cc_masked_number'], $orig_message);
 	$orig_message = str_replace('{cashier_charged_amount:37}', $_GET['cashier_charged_amount'], $orig_message);

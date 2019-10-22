@@ -305,29 +305,7 @@ public function sp_update_documents ($entry, $form, $output_type) {
     }
     GFAPI::update_entry($doc_entry);
     var_dump($doc_entry);
-    // /die();
-/*var_dump($form['fields']);
-    $doc_entry = GFAPI::get_entry($entry_ID);
-var_dump($doc_entry);*/
-
-
-   /* 'approve_hs_transcript_801' => string 'true' (length=4)
-  'approve_test_scores_801' => string 'true' (length=4)
-  'hs_passport_approved_801' => string 'true' (length=4)
-  'hs_intl_student_data_form_approved_801' => string 'false' (length=5)
-  'hs_fin_sponser_approved_801' => string 'true' (length=4)
-  'hs_toefl_approved_801' => string 'false' (length=5)
-  'hs_bank_statement_approved_801' => string 'false' (length=5)
-  'docs_approval_status' => string 'incomplete' (length=10)*/
-    /*foreach ($_POST as $key => $value) {
-    $transcript_id = str_replace('approve_hs_transcript_', '', $key);
-    $tests_id = str_replace('approve_test_scores_', '', $key);
-    $trans = str_replace($key . '_', '', $key);
-
-
-    $doc_entry = GFAPI::get_entry($transcript_id);
-    $test_entry = GFAPI::get_entry($tests_id);
-}*/
+    
 
   }
 public function bu_program_essays_list() {
