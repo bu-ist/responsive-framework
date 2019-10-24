@@ -33,6 +33,7 @@ module.exports = function( grunt ) {
 				files: [
 					'node_modules/responsive-foundation/css-dev/**/*.scss',
 					'!css-dev/customizer/**/*.scss',
+					'!css-dev/customizer/**/**/*.scss',
 					'!css-dev/admin.scss',
 					'css-dev/*.scss',
 				],

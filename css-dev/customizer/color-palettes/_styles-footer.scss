@@ -24,10 +24,28 @@
 		}
 	}
 
+	// buttons
+	.footbar .widget a.button,
+	.footbar .widget a.button-primary {
+		background: $sidebar-button-bg;
+		color: accessible-text( $sidebar-button-bg, $sidebar-button-link );
+
+		&:hover,
+		&:focus {
+			color: accessible-text( $sidebar-button-bg, $sidebar-button-link-hover );
+		}
+	}
+
 	// widget title color
 	.footbar .widget-title,
 	.footbar .widget-title a,
-	.footbar .widget-calendar-date a {
+	.footbar .widget-calendar-date a,
+	.footbar h1,
+	.footbar h2,
+	.footbar h3,
+	.footbar h4,
+	.footbar h5,
+	.footbar h6 {
 		color: $footbar-widget-title;
 	}
 

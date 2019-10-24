@@ -47,11 +47,12 @@
 
 	.mega-nav-toggle,
 	#quicksearch .button {
-		background: $mega-toggle-bg;
+		background-color: $mega-toggle-bg;
 		color: $mega-toggle-link;
 
 		&:hover,
 		&:focus {
+			background-color: $mega-toggle-bg;
 			color: $mega-toggle-link-hover;
 		}
 	}
