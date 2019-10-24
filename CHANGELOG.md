@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Minor bug fixes to color palettes: mega navigation, footer buttons and headings.
+
 ## 2.3.6
 
 - Fix broken Travis CI tests.
