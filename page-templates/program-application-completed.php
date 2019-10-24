@@ -406,7 +406,7 @@ switch ($_GET['form_id']) {
 	break;
 
 	//SSIP
-	case '101':
+	case '37':
 
 		if ($editentry['2.1'] != '') {
 			$comp_addr = strcasecmp( $editentry['2.1'], $_GET['address1'] );
