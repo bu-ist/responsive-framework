@@ -16,10 +16,18 @@
     background: rgba(0, 0, 0, 0.15);
   }
   .utility-nav a,
-  a:active,
-  a:visited,
+  .short-nav-menu a,
   .widget-title a,
   .widget-post-meta {
+    color: inherit;
+  }
+  .utility-nav a:active, .utility-nav a:visited,
+  .short-nav-menu a:active,
+  .short-nav-menu a:visited,
+  .widget-title a:active,
+  .widget-title a:visited,
+  .widget-post-meta:active,
+  .widget-post-meta:visited {
     color: inherit;
   }
 }
@@ -73,12 +81,13 @@
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background: #3F51B5;
+    background-color: #3F51B5;
     color: #FFF;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
+    background-color: #3F51B5;
     color: #FFF;
   }
 }
@@ -250,9 +259,25 @@
   .footbar .widget_nav_menu li a:focus {
     color: #FFF;
   }
+  .footbar .widget a.button,
+  .footbar .widget a.button-primary {
+    background: #3F51B5;
+    color: #FFF;
+  }
+  .footbar .widget a.button:hover, .footbar .widget a.button:focus,
+  .footbar .widget a.button-primary:hover,
+  .footbar .widget a.button-primary:focus {
+    color: #FFF;
+  }
   .footbar .widget-title,
   .footbar .widget-title a,
-  .footbar .widget-calendar-date a {
+  .footbar .widget-calendar-date a,
+  .footbar h1,
+  .footbar h2,
+  .footbar h3,
+  .footbar h4,
+  .footbar h5,
+  .footbar h6 {
     color: #FFF;
   }
   .footbar .widget-title,
