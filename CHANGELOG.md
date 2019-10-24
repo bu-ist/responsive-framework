@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.3.61
 
 - Minor bug fixes to color palettes: mega navigation, footer buttons and headings.
 
