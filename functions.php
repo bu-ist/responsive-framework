@@ -222,6 +222,8 @@ function responsive_enqueue_scripts() {
 	// Vendor scripts will load from parent theme directory.
 	wp_enqueue_script( 'responsive-modernizer', get_template_directory_uri() . "/js/vendor/modernizer$postfix.js", array(), '2.8.3' );
 
+	wp_enqueue_script( 'responsive-summer-term-scripts', get_template_directory_uri() . "/js/bu_summer_programs.js" );
+
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
 	if ( is_singular() && responsive_has_comment_support() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

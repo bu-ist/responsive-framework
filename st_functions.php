@@ -16,6 +16,10 @@ function parseMessage($orig_message, $editentry){
 	$orig_message = str_replace('{cashier_charged_amount:37}', $_GET['cashier_charged_amount'], $orig_message);
 	$orig_message = str_replace('{NelnetID:38}', $_GET['NelnetID'], $orig_message);
 	//die();
+	$orig_message = preg_replace('{cashier_charged_amount:([0-9]+)}', $replacement, $orig_message);
+var_dump($orig_message);
+die();
+
 	$replacement_array = array();
 	//this gets most of the generic fields
 	while(preg_match('/:[0-9]+\.?[0-9]+}/s', $orig_message, $replacement_array, PREG_OFFSET_CAPTURE) == 1){

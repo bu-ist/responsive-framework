@@ -172,8 +172,9 @@ public function rise_document_status_page($application_id)
   $paging          = array( 'offset' => 0, 'page_size' => 25 );
   $total_count     = 0;
   $entries         = GFAPI::get_entries( 65, $search_criteria, $sorting, $paging, $total_count );
-
+  //var_dump($entries);
   $form = GFAPI::get_form($entries[0]['form_id']);
+  //var_dump($form['fields']);
   foreach ($entries as $entry) {
     //transcript
         

@@ -26,7 +26,7 @@ public function rise_document_status_page($application_id)
               'value' => $application_id//passed id value
           ),
           array(
-              'key'   => '7',//application_id
+              'key'   => '41',//application_id
               'value' => $application_id//passed id value
           ),
 
@@ -87,7 +87,7 @@ public function rise_document_status_page($application_id)
                     'value' => $application_id//passed id value
                 ),
                 array(
-                    'key'   => '7',//application_id
+                    'key'   => '41',//application_id
                     'value' => $application_id//passed id value
                 ),
 

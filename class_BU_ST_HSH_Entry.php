@@ -154,7 +154,7 @@ public function rise_document_status_page($application_id)
                     'value' => $application_id//passed id value
                 ),
                 array(
-                    'key'   => '7',//application_id
+                    'key'   => '32',//application_id
                     'value' => $application_id//passed id value
                 ),
 
@@ -166,8 +166,9 @@ public function rise_document_status_page($application_id)
         $total_count     = 0;
         $doc_entries         = GFAPI::get_entries( 38, $search_criteria, $sorting, $paging, $total_count );
 
-var_dump( count( $doc_entries ) );
+//var_dump( $application_id );
   $form = GFAPI::get_form($doc_entries[0]['form_id']);
+  //var_dump($form['fields']);
   foreach ($doc_entries as $entry) {
     //transcript
         //var_dump($entry);
@@ -235,7 +236,7 @@ $application_entry = GFAPI::get_entry( $application_id );
                     'value' => $application_id//passed id value
                 ),
                 array(
-                    'key'   => '7',//application_id
+                    'key'   => '32',//application_id
                     'value' => $application_id//passed id value
                 ),
 

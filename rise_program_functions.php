@@ -1,131 +1,5 @@
 <?php
-//var_dump($_POST);
 
-//make application_id required - 42, 62 has no application_ID
-/*$form = GFAPI::get_form( '65' );
-$next_form = GFAPI::get_form( '38' );
-var_dump($form['fields']);
-foreach ($form['fields'] as $fields) {
-    
-    if ( $fields->inputName == 'hs_passport_approved' ) {
-       $passport_field = $fields;
-        $fields->id = count($next_form['fields']) + 1;
-       array_push($next_form['fields'], $fields);
-    }
-    
-    if ( $fields->inputName == 'hs_test_scores_approved' ) {
-       $passport_field = $fields;
-        $fields->id = count($next_form['fields']) + 1;
-       array_push($next_form['fields'], $fields);
-    }
-
-    if ( $fields->inputName == 'hs_trans_approved' ) {
-       $passport_field = $fields;
-        $fields->id = count($next_form['fields']) + 1;
-       array_push($next_form['fields'], $fields);
-    }
-
-  }
-GFAPI::update_form( $next_form );
-var_dump($next_form['fields']);*/
-  //GFAPI::update_form( $next_form );
-
-     /* $next_form = GFAPI::get_form( '46' );
-      $fields->id = count($next_form['fields']) + 1;
-
-      array_unshift($next_form['fields'], $form['fields'][0]);
-      */
-      
-  //GFAPI::update_form( $form );
-  
-  //var_dump($next_form['fields']);
-  //var_dump($new_field);
-
-  /*$form = GFAPI::get_form( '65' );
-var_dump($form['fields']['9']);
-foreach ($form['fields'] as $fields) {
-    var_dump($fields->id);
-    
-    if ($fields->id == 13) {
-      
-      $next_form = GFAPI::get_form( '38' );
-      $fields->id = count($next_form['fields']) + 1;
-      $fields->label = 'Passport Approved';
-      $new_field = $fields;
-      array_push($next_form['fields'], $new_field);
-      GFAPI::update_form( $next_form );
-      
-     
-      //var_dump($fields);
-    }
-  }
-  $next_form = GFAPI::get_form( '38' );
-  var_dump($next_form['fields']);*/
-
-  /*var_dump($new_field);
-  $next_form = GFAPI::get_form( '46' );
-  array_unshift($next_form['fields'], $new_field);
-  var_dump($next_form['fields']);
-  GFAPI::update_form( $form );*/
-
-
- /* GFAPI::update_form( $form );
-  $form = GFAPI::get_form( '46' );
-var_dump($form['fields']);*/
-/*foreach ($form['fields']['8'] as $key => $value) {
-    echo $key . ' - ' . $value . '<br>';
-    if ($key == 'isRequired') {
-      //$form_aim['fields']['11']['isRequired'] = true;
-    }
-  }*/
-  //var_dump($form['fields']);
-  
-  /*$form_aim = GFAPI::get_form( '38' );*/
-  /*$newform_aim = array_pop($form_aim['fields']);
-  GFAPI::update_form( $form_aim );*/
-//$newform_aim = array_shift($form_aim['fields']);
-  /*var_dump($form_aim['fields']);
-  
-  $newform_aim = array_pop($form_aim['fields']);
-  var_dump($form_aim['fields']);*/
-  //GFAPI::update_form( $form_aim );
-  /*var_dump($form_aim['fields']);
-  die();*/
-  
-  /*foreach ($form_aim['fields']['7'] as $key => $value) {
-    echo $key . ' - ' . $value['id'] . '<br>';
-    if ($key == '14') {
-        $value['id'] = '22';
-    }
-    if ($key == '15') {
-        $value['id'] = '23';
-    }
-    if ($key == '16') {
-        $value['id'] = '24';
-    }
-    if ($key == 'isRequired') {
-      $form_aim['fields']['7']['isRequired'] = true;
-    }
-  }*/
-  
-  /*array_unshift($form_aim['fields'], $form['fields']['0']);
-  array_push($form_aim['fields'], $form['fields']['5'], $form['fields']['6'], $form['fields']['8']);
-  // /var_dump($form_aim['fields']['12']);
-  foreach ($form_aim['fields']['10'] as $key => $value) {
-    echo $key . ' - ' . $value . '<br>';
-    if ($key == 'isRequired') {
-      $form_aim['fields']['10']['isRequired'] = true;
-    }
-  }
-  var_dump($form_aim['fields']);
-  GFAPI::update_form( $form_aim );*/
-  //die();
-  /*$form = GFAPI::get_form( '65' );
-
-  $field = $form['fields']['11'];
-  $field1 = $form['fields']['12'];
-  var_dump($form['fields']['7']);*/
-  //die();
 include 'class_BU_ST_Rise_Entry.php';
 include 'class_BU_ST_HSH_Entry.php';
 include 'class_BU_ST_SC_Entry.php';
@@ -663,10 +537,12 @@ add_action("gform_after_submission_74", "counselRecHandler", 10, 2 );
 add_action("gform_after_submission_78", "counselRecHandler", 10, 2 );
 
 function counselRecHandler($entry, $form){
+  /*var_dump($_POST);
+  die();*/
     /*all we're doing right now is marking is at received*/
-	if($_POST["input_63"]!==""){
+	if($_POST["input_71"]!==""){
 		//get the actual entry we want to edit
-	    $editentry = GFAPI::get_entry($_POST["input_63"]);
+	    $editentry = GFAPI::get_entry($_POST["input_71"]);
 
 	    if ( is_wp_error( $editentry ) ) {
 	      echo "Error.";
@@ -765,10 +641,11 @@ function studentUploadHandler($entry, $form){
 add_action("gform_after_submission_58", "aimTeachRecommendationHandler", 10, 2 );
 function aimTeachRecommendationHandler($entry, $form){
     /*all we're doing right now is marking is at received*/
-  //var_dump($_POST);
-  if($_POST["input_77"]!==""){
+  /*var_dump($_POST);
+  die();*/
+  if($_POST["input_85"]!==""){
     //get the actual entry we want to edit
-      $editentry = GFAPI::get_entry($_POST["input_77"]);
+      $editentry = GFAPI::get_entry($_POST["input_85"]);
       //var_dump($editentry);
       if ( is_wp_error( $editentry ) ) {
         echo "Error.";
@@ -778,7 +655,7 @@ function aimTeachRecommendationHandler($entry, $form){
       $editentry['128']='true';
       $updateit = GFAPI::update_entry($editentry);
   } else {
-    $editentry = GFAPI::get_entry($entry["input_77"]);
+    $editentry = GFAPI::get_entry($entry["input_85"]);
     //var_dump($editentry);
       if ( is_wp_error( $editentry ) ) {
         echo "Error.";
@@ -793,10 +670,11 @@ function aimTeachRecommendationHandler($entry, $form){
 add_action("gform_after_submission_59", "hshTeachRecommendationHandler", 10, 2 );
 function hshTeachRecommendationHandler($entry, $form){
     /*all we're doing right now is marking is at received*/
-
-  if($_POST["input_63"]!==""){
+/*var_dump($_POST);
+  die();*/
+  if($_POST["input_69"]!==""){
     //get the actual entry we want to edit
-      $editentry = GFAPI::get_entry($_POST["input_63"]);
+      $editentry = GFAPI::get_entry($_POST["input_69"]);
       //var_dump($editentry);
       if ( is_wp_error( $editentry ) ) {
         echo "Error.";
@@ -806,7 +684,7 @@ function hshTeachRecommendationHandler($entry, $form){
       $editentry['128']='true';
       $updateit = GFAPI::update_entry($editentry);
   } else {
-    $editentry = GFAPI::get_entry($entry["input_63"]);
+    $editentry = GFAPI::get_entry($entry["input_69"]);
     //var_dump($editentry);
       if ( is_wp_error( $editentry ) ) {
         echo "Error.";
@@ -820,10 +698,11 @@ add_action("gform_after_submission_66", "studentRecommendationHandler", 10, 2 );
 function studentRecommendationHandler($entry, $form){
     /*all we're doing right now is marking is at received*/
 
-
-  if($_POST["input_57"]!==""){
+/*var_dump($_POST);
+  die();*/
+  if($_POST["input_61"]!==""){
     //get the actual entry we want to edit
-      $editentry = GFAPI::get_entry($_POST["input_57"]);
+      $editentry = GFAPI::get_entry($_POST["input_61"]);
       //var_dump($editentry);
       if ( is_wp_error( $editentry ) ) {
         echo "Error.";
@@ -833,7 +712,7 @@ function studentRecommendationHandler($entry, $form){
       $editentry['128']='true';
       $updateit = GFAPI::update_entry($editentry);
   } else {
-    $editentry = GFAPI::get_entry($entry["input_57"]);
+    $editentry = GFAPI::get_entry($entry["input_61"]);
     //var_dump($editentry);
       if ( is_wp_error( $editentry ) ) {
         echo "Error.";

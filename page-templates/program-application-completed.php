@@ -106,10 +106,8 @@ $i++;
 	} elseif (isset($editentry['18']) && filter_var($editentry['18'], FILTER_VALIDATE_EMAIL) != false) {
 		$parent_email = $editentry['18'];
 	}
-	
-	
-	
-	
+
+
 	$orig_message = str_replace('{email:5}', $editentry['5'], $orig_message);
 	$orig_message = str_replace('{phone:181}', $editentry['181'], $orig_message);
 	$orig_message = str_replace('{phone:156}', $editentry['156'], $orig_message);
@@ -119,6 +117,13 @@ $i++;
 	$orig_message = str_replace('{cashier_cc_masked_number:36}', $_GET['cashier_cc_masked_number'], $orig_message);
 	$orig_message = str_replace('{cashier_charged_amount:37}', $_GET['cashier_charged_amount'], $orig_message);
 	$orig_message = str_replace('{NelnetID:38}', $_GET['NelnetID'], $orig_message);
+	$orig_message = str_replace('{cashier_auth_num:332}', $_GET['cashier_auth_num'], $orig_message);
+$orig_message = str_replace('{cashier_auth_num:184}', $_GET['cashier_auth_num'], $orig_message);
+$orig_message = str_replace('{cashier_auth_num:216}', $_GET['cashier_auth_num'], $orig_message);
+$orig_message = str_replace('{cashier_auth_num:238}', $_GET['cashier_auth_num'], $orig_message);
+$orig_message = str_replace('{cashier_auth_num:36}', $_GET['cashier_auth_num'], $orig_message);
+$orig_message = str_replace('{cashier_auth_num:244}', $_GET['cashier_auth_num'], $orig_message);
+$orig_message = str_replace('{cashier_auth_num:245}', $_GET['cashier_auth_num'], $orig_message);
 	
 	/*var_dump(preg_last_error());*/
 	//echo '198 New Message ' . $orig_message . "<br>";
@@ -579,8 +584,7 @@ get_header(); ?>
 
 <article role="article" id="post-<?php the_ID(); ?>" <?php post_class( 'post-part' ); ?>>
 
-	<h2 class="post-headline">
-		<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+	<h2 class="post-headline"><?php the_title(); ?>
 	</h2>
 
 	<?php responsive_post_meta(); ?>
