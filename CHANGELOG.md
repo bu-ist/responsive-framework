@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Removes duplicate call to burf-base, which is a dependency of burf-theme.
+
 ## 2.3.61
 
 - Minor bug fixes to color palettes: mega navigation, footer buttons and headings.
