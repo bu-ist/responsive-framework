@@ -222,6 +222,8 @@ function responsive_enqueue_scripts() {
 	// Vendor scripts will load from parent theme directory.
 	wp_enqueue_script( 'responsive-modernizer', get_template_directory_uri() . "/js/vendor/modernizer$postfix.js", array(), '2.8.3' );
 
+	wp_enqueue_script( 'responsive-summer-term-scripts', get_template_directory_uri() . "/js/bu_summer_programs.js" );
+
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
 	if ( is_singular() && responsive_has_comment_support() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -292,11 +294,13 @@ add_filter( 'bu_navigation_filter_anchor_attrs', 'responsive_change_title_tag', 
 add_filter( 'gform_notification_events', 'add_event' );
 function add_event( $notification_events ) {
     $notification_events['payment_updated'] = __( 'Payment Updated', 'gravityforms' );
+    $notification_events['admin_notifications'] = __( 'Admin Notification', 'gravityforms' );
+    $notification_events['admin_offers'] = __( 'Admin Offers', 'gravityforms' );
     return $notification_events;
 }
 include 'st_functions.php';
 include 'rise_program_functions.php';
-include 'hsh_program_functions.php';
+//include 'hsh_program_functions.php';
 
 /**
  * Admin

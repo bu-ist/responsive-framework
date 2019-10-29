@@ -1,8 +1,6 @@
 <?php
 /*Custom Admin for HSH */
 /********************************************************/
-/*Custom Admin for RISE */
-/********************************************************/
 add_action( 'gform_entries_column', 'bu_summer_hsh_application_cols', 10, 5 );
 
 function bu_summer_hsh_application_cols( $form_id, $field_id, $value, $entry, $query_string ) {
@@ -109,30 +107,32 @@ function HSHteacherRecHandler($entry, $form){
  */
 function register_hsh_status_meta_box( $meta_boxes, $entry, $form ) {
   // If the add-on is active and the form has an active feed, add the meta box.
-      $meta_boxes[ 'bu_status_and_decision' ] = array(
+      if ($entry['form_id'] == 12) {
+        $meta_boxes[ 'bu_status_and_decision' ] = array(
           'title'    => 'Status and Decision Buttons',
           'callback' => 'add_hsh_status_details_meta_box',
           'context'  => 'side',
           'callback_args' => array( $entry, $form ),
-      );
+          );
 
-      $meta_boxes[ 'bu_document_approval_tools' ] = array(
-        'title'    => 'Document Approvals',
-        'callback' => 'add_hsh_meta_box_document_approval_tools',
-        'context'  => 'side',
-        'callback_args' => array( $entry, $form ),
-        
-      );
+          $meta_boxes[ 'add_hsh_document_approval_tools_meta_box' ] = array(
+            'title'    => 'Document Approvals',
+            'callback' => 'meta_box_document_approval_tools',
+            'context'  => 'side',
+            'callback_args' => array( $entry, $form ),
+            
+          );
 
-      //for adding custom content to the notifications
-     $meta_boxes[ 'bu_notifications' ] = array(
-          'title'    => 'BU Notifications',
-          'callback' => 'add_hsh_notification_content',
-          'context'  => 'side',
-          'callback_args' => array( $entry, $form ),
-    );
+          //for adding custom content to the notifications
+         $meta_boxes[ 'bu_notifications' ] = array(
+              'title'    => 'BU Notifications',
+              'callback' => 'add_bu_notification_content',
+              'context'  => 'side',
+              'callback_args' => array( $entry, $form ),
+          );
 
-  return $meta_boxes;
+      }
+      return $meta_boxes;
 }
 add_filter( 'gform_entry_detail_meta_boxes', 'register_hsh_status_meta_box', 10, 3 );
 
@@ -158,7 +158,7 @@ function add_hsh_status_details_meta_box( $args ) {
   echo $html;
 }
 
-function add_hsh_meta_box_document_approval_tools ($args){
+function add_hsh_document_approval_tools_meta_box ($args){
 
   $form  = $args['form'];
   $entry = $args['entry'];
@@ -243,7 +243,7 @@ function hsh_recommendation_status ($entry, $form, $output_type) {
     if ($entry['127'] != '') {//received
       if ($entry['107'] != 'true'){//received but approved is false
         $needs_review = 'true';
-        $review_status_html .= 'Please review: <a href="?page=program_counsil_recommendations&application_id=' . $entry['id'] . '" target="_blank">' . $form['fields']['161']['label'] . '</a><br>';
+        $review_status_html .= 'Please review: <a href="?page=program_counsel_recommendations&application_id=' . $entry['id'] . '" target="_blank">' . $form['fields']['161']['label'] . '</a><br>';
         $review_status_html .= '<a href="' . $entry['id'] . '" target="_blank">Approve</a><br>';
       }
     }
