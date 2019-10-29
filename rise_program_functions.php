@@ -94,9 +94,14 @@ if ( isset($_POST['update_admin']) && $_POST['update_admin'] == true ){
 
 //approve documents
 if ( isset($_POST['doc_entry_id']) && $_POST['doc_entry_id'] != '' ){
+<<<<<<< HEAD
   /*var_dump($_POST);
   var_dump($_GET);
   die();*/
+=======
+  //var_dump($_POST);
+  //die();
+>>>>>>> 9194d0d914bd47d7300e2f51ff0e71ed955d1794
 
   if (  $_GET['id'] == 12 ) {
     $bu_rise_entry_obj = new BU_ST_HSH_Entry($doc_entry, $form);
@@ -107,9 +112,12 @@ if ( isset($_POST['doc_entry_id']) && $_POST['doc_entry_id'] != '' ){
   } elseif ($_GET['id'] == 10) {
     $bu_rise_entry_obj = new BU_ST_AIM_Entry($doc_entry, $form);
     $bu_rise_entry_obj->aim_update_documents($_POST);
+<<<<<<< HEAD
   } elseif ($_GET['id'] == 73) {
     $bu_rise_entry_obj = new BU_ST_SC_Entry($doc_entry, $form);
     $bu_rise_entry_obj->sc_update_documents($_POST);
+=======
+>>>>>>> 9194d0d914bd47d7300e2f51ff0e71ed955d1794
   } else {
   foreach ($_POST as $key => $value) {
     $transcript_id = str_replace('approve_hs_transcript_', '', $key);
@@ -365,6 +373,7 @@ function bu_st_recommendations_list_menu() {
 function bu_teacher_recommendations_list() {
   //include 'bu-st-recommendations-template.php';
   $entry = GFAPI::get_entry($_GET["application_id"]);
+<<<<<<< HEAD
   //var_dump($entry);
   if ($entry['form_id'] == 63) {
     $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
@@ -375,6 +384,16 @@ function bu_teacher_recommendations_list() {
   if ($entry['form_id'] == 12) {
     $bu_rise_entry_obj = new BU_ST_HSH_Entry($entry, $form);
     $bu_rise_entry_obj->rise_teacher_rec_page($_GET["application_id"]);
+=======
+  if ($entry['form_id'] == 63) {
+    $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
+    $bu_rise_entry_obj->rise_counselor_rec_page($_GET["application_id"]);
+  }
+
+  if ($entry['form_id'] == 12) {
+    $bu_rise_entry_obj = new BU_ST_HSH_Entry($entry, $form);
+    $bu_rise_entry_obj->rise_counselor_rec_page($_GET["application_id"]);
+>>>>>>> 9194d0d914bd47d7300e2f51ff0e71ed955d1794
   }
 
   if ($entry['form_id'] == 10) {
@@ -540,7 +559,11 @@ function rise_document_status_page(){
 //RISE counselor recommendation
 //add_action("gform_after_submission_74", "counselRecHandler", 10, 2 );
 add_action("gform_after_submission_74", "counselRecHandler", 10, 2 );
+<<<<<<< HEAD
 
+=======
+add_action("gform_after_submission_78", "counselRecHandler", 10, 2 );
+>>>>>>> 9194d0d914bd47d7300e2f51ff0e71ed955d1794
 
 function counselRecHandler($entry, $form){
   /*var_dump($_POST);
@@ -583,6 +606,11 @@ function hshcounselRecHandler($entry, $form){
 
 //hsh upload
 
+<<<<<<< HEAD
+=======
+//hsh upload
+
+>>>>>>> 9194d0d914bd47d7300e2f51ff0e71ed955d1794
 //RISE student upload form form 65
 add_action("gform_after_submission_65", "studentUploadHandler", 10, 2 );
 function studentUploadHandler($entry, $form){
@@ -688,10 +716,17 @@ function aimTeachRecommendationHandler($entry, $form){
         die();
       }
   }
+<<<<<<< HEAD
 
 }
 
 
+=======
+
+}
+
+
+>>>>>>> 9194d0d914bd47d7300e2f51ff0e71ed955d1794
 //hsh teacher rec
 add_action("gform_after_submission_59", "hshTeachRecommendationHandler", 10, 2 );
 function hshTeachRecommendationHandler($entry, $form){

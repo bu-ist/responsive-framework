@@ -688,9 +688,7 @@ function notification_archive ($view, $form_id, $entry_id) {
 
 
 
-
 }
-
 
 
 add_filter( 'gform_addon_navigation', 'bu_st_recommendations_list_menu' );

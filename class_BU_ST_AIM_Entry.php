@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
   class BU_ST_AIM_Entry
 {
@@ -30,7 +31,7 @@ public function rise_document_status_page($application_id)
               'value' => $application_id//passed id value
           ),
 
-      )
+      
   );
  // $search_criteria = array();
   $sorting         = array( 'key' => '5', 'direction' => 'ASC' );

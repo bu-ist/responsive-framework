@@ -11,6 +11,7 @@ var_dump($_SERVER);*/
 GLOBAL $orig_message;
 GLOBAL $headers;
 $editentry = GFAPI::get_entry($_GET['application_id']);
+
 if ( !isset($_GET['form_id']) || $_GET['form_id'] == '') {
 	//var_dump($editentry);
 	$_GET['form_id'] = $editentry['form_id'];
@@ -18,6 +19,7 @@ if ( !isset($_GET['form_id']) || $_GET['form_id'] == '') {
 } else {
 	$form = GFAPI::get_form( $_GET['form_id'] );
 }
+
 $notifications_list = GFCommon::get_notifications_to_send( 'payment_updated', $form, $editentry );
 $notification_id = $notifications_list['id'];
 /*$headers[] = 'MIME-Version: 1.0';
@@ -33,6 +35,7 @@ $orig_message = $notifications_list[0]['message'];
 
 parseMessage($orig_message, $editentry);
 parseHeaders($notifications_list, $editentry, $headers);
+
 
 switch ($_GET['form_id']) {
 	//AIM - CC parent
@@ -197,9 +200,7 @@ switch ($_GET['form_id']) {
 				$mail_test = mail($to_email,
 							$notifications_list[0]['subject'],
 							$orig_message, implode("\r\n", $headers) );
-				$mail_test = mail('djgannon@bu.edu',
-							$notifications_list[0]['subject'] . ' TEST',
-							$orig_message, implode("\r\n", $headers) );
+
 			} else {
 				$success_message =  '<P>Unable to update entry.</P>';
 			}
@@ -211,7 +212,7 @@ switch ($_GET['form_id']) {
 	break;
 
 	//SSIP
-	case '101':
+	case '37':
 
 		if ($editentry['2.1'] != '') {
 			$comp_addr = strcasecmp( $editentry['2.1'], $_GET['address1'] );
@@ -339,8 +340,7 @@ get_header(); ?>
 
 <article role="article" id="post-<?php the_ID(); ?>" <?php post_class( 'post-part' ); ?>>
 
-	<h2 class="post-headline">
-		<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+	<h2 class="post-headline"><?php the_title(); ?>
 	</h2>
 
 	<?php responsive_post_meta(); ?>

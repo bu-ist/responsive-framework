@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
   class BU_ST_HSH_Entry
 {
@@ -650,4 +651,5 @@ die();*/
       
   }
   
+
 }
