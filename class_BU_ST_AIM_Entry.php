@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
   class BU_ST_AIM_Entry
 {
@@ -31,7 +30,7 @@ public function rise_document_status_page($application_id)
               'value' => $application_id//passed id value
           ),
 
-      
+      )
   );
  // $search_criteria = array();
   $sorting         = array( 'key' => '5', 'direction' => 'ASC' );
@@ -39,7 +38,7 @@ public function rise_document_status_page($application_id)
   $total_count     = 0;
   $entries         = GFAPI::get_entries( 55, $search_criteria, $sorting, $paging, $total_count );
   $form = GFAPI::get_form($entries[0]['form_id']);
-
+  
   foreach ($entries as $entry) {
 
     //transcript
@@ -62,6 +61,8 @@ public function rise_document_status_page($application_id)
       echo '<div><b>Status: </b>' . $entry['25'] . '; <a href="' . $entry['6'] . '" target="_blank">View </a></div>';
 
     echo '<div><a href="admin.php?page=gf_entries&view=entry&id=65&lid=' . $entry['id'] . '&order=ASC&filter&paged=1&pos=0&field_id&operator" target="_blank">View Original Entry</a></div>';
+  
+
   }
   //var_dump($entries);
 
@@ -78,6 +79,7 @@ public function rise_document_status_page($application_id)
     
     $application_id = $entry['id'];
     $application_entry = GFAPI::get_entry( $application_id );
+    $this->bu_program_doc_recieved_status($application_entry);
       //var_dump($entry);
         $needs_review = 'true';
         $search_criteria = array(
@@ -98,10 +100,15 @@ public function rise_document_status_page($application_id)
         $sorting         = array( 'key' => '5', 'direction' => 'ASC' );
         $paging          = array( 'offset' => 0, 'page_size' => 25 );
         $total_count     = 0;
-        $doc_entries         = GFAPI::get_entries( 55, $search_criteria, $sorting, $paging, $total_count );
-        $doc_form =GFAPI::get_form(55);
+        $doc_entries         = GFAPI::get_entries( 38, $search_criteria, $sorting, $paging, $total_count );
+        $doc_form =GFAPI::get_form(38);
        //var_dump( $doc_form['fields'] );
         //var_dump( $doc_entries );
+        $trans_recd = false;
+        $idf_recd = false;
+        $paspt_recd = false;
+        $eng_prof_recd = false;
+        $writing_sample_recd = false;
         foreach ($doc_entries as $entry) {
 
           $review_status_html .= "<hr>";
@@ -261,18 +268,28 @@ public function rise_document_status_page($application_id)
 
           }
 
-         
-
-          //echo $review_status_html;
-        //die();
+          if ( $doc_entry['5'] != '' && $trans_recd == false ) {
+              $trans_recd = true;
+            }
+            //test scores
+            if ( $doc_entry['6'] != '' && $writing_sample_recd == false ) {
+              $writing_sample_recd = true;
+            }
+            //passport
+            if ( $doc_entry['8'] != '' && $paspt_recd == false ) {
+              $paspt_recd = true;
+            }
+            if ( $doc_entry['10'] != '' && $idf_recd == false ) {
+              $idf_recd = true;
+            }
+            if ( $doc_entry['11'] != '' && $eng_prof_recd == false ) {
+              $eng_prof_recd = true;
+            }
       }
         //die();
       
     //}
-    
-
   $entry = GFAPI::get_entry($application_id);
-  //var_dump($entry);
   $review_status_html .= '<h4>Section Complete?</h4>
     <li><input type="radio" name="docs_approval_status" value="completed"';
 
@@ -297,6 +314,130 @@ public function rise_document_status_page($application_id)
       } else {
         return $add_column_data;
       }
+  }
+
+  
+
+
+  public function bu_program_doc_recieved_status ($entry, $form) {
+  //var_dump($entry);
+
+    $application_id = $entry['id'];
+    $application_entry = GFAPI::get_entry( $application_id );
+    
+    $search_criteria = array(
+            'field_filters' => array(
+              'mode' => 'any',
+                array(
+                    'key'   => 'application_id',//application_id
+                    'value' => $application_id//passed id value
+                ),
+                array(
+                    'key'   => '41',//application_id
+                    'value' => $application_id//passed id value
+                ),
+
+            )
+        );
+       // $search_criteria = array();
+        $sorting         = array( 'key' => '5', 'direction' => 'ASC' );
+        $paging          = array( 'offset' => 0, 'page_size' => 25 );
+        $total_count     = 0;
+        $doc_entries     = GFAPI::get_entries( 55, $search_criteria, $sorting, $paging, $total_count );
+        $doc_form =GFAPI::get_form(55);
+       //var_dump( $doc_form['fields'] );
+        //var_dump( $doc_entries );
+        $trans_recd = false;
+        $idf_recd = false;
+        $paspt_recd = false;
+        $eng_prof_recd = false;
+        $writing_sample_recd = false;
+        foreach ($doc_entries as $doc_entry) {
+//var_dump($doc_entry);
+
+         if ( $doc_entry['5'] != '' && $trans_recd == false ) {
+              $trans_recd = true;
+              echo '5 true <br>';
+            }
+            //test scores
+            if ( $doc_entry['6'] != '' && $writing_sample_recd == false ) {
+              $writing_sample_recd = true;
+              echo '6 true <br>';
+            }
+            //passport
+            if ( $doc_entry['8'] != '' && $paspt_recd == false ) {
+              $paspt_recd = true;
+              echo '8 true <br>';
+            }
+            if ( $doc_entry['10'] != '' && $idf_recd == false ) {
+              $idf_recd = true;
+              echo '10 true <br>';
+            }
+            if ( $doc_entry['11'] != '' && $eng_prof_recd == false ) {
+              $eng_prof_recd = true;
+              echo '11 true <br>';
+            }
+
+      }
+
+        $all_received = false;
+          //require a writing sample?
+          if ( $entry['30'] == 'creativewriting' 
+              || $entry['147'] == 'creativewriting' 
+              || $entry['148'] == 'creativewriting' ) {
+    
+            if ($writing_sample_recd == true
+                  && $trans_recd == true
+                    && $entry['8'] != 'intl' ) {
+              $all_received = true;
+              $entry['217'] = 'True';
+              $updateit = GFAPI::update_entry($entry);
+              //exit;
+            } elseif ($writing_sample_recd == true
+                  && $trans_recd == true
+                    && $entry['8'] == 'intl' ){
+
+                  if ($paspt_recd == true
+                      && $idf_recd == true
+                        && $eng_prof_recd == true){
+                  $entry['217'] = 'True';
+                  $updateit = GFAPI::update_entry($entry);
+                } else {
+                  $entry['217'] = 'False';
+                  $updateit = GFAPI::update_entry($entry);
+                }
+
+            }
+          
+          } elseif ($trans_recd == true
+                    && $entry['8'] == 'intl') {
+
+                  if ($paspt_recd == true
+                        && $idf_recd == true
+                          && $eng_prof_recd == true){
+                    $entry['217'] = 'True';
+                    $updateit = GFAPI::update_entry($entry);
+                    
+                  } else {
+                    $entry['217'] = 'False';
+                    $updateit = GFAPI::update_entry($entry);
+                  }
+
+          } elseif ($trans_recd == true
+                    && $entry['8'] != 'intl') {
+           
+                    $entry['217'] = 'True';
+                    $updateit = GFAPI::update_entry($entry);
+          } else {
+            $entry['217'] = 'False';
+            $updateit = GFAPI::update_entry($entry);
+          }
+
+
+/*$entry = GFAPI::get_entry( $application_id );
+var_dump($entry);
+die();*/
+
   }
 
 

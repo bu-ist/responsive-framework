@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
   class BU_ST_HSH_Entry
 {
@@ -225,7 +224,8 @@ public function rise_document_status_page($application_id)
     //var_dump($entry);
     //
     $application_id = $entry['id'];
-$application_entry = GFAPI::get_entry( $application_id );
+    $application_entry = GFAPI::get_entry( $application_id );
+    $this->bu_program_doc_recieved_status($application_entry);
 //var_dump($application_entry);
     //HSH high school transcript 1
     
@@ -255,7 +255,7 @@ $application_entry = GFAPI::get_entry( $application_id );
         //var_dump( $doc_form['fields'] );
         foreach ($doc_entries as $entry) {
 
-$review_status_html .= "<hr>";
+          $review_status_html .= "<hr>";
 
           //transcript file  entry field
 
@@ -517,6 +517,123 @@ die();*/
         return $add_column_data;
       }
   }
+
+
+
+  public function bu_program_doc_recieved_status ($entry, $form) {
+    //var_dump($entry);
+
+    $application_id = $entry['id'];
+    $application_entry = GFAPI::get_entry( $application_id );
+    
+    $search_criteria = array(
+            'field_filters' => array(
+              'mode' => 'any',
+                array(
+                    'key'   => 'application_id',//application_id
+                    'value' => $application_id//passed id value
+                ),
+                array(
+                    'key'   => '32',//application_id
+                    'value' => $application_id//passed id value
+                ),
+
+            )
+        );
+       // $search_criteria = array();
+        $sorting         = array( 'key' => '5', 'direction' => 'ASC' );
+        $paging          = array( 'offset' => 0, 'page_size' => 25 );
+        $total_count     = 0;
+        $doc_entries     = GFAPI::get_entries( 38, $search_criteria, $sorting, $paging, $total_count );
+        $doc_form =GFAPI::get_form(38);
+       //var_dump( $doc_form['fields'] );
+        //var_dump( $doc_entries );
+        $trans_recd = false;
+        $tst_scores_recd = false;
+        $paspt_recd = false;
+        $idf_recd = false;
+        $fin_sponsor_recd = false;
+        $bank_statement_recd = false;
+        $toefl_recd = false;
+        
+        foreach ($doc_entries as $doc_entry) {
+//var_dump($doc_entry);
+
+         if ( $doc_entry['5'] != '' && $trans_recd == false ) {
+              $trans_recd = true;
+              echo '5 true <br>';
+            }
+            //test scores
+            if ( $doc_entry['6'] != '' && $tst_scores_recd == false ) {
+              $tst_scores_recd = true;
+              echo '6 true <br>';
+            }
+            //passport
+            if ( $doc_entry['8'] != '' && $paspt_recd == false ) {
+              $paspt_recd = true;
+              echo '8 true <br>';
+            }
+            //interntaional student data form
+            if ( $doc_entry['10'] != '' && $idf_recd == false ) {
+              $idf_recd = true;
+              echo '10 true <br>';
+            }
+            //financial sponorship
+            if ( $doc_entry['11'] != '' && $fin_sponsor_recd == false ) {
+              $fin_sponsor_recd = true;
+              echo '11 true <br>';
+            }
+            //bank statement
+            if ( $doc_entry['12'] != '' && $bank_statement_recd == false ) {
+              $bank_statement_recd = true;
+              echo '12 true <br>';
+            }
+            //toefl
+            if ( $doc_entry['13'] != '' && $toefl_recd == false ) {
+              $toefl_recd = true;
+              echo '13 true <br>';
+            }
+
+      }
+
+//var_dump($entry);
+//die();
+        $all_received = false;
+
+        //if not intl only need trans and test scores
+        if ($entry['8'] != 'intl') {
+          if ( $trans_recd == true && $tst_scores_recd == true ) {
+            $application_entry['245'] = 'True';
+            $updateit = GFAPI::update_entry($application_entry);
+          } else {
+            $application_entry['245'] = 'False';
+            $updateit = GFAPI::update_entry($application_entry);
+          }
+        } elseif ($entry['8'] == 'intl') {
+          if ($trans_recd == true
+                && $tst_scores_recd == true             
+                && $paspt_recd == true
+                && $idf_recd == true
+                && $fin_sponsor_recd == true
+                && $toefl_recd == true) {
+            $application_entry['245'] = 'True';
+            $updateit = GFAPI::update_entry($application_entry);
+          } else {
+            $application_entry['245'] = 'False';
+            $updateit = GFAPI::update_entry($application_entry);
+          }
+
+          }
+    
+          /*$entry = GFAPI::get_entry( $application_id );
+          var_dump($entry);
+          die();*/
+
+    }
+
+
+
+
 
 
 public function hsh_update_documents ($entry, $form, $output_type) {

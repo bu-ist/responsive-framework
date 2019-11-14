@@ -72,7 +72,8 @@ public function rise_document_status_page($application_id)
     $value = rgar( $entry, (string) $field->id );
     
     $application_id = $entry['id'];
-$application_entry = GFAPI::get_entry( $application_id );
+    $application_entry = GFAPI::get_entry( $application_id );
+    $this->bu_program_doc_recieved_status($application_entry);
 
         $needs_review = 'true';
         $search_criteria = array(
@@ -263,6 +264,127 @@ $application_entry = GFAPI::get_entry( $application_id );
       }
   }
 
+
+
+  public function bu_program_doc_recieved_status ($entry, $form) {
+    //var_dump($entry);
+
+    $application_id = $entry['id'];
+    $application_entry = GFAPI::get_entry( $application_id );
+    
+    $search_criteria = array(
+            'field_filters' => array(
+              'mode' => 'any',
+                array(
+                    'key'   => 'application_id',//application_id
+                    'value' => $application_id//passed id value
+                ),
+                array(
+                    'key'   => '31',//application_id
+                    'value' => $application_id//passed id value
+                ),
+
+            )
+        );
+       // $search_criteria = array();
+        $sorting         = array( 'key' => '5', 'direction' => 'ASC' );
+        $paging          = array( 'offset' => 0, 'page_size' => 25 );
+        $total_count     = 0;
+        $doc_entries     = GFAPI::get_entries( 48, $search_criteria, $sorting, $paging, $total_count );
+        $doc_form =GFAPI::get_form(48);
+       //var_dump( $doc_form['fields'] );
+        //var_dump( $doc_entries );
+        $trans_recd = false;
+        $tst_scores_recd = false;
+        $paspt_recd = false;
+        $idf_recd = false;
+        $fin_sponsor_recd = false;
+        $bank_statement_recd = false;
+        $toefl_recd = false;
+        
+        foreach ($doc_entries as $doc_entry) {
+
+         if ( $doc_entry['5'] != '' && $trans_recd == false ) {
+              $trans_recd = true;
+              echo '5 true <br>';
+            }
+            //passport
+            if ( $doc_entry['8'] != '' && $paspt_recd == false ) {
+              $paspt_recd = true;
+              echo '8 true <br>';
+            }
+            //interntaional student data form
+            if ( $doc_entry['10'] != '' && $idf_recd == false ) {
+              $idf_recd = true;
+              echo '10 true <br>';
+            }
+            //eng_proff
+            if ( $doc_entry['13'] != '' && $toefl_recd == false ) {
+              $toefl_recd = true;
+              echo '13 true <br>';
+            }
+            //hslang
+            
+              $hslang = $doc_entry['37'];
+              
+      }
+
+//var_dump($entry);
+//die();
+        $all_received = false;
+
+        //if not intl only need trans and test scores
+        if ($entry['8'] != 'intl' && $trans_recd == true ) {
+          
+            if ( $hslang == 'english' || $hslang == 'English' ) {
+              $application_entry['335'] = 'True';
+              $updateit = GFAPI::update_entry($application_entry);
+            
+            } else {
+
+              if ( $toefl_recd == true ) {
+                $application_entry['335'] = 'True';
+                $updateit = GFAPI::update_entry($application_entry);
+              } else {
+                $application_entry['335'] = 'False';
+                $updateit = GFAPI::update_entry($application_entry);
+              }
+            }
+            
+
+          } elseif ($entry['8'] == 'intl' && $trans_recd == true ) {
+            
+            if ( $paspt_recd == true || $idf_recd == true ) {
+              if ( $hslang == 'english' || $hslang == 'English' ) {
+                $application_entry['335'] = 'True';
+                $updateit = GFAPI::update_entry($application_entry);
+              
+              } else {
+
+                if ( $toefl_recd == true ) {
+                  $application_entry['335'] = 'True';
+                  $updateit = GFAPI::update_entry($application_entry);
+                } else {
+                  $application_entry['335'] = 'False';
+                  $updateit = GFAPI::update_entry($application_entry);
+                }
+              }
+
+            
+            } else {
+              $application_entry['335'] = 'False';
+              $updateit = GFAPI::update_entry($application_entry);
+            }
+
+
+          }
+      
+    
+          /*$entry = GFAPI::get_entry( $application_id );
+          var_dump($entry);
+          die();*/
+
+    }
 
 public function sp_update_documents ($entry, $form, $output_type) {
     //var_dump($_POST);

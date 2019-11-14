@@ -4,7 +4,13 @@
 Notifications management
 
 */
-
+add_filter('gform_notification_enable_cc_10', 'enable_cc', 10, 3 );
+ 
+function enable_cc( $enable, $notification, $form ){
+  var_dump($form);
+  die();
+  return true;
+}
 function parseMessage($orig_message, $editentry){
 	GLOBAL $orig_message;
 	$orig_message = str_replace('{entry_id}', $editentry['id'], $orig_message);

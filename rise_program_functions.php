@@ -5,6 +5,60 @@ include 'class_BU_ST_HSH_Entry.php';
 include 'class_BU_ST_SC_Entry.php';
 include 'class_BU_ST_SP_Entry.php';
 include 'class_BU_ST_AIM_Entry.php';
+/*$entry = GFAPI::get_entry($_GET['lid']);
+$entry = (object) $entry;
+$entry = new GFAPI();
+//$entry->get_entry($_GET['lid']);
+var_dump($entry);
+$entries = GFFormsModel::search_leads( '63' );
+var_dump( $entries );
+die();*/
+
+/* add partner submissions to main application entries */
+add_action("gform_after_submission_97", "aimPartnerHandler", 10, 2 );
+function aimPartnerHandler($entry, $form){
+  $newentry = array_shift($entry);
+  $entry['form_id'] = '10';
+  $entry_id = GFAPI::add_entry( $entry );
+
+}
+
+add_action("gform_after_submission_98", "hshPartnerHandler", 10, 2 );
+function hshPartnerHandler($entry, $form){
+  $newentry = array_shift($entry);
+  $entry['form_id'] = '12';
+  $entry_id = GFAPI::add_entry( $entry );
+
+}
+
+add_action("gform_after_submission_99", "risePartnerHandler", 10, 2 );
+function risePartnerHandler($entry, $form){
+  $newentry = array_shift($entry);
+  $entry['form_id'] = '63';
+  $entry_id = GFAPI::add_entry( $entry );
+
+}
+
+add_action("gform_after_submission_100", "scPartnerHandler", 10, 2 );
+function scPartnerHandler($entry, $form){
+  $newentry = array_shift($entry);
+  $entry['form_id'] = '73';
+  $entry_id = GFAPI::add_entry( $entry );
+
+}
+
+add_action("gform_after_submission_101", "spPartnerHandler", 10, 2 );
+function spPartnerHandler($entry, $form){
+  $newentry = array_shift($entry);
+  $entry['form_id'] = '28';
+  $entry_id = GFAPI::add_entry( $entry );
+
+}
+
+
+
+/******************************************************/
+
 add_filter( 'gform_toolbar_menu', 'my_custom_toolbar', 10, 2 );
 function my_custom_toolbar( $menu_items, $form_id ) {
  
@@ -84,9 +138,11 @@ function bu_st_update_nickname( $form ) {
 
 //program admin decisions
 if ( isset($_POST['update_admin']) && $_POST['update_admin'] == true ){
-  /*var_dump($_POST);
-  die();*/
+  //var_dump($_POST);
+  
   $editentry = GFAPI::get_entry($_GET['lid']);
+ //var_dump($editentry);
+  //die();
   $editentry['75'] = $_POST['input_75'];
   $editentry['133'] = $_POST['input_133'];
   GFAPI::update_entry($editentry);
@@ -263,7 +319,8 @@ if (  isset($_POST['update_recs']) && $_POST['update_recs'] == true ){
 
 
 function bu_summer_application_cols( $form_id, $field_id, $value, $entry, $query_string ) {
-
+var_dump($entry);
+die();
 	switch ($form_id){
 		case '63':
 			/*field 135 is the first student transcript
@@ -276,6 +333,13 @@ function bu_summer_application_cols( $form_id, $field_id, $value, $entry, $query
           echo $doc_status;
 		      //return;
 		    }
+        if ( $field_id == 133 ) {
+          //administrative decision
+          $output_type = 'col_data';
+          $doc_status = $bu_rise_entry_obj->rise_document_status($entry, $form, $output_type);
+          echo $entry;
+          //return;
+        }
         if ( $field_id == 103 ) {
           $output_type = 'col_data';
           //echo "really";
@@ -341,6 +405,7 @@ function bu_rise_application_cols( $form_id, $field_id, $value, $entry, $query_s
 
       /*field 135 is the first student transcript
       use that to trigger the document status check*/
+      $form = GFAPI::get_form($form_id);
         $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
         //echo $field_id;
         
@@ -348,10 +413,6 @@ function bu_rise_application_cols( $form_id, $field_id, $value, $entry, $query_s
 
           $output_type = 'col_data';
           $doc_status = $bu_rise_entry_obj->rise_document_status($entry, $form, $output_type);
-          //echo $value;
-          //$value = $doc_status;
-          //echo $doc_status;
-          //return;
         }
         if ( $field_id == 103 ) {
           $output_type = 'col_data';
@@ -360,15 +421,27 @@ function bu_rise_application_cols( $form_id, $field_id, $value, $entry, $query_s
           echo $form_status;
           //return;
         }
-        /*if ( $field_id == 127 ) {
+        if ( $field_id == 133 ) {
+          //admin decision
           $output_type = 'col_data';
-          $doc_status = $bu_rise_entry_obj->rise_document_status($entry, $form, $output_type);
-          echo $doc_status;
-          //return;
-        }*/
+          
+
+          foreach ($form['fields'][151]['choices'] as $choice => $choice_text) {
+            
+          /*var_dump($form['fields'][151]['choices']);
+          var_dump($choice_text['isSelected']);
+          */
+            if ($value == $choice_text['value']){
+              echo $choice_text['text'];
+            } else {
+              /*echo $choice_text['value'];
+              echo $choice_text['isSelected'];*/
+            }
+          }
+        }
       //Actual Program
         if ( $field_id == 75 ) {
-          countEntries($form_id, $entry, $field->id);
+          countEntries($form_id, $entry, $field->id, $add_column_data, $value);
           echo $add_column_data;
           //return;
         }
@@ -439,7 +512,36 @@ function bu_rise_application_cols( $form_id, $field_id, $value, $entry, $query_s
   
 }
 
+//rise custom columns
+add_action( 'gform_entries_column', 'bu_aim_application_cols', 10, 5 );
 
+function bu_aim_application_cols( $form_id, $field_id, $value, $entry, $query_string ) {
+
+      /*field 135 is the first student transcript
+      use that to trigger the document status check*/
+      $form = GFAPI::get_form($form_id);
+        $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
+        //echo $field_id;
+        if ( $field_id == 103 ) {
+          $output_type = 'col_data';
+          //echo "really";
+          $form_status = $bu_rise_entry_obj->rise_form_completion_status();
+          echo $form_status;
+          //return;
+        }           
+
+        //check if required documents are present
+        if ( $field_id == 217 ) {
+          if ($value != '') {
+            //echo $value;
+          } else {
+            echo 'False';
+          }
+
+        }
+  
+  
+}
 
 /*
 Adding menu pages
@@ -496,8 +598,7 @@ function bu_teacher_recommendations_list() {
  * Display callback for the submenu page.
  */
 function bu_counsel_recommendations_list() {
-  $entry = GFAPI::get_entry($_GET["application_id"]);
-
+  
   if ($entry['form_id'] == 63) {
     $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
     $bu_rise_entry_obj->rise_counselor_rec_page($_GET["application_id"]);
@@ -548,10 +649,12 @@ function bu_counsel_recommendations_list() {
 
 function bu_program_essays_list() {
 
+$entry = GFAPI::get_entry($_GET["application_id"]);
+//var_dump($entry);
 
   if ($_GET['form_id'] == 63) {
     $bu_rise_entry_obj = new BU_ST_Rise_Entry($entry, $form);
-    $bu_rise_entry_obj->bu_program_essays_list($_GET["application_id"]);
+    $bu_rise_entry_obj->bu_program_essays_list($entry);
   }
 
   if ($_GET['form_id'] == 12) {
@@ -570,49 +673,6 @@ function bu_program_essays_list() {
   }
 
 
-
-
-
-
-
-    $search_criteria = array(
-      'field_filters' => array(
-        'mode' => 'any',
-          array(
-              'key'   => 'id',//application_id
-              'value' => $_GET['application_id']//passed id value
-          ),
-          array(
-              'key'   => '57',//application_id
-              'value' => $_GET['application_id']//passed id value
-          ),
-
-      )
-  );
-
-  $total_count     = 0;
-  $entries         = GFAPI::get_entries( 63, $search_criteria, /*$sorting, $paging,*/ $total_count );
-// $total_count now contains the total number of entries matching the search criteria. This is useful for displaying pagination controls.
-  maybe_load_gf_entry_detail_class();
-  foreach ($entries as $entry) {
-    $form = GFAPI::get_form($entry['form_id']);
-    //$entry = GFAPI::get_entry($entry['id']);
-/*var_dump($entry);
-var_dump($form['fields']);
-die();*/
-/*var_dump($form['fields']);
-die();*/
-    echo '<form>';
-    echo '<H3>' . $form['fields']['65']->label . '</H3>';
-    echo '<H4>' . $form['fields']['66']->label . '</H4>';
-      echo '<p>' . $entry['92'];
-      echo '<H4>' . $form['fields']['67']->label . '</H4>';
-      echo '<p>' . $entry['93'];
-      echo '<H4>' . $form['fields']['68']->label . '</H4>';
-      echo '<p>' . $entry['94'];
-      echo '</form>';
-
-  }
 
 }
 
@@ -782,6 +842,43 @@ function studentUploadHandler($entry, $form){
   /*$editentry = GFAPI::get_entry($_POST["input_7"]);
   var_dump($editentry);
 die();*/
+}
+
+
+/*Each program application has certain required documents based on applicant information. The documents are Required for an Application to be considered Complete but they are not Required to submit the upload form. Therefore we need to handle these uploads individually and check and set the 'Required Documents Received' status flag */
+
+//AIM student upload form form 55
+add_action("gform_after_submission_55", "AIMstudentUploadHandler", 10, 2 );
+function AIMstudentUploadHandler($entry, $form){
+  $bu_rise_entry_obj = new BU_ST_AIM_Entry($entry, $form);
+  $application_entry = GFAPI::get_entry($entry['31']);
+  $bu_rise_entry_obj->bu_program_doc_recieved_status($application_entry, $form);
+  /*input_7 holds the application id of the program application*/
+  
+}
+
+//HSH student upload form form 38
+add_action("gform_after_submission_38", "HSHstudentUploadHandler", 10, 2 );
+function HSHstudentUploadHandler($entry, $form){
+  $bu_rise_entry_obj = new BU_ST_HSH_Entry($entry, $form);
+  $application_entry = GFAPI::get_entry($entry['32']);
+  $bu_rise_entry_obj->bu_program_doc_recieved_status($application_entry, $form);
+}
+
+//SC student upload form form 38
+add_action("gform_after_submission_48", "SCstudentUploadHandler", 10, 2 );
+function SCstudentUploadHandler($entry, $form){
+  $bu_rise_entry_obj = new BU_ST_SC_Entry($entry, $form);
+  $application_entry = GFAPI::get_entry($entry['32']);
+  $bu_rise_entry_obj->bu_program_doc_recieved_status($application_entry, $form);
+}
+
+//SP student upload form form 38
+add_action("gform_after_submission_48", "SPstudentUploadHandler", 10, 2 );
+function SPstudentUploadHandler($entry, $form){
+  $bu_rise_entry_obj = new BU_ST_SC_Entry($entry, $form);
+  $application_entry = GFAPI::get_entry($entry['32']);
+  $bu_rise_entry_obj->bu_program_doc_recieved_status($application_entry, $form);
 }
 
 
@@ -972,14 +1069,14 @@ function add_rise_status_details_meta_box( $args ) {
 
   $form  = $args['form'];
   $entry = $args['entry'];
-
-   //manaage application
+/*var_dump($form['fields'][133]); 
+die(); */ //manaage application
   $html = '<form action="" method="post">';
   $html .= '<li>Administrative Decision:<BR><select name="input_133" id="input_133" class="medium_admin gfield_select" tabindex="373" aria-invalid="false">';
   foreach ( $form['fields'] as $field ) {
+
   if ($field['id'] == '133'){
-/*var_dump($field['choices']);
-var_dump($entry['133']);*/
+
     foreach ($field['choices'] as $choices) {
       //var_dump($choices);
       $html .= '<option value="' . $choices['value']  . '"';
@@ -995,7 +1092,7 @@ var_dump($entry['133']);*/
 //var_dump($field);
 }
 $html .= '</select></li>';
-$html .= '<li>Student Intent:<BR><select name="input_134" id="input_134" class="medium_admin gfield_select" tabindex="374" aria-invalid="false">';
+$html .= '<li>Student Decision:<BR><select name="input_134" id="input_134" class="medium_admin gfield_select" tabindex="374" aria-invalid="false">';
   foreach ( $form['fields'] as $field ) {
   if ($field['id'] == '134'){
 /*var_dump($field['choices']);
@@ -1188,32 +1285,6 @@ function add_status_details_meta_box( $args ) {
 	$form  = $args['form'];
 	$entry = $args['entry'];
 
-  //use get field
-  // Passing the form object with the field id.
-//$cur_field = GFAPI::get_field( $form, 133 );
-/*foreach ( $form['fields'] as $field ) {
-  if ($field['id'] == '133'){
-//var_dump($field['choices']);
-    foreach ($field['choices'] as $choices) {
-      //var_dump($choices);
-      $html .= '<option value="' . $choices['value']  . '">' . $choices['text']  . '</option>';
-    }
-
-  }
-//var_dump($field);
-}
- */
-// Passing the form id with the field id.
-//$cur_field = GFAPI::get_field( 2, 1 );
- 
-// Passing the form id with the input id.
-//$cur_field = GFAPI::get_field( 2, '1.3' );
-  
-	//var_dump($entry);die();
-	//personal statements and essays
-	/*$html = '<li>Review <a href="?page=program_application_essays&application_id=' . $entry['id'] . '" target="_blank">Personal Statements</a>';*/
-  //confirm gpa?
-
   //manaage application
   $html = '<form action="" method="post">';
   $html .= '<li>Administrative Decision:<BR><select name="input_133" id="input_133" class="medium_admin gfield_select" tabindex="373" aria-invalid="false">';
@@ -1236,6 +1307,29 @@ var_dump($entry['133']);*/
 //var_dump($field);
 }
 $html .= '</select></li>';
+
+$html .= '<li>Student Intent:<BR><select name="input_134" id="input_134" class="medium_admin gfield_select" tabindex="374" aria-invalid="false">';
+  foreach ( $form['fields'] as $field ) {
+  if ($field['id'] == '134'){
+/*var_dump($field['choices']);
+var_dump($entry['133']);*/
+    foreach ($field['choices'] as $choices) {
+      //var_dump($choices);
+      $html .= '<option value="' . $choices['value']  . '"';
+      
+      if ( $entry['134'] == $choices['value'] ) {
+          $html .= ' selected';
+      }
+
+      $html .= '>' . $choices['text']  . '</option>';
+    }
+
+  }
+//var_dump($field);
+}
+$html .= '</select></li>';
+
+
 $html .= '<li>Actual Program:<BR><select name="input_75" id="input_75" class="medium_admin gfield_select" aria-invalid="false">';
 foreach ( $form['fields'] as $field ) {
   if ($field['id'] == '75'){

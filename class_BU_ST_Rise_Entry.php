@@ -1,5 +1,5 @@
 <?php
-  class BU_ST_Rise_Entry
+class BU_ST_Rise_Entry
 {
   /*public $entry;
   public $form;
@@ -11,6 +11,7 @@
     //var_dump($entry);
     /*$this->entry = $entry;
     $this->form = $form;*/
+    //var_dump($entry);
   }
 
 
@@ -231,29 +232,32 @@ public function rise_document_status($entry, $form, $output_type)
         $doc_form =GFAPI::get_form(65);
        //var_dump( $doc_form['fields'] );
         //var_dump( $doc_entries );
-        foreach ($doc_entries as $entry) {
+          $trans_recd = false;
+          $test_recd = false;
+          $paspt_recd = false;
+        foreach ($doc_entries as $doc_entry) {
 
           $review_status_html .= "<hr>";
 
           //transcript file  entry field
-          if ( $entry['5'] != '') {//hasn't been viewed
-            if ( $entry['13'] == '' )
-                $entry['13'] = 'Pending Review';
-              if ($entry['13'] != "Approved" && $application_entry['107'] == 'true') {
+          if ( $doc_entry['5'] != '') {//hasn't been viewed
+            if ( $doc_entry['13'] == '' )
+                $doc_entry['13'] = 'Pending Review';
+              if ($doc_entry['13'] != "Approved" && $application_entry['107'] == 'true') {
                 //break;
               } else {
-              $review_status_html .= '<li>' . $entry['13'] . ': <a href="' . $entry['5'] . '" target="_blank">' . $doc_form['fields']['4']['label'] . '</a><br>';
+              $review_status_html .= '<li>' . $doc_entry['13'] . ': <a href="' . $doc_entry['5'] . '" target="_blank">' . $doc_form['fields']['4']['label'] . '</a><br>';
 
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['8']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['8']['adminLabel'] . '_' . $doc_entry['id'] . '" value="true"';
 
-            if ($entry['13'] == 'Approved') {
+            if ($doc_entry['13'] == 'Approved') {
               $review_status_html .= ' checked';
             }
             $review_status_html .= '> Approve<br>';
 
 
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['8']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
-            if ($entry['13'] == 'Denied') {
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['8']['adminLabel'] . '_' . $doc_entry['id'] . '" value="false"';
+            if ($doc_entry['13'] == 'Denied') {
               $review_status_html .= ' checked';
             }
             
@@ -266,25 +270,25 @@ public function rise_document_status($entry, $form, $output_type)
           }
           
           //test scores
-          if ( $entry['6'] != '' ) {
-            if ( $entry['14'] == '' )
-                $entry['14'] = 'Pending Review';
+          if ( $doc_entry['6'] != '' ) {
+            if ( $doc_entry['14'] == '' )
+                $doc_entry['14'] = 'Pending Review';
 
-              if ($entry['14'] != "Approved" && $application_entry['107'] == 'true') {
+              if ($doc_entry['14'] != "Approved" && $application_entry['107'] == 'true') {
                 //break;
               } else {
-            $review_status_html .= '<li>' . $entry['14'] . ': <a href="' . $entry['13'] . '" target="_blank">' . $doc_form['fields']['5']['label'] . '</a><br>';
+            $review_status_html .= '<li>' . $doc_entry['14'] . ': <a href="' . $doc_entry['13'] . '" target="_blank">' . $doc_form['fields']['5']['label'] . '</a><br>';
 
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['10']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['10']['adminLabel'] . '_' . $doc_entry['id'] . '" value="true"';
 
-            if ($entry['14'] == 'Approved') {
+            if ($doc_entry['14'] == 'Approved') {
               $review_status_html .= ' checked';
             }
             $review_status_html .= '> Approve<br>';
 
 
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['10']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
-            if ($entry['14'] == 'Denied') {
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['10']['adminLabel'] . '_' . $doc_entry['id'] . '" value="false"';
+            if ($doc_entry['14'] == 'Denied') {
               $review_status_html .= ' checked';
             }
             
@@ -295,25 +299,25 @@ public function rise_document_status($entry, $form, $output_type)
           }
 
           //passport
-          if ( $entry['8'] != '' ) {
-            if ( $entry['23'] == '' )
-                $entry['23'] = 'Pending Review';
+          if ( $doc_entry['8'] != '' ) {
+            if ( $doc_entry['23'] == '' )
+                $doc_entry['23'] = 'Pending Review';
 
-              if ($entry['23'] != "Approved" && $application_entry['107'] == 'true') {
+              if ($doc_entry['23'] != "Approved" && $application_entry['107'] == 'true') {
                 //break;
               } else {
-            $review_status_html .= '<li>' . $entry['23'] . ': <a href="' . $entry['8'] . '" target="_blank">' . $doc_form['fields']['6']['label'] . '</a><br>';
+            $review_status_html .= '<li>' . $doc_entry['23'] . ': <a href="' . $doc_entry['8'] . '" target="_blank">' . $doc_form['fields']['6']['label'] . '</a><br>';
 
 
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['9']['adminLabel'] . '_' . $entry['id'] . '" value="true"';
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['9']['adminLabel'] . '_' . $doc_entry['id'] . '" value="true"';
 
-            if ($entry['23'] == 'Approved') {
+            if ($doc_entry['23'] == 'Approved') {
               $review_status_html .= ' checked';
             }
             $review_status_html .= '> Approve<br>';
 
-            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['9']['adminLabel'] . '_' . $entry['id'] . '" value="false"';
-            if ($entry['23'] == 'Denied') {
+            $review_status_html .= '<input type="checkbox" name="' . $doc_form['fields']['9']['adminLabel'] . '_' . $doc_entry['id'] . '" value="false"';
+            if ($doc_entry['23'] == 'Denied') {
               $review_status_html .= ' checked';
             }
             
@@ -324,17 +328,64 @@ public function rise_document_status($entry, $form, $output_type)
             
             $review_status_html .= '<li>' . $doc_form['fields']['6']['label'] . ' Not Received<br>';
             
-
           }
 
-      }
-        //die();
-      
-    //}
-    
+            if ( $doc_entry['5'] != '' && $trans_recd == false ) {
+              $trans_recd = true;
+            }
+            //test scores
+            if ( $doc_entry['6'] != '' && $test_recd == false ) {
+              $test_recd = true;
+            }
+            //passport
+            if ( $doc_entry['8'] != '' && $paspt_recd == false ) {
+              $paspt_recd = true;
+            }
 
-  $entry = GFAPI::get_entry($application_id);
+
+      }
+  //////////////////////////////////////////////////////////////
   //var_dump($entry);
+  $entry = GFAPI::get_entry($application_id);
+
+          if ( $entry['169'] == 'us' ) {
+    
+            if ($trans_recd == true && $test_recd == true) {
+              $entry['239'] = 'True';
+              $updateit = GFAPI::update_entry($entry);
+              //exit;
+            }
+          
+          
+            if ($trans_recd != true || $test_recd != true) {
+                $entry['239'] = 'False';
+                $updateit = GFAPI::update_entry($entry);
+              }
+          }
+
+
+
+          if ( $entry['169'] == 'intl' ) {
+  
+
+            if ($trans_recd == true && $test_recd == true && $paspt_recd == true) {
+              $entry['239'] = 'True';
+              $updateit = GFAPI::update_entry($entry);
+              //exit;
+            }
+          
+          
+          if ($trans_recd != true || $test_recd != true || $paspt_recd != true) {
+              $entry['239'] = 'False';
+              $updateit = GFAPI::update_entry($entry);
+            }
+        }
+        
+  //Check to see if required documents are Received
+      
+  $review_status_html .= '<h4>Required Docs Recieved?</h4>';
+
+   $review_status_html .= '<div class="alert">' . $entry['239'] . '</div>';
   $review_status_html .= '<h4>Section Complete?</h4>
     <li><input type="radio" name="docs_approval_status" value="completed"';
 
@@ -362,9 +413,10 @@ public function rise_document_status($entry, $form, $output_type)
       }
   }
 
-
-  public function bu_program_essays_list() {
-
+ 
+  public function bu_program_essays_list($entry) {
+    /*$gf_entry_locking = new GFEntryLocking();
+    $gf_entry_locking->lock_info( $_GET['application_id'] );*/
     $search_criteria = array(
       'field_filters' => array(
         'mode' => 'any',
@@ -379,9 +431,10 @@ public function rise_document_status($entry, $form, $output_type)
 
       )
   );
-
+//var_dump($entry);
   $total_count     = 0;
   $entries         = GFAPI::get_entries( 63, $search_criteria, /*$sorting, $paging,*/ $total_count );
+ // var_dump($entries);
 // $total_count now contains the total number of entries matching the search criteria. This is useful for displaying pagination controls.
   maybe_load_gf_entry_detail_class();
   foreach ($entries as $entry) {
@@ -392,7 +445,104 @@ var_dump($form['fields']);
 die();*/
 /*var_dump($form['fields']);
 die();*/
-    echo '<form>';
+    //echo '<form>';
+    echo '<div class="wrap gf_entry_wrap">';
+echo '<h2 class="gf_admin_page_title">
+          <span id="gform_settings_page_title" class="gform_settings_page_title gform_settings_page_title_editable">RISE Application</span>
+          
+          <span class="gf_admin_page_subtitle">
+            <span class="gf_admin_page_formid">ID: 63</span>
+          </span>
+
+                  </h2>';
+//echo GFForms::top_toolbar();
+
+      RGForms::top_toolbar();
+      ?>
+      <div id="poststuff">
+          <?php wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false ); ?>
+          <?php wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false ); ?>
+
+
+          <div id="post-body" class="metabox-holder columns-2">
+            <div id="post-body-content">
+              <?php
+              /**
+               * Fires before the entry detail content is displayed
+               *
+               * @param array $form The Form object
+               * @param array $lead The Entry object
+               */
+              do_action( 'gform_entry_detail_content_before', $form, $lead );
+              
+              /**
+               * Fires when entry details are displayed
+               *
+               * @param array $form The Form object
+               * @param array $lead The Entry object
+               */
+              do_action( 'gform_entry_detail', $form, $lead );
+              ?>
+            </div>
+
+            <div id="postbox-container-1" class="postbox-container">
+
+              <?php
+              /**
+               * Fires before the entry detail sidebar is generated
+               *
+               * @param array $form The Form object
+               * @param array $lead The Entry object
+               */
+              do_action( 'gform_entry_detail_sidebar_before', $form, $lead );
+              ?>
+              <?php
+              do_meta_boxes( $screen->id, 'side', array( 'form' => $form, 'entry' => $lead, 'mode' => $mode ) ); ?>
+
+              <?php
+              /**
+               * Inserts information into the middle of the entry detail sidebar
+               *
+               * @param array $form The Form object
+               * @param array $lead The Entry object
+               */
+              do_action( 'gform_entry_detail_sidebar_middle', $form, $lead );
+              ?>
+
+              <!-- begin print button -->
+              <div class="detail-view-print">
+                <a href="javascript:;" onclick="var notes_qs = jQuery('#gform_print_notes').is(':checked') ? '&notes=1' : ''; var url='<?php echo trailingslashit( site_url() ) ?>?gf_page=print-entry&fid=<?php echo absint( $form['id'] ) ?>&lid=<?php echo absint( $lead['id'] ); ?>' + notes_qs; window.open (url,'printwindow');" class="button"><?php esc_html_e( 'Print', 'gravityforms' ) ?></a>
+                <?php if ( GFCommon::current_user_can_any( 'gravityforms_view_entry_notes' ) ) { ?>
+                  <input type="checkbox" name="print_notes" value="print_notes" checked="checked" id="gform_print_notes" />
+                  <label for="print_notes"><?php esc_html_e( 'include notes', 'gravityforms' ) ?></label>
+                <?php } ?>
+              </div>
+              <!-- end print button -->
+              <?php
+              /**
+               * Fires after the entry detail sidebar information.
+               *
+               * @param array $form The Form object
+               * @param array $lead The Entry object
+               */
+              do_action( 'gform_entry_detail_sidebar_after', $form, $lead );
+              ?>
+            </div>
+
+            <div id="postbox-container-2" class="postbox-container">
+              <?php do_meta_boxes( $screen->id, 'normal', array( 'form' => $form, 'entry' => $lead, 'mode' => $mode ) ); ?>
+              <?php
+              /**
+               * Fires after the entry detail content is displayed
+               *
+               * @param array $form The Form object
+               * @param array $lead The Entry object
+               */
+              do_action( 'gform_entry_detail_content_after', $form, $lead );
+              ?>
+            </div>
+          
+          <?php echo '';
     echo '<H3>' . $form['fields']['65']->label . '</H3>';
     echo '<H4>' . $form['fields']['66']->label . '</H4>';
       echo '<p>' . $entry['92'];
@@ -401,6 +551,13 @@ die();*/
       echo '<H4>' . $form['fields']['68']->label . '</H4>';
       echo '<p>' . $entry['94'];
       echo '</form>';
+      ?>
+      </div>
+        </div>
+
+
+<?php 
+//echo '<div class="clear"></div>';
 
   }
 
@@ -436,3 +593,4 @@ die();*/
   }
   
 }
+
