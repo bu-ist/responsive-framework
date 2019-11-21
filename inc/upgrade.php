@@ -115,13 +115,12 @@ function responsive_upgrade_091( $verbose = true ) {
 		)
 	);
 
-	$template_query = sprintf(
-		'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
-		$wpdb->postmeta,
-		implode( '","', array_keys( $template_map ) )
+	$results = $wpdb->get_results(
+		$wpdb->prepare(
+			'SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = "_wp_page_template" AND meta_value IN (%s)',
+			implode( "','", array_keys( $template_map ) )
+		)
 	);
-
-	$results = $wpdb->get_results( $template_query );
 
 	if ( $verbose ) {
 		error_log( __FUNCTION__ . ' - Posts to migrate: ' . count( $results ) );
@@ -211,12 +210,12 @@ function responsive_upgrade_2_0( $verbose = true ) {
 		)
 	);
 
-	$template_query = sprintf(
-		'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
-		$wpdb->postmeta,
-		implode( '","', array_keys( $template_map ) )
+	$results = $wpdb->get_results(
+		$wpdb->prepare(
+			'SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = "_wp_page_template" AND meta_value IN (%s)',
+			implode( "','", array_keys( $template_map ) )
+		)
 	);
-	$results        = $wpdb->get_results( $template_query );
 
 	if ( $verbose ) {
 		error_log( __FUNCTION__ . ' - Posts to migrate: ' . count( $results ) );
