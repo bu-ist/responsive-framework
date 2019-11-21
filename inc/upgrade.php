@@ -145,12 +145,7 @@ function responsive_upgrade_091( $verbose = true ) {
 		)
 	);
 
-	$banner_query = sprintf(
-		'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
-		$wpdb->postmeta
-	);
-
-	$results = $wpdb->get_results( $banner_query );
+	$results = $wpdb->get_results( 'SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = "_bu_banner"' );
 
 	foreach ( $results as $result ) {
 		$banner = maybe_unserialize( $result->meta_value );
@@ -271,12 +266,7 @@ function responsive_upgrade_banner( $verbose ) {
 		)
 	);
 
-	$results = $wpdb->get_results(
-		$wpdb->prepare(
-			"SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'",
-			$wpdb->postmeta
-		)
-	);
+	$results = $wpdb->get_results( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'" );
 
 	foreach ( $results as $result ) {
 		$banner = maybe_unserialize( $result->meta_value );
