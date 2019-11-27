@@ -3,6 +3,8 @@
 ## Unreleased
 
 - Removes duplicate call to burf-base, which is a dependency of burf-theme.
+- Adds PHPCS configuration file.
+- Updates and prepares SQL queries per PHPCS.
 
 ## 2.3.61
 
