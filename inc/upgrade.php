@@ -210,10 +210,12 @@ function responsive_upgrade_2_0( $verbose = true ) {
 		)
 	);
 
+	$template_map_keys = array_keys( $template_map );
+
 	$results = $wpdb->get_results(
 		$wpdb->prepare(
-			'SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = "_wp_page_template" AND meta_value IN (%s)',
-			implode( "','", array_keys( $template_map ) )
+			"SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_wp_page_template' AND meta_value IN (" . substr( str_repeat( ',%s', count( $template_map_keys ) ), 1 ) . ")", // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$template_map_keys
 		)
 	);
 
