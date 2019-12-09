@@ -18,3 +18,14 @@ function archive_pre_get_posts( $query ) {
 	}
 }
 add_action( 'pre_get_posts', __NAMESPACE__ . '\archive_pre_get_posts' );
+
+/**
+ * Adds a filter bar to glossary archives.
+ * Filter bars should always be near terms, so priority is set low.
+ */
+function after_opening_article() {
+	if ( is_post_type_archive( 'glossary' ) ) {
+		get_template_part( 'template-parts/filter-bar', 'glossary' );
+	}
+}
+add_action( 'r_after_opening_article', __NAMESPACE__ . '\after_opening_article', 99 );
