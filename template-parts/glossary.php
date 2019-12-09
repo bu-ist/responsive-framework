@@ -1,8 +1,8 @@
 <?php
 /**
- * Default content template partial.
+ * Glossary content template partial.
  *
- * Used to render post content for archives.
+ * Used to render glossary terms content for archives.
  *
  * @package Responsive_Framework
  */
