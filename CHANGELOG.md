@@ -2,7 +2,9 @@
 
 ## Unreleased
 
-- Removes duplicate call to burf-base, which is a dependency of burf-theme.
+- Remove duplicate call to burf-base, which is a dependency of burf-theme.
+- Add default customizations to glossary plugin for documentation and themes.
+- Remove the "Archives: " prefix from custom post type archives.
 
 ## 2.3.61
 
