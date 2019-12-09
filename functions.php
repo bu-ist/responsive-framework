@@ -795,6 +795,11 @@ require __DIR__ . '/inc/customizer.php';
 require __DIR__ . '/inc/extras.php';
 
 /**
+ * Glossary modifications.
+ */
+require __DIR__ . '/inc/glossary.php';
+
+/**
  * Plugin support - BU Post Lists.
  *
  * @link http://bifrost.bu.edu/svn/repos/wordpress/plugins/bu-post-lists
