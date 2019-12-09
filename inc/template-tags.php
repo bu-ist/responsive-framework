@@ -145,8 +145,11 @@ if ( ! function_exists( 'responsive_get_the_title' ) ) {
 			} elseif ( is_tax() || is_category() || is_tag() ) {
 				$title = single_term_title( '', false );
 				// All other archives (custom post-types, date-based).
-			} else {
+			} elseif ( is_post_type_archive() ) {
 				$title = post_type_archive_title( '', false );
+				// Custom taxonomies, categories, and tags.
+			} else {
+				$title = get_the_archive_title();
 			}
 			// Singular profile.
 		elseif ( is_singular( 'profile' ) && function_exists( 'bu_profile_detail' ) ) :
