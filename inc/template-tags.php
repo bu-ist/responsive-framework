@@ -146,7 +146,7 @@ if ( ! function_exists( 'responsive_get_the_title' ) ) {
 				$title = single_term_title( '', false );
 				// All other archives (custom post-types, date-based).
 			} else {
-				$title = get_the_archive_title();
+				$title = post_type_archive_title( '', false );
 			}
 			// Singular profile.
 		elseif ( is_singular( 'profile' ) && function_exists( 'bu_profile_detail' ) ) :
