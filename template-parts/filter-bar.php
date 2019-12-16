@@ -11,16 +11,9 @@
 
 <nav id="filter" class="filter-bar">
 	<?php
-
-	wp_list_categories( array(
-			'taxonomy' => 'glossary-cat'
-	) );
-
 		$glossary_terms = get_categories( array(
 			'taxonomy' => 'glossary-cat'
 		) );
-
-		//var_dump($glossary_terms);
 	?>
 
 	<div class="content-container filter-bar-content">
@@ -33,18 +26,26 @@
 
 		<form id="js-filter-menu" class="filter-form">
 			<div id="js-filter-dropdown" class="filter-dropdown filter-closed">
-
 				<?php if ( $glossary_terms ) : ?>
-				<fieldset id="js-filter-cuisine" class="filter-cuisine">
-					<legend class="filter-title filter-cuisine-title"><?php esc_html_e( 'Filter', 'responsive-framework' ); ?></legend>
-					<div class="column-wrap">
-						<?php foreach ( $glossary_terms as $term ) : ?>
-							<label class="filter-label filter-checkbox"><input type="checkbox" name="cuisine" value="<?php echo esc_attr( $term->slug ); ?>" /><?php echo esc_html( $term->name ); ?></label>
-						<?php endforeach; ?>
-					</div>
-				</fieldset>
-				<?php endif; ?>
+					<legend>
+						<?php echo esc_html( get_taxonomy( 'glossary-cat' )->label ); ?>
+					</legend>
+					<?php foreach ( $glossary_terms as $parent_item ) : ?>
+						<?php if ( 0 === $parent_item->parent ) : ?>
+							<div id="js-filter-<?php echo esc_attr( $parent_item->slug ); ?>" class="filter-<?php echo esc_attr( $parent_item->slug ); ?>">
+								<label class="filter-title filter-<?php echo esc_attr( $parent_item->slug ); ?>-title"><input type="checkbox" name="<?php echo esc_attr( $parent_item->slug ); ?>" value="<?php echo esc_attr( $parent_item->slug ); ?>" /><?php echo esc_html( $parent_item->name ); ?></label>
 
+								<ul>
+									<?php foreach ( $glossary_terms as $child_item ) : ?>
+										<?php if ( $child_item->parent === $parent_item->term_id ) : ?>
+											<li><label class="filter-label filter-checkbox"><input type="checkbox" name="<?php echo esc_attr( $child_item->slug ); ?>" value="<?php echo esc_attr( $child_item->slug ); ?>" /><?php echo esc_html( $child_item->name ); ?></label></li>
+										<?php endif; ?>
+									<?php endforeach; ?>
+								</ul>
+							</div>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				<?php endif; ?>
 			</div>
 
 		</form>
