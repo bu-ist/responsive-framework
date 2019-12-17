@@ -1,4 +1,8 @@
-( function( $ ) {
+var responsive = responsive || {};
+
+responsive.filtering = responsive.filtering || {};
+
+responsive.filtering = ( function( $ ) {
 
 	/**
 	 * Filtering object.
@@ -6,7 +10,7 @@
 	 * Responsible for handling the filtering of custom posts based on
 	 * user selection.
 	 */
-	var filtering = {
+	return {
 		/**
 		 * Initializes the object. Defines properties and executes runtime logic.
 		 */
@@ -44,18 +48,20 @@
 		 * Defines UI state and other critical properties.
 		 */
 		defineProperties: function() {
-			// Initializes a new ListJS instance and stores it for quick access.
-			this.resultsList = new List( 'main', this.getOptions() );
-
 			// Keeps track of the current filter values (may be checkbox or radio)
-			// and initialize with our ListJS filter values.
+			// and initializes with our ListJS filter values.
 			this.currentFilters = {};
 
+			// This is probably not quite right, because this object will have both
+			// filters and search. We only want filters. How do we identify these dynamically?
 			var listJSFilters = this.getOptions().valueNames;
 
 			for ( var i = listJSFilters.length - 1; i >= 0; i-- ) {
 				this.currentFilters[listJSFilters[i]] = [];
 			}
+
+			// Initializes a new ListJS instance and stores it for quick access.
+			this.resultsList = new List( 'main', this.getOptions() );
 		},
 
 		attachEvents: function () {
@@ -88,7 +94,7 @@
 		}
 	};
 
-	// Kick off the program finder object and run initial logic.
-	filtering.init();
-
 }( jQuery ) );
+
+// Kick off the program finder object and run initial logic.
+responsive.filtering.init();
