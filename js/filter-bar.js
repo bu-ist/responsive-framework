@@ -4,6 +4,40 @@ responsive.filtering = responsive.filtering || {};
 
 responsive.filtering = ( function( $ ) {
 
+	var test = "potoo",
+		 settings = {
+			userInterface: {
+				search: {
+					selector: '.js-search'
+				},
+				filters: [
+					{
+						selector: '.js-radio',
+						type: 'radio'
+					},
+					{
+						selector: '.js-checkbox',
+						type: 'checkbox'
+					},
+					{
+						selector: '.js-checkbox-group',
+						type: 'checkbox-group'
+					},
+					{
+						selector: '.js-dropdown',
+						type: 'dropdown'
+					}
+				],
+			},
+			contentTargets: [
+				'js-searchby-title',
+				'js-searchby-content',
+				'js-searchby-category'
+			]
+		};
+
+	console.log(potoo);
+
 	/**
 	 * Filtering object.
 	 *
@@ -14,8 +48,15 @@ responsive.filtering = ( function( $ ) {
 		/**
 		 * Initializes the object. Defines properties and executes runtime logic.
 		 */
-		init: function() {
+		 console.log(potoo);
+		init: function( themeSettings ) {
 			var ths = this;
+			//self = responsive.filtering;
+
+			if ( 'undefined' !== themeSettings ) {
+				settings = themeSettings;
+			}
+
 			// Defines all object properties (DOM selectors, UI state, etc).
 			this.setup();
 		},
@@ -73,7 +114,7 @@ responsive.filtering = ( function( $ ) {
 		 * Retrieves ListJS options for creating a ListJS instance.
 		 */
 		getOptions: function () {
-			return {
+			this.listJSSettings = {
 				valueNames: [
 					'js-searchby-title',
 					'js-searchby-content',
@@ -82,6 +123,8 @@ responsive.filtering = ( function( $ ) {
 				searchClass: 'js-search',
 				listClass: 'js-list'
 			};
+
+			return this.listJSSettings;
 		},
 
 		/**
@@ -95,6 +138,3 @@ responsive.filtering = ( function( $ ) {
 	};
 
 }( jQuery ) );
-
-// Kick off the program finder object and run initial logic.
-responsive.filtering.init();

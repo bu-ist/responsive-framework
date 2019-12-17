@@ -55,3 +55,10 @@ wp_enqueue_script( 'filter-bar' );
 		</form>
 	</div>
 </nav>
+
+<script type="text/javascript">
+	window.addEventListener( 'load', function() {
+		// Kick off the filtering object and run initial logic.
+		responsive.filtering.init();
+	} );
+</script>
