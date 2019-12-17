@@ -6,12 +6,11 @@
  *
  * @package Responsive_Framework
  */
-
 ?>
 
 <article role="article" id="post-<?php the_ID(); ?>" <?php post_class( 'post-part bu_collapsible_container' ); ?>>
 
-	<h2 class="post-headline bu_collapsible">
+	<h2 class="post-headline bu_collapsible js-searchby-title">
 		<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 	</h2>
 	<div class="bu_collapsible_section">
@@ -22,7 +21,7 @@
 		?>
 
 		<?php if ( $glossary_terms && ! is_wp_error( $glossary_terms ) ) : ?>
-			<p class="glossary-terms">Categorized:
+			<p class="glossary-terms js-searchby-category">Categorized:
 				<?php
 					foreach ( $glossary_terms as $term ){
 						echo( '<a href="' . get_term_link( $term ) . '" class="glossary-term-tag">' . $term->name . '</a>' );
@@ -31,7 +30,9 @@
 			</p>
 		<?php endif; ?>
 
-		<?php the_content(); ?>
+		<div class="js-searchby-content">
+			<?php the_content(); ?>
+		</div>
 	</div>
 
 	<?php edit_post_link( __( 'Edit Post', 'responsive-framework' ), '<span class="edit-link">', '</span><span class="post-edit-hint"></span>' ); ?>

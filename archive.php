@@ -32,9 +32,11 @@ do_action( 'r_before_opening_article' );
 
 		<?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
 
-		<?php while ( have_posts() ) : the_post(); ?>
-			<?php r_get_template_part( get_post_type(), 'archive' ); ?>
-		<?php endwhile; ?>
+		<div class="js-list">
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php r_get_template_part( get_post_type(), 'archive' ); ?>
+			<?php endwhile; ?>
+		</div>
 
 		<?php responsive_posts_navigation(); ?>
 
