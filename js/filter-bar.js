@@ -4,39 +4,49 @@ responsive.filtering = responsive.filtering || {};
 
 responsive.filtering = ( function( $ ) {
 
-	var test = "potoo",
-		 settings = {
-			userInterface: {
-				search: {
-					selector: '.js-search'
-				},
-				filters: [
-					{
-						selector: '.js-radio',
-						type: 'radio'
-					},
-					{
-						selector: '.js-checkbox',
-						type: 'checkbox'
-					},
-					{
-						selector: '.js-checkbox-group',
-						type: 'checkbox-group'
-					},
-					{
-						selector: '.js-dropdown',
-						type: 'dropdown'
-					}
-				],
-			},
-			contentTargets: [
-				'js-searchby-title',
-				'js-searchby-content',
-				'js-searchby-category'
-			]
-		};
+	/**
+	 * Settings for filtering.
+	 *
+	 * Handles setting up basic search and filtering through List.js.
+	 * Controls whether or not search will be used on page, what filters
+	 * will be used, and what content will be considered for either search
+	 * or filtering through List.js.
+	 *
+	 * You may also interact with the List.js setup object directly, if you like.
+	 *
+	 * Acceptable filter types: radio, checkbox, checkbox-group, dropdown.
+	 */
 
-	console.log(potoo);
+	var settings = {
+		userInterface: {
+			search: {
+				class: 'js-search'
+			},
+			filters: [
+				{
+					class: 'js-radio',
+					type: 'radio'
+				},
+				{
+					class: 'js-checkbox',
+					type: 'checkbox'
+				},
+				{
+					class: 'js-checkbox-group',
+					type: 'checkbox-group'
+				},
+				{
+					class: 'js-dropdown',
+					type: 'dropdown'
+				}
+			],
+		},
+		contentTargets: [
+			'js-searchby-title',
+			'js-searchby-content',
+			'js-searchby-category'
+		]
+	};
 
 	/**
 	 * Filtering object.
@@ -48,12 +58,11 @@ responsive.filtering = ( function( $ ) {
 		/**
 		 * Initializes the object. Defines properties and executes runtime logic.
 		 */
-		 console.log(potoo);
+
 		init: function( themeSettings ) {
 			var ths = this;
-			//self = responsive.filtering;
 
-			if ( 'undefined' !== themeSettings ) {
+			if ( undefined !== themeSettings ) {
 				settings = themeSettings;
 			}
 
@@ -78,7 +87,7 @@ responsive.filtering = ( function( $ ) {
 		 */
 		defineSelectors: function() {
 			// Defines the search text input.
-			this.$searchInput = $( '.js-search' );
+			this.$searchInput = $( '.' + settings.userInterface.search.class );
 			// Stores the wrapper containing all filter inputs, for quick access.
 			this.$filtersWrapper = $( '#js-filter-wrapper' );
 			// Stores all the filter inputs (checkboxes and radio inputs).
@@ -90,16 +99,14 @@ responsive.filtering = ( function( $ ) {
 		 */
 		defineProperties: function() {
 			// Keeps track of the current filter values (may be checkbox or radio)
-			// and initializes with our ListJS filter values.
+			// and initializes with our filter names from the settings object.
 			this.currentFilters = {};
 
-			// This is probably not quite right, because this object will have both
-			// filters and search. We only want filters. How do we identify these dynamically?
-			var listJSFilters = this.getOptions().valueNames;
-
-			for ( var i = listJSFilters.length - 1; i >= 0; i-- ) {
-				this.currentFilters[listJSFilters[i]] = [];
+			for ( var i = settings.userInterface.filters.length - 1; i >= 0; i-- ) {
+				this.currentFilters[settings.userInterface.filters[i].class] = [];
 			}
+
+			console.log(this.currentFilters);
 
 			// Initializes a new ListJS instance and stores it for quick access.
 			this.resultsList = new List( 'main', this.getOptions() );
@@ -115,12 +122,8 @@ responsive.filtering = ( function( $ ) {
 		 */
 		getOptions: function () {
 			this.listJSSettings = {
-				valueNames: [
-					'js-searchby-title',
-					'js-searchby-content',
-					'js-searchby-category'
-				],
-				searchClass: 'js-search',
+				valueNames: settings.contentTargets,
+				searchClass: settings.userInterface.search.class,
 				listClass: 'js-list'
 			};
 
