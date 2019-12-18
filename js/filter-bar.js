@@ -60,7 +60,6 @@ responsive.filtering = ( function( $ ) {
 		 */
 
 		init: function( themeSettings ) {
-			var ths = this;
 
 			if ( undefined !== themeSettings ) {
 				settings = themeSettings;
@@ -105,8 +104,6 @@ responsive.filtering = ( function( $ ) {
 			for ( var i = settings.userInterface.filters.length - 1; i >= 0; i-- ) {
 				this.currentFilters[settings.userInterface.filters[i].class] = [];
 			}
-
-			console.log(this.currentFilters);
 
 			// Initializes a new ListJS instance and stores it for quick access.
 			this.resultsList = new List( 'main', this.getOptions() );
