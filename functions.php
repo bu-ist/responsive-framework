@@ -559,7 +559,7 @@ function r_is_narrow_template() {
  * @since 2.3.61
  *
  * @param string|array $class One or more classes to add to the class list.
- * @param boolean $attribute Output classes with 'class' attribute.
+ * @param boolean      $attribute Output classes with 'class' attribute.
  */
 function responsive_html_class( $class = '', $attribute = true ) {
 	$classes = array();
