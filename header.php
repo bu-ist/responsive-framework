@@ -7,11 +7,11 @@
 
 ?>
 <!DOCTYPE html>
-<!--[if lt IE 7]>     <html class="no-js ie lt-ie9 lt-ie8 lt-ie7"  lang="en"> <![endif]-->
-<!--[if IE 7]>        <html class="no-js ie lt-ie9 lt-ie8"  lang="en"> <![endif]-->
-<!--[if IE 8]>        <html class="no-js ie lt-ie9"  lang="en"> <![endif]-->
-<!--[if IE 9]>        <html class="no-js ie ie9"  lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js"  lang="en"><!--<![endif]-->
+<!--[if lt IE 7]>     <html <?php responsive_html_class( 'no-js ie lt-ie9 lt-ie8 lt-ie7' ); ?>  lang="en"> <![endif]-->
+<!--[if IE 7]>        <html <?php responsive_html_class( 'no-js ie lt-ie9 lt-ie8' ); ?>  lang="en"> <![endif]-->
+<!--[if IE 8]>        <html <?php responsive_html_class( 'no-js ie lt-ie9' ); ?>  lang="en"> <![endif]-->
+<!--[if IE 9]>        <html <?php responsive_html_class( 'no-js ie ie9' ); ?>  lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html <?php responsive_html_class( 'no-js' ); ?>  lang="en"><!--<![endif]-->
 <head>
 	<title><?php responsive_get_title(); ?></title>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
