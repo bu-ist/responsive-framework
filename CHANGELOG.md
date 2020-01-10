@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Removes duplicate call to burf-base, which is a dependency of burf-theme.
+- Add responsive_html_class() for use on the `<html>` tag for class name output/filtering.
 
 ## 2.3.61
 
