@@ -559,7 +559,7 @@ function r_is_narrow_template() {
  * @since 2.3.61
  *
  * @param string|array $class One or more classes to add to the class list.
- * @param boolean $tag Output classes with 'class' attribute
+ * @param boolean $attribute Output classes with 'class' attribute.
  */
 function responsive_html_class( $class = '', $attribute = true ) {
 	$classes = array();
@@ -581,7 +581,7 @@ function responsive_html_class( $class = '', $attribute = true ) {
 		return;
 	}
 
-	if ( $attribute === true ) {
+	if ( true === $attribute ) {
 		// Separates classes with a single space, collates classes for the HTML element.
 		echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
 	} else {
