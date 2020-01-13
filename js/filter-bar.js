@@ -105,13 +105,17 @@ responsive.filtering = ( function( $ ) {
 				this.currentFilters[settings.userInterface.filters[i].class] = [];
 			}
 
+			console.log(this.currentFilters);
+
 			// Initializes a new ListJS instance and stores it for quick access.
 			this.resultsList = new List( 'main', this.getOptions() );
 		},
 
 		attachEvents: function () {
+			this.handleFilterChange = this.handleFilterChange.bind( this );
 			this.updateResults = this.updateResults.bind( this );
 			this.$searchInput.on( 'input', this.updateResults );
+			this.$filters.on( 'change', this.handleFilterChange );
 		},
 
 		/**
@@ -134,6 +138,56 @@ responsive.filtering = ( function( $ ) {
 		updateResults: function () {
 			var searchVal = this.$searchInput.val();
 			this.resultsList.search( searchVal );
+		},
+
+		/**
+		 * Handles the filtering of items, updates the URL and UI.
+		 */
+		doFilter: function() {
+			var ths = this;
+			// Run the List JS filter method on all listitems.
+			ths.finderList.filter( function(item) {
+				// Do filtering logic on this item in the list.
+				return ths.filterItem( item );
+			} );
+		},
+
+		/**
+		 * Handles checkbox/radio button change events.
+		 *
+		 * @param {object} event The change event for an input.
+		 */
+		handleFilterChange: function( event ) {
+			var $clicked = $( event.target ),
+			    filterValue = $clicked.parent().text(),
+			    filterName = $clicked.attr( 'name' ),
+				 filterValAtt = $clicked.attr( 'value' ),
+			    filterKey = 'js-filterby-' + filterName,
+				 filterGroup = this.currentFilters[ filterKey ];
+
+			// If the target (radio/checkbox) is checked and is not set to 'all', continue.
+			if ( $clicked.is( ':checked' ) && 'all' !== filterValAtt ) {
+				// Only continues if this filter group is set and has a value.
+				if ( typeof ( filterGroup ) === 'undefined' || ( ! filterGroup.indexOf( filterValue ) ) >= 0 ) {
+					// If the input is a checkbox, continue.
+					if ( $clicked.prop( 'type' ) === 'checkbox' ) {
+						// Add the current filter if it's not already there.
+						filterGroup.push( filterValAtt );
+					} else {
+						this.currentFilters[ filterKey ] = [];
+						this.currentFilters[ filterKey ].push( filterValAtt );
+					}
+				}
+			} else {
+				// Remove the current filter from its group.
+				filterGroup.splice( $.inArray( filterValAtt, filterGroup ), 1 );
+			}
+
+			// Do ListJS filtering.
+			this.doFilter();
+
+			// Trigger a UI refresh (updates the URL, count, highlighted terms).
+			this.updateInterface();
 		}
 	};
 
