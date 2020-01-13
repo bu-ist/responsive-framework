@@ -554,6 +554,44 @@ function r_is_narrow_template() {
 }
 
 /**
+ * Displays the classes for the HTML tag.
+ *
+ * @since 2.3.61
+ *
+ * @param string|array $class One or more classes to add to the class list.
+ * @param boolean      $attribute Output classes with 'class' attribute.
+ */
+function responsive_html_class( $class = '', $attribute = true ) {
+	$classes = array();
+
+	$class   = r_prepare_passed_classes( $class );
+	$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
+
+	/**
+	 * Filters the list of CSS classes for the HTML tag.
+	 *
+	 * @since 2.3.61
+	 *
+	 * @param array $classes HTML element classes.
+	 * @param array $class   Additional classes added to the HTML element.
+	 */
+	$classes = apply_filters( 'r_html_class', $classes, $class );
+
+	if ( empty( $classes ) ) {
+		return;
+	}
+
+	if ( true === $attribute ) {
+		// Separates classes with a single space, collates classes for the HTML element.
+		echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
+	} else {
+		// Separates classes with a single space, collates classes for the HTML element
+		// without the class attribute name.
+		echo join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . ' ';
+	}
+}
+
+/**
  * Displays the classes for the inner content container.
  *
  * @since 2.0.0
