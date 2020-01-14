@@ -43,7 +43,7 @@ module.exports = function( grunt ) {
 				},
 			},
 			fonts: {
-				files: [ 'css-dev/customizer/font-palettes/*.scss' ],
+				files: [ 'css-dev/customizer/font-palettes/**/*.scss' ],
 				tasks: [ 'sass:fonts' ],
 				options: {
 					spawn: false,

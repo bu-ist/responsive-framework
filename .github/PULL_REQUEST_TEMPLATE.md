@@ -16,6 +16,8 @@ Fixes #{issue-number}.
 
 ### Review checklist
 
+- [ ] I have tested my changes in my sandbox on Responsive Framework and at least one child theme.
+- [ ] I have tested any new filters or action hooks I have introduced in a child theme to ensure they work correctly.
 - [ ] I've reviewed the [contribution guidelines](https://github.com/bu-ist/coding-standards/blob/develop/CONTRIBUTING.md).
 - [ ] I've updated `CHANGELOG.MD` with a brief explanation of the changes in this pull request in the unreleased section.
 - [ ] My code follows [BU Coding Standards](https://github.com/bu-ist/coding-standards).
