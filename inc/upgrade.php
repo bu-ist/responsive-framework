@@ -115,10 +115,14 @@ function responsive_upgrade_091( $verbose = true ) {
 		)
 	);
 
+	// Extract array keys for reuse when generating the query.
+	$template_map_keys = array_keys( $template_map );
+
+	// Prepare the query by adding a %s placeholder for each key of the passed array.
 	$results = $wpdb->get_results(
 		$wpdb->prepare(
-			'SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = "_wp_page_template" AND meta_value IN (%s)',
-			implode( "','", array_keys( $template_map ) )
+			"SELECT post_id, meta_value FROM {$wpdb->postmeta} WHERE meta_key = '_wp_page_template' AND meta_value IN (" . substr( str_repeat( ',%s', count( $template_map_keys ) ), 1 ) . ")", // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			esc_sql( $template_map_keys )
 		)
 	);
 
