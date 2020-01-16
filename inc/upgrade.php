@@ -148,7 +148,7 @@ function responsive_upgrade_091( $verbose = true ) {
 		)
 	);
 
-	$results = $wpdb->get_results( 'SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = "_bu_banner"' );
+	$results = $wpdb->get_results( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'" );
 
 	foreach ( $results as $result ) {
 		$banner = maybe_unserialize( $result->meta_value );
