@@ -24,7 +24,6 @@ if ( is_registered_sidebar( 'sidebar' ) && is_active_sidebar( 'sidebar' ) ) :
 		?>
 		<h2 class="u-visually-hidden">
 		<?php
-			/* translators: %s: Title for the current post. */
 			esc_html_e( 'Related to ' . get_the_title( get_queried_object_id() ), 'responsive-framework' )
 		?>
 		</h2>
