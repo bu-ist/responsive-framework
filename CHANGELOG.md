@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.8
+
+- Adds a check for registered sidebars.
+
 ## 2.3.7
 
 - Removes duplicate call to burf-base, which is a dependency of burf-theme.
