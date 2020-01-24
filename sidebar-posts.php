@@ -5,7 +5,7 @@
  * @package Responsive_Framework
  */
 
-if ( is_active_sidebar( 'posts' ) ) :
+if ( is_registered_sidebar( 'posts' ) && is_active_sidebar( 'posts' ) ) :
 
 	/**
 	 * Fires immediately before the opening posts sidebar container element.
