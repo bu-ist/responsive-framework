@@ -24,7 +24,8 @@ if ( is_registered_sidebar( 'sidebar' ) && is_active_sidebar( 'sidebar' ) ) :
 		?>
 		<h2 class="u-visually-hidden">
 		<?php
-			esc_html_e( 'Related to ' . get_the_title( get_queried_object_id() ), 'responsive-framework' )
+			$_the_title = 'Related to ' . get_the_title( get_queried_object_id() );
+			esc_html_e( $_the_title, 'responsive-framework' );
 		?>
 		</h2>
 
