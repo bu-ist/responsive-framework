@@ -24,8 +24,8 @@ if ( is_registered_sidebar( 'sidebar' ) && is_active_sidebar( 'sidebar' ) ) :
 		?>
 		<h2 class="u-visually-hidden">
 		<?php
-			$_the_title = 'Related to ' . get_the_title( get_queried_object_id() );
-			esc_html_e( $_the_title, 'responsive-framework' );
+			/* translators: %s: Title for the current post. */
+			printf( esc_html__( 'Related to %s', 'responsive-framework' ), get_the_title( get_queried_object_id() ), 'responsive-framework' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		?>
 		</h2>
 
