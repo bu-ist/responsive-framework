@@ -5,7 +5,7 @@
  * @package Responsive_Framework
  */
 
-if ( is_active_sidebar( 'sidebar' ) ) :
+if ( is_registered_sidebar( 'sidebar' ) && is_active_sidebar( 'sidebar' ) ) :
 	/**
 	 * Fires immediately before the opening default sidebar container element.
 	 *
@@ -25,7 +25,7 @@ if ( is_active_sidebar( 'sidebar' ) ) :
 		<h2 class="u-visually-hidden">
 		<?php
 			/* translators: %s: Title for the current post. */
-			printf( esc_html__( 'Related to %s', 'responsive-framework' ), get_the_title( get_queried_object_id() ) );
+			printf( esc_html__( 'Related to %s', 'responsive-framework' ), esc_html__( get_the_title( get_queried_object_id() ) ) );
 		?>
 		</h2>
 
