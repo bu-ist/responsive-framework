@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.9
+
+- If BU Banners is present, and it is an archive page, set the title to hidden.  The banner will take care of the title.
+
 ## 2.3.8
 
 - Adds a check for registered sidebars.
