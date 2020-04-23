@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Security and dependency updates, including:
+- `grunt-modernizr`
+
 ## 2.3.9
 
 - If BU Banners is present, and it is an archive page, set the title to hidden.  The banner will take care of the title.
