@@ -4,6 +4,10 @@
 
 - Security and dependency updates, including:
 - `grunt-modernizr`
+- `lightgallery`
+- `autoprefixer`
+- `time-grunt`
+- `grunt-version`
 
 ## 2.3.9
 
