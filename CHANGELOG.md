@@ -3,11 +3,17 @@
 ## Unreleased
 
 - Security and dependency updates, including:
-- `grunt-modernizr`
-- `lightgallery`
-- `autoprefixer`
-- `time-grunt`
-- `grunt-version`
+  - `grunt-modernizr`
+  - `lightgallery`
+  - `autoprefixer`
+  - `time-grunt`
+  - `grunt-version`
+  - `eslint`
+  - `grunt-contrib-uglify`
+  - `@babel/core`
+  - `@babel/preset-env`
+  - `@wordpress/eslint-plugin`
+  - `@wordpress/babel-preset-default`
 
 ## 2.3.9
 
