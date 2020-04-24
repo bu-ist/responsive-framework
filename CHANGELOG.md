@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.3.10
+
 - Security and dependency updates, including:
   - `grunt-modernizr`
   - `lightgallery`
