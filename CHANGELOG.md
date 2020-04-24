@@ -14,6 +14,7 @@
   - `@babel/preset-env`
   - `@wordpress/eslint-plugin`
   - `@wordpress/babel-preset-default`
+- Removes `grunt-phplint` as it is no longer being actively maintained
 
 ## 2.3.9
 
