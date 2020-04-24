@@ -1,5 +1,23 @@
 # Changelog
 
+## Unreleased
+
+## 2.3.10
+
+- Security and dependency updates, including:
+  - `grunt-modernizr`
+  - `lightgallery`
+  - `autoprefixer`
+  - `time-grunt`
+  - `grunt-version`
+  - `eslint`
+  - `grunt-contrib-uglify`
+  - `@babel/core`
+  - `@babel/preset-env`
+  - `@wordpress/eslint-plugin`
+  - `@wordpress/babel-preset-default`
+- Removes `grunt-phplint` as it is no longer being actively maintained
+
 ## 2.3.9
 
 - If BU Banners is present, and it is an archive page, set the title to hidden.  The banner will take care of the title.
