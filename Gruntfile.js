@@ -64,14 +64,7 @@ module.exports = function( grunt ) {
 				options: {
 					spawn: false,
 				},
-			},
-			phplint: {
-				files: [ '**/*.php' ],
-				tasks: [ 'phplint' ],
-				options: {
-					spawn: false,
-				},
-			},
+			}
 		},
 		browserify: {
 			options: {
@@ -299,17 +292,6 @@ module.exports = function( grunt ) {
 				dest: 'js/vendor/lightgallery/',
 			},
 		},
-		phplint: {
-			options: {
-				phpArgs: {
-					'-l': null,
-					'-f': null,
-				},
-			},
-			all: {
-				src: [ '**/**.php', '!vendor/**', '!node_modules/**' ],
-			},
-		},
 		modernizr: {
 			dist: {
 				parseFiles: false,
@@ -387,7 +369,6 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-version' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
-	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-modernizr' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
@@ -405,6 +386,6 @@ module.exports = function( grunt ) {
 		'uglify',
 		'version:modernizr',
 	] );
-	grunt.registerTask( 'build', [ 'styles', 'phplint', 'scripts', 'i18n' ] );
+	grunt.registerTask( 'build', [ 'styles', 'scripts', 'i18n' ] );
 	grunt.registerTask( 'default', [ 'watch' ] );
 };
