@@ -61,7 +61,8 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 			return;
 		}
 
-		if ( is_archive() ) {
+		$disable_archive = apply_filters( 'responsive_disable_archive_banner', false );
+		if ( is_archive() && ! $disable_archive ) {
 			add_filter( 'responsive_the_title_is_hidden', '__return_true' );
 			return;
 		}

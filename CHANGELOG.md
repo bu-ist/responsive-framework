@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 2.3.10.1
+
+- Added a filter to override the archive banner.
+
 ## 2.3.10
 
 - Security and dependency updates, including:
