@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-## 2.3.10.1
+## 2.3.11
 
 - Added a filter to override the archive banner.
 
