@@ -64,6 +64,9 @@
     "grunt-version": "^2.0.0",
     "grunt-wp-i18n": "^1.0.2",
     "node-sass": "^4.14.0",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-wordpress": "^16.0.0",
     "time-grunt": "^2.0.0"
   },
   "scripts": {
@@ -73,6 +76,7 @@
     "browserify-shim": "^3.8.14",
     "lg-thumbnail": "^1.1.0",
     "lightgallery": "^1.6.14",
-    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#3.2.3"
+    "responsive-foundation": "git+ssh://git@github.com:bu-ist/responsive-foundation#3.2.3",
+    "stylelint-config-sass-guidelines": "^7.0.0"
   }
 }
