@@ -12,7 +12,7 @@ exclude_patterns:
 
 prepare:
   fetch:
-    - url: "https://github.com/bu-ist/coding-standards/blob/feature/stylelint-support/code-climate-rule-sets/.stylelintrc.json"
+    - url: "https://raw.githubusercontent.com/bu-ist/coding-standards/blob/feature/stylelint-support/code-climate-rule-sets/.stylelintrc.json"
       path: ".stylelintrc.json"
     - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintrc"
     - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintignore"
@@ -51,6 +51,8 @@ engines:
       rulesets: codesize,naming,unusedcode
   stylelint:
     enabled: true
+    config:
+      file_extensions: scss
 ratings:
   paths:
     - "**.md"
