@@ -15,7 +15,7 @@ exclude_patterns:
 
 prepare:
   fetch:
-    - url: "https://raw.githubusercontent.com/bu-ist/coding-standards/feature/stylelint-support/code-climate-rule-sets/.stylelintrc.json"
+    - url: "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.stylelintrc.json"
       path: ".stylelintrc.json"
     - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintrc"
     - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintignore"
