@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Removes sasslint in favor of stylelint due to security warnings.
+
 ## 2.3.11
 
 - Added a filter to override the archive banner.

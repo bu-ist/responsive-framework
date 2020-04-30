@@ -172,10 +172,6 @@ module.exports = function( grunt ) {
 				],
 			},
 		},
-		sasslint: {
-			target: 'css-dev/**/*.scss',
-			// see .sasslintrc for options.
-		},
 		postcss: {
 			defaults: {
 				options: {
@@ -364,7 +360,6 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-postcss' );
 	grunt.loadNpmTasks( 'grunt-sass' );
-	grunt.loadNpmTasks( 'grunt-sass-lint' );
 	grunt.loadNpmTasks( 'grunt-notify' );
 	grunt.loadNpmTasks( 'grunt-version' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
