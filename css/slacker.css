@@ -6,8 +6,8 @@
   .single .content-area .meta,
   .single-event-schedule,
   .single-profile .profile-info {
-    background: #F5F8FF;
-    border-color: #DFDFEA;
+    background: #f5f8ff;
+    border-color: #dfdfea;
   }
   .widget-calendar-picker thead,
   .widget-calendar-picker th,
@@ -37,13 +37,13 @@
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
-    background: #24243A;
+    background: #24243a;
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a,
   .l-mega-nav .primary-nav-menu li {
-    color: #FFF;
+    color: #fff;
     border-color: #454558;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active, .primary-nav-menu a.active_section,
@@ -59,13 +59,13 @@
   .l-mega-nav .primary-nav-menu li:focus,
   .l-mega-nav .primary-nav-menu li.active,
   .l-mega-nav .primary-nav-menu li.active_section {
-    color: #ECB438;
+    color: #ecb438;
   }
   .nav-toggle span,
   .search-toggle::before,
   .nav-toggle span::before,
   .nav-toggle span::after {
-    color: #FFF;
+    color: #fff;
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
@@ -77,17 +77,17 @@
     color: #d3d3d8;
   }
   .l-mega-nav .search-field {
-    border-color: #FFF;
+    border-color: #fff;
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background-color: #6CD5B5;
+    background-color: #6cd5b5;
     color: #1b352d;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    background-color: #6CD5B5;
+    background-color: #6cd5b5;
     color: #1b352d;
   }
 }
@@ -132,7 +132,7 @@
   .button-selected,
   .paging-navigation a,
   .archive-link {
-    background-color: #6CD5B5;
+    background-color: #6cd5b5;
     color: #1b352d;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
@@ -149,17 +149,17 @@
     color: #1b352d;
   }
   blockquote {
-    border-color: #ECB438;
+    border-color: #ecb438;
   }
   blockquote::before {
-    color: #ECB438;
+    color: #ecb438;
   }
   table thead {
-    background: #ECB438;
+    background: #ecb438;
     color: #000;
   }
   table th {
-    border-color: #ECB438;
+    border-color: #ecb438;
   }
 }
 
@@ -196,7 +196,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #ECB438;
+    color: #ecb438;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -209,15 +209,15 @@
   .widget_nav_menu li.current_page_item > a:focus,
   .month td a:hover,
   .month td a:focus {
-    color: #FFF;
+    color: #fff;
   }
   .widget-title,
   .widget-title a {
-    color: #FFF;
+    color: #fff;
   }
   .widget a.button,
   .widget a.button-primary {
-    background: #6CD5B5;
+    background: #6cd5b5;
     color: #1b352d;
   }
   .widget a.button:hover, .widget a.button:focus,
@@ -230,16 +230,16 @@
     border: 0;
   }
   .profile-single-details a {
-    color: #ECB438;
+    color: #ecb438;
   }
   .profile-single-details a:hover, .profile-single-details a:focus {
-    color: #FFF;
+    color: #fff;
   }
   .profile-details-item {
     color: #c4c4ca;
   }
   .profile-details-label {
-    color: #FFF;
+    color: #fff;
   }
 }
 
@@ -247,16 +247,16 @@
   .footbar,
   .footbar-container,
   .banner-container-window-width {
-    background: #1A1A22;
+    background: #1a1a22;
   }
   .footbar {
-    border-color: #1A1A22;
+    border-color: #1a1a22;
   }
   .footbar a,
   .footbar .widget a,
   .footbar #contentnav li a,
   .footbar .widget_nav_menu li a {
-    color: #6CD5B5;
+    color: #6cd5b5;
   }
   .footbar a:hover, .footbar a:focus,
   .footbar .widget a:hover,
@@ -265,11 +265,11 @@
   .footbar #contentnav li a:focus,
   .footbar .widget_nav_menu li a:hover,
   .footbar .widget_nav_menu li a:focus {
-    color: #FFF;
+    color: #fff;
   }
   .footbar .widget a.button,
   .footbar .widget a.button-primary {
-    background: #6CD5B5;
+    background: #6cd5b5;
     color: #1b352d;
   }
   .footbar .widget a.button:hover, .footbar .widget a.button:focus,
@@ -286,7 +286,7 @@
   .footbar h4,
   .footbar h5,
   .footbar h6 {
-    color: #FFF;
+    color: #fff;
   }
   .footbar .widget-title,
   .footbar #contentnav ul,
