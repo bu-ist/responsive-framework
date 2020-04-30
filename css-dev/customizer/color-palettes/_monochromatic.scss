@@ -5,18 +5,18 @@
 $_adjust-base:                        $color-grayscale-f;
 
 $current-palette:                     map-get( $color-palettes, $palette-id );
-$use-background-colors:               map-get( $current-palette, 'use-background-colors' );
+$use-background-colors:               map-get( $current-palette, "use-background-colors" );
 $border-adjust-amt:                   15% !default;
 
 // =================================================================
 // Palette Colors
 // =================================================================
 
-$color-primary:                       map-get( $current-palette, 'color-primary' );
-$color-secondary:                     map-get( $current-palette, 'color-secondary' );
+$color-primary:                       map-get( $current-palette, "color-primary" );
+$color-secondary:                     map-get( $current-palette, "color-secondary" );
 $color-secondary-dark:                mix( $color-grayscale-0, $color-secondary, 50% );
-$color-tertiary:                      map-get( $current-palette, 'color-tertiary' );
-$color-dark:                          map-get( $current-palette, 'color-dark' );
+$color-tertiary:                      map-get( $current-palette, "color-tertiary" );
+$color-dark:                          map-get( $current-palette, "color-dark" );
 
 // =================================================================
 // Content Colors

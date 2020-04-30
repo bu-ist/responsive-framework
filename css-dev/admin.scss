@@ -45,7 +45,7 @@ $color-grayscale-0: #000;
 
 		&::before {
 			box-sizing: border-box;
-			content: '';
+			content: "";
 			display: block;
 			height: 100%;
 			left: 0;
@@ -56,7 +56,7 @@ $color-grayscale-0: #000;
 
 		// For everyone
 		&::after {
-			background: url( 'layouts-ui.png' ) no-repeat 0 0 transparent;
+			background: url( "layouts-ui.png" ) no-repeat 0 0 transparent;
 			content: "";
 			display: block;
 			height: 47px;
@@ -100,12 +100,17 @@ $color-grayscale-0: #000;
 
 // Customizer: Fonts Import
 
-@import 'customizer/font-palettes/fonts/benton';
-@import 'customizer/font-palettes/fonts/capita-bold';
-@import 'customizer/font-palettes/fonts/capita';
-@import 'customizer/font-palettes/fonts/pressura';
-@import 'customizer/font-palettes/fonts/tiempos';
-@import 'customizer/font-palettes/palettes';
+@import "customizer/font-palettes/fonts/benton";
+
+@import "customizer/font-palettes/fonts/capita-bold";
+
+@import "customizer/font-palettes/fonts/capita";
+
+@import "customizer/font-palettes/fonts/pressura";
+
+@import "customizer/font-palettes/fonts/tiempos";
+
+@import "customizer/font-palettes/palettes";
 
 // Customizer: Fonts
 #burf_setting_fonts {
@@ -140,22 +145,22 @@ $color-grayscale-0: #000;
 
 @each $palette, $map in $font-palettes {
 	.#{$palette}-font-title {
-		font-family: map-get( $map, 'heading' ), map-get( $map, 'heading-fallback' );
-		text-transform: map-get( $map, 'heading-case' );
+		font-family: map-get( $map, "heading" ), map-get( $map, "heading-fallback" );
+		text-transform: map-get( $map, "heading-case" );
 
-		@if map-get( $map, 'heading-weight' ) {
-			font-weight: map-get( $map, 'heading-weight' );
+		@if map-get( $map, "heading-weight" ) {
+			font-weight: map-get( $map, "heading-weight" );
 		} @else {
 			font-weight: 700;
 		}
 	}
 
 	.#{$palette}-font-body {
-		font-family: map-get( $map, 'body' ), map-get( $map, 'body-fallback' );
-		text-transform: map-get( $map, 'body-case' );
+		font-family: map-get( $map, "body" ), map-get( $map, "body-fallback" );
+		text-transform: map-get( $map, "body-case" );
 
-		@if map-get( $map, 'body-weight' ) {
-			font-weight: map-get( $map, 'body-weight' );
+		@if map-get( $map, "body-weight" ) {
+			font-weight: map-get( $map, "body-weight" );
 		} @else {
 			font-weight: 400;
 		}
@@ -183,7 +188,7 @@ $color-grayscale-0: #000;
 			transform 0.3s ease;
 
 		&::before {
-			content: '';
+			content: "";
 			display: block;
 			height: 50px;
 			margin-bottom: 5px;
@@ -228,20 +233,20 @@ $color-grayscale-0: #000;
 	}
 }
 
-@import 'customizer/color-palettes/palettes';
+@import "customizer/color-palettes/palettes";
 
 @each $palette, $map in $color-palettes {
-	$color-primary: map-get( $map, 'color-primary' );
-	$color-secondary: map-get( $map, 'color-secondary' );
-	$color-tertiary: map-get( $map, 'color-tertiary' );
-	$color-dark: map-get( $map, 'color-dark' );
+	$color-primary: map-get( $map, "color-primary" );
+	$color-secondary: map-get( $map, "color-secondary" );
+	$color-tertiary: map-get( $map, "color-tertiary" );
+	$color-dark: map-get( $map, "color-dark" );
 
 	label[for="burf_setting_colors_#{$palette}"]::before {
 		background: $color-primary; // Old browsers
 		background: -moz-linear-gradient( top, $color-primary 25%, $color-secondary 25%, $color-secondary 50%, $color-tertiary 50%, $color-tertiary 75%, $color-dark 75% ); // FF3.6-15
 		background: -webkit-linear-gradient( top, $color-primary 25%, $color-secondary 25%, $color-secondary 50%, $color-tertiary 50%, $color-tertiary 75%, $color-dark 75% ); // Chrome10-25,Safari5.1-6
 		background: linear-gradient( to right, $color-primary 25%, $color-secondary 25%, $color-secondary 50%, $color-tertiary 50%, $color-tertiary 75%, $color-dark 75% ); // W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-primary', endColorstr='$color-tertiary',GradientType=0 ); // IE6-9
+		filter: progid:DXImageTransform.Microsoft.gradient( startcolorstr="$color-primary", endcolorstr="$color-tertiary", gradienttype=0 ); // IE6-9
 	}
 }
 

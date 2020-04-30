@@ -1,9 +1,9 @@
-$palette-id: 'f2';
+$palette-id: "f2";
 
-@import 'fonts/benton';
-@import 'fonts/capita-bold';
-@import 'palettes';
-@import 'fonts/shared';
+@import "fonts/benton";
+@import "fonts/capita-bold";
+@import "palettes";
+@import "fonts/shared";
 
 .primary-nav-menu li a {
 	font-size: 17px;
@@ -18,7 +18,7 @@ blockquote {
 	border-left: 0.125em solid;
 	padding: 5px 15px;
 
-	>p:last-of-type {
+	> p:last-of-type {
 		margin-bottom: 0; // Provides bottom padding for last paragraph of blockquote to fill out gray box.
 	}
 }

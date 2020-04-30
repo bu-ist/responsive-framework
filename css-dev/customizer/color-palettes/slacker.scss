@@ -1,13 +1,12 @@
-$palette-id: 'slacker';
+$palette-id: "slacker";
 
-@import 'styles-base';
+@import "styles-base";
 
 $content-body: #000;
-$sidebar-link: #ECB438;
+$sidebar-link: #ecb438;
 
-@import 'triad';
-
-@import 'styles-navigation';
-@import 'styles-content';
-@import 'styles-sidebar';
-@import 'styles-footer';
+@import "triad";
+@import "styles-navigation";
+@import "styles-content";
+@import "styles-sidebar";
+@import "styles-footer";
