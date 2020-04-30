@@ -12,7 +12,7 @@ exclude_paths:
 
 prepare:
   fetch:
-    - url: "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.scss-lint-r-2.x.yml"
+    - url: "https://github.com/bu-ist/coding-standards/blob/feature/stylelint-support/code-climate-rule-sets/.stylelintrc.json"
       path: ".scss-lint.yml"
     - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintrc"
     - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintignore"
@@ -49,7 +49,7 @@ engines:
     config:
       file_extensions: php
       rulesets: codesize,naming,unusedcode
-  sass-lint:
+  stylelint:
     enabled: true
 ratings:
   paths:
