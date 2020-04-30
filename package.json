@@ -70,7 +70,9 @@
   "scripts": {
     "postinstall": "grunt install",
     "styles:lint": "stylelint \"**/*.scss\" --cache || echo \"\"",
-    "styles:fix": "stylelint \"**/*.scss\" --cache --fix || echo \"Fixed style errors where possible. Errors which could not be resolved automatically are listed above. Please review changes carefully in Tower or your git management tool of choice before committing, as errors can occur, especially in Sass maps.\""
+    "styles:fix": "stylelint \"**/*.scss\" --cache --fix --s || echo \"\" && npm run styles:fix:success --s && npm run styles:fix:warn --s",
+      "styles:fix:success": "echo \"\\033[32mSuccess! Fixed style errors where possible.\\x1b[0m\"",
+      "styles:fix:warn": "echo \"\\033[33m\nErrors which could not be resolved automatically are listed above. Please review changes carefully in Tower or your git management tool of choice before committing, as errors can occur, especially in Sass maps.\n\\x1b[0m\""
   },
   "dependencies": {
     "browserify-shim": "^3.8.14",
