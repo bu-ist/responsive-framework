@@ -1,10 +1,10 @@
 $color-palettes: (
 	default: (
 		use-background-colors: false,
-		color-primary: #000000, // background.
+		color-primary: #000, // background.
 		color-secondary: #0f69d7,
 		color-tertiary: #448de7,
-		color-dark: #000000,
+		color-dark: #000,
 	),
 	slacker: (
 		use-background-colors: true,
@@ -18,14 +18,14 @@ $color-palettes: (
 		color-primary: #c2185b, // background.
 		color-secondary: #e82a75,
 		color-tertiary: #ffb0cf, //4fc3a0
-		color-dark: #222222,
+		color-dark: #222,
 	),
 	rayleigh-scattering: (
 		use-background-colors: true,
 		color-primary: #15b6ff, // background.
 		color-secondary: #fa5707,
 		color-tertiary: #fe9c6d,
-		color-dark: #222222,
+		color-dark: #222,
 	),
 	vinca-minor: (
 		use-background-colors: false,
@@ -46,7 +46,7 @@ $color-palettes: (
 		color-primary: #303437, // background.
 		color-secondary: #498500,
 		color-tertiary: #48b4f4,
-		color-dark: #222222,
+		color-dark: #222,
 	),
 );
 
