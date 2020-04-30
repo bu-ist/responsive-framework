@@ -1,19 +1,19 @@
 ---
-exclude_paths:
+exclude_patterns:
   - node_modules/
   - languages/
   - vendor/
   - js/vendor/
   - ".sass-cache/"
-  - "*.min.css"
   - "*.min.js"
-  - "**.css"
+  - "css/"
+  - "**/*.css"
   - "js/script.js"
 
 prepare:
   fetch:
     - url: "https://github.com/bu-ist/coding-standards/blob/feature/stylelint-support/code-climate-rule-sets/.stylelintrc.json"
-      path: ".scss-lint.yml"
+      path: ".stylelintrc.json"
     - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintrc"
     - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintignore"
     - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.mdlrc"
