@@ -1,14 +1,17 @@
 ---
 exclude_patterns:
-  - node_modules/
-  - languages/
-  - vendor/
-  - js/vendor/
+  - "node_modules/"
+  - "languages/"
+  - "vendor/"
+  - "js/vendor/"
   - ".sass-cache/"
   - "*.min.js"
   - "css/"
   - "**/*.css"
   - "js/script.js"
+  - "**/*.map"
+  - "images/"
+  - ".github/"
 
 prepare:
   fetch:
@@ -60,5 +63,4 @@ ratings:
     - "**.js"
     - "**.json"
     - "**.php"
-    - "**.css"
     - "**.scss"
