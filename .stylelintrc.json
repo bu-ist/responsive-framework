@@ -4,7 +4,7 @@
 		"at-rule-empty-line-before": [
 			"always",
 			{
-				"ignoreAtRules": ["each", "else", "import"]
+				"ignoreAtRules": ["if", "each", "else", "import"]
 			}
 		],
 		"font-family-name-quotes": "always-unless-keyword",
