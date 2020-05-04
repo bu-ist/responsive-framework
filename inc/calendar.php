@@ -56,7 +56,7 @@ function responsive_calendar_get_event( $calendar_id = false, $event_id = false,
 function responsive_calendar_sidebar( $args = array() ) {
 	global $buCalendar;
 
-	$topics    = responsive_calendar_get_topics();
+	$topics    = apply_filters( 'responsive_calendar_sidebar_topics', responsive_calendar_get_topics() );
 	$timestamp = responsive_calendar_get_timestamp();
 	$yyyymmdd  = responsive_calendar_get_yyyymmdd();
 
