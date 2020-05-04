@@ -1,11 +1,11 @@
-$palette-id: 'f4';
+$palette-id: "f4";
 
 $font-body-accent: "TiemposText", serif;
 
-@import 'fonts/benton';
-@import 'fonts/tiempos';
-@import 'palettes';
-@import 'fonts/shared';
+@import "fonts/benton";
+@import "fonts/tiempos";
+@import "palettes";
+@import "fonts/shared";
 
 #q {
 	font-family: $font-body-accent;
@@ -46,7 +46,7 @@ blockquote {
 		// quote color will be set by inc/customizer.php if colors customized
 	}
 
-	>p:last-of-type {
+	> p:last-of-type {
 		margin-bottom: 0; // equalizes top and bottom space between bquote and horizontal lines
 	}
 }

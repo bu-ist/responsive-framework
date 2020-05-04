@@ -25,6 +25,11 @@ These instructions assume that you have installed Node and Node Package Manager.
 
 Be sure to commit changes to the generated output files (`style.css`, `js/script.js`, etc.) along with changes to source files!
 
+## Additional Supported Commands
+
+- `npm run styles:lint`: Runs stylelint on all SCSS files to detect style errors.
+- `npm run styles:fix`: Automatically fix stylelint errors on all SCSS files.
+
 ## Composer Dependencies
 
 The Customizer color and font palettes generate inline styles that are minified using [CSSTidy](https://github.com/Cerdic/CSSTidy) (the same tool used by BU Custom CSS). CSSTidy is installed into the `/vendor/` directory as a dependency using [Composer](https://getcomposer.org).

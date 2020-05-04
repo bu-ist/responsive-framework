@@ -341,7 +341,12 @@ if ( ! function_exists( 'responsive_calendar_get_calendar_id' ) ) {
 	 * @return int $calendar_id Set from URL parameter if exists, else a site option.
 	 */
 	function responsive_calendar_get_calendar_id() {
-		return array_key_exists( 'cid', $_GET ) ? intval( $_GET['cid'] ) : get_option( 'bu_calendar_id' );
+		$cid = filter_input( INPUT_GET, 'cid', FILTER_VALIDATE_INT );
+		if ( false === $cid ) {
+			$cid = get_option( 'bu_calendar_id' );
+		}
+
+		return apply_filters( 'responsive_calendar_get_calendar_id', $cid );
 	}
 }
 

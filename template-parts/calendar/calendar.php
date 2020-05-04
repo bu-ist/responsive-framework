@@ -46,12 +46,12 @@ if ( ! $calendar_id ) {
 	$start_date = strtotime( '00:00', $timestamp );
 	$start_date = date( 'Y-m-d', $start_date );
 
-	$months_to_show = 2;  // additional months to show.
+	$months_to_show = apply_filters( 'responsive_calendar_months_to_show', 2 );  // additional months to show.
 
 	$days = ( intval( date( 't', $timestamp ) ) - intval( date( 'j', $timestamp ) ) ); // days left in current month.
 
 	$cur_mo = intval( date( 'n', $timestamp ) );
-	for ( $mo = 1; $mo <= $months_to_show; $mo++ ) {
+	for ( $mo = 1; $mo <= $months_to_show; $mo ++ ) {
 		$days = $days + intval( date( 't', mktime( 0, 0, 0, date( 'n', $timestamp ) + $mo, 1 ) ) ); // let the month overflow for month&year.
 	}
 

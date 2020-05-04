@@ -1,14 +1,13 @@
-$palette-id: 'rayleigh-scattering';
+$palette-id: "rayleigh-scattering";
 
-@import 'styles-base';
+@import "styles-base";
 
-$sidebar-bg: #E1F0F5;
+$sidebar-bg: #e1f0f5;
 //$mega-toggle-bg: #15b6ff;
 //$nav-bg: #00405d;
 
-@import 'complimentary';
-
-@import 'styles-navigation';
-@import 'styles-content';
-@import 'styles-sidebar';
-@import 'styles-footer';
+@import "complimentary";
+@import "styles-navigation";
+@import "styles-content";
+@import "styles-sidebar";
+@import "styles-footer";
