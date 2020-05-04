@@ -2,7 +2,10 @@
 
 ## Unreleased
 
+## 2.3.12
 - Removes sasslint in favor of stylelint due to security warnings.
+- Adds a filter to BU Calendar to override the calendar id.
+- Adds a filter to BU Calendar to override the default months to show.
 
 ## 2.3.11
 
