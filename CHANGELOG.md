@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 2.3.13
+
+**Hotfix** Fixed an issue where the calendar id was not being returned properly.
+
 ## 2.3.12
 - Removes sasslint in favor of stylelint due to security warnings.
 - Adds a filter to BU Calendar to override the calendar id.
