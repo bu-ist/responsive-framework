@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 2.3.14
+
+Adds additional actions for the mega menu.
+
 ## 2.3.13
 
 **Hotfix** Fixed an issue where the calendar id was not being returned properly.
