@@ -18,13 +18,13 @@ Fixes #{issue-number}.
 
 Clone these sites to your sandbox, and review them briefly. Does everything work as expected?
 
-- [ ] **Kitchen Sink Site** http://id-demos.cms-devl.bu.edu/kitchensink/
-- [ ] **BU Landing Pages** http://id-demos.cms-devl.bu.edu/bu-landing-pages/
-- [ ] **BU Banners** http://id-demos.cms-devl.bu.edu/bu-banners/
-- [ ] **Faculty Model Site (color palettes)** http://sites.bu.edu/facultymodel/
-- [ ] **BU Bands (light custom CSS)** http://www.bu.edu/bands/
-- [ ] **Data Sciences (complex custom CSS)** https://www.bu.edu/cds-faculty/
-- [ ] **Provost Advising (child theme)** https://www.bu.edu/advising/
+- [ ] **Kitchen Sink Site** http://10up-responsi.cms-devl.bu.edu/kitchensink/
+- [ ] **BU Landing Pages** http://10up-responsi.cms-devl.bu.edu/bu-landing-pages/
+- [ ] **BU Banners** http://10up-responsi.cms-devl.bu.edu/bu-banners/
+- [ ] **Faculty Model Site (color palettes)** http://10up-responsi.cms-devl.bu.edu/facultymodel/
+- [ ] **BU Bands (light custom CSS)** http://10up-responsi.cms-devl.bu.edu/bands/
+- [ ] **Data Sciences (complex custom CSS)** http://10up-responsi.cms-devl.bu.edu/cds-faculty/
+- [ ] **Provost Advising (child theme)** http://10up-responsi.cms-devl.bu.edu/advising/
 
 ### Review checklist
 
