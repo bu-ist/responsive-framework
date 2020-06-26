@@ -18,22 +18,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta http-equiv="ClearType" content="true" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-	<?php if ( function_exists( 'bu_meta' ) ) : ?>
-		<?php bu_meta(); ?>
-	<?php else : ?>
-		<meta name="description" content="<?php esc_attr_e( 'Boston University is a leading private research institution with two primary campuses in the heart of Boston and programs around the world.', 'responsive-framework' ); ?>" />
-	<?php endif; ?>
-
-	<?php if ( responsive_is_bu_domain() ) : ?>
-		<meta name="copyright" content="&copy; <?php echo esc_attr( date( 'Y' ) ); ?> Boston University" />
-	<?php else : ?>
-		<link rel="shortcut icon" href="<?php bloginfo( 'template_directory' ); ?>/icons/favicon-g.ico" />
-	<?php endif; ?>
-
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-	<link rel="apple-touch-icon" href="<?php bloginfo( 'template_directory' ); ?>/icons/apple-touch-icon-precomposed.png"/>
 
 	<?php wp_head(); ?>
 </head>
