@@ -171,16 +171,6 @@ if ( ! function_exists( 'responsive_get_the_title' ) ) {
 }
 
 /**
- * Whether or not the current network is a bu.edu domain.
- *
- * @return bool true if the blog is a BU domain, false if it is not or returns
- *              an error.
- */
-function responsive_is_bu_domain() {
-	return (bool) preg_match( '#\bbu\.edu\b#', network_home_url() );
-}
-
-/**
  * Whether or not comments are open for this site.
  *
  * If the BU Comments plugin is not active, this will always return true.
