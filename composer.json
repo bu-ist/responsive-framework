@@ -1,5 +1,12 @@
 {
-    "require": {
-        "cerdic/css-tidy": "^1.5.2"
-    }
+  "require": {
+    "cerdic/css-tidy": "1.5.3"
+  },
+  "require-dev": {
+    "10up/phpcs-composer": "dev-master"
+  },
+  "scripts": {
+    "lint": "phpcs *.php admin inc page-templates template-parts",
+    "lint-fix": "phpcbf ."
+  }
 }
