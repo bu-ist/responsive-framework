@@ -950,17 +950,20 @@ function responsive_is_archive_type( $type ) {
  * Whether or not the current theme supports alternate footbar registration.
  */
 function responsive_theme_supports_dynamic_footbars() {
-	// Check for theme constant.
-	if ( defined( 'BU_SUPPORTS_DYNAMIC_FOOTBARS' ) ) {
-		return BU_SUPPORTS_DYNAMIC_FOOTBARS;
-		// Check for site option.
-	} else {
-		$sidebar_options = get_option( 'burf_setting_sidebar_options', array() );
-		if ( ! is_array( $sidebar_options ) ) {
-			$sidebar_options = explode( ',', $sidebar_options );
-		}
-		return ( in_array( 'dynamic_footbars', $sidebar_options ) );
+	// Check for site option.
+	$sidebar_options = get_option( 'burf_setting_sidebar_options', array() );
+	if ( ! is_array( $sidebar_options ) ) {
+		$sidebar_options = explode( ',', $sidebar_options );
 	}
+	$supports_footbar = in_array( 'dynamic_footbars', $sidebar_options );
+
+	/**
+	 * @param bool  $supports_footbar whether it supports or not supports dynamic footbars.
+	 * @param array $sidebar_options  sidebar options
+	 *
+	 * @since 3.0
+	 */
+	return apply_filters( 'responsive_theme_supports_dynamic_footbars', $supports_footbar, $sidebar_options );
 }
 
 /**
