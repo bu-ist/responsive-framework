@@ -148,16 +148,6 @@ if ( ! function_exists( 'responsive_get_the_title' ) ) {
 			} else {
 				$title = get_the_archive_title();
 			}
-			// Singular profile.
-		elseif ( is_singular( 'profile' ) && function_exists( 'bu_profile_detail' ) ) :
-			// @see bu-profiles plugin: bu-profiles/bu-profile-template-tags.php.
-			$first_name = bu_profile_detail( 'first_name', array( 'echo' => false ) );
-			$last_name  = bu_profile_detail( 'last_name', array( 'echo' => false ) );
-			if ( ! empty( $first_name ) && ! empty( $last_name ) ) {
-				$title = $first_name . ' ' . $last_name;
-			} else {
-				$title = get_the_title();
-			}
 		else :
 			// Default: A single post/page.
 			$title = get_the_title();
