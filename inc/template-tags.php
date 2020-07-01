@@ -166,10 +166,10 @@ if ( ! function_exists( 'responsive_get_the_title' ) ) {
  * If the BU Comments plugin is not active, this will always return true.
  */
 function responsive_has_comment_support() {
-	if ( function_exists( 'bu_supports_comments' ) ) {
-		return bu_supports_comments();
-	}
-	return true;
+	/**
+	 * @since 3.0
+	 */
+	return apply_filters( 'responsive_has_comment_support', true );
 }
 
 /**
