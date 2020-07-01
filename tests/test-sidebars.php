@@ -37,6 +37,7 @@ class Tests_Responsive_Framework_Sidebars extends WP_UnitTestCase {
 	function test_sidebars_requiring_constants() {
 		define( 'BU_SUPPORTS_DYNAMIC_FOOTBARS', true );
 		define( 'BU_PROFILES_PLUGIN_ACTIVE', true );
+		add_filter( 'responsive_theme_supports_dynamic_footbars', '__return_true' );
 
 		responsive_sidebars();
 
