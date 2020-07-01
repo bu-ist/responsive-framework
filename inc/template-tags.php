@@ -865,35 +865,6 @@ function responsive_posts_archive_link( $args = array() ) {
 }
 
 /**
- * Display a profiles archive link.
- *
- * A thin wrapper around the BU Profiles-provided `bu_profile_archive_link` function.
- *
- * @param array $args {
- *     Optional. Arguments to configure link markup.
- *
- *     @type  string $label The link label.
- *     @type  string $class The class attribute for the anchor tag.
- *     @type  bool   $echo If true, print link. Otherwise return it.
- * }
- * @return string The profiles archive anchor tag.
- */
-function responsive_profiles_archive_link( $args = array() ) {
-	$defaults = array(
-		'before' => '<p class="archive-link-container">',
-		'after'  => '</p>',
-		'class'  => 'archive-link profiles-archive-link',
-		'echo'   => true,
-	);
-
-	$args = wp_parse_args( $args, $defaults );
-
-	if ( function_exists( 'bu_profile_archive_link' ) ) {
-		return bu_profile_archive_link( $args );
-	}
-}
-
-/**
  * Returns the number of widgets contained in the given sidebar.
  *
  * @param  string $sidebar_id  The sidebar to check.

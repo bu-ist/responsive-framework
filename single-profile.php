@@ -139,7 +139,14 @@ get_header();
 
 			<?php the_taxonomies( array( 'before' => '<div class="profile-tax"><dl>', 'sep' => '', 'after' => '</dl></div><!--/.profiles-tax-->', 'template' => '<dt>%s</dt><dd>%l</dd>' ) ); ?>
 
-			<?php responsive_profiles_archive_link(); ?>
+			<?php
+			/**
+			 * Fires before outputting comments
+			 *
+			 * @since 3.0
+			 */
+			do_action( 'r_before_single_profile_comments' );
+			?>
 
 			<?php responsive_comments(); ?>
 
