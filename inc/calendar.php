@@ -612,7 +612,7 @@ function responsive_calendar_event_field_labels() {
 		'feeBUStudent'        => __( 'Fee (BU Students)', 'responsive-framework' ) . ':',
 		'feeSenior'           => __( 'Fee (Seniors)', 'responsive-framework' ) . ':',
 		'deadline'            => __( 'Deadline', 'responsive-framework' ) . ':',
-		'url'                 => __( 'Registration', 'responsive-framework' ) . ':',
+		'url'                 => __( 'Link', 'responsive-framework' ) . ':',
 		'contactOrganization' => __( 'Contact Organization', 'responsive-framework' ) . ':',
 		'contact_name'        => __( 'Contact Name', 'responsive-framework' ) . ':',
 		'contact_email'       => __( 'Contact Email', 'responsive-framework' ) . ':',
