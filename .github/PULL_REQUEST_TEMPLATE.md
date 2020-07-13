@@ -14,6 +14,18 @@ Fixes #{issue-number}.
 
 -
 
+### Test sites
+
+Clone these sites to your sandbox, and review them briefly. Does everything work as expected?
+
+- [ ] **Kitchen Sink Site** http://10up-responsi.cms-devl.bu.edu/kitchensink/
+- [ ] **BU Landing Pages** http://10up-responsi.cms-devl.bu.edu/bu-landing-pages/
+- [ ] **BU Banners** http://10up-responsi.cms-devl.bu.edu/bu-banners/
+- [ ] **Faculty Model Site (color palettes)** http://10up-responsi.cms-devl.bu.edu/facultymodel/
+- [ ] **BU Bands (light custom CSS)** http://10up-responsi.cms-devl.bu.edu/bands/
+- [ ] **Data Sciences (complex custom CSS)** http://10up-responsi.cms-devl.bu.edu/cds-faculty/
+- [ ] **Provost Advising (child theme)** http://10up-responsi.cms-devl.bu.edu/advising/
+
 ### Review checklist
 
 - [ ] I have tested my changes in my sandbox on Responsive Framework and at least one child theme.

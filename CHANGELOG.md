@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+## 2.3.15
+Fix for the url label in the calendar, from "Registration" to "Link"
+
 ## 2.3.14
 
 Adds additional actions for the mega menu.
