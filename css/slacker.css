@@ -197,7 +197,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #ecb438;
+    color: #ECB438;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -231,7 +231,7 @@
     border: 0;
   }
   .profile-single-details a {
-    color: #ecb438;
+    color: #ECB438;
   }
   .profile-single-details a:hover, .profile-single-details a:focus {
     color: #fff;
@@ -307,24 +307,24 @@
 @media screen {
   .bulp-intro-title,
   .bulp-largepromo-title {
-    color: #1A1A22;
+    color: #1a1a22;
   }
   .bu-banner-button {
-    background-color: #24243A;
+    background-color: #24243a;
   }
   .bulp-promo::before,
   .bulp-article::before {
-    background-color: #24243A;
+    background-color: #24243a;
   }
   .bulp-promo-button {
-    background-color: #ECB438;
+    background-color: #ecb438;
     color: #4d4d4d;
   }
   .bulp-promo-button:hover {
     color: #4d4d4d;
   }
   .bulp-event {
-    background: #24243A;
+    background: #24243a;
     color: #fff;
   }
   .bulp-event-title,
@@ -336,15 +336,15 @@
   }
   .bulp-section:nth-child(2n+1) .bulp-event {
     border-top-color: transparent;
-    border-left-color: #24243A;
-    border-right-color: #24243A;
-    border-bottom-color: #24243A;
+    border-left-color: #24243a;
+    border-right-color: #24243a;
+    border-bottom-color: #24243a;
   }
   .bulp-event-address {
     color: #dbdbe8;
   }
   .bulp-event-readmore {
-    background: #ECB438;
+    background: #ecb438;
     color: black;
   }
   .bulp-event-readmore:visited, .bulp-event-readmore:active {
@@ -354,14 +354,14 @@
     background: #f0c667;
   }
   .bulp-event-register {
-    background-color: #6CD5B5;
+    background-color: #6cd5b5;
     color: #4f4f4f;
   }
   .bulp-event-register:hover {
     color: #4f4f4f;
   }
   .bulp-largepromo-button {
-    background-color: #24243A;
+    background-color: #24243a;
     color: #FFF;
   }
   .bulp-largepromo-button:hover {
@@ -373,15 +373,15 @@
   }
   .bulp-article-category,
   .bulp-event-topic-text {
-    background-color: #6CD5B5;
-    color: #1A1A22;
+    background-color: #6cd5b5;
+    color: #1a1a22;
   }
   .bulp-section:nth-child(even) {
     background-color: #e4e4e5;
   }
   .bulp-child-nav-item {
     background-color: #fff;
-    border-color: #6CD5B5;
+    border-color: #6cd5b5;
     box-shadow: 0 3px 20px -1px rgba(0, 0, 0, 0.12), 0 2px 8px -3px rgba(0, 0, 0, 0.06);
     color: #258366;
     font-weight: bold;
@@ -396,7 +396,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: #6CD5B5;
+    background: #6cd5b5;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transform-origin: 0 50%;
@@ -420,6 +420,6 @@
     border-top: 0;
     border-bottom: 0;
     border-right: 0;
-    border-left-color: #6CD5B5;
+    border-left-color: #6cd5b5;
   }
 }

@@ -166,7 +166,7 @@
 
 @media screen {
   .widget {
-    background: #f4f7f7;
+    background: #F4F7F7;
     padding: 24px;
   }
   .footbar .widget {
@@ -227,7 +227,7 @@
     color: #223233;
   }
   .profile-single-details {
-    background: #f4f7f7;
+    background: #F4F7F7;
     border: 0;
   }
   .profile-single-details a {
@@ -307,17 +307,17 @@
 @media screen {
   .bulp-intro-title,
   .bulp-largepromo-title {
-    color: #00343A;
+    color: #00343a;
   }
   .bu-banner-button {
-    background-color: #00343A;
+    background-color: #00343a;
   }
   .bulp-promo::before,
   .bulp-article::before {
-    background-color: #00343A;
+    background-color: #00343a;
   }
   .bulp-promo-button {
-    background-color: #C58700;
+    background-color: #c58700;
     color: #FFF;
   }
   .bulp-promo-button:hover {
@@ -344,7 +344,7 @@
     color: #eef8f9;
   }
   .bulp-event-readmore {
-    background: #C58700;
+    background: #c58700;
     color: black;
   }
   .bulp-event-readmore:visited, .bulp-event-readmore:active {
@@ -354,14 +354,14 @@
     background: #f8aa00;
   }
   .bulp-event-register {
-    background-color: #C58700;
+    background-color: #c58700;
     color: #FFF;
   }
   .bulp-event-register:hover {
     color: #FFF;
   }
   .bulp-largepromo-button {
-    background-color: #00343A;
+    background-color: #00343a;
     color: #FFF;
   }
   .bulp-largepromo-button:hover {
@@ -373,7 +373,7 @@
   }
   .bulp-article-category,
   .bulp-event-topic-text {
-    background-color: #F4F7F7;
+    background-color: #f4f7f7;
     color: #000;
   }
   .bulp-section:nth-child(even) {
@@ -381,7 +381,7 @@
   }
   .bulp-child-nav-item {
     background-color: #fff;
-    border-color: #00343A;
+    border-color: #00343a;
     box-shadow: 0 3px 20px -1px rgba(0, 0, 0, 0.12), 0 2px 8px -3px rgba(0, 0, 0, 0.06);
     color: #000607;
     font-weight: bold;
@@ -396,7 +396,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: #00343A;
+    background: #00343a;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transform-origin: 0 50%;
@@ -420,6 +420,6 @@
     border-top: 0;
     border-bottom: 0;
     border-right: 0;
-    border-left-color: #00343A;
+    border-left-color: #00343a;
   }
 }
