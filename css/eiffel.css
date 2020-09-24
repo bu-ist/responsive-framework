@@ -6,8 +6,8 @@
   .single .content-area .meta,
   .single-event-schedule,
   .single-profile .profile-info {
-    background: #F5F8FF;
-    border-color: #DFDFEA;
+    background: #f5f8ff;
+    border-color: #dfdfea;
   }
   .widget-calendar-picker thead,
   .widget-calendar-picker th,
@@ -16,10 +16,18 @@
     background: rgba(0, 0, 0, 0.15);
   }
   .utility-nav a,
-  a:active,
-  a:visited,
+  .short-nav-menu a,
   .widget-title a,
   .widget-post-meta {
+    color: inherit;
+  }
+  .utility-nav a:active, .utility-nav a:visited,
+  .short-nav-menu a:active,
+  .short-nav-menu a:visited,
+  .widget-title a:active,
+  .widget-title a:visited,
+  .widget-post-meta:active,
+  .widget-post-meta:visited {
     color: inherit;
   }
 }
@@ -29,13 +37,13 @@
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
-    background: #00343A;
+    background: #00343a;
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a,
   .l-mega-nav .primary-nav-menu li {
-    color: #FFF;
+    color: #fff;
     border-color: #265258;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active, .primary-nav-menu a.active_section,
@@ -51,13 +59,13 @@
   .l-mega-nav .primary-nav-menu li:focus,
   .l-mega-nav .primary-nav-menu li.active,
   .l-mega-nav .primary-nav-menu li.active_section {
-    color: #C58700;
+    color: #c58700;
   }
   .nav-toggle span,
   .search-toggle::before,
   .nav-toggle span::before,
   .nav-toggle span::after {
-    color: #FFF;
+    color: #fff;
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
@@ -69,16 +77,17 @@
     color: #ccd6d8;
   }
   .l-mega-nav .search-field {
-    border-color: #FFF;
+    border-color: #fff;
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background: #86C9CC;
+    background-color: #86c9cc;
     color: #223233;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
+    background-color: #86c9cc;
     color: #223233;
   }
 }
@@ -90,7 +99,7 @@
   h4,
   h5,
   h6 {
-    color: #C58700;
+    color: #c58700;
   }
   body {
     color: #000;
@@ -123,7 +132,7 @@
   .button-selected,
   .paging-navigation a,
   .archive-link {
-    background-color: #86C9CC;
+    background-color: #86c9cc;
     color: #000;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
@@ -141,23 +150,23 @@
     color: #000;
   }
   blockquote {
-    border-color: #86C9CC;
+    border-color: #86c9cc;
   }
   blockquote::before {
-    color: #86C9CC;
+    color: #86c9cc;
   }
   table thead {
-    background: #86C9CC;
+    background: #86c9cc;
     color: #000;
   }
   table th {
-    border-color: #86C9CC;
+    border-color: #86c9cc;
   }
 }
 
 @media screen {
   .widget {
-    background: #F4F7F7;
+    background: #f4f7f7;
     padding: 24px;
   }
   .footbar .widget {
@@ -209,7 +218,7 @@
   }
   .widget a.button,
   .widget a.button-primary {
-    background: #86C9CC;
+    background: #86c9cc;
     color: #223233;
   }
   .widget a.button:hover, .widget a.button:focus,
@@ -218,7 +227,7 @@
     color: #223233;
   }
   .profile-single-details {
-    background: #F4F7F7;
+    background: #f4f7f7;
     border: 0;
   }
   .profile-single-details a {
@@ -239,10 +248,10 @@
   .footbar,
   .footbar-container,
   .banner-container-window-width {
-    background: #F4F7F7;
+    background: #f4f7f7;
   }
   .footbar {
-    border-color: #F4F7F7;
+    border-color: #f4f7f7;
   }
   .footbar a,
   .footbar .widget a,
@@ -259,9 +268,25 @@
   .footbar .widget_nav_menu li a:focus {
     color: #3d3e3e;
   }
+  .footbar .widget a.button,
+  .footbar .widget a.button-primary {
+    background: #86c9cc;
+    color: #223233;
+  }
+  .footbar .widget a.button:hover, .footbar .widget a.button:focus,
+  .footbar .widget a.button-primary:hover,
+  .footbar .widget a.button-primary:focus {
+    color: #223233;
+  }
   .footbar .widget-title,
   .footbar .widget-title a,
-  .footbar .widget-calendar-date a {
+  .footbar .widget-calendar-date a,
+  .footbar h1,
+  .footbar h2,
+  .footbar h3,
+  .footbar h4,
+  .footbar h5,
+  .footbar h6 {
     color: #3d3e3e;
   }
   .footbar .widget-title,

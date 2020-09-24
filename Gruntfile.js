@@ -33,6 +33,7 @@ module.exports = function( grunt ) {
 				files: [
 					'node_modules/responsive-foundation/css-dev/**/*.scss',
 					'!css-dev/customizer/**/*.scss',
+					'!css-dev/customizer/**/**/*.scss',
 					'!css-dev/admin.scss',
 					'css-dev/*.scss',
 				],
@@ -42,7 +43,7 @@ module.exports = function( grunt ) {
 				},
 			},
 			fonts: {
-				files: [ 'css-dev/customizer/font-palettes/*.scss' ],
+				files: [ 'css-dev/customizer/font-palettes/**/*.scss' ],
 				tasks: [ 'sass:fonts' ],
 				options: {
 					spawn: false,
@@ -63,14 +64,7 @@ module.exports = function( grunt ) {
 				options: {
 					spawn: false,
 				},
-			},
-			phplint: {
-				files: [ '**/*.php' ],
-				tasks: [ 'phplint' ],
-				options: {
-					spawn: false,
-				},
-			},
+			}
 		},
 		browserify: {
 			options: {
@@ -177,10 +171,6 @@ module.exports = function( grunt ) {
 					},
 				],
 			},
-		},
-		sasslint: {
-			target: 'css-dev/**/*.scss',
-			// see .sasslintrc for options.
 		},
 		postcss: {
 			defaults: {
@@ -298,17 +288,6 @@ module.exports = function( grunt ) {
 				dest: 'js/vendor/lightgallery/',
 			},
 		},
-		phplint: {
-			options: {
-				phpArgs: {
-					'-l': null,
-					'-f': null,
-				},
-			},
-			all: {
-				src: [ '**/**.php', '!vendor/**', '!node_modules/**' ],
-			},
-		},
 		modernizr: {
 			dist: {
 				parseFiles: false,
@@ -381,12 +360,10 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-postcss' );
 	grunt.loadNpmTasks( 'grunt-sass' );
-	grunt.loadNpmTasks( 'grunt-sass-lint' );
 	grunt.loadNpmTasks( 'grunt-notify' );
 	grunt.loadNpmTasks( 'grunt-version' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
-	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-modernizr' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
@@ -404,6 +381,6 @@ module.exports = function( grunt ) {
 		'uglify',
 		'version:modernizr',
 	] );
-	grunt.registerTask( 'build', [ 'styles', 'phplint', 'scripts', 'i18n' ] );
+	grunt.registerTask( 'build', [ 'styles', 'scripts', 'i18n' ] );
 	grunt.registerTask( 'default', [ 'watch' ] );
 };

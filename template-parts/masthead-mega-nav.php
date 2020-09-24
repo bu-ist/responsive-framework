@@ -16,9 +16,13 @@ $responsive_search_top = apply_filters( 'responsi_search_position_top', true );
 ?>
 
 <div class="brand">
+	<?php do_action( 'responsive_before_branding', '' ); ?>
 	<?php responsive_branding(); ?>
+	<?php do_action( 'responsive_after_branding', '' ); ?>
 	<p class="site-description brand-site-description"><?php bloginfo( 'description' ); ?></p>
+	<?php do_action( 'responsive_before_short_nav', '' ); ?>
 	<?php responsive_short_nav(); ?>
+	<?php do_action( 'responsive_after_short_nav', '' ); ?>
 </div>
 
 <nav class="primary-nav" role="navigation">

@@ -1,8 +1,8 @@
-$palette-id: 'f1';
+$palette-id: "f1";
 
-@import 'fonts/benton';
-@import 'palettes';
-@import 'fonts/shared';
+@import "fonts/benton";
+@import "palettes";
+@import "fonts/shared";
 
 blockquote {
 	background-color: #f0f0f0; // color contrast with text (#24243a) = 13.27:1, passes WCAG AAA;
@@ -17,7 +17,7 @@ blockquote {
 		top: 2px;
 	}
 
-	>p:last-of-type {
+	> p:last-of-type {
 		margin-bottom: 0; // Provides bottom padding for last paragraph of blockquote to fill out gray box.
 	}
 }

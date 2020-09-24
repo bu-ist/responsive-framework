@@ -1,57 +1,57 @@
 $color-palettes: (
 	default: (
 		use-background-colors: false,
-		color-primary: #000000, // background.
-		color-secondary: #0F69D7,
-		color-tertiary: #448DE7,
-		color-dark: #000000,
+		color-primary: #000,
+		color-secondary: #0f69d7,
+		color-tertiary: #448de7,
+		color-dark: #000,
 	),
 	slacker: (
 		use-background-colors: true,
-		color-primary: #24243A, // background.
-		color-secondary: #6CD5B5, //4fc3a0
-		color-tertiary: #ECB438,
-		color-dark: #1A1A22,
+		color-primary: #24243a,
+		color-secondary: #6cd5b5,
+		color-tertiary: #ecb438,
+		color-dark: #1a1a22,
 	),
 	extra-spectral: (
 		use-background-colors: true,
-		color-primary: #C2185B, // background.
-		color-secondary: #E82A75,
-		color-tertiary: #FFB0CF, //4fc3a0
-		color-dark: #222222,
+		color-primary: #c2185b,
+		color-secondary: #e82a75,
+		color-tertiary: #ffb0cf,
+		color-dark: #222,
 	),
 	rayleigh-scattering: (
 		use-background-colors: true,
-		color-primary: #15B6FF, // background.
-		color-secondary: #FA5707,
-		color-tertiary: #FE9C6D,
-		color-dark: #222222,
+		color-primary: #15b6ff,
+		color-secondary: #fa5707,
+		color-tertiary: #fe9c6d,
+		color-dark: #222,
 	),
 	vinca-minor: (
 		use-background-colors: false,
-		color-primary: #3F51B5, // background.
-		color-secondary: #FA5707,
-		color-tertiary: #FE9C6D,
-		color-dark: #1A1D2B,
+		color-primary: #3f51b5,
+		color-secondary: #fa5707,
+		color-tertiary: #fe9c6d,
+		color-dark: #1a1d2b,
 	),
 	eiffel: (
 		use-background-colors: true,
-		color-primary: #00343A, // background.
-		color-secondary: #86C9CC,
-		color-tertiary: #C58700,
-		color-dark: #F4F7F7,
+		color-primary: #00343a,
+		color-secondary: #86c9cc,
+		color-tertiary: #c58700,
+		color-dark: #f4f7f7,
 	),
 	comm_ave: (
 		use-background-colors: true,
-		color-primary: #303437, // background.
+		color-primary: #303437,
 		color-secondary: #498500,
-		color-tertiary: #48B4F4,
-		color-dark: #222222,
+		color-tertiary: #48b4f4,
+		color-dark: #222,
 	),
 );
 
 // Merges custom styles and overrides with the default color palettes map.
-// $color-palettes-theme must be set BEFORE this is called.
+// $color-palettes-theme must be set before this is called.
 // @group customizer
 // @access private
 // @since 2.1.11

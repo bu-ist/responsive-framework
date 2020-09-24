@@ -1,9 +1,9 @@
-@import 'palettes';
-@import 'node_modules/mathsass/dist/math';
-@import 'burf-base/accessibility';
+@import "palettes";
+@import "node_modules/mathsass/dist/math";
+@import "burf-base/accessibility";
 
-$color-grayscale-f: #FFF;
-$color-grayscale-c: #CCC;
+$color-grayscale-f: #fff;
+$color-grayscale-c: #ccc;
 $color-grayscale-0: #000;
 
 @media screen {
@@ -17,8 +17,8 @@ $color-grayscale-0: #000;
 	.single .content-area .meta,
 	.single-event-schedule,
 	.single-profile .profile-info {
-		background: #F5F8FF;
-		border-color: #DFDFEA;
+		background: #f5f8ff;
+		border-color: #dfdfea;
 	}
 
 	// calendar table
@@ -30,11 +30,14 @@ $color-grayscale-0: #000;
 	}
 
 	.utility-nav a,
-	a:active,
-	a:visited,
+	.short-nav-menu a,
 	.widget-title a,
 	.widget-post-meta {
 		color: inherit;
-	}
 
+		&:active,
+		&:visited {
+			color: inherit;
+		}
+	}
 }

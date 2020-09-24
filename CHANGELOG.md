@@ -1,5 +1,76 @@
 # Changelog
 
+## Unreleased
+
+## 2.3.15
+Fix for the url label in the calendar, from "Registration" to "Link"
+
+## 2.3.14
+
+Adds additional actions for the mega menu.
+
+## 2.3.13
+
+**Hotfix** Fixed an issue where the calendar id was not being returned properly.
+
+## 2.3.12
+- Removes sasslint in favor of stylelint due to security warnings.
+- Adds a filter to BU Calendar to override the calendar id.
+- Adds a filter to BU Calendar to override the default months to show.
+
+## 2.3.11
+
+- Added a filter to override the archive banner.
+
+## 2.3.10
+
+- Security and dependency updates, including:
+  - `grunt-modernizr`
+  - `lightgallery`
+  - `autoprefixer`
+  - `time-grunt`
+  - `grunt-version`
+  - `eslint`
+  - `grunt-contrib-uglify`
+  - `@babel/core`
+  - `@babel/preset-env`
+  - `@wordpress/eslint-plugin`
+  - `@wordpress/babel-preset-default`
+- Removes `grunt-phplint` as it is no longer being actively maintained
+
+## 2.3.9
+
+- If BU Banners is present, and it is an archive page, set the title to hidden.  The banner will take care of the title.
+
+## 2.3.8
+
+- Adds a check for registered sidebars.
+
+## 2.3.7
+
+- Removes duplicate call to burf-base, which is a dependency of burf-theme.
+- Add responsive_html_class() for use on the `<html>` tag for class name output/filtering.
+
+## 2.3.61
+
+- Minor bug fixes to color palettes: mega navigation, footer buttons and headings.
+
+## 2.3.6
+
+- Fix broken Travis CI tests.
+- Add pagination to search template.
+- Add `responsive_get_the_excerpt( $post_id, $length )` for reliably retrieving
+  post excerpts outside of The Loop. Default $length value is 55 words.
+- Add `rel="nofollow"` attributes to event links in the calendar widget output.
+- Replace the template name in `calendar-single.php` with a note about its
+  usage.
+- Automated fixes of security vulnerabilities in package-lock.json
+    - Bump mixin-deep from 1.3.1 to 1.3.2
+    - Bump lodash.merge from 4.6.1 to 4.6.2
+    - Bump lodash.mergewith from 4.6.1 to 4.6.2
+    - Bump eslint-utils from 1.3.1 to 1.4.2
+- Upgrade Foundation to 3.2.3 to resolve autoprefixer warnings.
+
 ## 2.3.5
 
 - Replicated the `responsive_primary_nav_before` and `responsive_primary_nav_after` hooks into the BU version of `responsive_primary_nav`

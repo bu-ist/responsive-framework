@@ -68,6 +68,10 @@ h6,
   font-weight: 700;
 }
 
+.l-mega-nav .primary-nav .level_1 {
+  font-weight: 700;
+}
+
 .utility-nav li a {
   font-family: "Pressura", sans-serif;
   font-weight: 400;

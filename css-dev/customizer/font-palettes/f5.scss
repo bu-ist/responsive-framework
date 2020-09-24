@@ -1,9 +1,9 @@
-$palette-id: 'f5';
+$palette-id: "f5";
 
-@import 'fonts/benton';
-@import 'fonts/pressura';
-@import 'palettes';
-@import 'fonts/shared';
+@import "fonts/benton";
+@import "fonts/pressura";
+@import "palettes";
+@import "fonts/shared";
 
 h1,
 h2,
@@ -27,7 +27,6 @@ h6,
 }
 
 blockquote {
-
 	&::before {
 		content: "\201C"; // Unicode for Left Double Quote
 		display: block;
@@ -38,7 +37,7 @@ blockquote {
 
 	}
 
-	>p:first-of-type {
+	> p:first-of-type {
 		margin: -45px 0 25px; // Lifts up first paragraph of blockquote to be close to dquote mark
 	}
 }

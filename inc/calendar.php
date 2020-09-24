@@ -56,7 +56,7 @@ function responsive_calendar_get_event( $calendar_id = false, $event_id = false,
 function responsive_calendar_sidebar( $args = array() ) {
 	global $buCalendar;
 
-	$topics    = responsive_calendar_get_topics();
+	$topics    = apply_filters( 'responsive_calendar_sidebar_topics', responsive_calendar_get_topics() );
 	$timestamp = responsive_calendar_get_timestamp();
 	$yyyymmdd  = responsive_calendar_get_yyyymmdd();
 
@@ -187,7 +187,7 @@ function responsive_calendar_format_default( $events, $base_url, $calendar_id = 
 			$output .= sprintf( '
 				<li class="widget-calendar-event widget-calendar-event-default">
 					<time class="widget-calendar-date widget-calendar-date-default">%s</time>
-					<a href="%s" class="widget-calendar-title widget-calendar-title-default widget-calendar-link widget-calendar-link-default">%s</a>
+					<a href="%s" class="widget-calendar-title widget-calendar-title-default widget-calendar-link widget-calendar-link-default" rel="no-follow">%s</a>
 				</li>', date( 'n.j', $event['starts'] ), esc_url( $url ), $event['summary'] );
 
 			$output .= "\n";
@@ -217,7 +217,7 @@ function responsive_calendar_format_fulldate( $events, $base_url, $calendar_id =
 			$output .= sprintf( '
 				<li class="widget-calendar-event widget-calendar-event-fulldate">
 					<time class="widget-calendar-date widget-calendar-date-fulldate">%s</time>
-					<a href="%s" class="widget-calendar-title widget-calendar-title-fulldate widget-calendar-link widget-calendar-link-fulldate">%s</a>
+					<a href="%s" class="widget-calendar-title widget-calendar-title-fulldate widget-calendar-link widget-calendar-link-fulldate" rel="no-follow">%s</a>
 				</li>', date( 'l, F j', $event['starts'] ), esc_url( $url ), $event['summary'] );
 
 			$output .= "\n";
@@ -246,7 +246,7 @@ function responsive_calendar_format_graphic( $events, $base_url, $calendar_id = 
 
 			$output .= sprintf( '
 				<li class="widget-calendar-event widget-calendar-event-graphic">
-					<a href="%s" class="widget-calendar-link widget-calendar-link-graphic">
+					<a href="%s" class="widget-calendar-link widget-calendar-link-graphic" rel="no-follow">
 						<time class="widget-calendar-date widget-calendar-date-graphic">
 							<span class="widget-calendar-day widget-calendar-day-graphic">%s</span>
 							<span class="widget-calendar-month widget-calendar-month-graphic">%s</span>
@@ -341,7 +341,12 @@ if ( ! function_exists( 'responsive_calendar_get_calendar_id' ) ) {
 	 * @return int $calendar_id Set from URL parameter if exists, else a site option.
 	 */
 	function responsive_calendar_get_calendar_id() {
-		return array_key_exists( 'cid', $_GET ) ? intval( $_GET['cid'] ) : get_option( 'bu_calendar_id' );
+		$cid = filter_input( INPUT_GET, 'cid', FILTER_VALIDATE_INT );
+		if ( empty( $cid ) ) {
+			$cid = get_option( 'bu_calendar_id' );
+		}
+
+		return apply_filters( 'responsive_calendar_get_calendar_id', $cid );
 	}
 }
 
@@ -607,7 +612,7 @@ function responsive_calendar_event_field_labels() {
 		'feeBUStudent'        => __( 'Fee (BU Students)', 'responsive-framework' ) . ':',
 		'feeSenior'           => __( 'Fee (Seniors)', 'responsive-framework' ) . ':',
 		'deadline'            => __( 'Deadline', 'responsive-framework' ) . ':',
-		'url'                 => __( 'Registration', 'responsive-framework' ) . ':',
+		'url'                 => __( 'Link', 'responsive-framework' ) . ':',
 		'contactOrganization' => __( 'Contact Organization', 'responsive-framework' ) . ':',
 		'contact_name'        => __( 'Contact Name', 'responsive-framework' ) . ':',
 		'contact_email'       => __( 'Contact Email', 'responsive-framework' ) . ':',

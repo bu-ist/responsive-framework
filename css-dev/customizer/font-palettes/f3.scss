@@ -1,9 +1,9 @@
-$palette-id: 'f3';
+$palette-id: "f3";
 
-@import 'fonts/capita';
-@import 'fonts/benton';
-@import 'palettes';
-@import 'fonts/shared';
+@import "fonts/capita";
+@import "fonts/benton";
+@import "palettes";
+@import "fonts/shared";
 
 body {
 	font-size: 18px;
@@ -23,6 +23,6 @@ blockquote {
 		left: -25px;
 		position: absolute;
 		top: -25px;
-	  	// quote color will be set by inc/customizer.php if colors customized
+		// quote color will be set by inc/customizer.php if colors customized
 	}
 }
