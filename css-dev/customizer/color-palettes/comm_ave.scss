@@ -13,6 +13,9 @@ $sidebar-link:                        accessible-text( $sidebar-bg, #FFF );
 $mega-toggle-bg:                      $color-secondary;
 $sidebar-button-bg:                   $color-tertiary;
 $bulp-category-topic-bg:              darken( $color-primary, 40% );
+
+$bulp-promo-btn-bg: #007ac1;
+
 $bulp-largepromo-button-bg:        $color-secondary;
 $bulp-bu-banner-button-bg:         $color-secondary;
 $bulp-event-border: $color-dark;
@@ -21,6 +24,11 @@ $bulp-event-icon-bg: $color-secondary;
 
 $footbar-link: accessible-text( #222222, #96CE53 );
 
+$bulp-border-color: linear-gradient( to right, $color-tertiary, mix($color-tertiary, $color-secondary, 50%) );
+
+$bulp-section-even-bg: $color-primary;
+$bulp-section-even-color: $color-grayscale-f;
+
 @import 'triad';
 
 @import 'styles-navigation';
@@ -28,3 +36,14 @@ $footbar-link: accessible-text( #222222, #96CE53 );
 @import 'styles-sidebar';
 @import 'styles-footer';
 @import 'styles-bulp';
+
+.bulp-item-button,
+.bulp-article-readmore {
+	background: linear-gradient( to bottom right, $bulp-promo-btn-bg, mix($bulp-promo-btn-bg, $color-secondary, 50%) );
+	color: $color-grayscale-f;
+
+	&:hover {
+		background: linear-gradient( to bottom right, mix($bulp-promo-btn-bg, $color-secondary, 50%), #004e7b );
+		color: $color-grayscale-f;
+	}
+}

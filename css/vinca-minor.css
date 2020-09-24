@@ -306,14 +306,14 @@
   }
   .bulp-promo::before,
   .bulp-article::before {
-    background-color: #3f51b5;
+    background: #3f51b5;
   }
   .bulp-promo-button {
-    background-color: #fa5707;
-    color: #FFF;
+    background-color: #3f51b5;
+    color: #fff;
   }
   .bulp-promo-button:hover {
-    color: #FFF;
+    color: #fff;
   }
   .bulp-event {
     background: #202540;
@@ -347,17 +347,17 @@
   }
   .bulp-event-register {
     background-color: #3f51b5;
-    color: #FFF;
+    color: #fff;
   }
   .bulp-event-register:hover {
-    color: #FFF;
+    color: #fff;
   }
   .bulp-largepromo-button {
     background-color: #3f51b5;
-    color: #FFF;
+    color: #fff;
   }
   .bulp-largepromo-button:hover {
-    color: #FFF;
+    color: #fff;
   }
   .bulp-event-when:before,
   .bulp-event-where:before {
@@ -365,11 +365,19 @@
   }
   .bulp-article-category,
   .bulp-event-topic-text {
-    background-color: #7280ce;
+    background-color: #fe9c6d;
     color: #000;
+  }
+  .bulp-article-readmore {
+    background-color: #3f51b5;
+    color: #fff;
   }
   .bulp-section:nth-child(even) {
     background-color: #e5e6eb;
+    color: inherit;
+  }
+  .bulp-section:nth-child(even) .bulp-intro-title {
+    color: inherit;
   }
   .bulp-child-nav-item {
     background-color: #fff;

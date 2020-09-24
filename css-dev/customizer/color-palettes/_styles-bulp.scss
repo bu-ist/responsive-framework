@@ -1,27 +1,41 @@
 $bulp-event-bg:                             $color-primary !default;
 $bulp-event-color:                          lighten( $bulp-event-bg, 70% ) !default;
-$bulp-event-icon-bg:                             lighten( $bulp-event-bg, 30% ) !default;
-$bulp-event-border:                     darken( $bulp-event-bg, 30% ) !default;
+$bulp-event-icon-bg:                        lighten( $bulp-event-bg, 30% ) !default;
+$bulp-event-border:                     	  darken( $bulp-event-bg, 30% ) !default;
 $bulp-event-link:                          $bulp-event-color !default;
-$bulp-event-divider:                lighten( $bulp-event-bg, 15% ) !default;
+$bulp-event-divider:                		lighten( $bulp-event-bg, 15% ) !default;
+
 $bulp-promo-btn-bg:                          $color-tertiary !default;
-$bulp-promo-btn-text:                                   #FFF !default;
+$bulp-promo-btn-text:                        $color-grayscale-f !default;
+
 $bulp-register-btn-bg:                       $color-tertiary !default;
-$bulp-register-btn-text:                                #FFF !default;
-$bulp-category-topic-bg:                         lighten( $color-primary, 15% ) !default;
-$bulp-category-topic-color: 									#FFF !default;
+$bulp-register-btn-text:                     $color-grayscale-f !default;
+
+$bulp-category-topic-bg:                     lighten( $color-primary, 15% ) !default;
+$bulp-category-topic-color: 						$color-grayscale-f !default;
+
 $bulp-bu-banner-button-bg:                    $color-primary !default;
+
 $bulp-largepromo-button-bg:                   $color-primary !default;
-$bulp-largepromo-button-text:                           #FFF !default;
+$bulp-largepromo-button-text:                 $color-grayscale-f !default;
+
 $bulp-intro-title-bg:                            $color-dark !default;
 $bulp-readmore-button-text:                             #333 !default;
-$bulp-section-even-bg:           mix( #eee, $color-primary, 95% ) !default;
+
+$bulp-section-even-bg:           				mix( #eee, $color-primary, 95% ) !default;
+$bulp-section-even-color:           			inherit !default;
+
 $bulp-child-nav-article-border:             $color-secondary !default;
-$bulp-child-nav-article-bg:      #fff !default;
-$bulp-child-nav-article-hover:   $bulp-child-nav-article-border !default;
+$bulp-child-nav-article-bg:      				$color-grayscale-f !default;
+$bulp-child-nav-article-hover:   				$bulp-child-nav-article-border !default;
+
 $bulp-border-color:								  $color-primary !default;
-$bulp-event-readmore-bg: $color-tertiary !default;
-$bulp-event-readmore-color: darken( $bulp-event-readmore-bg, 70% ) !default;
+
+$bulp-article-btn-bg:                       $color-tertiary !default;
+$bulp-article-btn-color:                    $color-grayscale-f !default;
+
+$bulp-event-readmore-bg: 							$color-tertiary !default;
+$bulp-event-readmore-color: 						darken( $bulp-event-readmore-bg, 70% ) !default;
 
 
 @media screen {
@@ -38,7 +52,7 @@ $bulp-event-readmore-color: darken( $bulp-event-readmore-bg, 70% ) !default;
 	.bulp-promo,
 	.bulp-article {
 		&::before {
-			background-color: $bulp-border-color;
+			background: $bulp-border-color;
 		}
 	}
 
@@ -119,8 +133,18 @@ $bulp-event-readmore-color: darken( $bulp-event-readmore-bg, 70% ) !default;
 		color: accessible-text( $bulp-category-topic-bg, $bulp-category-topic-color );
 	}
 
+	.bulp-article-readmore {
+		background-color: $bulp-article-btn-bg;
+		color: accessible-text( $bulp-article-btn-bg, $bulp-article-btn-color );
+	}
+
 	.bulp-section:nth-child(even) {
 		background-color: $bulp-section-even-bg;
+		color: $bulp-section-even-color;
+
+		.bulp-intro-title {
+			color: inherit;
+		}
 	}
 
 	.bulp-child-nav-item {

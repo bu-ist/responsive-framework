@@ -13,7 +13,8 @@ $sidebar-link: #ECB438;
 
 $bulp-bu-banner-button-bg:              $color-primary;
 $bulp-register-btn-bg:                  $color-secondary;
-$bulp-promo-btn-text:                   accessible-text( $color-tertiary, #FFF );
+$bulp-promo-btn-text:                   $color-dark;
+$bulp-article-btn-color:                   $color-dark;
 $bulp-register-btn-text:                accessible-text( $color-secondary, #FFF );
 $bulp-event-border: transparent;
 $bulp-category-topic-bg: $color-secondary;

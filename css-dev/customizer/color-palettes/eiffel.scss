@@ -26,6 +26,8 @@ $bulp-event-divider: #3c696f;
 $bulp-category-topic-bg: $color-dark;
 $bulp-category-topic-color: #000;
 
+$bulp-promo-btn-bg: #3a7e86;
+
 //$bulp-child-nav-article-bg:           darken( $color-dark, 10% );
 //$bulp-child-nav-article-hover:        darken( $color-dark, 5% );
 
@@ -37,3 +39,15 @@ $bulp-category-topic-color: #000;
 @import 'styles-sidebar';
 @import 'styles-footer';
 @import 'styles-bulp';
+
+.bulp-item-button,
+.bulp-article-readmore {
+	background: $bulp-promo-btn-bg;
+	border-bottom: 3px solid $color-primary;
+	color: $color-grayscale-f;
+
+	&:hover {
+		background: lighten( $bulp-promo-btn-bg, 5% );
+		color: $color-grayscale-f;
+	}
+}

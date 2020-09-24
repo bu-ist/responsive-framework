@@ -9,8 +9,11 @@ $color-dark: map-get( $current-palette, 'color-dark' );
 
 $sidebar-bg: #E1F0F5;
 
-$bulp-bu-banner-button-bg: $color-secondary;
-$bulp-promo-btn-bg: $color-secondary;
+$bulp-bu-banner-button-bg: #dd3400;
+$bulp-bu-banner-button-bg: #dd3400;
+$bulp-largepromo-button-bg: #dd3400;
+$bulp-article-btn-bg: #dd3400;
+$bulp-promo-btn-bg: #dd3400;
 $bulp-register-btn-bg: $color-primary;
 $bulp-child-nav-article-border:             $color-primary;
 $bulp-event-bg: mix( $color-primary, #fff, 15% );
@@ -38,3 +41,7 @@ $bulp-section-even-bg: mix( $color-primary, #fff, 10% );
 @import 'styles-sidebar';
 @import 'styles-footer';
 @import 'styles-bulp';
+
+.bu-banner-button {
+	color: $color-grayscale-f;
+}

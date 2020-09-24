@@ -10,7 +10,8 @@ $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 $sidebar-bg:                                     #A5144D;
 $sidebar-button-bg:                              #660028;
 
-$bulp-promo-btn-bg:                     $color-secondary;
+$bulp-promo-btn-bg:                     $color-primary;
+$bulp-article-btn-bg:                     $color-primary;
 $bulp-category-topic-bg:                  $color-primary;
 $bulp-bu-banner-button-bg:              $color-secondary;
 $bulp-register-btn-bg:                  $color-secondary;
