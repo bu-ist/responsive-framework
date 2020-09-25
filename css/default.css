@@ -146,6 +146,7 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
+    background-color: #0d5dbf;
     color: #fff;
   }
   blockquote {

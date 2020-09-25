@@ -2,18 +2,22 @@
 
 ## Unreleased
 
+- Updated and improved styles for BU Landing Pages and color palettes.
+
 ## 2.3.15
-Fix for the url label in the calendar, from "Registration" to "Link"
+
+- Fix for the url label in the calendar, from "Registration" to "Link"
 
 ## 2.3.14
 
-Adds additional actions for the mega menu.
+- Adds additional actions for the mega menu.
 
 ## 2.3.13
 
-**Hotfix** Fixed an issue where the calendar id was not being returned properly.
+- **Hotfix** Fixed an issue where the calendar id was not being returned properly.
 
 ## 2.3.12
+
 - Removes sasslint in favor of stylelint due to security warnings.
 - Adds a filter to BU Calendar to override the calendar id.
 - Adds a filter to BU Calendar to override the default months to show.
