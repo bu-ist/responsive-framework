@@ -1,6 +1,6 @@
-$palette-id: 'comm_ave';
+$palette-id: "comm_ave";
 
-@import 'styles-base';
+@import "styles-base";
 
 $current-palette: map-get( $color-palettes, $palette-id );
 $color-primary: map-get( $current-palette, "color-primary" );

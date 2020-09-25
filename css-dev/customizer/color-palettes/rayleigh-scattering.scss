@@ -21,16 +21,10 @@ $bulp-category-topic-bg: $color-dark;
 $bulp-event-color: $color-dark;
 $bulp-event-icon-bg: $color-primary;
 $bulp-event-divider:                     darken( $bulp-event-bg, 10% );
-$bulp-event-readmore-bg: #FF732F;
+$bulp-event-readmore-bg: #ff732f;
 $bulp-event-readmore-color: $color-dark;
 $bulp-section-even-bg: mix( $color-primary, $color-grayscale-f, 10% );
 
-@import "complimentary";
-
-@import "styles-navigation";
-@import "styles-content";
-@import "styles-sidebar";
-@import "styles-footer";
 @import "complimentary";
 
 @import "styles-navigation";
