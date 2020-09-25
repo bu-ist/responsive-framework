@@ -140,7 +140,7 @@ $bulp-event-readmore-color: 						darken( $bulp-event-readmore-bg, 70% ) !defaul
 		color: accessible-text( $bulp-article-btn-bg, $bulp-article-btn-color );
 	}
 
-	.bulp-section:nth-child( even ) {
+	.bulp-section:nth-child(even) {
 		background-color: $bulp-section-even-bg;
 		color: $bulp-section-even-color;
 
@@ -190,7 +190,7 @@ $bulp-event-readmore-color: 						darken( $bulp-event-readmore-bg, 70% ) !defaul
 		}
 	}
 
-	.bulp-section:nth-child( 2n+1 ) .bulp-child-nav-item {
+	.bulp-section:nth-child(2n+1) .bulp-child-nav-item {
 		border-top: 0;
 		border-bottom: 0;
 		border-right: 0;

@@ -1,11 +1,11 @@
-$palette-id: 'rayleigh-scattering';
+$palette-id: "rayleigh-scattering";
 
-@import 'styles-base';
+@import "styles-base";
 
 $current-palette: map-get( $color-palettes, $palette-id );
-$color-primary: map-get( $current-palette, 'color-primary' );
-$color-secondary: map-get( $current-palette, 'color-secondary' );
-$color-dark: map-get( $current-palette, 'color-dark' );
+$color-primary: map-get( $current-palette, "color-primary" );
+$color-secondary: map-get( $current-palette, "color-secondary" );
+$color-dark: map-get( $current-palette, "color-dark" );
 
 $sidebar-bg: #e1f0f5;
 
@@ -25,19 +25,19 @@ $bulp-event-readmore-bg: #FF732F;
 $bulp-event-readmore-color: $color-dark;
 $bulp-section-even-bg: mix( $color-primary, $color-grayscale-f, 10% );
 
-@import 'complimentary';
+@import "complimentary";
 
-@import 'styles-navigation';
-@import 'styles-content';
-@import 'styles-sidebar';
-@import 'styles-footer';
-@import 'complimentary';
+@import "styles-navigation";
+@import "styles-content";
+@import "styles-sidebar";
+@import "styles-footer";
+@import "complimentary";
 
-@import 'styles-navigation';
-@import 'styles-content';
-@import 'styles-sidebar';
-@import 'styles-footer';
-@import 'styles-bulp';
+@import "styles-navigation";
+@import "styles-content";
+@import "styles-sidebar";
+@import "styles-footer";
+@import "styles-bulp";
 
 .bu-banner-button {
 	color: $color-grayscale-f;
