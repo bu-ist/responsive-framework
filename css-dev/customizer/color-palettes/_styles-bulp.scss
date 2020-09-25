@@ -1,0 +1,200 @@
+$bulp-event-bg:                             $color-primary !default;
+$bulp-event-color:                          lighten( $bulp-event-bg, 70% ) !default;
+$bulp-event-icon-bg:                        lighten( $bulp-event-bg, 30% ) !default;
+$bulp-event-border:                     	  darken( $bulp-event-bg, 30% ) !default;
+$bulp-event-link:                          $bulp-event-color !default;
+$bulp-event-divider:                		lighten( $bulp-event-bg, 15% ) !default;
+
+$bulp-promo-btn-bg:                          $color-tertiary !default;
+$bulp-promo-btn-text:                        $color-grayscale-f !default;
+
+$bulp-register-btn-bg:                       $color-tertiary !default;
+$bulp-register-btn-text:                     $color-grayscale-f !default;
+
+$bulp-category-topic-bg:                     lighten( $color-primary, 15% ) !default;
+$bulp-category-topic-color: 						$color-grayscale-f !default;
+
+$bulp-bu-banner-button-bg:                    $color-primary !default;
+
+$bulp-largepromo-button-bg:                   $color-primary !default;
+$bulp-largepromo-button-text:                 $color-grayscale-f !default;
+
+$bulp-intro-title-bg:                            $color-dark !default;
+$bulp-readmore-button-text:                             #333 !default;
+
+$bulp-section-even-bg:           				mix( #eee, $color-primary, 95% ) !default;
+$bulp-section-even-color:           			inherit !default;
+
+$bulp-child-nav-article-border:             $color-secondary !default;
+$bulp-child-nav-article-bg:      				$color-grayscale-f !default;
+$bulp-child-nav-article-hover:   				$bulp-child-nav-article-border !default;
+
+$bulp-border-color:								  $color-primary !default;
+
+$bulp-article-btn-bg:                       $color-tertiary !default;
+$bulp-article-btn-color:                    $color-grayscale-f !default;
+
+$bulp-event-readmore-bg: 							$color-tertiary !default;
+$bulp-event-readmore-color: 						darken( $bulp-event-readmore-bg, 70% ) !default;
+
+
+@media screen {
+
+	.bulp-intro-title,
+	.bulp-largepromo-title {
+		color: $bulp-intro-title-bg;
+	}
+
+	.bu-banner-button {
+		background-color: $bulp-bu-banner-button-bg;
+	}
+
+	.bulp-promo,
+	.bulp-article {
+		&::before {
+			background: $bulp-border-color;
+		}
+	}
+
+	.bulp-promo-button {
+		background-color: $bulp-promo-btn-bg;
+		color: $bulp-promo-btn-text;
+
+		&:hover {
+			color: $bulp-promo-btn-text;
+		}
+	}
+
+	.bulp-event {
+		background: $bulp-event-bg;
+		color: #fff;
+	}
+
+	.bulp-event-title,
+	.bulp-event-when {
+		color: accessible-text( $bulp-event-bg, $bulp-event-color );
+	}
+
+	.bulp-event-when {
+		border-color: $bulp-event-divider;
+	}
+
+	.bulp-section:nth-child(2n+1) .bulp-event {
+		border-top-color: $bulp-event-border;
+		border-left-color: $bulp-event-bg;
+		border-right-color: $bulp-event-bg;
+		border-bottom-color: $bulp-event-bg;
+	}
+
+	.bulp-event-address {
+		color: accessible-text( $bulp-event-bg, $bulp-event-link );
+	}
+
+	.bulp-event-readmore {
+		background: $bulp-event-readmore-bg;
+		color: accessible-text( $bulp-event-readmore-bg, $bulp-event-readmore-color );
+
+		&:visited,
+		&:active {
+			color: accessible-text( $bulp-event-readmore-bg, $bulp-event-readmore-color );
+		}
+
+		&:hover {
+			background: lighten( $bulp-event-readmore-bg, 10% );
+		}
+	}
+
+	.bulp-event-register {
+		background-color: $bulp-register-btn-bg;
+		color: $bulp-register-btn-text;
+
+		&:hover {
+			color: $bulp-register-btn-text;
+		}
+	}
+
+	.bulp-largepromo-button {
+		background-color: $bulp-largepromo-button-bg;
+		color: $bulp-largepromo-button-text;
+
+		&:hover {
+			color: $bulp-largepromo-button-text;
+		}
+	}
+
+	.bulp-event-when,
+	.bulp-event-where {
+		&::before {
+			color: $bulp-event-icon-bg;
+		}
+	}
+
+	.bulp-article-category,
+	.bulp-event-topic-text {
+		background-color: $bulp-category-topic-bg;
+		color: accessible-text( $bulp-category-topic-bg, $bulp-category-topic-color );
+	}
+
+	.bulp-article-readmore {
+		background-color: $bulp-article-btn-bg;
+		color: accessible-text( $bulp-article-btn-bg, $bulp-article-btn-color );
+	}
+
+	.bulp-section:nth-child(even) {
+		background-color: $bulp-section-even-bg;
+		color: $bulp-section-even-color;
+
+		.bulp-intro-title {
+			color: inherit;
+		}
+	}
+
+	.bulp-child-nav-item {
+		background-color: $bulp-child-nav-article-bg;
+		border-color: $bulp-child-nav-article-border;
+		box-shadow: 0 3px 20px -1px rgba( 0, 0, 0, 0.12 ), 0 2px 8px -3px rgba( 0, 0, 0, 0.06 );
+		color: accessible-text( $bulp-child-nav-article-bg, darken( $bulp-child-nav-article-border, 10% ) );
+		font-weight: 700;
+		position: relative;
+		z-index: 1;
+
+		&::before {
+			background: $bulp-child-nav-article-hover;
+			bottom: 0;
+			content: "";
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			transform-origin: 0 50%;
+			transform: scaleX( 0 );
+			transition-duration: 0.3s;
+			transition-property: transform;
+			transition-timing-function: ease-out;
+			z-index: -1;
+			-webkit-transform-origin: 0 50%;
+			-webkit-transform: scaleX( 0 );
+			-webkit-transition-duration: 0.3s;
+			-webkit-transition-property: transform;
+			-webkit-transition-timing-function: ease-out;
+		}
+
+		&:hover {
+			background-color: transparent;
+			color: accessible-text( $bulp-child-nav-article-hover, #fff );
+
+			&::before {
+				-webkit-transform: scaleX( 1 );
+				transform: scaleX( 1 );
+			}
+		}
+	}
+
+	.bulp-section:nth-child(2n+1) .bulp-child-nav-item {
+		border-top: 0;
+		border-bottom: 0;
+		border-right: 0;
+		border-left-color: $bulp-child-nav-article-border;
+	}
+
+}

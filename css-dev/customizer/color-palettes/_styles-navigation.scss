@@ -1,0 +1,59 @@
+@media screen {
+	// Nav menu background color
+	.l-side-nav .wrapper,
+	.primary-nav,
+	.primary-nav-menu ul,
+	.l-side-nav {
+		background: $nav-bg;
+	}
+
+	// Nav menu toggles and text colors
+	.primary-nav-menu a,
+	.primary-nav-menu li li a,
+	.l-side-nav .primary-nav-menu a,
+	.l-mega-nav .primary-nav-menu li {
+		color: $nav-link;
+		border-color: $nav-border;
+
+		&:hover,
+		&:focus,
+		&.active,
+		&.active_section {
+			color: $nav-link-hover;
+		}
+	}
+
+	.nav-toggle span,
+	.search-toggle::before,
+	.nav-toggle span::before,
+	.nav-toggle span::after {
+		color: $nav-link;
+	}
+
+	// Utility nav in left hand and mega nav layout
+	.l-side-nav .utility-nav a,
+	.l-mega-nav .utility-nav a {
+		color: $nav-utility-link;
+
+		&:hover,
+		&:focus {
+			color: $nav-utility-link-hover;
+		}
+	}
+
+	.l-mega-nav .search-field {
+		border-color: $color-grayscale-f;
+	}
+
+	.mega-nav-toggle,
+	#quicksearch .button {
+		background-color: $mega-toggle-bg;
+		color: $mega-toggle-link;
+
+		&:hover,
+		&:focus {
+			background-color: $mega-toggle-bg;
+			color: $mega-toggle-link-hover;
+		}
+	}
+}

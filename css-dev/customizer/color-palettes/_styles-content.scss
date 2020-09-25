@@ -1,0 +1,76 @@
+@media screen {
+	// content area
+
+	// heading color
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: $content-heading;
+	}
+
+	// text color
+	body {
+		color: $content-body;
+	}
+
+	// link color
+	a,
+	.calendar-list-event-link,
+	.bu_collapsible,
+	.bu_collapsible::before,
+	.profile-name {
+		color: $content-link;
+
+		&:hover,
+		&:focus {
+			color: $content-link-hover;
+		}
+	}
+
+	.bu_collapsible:hover::before,
+	.bu_collapsible:focus::before {
+		color: $content-link-hover;
+	}
+
+	// buttons
+	input[type="submit"],
+	.button,
+	.button-primary,
+	.button-selected,
+	.paging-navigation a,
+	.archive-link {
+		background-color: $button-bg;
+		color: $button-link;
+
+		&:hover,
+		&:focus {
+			background-color: darken( $button-bg, 5% );
+			color: $button-link-hover;
+		}
+	}
+
+	// blockquotes
+	blockquote {
+		border-color: $content-accent-bg;
+
+		&::before {
+			color: $content-accent-bg;
+		}
+	}
+
+	// tables
+
+	table {
+		thead {
+			background: $content-accent-bg;
+			color: $content-accent-text;
+		}
+
+		th {
+			border-color: $content-accent-bg;
+		}
+	}
+}

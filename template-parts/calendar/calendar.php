@@ -7,20 +7,6 @@
 
 global $buCalendar;
 
-// Displays the h1 page title and content.
-if ( have_posts() ) {
-	while ( have_posts() ) :
-		the_post();
-		responsive_the_title();
-		the_content( '<p class="serif">Read the rest of this page &raquo;</p>' );
-		wp_link_pages( array(
-			'before'         => '<p><strong>Pages:</strong> ',
-			'after'          => '</p>',
-			'next_or_number' => 'number',
-		) );
-	endwhile;
-}
-
 // Displays calendar component.
 $calendar_id  = responsive_calendar_get_calendar_id();
 $calendar_url = responsive_calendar_get_calendar_url();
@@ -60,26 +46,25 @@ if ( ! $calendar_id ) {
 	$start_date = strtotime( '00:00', $timestamp );
 	$start_date = date( 'Y-m-d', $start_date );
 
-	$months_to_show = 2;  // additional months to show.
+	$months_to_show = apply_filters( 'responsive_calendar_months_to_show', 2 );  // additional months to show.
 
 	$days = ( intval( date( 't', $timestamp ) ) - intval( date( 'j', $timestamp ) ) ); // days left in current month.
 
 	$cur_mo = intval( date( 'n', $timestamp ) );
-	for ( $mo = 1; $mo <= $months_to_show; $mo++ ) {
+	for ( $mo = 1; $mo <= $months_to_show; $mo ++ ) {
 		$days = $days + intval( date( 't', mktime( 0, 0, 0, date( 'n', $timestamp ) + $mo, 1 ) ) ); // let the month overflow for month&year.
 	}
 
 	$params = array( 'maxevents' => 25 );
 	$events = $buCalendar->getEvents( $calendar_id, $start_date, $days, responsive_calendar_get_topic(), $params );
 
-	$last_event = $events[ ( count( $events ) - 1 ) ]['starts']; // timestamp for the last event retrieved.
-
 	$range_end = strtotime( '+' . $days . ' day', $timestamp );
 
 	if ( count( $events ) < 25 ) {
 		$query_end = $range_end;
 	} else {
-		$query_end = $last_event;
+		$last_event = $events[ ( count( $events ) - 1 ) ]['starts']; // timestamp for the last event retrieved.
+		$query_end  = $last_event;
 	}
 
 	/* Content: Calendar Topic */

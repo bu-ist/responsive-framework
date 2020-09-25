@@ -1,0 +1,297 @@
+@media screen {
+  .comment-respond,
+  #quicksearch,
+  .l-side-nav #quicksearch,
+  .message,
+  .single .content-area .meta,
+  .single-event-schedule,
+  .single-profile .profile-info {
+    background: #f5f8ff;
+    border-color: #dfdfea;
+  }
+  .widget-calendar-picker thead,
+  .widget-calendar-picker th,
+  .widget-calendar-picker .out,
+  .widget-calendar-picker .today {
+    background: rgba(0, 0, 0, 0.15);
+  }
+  .utility-nav a,
+  .short-nav-menu a,
+  .widget-title a,
+  .widget-post-meta {
+    color: inherit;
+  }
+  .utility-nav a:active, .utility-nav a:visited,
+  .short-nav-menu a:active,
+  .short-nav-menu a:visited,
+  .widget-title a:active,
+  .widget-title a:visited,
+  .widget-post-meta:active,
+  .widget-post-meta:visited {
+    color: inherit;
+  }
+}
+
+@media screen {
+  .l-side-nav .wrapper,
+  .primary-nav,
+  .primary-nav-menu ul,
+  .l-side-nav {
+    background: #000;
+  }
+  .primary-nav-menu a,
+  .primary-nav-menu li li a,
+  .l-side-nav .primary-nav-menu a,
+  .l-mega-nav .primary-nav-menu li {
+    color: #fff;
+    border-color: #262626;
+  }
+  .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active, .primary-nav-menu a.active_section,
+  .primary-nav-menu li li a:hover,
+  .primary-nav-menu li li a:focus,
+  .primary-nav-menu li li a.active,
+  .primary-nav-menu li li a.active_section,
+  .l-side-nav .primary-nav-menu a:hover,
+  .l-side-nav .primary-nav-menu a:focus,
+  .l-side-nav .primary-nav-menu a.active,
+  .l-side-nav .primary-nav-menu a.active_section,
+  .l-mega-nav .primary-nav-menu li:hover,
+  .l-mega-nav .primary-nav-menu li:focus,
+  .l-mega-nav .primary-nav-menu li.active,
+  .l-mega-nav .primary-nav-menu li.active_section {
+    color: #448de7;
+  }
+  .nav-toggle span,
+  .search-toggle::before,
+  .nav-toggle span::before,
+  .nav-toggle span::after {
+    color: #fff;
+  }
+  .l-side-nav .utility-nav a,
+  .l-mega-nav .utility-nav a {
+    color: #999999;
+  }
+  .l-side-nav .utility-nav a:hover, .l-side-nav .utility-nav a:focus,
+  .l-mega-nav .utility-nav a:hover,
+  .l-mega-nav .utility-nav a:focus {
+    color: #cccccc;
+  }
+  .l-mega-nav .search-field {
+    border-color: #fff;
+  }
+  .mega-nav-toggle,
+  #quicksearch .button {
+    background-color: #0f69d7;
+    color: #fff;
+  }
+  .mega-nav-toggle:hover, .mega-nav-toggle:focus,
+  #quicksearch .button:hover,
+  #quicksearch .button:focus {
+    background-color: #0f69d7;
+    color: #fff;
+  }
+}
+
+@media screen {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+  }
+  body {
+    color: #000;
+  }
+  a,
+  .calendar-list-event-link,
+  .bu_collapsible,
+  .bu_collapsible::before,
+  .profile-name {
+    color: #0f69d7;
+  }
+  a:hover, a:focus,
+  .calendar-list-event-link:hover,
+  .calendar-list-event-link:focus,
+  .bu_collapsible:hover,
+  .bu_collapsible:focus,
+  .bu_collapsible::before:hover,
+  .bu_collapsible::before:focus,
+  .profile-name:hover,
+  .profile-name:focus {
+    color: #08356c;
+  }
+  .bu_collapsible:hover::before,
+  .bu_collapsible:focus::before {
+    color: #08356c;
+  }
+  input[type="submit"],
+  .button,
+  .button-primary,
+  .button-selected,
+  .paging-navigation a,
+  .archive-link {
+    background-color: #0f69d7;
+    color: #fff;
+  }
+  input[type="submit"]:hover, input[type="submit"]:focus,
+  .button:hover,
+  .button:focus,
+  .button-primary:hover,
+  .button-primary:focus,
+  .button-selected:hover,
+  .button-selected:focus,
+  .paging-navigation a:hover,
+  .paging-navigation a:focus,
+  .archive-link:hover,
+  .archive-link:focus {
+    background-color: #0d5dbf;
+    color: #fff;
+  }
+  blockquote {
+    border-color: #000;
+  }
+  blockquote::before {
+    color: #000;
+  }
+  table thead {
+    background: #000;
+    color: #fff;
+  }
+  table th {
+    border-color: #000;
+  }
+}
+
+@media screen {
+  .widget-title,
+  #contentnav ul,
+  #contentnav li,
+  .widget_nav_menu ul,
+  .widget_nav_menu li,
+  .widget-calendar-event,
+  .month,
+  .widget-calendar-picker th,
+  .widget-calendar-picker td,
+  .widget_links li,
+  .widget_archive li {
+    border-color: #e7e7e7;
+  }
+  .widget,
+  .widget-calendar-picker th,
+  .widget-calendar-picker caption {
+    color: #545454;
+  }
+  .widget a,
+  #contentnav li a,
+  .widget_nav_menu li a,
+  #contentnav li.current_page_item > a,
+  .widget_nav_menu li.current_page_item > a,
+  .month td a {
+    color: #0f69d7;
+  }
+  .widget a:hover, .widget a:focus,
+  #contentnav li a:hover,
+  #contentnav li a:focus,
+  .widget_nav_menu li a:hover,
+  .widget_nav_menu li a:focus,
+  #contentnav li.current_page_item > a:hover,
+  #contentnav li.current_page_item > a:focus,
+  .widget_nav_menu li.current_page_item > a:hover,
+  .widget_nav_menu li.current_page_item > a:focus,
+  .month td a:hover,
+  .month td a:focus {
+    color: #0a0a0a;
+  }
+  .widget-title,
+  .widget-title a {
+    color: #0a0a0a;
+  }
+  .widget a.button,
+  .widget a.button-primary {
+    background: #0f69d7;
+    color: #fff;
+  }
+  .widget a.button:hover, .widget a.button:focus,
+  .widget a.button-primary:hover,
+  .widget a.button-primary:focus {
+    color: #fff;
+  }
+  .profile-single-details {
+    background: #262626;
+    border: 0;
+  }
+  .profile-single-details a {
+    color: #0f69d7;
+  }
+  .profile-single-details a:hover, .profile-single-details a:focus {
+    color: #0a0a0a;
+  }
+  .profile-details-item {
+    color: #545454;
+  }
+  .profile-details-label {
+    color: #0a0a0a;
+  }
+}
+
+@media screen {
+  .footbar,
+  .footbar-container,
+  .banner-container-window-width {
+    background: #000;
+  }
+  .footbar {
+    border-color: #000;
+  }
+  .footbar a,
+  .footbar .widget a,
+  .footbar #contentnav li a,
+  .footbar .widget_nav_menu li a {
+    color: #448de7;
+  }
+  .footbar a:hover, .footbar a:focus,
+  .footbar .widget a:hover,
+  .footbar .widget a:focus,
+  .footbar #contentnav li a:hover,
+  .footbar #contentnav li a:focus,
+  .footbar .widget_nav_menu li a:hover,
+  .footbar .widget_nav_menu li a:focus {
+    color: #fff;
+  }
+  .footbar .widget a.button,
+  .footbar .widget a.button-primary {
+    background: #0f69d7;
+    color: #fff;
+  }
+  .footbar .widget a.button:hover, .footbar .widget a.button:focus,
+  .footbar .widget a.button-primary:hover,
+  .footbar .widget a.button-primary:focus {
+    color: #fff;
+  }
+  .footbar .widget-title,
+  .footbar .widget-title a,
+  .footbar .widget-calendar-date a,
+  .footbar h1,
+  .footbar h2,
+  .footbar h3,
+  .footbar h4,
+  .footbar h5,
+  .footbar h6 {
+    color: #fff;
+  }
+  .footbar .widget-title,
+  .footbar #contentnav ul,
+  .footbar #contentnav li,
+  .footbar .widget_nav_menu ul,
+  .footbar .widget_nav_menu li,
+  .footbar .widget-calendar-event {
+    border-color: #262626;
+  }
+  .footbar .widget,
+  .footbar .widget-calendar-day-graphic,
+  .footbar .widget-bu-posts .meta {
+    color: #b3b3b3;
+  }
+}

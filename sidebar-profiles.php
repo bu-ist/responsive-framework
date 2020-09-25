@@ -5,7 +5,7 @@
  * @package Responsive_Framework\BU_Profiles
  */
 
-if ( is_active_sidebar( 'profiles' ) ) :
+if ( is_registered_sidebar( 'profiles' ) && is_active_sidebar( 'profiles' ) ) :
 	/**
 	 * Fires immediately before the opening profiles sidebar container element.
 	 *

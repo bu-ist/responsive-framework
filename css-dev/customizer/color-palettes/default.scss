@@ -1,0 +1,12 @@
+$palette-id: "default";
+
+@import "styles-base";
+
+$button-bg: #0f69d7;
+$footbar-link: accessible-text( $color-grayscale-0, #448de7 );
+
+@import "monochromatic";
+@import "styles-navigation";
+@import "styles-content";
+@import "styles-sidebar";
+@import "styles-footer";

@@ -5,34 +5,86 @@
  * @package Responsive_Framework\BU_Profiles
  */
 
-$has_details = bu_profile_has_details();
+/**
+ * Adds a profile image above the title.
+ *
+ * @since 2.3.3
+ */
+function responsive_single_profile_img() {
 
-get_header(); ?>
+	// Sets profile thumbnail to false by default.
+	$profile_thumb = false;
+
+	// If BU Thumbnail exists, attempt to retrieve the image HTML.
+	if ( function_exists( 'bu_thumbnail' ) ) {
+		$thumb_args    = array(
+			'maxwidth'  => 300,
+			'maxheight' => 300,
+			'size'      => 'responsive_profile_large',
+		);
+		$profile_thumb = bu_get_thumbnail_src( get_the_ID(), $thumb_args );
+	}
+
+	// Output the thumbnail if found.
+	if ( $profile_thumb ) :
+		?>
+		<figure class="profile-photo profile-single-photo">
+			<?php echo wp_kses_post( $profile_thumb ); ?>
+		</figure>
+		<?php
+	endif;
+}
+add_action( 'r_after_opening_article', 'responsive_single_profile_img', 9 );
+
+/**
+ * Adds a profile title (a.k.a. job/position) below the title.
+ *
+ * @since 2.3.3
+ *
+ * @link https://github.com/bu-ist/bu-profiles/blob/develop/bu-profile-template-tags.php#L3-L28
+ */
+function responsive_single_profile_subheader() {
+
+	// Define arguments to pass to `bu_profile_detail()`.
+	$detail_args = array(
+		'before' => '<h2 class="profile-single-title">',
+		'after'  => '</h2>',
+	);
+
+	// Output the profile title (job/position) in heading tags if exists.
+	bu_profile_detail( 'title', $detail_args );
+}
+add_action( 'r_after_opening_article', 'responsive_single_profile_subheader', 11 );
+
+/**
+ * Begin templating.
+ */
+get_header();
+?>
 
 	<?php if ( have_posts() ) : the_post(); ?>
 
 		<?php
-		if ( function_exists( 'bu_thumbnail' ) ) {
-			$thumb_args = array(
-				'maxwidth'  => 300,
-				'maxheight' => 300,
-				'size'      => 'responsive_profile_large',
-			);
-			$profile_thumb = bu_get_thumbnail_src( get_the_ID(), $thumb_args );
-		} else {
-			$profile_thumb = false;
-		}
+		/**
+		 * Fires immediately before the opening article tag.
+		 *
+		 * @since 2.3.3
+		 */
+		do_action( 'r_before_opening_article' );
 		?>
 
 		<article <?php post_class( 'content-area' ); ?>>
-			<?php if ( $profile_thumb ) : ?>
-				<figure class="profile-photo profile-single-photo"><?php echo wp_kses_post( $profile_thumb ); ?></figure>
-			<?php endif; ?>
 
-			<?php responsive_the_title(); ?>
-			<h2 class="profile-single-title"><?php bu_profile_detail( 'title' ); ?></h2>
+			<?php
+			/**
+			 * Fires immediately after opening article tag.
+			 *
+			 * @since 2.3.3
+			 */
+			do_action( 'r_after_opening_article' );
+			?>
 
-			<?php if ( $has_details ) : ?>
+			<?php if ( bu_profile_has_details() ) : ?>
 				<aside role="complementary" class="profile-single-details">
 					<ul class="profile-details-list">
 						<?php
@@ -87,13 +139,31 @@ get_header(); ?>
 
 			<?php the_taxonomies( array( 'before' => '<div class="profile-tax"><dl>', 'sep' => '', 'after' => '</dl></div><!--/.profiles-tax-->', 'template' => '<dt>%s</dt><dd>%l</dd>' ) ); ?>
 
-			<?php edit_post_link( __( 'Edit', 'responsive-framework' ), '<p class="edit-link">', '</p>' ); ?>
-
 			<?php responsive_profiles_archive_link(); ?>
 
 			<?php responsive_comments(); ?>
 
+			<?php edit_post_link( __( 'Edit Profile', 'responsive-framework' ), '<span class="edit-link">', '</span><span class="post-edit-hint"></span>' ); ?>
+
+			<?php
+			/**
+			 * Fires immediately before closing article tag.
+			 *
+			 * @since 2.3.3
+			 */
+			do_action( 'r_before_closing_article' );
+			?>
+
 		</article>
+
+		<?php
+		/**
+		 * Fires immediately after closing article tag.
+		 *
+		 * @since 2.3.3
+		 */
+		do_action( 'r_after_closing_article' );
+		?>
 
 	<?php endif; ?>
 

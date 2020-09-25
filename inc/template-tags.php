@@ -164,7 +164,7 @@ if ( ! function_exists( 'responsive_get_the_title' ) ) {
 		endif;
 
 		// Allow the current title to be filtered.
-		$title = apply_filters( 'responsive_filter_get_the_title', $title );
+		$title = apply_filters( 'responsive_get_the_title', $title );
 
 		return $title;
 	}
@@ -457,7 +457,7 @@ function responsive_short_nav( $args = array() ) {
 		return;
 	}
 
-	$after .= '<button type="button" class="nav-toggle js-nav-toggle mega-nav-toggle" aria-label="' . __( 'Open menu', 'responsive-framework' ) . '" aria-expanded="true">';
+	$after  = '<button type="button" class="nav-toggle js-nav-toggle mega-nav-toggle" aria-label="' . __( 'Open menu', 'responsive-framework' ) . '" aria-expanded="true">';
 	$after .= '<div class="nav-toggle-label-closed">' . apply_filters( 'responsive_mega_menu_closed', __( 'Full Menu', 'responsive-framework' ) ) . '</div>';
 	$after .= '<div class="nav-toggle-label-open">' . apply_filters( 'responsive_mega_menu_opened', __( 'Close Menu', 'responsive-framework' ) ) . '</div>';
 	$after .= '</button>';
@@ -628,9 +628,13 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 		} elseif ( is_tax() || is_category() || is_tag() ) {
 			$taxonomy_object = get_taxonomy( $queried_object->taxonomy );
 
+			// Overwrite $archive_type if taxonomy object has an object type assigned.
 			$post_type = get_post_type( $taxonomy_object->object_type[0] );
-
-			$archive_type = $post_type->labels->singular_name;
+			if ( ! empty( $post_type ) ) {
+				$archive_type = $post_type->labels->singular_name;
+			}
+		} elseif ( is_search() ) {
+			$archive_type = 'search';
 		}
 
 		$defaults = array(
@@ -799,31 +803,43 @@ function responsive_posts_should_display( $field ) {
  * @return mixed Post archive link, or false if no good candidates were found.
  */
 function responsive_get_posts_archive_link() {
+	// Sets initial values.
 	$archive_link = false;
-	$post_cats = get_the_terms( get_post(), 'category' );
-	$post_cat_ids = wp_list_pluck( $post_cats, 'term_id' );
-	$all_cats = false;
+	$post_cats    = get_the_terms( get_post(), 'category' );
+	$post_cat_ids = array();
+	$all_cats     = false;
 
-	$news_pages = get_pages( array(
-		'hierarchical' => 0,
-		'parent' => -1,
-		'meta_key'     => '_wp_page_template',
-		'meta_value'   => 'page-templates/news.php',
-	) );
+	// Sets $post_cat_ids if categories exist for this post.
+	if ( ! empty( $post_cats ) && ! is_wp_error( $post_cats ) ) {
+		$post_cat_ids = wp_list_pluck( $post_cats, 'term_id' );
+	}
 
-	foreach( $news_pages as $page ) {
-		$page_cat_id = get_post_meta( $page->ID, '_bu_list_news_category', true );
+	// Runs the query to retrieve custom news page templates.
+	$news_pages = get_pages(
+		array(
+			'hierarchical' => 0,
+			'parent'       => -1,
+			'meta_key'     => '_wp_page_template',
+			'meta_value'   => 'page-templates/news.php',
+		)
+	);
 
-		if ( in_array( $page_cat_id, $post_cat_ids ) ) {
-			$archive_link = get_permalink( $page->ID );
-			break;
-		}
+	// Only iterates through pages if they exist.
+	if ( ! empty( $news_pages ) ) {
+		foreach ( $news_pages as $page ) {
+			$page_cat_id = get_post_meta( $page->ID, '_bu_list_news_category', true );
 
-		// Find the first news page set to display "All Categories".
-		// Hold onto it in case we can't find a page that matches the category.
-		if ( empty( $page_cat_id ) && ! $all_cats ) {
-			$all_cats = get_permalink( $page->ID );
-			continue;
+			if ( in_array( $page_cat_id, $post_cat_ids, true ) ) {
+				$archive_link = get_permalink( $page->ID );
+				break;
+			}
+
+			// Find the first news page set to display "All Categories".
+			// Hold onto it in case we can't find a page that matches the category.
+			if ( empty( $page_cat_id ) && ! $all_cats ) {
+				$all_cats = get_permalink( $page->ID );
+				continue;
+			}
 		}
 	}
 
@@ -831,7 +847,7 @@ function responsive_get_posts_archive_link() {
 
 	// If we don't have a category match, but we have an all categories page, use that.
 	if ( ! $archive_link && $all_cats ) {
-			$archive_link = $all_cats;
+		$archive_link = $all_cats;
 	}
 
 	if ( ! $archive_link ) {
@@ -1141,4 +1157,44 @@ function r_get_archive_sidebar( $name = null ) {
 	$templates[] = 'sidebar.php';
 
 	locate_template( $templates, true );
+}
+
+/**
+ * Helper method to retrieve post excerpts outside of The Loop.
+ *
+ * Retrieves a custom excerpt (if exists). Fallsback to generating an excerpt
+ * from the post content field.
+ *
+ * A workaround for a known WP issue:
+ * https://developer.wordpress.org/reference/functions/get_the_excerpt/#comment-2457
+ *
+ * @since 1.0.0
+ *
+ * @param int $post_id The post ID to retrieve an excerpt for.
+ * @param int $length  Optional. The number of words to include.
+ * @return string $excerpt The resulting excerpt.
+ */
+function responsive_get_the_excerpt( $post_id = null, $length = 55 ) {
+	// If no Post ID supplied, use the main query's post.
+	$post_id = ! empty( $post_id ) ? $post_id : get_the_ID();
+	// Sets the initial value for the excerpt.
+	$excerpt = '';
+	// If has a custom excerpt, use that.
+	if ( has_excerpt( $post_id ) ) {
+		$excerpt = get_the_excerpt( $post_id );
+	} else {
+		// Craft an excerpt from post_content, without using setup_postdata().
+		$post_content = get_post_field( 'post_content', $post_id );
+		// Only generate an excerpt if there post_content exists.
+		if ( ! empty( $post_content ) ) {
+			$excerpt = $post_content;
+			// Strip any shortcodes from the excerpt.
+			$excerpt = strip_shortcodes( $excerpt );
+		}
+	}
+	// If a length was passed and not empty, trim words.
+	if ( ! empty( $length ) ) {
+		$excerpt = wp_trim_words( $excerpt, $length );
+	}
+	return $excerpt;
 }

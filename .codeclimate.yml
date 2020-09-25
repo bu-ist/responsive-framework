@@ -1,23 +1,26 @@
 ---
-exclude_paths:
-- node_modules/
-- languages/
-- vendor/
-- js/vendor/
-- ".sass-cache/"
-- "*.min.css"
-- "*.min.js"
-- "**.css"
-- "js/script.js"
+exclude_patterns:
+  - "node_modules/"
+  - "languages/"
+  - "vendor/"
+  - "js/vendor/"
+  - ".sass-cache/"
+  - "*.min.js"
+  - "css/"
+  - "**/*.css"
+  - "js/script.js"
+  - "**/*.map"
+  - "images/"
+  - ".github/"
 
 prepare:
   fetch:
-  - url: "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.scss-lint-r-2.x.yml"
-    path: ".scss-lint.yml"
-  - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintrc"
-  - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintignore"
-  - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.mdlrc"
-  - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/markdown.rb"
+    - url: "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.stylelintrc.json"
+      path: ".stylelintrc.json"
+    - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintrc"
+    - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintignore"
+    - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.mdlrc"
+    - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/markdown.rb"
 
 engines:
   csslint:
@@ -26,13 +29,13 @@ engines:
     enabled: true
     config:
       languages:
-      - javascript
-      - php
+        - javascript
+        - php
     exclude_paths:
       - "Gruntfile.js"
   eslint:
-    enabled: true
-    channel: eslint-3
+    enabled: false
+    channel: eslint-5
   fixme:
     enabled: true
   markdownlint:
@@ -49,16 +52,15 @@ engines:
     config:
       file_extensions: php
       rulesets: codesize,naming,unusedcode
-  scss-lint:
+  stylelint:
     enabled: true
-    exclude_fingerprints:
-    - bcfbf6b95474763b7de69327fe455ae5
+    config:
+      file_extensions: scss
 ratings:
   paths:
-  - "**.md"
-  - "**.inc"
-  - "**.js"
-  - "**.json"
-  - "**.php"
-  - "**.css"
-  - "**.scss"
+    - "**.md"
+    - "**.inc"
+    - "**.js"
+    - "**.json"
+    - "**.php"
+    - "**.scss"

@@ -1,5 +1,174 @@
 # Changelog
 
+## Unreleased
+
+- Updated and improved styles for BU Landing Pages and color palettes.
+
+## 2.3.15
+
+- Fix for the url label in the calendar, from "Registration" to "Link"
+
+## 2.3.14
+
+- Adds additional actions for the mega menu.
+
+## 2.3.13
+
+- **Hotfix** Fixed an issue where the calendar id was not being returned properly.
+
+## 2.3.12
+
+- Removes sasslint in favor of stylelint due to security warnings.
+- Adds a filter to BU Calendar to override the calendar id.
+- Adds a filter to BU Calendar to override the default months to show.
+
+## 2.3.11
+
+- Added a filter to override the archive banner.
+
+## 2.3.10
+
+- Security and dependency updates, including:
+  - `grunt-modernizr`
+  - `lightgallery`
+  - `autoprefixer`
+  - `time-grunt`
+  - `grunt-version`
+  - `eslint`
+  - `grunt-contrib-uglify`
+  - `@babel/core`
+  - `@babel/preset-env`
+  - `@wordpress/eslint-plugin`
+  - `@wordpress/babel-preset-default`
+- Removes `grunt-phplint` as it is no longer being actively maintained
+
+## 2.3.9
+
+- If BU Banners is present, and it is an archive page, set the title to hidden.  The banner will take care of the title.
+
+## 2.3.8
+
+- Adds a check for registered sidebars.
+
+## 2.3.7
+
+- Removes duplicate call to burf-base, which is a dependency of burf-theme.
+- Add responsive_html_class() for use on the `<html>` tag for class name output/filtering.
+
+## 2.3.61
+
+- Minor bug fixes to color palettes: mega navigation, footer buttons and headings.
+
+## 2.3.6
+
+- Fix broken Travis CI tests.
+- Add pagination to search template.
+- Add `responsive_get_the_excerpt( $post_id, $length )` for reliably retrieving
+  post excerpts outside of The Loop. Default $length value is 55 words.
+- Add `rel="nofollow"` attributes to event links in the calendar widget output.
+- Replace the template name in `calendar-single.php` with a note about its
+  usage.
+- Automated fixes of security vulnerabilities in package-lock.json
+    - Bump mixin-deep from 1.3.1 to 1.3.2
+    - Bump lodash.merge from 4.6.1 to 4.6.2
+    - Bump lodash.mergewith from 4.6.1 to 4.6.2
+    - Bump eslint-utils from 1.3.1 to 1.4.2
+- Upgrade Foundation to 3.2.3 to resolve autoprefixer warnings.
+
+## 2.3.5
+
+- Replicated the `responsive_primary_nav_before` and `responsive_primary_nav_after` hooks into the BU version of `responsive_primary_nav`
+- Fixes #170
+
+## 2.3.4
+
+- Add quotes to iframe attributes for BUNIVERSE shortcode.
+
+## 2.3.3
+
+- Add template hooks to all core WP and custom page templates in the theme.
+- Normalize the markup used on all page templates for consistency.
+- Split the calendar template into `calendar.php` and `calendar-single.php` by
+  leveraging the `template_include` filter.
+- Add support for custom fields on `calendar-single.php`.
+
+## 2.3.2
+
+- Removes default option of "true" to address #364 where customizer could not
+  persist an unchecked value for Customizer > Content Options > "Keep the posts
+  sidebar on bottom".
+- Bugfix on color schemes to ensure their values are properly retrieved using
+  array_key_exists instead of in_array.
+- Fixes broken phpunit tests for testing customizer color/font values.
+
+## 2.3.1
+
+Version bump to run the upgrade to accomodate new color schemes
+
+## 2.3.0
+
+- New and improved UI for color palette selection
+- Add edit links to BU profiles partials and support for improved styling
+- Add to the upgrade procedure migration of the font and color palettes
+- Rebuilds the `burf_customizer_styles` option.
+- Refactor of the larger code blocks into their own functions.
+
+## 2.2.0
+
+- Move footer-branding and footer-menus to their own template partials for
+  easier child theme overrides.
+- Bugfix on `responsive_primary_nav` introduced in 2.1.12. Only overrides
+  container_id and container_class args for bu navigation, rather than all args.
+- Bugfix on banner page titles introduced in 2.1.12. Adds a filter to set
+  `bu_banner_has_text` to true on the front-end for text layouts, since that is
+  the conditional that was added from 2.1.12.
+- Add autoprefixer support with grunt-postcss plugin.
+- Add browserslist support in package.json for front-end tools like
+  autoprefixer.
+- Add es6 functionality via a variety of npm packages and Gruntfile
+  modifications:
+    - `grunt-browserify`: A bundler that allows for easier dependency management
+      and gives the ability to use `require` for separating files into modules.
+      Polyfills the `require` function used in Node for the browser.
+    - `babelify`: Provides a transform for browserify so we can write es6 code.
+      This includes using modern `import` and `export` features rather than
+      having to use `require`. This package will transpile es6 code into es5
+      which browserify can bundle for the browser.
+    - `@babel/core`: Required babel library for `babelify` package.
+    - `@babel/preset-env`: The recommended "smart" preset for configuring babel
+      to take advantage of latest es6 features.
+    - `@wordpress/babel-preset-default`: Adds WordPress es6 configurations.
+    - `@wordpress/eslint-plugin`: Adds linting rules to adhere to WordPress
+      standards for the `eslint` package.
+    - `browserify-shim`: makes CommonJS incompatible files browserifyable (files
+      that don’t support `require` from the CommonJS module syntax). Also allows
+      us to determine what global variables we will use in our project that will
+      NOT be bundled, such as jQuery.
+    - `eslint` For code climate and text editors to lint and autofix their code.
+    - Updates `grunt-contrib-clean` to 2.0.0. Also adds a clean:js task to clear
+      contents of directories for new compiled files to reside in, so that old
+      irrelevant files don't stick around.
+- Adds `grunt-sass-lint` for separate `grunt sasslint` task.
+- Adds `browserslist` to package.json so front-end tooling packages like `babel`
+  and `autoprefixer` (not yet in Framework) can share the same configurations
+  for browser support.
+- Adds `.babelrc` configuration file for es6 configs.
+- Adds `.eslintrc.json` configuration file for eslint configs.
+- Adds `.sasslintrc` for grunt sasslint command and code climate.
+- Pulls in Responsive Foundation as an es6 module.
+- Refactors `galleries.js` to bundle together with our lightgallery,
+  lg-thumbnail pacakges (Also Removed these hardcoded js libraries in
+  the repo since they can be pulled in and bundled together with the code).
+- Refactors all JS files to be written in modern es6 syntax.
+- Updates codeclimate to use eslint-5 and sass-lint instead of scss-lint which
+  will eventually be deprecated or will not support latest sass features.
+
+## 2.1.13
+
+- Minor update to change how content was checked for banners, switching to the bu_banners spefic `has_text`.
+- Resolve PHP Warnings when `responsive_get_posts_archive_link` is called on a
+  page that doesn't have any categories assigned to it.
+
 ## 2.1.12
 
 - Bower cleanup.

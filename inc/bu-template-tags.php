@@ -10,32 +10,49 @@
  * Override the default navigation menu with
  * BU custom version.
  *
- * @param string $nav Default HTML markup for the navigation.
- * @param array $args Default Responsive Framework nav arguments.
+ * @since 2.1.12
  */
 function responsive_primary_nav() {
 	if ( ! method_exists( 'BuAccessControlPlugin', 'is_site_403' ) || false === BuAccessControlPlugin::is_site_403() ) {
 
 		if ( function_exists( 'bu_navigation_display_primary' ) ) {
 			/**
-			 * Filters the BU navigation defaults.
+			 * Fires before primary nav is displayed.
+			 *
+			 * @since 2.11.12
 			 */
-			$args = apply_filters( 'bu_responsive_primary_nav_args', array(
-				'post_types'      => array( 'page' ),
-				'include_links'   => true,
-				'depth'           => BU_NAVIGATION_PRIMARY_DEPTH,
-				'max_items'       => BU_NAVIGATION_PRIMARY_MAX,
-				'container_tag'   => 'ul',
-				'container_id'    => 'primary-nav-menu',
-				'container_class' => 'primary-nav-menu',
-				'item_tag'        => 'li',
-				'identify_top'    => false,
-				'whitelist_top'   => null,
-				'title_before'    => '',
-				'title_after'     => '',
-			) );
+			do_action( 'responsive_primary_nav_before' );
 
+			/**
+			 * Defines arguments to pass in to BU Navigation.
+			 *
+			 * Note: These arguments will override Primary Navigation defaults +
+			 * wp-admin settings defined in Appearance > Primary Navigation.
+			 *
+			 * @since 2.1.12
+			 *
+			 * @link https://github.com/bu-ist/bu-navigation
+			 * @see bu_navigation_display_primary in BU Navigation for all args.
+			 *
+			 * @param array $args Array of BU Navigation Primary Nav arguments.
+			 */
+			$args = apply_filters(
+				'bu_responsive_primary_nav_args',
+				array(
+					'container_id'    => 'primary-nav-menu',
+					'container_class' => 'primary-nav-menu',
+				)
+			);
+
+			// Calls the BU primary navigation, providing overrides.
 			bu_navigation_display_primary( $args );
+
+			/**
+			 * Fires after primary nav is displayed.
+			 *
+			 * @since 2.11.12
+			 */
+			do_action( 'responsive_primary_nav_after' );
 		}
 	}
 }

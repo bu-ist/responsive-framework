@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.12' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.3.15' );
 
 /**
  * Modernizr version.
@@ -17,7 +17,7 @@ define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.1.12' );
  * Used to version Modernizr assets.
  */
 if ( ! defined( 'RESPONSIVE_MODERNIZR_VERSION' ) ) {
-	define( 'RESPONSIVE_MODERNIZR_VERSION', '3.6.0' );
+	define( 'RESPONSIVE_MODERNIZR_VERSION', '3.7.1' );
 }
 
 /**
@@ -46,7 +46,7 @@ function get_responsive_theme_version() {
  *
  * Used to version `lightGallery` assets.
  */
-define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.11' );
+define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.6.14' );
 
 /**
  * `lg-thumbnail` version.
@@ -304,7 +304,6 @@ add_action( 'r_after_closing_container_inner', 'responsive_bottom_sidebar_displa
  * Enqueue front-end scripts & styles.
  */
 function responsive_enqueue_scripts() {
-	$postfix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	$dependencies = array(
 		'jquery',
@@ -337,7 +336,7 @@ function responsive_enqueue_scripts() {
 		 */
 		$modernizr_in_footer = (bool) apply_filters( 'r_modernizr_in_footer', false );
 
-		wp_enqueue_script( 'modernizr', get_template_directory_uri() . "/js/vendor/modernizr$postfix.js", array(), RESPONSIVE_MODERNIZR_VERSION, $modernizr_in_footer );
+		wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/vendor/modernizr.js', array(), RESPONSIVE_MODERNIZR_VERSION, $modernizr_in_footer );
 	}
 
 	/**
@@ -361,7 +360,7 @@ function responsive_enqueue_scripts() {
 	$script_in_footer = (bool) apply_filters( 'r_script_in_footer', true );
 
 	// Main script file (script.js) will load from child theme directory.
-	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . "/js/script$postfix.js", $dependencies, get_responsive_theme_version(), $script_in_footer );
+	wp_enqueue_script( 'responsive-scripts', get_stylesheet_directory_uri() . '/js/script.js', $dependencies, get_responsive_theme_version(), $script_in_footer );
 
 	// Enqueue core script responsible for inline comment replies if the current site / post supports it.
 	if ( is_singular() && responsive_has_comment_support() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -451,7 +450,7 @@ function r_is_narrow_template() {
 			$narrow_enabled = true;
 		}
 	} else {
-		$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom', false );
+		$narrow_enabled = (bool) get_option( 'burf_setting_posts_sidebar_bottom' );
 	}
 
 	if ( defined( 'BU_RESPONSIVE_SIDEBAR_POSITION' ) ) {
@@ -552,6 +551,44 @@ function r_is_narrow_template() {
 	$is_narrow_template = apply_filters( 'r_is_narrow_template', $is_narrow_template );
 
 	return $is_narrow_template;
+}
+
+/**
+ * Displays the classes for the HTML tag.
+ *
+ * @since 2.3.61
+ *
+ * @param string|array $class One or more classes to add to the class list.
+ * @param boolean      $attribute Output classes with 'class' attribute.
+ */
+function responsive_html_class( $class = '', $attribute = true ) {
+	$classes = array();
+
+	$class   = r_prepare_passed_classes( $class );
+	$classes = array_merge( $classes, array_map( 'esc_attr', $class ) );
+
+	/**
+	 * Filters the list of CSS classes for the HTML tag.
+	 *
+	 * @since 2.3.61
+	 *
+	 * @param array $classes HTML element classes.
+	 * @param array $class   Additional classes added to the HTML element.
+	 */
+	$classes = apply_filters( 'r_html_class', $classes, $class );
+
+	if ( empty( $classes ) ) {
+		return;
+	}
+
+	if ( true === $attribute ) {
+		// Separates classes with a single space, collates classes for the HTML element.
+		echo 'class="' . join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . '"';
+	} else {
+		// Separates classes with a single space, collates classes for the HTML element
+		// without the class attribute name.
+		echo join( ' ', array_map( 'esc_attr', array_unique( $classes ) ) ) . ' ';
+	}
 }
 
 /**
@@ -960,6 +997,11 @@ require __DIR__ . '/inc/search-form.php';
  */
 require __DIR__ . '/inc/bu-template-tags.php'; // BU enhancements to template-tags.
 require __DIR__ . '/inc/template-tags.php';
+
+/**
+ * Templating hooks to offer flexibility in templating, adding content, etc.
+ */
+require __DIR__ . '/inc/template-hooks.php';
 
 /**
  * Upgrade routines for schema changes across versions.

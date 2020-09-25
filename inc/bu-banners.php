@@ -9,6 +9,39 @@
 
 if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 
+
+	/**
+	 * Filters whether the current banner has text.
+	 *
+	 * This can be used when custom fields are added to a banner layout that,
+	 * when filled in, should indicate that a banner has text.
+	 *
+	 * @since 2.1.3
+	 *
+	 * @param bool       $has_text    Whether the current banner has text.
+	 * @param array|bool $banner_info Array of banner info for the current banner if it exists,
+	 *                                false if the post has no banner info.
+	 * @return bool $has_text Defines whether the banner has text.
+	 */
+	function responsive_bu_banner_has_text( $has_text, $banner_info ) {
+		/**
+		 * Bails immediately if the following conditions are met:
+		 * - this is an admin page (avoids messing with save_post hook).
+		 * - this is not a text layout.
+		 */
+		if ( is_admin() || ! bu_banners_layout_supports_text( $banner_info['layout'] ) ) {
+			return $has_text;
+		}
+
+		// If this text layout has an empty title, return true. We'll fill it in later.
+		if ( empty( $banner_info['title'] ) ) {
+			$has_text = true;
+		}
+
+		return $has_text;
+	}
+	add_filter( 'bu_banners_banner_has_text', 'responsive_bu_banner_has_text', 10, 2 );
+
 	/**
 	 * Sets the banner title to the current page title if empty.
 	 *
@@ -28,20 +61,26 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 			return;
 		}
 
-		// Stores the post id.
-		$post_id = get_queried_object_id();
+		$disable_archive = apply_filters( 'responsive_disable_archive_banner', false );
+		if ( is_archive() && ! $disable_archive ) {
+			add_filter( 'responsive_the_title_is_hidden', '__return_true' );
+			return;
+		}
+
+		// Stores the object id.
+		$object_id = get_queried_object_id();
 
 		// Only target text layouts.
-		$layout = get_post_meta( $post_id, '_bu_banner_layout', true );
+		$layout = get_post_meta( $object_id, '_bu_banner_layout', true );
 		if ( ! bu_banners_layout_supports_text( $layout ) ) {
 			return;
 		}
 
 		// Retrieves the banner content field.
-		$banner_content = get_post_meta( get_the_id(), '_bu_banner_content', true );
+		$banner_content = get_post_meta( $object_id, '_bu_banner_content', true );
 
 		// Only continues if we have a bu banner, its content is not empty, and there is no title field supplied.
-		if ( bu_has_banner() && ! empty( $banner_content[0] ) && empty( $banner_content[0]['title'] ) ) {
+		if ( bu_has_banner( $object_id ) && bu_banner_has_text( $object_id ) && empty( $banner_content[0]['title'] ) ) {
 
 			/**
 			 * Filters BU Banner values.
@@ -57,7 +96,7 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 			add_filter(
 				'bu_banners_banner_info',
 				function( $banner_info ) {
-					$banner_info['title']        = get_the_title();
+					$banner_info['title']        = get_the_title( get_queried_object_id() );
 					$banner_info['title_before'] = '<h1 class="page-title bu-banner-title">';
 					$banner_info['title_after']  = '</h1>';
 					return $banner_info;
@@ -77,7 +116,7 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 			add_filter( 'responsive_the_title_is_hidden', '__return_true' );
 
 			// Else, add classes if we have a bu banner, its content is not empty, and there is a title field supplied.
-		} elseif ( bu_has_banner() && ! empty( $banner_content[0] ) && ! empty( $banner_content[0]['title'] ) ) {
+		} elseif ( bu_has_banner( $object_id ) && ! empty( $banner_content[0] ) && ! empty( $banner_content[0]['title'] ) ) {
 
 			/**
 			 * Filters Responsive Framework page title classes, to make the generic H1 visually hidden,
