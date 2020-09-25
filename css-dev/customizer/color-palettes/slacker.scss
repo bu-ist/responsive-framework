@@ -1,13 +1,29 @@
-$palette-id: 'slacker';
+$palette-id: "slacker";
 
-@import 'styles-base';
+@import "styles-base";
 
-$content-body: #000;
-$sidebar-link: #ECB438;
+$current-palette: map-get( $color-palettes, $palette-id );
+$color-tertiary: map-get( $current-palette, "color-tertiary" );
+$color-secondary: map-get( $current-palette, "color-secondary" );
+$color-primary: map-get( $current-palette, "color-primary" );
+$color-dark: map-get( $current-palette, "color-dark" );
 
-@import 'triad';
+$content-body: $color-grayscale-0;
+$sidebar-link: #ecb438;
 
-@import 'styles-navigation';
-@import 'styles-content';
-@import 'styles-sidebar';
-@import 'styles-footer';
+$bulp-bu-banner-button-bg:              $color-primary;
+$bulp-register-btn-bg:                  $color-secondary;
+$bulp-promo-btn-text:                   $color-dark;
+$bulp-article-btn-color:                $color-dark;
+$bulp-register-btn-text:                accessible-text( $color-secondary, $color-grayscale-f );
+$bulp-event-border: 							 transparent;
+$bulp-category-topic-bg:					 $color-secondary;
+$bulp-category-topic-color:             $color-dark;
+
+@import "triad";
+
+@import "styles-navigation";
+@import "styles-content";
+@import "styles-sidebar";
+@import "styles-footer";
+@import "styles-bulp";

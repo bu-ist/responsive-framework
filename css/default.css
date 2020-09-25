@@ -6,8 +6,8 @@
   .single .content-area .meta,
   .single-event-schedule,
   .single-profile .profile-info {
-    background: #F5F8FF;
-    border-color: #DFDFEA;
+    background: #f5f8ff;
+    border-color: #dfdfea;
   }
   .widget-calendar-picker thead,
   .widget-calendar-picker th,
@@ -37,13 +37,13 @@
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
-    background: #000000;
+    background: #000;
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
   .l-side-nav .primary-nav-menu a,
   .l-mega-nav .primary-nav-menu li {
-    color: #FFF;
+    color: #fff;
     border-color: #262626;
   }
   .primary-nav-menu a:hover, .primary-nav-menu a:focus, .primary-nav-menu a.active, .primary-nav-menu a.active_section,
@@ -59,13 +59,13 @@
   .l-mega-nav .primary-nav-menu li:focus,
   .l-mega-nav .primary-nav-menu li.active,
   .l-mega-nav .primary-nav-menu li.active_section {
-    color: #448DE7;
+    color: #448de7;
   }
   .nav-toggle span,
   .search-toggle::before,
   .nav-toggle span::before,
   .nav-toggle span::after {
-    color: #FFF;
+    color: #fff;
   }
   .l-side-nav .utility-nav a,
   .l-mega-nav .utility-nav a {
@@ -77,18 +77,18 @@
     color: #cccccc;
   }
   .l-mega-nav .search-field {
-    border-color: #FFF;
+    border-color: #fff;
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background-color: #0F69D7;
-    color: #FFF;
+    background-color: #0f69d7;
+    color: #fff;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    background-color: #0F69D7;
-    color: #FFF;
+    background-color: #0f69d7;
+    color: #fff;
   }
 }
 
@@ -99,7 +99,7 @@
   h4,
   h5,
   h6 {
-    color: #000000;
+    color: #000;
   }
   body {
     color: #000;
@@ -109,7 +109,7 @@
   .bu_collapsible,
   .bu_collapsible::before,
   .profile-name {
-    color: #0F69D7;
+    color: #0f69d7;
   }
   a:hover, a:focus,
   .calendar-list-event-link:hover,
@@ -132,8 +132,8 @@
   .button-selected,
   .paging-navigation a,
   .archive-link {
-    background-color: #0F69D7;
-    color: #FFF;
+    background-color: #0f69d7;
+    color: #fff;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
   .button:hover,
@@ -146,20 +146,21 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
-    color: #FFF;
+    background-color: #0d5dbf;
+    color: #fff;
   }
   blockquote {
-    border-color: #000000;
+    border-color: #000;
   }
   blockquote::before {
-    color: #000000;
+    color: #000;
   }
   table thead {
-    background: #000000;
-    color: #FFF;
+    background: #000;
+    color: #fff;
   }
   table th {
-    border-color: #000000;
+    border-color: #000;
   }
 }
 
@@ -188,7 +189,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #0F69D7;
+    color: #0f69d7;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -209,20 +210,20 @@
   }
   .widget a.button,
   .widget a.button-primary {
-    background: #0F69D7;
-    color: #FFF;
+    background: #0f69d7;
+    color: #fff;
   }
   .widget a.button:hover, .widget a.button:focus,
   .widget a.button-primary:hover,
   .widget a.button-primary:focus {
-    color: #FFF;
+    color: #fff;
   }
   .profile-single-details {
     background: #262626;
     border: 0;
   }
   .profile-single-details a {
-    color: #0F69D7;
+    color: #0f69d7;
   }
   .profile-single-details a:hover, .profile-single-details a:focus {
     color: #0a0a0a;
@@ -239,16 +240,16 @@
   .footbar,
   .footbar-container,
   .banner-container-window-width {
-    background: #000000;
+    background: #000;
   }
   .footbar {
-    border-color: #000000;
+    border-color: #000;
   }
   .footbar a,
   .footbar .widget a,
   .footbar #contentnav li a,
   .footbar .widget_nav_menu li a {
-    color: #448DE7;
+    color: #448de7;
   }
   .footbar a:hover, .footbar a:focus,
   .footbar .widget a:hover,
@@ -257,17 +258,17 @@
   .footbar #contentnav li a:focus,
   .footbar .widget_nav_menu li a:hover,
   .footbar .widget_nav_menu li a:focus {
-    color: #FFF;
+    color: #fff;
   }
   .footbar .widget a.button,
   .footbar .widget a.button-primary {
-    background: #0F69D7;
-    color: #FFF;
+    background: #0f69d7;
+    color: #fff;
   }
   .footbar .widget a.button:hover, .footbar .widget a.button:focus,
   .footbar .widget a.button-primary:hover,
   .footbar .widget a.button-primary:focus {
-    color: #FFF;
+    color: #fff;
   }
   .footbar .widget-title,
   .footbar .widget-title a,
@@ -278,7 +279,7 @@
   .footbar h4,
   .footbar h5,
   .footbar h6 {
-    color: #FFF;
+    color: #fff;
   }
   .footbar .widget-title,
   .footbar #contentnav ul,

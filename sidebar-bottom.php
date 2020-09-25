@@ -7,7 +7,7 @@
 
 $footbar = responsive_get_footbar_id();
 
-if ( is_active_sidebar( $footbar ) ) :
+if ( is_registered_sidebar( $footbar ) && is_active_sidebar( $footbar ) ) :
 	/**
 	 * Fires immediately before the opening footbar sidebar container element.
 	 *

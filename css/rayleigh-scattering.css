@@ -6,8 +6,8 @@
   .single .content-area .meta,
   .single-event-schedule,
   .single-profile .profile-info {
-    background: #F5F8FF;
-    border-color: #DFDFEA;
+    background: #f5f8ff;
+    border-color: #dfdfea;
   }
   .widget-calendar-picker thead,
   .widget-calendar-picker th,
@@ -37,7 +37,7 @@
   .primary-nav,
   .primary-nav-menu ul,
   .l-side-nav {
-    background: #15B6FF;
+    background: #15b6ff;
   }
   .primary-nav-menu a,
   .primary-nav-menu li li a,
@@ -77,17 +77,17 @@
     color: #084966;
   }
   .l-mega-nav .search-field {
-    border-color: #FFF;
+    border-color: #fff;
   }
   .mega-nav-toggle,
   #quicksearch .button {
-    background-color: #FE9C6D;
+    background-color: #fe9c6d;
     color: #40271b;
   }
   .mega-nav-toggle:hover, .mega-nav-toggle:focus,
   #quicksearch .button:hover,
   #quicksearch .button:focus {
-    background-color: #FE9C6D;
+    background-color: #fe9c6d;
     color: #40271b;
   }
 }
@@ -99,7 +99,7 @@
   h4,
   h5,
   h6 {
-    color: #222222;
+    color: #222;
   }
   body {
     color: #000;
@@ -132,7 +132,7 @@
   .button-selected,
   .paging-navigation a,
   .archive-link {
-    background-color: #FE9C6D;
+    background-color: #fe9c6d;
     color: #40271b;
   }
   input[type="submit"]:hover, input[type="submit"]:focus,
@@ -146,26 +146,27 @@
   .paging-navigation a:focus,
   .archive-link:hover,
   .archive-link:focus {
+    background-color: #fe8b54;
     color: #40271b;
   }
   blockquote {
-    border-color: #FA5707;
+    border-color: #fa5707;
   }
   blockquote::before {
-    color: #FA5707;
+    color: #fa5707;
   }
   table thead {
-    background: #FA5707;
-    color: #FFF;
+    background: #fa5707;
+    color: #fff;
   }
   table th {
-    border-color: #FA5707;
+    border-color: #fa5707;
   }
 }
 
 @media screen {
   .widget {
-    background: #E1F0F5;
+    background: #e1f0f5;
     padding: 24px;
   }
   .footbar .widget {
@@ -217,7 +218,7 @@
   }
   .widget a.button,
   .widget a.button-primary {
-    background: #FE9C6D;
+    background: #fe9c6d;
     color: #40271b;
   }
   .widget a.button:hover, .widget a.button:focus,
@@ -226,7 +227,7 @@
     color: #40271b;
   }
   .profile-single-details {
-    background: #E1F0F5;
+    background: #e1f0f5;
     border: 0;
   }
   .profile-single-details a {
@@ -247,16 +248,16 @@
   .footbar,
   .footbar-container,
   .banner-container-window-width {
-    background: #222222;
+    background: #222;
   }
   .footbar {
-    border-color: #222222;
+    border-color: #222;
   }
   .footbar a,
   .footbar .widget a,
   .footbar #contentnav li a,
   .footbar .widget_nav_menu li a {
-    color: #FE9C6D;
+    color: #fe9c6d;
   }
   .footbar a:hover, .footbar a:focus,
   .footbar .widget a:hover,
@@ -265,11 +266,11 @@
   .footbar #contentnav li a:focus,
   .footbar .widget_nav_menu li a:hover,
   .footbar .widget_nav_menu li a:focus {
-    color: #FFF;
+    color: #fff;
   }
   .footbar .widget a.button,
   .footbar .widget a.button-primary {
-    background: #FE9C6D;
+    background: #fe9c6d;
     color: #40271b;
   }
   .footbar .widget a.button:hover, .footbar .widget a.button:focus,
@@ -286,7 +287,7 @@
   .footbar h4,
   .footbar h5,
   .footbar h6 {
-    color: #FFF;
+    color: #fff;
   }
   .footbar .widget-title,
   .footbar #contentnav ul,
@@ -299,6 +300,138 @@
   .footbar .widget,
   .footbar .widget-calendar-day-graphic,
   .footbar .widget-bu-posts .meta {
-    color: #FFF;
+    color: #fff;
   }
+}
+
+@media screen {
+  .bulp-intro-title,
+  .bulp-largepromo-title {
+    color: #222;
+  }
+  .bu-banner-button {
+    background-color: #dd3400;
+  }
+  .bulp-promo::before,
+  .bulp-article::before {
+    background: #15b6ff;
+  }
+  .bulp-promo-button {
+    background-color: #dd3400;
+    color: #fff;
+  }
+  .bulp-promo-button:hover {
+    color: #fff;
+  }
+  .bulp-event {
+    background: #dcf4ff;
+    color: #fff;
+  }
+  .bulp-event-title,
+  .bulp-event-when {
+    color: #222;
+  }
+  .bulp-event-when {
+    border-color: #a9e4ff;
+  }
+  .bulp-section:nth-child(2n+1) .bulp-event {
+    border-top-color: #43c4ff;
+    border-left-color: #dcf4ff;
+    border-right-color: #dcf4ff;
+    border-bottom-color: #dcf4ff;
+  }
+  .bulp-event-address {
+    color: #222;
+  }
+  .bulp-event-readmore {
+    background: #ff732f;
+    color: #222;
+  }
+  .bulp-event-readmore:visited, .bulp-event-readmore:active {
+    color: #222;
+  }
+  .bulp-event-readmore:hover {
+    background: #ff9562;
+  }
+  .bulp-event-register {
+    background-color: #15b6ff;
+    color: #fff;
+  }
+  .bulp-event-register:hover {
+    color: #fff;
+  }
+  .bulp-largepromo-button {
+    background-color: #dd3400;
+    color: #fff;
+  }
+  .bulp-largepromo-button:hover {
+    color: #fff;
+  }
+  .bulp-event-when::before,
+  .bulp-event-where::before {
+    color: #15b6ff;
+  }
+  .bulp-article-category,
+  .bulp-event-topic-text {
+    background-color: #222;
+    color: #fff;
+  }
+  .bulp-article-readmore {
+    background-color: #dd3400;
+    color: #fff;
+  }
+  .bulp-section:nth-child(even) {
+    background-color: #e8f8ff;
+    color: inherit;
+  }
+  .bulp-section:nth-child(even) .bulp-intro-title {
+    color: inherit;
+  }
+  .bulp-child-nav-item {
+    background-color: #fff;
+    border-color: #15b6ff;
+    box-shadow: 0 3px 20px -1px rgba(0, 0, 0, 0.12), 0 2px 8px -3px rgba(0, 0, 0, 0.06);
+    color: #007bb3;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+  }
+  .bulp-child-nav-item::before {
+    background: #15b6ff;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+    z-index: -1;
+    -webkit-transform-origin: 0 50%;
+    -webkit-transform: scaleX(0);
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+  }
+  .bulp-child-nav-item:hover {
+    background-color: transparent;
+    color: #404040;
+  }
+  .bulp-child-nav-item:hover::before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+  .bulp-section:nth-child(2n+1) .bulp-child-nav-item {
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
+    border-left-color: #15b6ff;
+  }
+}
+
+.bu-banner-button {
+  color: #fff;
 }

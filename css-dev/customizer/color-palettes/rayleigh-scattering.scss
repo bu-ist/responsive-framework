@@ -1,14 +1,38 @@
-$palette-id: 'rayleigh-scattering';
+$palette-id: "rayleigh-scattering";
 
-@import 'styles-base';
+@import "styles-base";
 
-$sidebar-bg: #E1F0F5;
-//$mega-toggle-bg: #15b6ff;
-//$nav-bg: #00405d;
+$current-palette: map-get( $color-palettes, $palette-id );
+$color-primary: map-get( $current-palette, "color-primary" );
+$color-secondary: map-get( $current-palette, "color-secondary" );
+$color-dark: map-get( $current-palette, "color-dark" );
 
-@import 'complimentary';
+$sidebar-bg: #e1f0f5;
 
-@import 'styles-navigation';
-@import 'styles-content';
-@import 'styles-sidebar';
-@import 'styles-footer';
+$bulp-bu-banner-button-bg: #dd3400;
+$bulp-bu-banner-button-bg: #dd3400;
+$bulp-largepromo-button-bg: #dd3400;
+$bulp-article-btn-bg: #dd3400;
+$bulp-promo-btn-bg: #dd3400;
+$bulp-register-btn-bg: $color-primary;
+$bulp-child-nav-article-border:             $color-primary;
+$bulp-event-bg: mix( $color-primary, $color-grayscale-f, 15% );
+$bulp-category-topic-bg: $color-dark;
+$bulp-event-color: $color-dark;
+$bulp-event-icon-bg: $color-primary;
+$bulp-event-divider:                     darken( $bulp-event-bg, 10% );
+$bulp-event-readmore-bg: #ff732f;
+$bulp-event-readmore-color: $color-dark;
+$bulp-section-even-bg: mix( $color-primary, $color-grayscale-f, 10% );
+
+@import "complimentary";
+
+@import "styles-navigation";
+@import "styles-content";
+@import "styles-sidebar";
+@import "styles-footer";
+@import "styles-bulp";
+
+.bu-banner-button {
+	color: $color-grayscale-f;
+}

@@ -5,7 +5,7 @@ node_modules
 sftp-config.json
 .eslintignore
 .eslintrc
-.scss-lint.yml
+.stylelintcache
 .mdlrc
 markdown.rb
 build

@@ -56,7 +56,7 @@ function responsive_calendar_get_event( $calendar_id = false, $event_id = false,
 function responsive_calendar_sidebar( $args = array() ) {
 	global $buCalendar;
 
-	$topics    = responsive_calendar_get_topics();
+	$topics    = apply_filters( 'responsive_calendar_sidebar_topics', responsive_calendar_get_topics() );
 	$timestamp = responsive_calendar_get_timestamp();
 	$yyyymmdd  = responsive_calendar_get_yyyymmdd();
 
@@ -341,7 +341,12 @@ if ( ! function_exists( 'responsive_calendar_get_calendar_id' ) ) {
 	 * @return int $calendar_id Set from URL parameter if exists, else a site option.
 	 */
 	function responsive_calendar_get_calendar_id() {
-		return array_key_exists( 'cid', $_GET ) ? intval( $_GET['cid'] ) : get_option( 'bu_calendar_id' );
+		$cid = filter_input( INPUT_GET, 'cid', FILTER_VALIDATE_INT );
+		if ( empty( $cid ) ) {
+			$cid = get_option( 'bu_calendar_id' );
+		}
+
+		return apply_filters( 'responsive_calendar_get_calendar_id', $cid );
 	}
 }
 
@@ -607,7 +612,7 @@ function responsive_calendar_event_field_labels() {
 		'feeBUStudent'        => __( 'Fee (BU Students)', 'responsive-framework' ) . ':',
 		'feeSenior'           => __( 'Fee (Seniors)', 'responsive-framework' ) . ':',
 		'deadline'            => __( 'Deadline', 'responsive-framework' ) . ':',
-		'url'                 => __( 'Registration', 'responsive-framework' ) . ':',
+		'url'                 => __( 'Link', 'responsive-framework' ) . ':',
 		'contactOrganization' => __( 'Contact Organization', 'responsive-framework' ) . ':',
 		'contact_name'        => __( 'Contact Name', 'responsive-framework' ) . ':',
 		'contact_email'       => __( 'Contact Email', 'responsive-framework' ) . ':',

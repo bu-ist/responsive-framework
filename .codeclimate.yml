@@ -1,19 +1,22 @@
 ---
-exclude_paths:
-  - node_modules/
-  - languages/
-  - vendor/
-  - js/vendor/
+exclude_patterns:
+  - "node_modules/"
+  - "languages/"
+  - "vendor/"
+  - "js/vendor/"
   - ".sass-cache/"
-  - "*.min.css"
   - "*.min.js"
-  - "**.css"
+  - "css/"
+  - "**/*.css"
   - "js/script.js"
+  - "**/*.map"
+  - "images/"
+  - ".github/"
 
 prepare:
   fetch:
-    - url: "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.scss-lint-r-2.x.yml"
-      path: ".scss-lint.yml"
+    - url: "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.stylelintrc.json"
+      path: ".stylelintrc.json"
     - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintrc"
     - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.eslintignore"
     - "https://raw.githubusercontent.com/bu-ist/coding-standards/master/code-climate-rule-sets/.mdlrc"
@@ -49,8 +52,10 @@ engines:
     config:
       file_extensions: php
       rulesets: codesize,naming,unusedcode
-  sass-lint:
+  stylelint:
     enabled: true
+    config:
+      file_extensions: scss
 ratings:
   paths:
     - "**.md"
@@ -58,5 +63,4 @@ ratings:
     - "**.js"
     - "**.json"
     - "**.php"
-    - "**.css"
     - "**.scss"

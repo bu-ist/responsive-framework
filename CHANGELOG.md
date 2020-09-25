@@ -2,9 +2,59 @@
 
 ## Unreleased
 
-- Removes duplicate call to burf-base, which is a dependency of burf-theme.
+- Updated and improved styles for BU Landing Pages and color palettes.
 - Adds PHPCS configuration file.
 - Updates and prepares SQL queries per PHPCS.
+
+## 2.3.15
+
+- Fix for the url label in the calendar, from "Registration" to "Link"
+
+## 2.3.14
+
+- Adds additional actions for the mega menu.
+
+## 2.3.13
+
+- **Hotfix** Fixed an issue where the calendar id was not being returned properly.
+
+## 2.3.12
+
+- Removes sasslint in favor of stylelint due to security warnings.
+- Adds a filter to BU Calendar to override the calendar id.
+- Adds a filter to BU Calendar to override the default months to show.
+
+## 2.3.11
+
+- Added a filter to override the archive banner.
+
+## 2.3.10
+
+- Security and dependency updates, including:
+  - `grunt-modernizr`
+  - `lightgallery`
+  - `autoprefixer`
+  - `time-grunt`
+  - `grunt-version`
+  - `eslint`
+  - `grunt-contrib-uglify`
+  - `@babel/core`
+  - `@babel/preset-env`
+  - `@wordpress/eslint-plugin`
+  - `@wordpress/babel-preset-default`
+- Removes `grunt-phplint` as it is no longer being actively maintained
+
+## 2.3.9
+
+- If BU Banners is present, and it is an archive page, set the title to hidden.  The banner will take care of the title.
+
+## 2.3.8
+
+- Adds a check for registered sidebars.
+
+## 2.3.7
+
+- Removes duplicate call to burf-base, which is a dependency of burf-theme.
 
 ## 2.3.61
 
