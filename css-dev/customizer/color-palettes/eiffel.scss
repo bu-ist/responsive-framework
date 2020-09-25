@@ -9,12 +9,12 @@ $color-tertiary:                      map-get( $current-palette, 'color-tertiary
 $color-dark:                          map-get( $current-palette, 'color-dark' );
 
 $button-bg:                           map-get( $current-palette, 'color-secondary' );
-$button-link:                         accessible-text( $button-bg, #000, true );
-$button-link-hover:                   accessible-text( $button-bg, #000, true );
+$button-link:                         accessible-text( $button-bg, $color-grayscale-0, true );
+$button-link-hover:                   accessible-text( $button-bg, $color-grayscale-0, true );
 
-$sidebar-bg:                          #F4F7F7;
+$sidebar-bg:                          #f4f7f7;
 
-$content-heading:                     accessible-text( #FFF, map-get( $current-palette, 'color-tertiary' ), true );
+$content-heading:                     accessible-text( $color-grayscale-f, map-get( $current-palette, 'color-tertiary' ), true );
 $bulp-promo-btn-color:                map-get( $current-palette, 'color-primary' );
 
 $bulp-intro-title-bg:                 map-get( $current-palette, 'color-primary' );
@@ -24,13 +24,9 @@ $bulp-event-bg: lighten( $color-primary, 5% );
 $bulp-event-color: #eef8f9;
 $bulp-event-divider: #3c696f;
 $bulp-category-topic-bg: $color-dark;
-$bulp-category-topic-color: #000;
+$bulp-category-topic-color: $color-grayscale-0;
 
 $bulp-promo-btn-bg: #3a7e86;
-
-//$bulp-child-nav-article-bg:           darken( $color-dark, 10% );
-//$bulp-child-nav-article-hover:        darken( $color-dark, 5% );
-
 
 @import 'complimentary';
 

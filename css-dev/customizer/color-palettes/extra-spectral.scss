@@ -7,7 +7,7 @@ $color-primary: map-get( $current-palette, 'color-primary' );
 $color-secondary: map-get( $current-palette, 'color-secondary' );
 $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 
-$sidebar-bg:                                     #A5144D;
+$sidebar-bg:                                     #a5144d;
 $sidebar-button-bg:                              #660028;
 
 $bulp-promo-btn-bg:                     $color-primary;
@@ -17,7 +17,7 @@ $bulp-bu-banner-button-bg:              $color-secondary;
 $bulp-register-btn-bg:                  $color-secondary;
 $bulp-section-even-bg: 							#f3f0f4;
 $bulp-child-nav-article-border:             $color-tertiary;
-$bulp-section-even-bg: mix( $color-primary, #fff, 10% );
+$bulp-section-even-bg: mix( $color-primary, $color-grayscale-f, 10% );
 
 @import 'monochromatic';
 

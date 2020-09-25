@@ -9,7 +9,7 @@ $color-tertiary: map-get( $current-palette, 'color-tertiary' );
 $color-dark: map-get( $current-palette, 'color-dark' );
 
 $sidebar-bg:                          $color-secondary;
-$sidebar-link:                        accessible-text( $sidebar-bg, #FFF );
+$sidebar-link:                        accessible-text( $sidebar-bg, $color-grayscale-f );
 $mega-toggle-bg:                      $color-secondary;
 $sidebar-button-bg:                   $color-tertiary;
 $bulp-category-topic-bg:              darken( $color-primary, 40% );
@@ -22,9 +22,9 @@ $bulp-event-border: $color-dark;
 $bulp-event-bg: lighten( $color-primary, 5% );
 $bulp-event-icon-bg: $color-secondary;
 
-$footbar-link: accessible-text( #222222, #96CE53 );
+$footbar-link: accessible-text( $color-grayscale-2, #96ce53 );
 
-$bulp-border-color: linear-gradient( to right, $color-tertiary, mix($color-tertiary, $color-secondary, 50%) );
+$bulp-border-color: linear-gradient( to right, $color-tertiary, mix( $color-tertiary, $color-secondary, 50% ) );
 
 $bulp-section-even-bg: $color-primary;
 $bulp-section-even-color: $color-grayscale-f;
@@ -39,11 +39,11 @@ $bulp-section-even-color: $color-grayscale-f;
 
 .bulp-item-button,
 .bulp-article-readmore {
-	background: linear-gradient( to bottom right, $bulp-promo-btn-bg, mix($bulp-promo-btn-bg, $color-secondary, 50%) );
+	background: linear-gradient( to bottom right, $bulp-promo-btn-bg, mix( $bulp-promo-btn-bg, $color-secondary, 50% ) );
 	color: $color-grayscale-f;
 
 	&:hover {
-		background: linear-gradient( to bottom right, mix($bulp-promo-btn-bg, $color-secondary, 50%), #004e7b );
+		background: linear-gradient( to bottom right, mix( $bulp-promo-btn-bg, $color-secondary, 50% ), #004e7b );
 		color: $color-grayscale-f;
 	}
 }

@@ -197,7 +197,7 @@
   #contentnav li.current_page_item > a,
   .widget_nav_menu li.current_page_item > a,
   .month td a {
-    color: #FFF;
+    color: #fff;
   }
   .widget a:hover, .widget a:focus,
   #contentnav li a:hover,
@@ -231,7 +231,7 @@
     border: 0;
   }
   .profile-single-details a {
-    color: #FFF;
+    color: #fff;
   }
   .profile-single-details a:hover, .profile-single-details a:focus {
     color: #fff;
@@ -257,7 +257,7 @@
   .footbar .widget a,
   .footbar #contentnav li a,
   .footbar .widget_nav_menu li a {
-    color: #96CE53;
+    color: #96ce53;
   }
   .footbar a:hover, .footbar a:focus,
   .footbar .widget a:hover,
@@ -367,8 +367,8 @@
   .bulp-largepromo-button:hover {
     color: #fff;
   }
-  .bulp-event-when:before,
-  .bulp-event-where:before {
+  .bulp-event-when::before,
+  .bulp-event-where::before {
     color: #498500;
   }
   .bulp-article-category,
@@ -392,29 +392,29 @@
     border-color: #498500;
     box-shadow: 0 3px 20px -1px rgba(0, 0, 0, 0.12), 0 2px 8px -3px rgba(0, 0, 0, 0.06);
     color: #2d5200;
-    font-weight: bold;
+    font-weight: 700;
     position: relative;
     z-index: 1;
   }
   .bulp-child-nav-item::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background: #498500;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transform-origin: 0 50%;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
     transform-origin: 0 50%;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-    -webkit-transition-duration: 0.3s;
+    transform: scaleX(0);
     transition-duration: 0.3s;
-    -webkit-transition-timing-function: ease-out;
+    transition-property: transform;
     transition-timing-function: ease-out;
+    z-index: -1;
+    -webkit-transform-origin: 0 50%;
+    -webkit-transform: scaleX(0);
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
   }
   .bulp-child-nav-item:hover {
     background-color: transparent;
