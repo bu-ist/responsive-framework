@@ -2,19 +2,48 @@ $palette-id: "comm_ave";
 
 @import "styles-base";
 
-$current-palette:                     map-get( $color-palettes, $palette-id );
+$current-palette: map-get( $color-palettes, $palette-id );
+$color-primary: map-get( $current-palette, "color-primary" );
 $color-secondary: map-get( $current-palette, "color-secondary" );
 $color-tertiary: map-get( $current-palette, "color-tertiary" );
+$color-dark: map-get( $current-palette, "color-dark" );
 
 $sidebar-bg:                          $color-secondary;
-$sidebar-link:                        accessible-text( $sidebar-bg, #fff );
+$sidebar-link:                        accessible-text( $sidebar-bg, $color-grayscale-f );
 $mega-toggle-bg:                      $color-secondary;
 $sidebar-button-bg:                   $color-tertiary;
+$bulp-category-topic-bg:              darken( $color-primary, 40% );
+
+$bulp-promo-btn-bg: #007ac1;
+
+$bulp-largepromo-button-bg:        $color-secondary;
+$bulp-bu-banner-button-bg:         $color-secondary;
+$bulp-event-border: $color-dark;
+$bulp-event-bg: lighten( $color-primary, 5% );
+$bulp-event-icon-bg: $color-secondary;
 
 $footbar-link: accessible-text( #222, #96ce53 );
 
+$bulp-border-color: linear-gradient( to right, $color-tertiary, mix( $color-tertiary, $color-secondary, 50% ) );
+
+$bulp-section-even-bg: $color-primary;
+$bulp-section-even-color: $color-grayscale-f;
+
 @import "triad";
+
 @import "styles-navigation";
 @import "styles-content";
 @import "styles-sidebar";
 @import "styles-footer";
+@import "styles-bulp";
+
+.bulp-item-button,
+.bulp-article-readmore {
+	background: linear-gradient( to bottom right, $bulp-promo-btn-bg, mix( $bulp-promo-btn-bg, $color-secondary, 50% ) );
+	color: $color-grayscale-f;
+
+	&:hover {
+		background: linear-gradient( to bottom right, mix( $bulp-promo-btn-bg, $color-secondary, 50% ), #004e7b );
+		color: $color-grayscale-f;
+	}
+}

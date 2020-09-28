@@ -47,6 +47,7 @@
 
 		&:hover,
 		&:focus {
+			background-color: darken( $button-bg, 5% );
 			color: $button-link-hover;
 		}
 	}
