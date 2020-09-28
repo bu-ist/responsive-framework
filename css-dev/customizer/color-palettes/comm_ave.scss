@@ -22,7 +22,7 @@ $bulp-event-border: $color-dark;
 $bulp-event-bg: lighten( $color-primary, 5% );
 $bulp-event-icon-bg: $color-secondary;
 
-$footbar-link: accessible-text( $color-grayscale-2, #96ce53 );
+$footbar-link: accessible-text( #222, #96ce53 );
 
 $bulp-border-color: linear-gradient( to right, $color-tertiary, mix( $color-tertiary, $color-secondary, 50% ) );
 
