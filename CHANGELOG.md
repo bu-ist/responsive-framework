@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.4.0
 
 - Updated and improved styles for BU Landing Pages and color palettes.
 
