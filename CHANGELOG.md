@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add allowed html filter to responsive_the_title.
+
 ## 2.4.0
 
 - Updated and improved styles for BU Landing Pages and color palettes.
