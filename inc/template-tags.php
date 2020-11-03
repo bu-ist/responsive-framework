@@ -83,16 +83,23 @@ if ( ! function_exists( 'responsive_the_title' ) ) {
 			$html = '<h1>' . $title . '</h1>';
 		}
 
+		// Default allowed HTML.
+		$allowed_html = array(
+			'h1' => array(
+				'class' => array(),
+			),
+		);
+
+		/**
+		 *  Filter responsive_the_title() to allow custom HTML.
+		 *
+		 * @since 2.4.1
+		 */
+		$allowed_html = apply_filters( 'responsive_title_allowed_html', $allowed_html );
+
 		// Echoes or returns the html.
 		if ( $args['echo'] ) {
-			echo wp_kses(
-				$html,
-				array(
-					'h1' => array(
-						'class' => array(),
-					),
-				)
-			);
+			echo wp_kses( $html, $allowed_html );
 		} else {
 			return $html;
 		}
