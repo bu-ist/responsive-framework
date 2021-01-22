@@ -1,17 +1,13 @@
 <?php
 /**
- * When on sites.bu.edu, limit ability to change theme to super admins only. Originally implemented to preserve Faculty Model sites.
+  *
+Limits theme changing ability to Super Admins. Developed for FacultyModel sites on sites.bu.edu
  *
  * @package Responsive_Framework
  */
 
 namespace BU\Responsive\Admin\Theme_Filters;
 
-/**
- *
-Limits theme changing ability to Super Admins. Developed for FacultyModel sites on sites.bu.edu
- 
- */
 
 add_action( 'admin_menu', 'BU\Responsive\Admin\Theme_Filters\hide_theme_switcher' );
 function hide_theme_switcher() {
