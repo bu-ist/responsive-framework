@@ -19,6 +19,21 @@ if ( $display_page_template ) {
 }
 
 /**
+ * Filter whether to display Appearance->Themes menu option to non-Super-Admins on sites.bu.edu.
+ *
+ * @param bool $allow_theme_switch Whether to show the page template filter. Default is true.
+ */
+
+$allow_theme_switch = true;
+add_option( 'Disable Theme Switching', 'False', '', '' );
+
+$allow_theme_switch = apply_filters( 'responsive_show_theme_filter', $allow_theme_switch );
+
+if ( $allow_theme_switch ) {
+	include_once 'responsive-admin-theme-filter.php';
+}
+
+/**
  * Register footbar selection metabox.
  *
  * @param string $post_type Post type.
