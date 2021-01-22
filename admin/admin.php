@@ -25,8 +25,8 @@ if ( $display_page_template ) {
  */
 
 $allow_theme_switch = true;
-add_option( 'Disable Theme Switching', 'False', '', '' );
-
+add_option( 'Theme Switching Disabled', '', '', '' );
+//delete_option('Theme Switching Disabled');
 $allow_theme_switch = apply_filters( 'responsive_show_theme_filter', $allow_theme_switch );
 
 if ( $allow_theme_switch ) {
