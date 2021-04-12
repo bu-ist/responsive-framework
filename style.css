@@ -8619,4 +8619,9 @@ body {
   max-width: 1170px;
 }
 
+.wp-block-image img {
+  display: block;
+  margin: 0 auto;
+}
+
 /*# sourceMappingURL=style.css.map */
