@@ -8388,4 +8388,20 @@ body {
   word-wrap: break-word;
 }
 
+.alignfull {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+}
+
+.wp-block-group.alignfull {
+  padding: 5vw;
+}
+
+.wp-block-group__inner-container {
+  margin: 0 auto;
+  max-width: 1170px;
+}
+
 /*# sourceMappingURL=ie.css.map */
