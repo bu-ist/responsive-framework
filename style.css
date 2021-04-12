@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /*
-Theme Name: Responsive Framework 2.x (BETA)
+Theme Name: Responsive Framework 2.x
 Author: Boston University Interactive Design
 Website: http://www.bu.edu/interactive-design/
 Version: 2.4.1
-Description: THIS IS A BETA THEME. Do not activate this version of Responsive Framework unless you are sure that you want to use version 2.x.
+Description: A framework for websites at Boston University. This version of Responsive supports BU Banners and BU Landing Pages, and deprecates support for Content Banner.
 Theme Groups: Responsive Framework
 */
 /*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
@@ -126,8 +126,7 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -3207,6 +3206,8 @@ template {
 *,
 *::before,
 *::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -4907,6 +4908,11 @@ button:hover,
 :hover[type="reset"],
 :hover[type="submit"], .button:hover, .button-primary:hover,
 .button-selected:hover, .paging-navigation a:hover, .archive-link:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.1)));
+  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));
+  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));
+  background-image: -ms-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));
+  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#00000000', EndColorStr='#1A000000');
 }
@@ -4916,6 +4922,8 @@ button:active,
 :active[type="reset"],
 :active[type="submit"], .button:active, .button-primary:active,
 .button-selected:active, .paging-navigation a:active, .archive-link:active {
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
   -ms-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
   -o-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.2) inset;
@@ -4942,6 +4950,8 @@ button[disabled],
 [disabled][type="button"],
 [disabled][type="reset"],
 [disabled][type="submit"] {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   -ms-box-shadow: none;
   -o-box-shadow: none;
   box-shadow: none;
@@ -5018,6 +5028,8 @@ select:focus,
 textarea:focus, [type="file"]:focus,
 [type="radio"]:focus,
 [type="checkbox"]:focus {
+  -webkit-box-shadow: 0 0 4px 0 rgba(18, 159, 234, 0.2);
+  -moz-box-shadow: 0 0 4px 0 rgba(18, 159, 234, 0.2);
   -ms-box-shadow: 0 0 4px 0 rgba(18, 159, 234, 0.2);
   -o-box-shadow: 0 0 4px 0 rgba(18, 159, 234, 0.2);
   box-shadow: 0 0 4px 0 rgba(18, 159, 234, 0.2);
@@ -5039,9 +5051,14 @@ textarea:focus, [type="file"]:focus,
 [type="color"],
 select,
 textarea {
+  -webkit-box-shadow: inset 0 1px 3px #eee;
+  -moz-box-shadow: inset 0 1px 3px #eee;
   -ms-box-shadow: inset 0 1px 3px #eee;
   -o-box-shadow: inset 0 1px 3px #eee;
   box-shadow: inset 0 1px 3px #eee;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
   border-radius: 0;
   border: 1px solid #ddd;
   display: inline-block;
@@ -5558,6 +5575,9 @@ textarea {
 }
 
 .post-edit-link {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
   border-radius: 2px;
   background: #fff;
   border: 1px solid currentColor;
@@ -5605,6 +5625,10 @@ textarea {
   position: absolute;
   top: -10px;
   width: 100%;
+  -webkit-transition: height 0s step-end 0.5s, opacity 0.2s ease-in, padding 0s step-end 0.5s;
+  -moz-transition: height 0s step-end 0.5s, opacity 0.2s ease-in, padding 0s step-end 0.5s;
+  -ms-transition: height 0s step-end 0.5s, opacity 0.2s ease-in, padding 0s step-end 0.5s;
+  -o-transition: height 0s step-end 0.5s, opacity 0.2s ease-in, padding 0s step-end 0.5s;
   transition: height 0s step-end 0.5s, opacity 0.2s ease-in, padding 0s step-end 0.5s;
 }
 
@@ -5612,6 +5636,10 @@ textarea {
   height: 100%;
   opacity: 1;
   padding: 10px;
+  -webkit-transition: height 0s step-start 0s, opacity 0.2s ease-in, padding 0s step-start 0s;
+  -moz-transition: height 0s step-start 0s, opacity 0.2s ease-in, padding 0s step-start 0s;
+  -ms-transition: height 0s step-start 0s, opacity 0.2s ease-in, padding 0s step-start 0s;
+  -o-transition: height 0s step-start 0s, opacity 0.2s ease-in, padding 0s step-start 0s;
   transition: height 0s step-start 0s, opacity 0.2s ease-in, padding 0s step-start 0s;
 }
 
@@ -5870,8 +5898,7 @@ a:hover .bu-hub-iconstyles::before {
 
 .gallery img {
   display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 100%;
 }
 
@@ -5978,6 +6005,10 @@ a:hover .bu-hub-iconstyles::before {
 }
 
 .gallery-icon a::before, .gallery-icon a::after {
+  -webkit-transition: opacity 250ms ease-in-out 0s;
+  -moz-transition: opacity 250ms ease-in-out 0s;
+  -ms-transition: opacity 250ms ease-in-out 0s;
+  -o-transition: opacity 250ms ease-in-out 0s;
   transition: opacity 250ms ease-in-out 0s;
 }
 
@@ -6039,11 +6070,23 @@ a:hover .bu-hub-iconstyles::before {
 }
 
 .gallery-icon img {
+  -webkit-transition: transform 250ms ease-in-out 0s;
+  -moz-transition: transform 250ms ease-in-out 0s;
+  -ms-transition: transform 250ms ease-in-out 0s;
+  -o-transition: transform 250ms ease-in-out 0s;
   transition: transform 250ms ease-in-out 0s;
 }
 
 .gallery-icon:hover img {
+  -webkit-transition: transform 250ms ease-in-out 0s;
+  -moz-transition: transform 250ms ease-in-out 0s;
+  -ms-transition: transform 250ms ease-in-out 0s;
+  -o-transition: transform 250ms ease-in-out 0s;
   transition: transform 250ms ease-in-out 0s;
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
   transform: scale(1.1);
 }
 
@@ -6095,12 +6138,20 @@ a:hover .bu-hub-iconstyles::before {
 }
 
 .lg-sub-html {
+  -webkit-transition: max-height, 0.25s, cubic-bezier(0, 0, 0.25, 1), 0s;
+  -moz-transition: max-height, 0.25s, cubic-bezier(0, 0, 0.25, 1), 0s;
+  -ms-transition: max-height, 0.25s, cubic-bezier(0, 0, 0.25, 1), 0s;
+  -o-transition: max-height, 0.25s, cubic-bezier(0, 0, 0.25, 1), 0s;
   transition: max-height, 0.25s, cubic-bezier(0, 0, 0.25, 1), 0s;
   max-height: 33vh;
   overflow-y: auto;
 }
 
 .lg-thumb-open .lg-sub-html {
+  -webkit-transition: max-height, 0.25s, cubic-bezier(0, 0, 0.25, 1), 0s;
+  -moz-transition: max-height, 0.25s, cubic-bezier(0, 0, 0.25, 1), 0s;
+  -ms-transition: max-height, 0.25s, cubic-bezier(0, 0, 0.25, 1), 0s;
+  -o-transition: max-height, 0.25s, cubic-bezier(0, 0, 0.25, 1), 0s;
   transition: max-height, 0.25s, cubic-bezier(0, 0, 0.25, 1), 0s;
   max-height: 20vh;
 }
@@ -6140,6 +6191,9 @@ a:hover .bu-hub-iconstyles::before {
 }
 
 .lg-outer .lg-thumb-outer .lg-thumb-item {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
   border-radius: 0;
   border: 0;
   opacity: 0.45;
@@ -6567,12 +6621,18 @@ a:hover .bu-hub-iconstyles::before {
   position: relative;
   top: 50%;
   display: block;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
 .brand-container, .brand-site-description {
   position: relative;
   top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
@@ -6630,7 +6690,7 @@ a:hover .bu-hub-iconstyles::before {
   padding: 10px 30px 9px 56px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-signature {
     background-image: url("https://www.bu.edu/cdn/images/logos/subbrand49x35-retina.png");
     background-size: 49px 35px;
@@ -6688,7 +6748,7 @@ a:hover .bu-hub-iconstyles::before {
   width: 112px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-masterplate {
     background-image: url("https://www.bu.edu/cdn/images/logos/masterplate112x50-retina.png");
     background-size: 112px 50px;
@@ -6702,7 +6762,7 @@ a:hover .bu-hub-iconstyles::before {
   width: 96px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-bumclogo {
     background-image: url("https://www.bu.edu/cdn/images/logos/bumclogo96x40-retina.png");
     background-size: 96px 40px;
@@ -6770,6 +6830,9 @@ nav a {
 }
 
 .search-field {
+  -webkit-border-radius: 20px 0 0 20px;
+  -moz-border-radius: 20px 0 0 20px;
+  -ms-border-radius: 20px 0 0 20px;
   border-radius: 20px 0 0 20px;
   color: #000;
   height: 40px;
@@ -6785,6 +6848,9 @@ nav a {
 }
 
 .search-submit {
+  -webkit-border-radius: 0 20px 20px 0;
+  -moz-border-radius: 0 20px 20px 0;
+  -ms-border-radius: 0 20px 20px 0;
   border-radius: 0 20px 20px 0;
   float: right;
   height: 40px;
@@ -6799,6 +6865,10 @@ nav a {
 }
 
 .search-toggle {
+  -webkit-transition: color 200ms ease-in-out 0s;
+  -moz-transition: color 200ms ease-in-out 0s;
+  -ms-transition: color 200ms ease-in-out 0s;
+  -o-transition: color 200ms ease-in-out 0s;
   transition: color 200ms ease-in-out 0s;
   background: transparent;
   color: #fff;
@@ -6845,6 +6915,10 @@ nav a {
 }
 
 .nav-toggle span {
+  -webkit-transition: all, 250ms, ease-in-out, 0s;
+  -moz-transition: all, 250ms, ease-in-out, 0s;
+  -ms-transition: all, 250ms, ease-in-out, 0s;
+  -o-transition: all, 250ms, ease-in-out, 0s;
   transition: all, 250ms, ease-in-out, 0s;
   background: #fff;
   content: "";
@@ -6859,6 +6933,10 @@ nav a {
 }
 
 .nav-toggle span::before, .nav-toggle span::after {
+  -webkit-transition: all, 250ms, ease-in-out, 0s;
+  -moz-transition: all, 250ms, ease-in-out, 0s;
+  -ms-transition: all, 250ms, ease-in-out, 0s;
+  -o-transition: all, 250ms, ease-in-out, 0s;
   transition: all, 250ms, ease-in-out, 0s;
   background: #fff;
   content: "";
@@ -6890,10 +6968,18 @@ nav a {
 }
 
 .nav-toggle.is-open span::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
 .nav-toggle.is-open span::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
@@ -7182,6 +7268,9 @@ nav a {
   .l-side-nav .search-toggle {
     position: relative;
     top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     color: #999;
     display: block;
@@ -7328,6 +7417,9 @@ nav a {
   .l-no-nav .brand .search-toggle {
     position: relative;
     top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     display: block;
     right: 10px;
@@ -7625,6 +7717,8 @@ nav a {
 }
 
 .skip-link {
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   -ms-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   -o-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
@@ -7645,6 +7739,7 @@ nav a {
   text-decoration: none;
   top: -130px;
   transform: translateX(-50%);
+  -webkit-transition: top 0.3s ease-out;
   transition: top 0.3s ease-out;
   width: 90%;
   z-index: 100000;
@@ -7659,6 +7754,7 @@ nav a {
 .skip-link:focus, .skip-link:active {
   color: #21759B;
   top: 0;
+  -webkit-transition: top 0s;
   transition: top 0s;
 }
 
@@ -7870,6 +7966,10 @@ body {
 }
 
 .site-footer-social a {
+  -webkit-transition: color 200ms ease-in-out 0s;
+  -moz-transition: color 200ms ease-in-out 0s;
+  -ms-transition: color 200ms ease-in-out 0s;
+  -o-transition: color 200ms ease-in-out 0s;
   transition: color 200ms ease-in-out 0s;
   font-size: 21px;
 }
@@ -8130,6 +8230,9 @@ body {
 }
 
 .comment-respond {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
   border-radius: 5px;
   background: #f5f5f5;
   border: 1px solid #ddd;
@@ -8182,6 +8285,10 @@ body {
 }
 
 #comment {
+  -webkit-transition: height 50ms ease-in-out 0s;
+  -moz-transition: height 50ms ease-in-out 0s;
+  -ms-transition: height 50ms ease-in-out 0s;
+  -o-transition: height 50ms ease-in-out 0s;
   transition: height 50ms ease-in-out 0s;
   height: 6em;
   width: 100%;
@@ -8194,6 +8301,10 @@ body {
 }
 
 #comment:focus, #comment:valid {
+  -webkit-transition: height 50ms ease-in-out 0s;
+  -moz-transition: height 50ms ease-in-out 0s;
+  -ms-transition: height 50ms ease-in-out 0s;
+  -o-transition: height 50ms ease-in-out 0s;
   transition: height 50ms ease-in-out 0s;
   height: 12em;
 }
@@ -8313,6 +8424,9 @@ body {
 }
 
 .profile-photo {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -8344,6 +8458,9 @@ body {
 }
 
 .message, .single-meta, .single-event-schedule, .profile-single-details {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
   border-radius: 3px;
   background-color: #f0f0f0;
   border: 1px solid #ddd;
@@ -8353,6 +8470,9 @@ body {
 }
 
 .single-meta {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
   border-radius: 3px;
   background-color: #f0f0f0;
   border: 1px solid #ddd;
@@ -8482,4 +8602,5 @@ body {
   margin: 0 0 30px;
   word-wrap: break-word;
 }
+
 /*# sourceMappingURL=style.css.map */
