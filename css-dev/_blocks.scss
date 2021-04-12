@@ -1,0 +1,24 @@
+// Basic styles for Gutenberg blocks.
+
+.alignfull {
+	position: relative;
+	left: 50%;
+	transform: translateX( -50% );
+	width: 100vw;
+}
+
+.wp-block-group.alignfull {
+	padding: 5vw;
+}
+
+.wp-block-group__inner-container {
+	margin: 0 auto;
+	max-width: 1170px;
+}
+
+.wp-block-image {
+	img {
+		display: block;
+		margin: 0 auto;
+	}
+}

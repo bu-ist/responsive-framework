@@ -775,6 +775,13 @@ function responsive_branding_copyright() {
 
 add_action( 'r_after_footer_menus', 'responsive_branding_copyright' );
 
+/**
+ * Adds support for wide and full alignments in Gutenberg.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#wide-alignment
+ */
+add_theme_support( 'align-wide' );
+
 // add_filter( 'theme_page_templates', 'r_remove_news_template', 10, 3 );
 /**
  * Admin.

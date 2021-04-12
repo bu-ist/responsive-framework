@@ -1,9 +1,9 @@
 /*
-Theme Name: Responsive Framework 2.x (BETA)
+Theme Name: Responsive Framework 2.x
 Author: Boston University Interactive Design
 Website: http://www.bu.edu/interactive-design/
 Version: 2.4.1
-Description: THIS IS A BETA THEME. Do not activate this version of Responsive Framework unless you are sure that you want to use version 2.x.
+Description: A framework for websites at Boston University. This version of Responsive supports BU Banners and BU Landing Pages, and deprecates support for Content Banner.
 Theme Groups: Responsive Framework
 */
 
@@ -13,3 +13,4 @@ $print-icon-classes:                     true;
 // Import from responsive-foundation
 
 @import "burf-theme";
+@import "blocks";

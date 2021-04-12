@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /*
-Theme Name: Responsive Framework 2.x (BETA)
+Theme Name: Responsive Framework 2.x
 Author: Boston University Interactive Design
 Website: http://www.bu.edu/interactive-design/
 Version: 2.4.1
-Description: THIS IS A BETA THEME. Do not activate this version of Responsive Framework unless you are sure that you want to use version 2.x.
+Description: A framework for websites at Boston University. This version of Responsive supports BU Banners and BU Landing Pages, and deprecates support for Content Banner.
 Theme Groups: Responsive Framework
 */
 /*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
@@ -8386,6 +8386,27 @@ body {
   list-style: none;
   margin: 0 0 30px;
   word-wrap: break-word;
+}
+
+.alignfull {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+}
+
+.wp-block-group.alignfull {
+  padding: 5vw;
+}
+
+.wp-block-group__inner-container {
+  margin: 0 auto;
+  max-width: 1170px;
+}
+
+.wp-block-image img {
+  display: block;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=ie.css.map */
