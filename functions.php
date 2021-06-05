@@ -743,6 +743,145 @@ function r_enqueue_fancy_gallery() {
 }
 
 /**
+ * Filter used to prevent incrementing CSS widget class count if a BU Text Widget is empty.
+ *
+ * @since 2.1.9
+ *
+ * @param bool  $is_widget_empty Defaults to false, assumes widget has content.
+ * @param array $params An array of Widget options info.
+ *
+ * @return bool $is_widget_empty The status of content for the widget.
+ */
+function r_is_bu_text_widget_empty( $is_widget_empty, $params ) {
+
+	$widget_name = $params[0]['widget_name'];
+
+	if ( 'BU Text Reprint' !== $widget_name && 'BU Text' !== $widget_name ) {
+		return $is_widget_empty;
+	}
+
+	if ( 'BU Text Reprint' === $widget_name ) {
+		$widget_instance = $params[1]['number'];
+		$reprint_option  = get_option( 'widget_bu-text-reprint' );
+		$widget_instance = $reprint_option[ $widget_instance ]['source_id'];
+	} else {
+		$widget_instance = $params[1]['number'];
+	}
+
+	$meta_key               = '_bu_text_widget_' . $widget_instance;
+	$widget_meta            = get_post_meta( get_the_ID(), $meta_key, true );
+	$ancestor_ids           = get_post_ancestors( get_the_ID() );
+	$show_children_meta_key = '_bu_text_widget_show_on_children_' . $widget_instance;
+
+	if ( empty( $widget_meta['content'] ) ) {
+		// The widget is empty. Assume we don't have ancestor widgets to
+		// show unless we prove otherwise.
+		$is_widget_empty = true;
+
+		if ( ! empty( $ancestor_ids ) ) {
+			foreach ( $ancestor_ids as $ancestor_id ) {
+				// Check to see if widget exists on ancestors and is set to show children.
+				$parent_widget_meta = get_post_meta( $ancestor_id, $meta_key, true );
+				$show_on_children   = get_post_meta( $ancestor_id, $show_children_meta_key, true );
+				if ( 'Yes' === $show_on_children ) {
+					if ( empty( $parent_widget_meta['content'] ) ) {
+						// This matches the way the plugin currently works.
+						// We only go to the 1st parent that says `Yes` show
+						// on children, regardless if content is empty.
+						// Here content is empty so we just break and
+						// keep the widget empty status as true.
+						break;
+					} else {
+						// This parent is set to show & has content.
+						$is_widget_empty = false;
+						break;
+					}
+				}
+			}
+		}
+	}
+	return $is_widget_empty;
+}
+
+/**
+ * Adds an empty widget check filter if the BU Text Widget plugin is active.
+ *
+ * @since 2.1.9
+ */
+function r_bu_text_widget_loaded() {
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	if ( is_plugin_active( 'bu-text-widget/bu-text-widget.php' ) ) {
+		add_filter( 'responsive_is_widget_empty', 'r_is_bu_text_widget_empty', 10, 2 );
+	}
+}
+add_action( 'after_setup_theme', 'r_bu_text_widget_loaded' );
+
+/**
+ * Filter used to prevent incrementing CSS widget class count if a BU Links Widget is empty.
+ *
+ * @since 2.1.9
+ *
+ * @param bool  $is_widget_empty Defaults to false, assumes widget has content.
+ * @param array $params An array of Widget options info.
+ *
+ * @return bool $is_widget_empty The status of content for the widget.
+ */
+function r_is_bu_links_widget_empty( $is_widget_empty, $params ) {
+	$widget_name = $params[0]['widget_name'];
+
+	if ( 'BU Links' !== $widget_name && 'BU Links Reprint' !== $widget_name ) {
+		return $is_widget_empty;
+	}
+
+	if ( 'BU Links Reprint' === $widget_name ) {
+		$widget_instance = $params[1]['number'];
+		$reprint_option  = get_option( 'widget_bu-links-reprint' );
+		$widget_instance = $reprint_option[ $widget_instance ]['source_id'];
+	} else {
+		$widget_instance = $params[1]['number'];
+	}
+
+	$meta_key     = '_bu_links_' . $widget_instance;
+	$widget_meta  = get_post_meta( get_the_ID(), $meta_key, true );
+	$ancestor_ids = get_post_ancestors( get_the_ID() );
+
+	if ( ! is_array( $widget_meta ) ) {
+		if ( empty( $ancestor_ids ) ) {
+			// The post has no parents so we can safely say the widget is empty.
+			$is_widget_empty = true;
+		} else {
+			// Assume no parent widgets to display unless we prove otherwise.
+			$is_widget_empty = true;
+			foreach ( $ancestor_ids as $ancestor_id ) {
+				// Check to see if widget exists on each parent and is set to show children.
+				$parent_widget_meta = get_post_meta( $ancestor_id, $meta_key, true );
+				if ( is_array( $parent_widget_meta ) && array_key_exists( 'show', $parent_widget_meta ) ) {
+					if ( 'Yes' === $parent_widget_meta['show'] ) {
+						$is_widget_empty = false;
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	return $is_widget_empty;
+}
+
+/**
+ * Adds an empty widget check filter if the BU Link plugin is active.
+ *
+ * @since 2.1.9
+ */
+function r_bu_link_widget_loaded() {
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	if ( is_plugin_active( 'link-lists/link-lists.php' ) ) {
+		add_filter( 'responsive_is_widget_empty', 'r_is_bu_links_widget_empty', 10, 2 );
+	}
+}
+add_action( 'after_setup_theme', 'r_bu_link_widget_loaded' );
+
+/**
  * Remove the news template when BU_News_Page_Template does not exist.
  *
  * @param string[]     $templates Array of page templates. Keys are filenames,
