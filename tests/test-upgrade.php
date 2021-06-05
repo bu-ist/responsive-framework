@@ -14,8 +14,6 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 
 	/**
 	 * Test our theme is actually active.
-	 *
-	 * @expectedIncorrectUsage wpdb::prepare
 	 */
 	function test_responsive_framework_upgrade() {
 		update_option( '_responsive_framework_version', '0.0' );
@@ -91,8 +89,6 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 
 	/**
 	 * Test Responsive 2.0 upgrade routine for banner positions.
-	 *
-	 * @expectedIncorrectUsage wpdb::prepare
 	 */
 	function test_responsive_upgrade_2_0_banner_positions() {
 		$test_page_id_1 = $this->factory->post->create(
@@ -141,8 +137,6 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 
 	/**
 	 * Test Responsive 2.0 upgrade routine for layout names.
-	 *
-	 * @expectedIncorrectUsage wpdb::prepare
 	 */
 	function test_responsive_upgrade_2_0_layout_names() {
 		update_option( 'burf_setting_layout', 'topNav' );
@@ -160,8 +154,6 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 
 	/**
 	 * Test Responsive 2.0 upgrade routine when no layout is saved and no constant is set.
-	 *
-	 * @expectedIncorrectUsage wpdb::prepare
 	 */
 	function test_responsive_upgrade_2_0_layout_empty() {
 		delete_option( 'burf_setting_layout' );
@@ -174,8 +166,6 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 	/**
 	 * Test Responsive 2.0 upgrade routine when no layout is saved and a constant
 	 * is set with a value that is not an allowed layout.
-	 *
-	 * @expectedIncorrectUsage wpdb::prepare
 	 */
 	function test_responsive_upgrade_2_0_layout_invalid_constant() {
 		update_option( 'burf_setting_layout', 'not-a-valid-layout' );
@@ -187,8 +177,6 @@ class Tests_Responsive_Framework_Upgrades extends WP_UnitTestCase {
 
 	/**
 	 * Test Responsive 2.0 upgrade routine for template names.
-	 *
-	 * @expectedIncorrectUsage wpdb::prepare
 	 */
 	function test_responsive_upgrade_2_0_templates() {
 		$test_page_id = $this->factory->post->create(

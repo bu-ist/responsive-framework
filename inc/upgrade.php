@@ -115,13 +115,16 @@ function responsive_upgrade_091( $verbose = true ) {
 		)
 	);
 
-	$template_query = sprintf(
-		'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
-		$wpdb->postmeta,
-		implode( '","', array_keys( $template_map ) )
-	);
+	// Extract array keys for reuse when generating the query.
+	$template_map_keys = array_keys( $template_map );
 
-	$results = $wpdb->get_results( $template_query );
+	// Prepare the query by adding a %s placeholder for each key of the passed array.
+	$results = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT post_id, meta_value FROM {$wpdb->postmeta} WHERE meta_key = '_wp_page_template' AND meta_value IN (" . substr( str_repeat( ',%s', count( $template_map_keys ) ), 1 ) . ")", // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			esc_sql( $template_map_keys )
+		)
+	);
 
 	if ( $verbose ) {
 		error_log( __FUNCTION__ . ' - Posts to migrate: ' . count( $results ) );
@@ -145,12 +148,7 @@ function responsive_upgrade_091( $verbose = true ) {
 		)
 	);
 
-	$banner_query = sprintf(
-		'SELECT post_id, meta_value FROM %s WHERE meta_key = "_bu_banner"',
-		$wpdb->postmeta
-	);
-
-	$results = $wpdb->get_results( $banner_query );
+	$results = $wpdb->get_results( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'" );
 
 	foreach ( $results as $result ) {
 		$banner = maybe_unserialize( $result->meta_value );
@@ -216,12 +214,16 @@ function responsive_upgrade_2_0( $verbose = true ) {
 		)
 	);
 
-	$template_query = sprintf(
-		'SELECT post_id, meta_value FROM %s WHERE meta_key = "_wp_page_template" AND meta_value IN ("%s")',
-		$wpdb->postmeta,
-		implode( '","', array_keys( $template_map ) )
+	// Extract array keys for reuse when generating the query.
+	$template_map_keys = array_keys( $template_map );
+
+	// Prepare the query by adding a %s placeholder for each key of the passed array.
+	$results = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_wp_page_template' AND meta_value IN (" . substr( str_repeat( ',%s', count( $template_map_keys ) ), 1 ) . ")", // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$template_map_keys
+		)
 	);
-	$results        = $wpdb->get_results( $template_query );
 
 	if ( $verbose ) {
 		error_log( __FUNCTION__ . ' - Posts to migrate: ' . count( $results ) );
@@ -271,12 +273,7 @@ function responsive_upgrade_banner( $verbose ) {
 		)
 	);
 
-	$results = $wpdb->get_results(
-		$wpdb->prepare(
-			"SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'",
-			$wpdb->postmeta
-		)
-	);
+	$results = $wpdb->get_results( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '_bu_banner'" );
 
 	foreach ( $results as $result ) {
 		$banner = maybe_unserialize( $result->meta_value );
