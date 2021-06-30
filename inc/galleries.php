@@ -85,7 +85,7 @@ function wp_default_scripts() {
 
 	wp_register_script( 'responsive-framework-gallery', get_template_directory_uri() . '/js/galleries.js', array( 'jquery' ), RESPONSIVE_FRAMEWORK_VERSION, true );
 
-	wp_register_style( 'lightgallery', get_template_directory_uri() . "/js/vendor/lightgallery/css/lightgallery{$postfix}.css", array(), '1.6.8' );
+	wp_register_style( 'lightgallery', get_template_directory_uri() . "/js/vendor/lightgallery/css/lightgallery-bundle{$postfix}.css", array(), '1.6.8' );
 }
 add_action( 'init', __NAMESPACE__ . '\wp_default_scripts' );
 

@@ -1,2 +1,99 @@
-!function o(i,s,l){function u(a,e){if(!s[a]){if(!i[a]){var t="function"==typeof require&&require;if(!e&&t)return t(a,!0);if(f)return f(a,!0);var r=new Error("Cannot find module '"+a+"'");throw r.code="MODULE_NOT_FOUND",r}var n=s[a]={exports:{}};i[a][0].call(n.exports,function(e){return u(i[a][1][e]||e)},n,n.exports,o,i,s,l)}return s[a].exports}for(var f="function"==typeof require&&require,e=0;e<l.length;e++)u(l[e]);return u}({1:[function(e,a,t){"use strict";(0,e("responsive-foundation/js-dev/dist/toggle").toggle)()},{"responsive-foundation/js-dev/dist/toggle":3}],2:[function(e,a,t){a.exports=function(e){return e&&e.__esModule?e:{default:e}}},{}],3:[function(t,e,r){(function(e){"use strict";var a=t("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(r,"__esModule",{value:!0}),r.toggle=function(){var a=(0,s.default)("body"),t=(0,s.default)(".js-nav-toggle"),r=t.add("nav"),n=(0,s.default)(".js-search-toggle"),o=n.add("#quicksearch");function i(e){r.removeClass("is-open"),!0!==e||(0,s.default)(this).hasClass("is-open")||setTimeout(function(){(0,s.default)("#q").focus()},100),"false"===n.attr("aria-expanded")?n.attr("aria-expanded","true").attr("aria-label","Close search"):n.attr("aria-expanded","false").attr("aria-label","Open search"),o.toggleClass("is-open"),a.toggleClass("search-open").removeClass("nav-open")}n.attr("aria-expanded","false").attr("aria-controls","quicksearch"),t.attr("aria-expanded","false").attr("aria-controls","primary-nav-menu"),t.on("click",function(e){e.preventDefault(),"false"===t.attr("aria-expanded")?t.attr("aria-expanded","true").attr("aria-label","Close menu"):t.attr("aria-expanded","false").attr("aria-label","Open menu"),r.toggleClass("is-open"),o.removeClass("is-open"),a.toggleClass("nav-open").removeClass("search-open")}),n.on({click:function(e){e.preventDefault(),i(!0)},keypress:function(e){13===e.keyCode&&(e.preventDefault(),i(!1))}})};var s=a("undefined"!=typeof window?window.jQuery:void 0!==e?e.jQuery:null)}).call(this,"undefined"!=typeof global?global:"undefined"!=typeof self?self:"undefined"!=typeof window?window:{})},{"@babel/runtime/helpers/interopRequireDefault":2}]},{},[1]);
-//# sourceMappingURL=script.js.map
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+"use strict";
+
+var _toggle = require("responsive-foundation/js-dev/dist/toggle");
+
+/**
+ * The entry point for theme scripts.
+ *
+ * Modules are imported and compiled into one resulting `theme.js` file.
+ *
+ * @package ResponsiveFramework
+ */
+// Import Foundation scripts.
+(0, _toggle.toggle)();
+
+},{"responsive-foundation/js-dev/dist/toggle":3}],2:[function(require,module,exports){
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
+},{}],3:[function(require,module,exports){
+(function (global){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.toggle = toggle;
+
+var _jquery = _interopRequireDefault((typeof window !== "undefined" ? window['jQuery'] : typeof global !== "undefined" ? global['jQuery'] : null));
+
+/**
+ * Toggle behavior for navigation / search buttons.
+ *
+ * @package ResponsiveFoundation
+ */
+function toggle() {
+  var $body = (0, _jquery.default)('body');
+  var $toggle = (0, _jquery.default)('.js-nav-toggle');
+  var $toggleitems = $toggle.add('nav');
+  var $searchtoggle = (0, _jquery.default)('.js-search-toggle');
+  var $searchitems = $searchtoggle.add('#quicksearch'); // Add aria attributes for control/expanded if JS is available
+
+  $searchtoggle.attr('aria-expanded', 'false').attr('aria-controls', 'quicksearch');
+  $toggle.attr('aria-expanded', 'false').attr('aria-controls', 'primary-nav-menu');
+  $toggle.on('click', function (e) {
+    e.preventDefault();
+
+    if ($toggle.attr('aria-expanded') === 'false') {
+      $toggle.attr('aria-expanded', 'true').attr('aria-label', 'Close menu');
+    } else {
+      $toggle.attr('aria-expanded', 'false').attr('aria-label', 'Open menu');
+    }
+
+    $toggleitems.toggleClass('is-open');
+    $searchitems.removeClass('is-open');
+    $body.toggleClass('nav-open').removeClass('search-open');
+  });
+
+  function toggleSearchPanel(focus) {
+    $toggleitems.removeClass('is-open');
+
+    if (focus === true && !(0, _jquery.default)(this).hasClass('is-open')) {
+      setTimeout(function () {
+        (0, _jquery.default)('#q').focus();
+      }, 100);
+    }
+
+    if ($searchtoggle.attr('aria-expanded') === 'false') {
+      $searchtoggle.attr('aria-expanded', 'true').attr('aria-label', 'Close search');
+    } else {
+      $searchtoggle.attr('aria-expanded', 'false').attr('aria-label', 'Open search');
+    }
+
+    $searchitems.toggleClass('is-open');
+    $body.toggleClass('search-open').removeClass('nav-open');
+  }
+
+  $searchtoggle.on({
+    click: function click(e) {
+      e.preventDefault();
+      toggleSearchPanel(true);
+    },
+    keypress: function keypress(e) {
+      if (e.keyCode === 13) {
+        e.preventDefault();
+        toggleSearchPanel(false);
+      }
+    }
+  });
+}
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"@babel/runtime/helpers/interopRequireDefault":2}]},{},[1]);
