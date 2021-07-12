@@ -370,7 +370,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'install', [ 'copy', 'build' ] );
 	grunt.registerTask( 'i18n', [ 'clean:languages', 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'styles', [ 'sass', 'postcss' ] );
-	grunt.registerTask( 'scripts', [ 'clean:js', 'browserify' ] );
+	grunt.registerTask( 'scripts', [ 'clean:js', 'browserify', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [
 		'copy:lightgallery',
 		'version:lightgallery',

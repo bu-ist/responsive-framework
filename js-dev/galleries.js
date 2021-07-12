@@ -84,6 +84,7 @@ responsive_framework.galleries = ( function( $ ) {
 				thumbnail: true,
 				enableDrag: false,
 				getCaptionFromTitleOrAlt: false,
+				licenseKey: '0000-0000-000-0000'
 			} );
 		},
 	};
