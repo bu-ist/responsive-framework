@@ -84,7 +84,7 @@ responsive_framework.galleries = ( function( $ ) {
 				thumbnail: true,
 				enableDrag: false,
 				getCaptionFromTitleOrAlt: false,
-				licenseKey: '0000-0000-000-0000'
+				licenseKey: '6B97C46B-6808444C-8930A490-8D052085' // Licensed for Responsive Framework only. Checked with Ben, this is OK to store here.
 			} );
 		},
 	};
