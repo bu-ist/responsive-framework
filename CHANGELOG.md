@@ -1,6 +1,11 @@
 # Changelog
 
-## Unreleased
+## 2.5.0
+
+- Upgrades lightGallery to version 2.
+- Removes the beta tag. We're stable!
+
+## 2.4.2
 
 - Add allowed html filter to responsive_the_title.
 
