@@ -14,14 +14,14 @@ import $ from 'jquery';
  *
  * @link https://github.com/sachinchoolur/lightgallery.js
  */
-import 'lightgallery';
+import lightGallery from 'lightgallery';
 
 /**
  * Requires the lg-thumbnail plugin for lightgallery.
  *
  * @link https://github.com/sachinchoolur/lg-thumbnail
  */
-import 'lg-thumbnail';
+import lgThumbnail from 'lightgallery/plugins/thumbnail';
 
 /**
  * A better WordPress gallery experience for Responsive Framework.
@@ -77,13 +77,14 @@ responsive_framework.galleries = ( function( $ ) {
 		},
 
 		initialize_lightgallery: function() {
-			$( '.gallery' ).lightGallery( {
-				selector: '.gallery-icon a',
+			lightGallery( document.querySelector('.gallery'), {
+				plugins: [lgThumbnail],
+				selector: document.querySelectorAll('.gallery-icon a'),
 				download: false,
 				thumbnail: true,
-				zoom: false,
-				animateThumb: true,
+				enableDrag: false,
 				getCaptionFromTitleOrAlt: false,
+				licenseKey: '6B97C46B-6808444C-8930A490-8D052085' // Licensed for Responsive Framework only. Checked with Ben, this is OK to store here.
 			} );
 		},
 	};

@@ -283,8 +283,8 @@ module.exports = function( grunt ) {
 					mode: true,
 				},
 				expand: true,
-				cwd: 'node_modules/lightgallery/dist/',
-				src: [ 'fonts/**/*', 'img/**/*', 'css/**/*' ],
+				cwd: 'node_modules/lightgallery/',
+				src: [ 'fonts/**/*', 'images/**/*', 'css/**/*' ],
 				dest: 'js/vendor/lightgallery/',
 			},
 		},
@@ -372,7 +372,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'styles', [ 'sass', 'postcss' ] );
 	grunt.registerTask( 'scripts', [ 'clean:js', 'browserify', 'uglify' ] );
 	grunt.registerTask( 'update_lightgallery', [
-		'copy:lgthumbnail',
+		'copy:lightgallery',
 		'version:lightgallery',
 		'version:lg_thumbnail',
 	] );
