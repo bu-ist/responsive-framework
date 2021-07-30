@@ -31,10 +31,25 @@ class GSS_Provider{
      */
     public function get_results(){
         $query = urlencode($this->query);
-        $site = urlencode($this->site);
+        //$site = urlencode($this->site);
+        $site = urlencode('https://www.bu.edu/researchsupport/');
         $result_start_idx = (($this->page_current-1) * $this->results_per_page) + 1; //if results_per_page = 10, page 1 starts with result 1, page 2 starts with result 11;
         $results_per_page = $this->results_per_page;
-        $remote_url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCMGfdDaSfjqv5zYoS0mTJnOT3e9MURWkU&cx=008004593239734442268:smkjprqoaic&siteSearchFilter=i&siteSearch=".$site."&q=".$query.'&num='.$results_per_page.'&start='.$result_start_idx;
+        /*
+        	Note: the API key below is restricted to cms-devl sites only. It's not for production use.
+        	Use your own key during development.
+        	Also, the site needs to be manually set, because cms-devl isn't indexed by Google.
+        	This is why I have the site hardcoded to Research Support above.
+        	Parameters available here: https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list
+        	Possibilities: search by file type (&fileType=pdf), date range
+        	Sort by date, name, in either order
+        	Potentially filter by post type or other metadata, if we add structured markup: https://developers.google.com/custom-search/docs/structured_data#addtopage
+        	The idea being that maybe we add a custom attribute, such as post type
+        	If we're making multiple calls, we may also be able to grab stuff from the Brink, or ask
+        	IS&T if they can set up a custom search engine just for Research sites.
+        	Maybe even BU Editorial and non-BU editorial sites, excluding the main sites
+        */
+        $remote_url = "https://www.googleapis.com/customsearch/v1?key= AIzaSyDt_PqhExEUcDS3Tbr5z4ZOFPt8fcBn6IA&cx=008004593239734442268:smkjprqoaic&siteSearchFilter=i&siteSearch=".$site."&q=".$query.'&num='.$results_per_page.'&start='.$result_start_idx;
         $args = array(
             'timeout'     => 5,
             'redirection' => 5,
