@@ -1205,3 +1205,26 @@ function responsive_get_the_excerpt( $post_id = null, $length = 55 ) {
 	}
 	return $excerpt;
 }
+
+
+
+/**
+ * Print the search results for a query.
+ * This function uses the site_search_url option to determiner the source site.
+ * If no site_search_url option is set, get_site_url() is used by default.
+ * @return None 	Echo's the search results to the page.
+ */
+function responsive_search_results(){
+	$search_site =  get_option('site_search_url', get_site_url());
+	$search_page = new SearchPage($search_site);
+
+	if(empty($search_page->provider->results) || empty($search_page->provider->results->items)){
+		echo '<p>There are no results matching your search terms.</p>';
+	}else{
+		foreach($search_page->provider->results->items as $index => $value){
+			$search_page->render_item($value, true);
+		}
+		$search_page->render_pager(true);
+	}
+
+}
