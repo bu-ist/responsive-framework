@@ -12,6 +12,7 @@
 ## 2.4.0
 
 - Updated and improved styles for BU Landing Pages and color palettes.
+- Move the location of the skip link to avoid positioning conflicts.
 
 ## 2.3.15
 
