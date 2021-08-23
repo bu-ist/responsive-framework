@@ -166,6 +166,22 @@ function responsive_widget_counts( $params ) {
 		return $params;
 	}
 
+	/**
+	 * Filters the $is_widget_empty variable.
+	 *
+	 * @since 2.1.9
+	 *
+	 * @params bool $is_widget_empty The empty/full status of the widget content.
+	 *
+	 * @params array $params An array of widget options.
+	 */
+	$is_widget_empty = apply_filters( 'responsive_is_widget_empty', $is_widget_empty = false, $params );
+
+	// Don't increment static widget counter if widget is empty because it will not be displayed.
+	if ( $is_widget_empty ) {
+		return $params;
+	}
+
 	// Initialize or increment our static widget counter by one for this widget.
 	if ( array_key_exists( $current_sidebar, $widget_counter ) ) {
 		$widget_counter[ $current_sidebar ] ++;

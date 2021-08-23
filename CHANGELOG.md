@@ -209,6 +209,16 @@ Version bump to run the upgrade to accomodate new color schemes
 -	NPM Packages removed grunt-bowercopy.
 -	NPM Packages updated grunt-contrib-watch, grunt-modernizr, & lightgallery.
 -	Remove Ruby Sass gem.
+-	Fixes #45 New filters added to correct widget count classes for each widget.
+-	Created filter `responsive_is_widget_empty` to help check for empty widgets.
+-	Added `r_is_bu_text_widget_empty()` using is `responsive_is_widget_empty`
+	to check for empty BU Text Widgets.
+-	Added `r_bu_text_widget_loaded()` to conditionally load
+	`r_is_bu_text_widget_empty()` only if plugin is loaded.
+-	Added `r_is_bu_links_widget_empty()` using is `responsive_is_widget_empty`
+	to check for empty BU Links Widgets.
+-	Added `r_bu_link_widget_loaded()` to conditionally load
+	`r_is_bu_links_widget_empty()` only if plugin is loaded.
 
 ## 2.1.9
 
