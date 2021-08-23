@@ -35,8 +35,6 @@ class Tests_Responsive_Framework_Upgrade_Constants extends WP_UnitTestCase {
 	 * Test Responsive 2.0 upgrade routine when a layout is saved and a constant
 	 * is set with a value that is an allowed layout and different than the saved
 	 * value.
-	 *
-	 * @expectedIncorrectUsage wpdb::prepare
 	 */
 	function test_responsive_upgrade_2_0_layout_valid_constant_overwrites_no_value() {
 		define( 'BU_RESPONSIVE_LAYOUT', 'side-nav' );
@@ -50,8 +48,6 @@ class Tests_Responsive_Framework_Upgrade_Constants extends WP_UnitTestCase {
 	 * Test Responsive 2.0 upgrade routine when a layout is saved and a constant
 	 * is set with a value that is an allowed layout and different than the saved
 	 * value.
-	 *
-	 * @expectedIncorrectUsage wpdb::prepare
 	 */
 	function test_responsive_upgrade_2_0_layout_valid_constant_overwrites_value() {
 		define( 'BU_RESPONSIVE_LAYOUT', 'side-nav' );

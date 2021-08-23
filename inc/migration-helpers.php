@@ -249,8 +249,7 @@ function responsive_migrate_contact_form() {
 
 	if ( class_exists( 'GFForms' ) && class_exists( 'GFAPI' ) ) {
 
-		$contact_query = sprintf( 'SELECT post_id FROM %s WHERE meta_key = "_wp_page_template" AND meta_value = "contact-us.php"', $wpdb->postmeta );
-		$results = $wpdb->get_col( $contact_query );
+		$results = $wpdb->get_col( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_wp_page_template' AND meta_value = 'contact-us.php'" );
 
 		if ( empty( $results ) ) {
 			return;
