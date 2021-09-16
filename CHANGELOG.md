@@ -1,4 +1,8 @@
 # Changelog
+## 2.5.1
+
+- Stop visually hiding the h1 on the calendar single.
+
 
 ## 2.5.0
 
