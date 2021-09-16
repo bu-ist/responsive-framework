@@ -39,7 +39,7 @@ engines:
   fixme:
     enabled: true
   markdownlint:
-    enabled: true
+    enabled: false
   phpcodesniffer:
     enabled: true
     config:
@@ -48,7 +48,7 @@ engines:
       ignore_warnings: false
       encoding: utf-8
   phpmd:
-    enabled: true
+    enabled: false
     config:
       file_extensions: php
       rulesets: codesize,naming,unusedcode
