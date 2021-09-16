@@ -115,8 +115,8 @@ if ( ! function_exists( 'responsive_bu_banner_title' ) ) {
 			 */
 			add_filter( 'responsive_the_title_is_hidden', '__return_true' );
 
-			// Else, add classes if we have a bu banner, its content is not empty, and there is a title field supplied.
-		} elseif ( bu_has_banner( $object_id ) && ! empty( $banner_content[0] ) && ! empty( $banner_content[0]['title'] ) ) {
+			// Else, add classes if we have a bu banner, its content is not empty, there is a title field supplied and it is not a calendar single.
+		} elseif ( bu_has_banner( $object_id ) && ! empty( $banner_content[0] ) && ! empty( $banner_content[0]['title'] ) && ! isset( $_GET['eid'] ) ) {
 
 			/**
 			 * Filters Responsive Framework page title classes, to make the generic H1 visually hidden,
