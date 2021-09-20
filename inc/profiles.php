@@ -75,7 +75,7 @@ function after_setup_theme() {
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\after_setup_theme' );
 
-if ( ! defined( 'BU_PROFILES_PLUGIN_ACTIVE' ) ) {
+if ( ! defined( 'BU_PROFILES_PLUGIN_ACTIVE' ) || ! BU_PROFILES_PLUGIN_ACTIVE ) {
 	/**
 	 * Removes the profile template if BU profiles is not active.
 	 *
