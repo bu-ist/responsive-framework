@@ -988,7 +988,7 @@ function responsive_sidebar_classes( $sidebar_id ) {
 
 	// Add alternate-footbar class.
 	if ( 'alternate-footbar' === $sidebar_id ) {
-		echo esc_attr( ' alternate-footbar ' );
+		echo esc_attr( ' alternate-footbar' );
 	}
 }
 
