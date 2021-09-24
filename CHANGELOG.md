@@ -1,6 +1,6 @@
 # Changelog
 
-## unreleased
+## 2.5.2
 
 - Add alternate-footbar class to alternate-footbar fixes#5.
 
