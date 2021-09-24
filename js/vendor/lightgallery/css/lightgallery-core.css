@@ -6,6 +6,7 @@
 
 .lg-container {
   display: none;
+  outline: none;
 }
 
 .lg-container.lg-show {
@@ -74,7 +75,8 @@
   text-align: left;
   opacity: 0.001;
   outline: none;
-  will-change: opacity;
+  will-change: auto;
+  overflow: hidden;
   -webkit-transition: opacity 0.15s ease 0s;
   -o-transition: opacity 0.15s ease 0s;
   transition: opacity 0.15s ease 0s;
@@ -124,16 +126,12 @@
   cursor: grabbing;
 }
 
-.lg-outer .lg {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
-  max-height: 100%;
-  outline: none;
+.lg-outer .lg-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .lg-outer .lg-inner {
@@ -142,9 +140,9 @@
   left: 0;
   top: 0;
   bottom: 0;
-  -webkit-transition: none;
-  -o-transition: none;
-  transition: none;
+  -webkit-transition: opacity 0s;
+  -o-transition: opacity 0s;
+  transition: opacity 0s;
   white-space: nowrap;
 }
 
@@ -231,11 +229,12 @@
   opacity: 1;
 }
 
-.lg-outer .lg-empty-html {
+.lg-outer .lg-empty-html.lg-sub-html,
+.lg-outer .lg-empty-html .lg-sub-html {
   display: none;
 }
 
-.lg-outer[data-lg-slide-type='video'] .lg-download, .lg-outer[data-lg-slide-type='iframe'] .lg-download {
+.lg-outer.lg-hide-download .lg-download {
   opacity: 0.75;
   pointer-events: none;
 }
@@ -266,7 +265,7 @@
   z-index: 1040;
   background-color: #000;
   opacity: 0;
-  will-change: opacity;
+  will-change: auto;
   -webkit-transition: opacity 333ms ease-in 0s;
   -o-transition: opacity 333ms ease-in 0s;
   transition: opacity 333ms ease-in 0s;

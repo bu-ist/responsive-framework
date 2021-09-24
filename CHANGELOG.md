@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.2
+
+- Add alternate-footbar class to alternate-footbar fixes#5.
+
 ## 2.5.1
 
 -   Stop visually hiding the h1 on the calendar single.
