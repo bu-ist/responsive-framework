@@ -985,6 +985,11 @@ function responsive_sidebar_classes( $sidebar_id ) {
 	$count        = ( $widget_count > 0 ) ? $widget_count : 'none';
 
 	echo esc_attr( "widget-count-$count" );
+
+	// Add alternate-footbar class.
+	if ( 'alternate-footbar' === $sidebar_id ) {
+		echo esc_attr( ' alternate-footbar' );
+	}
 }
 
 /**
