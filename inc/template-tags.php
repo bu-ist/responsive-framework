@@ -434,6 +434,7 @@ if ( ! function_exists( 'responsive_get_utility_nav' ) ) {
 					'menu_class'     => 'utility-nav-menu',
 					'container'      => false,
 					'echo'           => false,
+					'depth'          => 2,
 				)
 			);
 		}
