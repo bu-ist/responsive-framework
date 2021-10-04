@@ -1211,3 +1211,49 @@ function responsive_get_the_excerpt( $post_id = null, $length = 55 ) {
 	}
 	return $excerpt;
 }
+
+
+/**
+ * Limit the children output from the utility menu to three.
+ *
+ * @param string   $items The HTML list content for the menu items.
+ * @param stdClass $args  An object containing wp_nav_menu() arguments.
+ * @return string The HTML Menu items.
+ */
+function limit_utility_nav_menu_items( $items, $args ) {
+
+	// Build XML document for processing.
+	$items = "<root>$items</root>";
+	$dom   = new DOMDocument();
+	$dom->loadXML( $items );
+	$doc      = $dom->documentElement;
+	$submenus = $doc->getElementsByTagName( 'ul' );
+
+	$nodes_to_remove = array();
+
+	// Find nodes to remove.
+	foreach ( $submenus as $key => $submenu ) {
+		$lis      = $submenu->getElementsByTagName( 'li' );
+		$li_count = $lis->length;
+
+		// Allow maximum of 3 children per submenu.
+		// Adapt counter for zero indexing of DOM document.
+		if ( 3 < $li_count ) {
+			for ( $i = $li_count - 1; $i > 2; $i-- ) {
+				$node = $lis->item( $i );
+				array_push( $nodes_to_remove, $node );
+			}
+		}
+	}
+
+	// Remove Nodes.
+	foreach ( $nodes_to_remove as $node ) {
+		$node->parentNode->removeChild( $node );
+	}
+
+	// Prepare Return Values.
+	$items = $dom->saveXML();
+	$items = str_replace( array( '<root>', '</root>' ), '', $items );
+	return $items;
+}
+add_filter( 'wp_nav_menu_items', 'limit_utility_nav_menu_items', 10, 2 );
