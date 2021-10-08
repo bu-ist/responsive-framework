@@ -1220,7 +1220,7 @@ function responsive_get_the_excerpt( $post_id = null, $length = 55 ) {
  * @param stdClass $args  An object containing wp_nav_menu() arguments.
  * @return string The HTML Menu items.
  */
-function limit_utility_nav_menu_items( $items, $args ) {
+function responsive_limit_utility_nav_menu_items( $items, $args ) {
 
 	// Build XML document for processing.
 	$items = "<root>$items</root>";
@@ -1253,7 +1253,37 @@ function limit_utility_nav_menu_items( $items, $args ) {
 
 	// Prepare Return Values.
 	$items = $dom->saveXML();
-	$items = str_replace( array( '<root>', '</root>' ), '', $items );
+	$items = str_replace(
+		array(
+			'<root>',
+			'</root>',
+		),
+		'',
+		$items
+	);
 	return $items;
 }
-add_filter( 'wp_nav_menu_items', 'limit_utility_nav_menu_items', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'responsive_limit_utility_nav_menu_items', 10, 2 );
+
+/**
+ * Add Admin notice describing limitations of the Utility menu.
+ */
+function responsive_utility_menu_notice() {
+
+	// Display only on nav-menus screen.
+	$screen = get_current_screen();
+	if ( 'nav-menus' !== $screen->base ) {
+		return;
+	}
+
+	// Get Current menu id from the global namespace and compare to the utility-menu id.
+	global $nav_menu_selected_id;
+	$utility_menu = wp_get_nav_menu_object( 'utility-menu' );
+
+	if ( $nav_menu_selected_id === $utility_menu->term_id ) {
+		$notice  = 'The Utility has a maximum hierachy depth of 1 and sub items of 3.<br>';
+		$notice .= 'More items may display in Menu Struture below but those items will not display on your site.';
+		echo '<div class="notice notice-warning">' . esc_html( $notice ) . '</div>';
+	}
+}
+add_action( 'admin_notices', 'responsive_utility_menu_notice' );
