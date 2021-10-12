@@ -1229,7 +1229,7 @@ function responsive_utility_menu_notice() {
 	$utility_menu = wp_get_nav_menu_object( 'utility-menu' );
 
 	if ( $nav_menu_selected_id === $utility_menu->term_id ) {
-		$notice  = 'The Utility Menu only displays the top level items.<br>';
+		$notice  = 'The Utility Menu only displays the top level items. ';
 		$notice .= 'More items may display in Menu Structure below but those items will not display on your site.';
 		echo '<div class="notice notice-warning">' . esc_html( $notice ) . '</div>';
 	}
