@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Restrict utility menu output to the parent level, fixes #61.
+- Prevent child menu items from being added to the Utility menu, fixes #61.
+- Delete child menu items from the Utility menu on save operation, fixes #61.
+
 ## 2.5.2
 
 - Add alternate-footbar class to alternate-footbar fixes#5.
