@@ -4,10 +4,20 @@ jQuery( document ).ready(function($) {
 		lis.each(function () {
 			// First Check if active in sort and don't act on the placeholder dive.
 			if ( !$(this).hasClass('ui-sortable-helper') && !$(this).hasClass('sortable-placeholder')) {
-				// If not active and not at 0 depth remove.
+				// If not active and not at 0 depth reset to 0 depth and alert user.
 				if ( !$(this).hasClass('menu-item-depth-0') ) {
-					window.alert('Menu Item removed. Nesting not allowed on Utility menu.');
-					$(this).remove();
+					let itemID = $(this).attr('id');
+					let item = document.getElementById( itemID );
+					let itemClasses = item.className;
+					itemClasses = itemClasses.split( ' ' );
+					itemClasses.forEach((element, index) => {
+						if ( -1 !== element.toString().indexOf('menu-item-depth') ) {
+							let currentDepthClass = itemClasses[index];
+							$(this).removeClass(currentDepthClass);
+							$(this).addClass('menu-item-depth-0');
+							window.alert( 'Nested menu items not allowed. Menu item Reset to top level.');
+						}
+					} );
 				}
 			}
 		});
