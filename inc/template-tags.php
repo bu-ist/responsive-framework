@@ -1229,9 +1229,9 @@ function responsive_utility_menu_notice() {
 	$utility_menu = wp_get_nav_menu_object( 'utility-menu' );
 
 	if ( $nav_menu_selected_id === $utility_menu->term_id ) {
-		$notice  = 'The Utility Menu only displays the top level items. ';
-		$notice .= 'More items may display in Menu Structure below but those items will not display on your site and will be deleted on a subsequent save.';
-		echo '<div class="notice notice-warning">' . esc_html( $notice ) . '</div>';
+		$notice  = 'The Utility Menu only displays the top level items.<br> ';
+		$notice .= 'More items may display in the Menu Structure but those items will be reset to the top level on save.';
+		echo '<div class="notice notice-warning">' . wp_kses_post( $notice ) . '</div>';
 	}
 }
 add_action( 'admin_notices', 'responsive_utility_menu_notice' );
@@ -1258,10 +1258,10 @@ function responsive_update_utility_menu( int $menu_id, $menu_data = array() ) {
 		$menu_items = wp_get_nav_menu_items( 'utility-menu' );
 		foreach ( $menu_items as $item ) {
 
-			// Delete menu items that are not on the top level.
-			if ( (int) 0 !== (int) $item->menu_item_parent ) {
-				wp_delete_post( (int) $item->ID );
+			// Move any child menu items to the top/parent level.
+			if ( 0 !== (int) $item->menu_item_parent ) {
 				$count++;
+				update_post_meta( $item->ID, 'menu_item_parent', 0 );
 			}
 		}
 	}
@@ -1269,7 +1269,6 @@ function responsive_update_utility_menu( int $menu_id, $menu_data = array() ) {
 	if ( 0 < $count ) {
 		add_action( 'admin_notices', 'responsive_utility_menu_items_deleted_notice' );
 	}
-
 }
 add_action( 'wp_update_nav_menu', 'responsive_update_utility_menu', 10, 2 );
 
@@ -1277,6 +1276,5 @@ add_action( 'wp_update_nav_menu', 'responsive_update_utility_menu', 10, 2 );
  * Add message that Utility Menu Items have been deleted.
  */
 function responsive_utility_menu_items_deleted_notice() {
-	echo '<div class="notice notice-error is-dismissible">Utility Menu Items below the top level have been deleted.</div>';
+ 	echo '<div class="notice notice-error is-dismissible">Nested Utility Menu Items not allowed. All menu items reset to the the top level.</div>';
 }
-

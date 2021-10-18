@@ -15,7 +15,8 @@ jQuery( document ).ready(function($) {
 							let currentDepthClass = itemClasses[index];
 							$(this).removeClass(currentDepthClass);
 							$(this).addClass('menu-item-depth-0');
-							window.alert( 'Nested menu items not allowed. Menu item Reset to top level.');
+							$(this).find( '.is-submenu').hide();
+							window.alert( 'Nested menu items not allowed on Utility Menu. Menu item Reset to top level.');
 						}
 					} );
 				}
