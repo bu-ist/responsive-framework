@@ -129,3 +129,12 @@ function responsive_maybe_save_layout_setting() {
 	set_transient( 'responsive_layout_setting_check', '', WEEK_IN_SECONDS );
 }
 add_action( 'admin_init', 'responsive_maybe_save_layout_setting' );
+
+/**
+ * Enqueue Custom Admin Menu Scripts.
+ */
+function responsive_enqueue_admin_scripts() {
+	wp_enqueue_script( 'custom-menu-js', get_template_directory_uri() . '/admin/menu.js', array(), RESPONSIVE_FRAMEWORK_VERSION, true );
+
+}
+add_action( 'admin_enqueue_scripts', 'responsive_enqueue_admin_scripts', 20 );

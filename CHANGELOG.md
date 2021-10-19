@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Restrict utility menu output to the parent level, fixes #61.
+- Prevent child menu items from being added to the Utility menu, fixes #61.
+- Reset nested Utility menu items to the top/parent level on save, fixes #61.
+- Add admin notice stating the utility nav restrictions, fixes #61.
+
 ## 2.5.2
 
 - Add alternate-footbar class to alternate-footbar fixes#5.

@@ -434,6 +434,7 @@ if ( ! function_exists( 'responsive_get_utility_nav' ) ) {
 					'menu_class'     => 'utility-nav-menu',
 					'container'      => false,
 					'echo'           => false,
+					'depth'          => 1,
 				)
 			);
 		}
@@ -1209,4 +1210,72 @@ function responsive_get_the_excerpt( $post_id = null, $length = 55 ) {
 		$excerpt = wp_trim_words( $excerpt, $length );
 	}
 	return $excerpt;
+}
+
+
+/**
+ * Add Admin notice describing limitations of the Utility menu.
+ */
+function responsive_utility_menu_notice() {
+
+	// Display only on nav-menus screen.
+	$screen = get_current_screen();
+	if ( 'nav-menus' !== $screen->base ) {
+		return;
+	}
+
+	// Get Current menu id from the global namespace and compare to the utility-menu id.
+	global $nav_menu_selected_id;
+	$utility_menu = wp_get_nav_menu_object( 'utility-menu' );
+
+	if ( $nav_menu_selected_id === $utility_menu->term_id ) {
+		$notice  = __( 'The Utility Menu only displays the top level items.', 'responsive-framework' );
+		$notice .= '<br>';
+		$notice .= __( 'Nested items are prevented and/or reset to the top level on save.', 'responsive-framework' );
+		echo '<div class="notice notice-warning">' . wp_kses_post( $notice ) . '</div>';
+	}
+}
+add_action( 'admin_notices', 'responsive_utility_menu_notice' );
+
+
+/**
+ * Reset any nested menu items to the top/parent level for the utility menu.
+ *
+ * @param int   $menu_id The ID of the menu.
+ * @param array $menu_data An array of menu data that has the menu name.
+ */
+function responsive_update_utility_menu( int $menu_id, $menu_data = array() ) {
+
+	// Return if no data to update.
+	if ( empty( $menu_id ) || empty( $menu_data ) ) {
+		return;
+	}
+
+	$utility_menu_id = wp_get_nav_menu_object( 'utility-menu' )->term_id;
+
+	$count = 0;
+	// Only update Utility Menu.
+	if ( $menu_id === $utility_menu_id ) {
+		$menu_items = wp_get_nav_menu_items( 'utility-menu' );
+		foreach ( $menu_items as $item ) {
+
+			// Move any child menu items to the top/parent level.
+			if ( 0 !== (int) $item->menu_item_parent ) {
+				update_post_meta( $item->ID, 'menu_item_parent', 0 );
+				$count++;
+			}
+		}
+	}
+
+	if ( 0 < $count ) {
+		add_action( 'admin_notices', 'responsive_utility_menu_items_deleted_notice' );
+	}
+}
+add_action( 'wp_update_nav_menu', 'responsive_update_utility_menu', 10, 2 );
+
+/**
+ * Add message that Utility Menu Items have been deleted.
+ */
+function responsive_utility_menu_items_deleted_notice() {
+	echo '<div class="notice notice-error is-dismissible">' . esc_html__( 'Nested Utility Menu Items not allowed. All menu items reset to the the top level.', 'responsive-framework' ) . '</div>';
 }
