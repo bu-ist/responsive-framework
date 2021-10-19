@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/theme/responsive-framework-2-x\n"
-"POT-Creation-Date: 2021-09-24 14:58:57+00:00\n"
+"POT-Creation-Date: 2021-10-19 14:47:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -231,7 +231,7 @@ msgid ""
 "2 widgets will appear."
 msgstr ""
 
-#: functions.php:267 inc/template-tags.php:1069
+#: functions.php:267 inc/template-tags.php:1070
 msgid "Footbar"
 msgstr ""
 
@@ -239,7 +239,7 @@ msgstr ""
 msgid "Add widgets here to appear in your footer."
 msgstr ""
 
-#: functions.php:281 inc/template-tags.php:1070
+#: functions.php:281 inc/template-tags.php:1071
 msgid "Alternate Footbar"
 msgstr ""
 
@@ -456,61 +456,77 @@ msgstr ""
 msgid "Profile Directory"
 msgstr ""
 
-#: inc/template-tags.php:467 template-parts/masthead-side-nav.php:20
+#: inc/template-tags.php:468 template-parts/masthead-side-nav.php:20
 #: template-parts/masthead-top-nav.php:10 template-parts/masthead.php:15
 msgid "Open menu"
 msgstr ""
 
-#: inc/template-tags.php:468
+#: inc/template-tags.php:469
 msgid "Full Menu"
 msgstr ""
 
-#: inc/template-tags.php:469
+#: inc/template-tags.php:470
 msgid "Close Menu"
 msgstr ""
 
-#: inc/template-tags.php:651
+#: inc/template-tags.php:652
 #. translators: %s: archive type singular name.
 msgid "%s navigation"
 msgstr ""
 
-#: inc/template-tags.php:656
+#: inc/template-tags.php:657
 msgid "Newer posts"
 msgstr ""
 
-#: inc/template-tags.php:657
+#: inc/template-tags.php:658
 msgid "Older posts"
 msgstr ""
 
-#: inc/template-tags.php:698
+#: inc/template-tags.php:699
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:726 single.php:49
+#: inc/template-tags.php:727 single.php:49
 #. translators: %s: author name linking to their archive page.
 #. translators: %s: author name
 msgid "<em>By </em>%s"
 msgstr ""
 
-#: inc/template-tags.php:743
+#: inc/template-tags.php:744
 #. translators: %s: category list for the post.
 msgid "<em>in</em> %s"
 msgstr ""
 
-#: inc/template-tags.php:752
+#: inc/template-tags.php:753
 msgid "<strong>0</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:752
+#: inc/template-tags.php:753
 msgid "<strong>1</strong> comment"
 msgstr ""
 
-#: inc/template-tags.php:752
+#: inc/template-tags.php:753
 msgid "<strong>%</strong> comments"
 msgstr ""
 
-#: inc/template-tags.php:897
+#: inc/template-tags.php:898
 msgid "View all posts"
+msgstr ""
+
+#: inc/template-tags.php:1232
+msgid "The Utility Menu only displays the top level items."
+msgstr ""
+
+#: inc/template-tags.php:1234
+msgid ""
+"More items may display in the Menu Structure but those items will be reset "
+"to the top level on save."
+msgstr ""
+
+#: inc/template-tags.php:1280
+msgid ""
+"Nested Utility Menu Items not allowed. All menu items reset to the the top "
+"level."
 msgstr ""
 
 #: no-access-bumc.php:13
