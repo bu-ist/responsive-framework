@@ -2,7 +2,7 @@ jQuery( document ).ready(function($) {
 	function verifyNav() {
 		let lis = jQuery('#update-nav-menu #post-body ul.menu li');
 		lis.each(function () {
-			// First Check if active in sort and don't act on the placeholder dive.
+			// First Check if active in sort and don't act on the placeholder span.
 			if ( !$(this).hasClass('ui-sortable-helper') && !$(this).hasClass('sortable-placeholder')) {
 				// If not active and not at 0 depth reset to 0 depth and alert user.
 				if ( !$(this).hasClass('menu-item-depth-0') ) {
