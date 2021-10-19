@@ -1231,7 +1231,7 @@ function responsive_utility_menu_notice() {
 	if ( $nav_menu_selected_id === $utility_menu->term_id ) {
 		$notice  = __( 'The Utility Menu only displays the top level items.', 'responsive-framework' );
 		$notice .= '<br>';
-		$notice .= __( 'More items may display in the Menu Structure but those items will be reset to the top level on save.', 'responsive-framework' );
+		$notice .= __( 'Nested items are prevented and/or reset to the top level on save.', 'responsive-framework' );
 		echo '<div class="notice notice-warning">' . wp_kses_post( $notice ) . '</div>';
 	}
 }

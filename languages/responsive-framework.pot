@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/theme/responsive-framework-2-x\n"
-"POT-Creation-Date: 2021-10-19 14:47:41+00:00\n"
+"POT-Creation-Date: 2021-10-19 15:48:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -518,9 +518,7 @@ msgid "The Utility Menu only displays the top level items."
 msgstr ""
 
 #: inc/template-tags.php:1234
-msgid ""
-"More items may display in the Menu Structure but those items will be reset "
-"to the top level on save."
+msgid "Nested items are prevented and/or reset to the top level on save."
 msgstr ""
 
 #: inc/template-tags.php:1280
