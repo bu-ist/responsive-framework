@@ -809,6 +809,11 @@ require __DIR__ . '/inc/bu-banners.php';
 require __DIR__ . '/inc/buniverse.php';
 
 /**
+ * Kaltura support.
+ */
+require __DIR__ . '/inc/kaltura.php';
+
+/**
  * Plugin support - BU Calendar.
  *
  * @link https://github.com/bu-ist/bu-calendar
