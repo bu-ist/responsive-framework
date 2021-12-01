@@ -16,7 +16,7 @@ notifications:
 
 env:
   global:
-    - WP_TRAVISCI=travis:phpunit
+    - WP_TRAVISCI=phpcs
 
 branches:
   only:
@@ -33,11 +33,11 @@ matrix:
     - php: 7.2
       env: WP_VERSION=latest
     - php: 7.2
-      env: WP_VERSION=4.9.10
+      env: WP_VERSION=5.4.2
     - php: 7.0
       env: WP_VERSION=latest
     - php: 7.0
-      env: WP_VERSION=4.9.10
+      env: WP_VERSION=5.4.2
 
 before_install:
   - composer self-update
