@@ -1,5 +1,9 @@
 # Changelog
 
+## Upcoming Updates
+
+- Kaltura oembed support.
+
 ## 2.5.2
 
 - Add alternate-footbar class to alternate-footbar fixes#5.
