@@ -67,7 +67,7 @@ function kaltura_shortcode( $atts, $content ) {
 </div>
 EMBED;
 
-/**
+	/**
 	 * Filters the Kaltura shortcut HTML.
 	 *
 	 * @param string $embed   Shortcode HTML.
@@ -81,6 +81,13 @@ EMBED;
 add_shortcode( 'kaltura', 'kaltura_shortcode' );
 
 
+/**
+ * Extract the building of the iframe from the
+ * shortcode
+ *
+ * @param array $atts Attributes from the shortcode.
+ * @return mixed IFrame markup.
+ */
 function render_kaltura_iframe( $atts ) {
 	ob_start();
 	?>
