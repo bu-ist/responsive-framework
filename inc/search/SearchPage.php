@@ -25,10 +25,23 @@ class SearchPage {
 	 * @return String        the result item
 	 */
 	function render_item( $item, $echo = false ) {
-		$mime           = empty( $item->mime ) ? '' : '[' . $item->mime . ']';
-		$render_string  = '<h3><a href="' . $item->link . '">' . $item->htmlTitle . '</a>&nbsp;<span class="mime">' . $mime . '</span></h3>';
+		$mime           = empty( $item->mime ) ? '' : $item->mime;
+		$preview        = empty( $item->pagemap->cse_thumbnail ) ? '' : $item->pagemap->cse_thumbnail;
+		$meta        = empty( $item->pagemap->metatags ) ? '' : $item->pagemap->metatags;
+		$render_string  = '<h3><a href="' . $item->link . '">' . $item->htmlTitle . '</a>&nbsp;<span class="mime u-visually-hidden" data-type="' . urlencode($mime) . '">[' . $mime . ']</span></h3>';
 		$render_string .= '<p>' . $item->htmlSnippet . '</p>';
 		$render_string .= '<cite>' . $item->link . '</cite>';
+		if ( $preview ) {
+			$render_string .= '<img src="' . $preview[0]->src .'" />';
+		}
+
+		if ( $meta[0]->creationdate ) {
+			$render_string .= '<p>Created on ' . $meta[0]->creationdate . '</p>';
+		}
+
+		if ( $meta[0]->moddate ) {
+			$render_string .= '<p>Modified on ' . $meta[0]->moddate . '</p>';
+		}
 		apply_filters( 'search_results_item', $render_string, $item );
 		if ( $echo ) {
 			echo $render_string;
