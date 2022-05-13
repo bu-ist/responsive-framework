@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.4.1' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.5.2' );
 
 /**
  * Modernizr version.
@@ -46,7 +46,7 @@ function get_responsive_theme_version() {
  *
  * Used to version `lightGallery` assets.
  */
-define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '1.8.3' );
+define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '2.1.6' );
 
 /**
  * `lg-thumbnail` version.
@@ -69,6 +69,66 @@ function responsive_setup_before() {
 	do_action( 'before_responsive_setup' );
 }
 add_action( 'after_setup_theme', 'responsive_setup_before', 9 );
+if (is_admin()) {
+	add_action( 'get_the_date', 'filter_publish_dates', 10, 3 );
+
+	// echo get_post_meta( '201111', 'submitdiv', true );
+	// var_dump(get_post_timestamp( '201111' ));
+	// var_dump(get_post_datetime( '201111' ));
+	// var_dump(get_post( '201111' ));
+	// //die();
+	var_dump('is admin');
+	//die();
+}
+
+add_action( 'wp_date', 'admin_filter_publish_dates', 10, 3 );
+function admin_filter_publish_dates($formated_date, $format, $timestamp ){
+	// var_export('Line 86 ' . $format);
+	// var_export('Line 87 ' . $formated_date);
+	// var_export('Line 88 ' . $timestamp);
+	$strtotime = $timestamp + 14400;
+	//$format_date_string = date( 'Y-d-m - h:j:s', $date_string );
+	$new_date = date( 'Y-d-m - h:j:s', $strtotime );
+	// var_export('
+	// Line 92 ' . $new_date);
+	// var_export('Line 87 ' . $formated_date);
+	// die();
+	return $new_date;
+
+}
+add_action( 'get_the_date', 'filter_publish_dates', 10, 3 );
+//add_action( 'get_comment_date', 'filter_publish_dates', 10, 3 );
+function filter_publish_dates( $the_date, $d, $post ) {
+// var_dump($post->post_date);
+// var_dump($the_date);
+    if ( is_int( $post) ) {
+        $post_id = $post;
+    } else {
+        $post_id = $post->ID;
+    }
+	// 	$current_time = date('Y-m-d H:i:s');
+	// $new_time = strtotime($current_time . "+3hours");
+	// var_dump($the_date);
+	// die();
+
+	//var_dump($date_string);
+
+	$date_string = strtotime( $post->post_date );
+	$strtotime = $date_string + 14400;
+	$format_date_string = date( 'Y-d-m - h:j:s', $date_string );
+	$new_date_string = date( 'Y-d-m - h:j:s', $strtotime );
+	//var_dump($strtotime);
+	echo 'Line 169 ' . $date_string . '<br>';
+	echo 'Use: ' . $format_date_string . '<br>';
+	echo $strtotime . '<br>';
+	echo $new_date_string . '<br>';
+
+	//var_dump(date( 'Y-d-m - h:j:s', $date_string ));
+	//var_dump(date( 'Y-d-m - h:j:s', $strtotime ));
+	//die();
+
+    return date( 'Y-d-m - h:j:s', $date_string );
+}
 
 /**
  * Fires the after_responsive_setup action hook after theme setup occurs.
