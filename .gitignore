@@ -9,3 +9,7 @@ sftp-config.json
 .mdlrc
 markdown.rb
 build
+
+.wp-env
+.wp-env.json
+.wp-env.override.json

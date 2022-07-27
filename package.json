@@ -1,6 +1,6 @@
 {
   "name": "bu-responsive-framework",
-  "version": "2.5.2",
+  "version": "2.5.3",
   "description": "A responsive WordPress theme framework. Uses the Responsive Foundation.",
   "repository": "https://github.com/bu-ist/responsive-framework/",
   "contributors": [
@@ -48,7 +48,7 @@
     "autoprefixer": "^9.7.6",
     "babelify": "^10.0.0",
     "eslint": "^6.8.0",
-    "grunt": "^1.0.4",
+    "grunt": "^1.5.2",
     "grunt-browserify": "^5.3.0",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
