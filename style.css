@@ -3,7 +3,7 @@
 Theme Name: Responsive Framework 2.x
 Author: Boston University Interactive Design
 Website: http://www.bu.edu/interactive-design/
-Version: 2.5.2
+Version: 2.5.3
 Description: Version 2 of Responsive supports BU Banners and BU Landing Pages, and removes support for Content Banner and custom color palettes. Plugin dependencies: cmb2. See demo at id-demos.cms-devl.bu.edu/responsive-framework/ and documentation at wpdocs.bu.edu.
 Theme Groups: Responsive Framework
 */
@@ -126,8 +126,7 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -6630,7 +6629,7 @@ a:hover .bu-hub-iconstyles::before {
   padding: 10px 30px 9px 56px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+@media only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-signature {
     background-image: url("https://www.bu.edu/cdn/images/logos/subbrand49x35-retina.png");
     background-size: 49px 35px;
@@ -6688,7 +6687,7 @@ a:hover .bu-hub-iconstyles::before {
   width: 112px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+@media only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-masterplate {
     background-image: url("https://www.bu.edu/cdn/images/logos/masterplate112x50-retina.png");
     background-size: 112px 50px;
@@ -6702,7 +6701,7 @@ a:hover .bu-hub-iconstyles::before {
   width: 96px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+@media only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .brand-bumclogo {
     background-image: url("https://www.bu.edu/cdn/images/logos/bumclogo96x40-retina.png");
     background-size: 96px 40px;
