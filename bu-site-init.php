@@ -187,6 +187,10 @@ function responsive_initialize_site( $site, $site_id, $admin_id, $domain, $path,
 		'bu-post-details/bu-post-details.php',
 		'link-lists/link-lists.php',
 		'bu-sharing/bu-sharing.php',
+		'cmb2/init.php',
+		'bu-landing-pages/bu-landing-pages.php',
+		'bu-text-widget/bu-text-widget.php',
+		'classic-editor/classic-editor.php',
 	) );
 
 	// Default comment depth.
