@@ -194,30 +194,14 @@ function responsive_get_customizer_styles( $use_cache = true ) {
 	$fonts_css = responsive_get_css( 'font' );
 	if ( $fonts_css ) {
 
-		// Minify font styles if SCRIPT_DEBUG is off.
-		if ( ! $is_script_debugging ) {
-			$csstidy = responsive_css_tidy();
-			$csstidy->parse( $fonts_css );
-			$fonts_css = $csstidy->print->plain();
-			unset( $csstidy );
-		}
-
-		$styles[] = sprintf( '<style type="text/css" id="responsive-customizer-fonts">%s</style>', $fonts_css );
+		$styles[] = sprintf( '<link rel="stylesheet" href="%s"/>', $fonts_css);
 	}
 
 	// Colors.
 	$colors_css = responsive_get_css( 'color' );
 	if ( $colors_css ) {
-
-		// Minify color styles if SCRIPT_DEBUG is off.
-		if ( ! $is_script_debugging ) {
-			$csstidy = responsive_css_tidy();
-			$csstidy->parse( $colors_css );
-			$colors_css = $csstidy->print->plain();
-			unset( $csstidy );
-		}
-
-		$styles[] = sprintf( '<style type="text/css" id="responsive-customizer-colors">%s</style>', $colors_css );
+		
+		$styles[] = sprintf( '<link rel="stylesheet" href="%s"/>', $colors_css);
 	}
 
 	// Concatenate font and color styles.
@@ -308,11 +292,7 @@ function responsive_get_css( $palette ) {
 	}
 
 	if ( ! empty( $get_palette ) ) {
-		$request = wp_remote_get( get_template_directory_uri() . '/css/' . $get_palette . '.css' );
-
-		if ( ! is_wp_error( $request ) && 200 === wp_remote_retrieve_response_code( $request ) ) {
-			$css = wp_remote_retrieve_body( $request );
-		}
+		$css = get_template_directory_uri() . '/css/' . $get_palette . '.css';
 	}
 
 	return $css;
