@@ -194,14 +194,14 @@ function responsive_get_customizer_styles( $use_cache = true ) {
 	$fonts_css = responsive_get_css( 'font' );
 	if ( $fonts_css ) {
 
-		$styles[] = sprintf( '<link rel="stylesheet" href="%s"/>', $fonts_css);
+		$styles[] = sprintf( '<link rel="stylesheet" href="%s"/>', $fonts_css );
 	}
 
 	// Colors.
 	$colors_css = responsive_get_css( 'color' );
 	if ( $colors_css ) {
-		
-		$styles[] = sprintf( '<link rel="stylesheet" href="%s"/>', $colors_css);
+
+		$styles[] = sprintf( '<link rel="stylesheet" href="%s"/>', $colors_css );
 	}
 
 	// Concatenate font and color styles.
