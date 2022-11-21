@@ -349,7 +349,7 @@ function responsive_customizer_styles() {
 		$use_cache = false;
 	}
 
-	echo responsive_get_customizer_styles( $use_cache ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo responsive_get_customizer_styles(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
 if ( ! defined( 'RESPONSIVE_CUSTOMIZER_DISABLE' ) ) {
