@@ -6253,6 +6253,10 @@ a:hover .bu-hub-iconstyles::before {
   word-wrap: break-word;
 }
 
+.single-profile article.profile h1 {
+  text-align: center;
+}
+
 .bu-slideshow-container {
   margin-bottom: 60px;
   text-align: center;
