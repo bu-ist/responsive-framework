@@ -775,6 +775,21 @@ function responsive_branding_copyright() {
 
 add_action( 'r_after_footer_menus', 'responsive_branding_copyright' );
 
+/**
+ * Add slug of page as a class to body tag
+ */
+function r_add_page_slug_to_body_tag_classes( $classes ) {
+	$post = get_post();
+	$classes_type = is_array( $classes ) ? true : false;
+
+	if ( $post && $classes_type && ! in_array( $post->post_name, $classes, true ) ) {
+		array_push( $classes, $post->post_name );
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'r_add_page_slug_to_body_tag_classes' );
+
 // add_filter( 'theme_page_templates', 'r_remove_news_template', 10, 3 );
 /**
  * Admin.
