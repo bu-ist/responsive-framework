@@ -780,9 +780,8 @@ add_action( 'r_after_footer_menus', 'responsive_branding_copyright' );
  */
 function r_add_page_slug_to_body_tag_classes( $classes ) {
 	$post = get_post();
-	$chk_classes = is_array( $classes ) ? $classes : [];
 
-	if ( $post && ! in_array( $post->post_name, $chk_classes, true ) ) {
+	if ( $post && is_array( $classes ) && ! in_array( $post->post_name, $classes, true ) ) {
 		array_push( $classes, $post->post_name );
 	}
 
