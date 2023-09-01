@@ -6253,6 +6253,11 @@ a:hover .bu-hub-iconstyles::before {
   word-wrap: break-word;
 }
 
+ul.profile-listing.profile-format-advanced {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .bu-slideshow-container {
   margin-bottom: 60px;
   text-align: center;
