@@ -42,7 +42,7 @@ function responsive_section_template( $template ) {
 	$template = <<<TPL
 <div class="responsive-table cf-section-wrapper">
 <table class="cf-table">
-	<caption class="cf-section-title">Section {{section_name}}, {{semester}} {{year}} <span class="cf-section-dates">{{date_start}} to {{date_end}}</span></caption>
+	<caption class="cf-section-title">Section {{section_name}}, {{semester}} {{year}}<span style="margin-left: 2rem;">{{section_display_name}}</span> <span class="cf-section-dates">{{date_start}} to {{date_end}}</span></caption>
 	<thead class="cf-section-header">
 		<tr>
 			<th class="cf-section-instructortitle">Instructor</th>
