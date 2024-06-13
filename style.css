@@ -5772,6 +5772,10 @@ textarea {
   text-align: left;
 }
 
+.cf-section-topic {
+  margin-left: 2rem;
+}
+
 .cf-section-dates {
   float: right;
 }
