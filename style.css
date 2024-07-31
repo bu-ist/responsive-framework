@@ -5772,6 +5772,10 @@ textarea {
   text-align: left;
 }
 
+.cf-section-topic {
+  margin-left: 2rem;
+}
+
 .cf-section-dates {
   float: right;
 }
@@ -6246,6 +6250,11 @@ a:hover .bu-hub-iconstyles::before {
 .profile-name-mini {
   color: inherit;
   text-decoration: none;
+}
+
+.profile-listing.profile-format-advanced {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .profile-email-mini {
