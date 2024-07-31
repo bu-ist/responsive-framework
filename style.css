@@ -6252,6 +6252,11 @@ a:hover .bu-hub-iconstyles::before {
   text-decoration: none;
 }
 
+.profile-listing.profile-format-advanced {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .profile-email-mini {
   margin: 5px 0;
   word-wrap: break-word;
