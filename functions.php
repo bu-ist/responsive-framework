@@ -856,6 +856,7 @@ require __DIR__ . '/inc/sharing.php';
  *
  * @link http://github.com/bu-ist/bu-cms
  */
+require __DIR__ . '/inc/search/SearchPage.php';
 require __DIR__ . '/inc/search-form.php';
 
 /**
