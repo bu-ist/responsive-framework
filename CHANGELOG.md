@@ -2,6 +2,10 @@
 
 ## Upcoming Updates
 
+## [2.5.5]
+
+- Merge to main for deploy
+
 ## [2.5.4]
 
 - Kaltura oembed support.

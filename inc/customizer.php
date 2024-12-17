@@ -173,58 +173,31 @@ function responsive_get_color_palette() {
 /**
  * Generate inline customizer style block.
  *
- * @param boolean $use_cache Whether to use styles cached in an option. Default is true.
  *
  * @return string $styles CSS Styles for use in the Customizer.
  */
-function responsive_get_customizer_styles( $use_cache = true ) {
+function responsive_get_customizer_styles() {
 
 	$styles              = array();
 	$is_script_debugging = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
 
-	// Check cache first if requested and SCRIPT_DEBUG is off.
-	if ( $use_cache && ! $is_script_debugging ) {
-		$styles = get_option( 'burf_customizer_styles' );
-		if ( $styles ) {
-			return $styles;
-		}
-	}
-
 	// Fonts.
 	$fonts_css = responsive_get_css( 'font' );
 	if ( $fonts_css ) {
-
-		// Minify font styles if SCRIPT_DEBUG is off.
-		if ( ! $is_script_debugging ) {
-			$csstidy = responsive_css_tidy();
-			$csstidy->parse( $fonts_css );
-			$fonts_css = $csstidy->print->plain();
-			unset( $csstidy );
-		}
-
-		$styles[] = sprintf( '<style type="text/css" id="responsive-customizer-fonts">%s</style>', $fonts_css );
+		$styles[] = sprintf( '<link rel="stylesheet" href="%s"/>', $fonts_css );
 	}
 
 	// Colors.
 	$colors_css = responsive_get_css( 'color' );
 	if ( $colors_css ) {
-
-		// Minify color styles if SCRIPT_DEBUG is off.
-		if ( ! $is_script_debugging ) {
-			$csstidy = responsive_css_tidy();
-			$csstidy->parse( $colors_css );
-			$colors_css = $csstidy->print->plain();
-			unset( $csstidy );
-		}
-
-		$styles[] = sprintf( '<style type="text/css" id="responsive-customizer-colors">%s</style>', $colors_css );
+		$styles[] = sprintf( '<link rel="stylesheet" href="%s"/>', $colors_css );
 	}
 
 	// Concatenate font and color styles.
 	$styles = implode( PHP_EOL, $styles );
 
 	// Only cache minified styles when script debugging is disabled.
-	if ( $styles && $use_cache && ! $is_script_debugging ) {
+	if ( $styles && ! $is_script_debugging ) {
 		update_option( 'burf_customizer_styles', $styles );
 	}
 	return $styles;
@@ -308,11 +281,7 @@ function responsive_get_css( $palette ) {
 	}
 
 	if ( ! empty( $get_palette ) ) {
-		$request = wp_remote_get( get_template_directory_uri() . '/css/' . $get_palette . '.css' );
-
-		if ( ! is_wp_error( $request ) && 200 === wp_remote_retrieve_response_code( $request ) ) {
-			$css = wp_remote_retrieve_body( $request );
-		}
+		$css = get_template_directory_uri() . '/css/' . $get_palette . '.css';
 	}
 
 	return $css;
