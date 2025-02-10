@@ -126,7 +126,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -478,7 +479,6 @@ template {
 .ui-helper-hidden-accessible, .search-toggle span, .l-mega-nav .site-description, .event-time-make-sentence {
   border: 0;
   clip: rect(0, 0, 0, 0);
-  -webkit-clip-path: inset(50%);
   clip-path: inset(50%);
   height: 1px;
   margin: -1px;

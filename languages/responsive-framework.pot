@@ -1,0 +1,694 @@
+# <!=Copyright (C) 2025 
+# This file is distributed under the same license as the  package.=!>
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/theme/responsive-framework\n"
+"POT-Creation-Date: 2025-02-10 18:17:48+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: 404.php:30
+msgid "Looks like that page might not be here anymore. Want to give search a try?"
+msgstr ""
+
+#: admin/admin.php:30
+msgid "Footbar Display"
+msgstr ""
+
+#: admin/admin.php:56
+msgid "None"
+msgstr ""
+
+#: admin/responsive-admin-page-template-filter.php:71
+msgid "All page templates"
+msgstr ""
+
+#: admin/responsive-admin-page-template-filter.php:72 inc/calendar.php:126
+msgid "Default"
+msgstr ""
+
+#: admin/theme-customizer.php:39
+msgid "Navigation Style"
+msgstr ""
+
+#: admin/theme-customizer.php:74
+msgid "Fonts"
+msgstr ""
+
+#: admin/theme-customizer.php:107
+msgid "Colors"
+msgstr ""
+
+#: admin/theme-customizer.php:139
+msgid "Content Options"
+msgstr ""
+
+#: admin/theme-customizer.php:158
+msgid "Post Display Options"
+msgstr ""
+
+#: admin/theme-customizer.php:160
+msgid ""
+"Change visibility of post meta fields. Note that the \"News\" page template "
+"has its own display options."
+msgstr ""
+
+#: admin/theme-customizer.php:162 inc/template-tags.php:282
+msgid "Categories"
+msgstr ""
+
+#: admin/theme-customizer.php:163
+msgid "Tags"
+msgstr ""
+
+#: admin/theme-customizer.php:164
+msgid "Author"
+msgstr ""
+
+#: admin/theme-customizer.php:183
+msgid "Options set by the theme:"
+msgstr ""
+
+#: admin/theme-customizer.php:187
+msgid "Main sidebar position "
+msgstr ""
+
+#: admin/theme-customizer.php:190
+msgid "Keep posts and profiles sidebar on the bottom?"
+msgstr ""
+
+#: admin/theme-customizer.php:198
+msgid "Sidebar Options"
+msgstr ""
+
+#: admin/theme-customizer.php:213
+msgid "Footer"
+msgstr ""
+
+#: admin/theme-customizer.php:215
+#. translators: %s: menu url
+msgid ""
+"Footer links can be managed using the <a href=\"%s\">Footer and Social "
+"Links Custom Menu locations</a>."
+msgstr ""
+
+#: admin/theme-customizer.php:241
+msgid "Custom HTML"
+msgstr ""
+
+#: admin/theme-customizer.php:245
+msgid "May be used to enter an address or contact information."
+msgstr ""
+
+#: admin/theme-customizer.php:256
+msgid "Automatically add paragraphs"
+msgstr ""
+
+#: admin/theme-customizer.php:278
+msgid "Static page options"
+msgstr ""
+
+#: admin/theme-customizer.php:281
+msgid "Hide the homepage title"
+msgstr ""
+
+#: admin/theme-customizer.php:300
+msgid "Main Sidebar Position"
+msgstr ""
+
+#: admin/theme-customizer.php:302
+msgid "Changes the position of the main sidebar."
+msgstr ""
+
+#: admin/theme-customizer.php:325
+msgid "Keep the posts sidebar on bottom"
+msgstr ""
+
+#: comments.php:37
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:38
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:48
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:60
+#. translators: 1: opening anchor tag, 2: closing anchor tag.
+msgid "You must be %1$slogged in%2$s to post a comment."
+msgstr ""
+
+#: comments.php:67
+msgid "Log out &raquo;"
+msgstr ""
+
+#: comments.php:72
+msgid "Name"
+msgstr ""
+
+#: comments.php:90 single-profile.php:107
+msgid "Email"
+msgstr ""
+
+#: comments.php:107
+msgid "Comment"
+msgstr ""
+
+#: comments.php:107
+msgid "view guidelines"
+msgstr ""
+
+#: comments.php:109
+msgid "Submit Comment"
+msgstr ""
+
+#: functions.php:154
+msgid "Footer Links"
+msgstr ""
+
+#: functions.php:155
+msgid "Social Links"
+msgstr ""
+
+#: functions.php:156
+msgid "Utility Navigation"
+msgstr ""
+
+#: functions.php:157
+msgid "Short Navigation"
+msgstr ""
+
+#: functions.php:163
+msgid "Primary Navigation"
+msgstr ""
+
+#: functions.php:229
+msgid "Main Sidebar"
+msgstr ""
+
+#: functions.php:231
+msgid "Add widgets here to appear in your sidebar."
+msgstr ""
+
+#: functions.php:241
+msgid "Posts Content Area"
+msgstr ""
+
+#: functions.php:243
+msgid ""
+"Add widgets here for display on posts and archives. Only the first 2 "
+"widgets will appear."
+msgstr ""
+
+#: functions.php:254
+msgid "Profiles Content Area"
+msgstr ""
+
+#: functions.php:256
+msgid ""
+"Add widgets here for display on profile pages and archives. Only the first "
+"2 widgets will appear."
+msgstr ""
+
+#: functions.php:267 inc/template-tags.php:1069
+msgid "Footbar"
+msgstr ""
+
+#: functions.php:269 functions.php:283
+msgid "Add widgets here to appear in your footer."
+msgstr ""
+
+#: functions.php:281 inc/template-tags.php:1070
+msgid "Alternate Footbar"
+msgstr ""
+
+#: functions.php:425
+#. translators: %s: navigation label navigating to.
+msgid "Navigate to: %s"
+msgstr ""
+
+#: header.php:25
+msgid ""
+"Boston University is a leading private research institution with two "
+"primary campuses in the heart of Boston and programs around the world."
+msgstr ""
+
+#: inc/bu-banners.php:167
+msgid "Leave blank to use the page title."
+msgstr ""
+
+#: inc/calendar.php:68
+msgid "Topics"
+msgstr ""
+
+#: inc/calendar.php:92
+msgid "Event Calendar"
+msgstr ""
+
+#: inc/calendar.php:98
+msgid "Event"
+msgstr ""
+
+#: inc/calendar.php:103
+#. translators: %s: topic name.
+msgid "All %s"
+msgstr ""
+
+#: inc/calendar.php:131
+msgid "Full Date"
+msgstr ""
+
+#: inc/calendar.php:136
+msgid "Graphic"
+msgstr ""
+
+#: inc/calendar.php:568
+msgid "Back to Calendar"
+msgstr ""
+
+#: inc/calendar.php:569
+msgid "Ends"
+msgstr ""
+
+#: inc/calendar.php:570
+msgid "Starts"
+msgstr ""
+
+#: inc/calendar.php:600
+msgid "Speakers"
+msgstr ""
+
+#: inc/calendar.php:601
+msgid "Audience"
+msgstr ""
+
+#: inc/calendar.php:602
+msgid "Departments"
+msgstr ""
+
+#: inc/calendar.php:603
+msgid "Location"
+msgstr ""
+
+#: inc/calendar.php:604
+msgid "Address"
+msgstr ""
+
+#: inc/calendar.php:605
+msgid "Room"
+msgstr ""
+
+#: inc/calendar.php:606 inc/calendar.php:607
+msgid "Fees"
+msgstr ""
+
+#: inc/calendar.php:608
+msgid "Fee (General)"
+msgstr ""
+
+#: inc/calendar.php:609
+msgid "Fee (Public)"
+msgstr ""
+
+#: inc/calendar.php:610
+msgid "Fee (Staff)"
+msgstr ""
+
+#: inc/calendar.php:611
+msgid "Fee (Students)"
+msgstr ""
+
+#: inc/calendar.php:612
+msgid "Fee (BU Students)"
+msgstr ""
+
+#: inc/calendar.php:613
+msgid "Fee (Seniors)"
+msgstr ""
+
+#: inc/calendar.php:614
+msgid "Deadline"
+msgstr ""
+
+#: inc/calendar.php:615
+msgid "Link"
+msgstr ""
+
+#: inc/calendar.php:616
+msgid "Contact Organization"
+msgstr ""
+
+#: inc/calendar.php:617
+msgid "Contact Name"
+msgstr ""
+
+#: inc/calendar.php:618
+msgid "Contact Email"
+msgstr ""
+
+#: inc/calendar.php:619
+msgid "Contact Phone"
+msgstr ""
+
+#: inc/customizer.php:62
+msgid ""
+"Default Navigation <span class=\"ui-context\">A good choice for most "
+"websites</span>"
+msgstr ""
+
+#: inc/customizer.php:63
+msgid ""
+"Top Navigation <span class=\"ui-context\">Best for websites without "
+"dropdowns</span>"
+msgstr ""
+
+#: inc/customizer.php:64
+msgid ""
+"Side Navigation <span class=\"ui-context\">Best for small websites with few "
+"nested pages</span>"
+msgstr ""
+
+#: inc/customizer.php:65
+msgid ""
+"Mega Navigation <span class=\"ui-context\">Best for large, complex "
+"websites</span>"
+msgstr ""
+
+#: inc/customizer.php:66
+msgid ""
+"No Navigation <span class=\"ui-context\">Best for single-page "
+"websites</span>"
+msgstr ""
+
+#: inc/post-lists.php:19
+msgid "title only (no thumbnail)"
+msgstr ""
+
+#: inc/post-lists.php:26
+msgid "title, date"
+msgstr ""
+
+#: inc/post-lists.php:33
+msgid "title, excerpt"
+msgstr ""
+
+#: inc/post-lists.php:40
+msgid "title, date, excerpt"
+msgstr ""
+
+#: inc/post-lists.php:47
+msgid "title, author, excerpt"
+msgstr ""
+
+#: inc/post-lists.php:54
+msgid "title, date, comments, excerpt"
+msgstr ""
+
+#: inc/post-lists.php:61
+msgid "title, author, comments, excerpt"
+msgstr ""
+
+#: inc/post-lists.php:126 inc/post-lists.php:136
+#. translators: %s: author's name.
+msgid "by %s"
+msgstr ""
+
+#: inc/search-form.php:15
+msgid "This Site"
+msgstr ""
+
+#: inc/template-tags.php:22
+#. translators: %d: number of pages.
+msgid "Page %d"
+msgstr ""
+
+#: inc/template-tags.php:132
+#. translators: %s: current search query.
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/template-tags.php:135
+msgid "Yikes! We couldn't find that."
+msgstr ""
+
+#: inc/template-tags.php:150
+msgid "Profile Directory"
+msgstr ""
+
+#: inc/template-tags.php:467 inc/template-tags.php:468
+msgid "Full Menu"
+msgstr ""
+
+#: inc/template-tags.php:469
+msgid "Close Menu"
+msgstr ""
+
+#: inc/template-tags.php:651
+#. translators: %s: archive type singular name.
+msgid "%s navigation"
+msgstr ""
+
+#: inc/template-tags.php:656
+msgid "Newer posts"
+msgstr ""
+
+#: inc/template-tags.php:657
+msgid "Older posts"
+msgstr ""
+
+#: inc/template-tags.php:698
+msgid "Post navigation"
+msgstr ""
+
+#: inc/template-tags.php:726 single.php:49
+#. translators: %s: author name linking to their archive page.
+#. translators: %s: author name
+msgid "<em>By </em>%s"
+msgstr ""
+
+#: inc/template-tags.php:743
+#. translators: %s: category list for the post.
+msgid "<em>in</em> %s"
+msgstr ""
+
+#: inc/template-tags.php:752
+msgid "<strong>0</strong> comments"
+msgstr ""
+
+#: inc/template-tags.php:752
+msgid "<strong>1</strong> comment"
+msgstr ""
+
+#: inc/template-tags.php:752
+msgid "<strong>%</strong> comments"
+msgstr ""
+
+#: inc/template-tags.php:897
+msgid "View all posts"
+msgstr ""
+
+#: no-access-bumc.php:13
+msgid "Access Restricted To BUMC/BMC"
+msgstr ""
+
+#: no-access-bumc.php:20
+#. translators: %s: BUMC help desk email.
+msgid ""
+"You are trying to access a page that is restricted to members of the Boston "
+"University Medical Campus (BUMC) and Boston Medical Center (BMC). If you "
+"are indeed part of the BUMC/BMC community, contact the BUMC Help Desk (%s | "
+"617-638-5914) for further assistance, Monday through Friday, 8:30 a.m. to 5 "
+"p.m. or visit:"
+msgstr ""
+
+#: no-access.php:13
+msgid "Access Restricted To BU/BUMC/BMC"
+msgstr ""
+
+#: no-access.php:17
+msgid ""
+"You are trying to access a page that is restricted to members of the Boston "
+"University community.  For further assistance, please see:"
+msgstr ""
+
+#: page-templates/news.php:44 page-templates/no-sidebars.php:39 page.php:43
+#: single.php:38
+msgid "Pages:"
+msgstr ""
+
+#: page-templates/news.php:66
+msgid "No Posts Found"
+msgstr ""
+
+#: page-templates/news.php:67
+msgid "This site does not currently have any posts. Please check back later."
+msgstr ""
+
+#: page-templates/news.php:75 page-templates/no-sidebars.php:55 page.php:51
+#: profiles.php:42
+msgid "Edit Page"
+msgstr ""
+
+#: profiles.php:32
+msgid "Read the rest of this profile &raquo;"
+msgstr ""
+
+#: searchform.php:11 searchform.php:14 searchform.php:16
+#: template-parts/masthead-no-nav.php:15
+#: template-parts/masthead-side-nav.php:15
+#: template-parts/masthead-top-nav.php:13 template-parts/masthead.php:18
+msgid "Search"
+msgstr ""
+
+#: searchform.php:14
+msgid "Search site&hellip;"
+msgstr ""
+
+#: searchform.php:14
+msgid "Search for:"
+msgstr ""
+
+#: sidebar-bottom.php:22
+#. translators: %s: Site name.
+msgid "More about %s"
+msgstr ""
+
+#: sidebar.php:28
+#. translators: %s: Title for the current post.
+msgid "Related to %s"
+msgstr ""
+
+#: single-profile.php:93
+msgid "Title"
+msgstr ""
+
+#: single-profile.php:100
+msgid "Office"
+msgstr ""
+
+#: single-profile.php:114
+msgid "Phone"
+msgstr ""
+
+#: single-profile.php:120
+msgid "Education"
+msgstr ""
+
+#: single-profile.php:146 template-parts/profile-advanced.php:43
+#: template-parts/profile-basic.php:43 template-parts/profile-mini.php:45
+#: template-parts/profile.php:43
+msgid "Edit Profile"
+msgstr ""
+
+#: single.php:79
+msgid "Tagged"
+msgstr ""
+
+#: single.php:87 template-parts/content.php:26 template-parts/news.php:44
+msgid "Edit Post"
+msgstr ""
+
+#: template-parts/content.php:23 template-parts/news.php:39
+msgid "Tagged:"
+msgstr ""
+
+#: template-parts/masthead-no-nav.php:15
+#: template-parts/masthead-side-nav.php:15
+#: template-parts/masthead-top-nav.php:13 template-parts/masthead.php:18
+msgid "Open search"
+msgstr ""
+
+#: template-parts/masthead-side-nav.php:20
+#: template-parts/masthead-top-nav.php:10 template-parts/masthead.php:15
+msgid "Open menu"
+msgstr ""
+
+#: template-parts/masthead-side-nav.php:20
+#: template-parts/masthead-top-nav.php:10 template-parts/masthead.php:15
+msgid "Menu"
+msgstr ""
+
+#: template-parts/no-content.php:12
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/no-content.php:16
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/no-content.php:24
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Profiles"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Calendar"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "News"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "No Sidebars"
+msgstr ""
+
+#: comments.php:19
+#. translators: %s: number of comments.
+msgctxt "comments title"
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post-lists.php:139
+#. translators: %s: number of comments.
+msgctxt "number of comments"
+msgid "<strong>%1$d</strong> comment"
+msgid_plural "<strong>%1$d</strong> comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: single.php:57
+msgctxt "Precedes the date posted in a human readable format, ie. 3 days ago."
+msgid "<em class=\"posted\">Posted </em>"
+msgstr ""
+
+#: single.php:66
+#. translators: %s: human readable time format. Ex. 3 days ago.
+msgctxt "%s = human readable time difference"
+msgid "%s ago"
+msgstr ""
+
+#: single.php:73
+msgctxt "Precedes a list of categories the post is in."
+msgid "in"
+msgstr ""
