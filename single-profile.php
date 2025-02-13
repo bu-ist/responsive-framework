@@ -47,7 +47,7 @@ function responsive_single_profile_subheader() {
 
 	// Define arguments to pass to `bu_profile_detail()`.
 	$detail_args = array(
-		'before' => '<h2 class="r-profile-single-title">',
+		'before' => '<h2 class="profile-single-title">',
 		'after'  => '</h2>',
 		'format' => 'multi-line',
 	);
