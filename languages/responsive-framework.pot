@@ -1,15 +1,15 @@
-# <!=Copyright (C) 2024
+# <!=Copyright (C) 2025 
 # This file is distributed under the same license as the  package.=!>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/theme/responsive-framework-2-x\n"
-"POT-Creation-Date: 2024-12-17 21:22:56+00:00\n"
+"https://wordpress.org/support/theme/responsive-framework\n"
+"POT-Creation-Date: 2025-02-19 20:34:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -456,12 +456,7 @@ msgstr ""
 msgid "Profile Directory"
 msgstr ""
 
-#: inc/template-tags.php:467 template-parts/masthead-side-nav.php:20
-#: template-parts/masthead-top-nav.php:10 template-parts/masthead.php:15
-msgid "Open menu"
-msgstr ""
-
-#: inc/template-tags.php:468
+#: inc/template-tags.php:467 inc/template-tags.php:468
 msgid "Full Menu"
 msgstr ""
 
@@ -622,6 +617,11 @@ msgstr ""
 #: template-parts/masthead-side-nav.php:15
 #: template-parts/masthead-top-nav.php:13 template-parts/masthead.php:18
 msgid "Open search"
+msgstr ""
+
+#: template-parts/masthead-side-nav.php:20
+#: template-parts/masthead-top-nav.php:10 template-parts/masthead.php:15
+msgid "Open menu"
 msgstr ""
 
 #: template-parts/masthead-side-nav.php:20

@@ -464,7 +464,7 @@ function responsive_short_nav( $args = array() ) {
 		return;
 	}
 
-	$after  = '<button type="button" class="nav-toggle js-nav-toggle mega-nav-toggle" aria-label="' . __( 'Open menu', 'responsive-framework' ) . '" aria-expanded="true">';
+	$after  = '<button type="button" class="nav-toggle js-nav-toggle mega-nav-toggle" aria-label="' . apply_filters( 'responsive_mega_menu_closed', __( 'Full Menu', 'responsive-framework' ) ) . '" aria-expanded="true">';
 	$after .= '<div class="nav-toggle-label-closed">' . apply_filters( 'responsive_mega_menu_closed', __( 'Full Menu', 'responsive-framework' ) ) . '</div>';
 	$after .= '<div class="nav-toggle-label-open">' . apply_filters( 'responsive_mega_menu_opened', __( 'Close Menu', 'responsive-framework' ) ) . '</div>';
 	$after .= '</button>';
@@ -659,19 +659,19 @@ function responsive_posts_navigation( $args = array(), WP_Query $query = null ) 
 
 		$args = wp_parse_args( $args, $defaults );
 		?>
-		<nav class="navigation posts-navigation paging-navigation" role="navigation">
-			<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
-			<div class="nav-links">
-				<?php if ( get_previous_posts_link() ) : ?>
-					<div class="nav-previous"><?php previous_posts_link( $args['prev_text'] ); ?></div>
-				<?php endif; ?>
+<nav class="navigation posts-navigation paging-navigation" role="navigation">
+	<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
+	<div class="nav-links">
+		<?php if ( get_previous_posts_link() ) : ?>
+		<div class="nav-previous"><?php previous_posts_link( $args['prev_text'] ); ?></div>
+		<?php endif; ?>
 
-				<?php if ( get_next_posts_link() ) : ?>
-					<div class="nav-next"><?php next_posts_link( $args['next_text'] ); ?></div>
-				<?php endif; ?>
-			</div><!-- .nav-links -->
-		</nav><!-- .navigation -->
-		<?php
+		<?php if ( get_next_posts_link() ) : ?>
+		<div class="nav-next"><?php next_posts_link( $args['next_text'] ); ?></div>
+		<?php endif; ?>
+	</div><!-- .nav-links -->
+</nav><!-- .navigation -->
+<?php
 	endif;
 
 	// Restore the global WP_Query instance if we replaced it.
@@ -703,13 +703,13 @@ function responsive_post_navigation( $args = array() ) {
 
 	if ( $previous || $next ) :
 		?>
-		<nav class="navigation post-navigation" role="navigation">
-			<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
-			<div class="nav-links">
-			<?php echo $previous . $next; ?>
-			</div><!-- .nav-links -->
-		</nav><!-- .navigation -->
-	<?php
+<nav class="navigation post-navigation" role="navigation">
+	<h3 class="screen-reader-text"><?php echo esc_html( $args['screen_reader_text'] ); ?></h3>
+	<div class="nav-links">
+		<?php echo $previous . $next; ?>
+	</div><!-- .nav-links -->
+</nav><!-- .navigation -->
+<?php
 	endif;
 }
 
@@ -718,10 +718,10 @@ function responsive_post_navigation( $args = array() ) {
  */
 function responsive_post_meta() {
 	?>
-	<div class="meta post-meta">
-		<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
-			<span class="author">
-			<?php
+<div class="meta post-meta">
+	<?php if ( responsive_posts_should_display( 'author' ) ) : ?>
+	<span class="author">
+		<?php
 				/* translators: %s: author name linking to their archive page. */
 				printf( wp_kses( __( '<em>By </em>%s', 'responsive-framework' ), array(
 					'em' => array(),
@@ -729,32 +729,32 @@ function responsive_post_meta() {
 			?>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'date' ) ) : ?>
-			<span class="date"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" pubdate><?php echo esc_html( get_the_date( 'F jS Y' ) ); ?></time></span>
+		<span class="date"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" pubdate><?php echo esc_html( get_the_date( 'F jS Y' ) ); ?></time></span>
 		<?php endif; ?>
 		<?php if ( responsive_posts_should_display( 'categories' ) ) : ?>
-			<?php
+		<?php
 			$category_list = get_the_category_list( ', ' );
 
 			if ( ! empty( $category_list ) ) :
 				?>
-				<span class="category">
-				<?php
+		<span class="category">
+			<?php
 					/* translators: %s: category list for the post. */
 					printf( wp_kses_post( __( '<em>in</em> %s', 'responsive-framework' ) ), $category_list ); // WPCS: XSS ok.
 				?>
-				</span>
-			<?php endif; ?>
+		</span>
+		<?php endif; ?>
 		<?php endif; ?>
 
 		<?php if ( function_exists( 'bu_supports_comments' ) && bu_supports_comments() ) : ?>
-			<span class="comment-counter">
-				<a href="<?php comments_link(); ?>" rel="nofollow">
-					<?php comments_number( wp_kses_post( __( '<strong>0</strong> comments', 'responsive-framework' ) ), wp_kses_post( __( '<strong>1</strong> comment', 'responsive-framework' ) ), wp_kses_post( __( '<strong>%</strong> comments', 'responsive-framework' ) ) ); ?>
-				</a>
-			</span>
+		<span class="comment-counter">
+			<a href="<?php comments_link(); ?>" rel="nofollow">
+				<?php comments_number( wp_kses_post( __( '<strong>0</strong> comments', 'responsive-framework' ) ), wp_kses_post( __( '<strong>1</strong> comment', 'responsive-framework' ) ), wp_kses_post( __( '<strong>%</strong> comments', 'responsive-framework' ) ) ); ?>
+			</a>
+		</span>
 		<?php endif; ?>
-	</div>
-	<?php
+</div>
+<?php
 }
 
 /**

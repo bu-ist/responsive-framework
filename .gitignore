@@ -13,3 +13,4 @@ build
 .wp-env
 .wp-env.json
 .wp-env.override.json
+/.vscode

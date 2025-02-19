@@ -8,7 +8,7 @@
 /**
  * Framework version.
  */
-define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.5.5' );
+define( 'RESPONSIVE_FRAMEWORK_VERSION', '2.5.6' );
 
 /**
  * Modernizr version.
@@ -55,7 +55,7 @@ define( 'RESPONSIVE_LIGHTGALLERY_VERSION', '2.2.1' );
  *
  * Used to version `lg-thumbnail` assets.
  */
-define( 'RESPONSIVE_LG_THUMBNAIL_VERSION', '1.1.0' );
+define( 'RESPONSIVE_LG_THUMBNAIL_VERSION', '1.2.1' );
 
 /**
  * Fires the before_responsive_setup action hook before any theme setup occurs.

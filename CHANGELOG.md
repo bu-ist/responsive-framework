@@ -2,6 +2,11 @@
 
 ## Upcoming Updates
 
+## 2.5.6
+- Update Responsive Foundation to 3.2.6 to get icon and toggle mega menu bug fixes.
+- Update grunt-browserify to 6.0 to fix missing dependency: fsevents@1.2.9
+- Fix accessibility bug with Full Menu aria text in MegaMenu button by adding filter: `responsive_mega_menu_closed` to button.mega-nav-toggle
+
 ## [2.5.5]
 
 - Merge to main for deploy
