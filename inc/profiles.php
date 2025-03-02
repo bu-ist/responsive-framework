@@ -74,3 +74,18 @@ function after_setup_theme() {
 	add_image_size( 'responsive_profile_large', $width, $height, $crop );
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\after_setup_theme' );
+
+if ( ! defined( 'BU_PROFILES_PLUGIN_ACTIVE' ) || ! BU_PROFILES_PLUGIN_ACTIVE ) {
+	/**
+	 * Removes the profile template if BU profiles is not active.
+	 *
+	 * @param array $page_templates list of registered page templates.
+	 * @return array $page_templates list of registered page templates.
+	 */
+	function remove_profile_template( $page_templates ) {
+		unset( $page_templates['profiles.php'] );
+
+		return $page_templates;
+	}
+	add_filter( 'theme_page_templates', __NAMESPACE__ . '\remove_profile_template' );
+}
