@@ -779,6 +779,19 @@ add_action( 'r_after_footer_menus', 'responsive_branding_copyright' );
 /**
  * Admin.
  */
+
+ add_action('init', function() {
+    if ( is_admin() ) {
+        global $pagenow;
+        if ( $pagenow == 'admin.php' && isset($_GET['page']) && $_GET['page'] == 'gf_edit_forms' ) {
+            // Do nothing, this is the edit form page
+        } else {
+            remove_action( 'init', array( 'GFForms', 'init_buffer' ) );
+        }
+    }
+}, 9);
+
+
 if ( is_admin() ) {
 	require __DIR__ . '/admin/admin.php';
 }
