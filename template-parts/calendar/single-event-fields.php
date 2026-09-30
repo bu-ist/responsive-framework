@@ -37,7 +37,16 @@ if ( empty( $fields ) ) {
 					<?php echo esc_html( $field['label'] ); ?>
 				</dt>
 				<dd class="single-event-info single-event-info-<?php echo sanitize_html_class( strtolower( $fieldname ) ); ?>">
-					<?php echo wp_kses_post( $field['value'] ); ?>
+					<?php
+					$is_url = filter_var( $field['value'], FILTER_VALIDATE_URL );
+					if ( $is_url ) :
+						?>
+						<a class="single-event-registration-link" href="<?php echo esc_url( $field['value'] ); ?>"><?php echo wp_kses_post( $field['value'] ); ?></a>
+							<?php
+					else :
+						echo wp_kses_post( $field['value'] );
+					endif;
+					?>
 				</dd>
 			<?php endif; ?>
 		<?php endforeach; ?>
