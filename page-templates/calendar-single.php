@@ -30,6 +30,7 @@ function responsive_get_the_title_single_event( $title ) {
 	return $title;
 }
 add_filter( 'responsive_get_the_title', 'responsive_get_the_title_single_event' );
+add_filter( 'bu_banner_info_filter_title', 'responsive_get_the_title_single_event');
 
 /**
  * Begin templating.
