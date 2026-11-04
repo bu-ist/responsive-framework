@@ -47,6 +47,12 @@ class csstidy_optimise {
 	 * @var object
 	 */
 	public $parser;
+	public $css;
+	public $sub_value;
+	public $at;
+	public $selector;
+	public $property;
+	public $value;
 
 	/**
 	 * Constructor
@@ -70,40 +76,60 @@ class csstidy_optimise {
 	 * @version 1.0
 	 */
 	public function postparse() {
+
+		if ($this->parser->get_cfg('reverse_left_and_right') > 0) {
+
+			foreach ($this->css as $medium => $selectors) {
+				if (is_array($selectors)) {
+					foreach ($selectors as $selector => $properties) {
+						$this->css[$medium][$selector] = $this->reverse_left_and_right($this->css[$medium][$selector]);
+					}
+				}
+			}
+
+		}
+
 		if ($this->parser->get_cfg('preserve_css')) {
 			return;
 		}
 
-		if ($this->parser->get_cfg('merge_selectors') === 2) {
+		if ((int)$this->parser->get_cfg('merge_selectors') === 2) {
 			foreach ($this->css as $medium => $value) {
-				$this->merge_selectors($this->css[$medium]);
+				if (is_array($value)) {
+					$this->merge_selectors($this->css[$medium]);
+				}
 			}
 		}
 
 		if ($this->parser->get_cfg('discard_invalid_selectors')) {
 			foreach ($this->css as $medium => $value) {
-				$this->discard_invalid_selectors($this->css[$medium]);
+				if (is_array($value)) {
+					$this->discard_invalid_selectors($this->css[$medium]);
+				}
 			}
 		}
 
 		if ($this->parser->get_cfg('optimise_shorthands') > 0) {
 			foreach ($this->css as $medium => $value) {
-				foreach ($value as $selector => $value1) {
-					$this->css[$medium][$selector] = $this->merge_4value_shorthands($this->css[$medium][$selector]);
+				if (is_array($value)) {
+					foreach ($value as $selector => $value1) {
+						$this->css[$medium][$selector] = $this->merge_4value_shorthands($this->css[$medium][$selector]);
+						$this->css[$medium][$selector] = $this->merge_4value_radius_shorthands($this->css[$medium][$selector]);
 
-					if ($this->parser->get_cfg('optimise_shorthands') < 2) {
-						continue;
-					}
+						if ($this->parser->get_cfg('optimise_shorthands') < 2) {
+							continue;
+						}
 
-					$this->css[$medium][$selector] = $this->merge_font($this->css[$medium][$selector]);
+						$this->css[$medium][$selector] = $this->merge_font($this->css[$medium][$selector]);
 
-					if ($this->parser->get_cfg('optimise_shorthands') < 3) {
-						continue;
-					}
+						if ($this->parser->get_cfg('optimise_shorthands') < 3) {
+							continue;
+						}
 
-					$this->css[$medium][$selector] = $this->merge_bg($this->css[$medium][$selector]);
-					if (empty($this->css[$medium][$selector])) {
-						unset($this->css[$medium][$selector]);
+						$this->css[$medium][$selector] = $this->merge_bg($this->css[$medium][$selector]);
+						if (empty($this->css[$medium][$selector])) {
+							unset($this->css[$medium][$selector]);
+						}
 					}
 				}
 			}
@@ -269,7 +295,8 @@ class csstidy_optimise {
 	 */
 	public function compress_important(&$string) {
 		if ($this->parser->is_important($string)) {
-			$string = $this->parser->gvw_important($string) . '!important';
+			$important = $this->parser->get_cfg('space_before_important') ? ' !important' : '!important';
+			$string = $this->parser->gvw_important($string) . $important;
 		}
 		return $string;
 	}
@@ -288,11 +315,12 @@ class csstidy_optimise {
 			return $color;
 
 		/* expressions complexes de type gradient */
-		if (strpos($color, '(') !== false && strncmp($color, 'rgb(' ,4) != 0) {
+		if (strpos($color, '(') !== false
+			&& (strncasecmp($color, 'rgb(' ,4) !== 0 and strncasecmp($color, 'rgba(' ,5) !== 0)) {
 			// on ne touche pas aux couleurs dans les expression ms, c'est trop sensible
 			if (stripos($color, 'progid:') !== false)
 				return $color;
-			preg_match_all(",rgb\([^)]+\),i", $color, $matches, PREG_SET_ORDER);
+			preg_match_all(",rgba?\([^)]+\),i", $color, $matches, PREG_SET_ORDER);
 			if (count($matches)) {
 				foreach ($matches as $m) {
 					$color = str_replace($m[0], $this->cut_color($m[0]), $color);
@@ -308,23 +336,48 @@ class csstidy_optimise {
 		}
 
 		// rgb(0,0,0) -> #000000 (or #000 in this case later)
-		if (strncasecmp($color, 'rgb(', 4)==0) {
-			$color_tmp = substr($color, 4, strlen($color) - 5);
-			$color_tmp = explode(',', $color_tmp);
-			for ($i = 0; $i < count($color_tmp); $i++) {
-				$color_tmp[$i] = trim($color_tmp[$i]);
-				if (substr($color_tmp[$i], -1) === '%') {
-					$color_tmp[$i] = round((255 * $color_tmp[$i]) / 100);
+		if (
+			// be sure to not corrupt a rgb with calc() value
+			(strncasecmp($color, 'rgb(', 4)==0 and strpos($color, '(', 4) === false)
+			or (strncasecmp($color, 'rgba(', 5)==0 and strpos($color, '(', 5) === false)
+		){
+			$color_tmp = explode('(', $color, 2);
+			$color_tmp = rtrim(end($color_tmp), ')');
+			if (strpos($color_tmp, '/') !== false) {
+				$color_tmp = explode('/', $color_tmp, 2);
+				$color_parts = explode(' ', trim(reset($color_tmp)), 3);
+				while (count($color_parts) < 3) {
+					$color_parts[] = 0;
 				}
-				if ($color_tmp[$i] > 255)
-					$color_tmp[$i] = 255;
+				$color_parts[] = end($color_tmp);
+			}
+			else {
+				$color_parts = explode(',', $color_tmp, 4);
+			}
+			for ($i = 0; $i < count($color_parts); $i++) {
+				$color_parts[$i] = trim($color_parts[$i]);
+				if (substr($color_parts[$i], -1) === '%') {
+					$color_parts[$i] = round((255 * intval($color_parts[$i])) / 100);
+				} elseif ($i>2) {
+					// 4th argument is alpga layer between 0 and 1 (if not %)
+					$color_parts[$i] = round((255 * floatval($color_parts[$i])));
+				}
+				$color_parts[$i] = intval($color_parts[$i]);
+				if ($color_parts[$i] > 255){
+					$color_parts[$i] = 255;
+				}
 			}
 			$color = '#';
-			for ($i = 0; $i < 3; $i++) {
-				if ($color_tmp[$i] < 16) {
-					$color .= '0' . dechex($color_tmp[$i]);
+			// 3 or 4 parts depending on alpha layer
+			$nb = min(max(count($color_parts), 3),4);
+			for ($i = 0; $i < $nb; $i++) {
+				if (!isset($color_parts[$i])) {
+					$color_parts[$i] = 0;
+				}
+				if ($color_parts[$i] < 16) {
+					$color .= '0' . dechex($color_parts[$i]);
 				} else {
-					$color .= dechex($color_tmp[$i]);
+					$color .= dechex($color_parts[$i]);
 				}
 			}
 		}
@@ -337,8 +390,15 @@ class csstidy_optimise {
 		// #aabbcc -> #abc
 		if (strlen($color) == 7) {
 			$color_temp = strtolower($color);
-			if ($color_temp{0} === '#' && $color_temp{1} == $color_temp{2} && $color_temp{3} == $color_temp{4} && $color_temp{5} == $color_temp{6}) {
-				$color = '#' . $color{1} . $color{3} . $color{5};
+			if ($color_temp[0] === '#' && $color_temp[1] == $color_temp[2] && $color_temp[3] == $color_temp[4] && $color_temp[5] == $color_temp[6]) {
+				$color = '#' . $color[1] . $color[3] . $color[5];
+			}
+		}
+		// #aabbccdd -> #abcd
+		elseif (strlen($color) == 9) {
+			$color_temp = strtolower($color);
+			if ($color_temp[0] === '#' && $color_temp[1] == $color_temp[2] && $color_temp[3] == $color_temp[4] && $color_temp[5] == $color_temp[6] && $color_temp[7] == $color_temp[8]) {
+				$color = '#' . $color[1] . $color[3] . $color[5] . $color[7];
 			}
 		}
 
@@ -399,7 +459,7 @@ class csstidy_optimise {
 				if ($number[1] == '' && in_array($this->property, $unit_values, true)) {
 					$number[1] = 'px';
 				}
-			} else {
+			} elseif ($number[1] != 's' && $number[1] != 'ms') {
 				$number[1] = '';
 			}
 
@@ -417,7 +477,7 @@ class csstidy_optimise {
 	 */
 	public function AnalyseCssNumber($string) {
 		// most simple checks first
-		if (strlen($string) == 0 || ctype_alpha($string{0})) {
+		if (strlen($string) == 0 || ctype_alpha($string[0])) {
 			return false;
 		}
 
@@ -524,12 +584,15 @@ class csstidy_optimise {
 	 * Dissolves properties like padding:10px 10px 10px to padding-top:10px;padding-bottom:10px;...
 	 * @param string $property
 	 * @param string $value
+	 * @param array|null $shorthands
 	 * @return array
 	 * @version 1.0
 	 * @see merge_4value_shorthands()
 	 */
-	public function dissolve_4value_shorthands($property, $value) {
-		$shorthands = & $this->parser->data['csstidy']['shorthands'];
+	public function dissolve_4value_shorthands($property, $value, $shorthands = null) {
+		if (is_null($shorthands)) {
+			$shorthands = & $this->parser->data['csstidy']['shorthands'];
+		}
 		if (!is_array($shorthands[$property])) {
 			$return[$property] = $value;
 			return $return;
@@ -567,62 +630,102 @@ class csstidy_optimise {
 	}
 
 	/**
+	 * Dissolves radius properties like
+	 * border-radius:10px 10px 10px / 1px 2px
+	 * to border-top-left:10px 1px;border-top-right:10px 2x;...
+	 * @param string $property
+	 * @param string $value
+	 * @return array
+	 * @version 1.0
+	 * @use dissolve_4value_shorthands()
+	 * @see merge_4value_radius_shorthands()
+	 */
+	public function dissolve_4value_radius_shorthands($property, $value) {
+		$shorthands = & $this->parser->data['csstidy']['radius_shorthands'];
+		if (!is_array($shorthands[$property])) {
+			$return[$property] = $value;
+			return $return;
+		}
+
+		if (strpos($value, '/') !== false) {
+			$values = $this->explode_ws('/', $value);
+			if (count($values) == 2) {
+				$r[0] = $this->dissolve_4value_shorthands($property, trim($values[0]), $shorthands);
+				$r[1] = $this->dissolve_4value_shorthands($property, trim($values[1]), $shorthands);
+				$return = array();
+				foreach ($r[0] as $p=>$v) {
+					$return[$p] = $v;
+					if ($r[1][$p] !== $v) {
+						$return[$p] .= ' ' . $r[1][$p];
+					}
+				}
+				return $return;
+			}
+		}
+
+		$return = $this->dissolve_4value_shorthands($property, $value, $shorthands);
+		return $return;
+	}
+
+	/**
 	 * Explodes a string as explode() does, however, not if $sep is escaped or within a string.
 	 * @param string $sep seperator
 	 * @param string $string
+	 * @param bool $explode_in_parenthesis
 	 * @return array
 	 * @version 1.0
 	 */
-	public function explode_ws($sep, $string) {
+	public function explode_ws($sep, $string, $explode_in_parenthesis = false) {
 		$status = 'st';
 		$to = '';
 
-		$output = array();
+		$output = array(
+			0 => '',
+		);
 		$num = 0;
 		for ($i = 0, $len = strlen($string); $i < $len; $i++) {
 			switch ($status) {
 				case 'st':
-					if ($string{$i} == $sep && !$this->parser->escaped($string, $i)) {
+					if ($string[$i] == $sep && !$this->parser->escaped($string, $i)) {
 						++$num;
-					} elseif ($string{$i} === '"' || $string{$i} === '\'' || $string{$i} === '(' && !$this->parser->escaped($string, $i)) {
+					} elseif ($string[$i] === '"' || $string[$i] === '\'' || (!$explode_in_parenthesis && $string[$i] === '(') && !$this->parser->escaped($string, $i)) {
 						$status = 'str';
-						$to = ($string{$i} === '(') ? ')' : $string{$i};
-						(isset($output[$num])) ? $output[$num] .= $string{$i} : $output[$num] = $string{$i};
+						$to = ($string[$i] === '(') ? ')' : $string[$i];
+						(isset($output[$num])) ? $output[$num] .= $string[$i] : $output[$num] = $string[$i];
 					} else {
-						(isset($output[$num])) ? $output[$num] .= $string{$i} : $output[$num] = $string{$i};
+						(isset($output[$num])) ? $output[$num] .= $string[$i] : $output[$num] = $string[$i];
 					}
 					break;
 
 				case 'str':
-					if ($string{$i} == $to && !$this->parser->escaped($string, $i)) {
+					if ($string[$i] == $to && !$this->parser->escaped($string, $i)) {
 						$status = 'st';
 					}
-					(isset($output[$num])) ? $output[$num] .= $string{$i} : $output[$num] = $string{$i};
+					(isset($output[$num])) ? $output[$num] .= $string[$i] : $output[$num] = $string[$i];
 					break;
 			}
 		}
 
-		if (isset($output[0])) {
-			return $output;
-		} else {
-			return array($output);
-		}
+		return $output;
 	}
 
 	/**
 	 * Merges Shorthand properties again, the opposite of dissolve_4value_shorthands()
 	 * @param array $array
+	 * @param array|null $shorthands
 	 * @return array
 	 * @version 1.2
 	 * @see dissolve_4value_shorthands()
 	 */
-	public function merge_4value_shorthands($array) {
+	public function merge_4value_shorthands($array, $shorthands = null) {
 		$return = $array;
-		$shorthands = & $this->parser->data['csstidy']['shorthands'];
+		if (is_null($shorthands)) {
+			$shorthands = & $this->parser->data['csstidy']['shorthands'];
+		}
 
 		foreach ($shorthands as $key => $value) {
-			if (isset($array[$value[0]]) && isset($array[$value[1]])
-							&& isset($array[$value[2]]) && isset($array[$value[3]]) && $value !== 0) {
+			if ($value !== 0 && isset($array[$value[0]]) && isset($array[$value[1]])
+							&& isset($array[$value[2]]) && isset($array[$value[3]])) {
 				$return[$key] = '';
 
 				$important = '';
@@ -642,6 +745,45 @@ class csstidy_optimise {
 		return $return;
 	}
 
+	/**
+	 * Merges Shorthand properties again, the opposite of dissolve_4value_shorthands()
+	 * @param array $array
+	 * @return array
+	 * @version 1.2
+	 * @use merge_4value_shorthands()
+	 * @see dissolve_4value_radius_shorthands()
+	 */
+	public function merge_4value_radius_shorthands($array) {
+		$return = $array;
+		$shorthands = & $this->parser->data['csstidy']['radius_shorthands'];
+
+		foreach ($shorthands as $key => $value) {
+			if (isset($array[$value[0]]) && isset($array[$value[1]])
+							&& isset($array[$value[2]]) && isset($array[$value[3]]) && $value !== 0) {
+				$return[$key] = '';
+				$a = array();
+				for ($i = 0; $i < 4; $i++) {
+					$v = $this->explode_ws(' ', trim($array[$value[$i]]));
+					$a[0][$value[$i]] = reset($v);
+					$a[1][$value[$i]] = end($v);
+				}
+				$r = array();
+				$r[0] = $this->merge_4value_shorthands($a[0], $shorthands);
+				$r[1] = $this->merge_4value_shorthands($a[1], $shorthands);
+
+				if (isset($r[0][$key]) and isset($r[1][$key])) {
+					$return[$key] = $r[0][$key];
+					if ($r[1][$key] !== $r[0][$key]) {
+						$return[$key] .= ' / ' . $r[1][$key];
+					}
+					for ($i = 0; $i < 4; $i++) {
+						unset($return[$value[$i]]);
+					}
+				}
+			}
+		}
+		return $return;
+	}
 	/**
 	 * Dissolve background property
 	 * @param string $str_value
@@ -694,9 +836,9 @@ class csstidy_optimise {
 					$have['clip'] = true;
 				} elseif (in_array($str_value[$i][$j], $origin, true)) {
 					$return['background-origin'] .= $str_value[$i][$j] . ',';
-				} elseif ($str_value[$i][$j]{0} === '(') {
+				} elseif ($str_value[$i][$j][0] === '(') {
 					$return['background-size'] .= substr($str_value[$i][$j], 1, -1) . ',';
-				} elseif (in_array($str_value[$i][$j], $pos, true) || is_numeric($str_value[$i][$j]{0}) || $str_value[$i][$j]{0} === null || $str_value[$i][$j]{0} === '-' || $str_value[$i][$j]{0} === '.') {
+				} elseif (in_array($str_value[$i][$j], $pos, true) || is_numeric($str_value[$i][$j][0]) || $str_value[$i][$j][0] === null || $str_value[$i][$j][0] === '-' || $str_value[$i][$j][0] === '.') {
 					$return['background-position'] .= $str_value[$i][$j];
 					if (!$have['pos'])
 						$return['background-position'] .= ' '; else
@@ -842,7 +984,7 @@ class csstidy_optimise {
 			} elseif ($have['style'] === false && in_array($str_value[0][$j], $font_style)) {
 				$return['font-style'] = $str_value[0][$j];
 				$have['style'] = true;
-			} elseif ($have['size'] === false && (is_numeric($str_value[0][$j]{0}) || $str_value[0][$j]{0} === null || $str_value[0][$j]{0} === '.')) {
+			} elseif ($have['size'] === false && (is_numeric($str_value[0][$j][0]) || $str_value[0][$j][0] === null || $str_value[0][$j][0] === '.')) {
 				$size = $this->explode_ws('/', trim($str_value[0][$j]));
 				$return['font-size'] = $size[0];
 				if (isset($size[1])) {
@@ -872,7 +1014,7 @@ class csstidy_optimise {
 
 		// Fix for 100 and more font-size
 		if ($have['size'] === false && isset($return['font-weight']) &&
-						is_numeric($return['font-weight']{0})) {
+						is_numeric($return['font-weight'][0])) {
 			$return['font-size'] = $return['font-weight'];
 			unset($return['font-weight']);
 		}
@@ -899,7 +1041,7 @@ class csstidy_optimise {
 		$new_font_value = '';
 		$important = '';
 		// Skip if not font-family and font-size set
-		if (isset($input_css['font-family']) && isset($input_css['font-size'])) {
+		if (isset($input_css['font-family']) && isset($input_css['font-size']) && $input_css['font-family'] != 'inherit') {
 			// fix several words in font-family - add quotes
 			if (isset($input_css['font-family'])) {
 				$families = explode(',', $input_css['font-family']);
@@ -908,8 +1050,8 @@ class csstidy_optimise {
 					$family = trim($family);
 					$len = strlen($family);
 					if (strpos($family, ' ') &&
-									!(($family{0} === '"' && $family{$len - 1} === '"') ||
-									($family{0} === "'" && $family{$len - 1} === "'"))) {
+									!(($family[0] === '"' && $family[$len - 1] === '"') ||
+									($family[0] === "'" && $family[$len - 1] === "'"))) {
 						$family = '"' . $family . '"';
 					}
 					$result_families[] = $family;
@@ -957,6 +1099,248 @@ class csstidy_optimise {
 		}
 
 		return $input_css;
+	}
+
+	/**
+	 * Reverse left vs right in a list of properties/values
+	 * @param array $array
+	 * @return array
+	 */
+	public function reverse_left_and_right($array) {
+		$return = array();
+
+		// change left <-> right in properties name and values
+		foreach ($array as $propertie => $value) {
+
+			if (method_exists($this, $m = 'reverse_left_and_right_' . str_replace('-','_',trim($propertie)))) {
+				$value = $this->$m($value);
+			}
+
+			// simple replacement for properties
+			$propertie = str_ireplace(array('left', 'right' ,"\x1"), array("\x1", 'left', 'right') , $propertie);
+			// be careful for values, not modifying protected or quoted valued
+			foreach (array('left' => "\x1", 'right' => 'left', "\x1" => 'right') as $v => $r) {
+				if (strpos($value, $v) !== false) {
+					// attraper les left et right separes du reste (pas au milieu d'un mot)
+					if (in_array($v, array('left', 'right') )) {
+						$value = preg_replace(",\\b$v\\b,", "\x0" , $value);
+					}
+					else {
+						$value = str_replace($v, "\x0" , $value);
+					}
+					$value = $this->explode_ws("\x0", $value . ' ', true);
+					$value = rtrim(implode($r, $value));
+					$value = str_replace("\x0" , $v, $value);
+				}
+			}
+			$return[$propertie] = $value;
+		}
+
+		return $return;
+	}
+
+	/**
+	 * Reversing 4 values shorthands properties
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right_4value_shorthands($property, $value) {
+		$shorthands = & $this->parser->data['csstidy']['shorthands'];
+		if (isset($shorthands[$property])) {
+			$property_right = $shorthands[$property][1];
+			$property_left = $shorthands[$property][3];
+			$v = $this->dissolve_4value_shorthands($property, $value);
+			if ($v[$property_left] !== $v[$property_right]) {
+				$r = $v[$property_right];
+				$v[$property_right] = $v[$property_left];
+				$v[$property_left] = $r;
+				$v = $this->merge_4value_shorthands($v);
+				if (isset($v[$property])) {
+					return $v[$property];
+				}
+			}
+		}
+		return $value;
+	}
+
+	/**
+	 * Reversing 4 values radius shorthands properties
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right_4value_radius_shorthands($property, $value) {
+		$shorthands = & $this->parser->data['csstidy']['radius_shorthands'];
+		if (isset($shorthands[$property])) {
+			$v = $this->dissolve_4value_radius_shorthands($property, $value);
+			if ($v[$shorthands[$property][0]] !== $v[$shorthands[$property][1]]
+			  or $v[$shorthands[$property][2]] !== $v[$shorthands[$property][3]]) {
+				$r = array(
+					$shorthands[$property][0] => $v[$shorthands[$property][1]],
+					$shorthands[$property][1] => $v[$shorthands[$property][0]],
+					$shorthands[$property][2] => $v[$shorthands[$property][3]],
+					$shorthands[$property][3] => $v[$shorthands[$property][2]],
+				);
+				$v = $this->merge_4value_radius_shorthands($r);
+				if (isset($v[$property])) {
+					return $v[$property];
+				}
+			}
+		}
+		return $value;
+	}
+
+	/**
+	 * Reversing margin shorthands
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right_margin($value) {
+		return $this->reverse_left_and_right_4value_shorthands('margin', $value);
+	}
+
+	/**
+	 * Reversing padding shorthands
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right_padding($value) {
+		return $this->reverse_left_and_right_4value_shorthands('padding', $value);
+	}
+
+	/**
+	 * Reversing border-color shorthands
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right_border_color($value) {
+		return $this->reverse_left_and_right_4value_shorthands('border-color', $value);
+	}
+
+	/**
+	 * Reversing border-style shorthands
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right_border_style($value) {
+		return $this->reverse_left_and_right_4value_shorthands('border-style', $value);
+	}
+
+	/**
+	 * Reversing border-width shorthands
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right_border_width($value) {
+		return $this->reverse_left_and_right_4value_shorthands('border-width', $value);
+	}
+
+	/**
+	 * Reversing border-radius shorthands
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right_border_radius($value) {
+		return $this->reverse_left_and_right_4value_radius_shorthands('border-radius', $value);
+	}
+
+	/**
+	 * Reversing border-radius shorthands
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right__moz_border_radius($value) {
+		return $this->reverse_left_and_right_4value_radius_shorthands('border-radius', $value);
+	}
+
+	/**
+	 * Reversing border-radius shorthands
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right__webkit_border_radius($value) {
+		return $this->reverse_left_and_right_4value_radius_shorthands('border-radius', $value);
+	}
+
+
+	/**
+	 * Reversing background shorthands
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right_background($value) {
+		$values = $this->dissolve_short_bg($value);
+		if (isset($values['background-position']) and $values['background-position']) {
+			$v = $this->reverse_left_and_right_background_position($values['background-position']);
+			if ($v !== $values['background-position']) {
+				if ($value == $values['background-position']) {
+					return $v;
+				}
+				else {
+					$values['background-position'] = $v;
+					$x = $this->merge_bg($values);
+					if (isset($x['background'])) {
+						return $x['background'];
+					}
+				}
+			}
+		}
+		return $value;
+	}
+
+	/**
+	 * Reversing background position shorthands
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right_background_position_x($value) {
+		return $this->reverse_left_and_right_background_position($value);
+	}
+
+	/**
+	 * Reversing background position shorthands
+	 * @param string $value
+	 * @return string
+	 */
+	public function reverse_left_and_right_background_position($value) {
+		// multiple background case
+		if (strpos($value, ',') !== false) {
+			$values = $this->explode_ws(',', $value);
+			if (count($values) > 1) {
+				foreach ($values as $k=>$v) {
+					$values[$k] = $this->reverse_left_and_right_background_position($v);
+				}
+				return implode(',', $values);
+			}
+		}
+
+		// if no explicit left or right value
+		if (stripos($value, 'left') === false and stripos($value, 'right') === false) {
+			$values = $this->explode_ws(' ', trim($value));
+			$values = array_map('trim', $values);
+			$values = array_filter($values, function ($v) { return strlen($v);});
+			$values = array_values($values);
+			if (count($values) == 1) {
+				if (in_array($value, array('center', 'top', 'bottom', 'inherit', 'initial', 'unset'))) {
+					return $value;
+				}
+				return "left $value";
+			}
+			if ($values[1] == 'top' or $values[1] == 'bottom') {
+				if ($values[0] === 'center') {
+					return $value;
+				}
+				return 'left ' . implode(' ', $values);
+			}
+			else {
+				$last = array_pop($values);
+				if ($last === 'center') {
+					return $value;
+				}
+				return implode(' ', $values) . ' left ' . $last;
+			}
+		}
+
+		return $value;
 	}
 
 }
