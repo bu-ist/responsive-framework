@@ -1,34 +1,45 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "a4ff5296fef9445ed3505db32443f513",
+    "content-hash": "6bde5c1dbad870086e9c1321737cca88",
     "packages": [
         {
             "name": "cerdic/css-tidy",
-            "version": "v1.5.3",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Cerdic/CSSTidy.git",
-                "reference": "f8635ca50e479ddbb5d1d922d8f38ba67e781e15"
+                "reference": "ffc835dc6c122e96b7a13f9936a107e0dd0e84d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Cerdic/CSSTidy/zipball/f8635ca50e479ddbb5d1d922d8f38ba67e781e15",
-                "reference": "f8635ca50e479ddbb5d1d922d8f38ba67e781e15",
+                "url": "https://api.github.com/repos/Cerdic/CSSTidy/zipball/ffc835dc6c122e96b7a13f9936a107e0dd0e84d6",
+                "reference": "ffc835dc6c122e96b7a13f9936a107e0dd0e84d6",
                 "shasum": ""
             },
+            "require": {
+                "php": "^7.1 || ^8"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5 || ^10.5"
+            },
+            "bin": [
+                "bin/pcsstidy"
+            ],
             "type": "library",
             "autoload": {
                 "classmap": [
-                    "."
+                    "class.csstidy_optimise.php",
+                    "class.csstidy_print.php",
+                    "class.csstidy.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL-2.1"
+                "LGPL-2.1-or-later"
             ],
             "authors": [
                 {
@@ -37,7 +48,16 @@
                 }
             ],
             "description": "CSSTidy is a CSS minifier",
-            "time": "2014-10-26 15:28:55"
+            "keywords": [
+                "css",
+                "minifier",
+                "tidy"
+            ],
+            "support": {
+                "issues": "https://github.com/Cerdic/CSSTidy/issues",
+                "source": "https://github.com/Cerdic/CSSTidy/tree/v2.2.1"
+            },
+            "time": "2024-11-18T16:18:51+00:00"
         }
     ],
     "packages-dev": [],
@@ -47,5 +67,9 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "platform-overrides": {
+        "php": "7.4.33"
+    },
+    "plugin-api-version": "2.2.0"
 }

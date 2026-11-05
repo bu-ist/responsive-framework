@@ -1,5 +1,18 @@
 {
     "require": {
-        "cerdic/css-tidy": "^1.5.2"
+        "cerdic/css-tidy": "^2.2"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.33"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": "@remove-css-tidy-web-page",
+        "post-update-cmd": "@remove-css-tidy-web-page",
+        "remove-css-tidy-web-page": "@php -r \"@unlink('vendor/cerdic/css-tidy/css_optimiser.php');\""
+    },
+    "scripts-descriptions": {
+        "remove-css-tidy-web-page": "Deletes css-tidy's standalone web page, css_optimiser.php, which the theme does not use and which would be web-reachable under the theme directory."
     }
 }
