@@ -164,6 +164,11 @@ function responsive_post_lists_show_news_meta( $settings = array() ) {
 		$settings = BU_News_Page_Template::$display_content;
 	}
 
+	// A News page saved without display options has an empty string here, which shows no meta.
+	if ( ! is_array( $settings ) ) {
+		return false;
+	}
+
 	return ( 'yes' === $settings['disp_date'] ||
 			'yes' === $settings['disp_comments'] ||
 			'yes' === $settings['disp_author'] ||

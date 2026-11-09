@@ -60,7 +60,8 @@ if ( ! $calendar_id ) {
 
 	$range_end = strtotime( '+' . $days . ' day', $timestamp );
 
-	if ( count( $events ) < 25 ) {
+	// getEvents() returns false when the calendar service fails.
+	if ( ! is_array( $events ) || count( $events ) < 25 ) {
 		$query_end = $range_end;
 	} else {
 		$last_event = $events[ ( count( $events ) - 1 ) ]['starts']; // timestamp for the last event retrieved.

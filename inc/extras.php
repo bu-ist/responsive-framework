@@ -112,7 +112,9 @@ add_filter( 'the_category', 'responsive_filter_category_lists', 10, 2 );
  */
 function responsive_caption_attributes( $attrs ) {
 	if ( ! empty( $attrs['width'] ) ) {
-		$attrs['width'] += 10;
+		// A non-numeric width such as "auto" counts as 0, as PHP 7 evaluates the addition; PHP 8 throws on it.
+		$width          = is_numeric( $attrs['width'] ) ? $attrs['width'] : (int) $attrs['width'];
+		$attrs['width'] = $width + 10;
 	}
 	return $attrs;
 }
@@ -219,8 +221,8 @@ function responsive_limit_sidebars_widgets( $sidebars_widgets ) {
 				continue;
 			}
 
-			// Make sure the sidebar currently exceeds our limit.
-			if ( count( $sidebars_widgets[ $sidebar ] ) < $max_widget_count ) {
+			// Make sure the sidebar currently exceeds our limit. An entry that is not an array (such as null) holds no widgets.
+			if ( ! is_array( $sidebars_widgets[ $sidebar ] ) || count( $sidebars_widgets[ $sidebar ] ) < $max_widget_count ) {
 				continue;
 			}
 
