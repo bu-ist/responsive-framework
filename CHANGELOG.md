@@ -2,6 +2,13 @@
 
 ## Upcoming Updates
 
+## 2.5.8
+- Fix the PHP 8 errors where PHP 7 only warned: the sidebar widget limit when a sidebar entry is not an array, a non-numeric `[caption]` width, `responsive_post_lists_show_news_meta()` on a page without News display options, and the calendar list when the calendar service request fails.
+
+## 2.5.7
+- Update cerdic/css-tidy from 1.5.3 to 2.2.1. 1.5.3 does not compile on PHP 8, which breaks the Customizer font and color styles.
+- Remove css-tidy's standalone web page, `vendor/cerdic/css-tidy/css_optimiser.php`, which the theme does not use; a Composer script removes it after each install or update.
+
 ## 2.5.6
 - Update Responsive Foundation to 3.2.6 to get icon and toggle mega menu bug fixes.
 - Update grunt-browserify to 6.0 to fix missing dependency: fsevents@1.2.9
